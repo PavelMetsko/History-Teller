@@ -1,0 +1,9 @@
+[
+  { "id": "forum",      "name": "Форум",          "tags": ["public"],   "slots": 2, "emoji": "🏛️" },
+  { "id": "back_room",  "name": "Тайная комната", "tags": ["secret"],   "slots": 2, "emoji": "🕯️" },
+  { "id": "senate",     "name": "Сенат",          "tags": ["senate"],   "slots": 2, "emoji": "⚖️" },
+  { "id": "palace",     "name": "Дворец",         "tags": ["romantic"], "slots": 2, "emoji": "🌙" },
+  { "id": "battlefield","name": "Поле боя",       "tags": ["battle"],   "slots": 2, "emoji": "⚔️" },
+  { "id": "banquet",    "name": "Пир",            "tags": ["public"],   "slots": 3, "emoji": "🍷" },
+  { "id": "lupercalia", "name": "Луперкалии",     "tags": ["festival"], "slots": 2, "emoji": "🎭" }
+]

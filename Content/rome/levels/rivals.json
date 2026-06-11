@@ -1,0 +1,25 @@
+{
+  "id": "rivals",
+  "order": 4,
+  "title": "Соперники",
+  "epoch": "rome",
+  "panels": 3,
+  "scenes": ["palace", "banquet"],
+  "characters": ["caesar", "antony", "cleopatra"],
+  "goal": {
+    "all": [
+      { "relation": { "rel": "envies", "from": "caesar", "to": "antony" } },
+      { "relation": { "rel": "envies", "from": "antony", "to": "caesar" } }
+    ]
+  },
+  "solution": [
+    { "scene": "palace",  "characters": ["caesar", "cleopatra"] },
+    { "scene": "palace",  "characters": ["antony", "cleopatra"] },
+    { "scene": "banquet", "characters": ["caesar", "antony", "cleopatra"] }
+  ],
+  "factCard": {
+    "accuracy": "legend",
+    "text": "Любовный треугольник Цезарь — Клеопатра — Антоний выдуман драматургами: Антоний стал возлюбленным Клеопатры лишь в 41 г. до н.э., через три года после гибели Цезаря. При жизни диктатора он был его верным военачальником и соправителем по консульству.",
+    "source": "Плутарх, «Антоний»"
+  }
+}

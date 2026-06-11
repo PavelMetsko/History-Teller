@@ -1,0 +1,24 @@
+{
+  "id": "cleopatra_charm",
+  "order": 1,
+  "title": "Царица и диктатор",
+  "epoch": "rome",
+  "panels": 2,
+  "scenes": ["forum", "palace"],
+  "characters": ["caesar", "cleopatra"],
+  "goal": {
+    "all": [
+      { "relation": { "rel": "ally_of", "from": "caesar", "to": "cleopatra" } },
+      { "relation": { "rel": "loves",   "from": "caesar", "to": "cleopatra" } }
+    ]
+  },
+  "solution": [
+    { "scene": "forum",  "characters": ["caesar", "cleopatra"] },
+    { "scene": "palace", "characters": ["caesar", "cleopatra"] }
+  ],
+  "factCard": {
+    "accuracy": "simplification",
+    "text": "В 48 г. до н.э. Клеопатра тайно встретилась с Цезарем в Александрии (по легенде — её внесли завёрнутой в ковёр или мешок для белья). Союз с Цезарем вернул ей египетский трон; их сын Цезарион родился в 47 г. до н.э.",
+    "source": "Плутарх, «Сравнительные жизнеописания»"
+  }
+}

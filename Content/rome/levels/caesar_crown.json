@@ -1,0 +1,24 @@
+{
+  "id": "caesar_crown",
+  "order": 2,
+  "title": "Царь Рима?",
+  "epoch": "rome",
+  "panels": 2,
+  "scenes": ["forum", "lupercalia"],
+  "characters": ["caesar", "antony"],
+  "goal": {
+    "all": [
+      { "flag": { "char": "caesar", "is": "crowned" } },
+      { "relation": { "rel": "ally_of", "from": "antony", "to": "caesar" } }
+    ]
+  },
+  "solution": [
+    { "scene": "forum",      "characters": ["caesar", "antony"] },
+    { "scene": "lupercalia", "characters": ["caesar", "antony"] }
+  ],
+  "factCard": {
+    "accuracy": "legend",
+    "text": "Этого не было: на Луперкалиях в феврале 44 г. до н.э. Марк Антоний трижды подносил Цезарю царскую диадему — и Цезарь трижды публично отверг её под одобрение толпы. Царём Рима он так и не стал, но слухи о царских амбициях подтолкнули заговорщиков к действию.",
+    "source": "Плутарх, «Цезарь»; Светоний"
+  }
+}

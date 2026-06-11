@@ -1,0 +1,93 @@
+[
+  {
+    "id": "befriend",
+    "comment": "Двое живых в публичном месте становятся союзниками",
+    "priority": 1,
+    "trigger": { "sceneTags": ["public"], "actors": [ { "var": "A" }, { "var": "B" } ] },
+    "effects": [
+      { "type": "addRelation", "rel": "ally_of", "from": "A", "to": "B" },
+      { "type": "addRelation", "rel": "ally_of", "from": "B", "to": "A" }
+    ]
+  },
+  {
+    "id": "conspire",
+    "comment": "Двое живых в тайном месте начинают заговор",
+    "priority": 2,
+    "trigger": { "sceneTags": ["secret"], "actors": [ { "var": "A" }, { "var": "B" } ] },
+    "effects": [
+      { "type": "setFlag", "target": "A", "flag": "plotting" },
+      { "type": "setFlag", "target": "B", "flag": "plotting" }
+    ]
+  },
+  {
+    "id": "offer_crown",
+    "comment": "Полководец на празднике подносит корону правителю",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": ["festival"],
+      "actors": [ { "var": "A", "tags": ["general"] }, { "var": "B", "tags": ["ruler"] } ]
+    },
+    "effects": [
+      { "type": "setFlag", "target": "B", "flag": "crowned" }
+    ]
+  },
+  {
+    "id": "charm",
+    "comment": "Обаятельный персонаж в романтической сцене влюбляет в себя собеседника",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": ["romantic"],
+      "actors": [ { "var": "A", "tags": ["charming"] }, { "var": "B" } ]
+    },
+    "effects": [
+      { "type": "addRelation", "rel": "loves", "from": "B", "to": "A" }
+    ]
+  },
+  {
+    "id": "rivals",
+    "comment": "Двое влюблённых в одного — соперники (срабатывает в любой сцене, где все трое)",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [],
+      "actors": [
+        { "var": "A", "relations": [ { "rel": "loves", "to": "C" } ] },
+        { "var": "B", "relations": [ { "rel": "loves", "to": "C" } ] },
+        { "var": "C" }
+      ]
+    },
+    "effects": [
+      { "type": "addRelation", "rel": "envies", "from": "A", "to": "B" },
+      { "type": "addRelation", "rel": "envies", "from": "B", "to": "A" }
+    ]
+  },
+  {
+    "id": "betrayal_kill",
+    "comment": "Заговорщик убивает своего союзника в Сенате и становится предателем",
+    "priority": 10,
+    "trigger": {
+      "sceneTags": ["senate"],
+      "actors": [
+        { "var": "A", "flags": ["plotting"], "relations": [ { "rel": "ally_of", "to": "B" } ] },
+        { "var": "B" }
+      ]
+    },
+    "effects": [
+      { "type": "setFlag", "target": "B", "flag": "dead" },
+      { "type": "setFlag", "target": "A", "flag": "traitor" },
+      { "type": "addRelation", "rel": "betrayed", "from": "A", "to": "B" }
+    ]
+  },
+  {
+    "id": "battle_justice",
+    "comment": "Полководец карает предателя на поле боя",
+    "priority": 10,
+    "trigger": {
+      "sceneTags": ["battle"],
+      "actors": [ { "var": "A", "tags": ["general"] }, { "var": "B", "flags": ["traitor"] } ]
+    },
+    "effects": [
+      { "type": "setFlag", "target": "B", "flag": "dead" },
+      { "type": "addRelation", "rel": "avenged", "from": "A", "to": "B" }
+    ]
+  }
+]

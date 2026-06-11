@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>History Teller — прототип</title>
+<style>
+  :root {
+    --bg: #1d1a16; --panel: #2b2620; --panel-edge: #4a4135;
+    --paper: #efe6d4; --ink: #2b2620; --accent: #c8a356; --good: #7fb069; --muted: #8a8074;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--paper);
+    font-family: Georgia, 'Times New Roman', serif; touch-action: manipulation; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 12px 12px 28px; }
+
+  header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0 2px; }
+  .nav-btn { background: var(--panel); border: 1px solid var(--panel-edge); color: var(--paper);
+    border-radius: 10px; font-size: 20px; padding: 6px 14px; cursor: pointer; }
+  .nav-btn:disabled { opacity: .3; }
+  h1 { font-size: 22px; margin: 0; text-align: center; flex: 1; color: var(--accent); font-style: italic; }
+  .subtitle { text-align: center; color: var(--muted); font-size: 13px; margin: 2px 0 2px; }
+  .given { text-align: center; color: var(--accent); font-size: 13px; margin: 0 0 10px; min-height: 16px; }
+
+  .panels { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .panel { position: relative; width: 170px; min-height: 190px; background: var(--paper); color: var(--ink);
+    border-radius: 8px; border: 2px solid #d9cdb4; box-shadow: 0 3px 0 rgba(0,0,0,.35);
+    display: flex; flex-direction: column; cursor: pointer; }
+  .panel.highlight { outline: 3px dashed var(--accent); outline-offset: 2px; }
+  .panel-num { position: absolute; top: -9px; left: -7px; background: var(--accent); color: var(--ink);
+    width: 22px; height: 22px; border-radius: 50%; font-size: 13px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center; }
+  .panel-clear { position: absolute; top: -9px; right: -7px; background: #b55; color: #fff; border: none;
+    width: 22px; height: 22px; border-radius: 50%; font-size: 12px; cursor: pointer; display: none; }
+  .panel.filled .panel-clear { display: block; }
+  .panel-scene { padding: 10px 8px 6px; text-align: center; border-bottom: 1px dashed #c5b797;
+    min-height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .panel-scene .emoji { font-size: 26px; line-height: 1; }
+  .panel-scene .label { font-size: 13px; margin-top: 3px; color: #5d5343; }
+  .panel-scene.empty .label { color: #a4977e; font-style: italic; }
+  .panel-chars { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 4px; flex-wrap: wrap; }
+  .pchar { position: relative; display: flex; flex-direction: column; align-items: center; width: 64px; cursor: pointer; }
+  .pchar .face { font-size: 34px; line-height: 1.1; transition: filter .2s; }
+  .pchar.dead .face { filter: grayscale(1); opacity: .55; }
+  .pchar .nm { font-size: 11px; text-align: center; color: #5d5343; }
+  .pchar .badges { position: absolute; top: -8px; right: -2px; font-size: 14px; }
+  .slots-hint { font-size: 11px; color: #a4977e; text-align: center; padding-bottom: 4px; }
+
+  .tray { background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 12px; padding: 10px 12px; margin-bottom: 10px; }
+  .tray h3 { margin: 0 0 8px; font-size: 13px; color: var(--muted); font-weight: normal; letter-spacing: .08em; text-transform: uppercase; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { background: var(--bg); border: 2px solid var(--panel-edge); border-radius: 12px;
+    padding: 6px 10px; display: flex; align-items: center; gap: 7px; cursor: pointer; font-size: 14px; }
+  .chip .emoji { font-size: 22px; }
+  .chip.selected { border-color: var(--accent); background: #3a3122; box-shadow: 0 0 0 2px rgba(200,163,86,.25); }
+
+  .actions { display: flex; gap: 10px; justify-content: center; margin-top: 4px; }
+  .btn { background: var(--panel); color: var(--paper); border: 1px solid var(--panel-edge);
+    border-radius: 10px; padding: 9px 18px; font-size: 15px; cursor: pointer; font-family: inherit; }
+  .hint-text { text-align: center; color: var(--accent); font-size: 14px; min-height: 20px; margin-top: 8px; }
+
+  .overlay { position: fixed; inset: 0; background: rgba(15,12,9,.82); display: none;
+    align-items: center; justify-content: center; padding: 18px; z-index: 10; }
+  .overlay.show { display: flex; }
+  .card { background: var(--paper); color: var(--ink); border-radius: 12px; max-width: 440px;
+    padding: 22px 22px 18px; box-shadow: 0 10px 40px rgba(0,0,0,.6); }
+  .card h2 { margin: 0 0 4px; color: #7a5c1e; font-style: italic; }
+  .acc { display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 999px; margin: 6px 0 10px; color: #fff; }
+  .acc.fact { background: #4e7a3a; } .acc.simplification { background: #a07a2a; } .acc.legend { background: #8a4a8a; }
+  .card p { font-size: 15px; line-height: 1.45; margin: 0 0 10px; user-select: text; -webkit-user-select: text; }
+  .card .src { font-size: 13px; color: #6d6252; font-style: italic; }
+  .card .actions { margin-top: 14px; }
+  .card .btn { background: #3a3122; border-color: #3a3122; color: var(--paper); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <button class="nav-btn" id="prevBtn">‹</button>
+    <h1 id="title"></h1>
+    <button class="nav-btn" id="nextBtn">›</button>
+  </header>
+  <div class="subtitle" id="subtitle"></div>
+  <div class="given" id="given"></div>
+  <div class="panels" id="panels"></div>
+  <div class="tray">
+    <h3>Сцены</h3>
+    <div class="chips" id="sceneChips"></div>
+  </div>
+  <div class="tray">
+    <h3>Персонажи</h3>
+    <div class="chips" id="charChips"></div>
+  </div>
+  <div class="actions">
+    <button class="btn" id="resetBtn">Сбросить</button>
+    <button class="btn" id="hintBtn">Подсказка</button>
+  </div>
+  <div class="hint-text" id="hintText"></div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="card">
+    <h2 id="winTitle">Решено!</h2>
+    <span class="acc" id="accBadge"></span>
+    <p id="factText"></p>
+    <div class="src" id="factSource"></div>
+    <div class="actions">
+      <button class="btn" id="againBtn">Ещё раз</button>
+      <button class="btn" id="nextLevelBtn">Дальше →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+// ============ ДВИЖОК (семантика 1:1 с tools/simulate.py / Engine.cs / proto/engine.js) ============
+function newWorld(){return{flags:{},relations:new Set()}}
+function relKey(r,f,t){return r+'|'+f+'|'+t}
+function hasFlag(w,c,f){return!!(w.flags[c]&&w.flags[c].has(f))}
+function setFlag(w,c,f){(w.flags[c]=w.flags[c]||new Set()).add(f)}
+function removeFlag(w,c,f){if(w.flags[c])w.flags[c].delete(f)}
+function hasRel(w,r,f,t){return w.relations.has(relKey(r,f,t))}
+function isAlive(w,c){return!hasFlag(w,c,'dead')}
+function initialWorld(level){
+  const w=newWorld();
+  const init=(level&&level.initialState)||{};
+  for(const c in (init.flags||{}))for(const f of init.flags[c])setFlag(w,c,f);
+  for(const[r,f,t]of(init.relations||[]))w.relations.add(relKey(r,f,t));
+  return w}
+function actorMatches(a,ch,b,w,defs){
+  const d=defs[ch];
+  for(const t of a.tags||[])if(!d.tags.includes(t))return false;
+  for(const f of a.flags||[])if(!hasFlag(w,ch,f))return false;
+  for(const f of a.notFlags||[])if(hasFlag(w,ch,f))return false;
+  for(const rc of a.relations||[]){const o=b[rc.to];if(!o||!hasRel(w,rc.rel,ch,o))return false}
+  return true}
+function*permutations(items,k){
+  if(k===0){yield[];return}
+  if(k>items.length)return;
+  for(let i=0;i<items.length;i++){
+    const rest=items.slice(0,i).concat(items.slice(i+1));
+    for(const tail of permutations(rest,k-1))yield[items[i],...tail]}}
+function findBindings(actors,present,w,defs){
+  const alive=present.filter(c=>isAlive(w,c));const out=[];
+  for(const perm of permutations(alive,actors.length)){
+    const b={};actors.forEach((a,i)=>{b[a.var]=perm[i]});
+    if(actors.every(a=>actorMatches(a,b[a.var],b,w,defs)))out.push(b)}
+  return out}
+function applyEffects(effects,b,w){
+  for(const e of effects){
+    if(e.type==='setFlag')setFlag(w,b[e.target],e.flag);
+    else if(e.type==='removeFlag')removeFlag(w,b[e.target],e.flag);
+    else if(e.type==='addRelation')w.relations.add(relKey(e.rel,b[e.from],b[e.to]));
+    else if(e.type==='removeRelation')w.relations.delete(relKey(e.rel,b[e.from],b[e.to]))}}
+function snapshotWorld(w){
+  const flags={};for(const c in w.flags)flags[c]=new Set(w.flags[c]);
+  return{flags,relations:new Set(w.relations)}}
+function simulate(panels,content,log,snapshots,initial){
+  const w=initial||newWorld();
+  panels.forEach((p,i)=>{
+    if(p&&p.sceneId){
+      const sceneTags=content.scenes[p.sceneId].tags;
+      for(const rule of content.rulesByPriorityDesc){
+        if(!(rule.trigger.sceneTags||[]).every(t=>sceneTags.includes(t)))continue;
+        for(const b of findBindings(rule.trigger.actors,p.characters,w,content.characters)){
+          const ok=rule.trigger.actors.every(a=>isAlive(w,b[a.var])&&actorMatches(a,b[a.var],b,w,content.characters));
+          if(!ok)continue;
+          applyEffects(rule.effects,b,w);
+          if(log)log.push({panel:i,rule:rule.id,binding:{...b}})}}}
+    if(snapshots)snapshots.push(snapshotWorld(w))});
+  return w}
+function goalMet(g,w){
+  if(g.all)return g.all.every(x=>goalMet(x,w));
+  if(g.any)return g.any.some(x=>goalMet(x,w));
+  if(g.not)return!goalMet(g.not,w);
+  if(g.flag)return hasFlag(w,g.flag.char,g.flag.is);
+  if(g.relation)return hasRel(w,g.relation.rel,g.relation.from,g.relation.to);
+  return false}
+function*combinations(items,k){
+  if(k===0){yield[];return}
+  for(let i=0;i<=items.length-k;i++)
+    for(const tail of combinations(items.slice(i+1),k-1))yield[items[i],...tail]}
+function solve(level,content,maxSolutions){
+  const opts=[];
+  for(const sid of level.scenes){
+    const slots=content.scenes[sid].slots||2;
+    for(let k=0;k<=Math.min(slots,level.characters.length);k++)
+      for(const combo of combinations(level.characters,k))opts.push({sceneId:sid,characters:combo})}
+  const n=level.panels,solutions=[],idx=new Array(n).fill(0);
+  while(true){
+    const a=idx.map(i=>opts[i]);
+    if(goalMet(level.goal,simulate(a,content,null,null,initialWorld(level))))
+      {solutions.push(a);if(maxSolutions&&solutions.length>=maxSolutions)break}
+    let pos=n-1;
+    while(pos>=0&&++idx[pos]===opts.length)idx[pos--]=0;
+    if(pos<0)break}
+  return solutions}
+
+// ============ КОНТЕНТ (инжектируется сборкой: tools/build_proto.py) ============
+const DATA = /*__DATA__*/null;
+if(!DATA){document.body.innerHTML='<p style="padding:40px;text-align:center">Это шаблон. Соберите прототип: python3 tools/build_proto.py</p>';throw new Error('template not built')}
+const ACC_LABEL={fact:'Факт',simplification:'Упрощение',legend:'Легенда'};
+const byId=a=>Object.fromEntries(a.map(x=>[x.id,x]));
+const CONTENT={characters:byId(DATA.characters),scenes:byId(DATA.scenes),
+  rulesByPriorityDesc:[...DATA.rules].sort((a,b)=>(b.priority||0)-(a.priority||0))};
+const LEVELS=[...DATA.levels].sort((a,b)=>(a.order||0)-(b.order||0));
+
+// ============ СОСТОЯНИЕ UI ============
+let levelIdx=0, panels=[], selected=null, solvedShown=false;
+const $=id=>document.getElementById(id);
+
+function level(){return LEVELS[levelIdx]}
+function resetLevel(){
+  panels=Array.from({length:level().panels},()=>({sceneId:null,characters:[]}));
+  selected=null;solvedShown=false;$('hintText').textContent='';
+  $('overlay').classList.remove('show');
+  render()}
+
+function charBadges(snap,c,present){
+  if(hasFlag(snap,c,'dead'))return'💀';
+  let b='';
+  if(hasFlag(snap,c,'crowned'))b+='👑';
+  if(hasFlag(snap,c,'plotting'))b+='🗡️';
+  for(const o of present)if(o!==c&&hasRel(snap,'loves',c,o)){b+='❤️';break}
+  for(const o of present)if(o!==c&&hasRel(snap,'envies',c,o)){b+='😠';break}
+  if(!b)for(const o of present)if(o!==c&&hasRel(snap,'ally_of',c,o)){b+='🤝';break}
+  return b}
+
+function render(){
+  const lv=level();
+  $('title').textContent='«'+lv.title+'»';
+  $('subtitle').textContent='Уровень '+(levelIdx+1)+' из '+LEVELS.length+' · соберите историю по заголовку';
+  $('given').textContent=lv.initialText||'';
+  $('prevBtn').disabled=levelIdx===0;
+  $('nextBtn').disabled=levelIdx===LEVELS.length-1;
+
+  const snaps=[];simulate(panels,CONTENT,null,snaps,initialWorld(lv));
+
+  const pc=$('panels');pc.innerHTML='';
+  panels.forEach((p,i)=>{
+    const el=document.createElement('div');
+    el.className='panel'+(p.sceneId||p.characters.length?' filled':'')+(selected?' highlight':'');
+    const scene=p.sceneId?CONTENT.scenes[p.sceneId]:null;
+    let html='<div class="panel-num">'+(i+1)+'</div>';
+    html+='<button class="panel-clear" data-clear="'+i+'">✕</button>';
+    html+='<div class="panel-scene'+(scene?'':' empty')+'">';
+    html+=scene?'<div class="emoji">'+scene.emoji+'</div><div class="label">'+scene.name+'</div>'
+               :'<div class="emoji">▢</div><div class="label">выберите сцену</div>';
+    html+='</div><div class="panel-chars">';
+    const snap=snaps[i]||newWorld();
+    for(const c of p.characters){
+      const def=CONTENT.characters[c];
+      const dead=hasFlag(snap,c,'dead');
+      html+='<div class="pchar'+(dead?' dead':'')+'" data-rm="'+i+':'+c+'">'+
+        '<div class="badges">'+charBadges(snap,c,p.characters)+'</div>'+
+        '<div class="face">'+def.emoji+'</div><div class="nm">'+def.name+'</div></div>'}
+    html+='</div>';
+    if(scene)html+='<div class="slots-hint">'+p.characters.length+' / '+scene.slots+'</div>';
+    el.innerHTML=html;
+    el.addEventListener('click',ev=>onPanelTap(ev,i));
+    pc.appendChild(el)});
+
+  const sc=$('sceneChips');sc.innerHTML='';
+  for(const sid of lv.scenes){
+    const s=CONTENT.scenes[sid];
+    const el=document.createElement('div');
+    el.className='chip'+(selected&&selected.type==='scene'&&selected.id===sid?' selected':'');
+    el.innerHTML='<span class="emoji">'+s.emoji+'</span>'+s.name;
+    el.addEventListener('click',()=>{selected=toggleSel('scene',sid);render()});
+    sc.appendChild(el)}
+
+  const cc=$('charChips');cc.innerHTML='';
+  for(const cid of lv.characters){
+    const c=CONTENT.characters[cid];
+    const el=document.createElement('div');
+    el.className='chip'+(selected&&selected.type==='char'&&selected.id===cid?' selected':'');
+    el.innerHTML='<span class="emoji">'+c.emoji+'</span>'+c.name;
+    el.addEventListener('click',()=>{selected=toggleSel('char',cid);render()});
+    cc.appendChild(el)}
+
+  checkWin()}
+
+function toggleSel(type,id){
+  return selected&&selected.type===type&&selected.id===id?null:{type,id}}
+
+function onPanelTap(ev,i){
+  const rm=ev.target.closest('[data-rm]');
+  const clr=ev.target.closest('[data-clear]');
+  if(clr){panels[i]={sceneId:null,characters:[]};render();return}
+  if(rm){const[pi,c]=rm.dataset.rm.split(':');
+    panels[pi].characters=panels[pi].characters.filter(x=>x!==c);render();return}
+  if(!selected)return;
+  const p=panels[i];
+  if(selected.type==='scene'){p.sceneId=selected.id;selected=null}
+  else{
+    if(!p.sceneId){flashHint('Сначала поместите сцену в панель');return}
+    const slots=CONTENT.scenes[p.sceneId].slots;
+    if(p.characters.includes(selected.id)){flashHint('Этот персонаж уже здесь');return}
+    if(p.characters.length>=slots){flashHint('В этой сцене нет места');return}
+    p.characters.push(selected.id)}
+  render()}
+
+let hintTimer=null;
+function flashHint(t){
+  $('hintText').textContent=t;
+  clearTimeout(hintTimer);hintTimer=setTimeout(()=>{$('hintText').textContent=''},2600)}
+
+function checkWin(){
+  const w=simulate(panels,CONTENT,null,null,initialWorld(level()));
+  if(goalMet(level().goal,w)&&!solvedShown){
+    solvedShown=true;
+    const fc=level().factCard;
+    $('accBadge').textContent=ACC_LABEL[fc.accuracy]||fc.accuracy;
+    $('accBadge').className='acc '+fc.accuracy;
+    $('factText').textContent=fc.text;
+    $('factSource').textContent='— '+fc.source;
+    $('nextLevelBtn').style.display=levelIdx<LEVELS.length-1?'':'none';
+    setTimeout(()=>$('overlay').classList.add('show'),350)}}
+
+$('hintBtn').addEventListener('click',()=>{
+  const lv=level();
+  let sceneIds;
+  if(lv.solution)sceneIds=lv.solution.map(p=>p.scene);
+  else{const sols=solve(lv,CONTENT,1);
+    if(!sols.length){flashHint('Решений нет — это баг контента!');return}
+    sceneIds=sols[0].map(p=>p.sceneId)}
+  flashHint('Порядок сцен: '+sceneIds.map(s=>CONTENT.scenes[s].name).join(' → '))});
+$('resetBtn').addEventListener('click',resetLevel);
+$('againBtn').addEventListener('click',resetLevel);
+$('nextLevelBtn').addEventListener('click',()=>{if(levelIdx<LEVELS.length-1){levelIdx++;resetLevel()}});
+$('prevBtn').addEventListener('click',()=>{if(levelIdx>0){levelIdx--;resetLevel()}});
+$('nextBtn').addEventListener('click',()=>{if(levelIdx<LEVELS.length-1){levelIdx++;resetLevel()}});
+$('overlay').addEventListener('click',ev=>{if(ev.target===$('overlay'))$('overlay').classList.remove('show')});
+
+resetLevel();
+</script>
+</body>
+</html>
