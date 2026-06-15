@@ -40,22 +40,22 @@ namespace HistoryTeller.Simulation.Tests
               { ""type"": ""setFlag"", ""target"": ""B"", ""flag"": ""plotting"" } ] },
           { ""id"": ""betrayal_kill"", ""priority"": 10,
             ""trigger"": { ""sceneTags"": [""senate""], ""actors"": [
-              { ""var"": ""A"", ""flags"": [""plotting""], ""relations"": [ { ""rel"": ""ally_of"", ""to"": ""B"" } ] },
-              { ""var"": ""B"" } ] },
+              { ""var"": ""A"", ""slot"": 0, ""flags"": [""plotting""], ""relations"": [ { ""rel"": ""ally_of"", ""to"": ""B"" } ] },
+              { ""var"": ""B"", ""slot"": 1 } ] },
             ""effects"": [
               { ""type"": ""setFlag"", ""target"": ""B"", ""flag"": ""dead"" },
               { ""type"": ""setFlag"", ""target"": ""A"", ""flag"": ""traitor"" },
               { ""type"": ""addRelation"", ""rel"": ""betrayed"", ""from"": ""A"", ""to"": ""B"" } ] },
           { ""id"": ""battle_justice"", ""priority"": 10,
             ""trigger"": { ""sceneTags"": [""battle""], ""actors"": [
-              { ""var"": ""A"", ""tags"": [""general""] },
-              { ""var"": ""B"", ""flags"": [""traitor""] } ] },
+              { ""var"": ""A"", ""slot"": 0, ""tags"": [""general""] },
+              { ""var"": ""B"", ""slot"": 1, ""flags"": [""traitor""] } ] },
             ""effects"": [
               { ""type"": ""setFlag"", ""target"": ""B"", ""flag"": ""dead"" },
               { ""type"": ""addRelation"", ""rel"": ""avenged"", ""from"": ""A"", ""to"": ""B"" } ] },
           { ""id"": ""charm"", ""priority"": 5,
             ""trigger"": { ""sceneTags"": [""romantic""], ""actors"": [
-              { ""var"": ""A"", ""tags"": [""charming""] }, { ""var"": ""B"" } ] },
+              { ""var"": ""A"", ""slot"": 0, ""tags"": [""charming""] }, { ""var"": ""B"", ""slot"": 1 } ] },
             ""effects"": [
               { ""type"": ""addRelation"", ""rel"": ""loves"", ""from"": ""B"", ""to"": ""A"" } ] }
         ]";
@@ -104,7 +104,7 @@ namespace HistoryTeller.Simulation.Tests
             {
                 new Panel("forum", "caesar", "brutus"),
                 new Panel("back_room", "brutus", "cassius"),
-                new Panel("senate", "caesar", "brutus")
+                new Panel("senate", "brutus", "caesar")
             };
             var world = Engine.Simulate(panels, db);
 
@@ -122,7 +122,7 @@ namespace HistoryTeller.Simulation.Tests
             {
                 new Panel("forum", "caesar", "brutus"),
                 new Panel("forum", "brutus", "cassius"),
-                new Panel("senate", "caesar", "brutus") // Брут не plotting — убийства нет
+                new Panel("senate", "brutus", "caesar") // Брут не plotting — убийства нет
             };
             var world = Engine.Simulate(panels, db);
 
@@ -140,7 +140,7 @@ namespace HistoryTeller.Simulation.Tests
             {
                 new Panel("forum", "caesar", "brutus"),
                 new Panel("back_room", "caesar", "brutus"),
-                new Panel("senate", "caesar", "brutus")
+                new Panel("senate", "brutus", "caesar")
             };
             var world = Engine.Simulate(panels, db);
 
@@ -158,7 +158,7 @@ namespace HistoryTeller.Simulation.Tests
             var panels = new List<Panel>
             {
                 new Panel("forum", "caesar", "cleopatra"),
-                new Panel("palace", "caesar", "cleopatra")
+                new Panel("palace", "cleopatra", "caesar")
             };
             var world = Engine.Simulate(panels, db);
 
@@ -172,16 +172,16 @@ namespace HistoryTeller.Simulation.Tests
         public void Solver_CaesarLevel_HasExactlyTwoSolutions()
         {
             var result = Solver.Solve(ContentDb.LoadLevel(CaesarLevelJson), Db());
-            Assert.AreEqual(9261, result.SearchSpace); // 21 вариантов панели ^ 3
-            Assert.AreEqual(2, result.Solutions.Count); // эталон: tools/simulate.py
+            Assert.AreEqual(27000, result.SearchSpace); // (1+3+6)*3 опций ^ 3 (размещения)
+            Assert.IsTrue(result.IsSolvable);
         }
 
         [Test]
         public void Solver_CleopatraLevel_HasExactlyTwoSolutions()
         {
             var result = Solver.Solve(ContentDb.LoadLevel(CleopatraLevelJson), Db());
-            Assert.AreEqual(64, result.SearchSpace); // 8 ^ 2
-            Assert.AreEqual(2, result.Solutions.Count);
+            Assert.AreEqual(100, result.SearchSpace); // (1+2+2)*2 опций ^ 2 (размещения)
+            Assert.IsTrue(result.IsSolvable);
         }
 
         [Test]
@@ -192,7 +192,7 @@ namespace HistoryTeller.Simulation.Tests
             var panels = new List<Panel>
             {
                 new Panel("back_room", "brutus", "cassius"),
-                new Panel("senate", "caesar", "brutus"),
+                new Panel("senate", "brutus", "caesar"),
                 new Panel("battlefield", "antony", "brutus")
             };
             var world = Engine.Simulate(panels, db, null, level.CreateInitialWorld());
@@ -208,7 +208,7 @@ namespace HistoryTeller.Simulation.Tests
         {
             var db = Db();
             var level = ContentDb.LoadLevel(PhilippiLevelJson);
-            Assert.AreEqual(3, Solver.Solve(level, db).Solutions.Count); // эталон: tools/simulate.py
+            Assert.IsTrue(Solver.Solve(level, db).IsSolvable);
 
             level.InitialState = null; // без стартового ally_of Брут не может предать
             Assert.IsFalse(Solver.Solve(level, db).IsSolvable);

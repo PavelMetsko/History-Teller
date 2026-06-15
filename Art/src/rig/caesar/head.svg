@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- HEAD: голова Цезаря, центр ~256,158; основание шеи ~256,262 (пивот 0.50,0.51). -->
+  <!-- лицо -->
+  <ellipse cx="256" cy="158" rx="100" ry="112" fill="#e8c096" stroke="#2b2419" stroke-width="8"/>
+  <!-- седые волосы -->
+  <path d="M 152 116 Q 148 50 256 44 Q 364 50 360 116 Q 336 70 256 66 Q 176 70 152 116 Z"
+        fill="#cfc8bd" stroke="#2b2419" stroke-width="7"/>
+  <!-- морщина лба -->
+  <path d="M 200 110 Q 256 100 312 110" fill="none" stroke="#b08b62" stroke-width="5" stroke-linecap="round"/>
+  <!-- брови -->
+  <path d="M 188 130 Q 212 120 234 130 M 278 130 Q 300 120 324 130"
+        fill="none" stroke="#7a6a55" stroke-width="8" stroke-linecap="round"/>
+  <!-- глаза -->
+  <circle cx="212" cy="156" r="9" fill="#2b2419"/>
+  <circle cx="300" cy="156" r="9" fill="#2b2419"/>
+  <!-- нос -->
+  <path d="M 256 156 L 248 196 L 264 196" fill="none" stroke="#b08b62" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- строгий рот -->
+  <path d="M 214 214 Q 256 224 298 214" fill="none" stroke="#2b2419" stroke-width="7" stroke-linecap="round"/>
+  <!-- лавровый венок -->
+  <g fill="#7c9437" stroke="#2b2419" stroke-width="5">
+    <path d="M 168 150 Q 138 134 142 102 Q 174 118 168 150 Z"/>
+    <path d="M 152 116 Q 132 86 148 58 Q 176 80 152 116 Z"/>
+    <path d="M 164 70 Q 160 40 188 30 Q 200 60 164 70 Z"/>
+    <path d="M 344 150 Q 374 134 370 102 Q 338 118 344 150 Z"/>
+    <path d="M 360 116 Q 380 86 364 58 Q 336 80 360 116 Z"/>
+    <path d="M 348 70 Q 352 40 324 30 Q 312 60 348 70 Z"/>
+  </g>
+</svg>

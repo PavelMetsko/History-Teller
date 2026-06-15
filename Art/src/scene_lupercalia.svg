@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">
+  <!-- Луперкалии: праздник — гирлянды, маски, конфетти -->
+  <rect width="512" height="640" fill="#e8d4a8"/>
+  <!-- двойные гирлянды -->
+  <path d="M 0 30 Q 128 96 256 30 Q 384 96 512 30" fill="none" stroke="#9c3f33" stroke-width="10"/>
+  <path d="M 0 70 Q 128 136 256 70 Q 384 136 512 70" fill="none" stroke="#5d7a3a" stroke-width="10"/>
+  <!-- флажки -->
+  <g stroke="#2b2419" stroke-width="3">
+    <path d="M 96 58 L 84 86 L 110 80 Z" fill="#c8a356"/>
+    <path d="M 256 30 L 246 60 L 270 54 Z" fill="#7d3b52"/>
+    <path d="M 416 58 L 404 86 L 430 80 Z" fill="#2e7d80"/>
+  </g>
+  <!-- маска комедии -->
+  <g stroke="#2b2419" stroke-width="5">
+    <ellipse cx="150" cy="220" rx="58" ry="68" fill="#efe2c2"/>
+    <path d="M 122 204 Q 134 196 146 204 M 154 204 Q 166 196 178 204" fill="none" stroke-width="6"/>
+    <path d="M 116 240 Q 150 274 184 240 Q 150 252 116 240 Z" fill="#2b2419"/>
+  </g>
+  <!-- маска трагедии -->
+  <g stroke="#2b2419" stroke-width="5">
+    <ellipse cx="354" cy="220" rx="58" ry="68" fill="#d8c7a0"/>
+    <path d="M 326 210 Q 338 202 350 210 M 358 210 Q 370 202 382 210" fill="none" stroke-width="6"/>
+    <path d="M 322 264 Q 354 234 386 264 Q 354 250 322 264 Z" fill="#2b2419"/>
+  </g>
+  <!-- конфетти -->
+  <g>
+    <circle cx="80" cy="330" r="7" fill="#9c3f33"/><circle cx="180" cy="350" r="6" fill="#2e7d80"/>
+    <circle cx="280" cy="330" r="7" fill="#c8a356"/><circle cx="380" cy="352" r="6" fill="#7d3b52"/>
+    <circle cx="460" cy="330" r="7" fill="#5d7a3a"/><circle cx="120" cy="380" r="6" fill="#c8a356"/>
+    <circle cx="330" cy="386" r="6" fill="#9c3f33"/><circle cx="230" cy="396" r="6" fill="#5d7a3a"/>
+  </g>
+  <!-- площадь -->
+  <rect x="0" y="420" width="512" height="220" fill="#e0c896"/>
+  <path d="M 0 420 L 512 420" stroke="#2b2419" stroke-width="5"/>
+</svg>

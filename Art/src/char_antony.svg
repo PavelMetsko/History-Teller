@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Марк Антоний: воин — доспех с пластинами, красный плащ, щетина -->
+  <!-- красный плащ -->
+  <path d="M 36 256 Q 38 198 76 180 L 180 180 Q 218 198 220 256 Z" fill="#9c3f33" stroke="#2b2419" stroke-width="6"/>
+  <!-- стальной нагрудник -->
+  <path d="M 76 196 Q 128 226 180 196 L 180 256 L 76 256 Z" fill="#8d949c" stroke="#2b2419" stroke-width="5"/>
+  <path d="M 80 214 Q 128 240 176 214 M 84 232 Q 128 256 172 232" fill="none" stroke="#2b2419" stroke-width="4"/>
+  <rect x="112" y="150" width="32" height="38" fill="#d9a87a" stroke="#2b2419" stroke-width="5"/>
+  <ellipse cx="128" cy="104" rx="52" ry="58" fill="#e0b184" stroke="#2b2419" stroke-width="6"/>
+  <!-- щетина -->
+  <path d="M 84 118 Q 86 156 128 160 Q 170 156 172 118 Q 168 144 128 148 Q 88 144 84 118 Z" fill="#c2906270" stroke="none" opacity="0.5"/>
+  <!-- каштановые волосы, короткие -->
+  <path d="M 76 96 Q 72 40 128 38 Q 184 40 180 96 Q 170 58 128 56 Q 86 58 76 96 Z" fill="#7a4a26" stroke="#2b2419" stroke-width="5"/>
+  <!-- шрам на брови -->
+  <path d="M 150 84 L 158 96" fill="none" stroke="#b07c50" stroke-width="4" stroke-linecap="round"/>
+  <!-- брови -->
+  <path d="M 94 92 Q 106 86 120 92 M 136 92 Q 150 86 162 92" fill="none" stroke="#5d3a1e" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="108" cy="104" r="6" fill="#2b2419"/>
+  <circle cx="148" cy="104" r="6" fill="#2b2419"/>
+  <path d="M 128 104 L 124 126 L 134 126" fill="none" stroke="#b07c50" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- уверенная ухмылка -->
+  <path d="M 110 140 Q 132 150 148 138" fill="none" stroke="#2b2419" stroke-width="5" stroke-linecap="round"/>
+  <!-- застёжка плаща -->
+  <circle cx="170" cy="192" r="9" fill="#c8a356" stroke="#2b2419" stroke-width="4"/>
+</svg>

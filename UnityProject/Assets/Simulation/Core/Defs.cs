@@ -16,6 +16,9 @@ namespace HistoryTeller.Simulation
         public string Name;
         public List<string> Tags = new List<string>();
         public int Slots = 2;
+        public string Action;     // глагол карты действия («заговор», «соблазнение»)
+        public string ActionIcon; // иконка действия для UI
+        public List<string> Roles; // подписи ролей-слотов («убийца», «жертва»); null = порядок не важен
     }
 
     public sealed class RelationCondition
@@ -27,6 +30,7 @@ namespace HistoryTeller.Simulation
     public sealed class ActorDef
     {
         public string Var;
+        public int Slot = -1; // ≥0 — жёсткая привязка к позиции в кадре (роль)
         public List<string> Tags = new List<string>();      // требуемые теги CharacterDef
         public List<string> Flags = new List<string>();     // требуемые флаги состояния
         public List<string> NotFlags = new List<string>();  // запрещённые флаги
@@ -82,6 +86,8 @@ namespace HistoryTeller.Simulation
         public List<string> Characters = new List<string>();
         public InitialStateDef InitialState;
         public string InitialText;
+        public string GoalText; // цель-предложение для чекбокса («Брут предаёт и убивает Цезаря»)
+        public string GoalHint; // подсказка про запрещающие условия («Антоний не должен…»)
         public GoalNode Goal;
         public FactCard FactCard;
         public List<Panel> Solution; // эталонное решение (для подсказок и валидации)

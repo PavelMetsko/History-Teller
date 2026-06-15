@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Юлий Цезарь: белая тога с пурпурной каймой, лавровый венок, седина -->
+  <!-- плечи/тога -->
+  <path d="M 38 256 Q 40 196 78 178 L 178 178 Q 216 196 218 256 Z" fill="#f3ead6" stroke="#2b2419" stroke-width="6"/>
+  <path d="M 78 178 L 110 256 L 60 256 Q 56 210 78 178 Z" fill="#8a3b4a" stroke="#2b2419" stroke-width="5"/>
+  <!-- шея -->
+  <rect x="112" y="150" width="32" height="36" fill="#e0b48d" stroke="#2b2419" stroke-width="5"/>
+  <!-- голова -->
+  <ellipse cx="128" cy="106" rx="52" ry="58" fill="#e8c096" stroke="#2b2419" stroke-width="6"/>
+  <!-- седые волосы -->
+  <path d="M 76 96 Q 74 48 128 44 Q 182 48 180 96 Q 168 64 128 62 Q 88 64 76 96 Z" fill="#cfc8bd" stroke="#2b2419" stroke-width="5"/>
+  <!-- морщина лба -->
+  <path d="M 100 80 Q 128 74 156 80" fill="none" stroke="#b08b62" stroke-width="4" stroke-linecap="round"/>
+  <!-- брови -->
+  <path d="M 96 92 Q 108 86 120 92" fill="none" stroke="#7a6a55" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 136 92 Q 148 86 160 92" fill="none" stroke="#7a6a55" stroke-width="6" stroke-linecap="round"/>
+  <!-- глаза -->
+  <path d="M 100 104 L 116 104 M 140 104 L 156 104" fill="none" stroke="#2b2419" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- нос -->
+  <path d="M 128 104 L 124 126 L 134 126" fill="none" stroke="#b08b62" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- строгий рот -->
+  <path d="M 112 146 Q 134 148 146 138" fill="none" stroke="#2b2419" stroke-width="5" stroke-linecap="round"/>
+  <!-- лавровый венок (листья путями, без transform) -->
+  <g fill="#7c9437" stroke="#2b2419" stroke-width="3">
+    <path d="M 86 100 Q 70 92 72 76 Q 88 84 86 100 Z"/>
+    <path d="M 78 82 Q 68 68 76 54 Q 90 64 78 82 Z"/>
+    <path d="M 84 60 Q 82 44 96 38 Q 102 54 84 60 Z"/>
+    <path d="M 170 100 Q 186 92 184 76 Q 168 84 170 100 Z"/>
+    <path d="M 178 82 Q 188 68 180 54 Q 166 64 178 82 Z"/>
+    <path d="M 172 60 Q 174 44 160 38 Q 154 54 172 60 Z"/>
+  </g>
+  <!-- фибула на тоге -->
+  <circle cx="92" cy="196" r="9" fill="#c8a356" stroke="#2b2419" stroke-width="4"/>
+</svg>

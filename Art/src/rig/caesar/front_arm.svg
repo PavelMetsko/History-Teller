@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- FRONT_ARM: ближняя рука Цезаря, тога-рукав + кисть, пивот ~307,292. -->
+  <path d="M 307 292 Q 336 330 330 386 Q 328 404 312 404 Q 298 404 298 388 Q 302 340 282 300 Z"
+        fill="#f3ead6" stroke="#2b2419" stroke-width="7"/>
+  <ellipse cx="318" cy="404" rx="18" ry="20" fill="#e0b48d" stroke="#2b2419" stroke-width="7"/>
+</svg>

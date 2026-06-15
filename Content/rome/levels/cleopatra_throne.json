@@ -1,0 +1,63 @@
+{
+  "id": "cleopatra_throne",
+  "order": 2,
+  "title": "Война за трон",
+  "epoch": "rome",
+  "panels": 3,
+  "scenes": [
+    "battlefield",
+    "forum",
+    "throne"
+  ],
+  "characters": [
+    "caesar",
+    "cleopatra",
+    "ptolemy"
+  ],
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "cleopatra",
+          "is": "crowned"
+        }
+      },
+      {
+        "flag": {
+          "char": "ptolemy",
+          "is": "dead"
+        }
+      }
+    ]
+  },
+  "goalText": "Клеопатра — единственная царица Египта",
+  "goalHint": "Сначала убери соперника, потом заручись поддержкой Рима",
+  "solution": [
+    {
+      "scene": "battlefield",
+      "characters": [
+        "caesar",
+        "ptolemy"
+      ]
+    },
+    {
+      "scene": "forum",
+      "characters": [
+        "caesar",
+        "cleopatra"
+      ]
+    },
+    {
+      "scene": "throne",
+      "characters": [
+        "cleopatra",
+        "caesar"
+      ]
+    }
+  ],
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В Александрийской войне (48–47 гг. до н.э.) Цезарь разбил войска Птолемея XIII, бежавший царь утонул в Ниле. Цезарь утвердил Клеопатру на египетском троне.",
+    "source": "Цезарь, «Записки о гражданской войне»; Дион Кассий"
+  }
+}

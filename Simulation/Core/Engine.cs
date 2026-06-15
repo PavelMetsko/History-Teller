@@ -3,6 +3,14 @@ using System.Linq;
 
 namespace HistoryTeller.Simulation
 {
+    /// <summary>Сработавшее правило — для анимаций/звука в UI.</summary>
+    public sealed class RuleEvent
+    {
+        public int PanelIndex;
+        public string RuleId;
+        public Dictionary<string, string> Binding;
+    }
+
     /// <summary>
     /// Движок симуляции: прогоняет панели слева направо, применяя правила по убыванию приоритета.
     /// Семантика 1:1 с эталонным tools/simulate.py.
@@ -11,8 +19,10 @@ namespace HistoryTeller.Simulation
     {
         /// <param name="initial">Стартовый мир (мутируется!). Передавайте level.CreateInitialWorld().</param>
         /// <param name="snapshots">Если не null — копия состояния после каждой панели (для UI-бейджей).</param>
+        /// <param name="events">Если не null — сработавшие правила (для анимаций/звука).</param>
         public static World Simulate(IReadOnlyList<Panel> panels, ContentDb db,
-            List<string> log = null, World initial = null, List<World> snapshots = null)
+            List<string> log = null, World initial = null, List<World> snapshots = null,
+            List<RuleEvent> events = null)
         {
             var world = initial ?? new World();
             for (int i = 0; i < panels.Count; i++)
@@ -38,6 +48,12 @@ namespace HistoryTeller.Simulation
                         ApplyEffects(rule.Effects, binding, world);
                         log?.Add($"panel {i + 1}: rule '{rule.Id}' " +
                                  string.Join(", ", binding.Select(kv => $"{kv.Key}={kv.Value}")));
+                        events?.Add(new RuleEvent
+                        {
+                            PanelIndex = i,
+                            RuleId = rule.Id,
+                            Binding = new Dictionary<string, string>(binding)
+                        });
                     }
                 }
                 snapshots?.Add(world.Clone());
@@ -60,12 +76,40 @@ namespace HistoryTeller.Simulation
             return true;
         }
 
-        /// <summary>Все инъективные назначения живых присутствующих персонажей на переменные акторов.</summary>
+        /// <summary>
+        /// Назначения живых персонажей на переменные. Актор со Slot ≥ 0 жёстко
+        /// привязан к позиции в кадре (роль сцены), остальные перебираются.
+        /// </summary>
         private static List<Dictionary<string, string>> FindBindings(
             List<ActorDef> actors, List<string> present, World world, ContentDb db)
         {
             var alive = present.Where(world.IsAlive).ToList();
             var result = new List<Dictionary<string, string>>();
+
+            if (actors.Any(a => a.Slot >= 0))
+            {
+                var binding = new Dictionary<string, string>();
+                var used = new HashSet<string>();
+                foreach (var a in actors.Where(a => a.Slot >= 0))
+                {
+                    if (a.Slot >= present.Count) return result;
+                    var c = present[a.Slot];
+                    if (!world.IsAlive(c) || !used.Add(c)) return result;
+                    binding[a.Var] = c;
+                }
+                var rest = actors.Where(a => a.Slot < 0).ToList();
+                var free = alive.Where(c => !used.Contains(c)).ToList();
+                foreach (var perm in Permutations(free, rest.Count))
+                {
+                    var b = new Dictionary<string, string>(binding);
+                    for (int i = 0; i < rest.Count; i++)
+                        b[rest[i].Var] = perm[i];
+                    if (actors.All(a => ActorMatches(a, b[a.Var], b, world, db)))
+                        result.Add(b);
+                }
+                return result;
+            }
+
             foreach (var perm in Permutations(alive, actors.Count))
             {
                 var binding = new Dictionary<string, string>();

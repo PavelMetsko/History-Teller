@@ -1,7 +1,65 @@
 [
-  { "id": "caesar",    "name": "Юлий Цезарь", "tags": ["ruler", "roman"],      "emoji": "🧓" },
-  { "id": "brutus",    "name": "Марк Брут",   "tags": ["senator", "roman"],    "emoji": "🧔" },
-  { "id": "cassius",   "name": "Гай Кассий",  "tags": ["senator", "roman"],    "emoji": "👨‍🦱" },
-  { "id": "cleopatra", "name": "Клеопатра",   "tags": ["ruler", "charming"],   "emoji": "👸" },
-  { "id": "antony",    "name": "Марк Антоний","tags": ["general", "roman"],    "emoji": "🧑‍🦰" }
+  {
+    "id": "caesar",
+    "name": "Юлий Цезарь",
+    "tags": [
+      "ruler",
+      "roman"
+    ],
+    "emoji": "🧓"
+  },
+  {
+    "id": "brutus",
+    "name": "Марк Брут",
+    "tags": [
+      "senator",
+      "roman"
+    ],
+    "emoji": "🧔"
+  },
+  {
+    "id": "cassius",
+    "name": "Гай Кассий",
+    "tags": [
+      "senator",
+      "roman"
+    ],
+    "emoji": "👨‍🦱"
+  },
+  {
+    "id": "cleopatra",
+    "name": "Клеопатра",
+    "tags": [
+      "ruler",
+      "charming"
+    ],
+    "emoji": "👸"
+  },
+  {
+    "id": "antony",
+    "name": "Марк Антоний",
+    "tags": [
+      "general",
+      "roman"
+    ],
+    "emoji": "🧑‍🦰"
+  },
+  {
+    "id": "apollodorus",
+    "name": "Аполлодор",
+    "tags": [
+      "servant"
+    ],
+    "emoji": "🧎"
+  },
+  {
+    "id": "ptolemy",
+    "name": "Птолемей XIII",
+    "tags": [
+      "ruler",
+      "egyptian",
+      "rival"
+    ],
+    "emoji": "🤴"
+  }
 ]

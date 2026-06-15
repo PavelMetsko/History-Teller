@@ -63,9 +63,37 @@ def actor_matches(actor, char_id, binding, world, char_defs):
 
 
 def find_bindings(actors, present, world, char_defs):
-    """All injective assignments of alive present characters to actor vars.
-    Relation conditions are checked after full assignment (vars may reference each other)."""
+    """Назначения живых персонажей на переменные правил.
+
+    Актор со "slot": N жёстко привязан к позиции N в кадре (роль в сцене:
+    слот 0 — убийца, слот 1 — жертва и т.п.). Акторы без slot перебираются
+    по оставшимся. Условия проверяются после полного назначения."""
     alive = [c for c in present if world.alive(c)]
+    slotted = [a for a in actors if a.get("slot") is not None]
+
+    if slotted:
+        binding, used = {}, set()
+        for a in slotted:
+            s = a["slot"]
+            if s >= len(present):
+                return []
+            c = present[s]
+            if not world.alive(c) or c in used:
+                return []
+            binding[a["var"]] = c
+            used.add(c)
+        rest = [a for a in actors if a.get("slot") is None]
+        free = [c for c in alive if c not in used]
+        out = []
+        for perm in itertools.permutations(free, len(rest)):
+            b = dict(binding)
+            for a, c in zip(rest, perm):
+                b[a["var"]] = c
+            if all(actor_matches(a, b[a["var"]], b, world, char_defs)
+                   for a in actors):
+                out.append(b)
+        return out
+
     out = []
     for perm in itertools.permutations(alive, len(actors)):
         binding = {a["var"]: c for a, c in zip(actors, perm)}
@@ -148,14 +176,15 @@ def initial_world(level):
 # ---------- solver ----------
 
 def panel_options(level, scenes):
-    """All (scene, char_subset) fillings for a single panel."""
+    """Все варианты заполнения кадра. Порядок персонажей = роли-слоты,
+    поэтому перебираем РАЗМЕЩЕНИЯ (permutations), а не сочетания."""
     opts = []
     chars = level["characters"]
     for sid in level["scenes"]:
         slots = scenes[sid].get("slots", 2)
         for k in range(0, min(slots, len(chars)) + 1):
-            for combo in itertools.combinations(chars, k):
-                opts.append((sid, list(combo)))
+            for perm in itertools.permutations(chars, k):
+                opts.append((sid, list(perm)))
     return opts
 
 
@@ -178,6 +207,18 @@ def pretty(assignment, scenes, char_defs):
 
 
 MAX_EXHAUSTIVE = 500_000  # выше — пропускаем полный перебор (только проверка эталона)
+
+
+def canonical_count(solutions, scenes):
+    """Число решений без косметических дублей: в сценах без ролей
+    порядок персонажей не важен — нормализуем сортировкой."""
+    seen = set()
+    for sol in solutions:
+        key = tuple(
+            (sid, tuple(chars) if scenes[sid].get("roles") else tuple(sorted(chars)))
+            for sid, chars in sol)
+        seen.add(key)
+    return len(seen)
 
 
 def validate_level(level_path, content_dir):
@@ -206,12 +247,13 @@ def validate_level(level_path, content_dir):
     space = opts_count ** level["panels"]
     if space <= MAX_EXHAUSTIVE:
         sols, _ = solve(level, scenes, rules, char_defs)
-        print(f"search space: {space}, solutions: {len(sols)}")
+        canon = canonical_count(sols, scenes)
+        print(f"search space: {space}, solutions: {len(sols)} (canonical: {canon})")
         if not sols:
             print("!! UNSOLVABLE !!")
             ok = False
-        elif len(sols) > 8:
-            print(f"warning: {len(sols)} solutions — пазл может быть слишком лёгким")
+        elif canon > 8:
+            print(f"warning: {canon} canonical solutions — пазл может быть слишком лёгким")
     else:
         print(f"search space: {space} (> {MAX_EXHAUSTIVE}) — exhaustive check skipped")
 

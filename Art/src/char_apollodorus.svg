@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Аполлодор: слуга-сицилиец, несёт на плече свёрнутый мешок с царицей -->
+  <!-- простой коричневый плащ-туника -->
+  <path d="M 44 256 Q 46 196 84 178 L 176 178 Q 214 196 216 256 Z" fill="#7a5a38" stroke="#2b2419" stroke-width="6"/>
+  <!-- поясная верёвка -->
+  <path d="M 76 206 Q 128 220 180 206" fill="none" stroke="#3a2c1c" stroke-width="6"/>
+  <!-- руки придерживают ношу -->
+  <path d="M 150 184 Q 196 176 206 132" fill="none" stroke="#cf9d6d" stroke-width="16" stroke-linecap="round"/>
+  <!-- свёрнутый мешок/ковёр на плече -->
+  <g transform="rotate(-24 168 120)">
+    <rect x="120" y="86" width="120" height="42" rx="20" fill="#b9472f" stroke="#2b2419" stroke-width="6"/>
+    <path d="M 132 96 Q 180 90 228 96 M 132 118 Q 180 112 228 118" fill="none" stroke="#8c3320" stroke-width="4"/>
+    <!-- перетяжки -->
+    <path d="M 150 84 L 150 130 M 210 84 L 210 130" stroke="#e0c98a" stroke-width="5"/>
+    <!-- торчащая прядь волос царицы -->
+    <path d="M 234 104 Q 250 100 252 114" fill="none" stroke="#1d1813" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- шея -->
+  <rect x="112" y="150" width="30" height="34" fill="#d9a87a" stroke="#2b2419" stroke-width="5"/>
+  <!-- голова -->
+  <ellipse cx="120" cy="108" rx="48" ry="54" fill="#e0b184" stroke="#2b2419" stroke-width="6"/>
+  <!-- тёмные кудри -->
+  <path d="M 74 104 Q 70 52 120 50 Q 170 52 166 104 Q 158 70 120 68 Q 82 70 74 104 Z" fill="#3a2a1a" stroke="#2b2419" stroke-width="5"/>
+  <!-- борода -->
+  <path d="M 80 120 Q 84 168 120 172 Q 156 168 160 120 Q 150 150 120 152 Q 90 150 80 120 Z" fill="#3a2a1a" stroke="#2b2419" stroke-width="4"/>
+  <!-- брови -->
+  <path d="M 90 98 Q 100 92 112 98 M 128 98 Q 140 92 150 98" fill="none" stroke="#2b2419" stroke-width="5" stroke-linecap="round"/>
+  <!-- настороженный взгляд вбок -->
+  <circle cx="104" cy="110" r="6" fill="#2b2419"/>
+  <circle cx="142" cy="110" r="6" fill="#2b2419"/>
+  <!-- нос -->
+  <path d="M 122 110 L 118 128 L 128 128" fill="none" stroke="#b07c50" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- сжатые губы (тайна) -->
+  <path d="M 106 144 Q 120 148 134 144" fill="none" stroke="#2b2419" stroke-width="5" stroke-linecap="round"/>
+  <!-- палец у губ: тссс -->
+  <path d="M 92 176 Q 104 150 116 140" fill="none" stroke="#cf9d6d" stroke-width="14" stroke-linecap="round"/>
+</svg>

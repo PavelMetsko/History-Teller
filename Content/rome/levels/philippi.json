@@ -1,27 +1,100 @@
 {
   "id": "philippi",
-  "order": 5,
+  "order": 54,
   "title": "Месть за Цезаря",
   "epoch": "rome",
   "panels": 3,
-  "scenes": ["back_room", "senate", "battlefield"],
-  "characters": ["caesar", "brutus", "cassius", "antony"],
+  "scenes": [
+    "back_room",
+    "senate",
+    "battlefield"
+  ],
+  "characters": [
+    "caesar",
+    "brutus",
+    "cassius",
+    "antony"
+  ],
   "initialState": {
-    "relations": [ ["ally_of", "brutus", "caesar"] ]
+    "relations": [
+      [
+        "ally_of",
+        "brutus",
+        "caesar"
+      ]
+    ]
   },
   "initialText": "Дано: Брут — союзник Цезаря",
   "goal": {
     "all": [
-      { "flag": { "char": "caesar", "is": "dead" } },
-      { "flag": { "char": "brutus", "is": "dead" } },
-      { "relation": { "rel": "betrayed", "from": "brutus", "to": "caesar" } },
-      { "relation": { "rel": "avenged", "from": "antony", "to": "brutus" } }
+      {
+        "flag": {
+          "char": "caesar",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "brutus",
+          "is": "dead"
+        }
+      },
+      {
+        "relation": {
+          "rel": "betrayed",
+          "from": "brutus",
+          "to": "caesar"
+        }
+      },
+      {
+        "relation": {
+          "rel": "avenged",
+          "from": "antony",
+          "to": "brutus"
+        }
+      },
+      {
+        "not": {
+          "flag": {
+            "char": "antony",
+            "is": "plotting"
+          }
+        }
+      },
+      {
+        "not": {
+          "flag": {
+            "char": "caesar",
+            "is": "plotting"
+          }
+        }
+      }
     ]
   },
+  "goalText": "Предатель Брут повержен — Цезарь отомщён",
+  "goalHint": "Ни Цезарь, ни Антоний не участвуют в заговоре",
   "solution": [
-    { "scene": "back_room",   "characters": ["brutus", "cassius"] },
-    { "scene": "senate",      "characters": ["caesar", "brutus"] },
-    { "scene": "battlefield", "characters": ["antony", "brutus"] }
+    {
+      "scene": "back_room",
+      "characters": [
+        "brutus",
+        "cassius"
+      ]
+    },
+    {
+      "scene": "senate",
+      "characters": [
+        "brutus",
+        "caesar"
+      ]
+    },
+    {
+      "scene": "battlefield",
+      "characters": [
+        "antony",
+        "brutus"
+      ]
+    }
   ],
   "factCard": {
     "accuracy": "fact",

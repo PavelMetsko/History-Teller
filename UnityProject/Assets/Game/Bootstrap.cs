@@ -13,6 +13,14 @@ namespace HistoryTeller.Game
         {
             if (Object.FindObjectOfType<GameController>() != null) return;
             Application.targetFrameRate = 60;
+
+            // игра — только в landscape
+            Screen.autorotateToPortrait = false;
+            Screen.autorotateToPortraitUpsideDown = false;
+            Screen.autorotateToLandscapeLeft = true;
+            Screen.autorotateToLandscapeRight = true;
+            Screen.orientation = ScreenOrientation.AutoRotation;
+
             var go = new GameObject("HistoryTeller");
             Object.DontDestroyOnLoad(go);
             go.AddComponent<GameController>();

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">
+  <!-- Тайная комната: тёмные стены, свеча -->
+  <rect width="512" height="640" fill="#5c4a35"/>
+  <!-- каменная кладка -->
+  <g stroke="#4a3b29" stroke-width="5" fill="none">
+    <path d="M 0 80 L 512 80 M 0 160 L 512 160 M 0 240 L 512 240"/>
+    <path d="M 128 80 L 128 160 M 320 80 L 320 160 M 64 0 L 64 80 M 256 0 L 256 80 M 448 0 L 448 80 M 192 160 L 192 240 M 384 160 L 384 240"/>
+  </g>
+  <!-- ореол свечи -->
+  <circle cx="256" cy="180" r="120" fill="#8a6e42" opacity="0.55"/>
+  <circle cx="256" cy="180" r="70" fill="#c39a55" opacity="0.5"/>
+  <!-- стол -->
+  <rect x="116" y="276" width="280" height="22" fill="#3e3022" stroke="#2b2419" stroke-width="5"/>
+  <rect x="146" y="298" width="20" height="60" fill="#3e3022" stroke="#2b2419" stroke-width="5"/>
+  <rect x="346" y="298" width="20" height="60" fill="#3e3022" stroke="#2b2419" stroke-width="5"/>
+  <!-- свеча -->
+  <rect x="244" y="216" width="24" height="60" fill="#e8dcc0" stroke="#2b2419" stroke-width="5"/>
+  <path d="M 256 214 Q 246 196 256 180 Q 266 196 256 214 Z" fill="#e0a33c" stroke="#2b2419" stroke-width="4"/>
+  <path d="M 256 208 Q 252 198 256 190 Q 260 198 256 208 Z" fill="#f4d27a"/>
+  <!-- свиток на столе -->
+  <rect x="290" y="258" width="70" height="14" rx="7" fill="#e8dcc0" stroke="#2b2419" stroke-width="4"/>
+  <!-- нижняя зона затемнена -->
+  <rect x="0" y="360" width="512" height="280" fill="#4e3f2d"/>
+  <path d="M 0 360 L 512 360" stroke="#2b2419" stroke-width="5"/>
+</svg>

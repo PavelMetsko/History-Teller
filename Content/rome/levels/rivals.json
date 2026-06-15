@@ -1,21 +1,60 @@
 {
   "id": "rivals",
-  "order": 4,
+  "order": 53,
   "title": "Соперники",
   "epoch": "rome",
   "panels": 3,
-  "scenes": ["palace", "banquet"],
-  "characters": ["caesar", "antony", "cleopatra"],
+  "scenes": [
+    "palace",
+    "banquet"
+  ],
+  "characters": [
+    "caesar",
+    "antony",
+    "cleopatra"
+  ],
+  "goalText": "Цезарь и Антоний — соперники за сердце царицы",
   "goal": {
     "all": [
-      { "relation": { "rel": "envies", "from": "caesar", "to": "antony" } },
-      { "relation": { "rel": "envies", "from": "antony", "to": "caesar" } }
+      {
+        "relation": {
+          "rel": "envies",
+          "from": "caesar",
+          "to": "antony"
+        }
+      },
+      {
+        "relation": {
+          "rel": "envies",
+          "from": "antony",
+          "to": "caesar"
+        }
+      }
     ]
   },
   "solution": [
-    { "scene": "palace",  "characters": ["caesar", "cleopatra"] },
-    { "scene": "palace",  "characters": ["antony", "cleopatra"] },
-    { "scene": "banquet", "characters": ["caesar", "antony", "cleopatra"] }
+    {
+      "scene": "palace",
+      "characters": [
+        "cleopatra",
+        "caesar"
+      ]
+    },
+    {
+      "scene": "palace",
+      "characters": [
+        "cleopatra",
+        "antony"
+      ]
+    },
+    {
+      "scene": "banquet",
+      "characters": [
+        "caesar",
+        "antony",
+        "cleopatra"
+      ]
+    }
   ],
   "factCard": {
     "accuracy": "legend",

@@ -4,21 +4,66 @@
   "title": "Царица и диктатор",
   "epoch": "rome",
   "panels": 2,
-  "scenes": ["forum", "palace"],
-  "characters": ["caesar", "cleopatra"],
+  "scenes": [
+    "gate",
+    "forum",
+    "palace"
+  ],
+  "characters": [
+    "caesar",
+    "cleopatra",
+    "antony",
+    "apollodorus"
+  ],
+  "initialState": {
+    "flags": {
+      "cleopatra": [
+        "locked_out"
+      ]
+    }
+  },
+  "initialText": "Клеопатра — чужестранка, стража во дворец её не впускает",
   "goal": {
     "all": [
-      { "relation": { "rel": "ally_of", "from": "caesar", "to": "cleopatra" } },
-      { "relation": { "rel": "loves",   "from": "caesar", "to": "cleopatra" } }
+      {
+        "relation": {
+          "rel": "loves",
+          "from": "caesar",
+          "to": "cleopatra"
+        }
+      },
+      {
+        "not": {
+          "relation": {
+            "rel": "loves",
+            "from": "antony",
+            "to": "cleopatra"
+          }
+        }
+      }
     ]
   },
+  "goalText": "Клеопатра тайно проникает к Цезарю",
+  "goalHint": "Сначала её нужно тайно провести внутрь — и в опочивальне лишний не нужен",
   "solution": [
-    { "scene": "forum",  "characters": ["caesar", "cleopatra"] },
-    { "scene": "palace", "characters": ["caesar", "cleopatra"] }
+    {
+      "scene": "gate",
+      "characters": [
+        "apollodorus",
+        "cleopatra"
+      ]
+    },
+    {
+      "scene": "palace",
+      "characters": [
+        "cleopatra",
+        "caesar"
+      ]
+    }
   ],
   "factCard": {
     "accuracy": "simplification",
-    "text": "В 48 г. до н.э. Клеопатра тайно встретилась с Цезарем в Александрии (по легенде — её внесли завёрнутой в ковёр или мешок для белья). Союз с Цезарем вернул ей египетский трон; их сын Цезарион родился в 47 г. до н.э.",
+    "text": "В 48 г. до н.э. Клеопатра не могла открыто войти к Цезарю — дворец Александрии держал её брат-соперник Птолемей XIII. Верный слуга Аполлодор тайно пронёс царицу мимо стражи, завернув в мешок для постелей (по Плутарху — в ковёр). Только оказавшись внутри, она очаровала Цезаря; их сын Цезарион родился в 47 г. до н.э.",
     "source": "Плутарх, «Сравнительные жизнеописания»"
   }
 }

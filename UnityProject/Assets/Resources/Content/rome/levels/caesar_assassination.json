@@ -1,21 +1,69 @@
 {
   "id": "caesar_assassination",
-  "order": 3,
+  "order": 52,
   "title": "И ты, Брут?",
   "epoch": "rome",
   "panels": 3,
-  "scenes": ["forum", "back_room", "senate"],
-  "characters": ["caesar", "brutus", "cassius"],
+  "scenes": [
+    "forum",
+    "back_room",
+    "senate"
+  ],
+  "characters": [
+    "caesar",
+    "brutus",
+    "cassius",
+    "antony"
+  ],
   "goal": {
     "all": [
-      { "flag": { "char": "caesar", "is": "dead" } },
-      { "relation": { "rel": "betrayed", "from": "brutus", "to": "caesar" } }
+      {
+        "flag": {
+          "char": "caesar",
+          "is": "dead"
+        }
+      },
+      {
+        "relation": {
+          "rel": "betrayed",
+          "from": "brutus",
+          "to": "caesar"
+        }
+      },
+      {
+        "not": {
+          "flag": {
+            "char": "antony",
+            "is": "plotting"
+          }
+        }
+      }
     ]
   },
+  "goalText": "Друг Брут вступает в заговор и убивает Цезаря",
+  "goalHint": "Антоний не должен оказаться в заговоре",
   "solution": [
-    { "scene": "forum",     "characters": ["caesar", "brutus"] },
-    { "scene": "back_room", "characters": ["brutus", "cassius"] },
-    { "scene": "senate",    "characters": ["caesar", "brutus"] }
+    {
+      "scene": "forum",
+      "characters": [
+        "caesar",
+        "brutus"
+      ]
+    },
+    {
+      "scene": "back_room",
+      "characters": [
+        "brutus",
+        "cassius"
+      ]
+    },
+    {
+      "scene": "senate",
+      "characters": [
+        "brutus",
+        "caesar"
+      ]
+    }
   ],
   "factCard": {
     "accuracy": "fact",

@@ -42,6 +42,8 @@ namespace HistoryTeller.Simulation
                 Scenes = obj["scenes"].ToObject<List<string>>(),
                 Characters = obj["characters"].ToObject<List<string>>(),
                 InitialText = (string)obj["initialText"],
+                GoalText = (string)obj["goalText"],
+                GoalHint = (string)obj["goalHint"],
                 Goal = GoalNode.Parse((JObject)obj["goal"])
             };
             if (obj["initialState"] != null)

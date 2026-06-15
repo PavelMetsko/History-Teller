@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">
+  <!-- Пир: тёплая зала, стол с амфорой и виноградом -->
+  <rect width="512" height="640" fill="#caa05c"/>
+  <rect y="0" width="512" height="180" fill="#b88c4a"/>
+  <!-- гирлянда -->
+  <path d="M 0 40 Q 128 110 256 40 Q 384 110 512 40" fill="none" stroke="#5d7a3a" stroke-width="12"/>
+  <g fill="#7c9437" stroke="#2b2419" stroke-width="3">
+    <circle cx="64" cy="72" r="9"/><circle cx="128" cy="92" r="9"/><circle cx="192" cy="72" r="9"/>
+    <circle cx="320" cy="72" r="9"/><circle cx="384" cy="92" r="9"/><circle cx="448" cy="72" r="9"/>
+  </g>
+  <path d="M 0 180 L 512 180" stroke="#2b2419" stroke-width="5"/>
+  <!-- стол -->
+  <rect x="60" y="280" width="392" height="26" fill="#6e4a26" stroke="#2b2419" stroke-width="5"/>
+  <rect x="96" y="306" width="22" height="70" fill="#5d3e20" stroke="#2b2419" stroke-width="5"/>
+  <rect x="394" y="306" width="22" height="70" fill="#5d3e20" stroke="#2b2419" stroke-width="5"/>
+  <!-- амфора -->
+  <path d="M 236 276 L 240 240 Q 222 232 226 208 L 286 208 Q 290 232 272 240 L 276 276 Z" fill="#b35c38" stroke="#2b2419" stroke-width="5"/>
+  <path d="M 226 214 Q 208 220 214 238 M 286 214 Q 304 220 298 238" fill="none" stroke="#2b2419" stroke-width="5"/>
+  <!-- кубки -->
+  <path d="M 150 276 L 158 252 L 178 252 L 186 276 Z" fill="#c8a356" stroke="#2b2419" stroke-width="4"/>
+  <path d="M 330 276 L 338 252 L 358 252 L 366 276 Z" fill="#c8a356" stroke="#2b2419" stroke-width="4"/>
+  <!-- гроздь винограда -->
+  <g fill="#6e3a6e" stroke="#2b2419" stroke-width="3">
+    <circle cx="396" cy="262" r="8"/><circle cx="412" cy="258" r="8"/><circle cx="404" cy="272" r="8"/>
+    <circle cx="420" cy="270" r="8"/><circle cx="412" cy="244" r="8"/>
+  </g>
+  <!-- пол -->
+  <rect x="0" y="376" width="512" height="264" fill="#caa05c"/>
+</svg>

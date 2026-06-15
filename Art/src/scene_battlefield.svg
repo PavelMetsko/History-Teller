@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">
+  <!-- Поле боя: закат, холмы, штандарт и копья -->
+  <rect width="512" height="640" fill="#d9924e"/>
+  <rect y="0" width="512" height="120" fill="#e3a75f"/>
+  <circle cx="256" cy="150" r="58" fill="#efc46a" stroke="#2b2419" stroke-width="5"/>
+  <!-- дальние холмы -->
+  <path d="M 0 260 Q 130 200 260 250 Q 390 296 512 240 L 512 330 L 0 330 Z" fill="#8a5a38" stroke="#2b2419" stroke-width="5"/>
+  <!-- ближний холм -->
+  <path d="M 0 330 Q 256 280 512 330 L 512 420 L 0 420 Z" fill="#6e452c" stroke="#2b2419" stroke-width="5"/>
+  <!-- штандарт SPQR -->
+  <rect x="118" y="160" width="10" height="190" fill="#3e2c1a" stroke="#2b2419" stroke-width="4"/>
+  <rect x="92" y="170" width="64" height="44" fill="#9c3f33" stroke="#2b2419" stroke-width="5"/>
+  <path d="M 100 182 L 148 182 M 100 194 L 148 194 M 100 206 L 140 206" stroke="#e9c178" stroke-width="5"/>
+  <path d="M 112 160 L 134 160 L 123 144 Z" fill="#c8a356" stroke="#2b2419" stroke-width="4"/>
+  <!-- копья -->
+  <g stroke="#3e2c1a" stroke-width="7">
+    <path d="M 360 350 L 400 180"/>
+    <path d="M 400 350 L 420 200"/>
+    <path d="M 320 350 L 340 210"/>
+  </g>
+  <g fill="#8d949c" stroke="#2b2419" stroke-width="4">
+    <path d="M 396 184 L 408 164 L 412 188 Z"/>
+    <path d="M 416 204 L 428 184 L 432 208 Z"/>
+    <path d="M 336 214 L 348 194 L 352 218 Z"/>
+  </g>
+  <!-- земля -->
+  <rect x="0" y="420" width="512" height="220" fill="#7d5132"/>
+  <path d="M 0 420 L 512 420" stroke="#2b2419" stroke-width="5"/>
+</svg>

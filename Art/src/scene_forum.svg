@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">
+  <!-- Форум: колоннада, ступени -->
+  <rect width="512" height="640" fill="#f2e7cf"/>
+  <rect y="0" width="512" height="200" fill="#dfeef0"/>
+  <!-- архитрав -->
+  <rect x="20" y="60" width="472" height="36" fill="#e6dcc4" stroke="#2b2419" stroke-width="6"/>
+  <path d="M 10 60 L 502 60" stroke="#2b2419" stroke-width="6"/>
+  <!-- колонны -->
+  <g fill="#efe6d0" stroke="#2b2419" stroke-width="5">
+    <rect x="56" y="96" width="44" height="240"/>
+    <rect x="170" y="96" width="44" height="240"/>
+    <rect x="284" y="96" width="44" height="240"/>
+    <rect x="398" y="96" width="44" height="240"/>
+  </g>
+  <!-- каннелюры -->
+  <g stroke="#c9bda0" stroke-width="4">
+    <path d="M 70 100 L 70 332 M 86 100 L 86 332"/>
+    <path d="M 184 100 L 184 332 M 200 100 L 200 332"/>
+    <path d="M 298 100 L 298 332 M 314 100 L 314 332"/>
+    <path d="M 412 100 L 412 332 M 428 100 L 428 332"/>
+  </g>
+  <!-- капители -->
+  <g fill="#e6dcc4" stroke="#2b2419" stroke-width="5">
+    <rect x="48" y="96" width="60" height="18"/>
+    <rect x="162" y="96" width="60" height="18"/>
+    <rect x="276" y="96" width="60" height="18"/>
+    <rect x="390" y="96" width="60" height="18"/>
+  </g>
+  <!-- ступени -->
+  <rect x="0" y="336" width="512" height="26" fill="#e0d4b6" stroke="#2b2419" stroke-width="5"/>
+  <rect x="0" y="362" width="512" height="26" fill="#d6c8a6" stroke="#2b2419" stroke-width="5"/>
+  <!-- площадь, выцветающая книзу -->
+  <rect x="0" y="388" width="512" height="252" fill="#f2e7cf"/>
+  <path d="M 0 388 L 512 388" stroke="#2b2419" stroke-width="5"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- BODY: шея, золотой воротник, бирюзовое платье-колокол, ступни. Голова и руки — отдельные слои. -->
+  <!-- ноги/ступни -->
+  <ellipse cx="222" cy="486" rx="26" ry="16" fill="#e3b68c" stroke="#2b2419" stroke-width="7"/>
+  <ellipse cx="292" cy="486" rx="26" ry="16" fill="#e3b68c" stroke="#2b2419" stroke-width="7"/>
+  <!-- платье-колокол -->
+  <path d="M 190 286 Q 168 300 156 470 Q 256 492 356 470 Q 344 300 322 286 Q 256 320 190 286 Z"
+        fill="#2e7d80" stroke="#2b2419" stroke-width="8"/>
+  <!-- складки платья -->
+  <path d="M 220 320 Q 216 400 214 462 M 256 326 L 256 470 M 292 320 Q 296 400 298 462"
+        fill="none" stroke="#256468" stroke-width="5" stroke-linecap="round"/>
+  <!-- шея -->
+  <rect x="240" y="236" width="32" height="44" fill="#e3b68c" stroke="#2b2419" stroke-width="7"/>
+  <!-- золотой воротник-ускх -->
+  <path d="M 188 282 Q 256 330 324 282 L 312 306 Q 256 348 200 306 Z"
+        fill="#c8a356" stroke="#2b2419" stroke-width="7"/>
+  <path d="M 206 296 Q 256 330 306 296" fill="none" stroke="#9c7d34" stroke-width="5"/>
+</svg>

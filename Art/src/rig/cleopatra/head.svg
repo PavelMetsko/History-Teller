@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- HEAD: большая «чиби»-голова, центр ~256,158; основание шеи ~256,262 (пивот 0.50,0.51). -->
+  <!-- лицо -->
+  <ellipse cx="256" cy="158" rx="100" ry="112" fill="#eac298" stroke="#2b2419" stroke-width="8"/>
+  <!-- каре: боковые пряди -->
+  <path d="M 152 120 Q 146 50 256 44 Q 366 50 360 120 L 360 232 Q 360 256 336 256 L 336 150
+           Q 308 86 220 86 Q 192 86 192 150 L 192 256 Q 168 256 168 232 Z"
+        fill="#1d1813" stroke="#2b2419" stroke-width="7"/>
+  <!-- чёлка -->
+  <path d="M 168 110 Q 256 74 344 110 Q 308 94 256 94 Q 204 94 168 110 Z"
+        fill="#1d1813" stroke="#2b2419" stroke-width="6"/>
+  <!-- диадема -->
+  <rect x="160" y="96" width="192" height="20" fill="#c8a356" stroke="#2b2419" stroke-width="6"/>
+  <!-- кобра -->
+  <path d="M 244 96 Q 236 64 256 52 Q 280 60 266 82 Q 262 90 266 96 Z"
+        fill="#7c9437" stroke="#2b2419" stroke-width="6"/>
+  <!-- подводка-стрелки -->
+  <path d="M 188 150 L 226 150 L 238 158 M 324 150 L 286 150 L 274 158"
+        fill="none" stroke="#1d1813" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="212" cy="160" r="8" fill="#2b2419"/>
+  <circle cx="300" cy="160" r="8" fill="#2b2419"/>
+  <!-- брови -->
+  <path d="M 188 130 Q 212 122 234 130 M 278 130 Q 300 122 324 130"
+        fill="none" stroke="#1d1813" stroke-width="7" stroke-linecap="round"/>
+  <!-- нос -->
+  <path d="M 256 160 L 250 196 L 264 196" fill="none" stroke="#c69468" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- губы -->
+  <path d="M 226 216 Q 256 232 286 216 Q 256 212 226 216 Z" fill="#a8443e" stroke="#2b2419" stroke-width="6"/>
+  <!-- серьги -->
+  <circle cx="158" cy="196" r="11" fill="#c8a356" stroke="#2b2419" stroke-width="5"/>
+  <circle cx="354" cy="196" r="11" fill="#c8a356" stroke="#2b2419" stroke-width="5"/>
+</svg>

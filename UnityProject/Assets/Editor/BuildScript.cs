@@ -51,7 +51,11 @@ namespace HistoryTeller.EditorTools
             PlayerSettings.productName = "History Teller";
             PlayerSettings.companyName = "Pavel";
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, BundleId);
-            PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
+            PlayerSettings.defaultInterfaceOrientation = UIOrientation.AutoRotation;
+            PlayerSettings.allowedAutorotateToPortrait = false;
+            PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
+            PlayerSettings.allowedAutorotateToLandscapeLeft = true;
+            PlayerSettings.allowedAutorotateToLandscapeRight = true;
             PlayerSettings.iOS.targetDevice = iOSTargetDevice.iPhoneAndiPad;
             PlayerSettings.iOS.requiresFullScreen = true;
             Debug.Log("Player settings applied: " + BundleId);

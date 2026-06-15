@@ -34,6 +34,30 @@ function* permutations(items, k) {
 
 function findBindings(actors, present, world, charDefs) {
   const alive = present.filter(c => isAlive(world, c));
+  const slotted = actors.filter(a => a.slot !== undefined && a.slot !== null);
+
+  if (slotted.length) {
+    // позиционные роли: актор с slot привязан к позиции в кадре
+    const binding = {}, used = new Set();
+    for (const a of slotted) {
+      if (a.slot >= present.length) return [];
+      const c = present[a.slot];
+      if (!isAlive(world, c) || used.has(c)) return [];
+      binding[a.var] = c;
+      used.add(c);
+    }
+    const rest = actors.filter(a => a.slot === undefined || a.slot === null);
+    const free = alive.filter(c => !used.has(c));
+    const out = [];
+    for (const perm of permutations(free, rest.length)) {
+      const b = { ...binding };
+      rest.forEach((a, i) => { b[a.var] = perm[i]; });
+      if (actors.every(a => actorMatches(a, b[a.var], b, world, charDefs)))
+        out.push(b);
+    }
+    return out;
+  }
+
   const out = [];
   for (const perm of permutations(alive, actors.length)) {
     const binding = {};
@@ -126,13 +150,14 @@ function* combinations(items, k) {
 }
 
 function panelOptions(level, content) {
+  // порядок персонажей = роли-слоты → перебираем размещения
   const opts = [];
   for (const sid of level.scenes) {
     const slots = content.scenes[sid].slots || 2;
     const maxK = Math.min(slots, level.characters.length);
     for (let k = 0; k <= maxK; k++)
-      for (const combo of combinations(level.characters, k))
-        opts.push({ sceneId: sid, characters: combo });
+      for (const perm of permutations(level.characters, k))
+        opts.push({ sceneId: sid, characters: perm });
   }
   return opts;
 }

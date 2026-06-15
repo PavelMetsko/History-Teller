@@ -36,7 +36,7 @@ namespace HistoryTeller.Simulation
             return result;
         }
 
-        /// <summary>Все варианты заполнения одной панели: сцена + подмножество персонажей (≤ slots).</summary>
+        /// <summary>Все варианты заполнения панели. Порядок персонажей = роли-слоты → размещения.</summary>
         private static List<Panel> PanelOptions(LevelDef level, ContentDb db)
         {
             var options = new List<Panel>();
@@ -45,10 +45,27 @@ namespace HistoryTeller.Simulation
                 int slots = db.Scenes[sceneId].Slots;
                 int maxK = System.Math.Min(slots, level.Characters.Count);
                 for (int k = 0; k <= maxK; k++)
-                    foreach (var combo in Combinations(level.Characters, k))
-                        options.Add(new Panel { SceneId = sceneId, Characters = combo });
+                    foreach (var perm in Permutations(level.Characters, k))
+                        options.Add(new Panel { SceneId = sceneId, Characters = perm });
             }
             return options;
+        }
+
+        /// <summary>Упорядоченные размещения длины k.</summary>
+        private static IEnumerable<List<string>> Permutations(List<string> items, int k)
+        {
+            if (k == 0) { yield return new List<string>(); yield break; }
+            if (k > items.Count) yield break;
+            for (int i = 0; i < items.Count; i++)
+            {
+                var rest = new List<string>(items);
+                rest.RemoveAt(i);
+                foreach (var tail in Permutations(rest, k - 1))
+                {
+                    tail.Insert(0, items[i]);
+                    yield return tail;
+                }
+            }
         }
 
         private static IEnumerable<List<Panel>> CartesianPower(List<Panel> options, int n)

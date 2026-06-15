@@ -1,9 +1,125 @@
 [
-  { "id": "forum",      "name": "Форум",          "tags": ["public"],   "slots": 2, "emoji": "🏛️" },
-  { "id": "back_room",  "name": "Тайная комната", "tags": ["secret"],   "slots": 2, "emoji": "🕯️" },
-  { "id": "senate",     "name": "Сенат",          "tags": ["senate"],   "slots": 2, "emoji": "⚖️" },
-  { "id": "palace",     "name": "Дворец",         "tags": ["romantic"], "slots": 2, "emoji": "🌙" },
-  { "id": "battlefield","name": "Поле боя",       "tags": ["battle"],   "slots": 2, "emoji": "⚔️" },
-  { "id": "banquet",    "name": "Пир",            "tags": ["public"],   "slots": 3, "emoji": "🍷" },
-  { "id": "lupercalia", "name": "Луперкалии",     "tags": ["festival"], "slots": 2, "emoji": "🎭" }
+  {
+    "id": "forum",
+    "name": "Форум",
+    "tags": [
+      "public"
+    ],
+    "slots": 2,
+    "emoji": "🏛️",
+    "action": "дружба",
+    "actionIcon": "icon_ally"
+  },
+  {
+    "id": "gate",
+    "name": "Тайный ход",
+    "tags": [
+      "smuggle"
+    ],
+    "slots": 2,
+    "emoji": "🛖",
+    "action": "тайно пронести",
+    "actionIcon": "icon_box",
+    "roles": [
+      "носильщик",
+      "спрятана"
+    ]
+  },
+  {
+    "id": "back_room",
+    "name": "Тайная комната",
+    "tags": [
+      "secret"
+    ],
+    "slots": 2,
+    "emoji": "🕯️",
+    "action": "заговор",
+    "actionIcon": "icon_plotting"
+  },
+  {
+    "id": "senate",
+    "name": "Сенат",
+    "tags": [
+      "senate"
+    ],
+    "slots": 2,
+    "emoji": "⚖️",
+    "action": "покушение",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "убийца",
+      "жертва"
+    ]
+  },
+  {
+    "id": "palace",
+    "name": "Дворец",
+    "tags": [
+      "romantic"
+    ],
+    "slots": 2,
+    "emoji": "🌙",
+    "action": "соблазнение",
+    "actionIcon": "icon_love",
+    "roles": [
+      "чарует",
+      "очарован"
+    ]
+  },
+  {
+    "id": "battlefield",
+    "name": "Поле боя",
+    "tags": [
+      "battle"
+    ],
+    "slots": 2,
+    "emoji": "⚔️",
+    "action": "возмездие",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "мститель",
+      "предатель"
+    ]
+  },
+  {
+    "id": "banquet",
+    "name": "Пир",
+    "tags": [
+      "public"
+    ],
+    "slots": 3,
+    "emoji": "🍷",
+    "action": "ревность",
+    "actionIcon": "icon_envy"
+  },
+  {
+    "id": "lupercalia",
+    "name": "Луперкалии",
+    "tags": [
+      "festival"
+    ],
+    "slots": 2,
+    "emoji": "🎭",
+    "action": "коронация",
+    "actionIcon": "icon_crown",
+    "roles": [
+      "подносит",
+      "принимает"
+    ]
+  },
+  {
+    "id": "throne",
+    "name": "Тронный зал",
+    "tags": [
+      "throne"
+    ],
+    "slots": 2,
+    "emoji": "👑",
+    "action": "восшествие",
+    "actionIcon": "icon_crown",
+    "roles": [
+      "правитель",
+      "покровитель"
+    ]
+  }
 ]

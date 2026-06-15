@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Марк Брут: тёмные волосы, короткая борода, серо-синяя тога -->
+  <path d="M 38 256 Q 40 196 78 178 L 178 178 Q 216 196 218 256 Z" fill="#5d6b7a" stroke="#2b2419" stroke-width="6"/>
+  <path d="M 168 178 L 144 256 L 198 256 Q 202 206 168 178 Z" fill="#46525e" stroke="#2b2419" stroke-width="5"/>
+  <rect x="112" y="150" width="32" height="36" fill="#dcae85" stroke="#2b2419" stroke-width="5"/>
+  <ellipse cx="128" cy="106" rx="52" ry="58" fill="#e4ba8e" stroke="#2b2419" stroke-width="6"/>
+  <!-- борода -->
+  <path d="M 80 110 Q 78 168 128 172 Q 178 168 176 110 Q 176 146 128 150 Q 80 146 80 110 Z" fill="#4c3a28" stroke="#2b2419" stroke-width="4"/>
+  <!-- волосы -->
+  <path d="M 76 100 Q 70 42 128 40 Q 186 42 180 100 Q 172 60 128 58 Q 84 60 76 100 Z" fill="#4c3a28" stroke="#2b2419" stroke-width="5"/>
+  <!-- чёлка -->
+  <path d="M 96 62 Q 104 70 100 78 M 120 58 Q 126 68 122 76 M 146 58 Q 150 68 146 76" fill="none" stroke="#3a2c1e" stroke-width="4" stroke-linecap="round"/>
+  <!-- брови (нахмурен) -->
+  <path d="M 96 94 Q 108 90 120 96" fill="none" stroke="#3a2c1e" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 136 96 Q 148 90 160 94" fill="none" stroke="#3a2c1e" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 100 106 L 116 106 M 140 106 L 156 106" fill="none" stroke="#2b2419" stroke-width="6" stroke-linecap="round"/>
+  
+  <path d="M 128 106 L 125 126 L 133 126" fill="none" stroke="#ad8560" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- рот в бороде -->
+  <path d="M 112 146 Q 134 148 146 138" fill="none" stroke="#2b2419" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="164" cy="196" r="9" fill="#9aa7b3" stroke="#2b2419" stroke-width="4"/>
+</svg>
