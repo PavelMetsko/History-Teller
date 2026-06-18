@@ -121,5 +121,50 @@
       "правитель",
       "покровитель"
     ]
+  },
+  {
+    "id": "chambers",
+    "name": "Покои",
+    "tags": [
+      "family"
+    ],
+    "slots": 2,
+    "emoji": "🛏️",
+    "action": "наследник",
+    "actionIcon": "icon_heir",
+    "roles": [
+      "мать",
+      "отец"
+    ]
+  },
+  {
+    "id": "voyage",
+    "name": "Путь в Рим",
+    "tags": [
+      "voyage"
+    ],
+    "slots": 2,
+    "emoji": "⛵",
+    "action": "сопроводить",
+    "actionIcon": "icon_box",
+    "roles": [
+      "сопровождающий",
+      "царица"
+    ]
+  },
+  {
+    "id": "triumph",
+    "name": "Триумф",
+    "tags": [
+      "ceremony"
+    ],
+    "slots": 2,
+    "emoji": "🏛️",
+    "action": "почести",
+    "actionIcon": "icon_crown",
+    "roles": [
+      "почитает",
+      "царица"
+    ]
   }
 ]

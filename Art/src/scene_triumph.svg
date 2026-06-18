@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 960">
+  <!-- Триумф: римская площадь, храм с колоннами, золотая статуя царицы, гирлянды -->
+  <rect width="1280" height="960" fill="#e6cd97"/>
+  <rect width="1280" height="430" fill="#dcc488"/>
+  <rect width="1280" height="240" fill="#d3b974"/>
+  <circle cx="1040" cy="170" r="70" fill="#f1e3b4" opacity="0.8"/>
+  <!-- храм -->
+  <g stroke="#2b2419" stroke-width="6">
+    <polygon points="470,300 810,300 640,200" fill="#d8c7a0"/>
+    <rect x="470" y="300" width="340" height="40" fill="#c9b487"/>
+    <rect x="490" y="340" width="40" height="250" fill="#e0d2ac"/>
+    <rect x="560" y="340" width="40" height="250" fill="#e0d2ac"/>
+    <rect x="680" y="340" width="40" height="250" fill="#e0d2ac"/>
+    <rect x="750" y="340" width="40" height="250" fill="#e0d2ac"/>
+    <rect x="455" y="590" width="370" height="26" fill="#bda571"/>
+  </g>
+  <!-- золотая статуя царицы на постаменте -->
+  <g stroke="#2b2419" stroke-width="6">
+    <rect x="604" y="470" width="72" height="120" fill="#b89751"/>
+    <ellipse cx="640" cy="432" rx="26" ry="30" fill="#d8b65a"/>
+    <path d="M 618 590 Q 614 482 640 462 Q 666 482 662 590 Z" fill="#d8b65a"/>
+  </g>
+  <!-- боковые колонны -->
+  <g fill="#d8c79f" stroke="#2b2419" stroke-width="6">
+    <rect x="120" y="250" width="60" height="420"/>
+    <rect x="230" y="250" width="60" height="420"/>
+    <rect x="1000" y="250" width="60" height="420"/>
+    <rect x="1110" y="250" width="60" height="420"/>
+  </g>
+  <!-- гирлянды -->
+  <path d="M 150 250 Q 260 320 360 250" fill="none" stroke="#9c3f33" stroke-width="14"/>
+  <path d="M 920 250 Q 1030 320 1130 250" fill="none" stroke="#9c3f33" stroke-width="14"/>
+  <!-- мощёная площадь -->
+  <rect x="0" y="660" width="1280" height="300" fill="#c2a574"/>
+  <g stroke="#a98a5f" stroke-width="4" fill="none">
+    <path d="M 0 740 L 1280 740 M 0 840 L 1280 840"/>
+    <path d="M 200 660 L 160 960 M 500 660 L 470 960 M 780 660 L 810 960 M 1080 660 L 1120 960"/>
+  </g>
+</svg>

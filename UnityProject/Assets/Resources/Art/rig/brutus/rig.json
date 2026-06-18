@@ -1,0 +1,7 @@
+{
+  "id": "brutus",
+  "frame": 512,
+  "parts": [
+    { "name": "body", "z": 1, "pivot": [0.50, 0.80] }
+  ]
+}

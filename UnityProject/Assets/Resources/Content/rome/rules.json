@@ -387,5 +387,149 @@
         "flag": "crowned"
       }
     ]
+  },
+  {
+    "id": "beget_heir",
+    "comment": "Влюблённый правитель и его избранница в покоях обретают наследника",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "family"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ],
+          "relations": [
+            {
+              "rel": "loves",
+              "to": "A"
+            }
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "has_heir"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "has_heir"
+      }
+    ]
+  },
+  {
+    "id": "voyage",
+    "comment": "Слуга сопровождает царицу в дальний путь (в Рим)",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "voyage"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "servant"
+          ]
+        },
+        {
+          "var": "B"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "in_rome"
+      }
+    ]
+  },
+  {
+    "id": "honor",
+    "comment": "Римский правитель публично чествует прибывшую в Рим царицу",
+    "priority": 7,
+    "trigger": {
+      "sceneTags": [
+        "ceremony"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman",
+            "ruler"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ],
+          "flags": [
+            "in_rome"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "honored"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "flaunting"
+      }
+    ]
+  },
+  {
+    "id": "senate_envy",
+    "comment": "Сенатор негодует, видя царственные замашки и чужеземную царицу",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "senate"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "senator"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "roman"
+          ],
+          "flags": [
+            "flaunting"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "plotting"
+      }
+    ]
   }
 ]

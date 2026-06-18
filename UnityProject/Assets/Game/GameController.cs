@@ -70,7 +70,9 @@ namespace HistoryTeller.Game
                 { "rivals", "зависть" }, { "betrayal_kill", "убит!" },
                 { "battle_justice", "возмездие" }, { "offer_crown", "корона" },
                 { "smuggle", "тайно" }, { "conquer", "разгром" },
-                { "back_ruler", "поддержка Рима" }, { "enthrone", "на трон" }
+                { "back_ruler", "поддержка Рима" }, { "enthrone", "на трон" },
+                { "beget_heir", "наследник" }, { "voyage", "в Рим" },
+                { "honor", "почести" }, { "senate_envy", "заговор" }
             };
 
         private void Start()
@@ -945,6 +947,7 @@ namespace HistoryTeller.Game
                         string topIcon = null;
                         if (!dead && snap.HasFlag(c, "crowned")) topIcon = "icon_crown";
                         else if (!dead && snap.HasFlag(c, "plotting")) topIcon = "icon_plotting";
+                        else if (!dead && snap.HasFlag(c, "has_heir")) topIcon = "icon_heir";  // родился наследник
                         else if (!dead && snap.HasFlag(c, "inside")) topIcon = "icon_done";   // тайно проведена — успех
                         else if (!dead && snap.HasFlag(c, "locked_out")) topIcon = "icon_lock"; // ещё не впустили
                         if (topIcon != null)

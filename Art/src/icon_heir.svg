@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- спелёнутый младенец: одеяльце + личико -->
+  <path d="M 60 150 Q 128 110 196 150 Q 210 210 128 220 Q 46 210 60 150 Z" fill="#d8b07a" stroke="#2b2419" stroke-width="9"/>
+  <path d="M 60 150 Q 128 132 196 150" fill="none" stroke="#b8915c" stroke-width="7"/>
+  <ellipse cx="128" cy="120" rx="48" ry="46" fill="#eac298" stroke="#2b2419" stroke-width="9"/>
+  <path d="M 92 96 Q 128 78 164 96 Q 150 86 128 86 Q 106 86 92 96 Z" fill="#9c6a3a" stroke="#2b2419" stroke-width="5"/>
+  <circle cx="112" cy="124" r="6" fill="#2b2419"/>
+  <circle cx="144" cy="124" r="6" fill="#2b2419"/>
+  <path d="M 116 142 Q 128 150 140 142" fill="none" stroke="#2b2419" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="100" cy="138" r="6" fill="#e0a07a" opacity="0.6"/>
+  <circle cx="156" cy="138" r="6" fill="#e0a07a" opacity="0.6"/>
+</svg>
