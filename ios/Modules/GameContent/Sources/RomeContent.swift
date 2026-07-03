@@ -12,12 +12,13 @@ public enum RomeContent {
     /// Порядок попыток загрузки уровней. Отсутствующие тихо пропускаются.
     private static let levelIds = [
         "cleopatra_charm",
-        "caesar_crown",
         "cleopatra_throne",
         "cleopatra_heir",
-        "rivals",
+        "caesar_crown",
         "caesar_assassination",
         "philippi",
+        // "rivals" — вне основной линии (легенда/что-если): Цезарь и Антоний
+        // не могли соперничать после мартовских ид. Файл сохранён для будущего блока.
     ]
 
     public static func load() throws -> Pack {

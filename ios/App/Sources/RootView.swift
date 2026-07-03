@@ -35,6 +35,20 @@ struct RootView: View {
             content
                 .transition(.opacity)
         }
+        .onChange(of: screen) { _, _ in updateMusic() }
+    }
+
+    /// Музыка сквозняком: тема настроения уровня, иначе базовая. Один трек не перезапускается.
+    private func updateMusic() {
+        guard let pack else { return }
+        let track: String
+        switch screen {
+        case .level(let id):
+            track = pack.levels.first { $0.id == id }?.music ?? "theme"
+        default:
+            track = "theme"
+        }
+        Audio.shared.startMusic(named: track)
     }
 
     @ViewBuilder private var content: some View {
@@ -115,7 +129,10 @@ struct RootView: View {
     }
 
     private func load() {
-        do { pack = try RomeContent.load() }
-        catch { loadError = error.localizedDescription }
+        do {
+            pack = try RomeContent.load()
+            Audio.shared.preload()
+            updateMusic()
+        } catch { loadError = error.localizedDescription }
     }
 }

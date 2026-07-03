@@ -79,7 +79,6 @@ public struct LevelBoardView: View {
             }
             .padding(EdgeInsets(top: 14, leading: 18, bottom: 14, trailing: 18))
             .overlay(alignment: .topLeading) { bookmark.offset(x: 42, y: -12) }
-            .overlay(alignment: .topTrailing) { controls.offset(x: -24, y: 50) }
             .modifier(Shake(animatableData: shakeData))
 
             // призрак перетаскиваемого токена — едет за пальцем
@@ -107,7 +106,7 @@ public struct LevelBoardView: View {
                 .compactMap { $0 }.joined(separator: "\n\n"))
         }
         .onAppear {
-            Audio.shared.preload(); Audio.shared.startMusic()
+            // музыкой рулит координатор (RootView) — сквозняком между экранами
             if ProcessInfo.processInfo.environment["HT_DEMO"] == "1" {
                 demoMode = true; model.applySolution(); model.showFact = false
             }
@@ -115,7 +114,6 @@ public struct LevelBoardView: View {
                 model.fillDebugWrong()
             }
         }
-        .onDisappear { Audio.shared.stopMusic() }
     }
 
     // MARK: Drag
@@ -209,19 +207,25 @@ public struct LevelBoardView: View {
     // MARK: Title (horizontal, top)
 
     private var titleBar: some View {
-        HStack(spacing: 8) {
-            Image(systemName: model.isSolved ? "checkmark.square.fill" : "square")
-                .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(model.isSolved ? DS.Palette.success : DS.Palette.ink)
-            Text(model.level.goalText ?? model.level.title)
-                .font(.serifTitle(19))
-                .foregroundStyle(DS.Palette.ink)
-                .lineLimit(1)
-                .minimumScaleFactor(0.6)
+        ZStack(alignment: .topTrailing) {
+            HStack(alignment: .top, spacing: 8) {
+                Image(systemName: model.isSolved ? "checkmark.square.fill" : "square")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundStyle(model.isSolved ? DS.Palette.success : DS.Palette.ink)
+                    .padding(.top, 2)
+                Text(model.level.goalText ?? model.level.title)
+                    .font(.serifTitle(18))
+                    .foregroundStyle(DS.Palette.ink)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 104)   // резерв под угловые кнопки, текст переносится
+
+            controls
         }
-        .frame(maxWidth: .infinity)
-        .padding(.horizontal, 100)
-        .frame(height: 34)
+        .padding(.top, 18)   // отступ сверху, чтобы кнопки не наезжали на золотой уголок
     }
 
     // MARK: Comic grid (middle) — панели с 16px зазором
@@ -394,6 +398,8 @@ private struct PanelCell: View {
             if let sid = panel.sceneId {
                 Image.scene(sid).resizable().scaledToFill()
                     .frame(width: size.width, height: size.height).clipped()
+                    .transition(.scale(scale: 0.88).combined(with: .opacity))
+                    .id(sid)
                 if let action = model.sceneAction(sid) {
                     VStack { HStack { PillLabel(action, background: DS.Palette.paper.opacity(0.92)); Spacer() }; Spacer() }
                         .padding(7)
@@ -412,6 +418,7 @@ private struct PanelCell: View {
         }
         .frame(width: size.width, height: size.height)
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .animation(.spring(response: 0.4, dampingFraction: 0.72), value: panel.sceneId)
         .overlay(
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .strokeBorder(borderColor, lineWidth: (highlighted || isWrong) ? 3 : 2)
@@ -452,6 +459,14 @@ private struct PanelCell: View {
         else if model.panels[index].characters.count > before { Audio.shared.play(.place); Haptics.light() }
     }
 
+    /// Микро-состояние персонажа для значка над головой.
+    private func microState(_ charId: String, in snap: World) -> String? {
+        if snap.hasFlag(charId, "crowned") { return "👑" }
+        if panel.characters.contains(where: { $0 != charId && snap.hasRelation("loves", charId, $0) }) { return "💕" }
+        if snap.hasFlag(charId, "plotting") { return "🗡" }
+        return nil
+    }
+
     private func charactersOverlay(sceneId: String) -> some View {
         let slots = model.slots(at: index)
         let spriteH = size.height * 0.62
@@ -461,19 +476,38 @@ private struct PanelCell: View {
                 ForEach(0..<slots, id: \.self) { slot in
                     if slot < panel.characters.count {
                         let charId = panel.characters[slot]
-                        let dead = model.snapshot(after: index).hasFlag(charId, "dead")
+                        let snap = model.snapshot(after: index)
+                        let dead = snap.hasFlag(charId, "dead")
+                        let state = microState(charId, in: snap)
+                        let plotting = !dead && snap.hasFlag(charId, "plotting")
+                        let crowned = !dead && snap.hasFlag(charId, "crowned")
                         Button {
-                            Audio.shared.play(.remove); Haptics.light()
-                            model.removeCharacter(charId, at: index)
+                            // если есть выделенный элемент — ставим его, а не удаляем текущего
+                            if model.selected != nil {
+                                applyTap()
+                            } else {
+                                Audio.shared.play(.remove); Haptics.light()
+                                model.removeCharacter(charId, at: index)
+                            }
                         } label: {
                             Image.character(charId)
                                 .resizable().scaledToFit().frame(height: spriteH)
+                                .modifier(Tremble(active: plotting))     // заговорщик дрожит
                                 // погиб — заваливается набок, сереет и притухает
                                 .grayscale(dead ? 0.9 : 0)
-                                .opacity(dead ? 0.8 : 1)
-                                .rotationEffect(.degrees(dead ? 74 : 0), anchor: .bottom)
-                                .offset(y: dead ? spriteH * 0.08 : 0)
+                                .opacity(dead ? 0.82 : 1)
+                                .scaleEffect(dead ? 0.9 : 1)
+                                .rotationEffect(.degrees(dead ? 80 : 0))
+                                .offset(y: dead ? spriteH * 0.26 : 0)
                                 .animation(.spring(response: 0.5, dampingFraction: 0.55), value: dead)
+                                // значок состояния над головой
+                                .overlay(alignment: .top) {
+                                    if let s = state, !dead { StateFloatie(symbol: s) }
+                                }
+                                // золотая вспышка при короновании
+                                .overlay(alignment: .top) { if crowned { CrownFlash() } }
+                                // пыль при падении
+                                .overlay(alignment: .bottom) { if dead { DustPuff() } }
                         }
                         .buttonStyle(.plain)
                         .transition(.scale(scale: 0.4).combined(with: .opacity))
@@ -507,6 +541,83 @@ private struct FlyingBadgeView: View {
                 withAnimation(.spring(response: 0.3, dampingFraction: 0.45)) { scaleUp = true }
                 withAnimation(.easeOut(duration: 1.0).delay(0.2)) { floatUp = true }
             }
+    }
+}
+
+/// Значок живого состояния над головой (корона/сердечки/кинжал) — мягко покачивается.
+private struct StateFloatie: View {
+    let symbol: String
+    @State private var up = false
+    var body: some View {
+        Text(symbol)
+            .font(.system(size: 24))
+            .shadow(color: .black.opacity(0.25), radius: 2, y: 1)
+            .offset(y: up ? -22 : -14)
+            .scaleEffect(up ? 1.08 : 0.94)
+            .onAppear {
+                withAnimation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true)) { up = true }
+            }
+            .transition(.scale.combined(with: .opacity))
+    }
+}
+
+/// Пыль при падении — облачко частиц разлетается от ног и тает.
+private struct DustPuff: View {
+    @State private var go = false
+    private let count = 7
+    var body: some View {
+        ZStack {
+            ForEach(0..<count, id: \.self) { i in
+                let a = Double(i) / Double(count - 1) * .pi   // веер 0..π
+                Circle()
+                    .fill(DS.Palette.paperEdge.opacity(0.9))
+                    .frame(width: 9, height: 9)
+                    .offset(x: go ? CGFloat(cos(a)) * 28 : 0,
+                            y: go ? CGFloat(-sin(a)) * 14 : 0)
+                    .scaleEffect(go ? 1.5 : 0.4)
+                    .opacity(go ? 0 : 0.7)
+            }
+        }
+        .offset(y: 8)
+        .allowsHitTesting(false)
+        .onAppear { withAnimation(.easeOut(duration: 0.55)) { go = true } }
+    }
+}
+
+/// Золотая вспышка-лучи при короновании.
+private struct CrownFlash: View {
+    @State private var go = false
+    private let count = 9
+    var body: some View {
+        ZStack {
+            ForEach(0..<count, id: \.self) { i in
+                Capsule()
+                    .fill(DS.Palette.gold)
+                    .frame(width: 3, height: 12)
+                    .offset(y: go ? -34 : -16)
+                    .rotationEffect(.degrees(Double(i) / Double(count) * 360))
+                    .scaleEffect(go ? 1.2 : 0.4)
+                    .opacity(go ? 0 : 0.9)
+            }
+        }
+        .offset(y: -6)
+        .allowsHitTesting(false)
+        .onAppear { withAnimation(.easeOut(duration: 0.5)) { go = true } }
+    }
+}
+
+/// Нервная дрожь заговорщика.
+private struct Tremble: ViewModifier {
+    let active: Bool
+    @State private var on = false
+    func body(content: Content) -> some View {
+        content
+            .rotationEffect(.degrees(active ? (on ? 2.5 : -2.5) : 0), anchor: .bottom)
+            .onAppear { if active { start() } }
+            .onChange(of: active) { _, a in if a { start() } else { on = false } }
+    }
+    private func start() {
+        withAnimation(.easeInOut(duration: 0.11).repeatForever(autoreverses: true)) { on = true }
     }
 }
 

@@ -77,7 +77,7 @@ public struct EpochMapView: View {
                         LevelCard(
                             number: idx + 1,
                             title: level.title,
-                            sceneId: level.scenes.first,
+                            sceneId: level.cover ?? level.scenes.first,
                             completed: progress.isCompleted(level.id),
                             unlocked: progress.isUnlocked(levelId: level.id, orderedIds: orderedIds),
                             onTap: { onSelect(level.id) }

@@ -50,17 +50,28 @@ public final class Audio {
         player.play()
     }
 
-    public func startMusic(volume: Float = 0.3) {
+    private var currentMusicName: String?
+
+    /// Запустить фоновую тему по имени. Если та же тема уже играет — не перезапускаем (сквозняк).
+    public func startMusic(named name: String = "theme", volume: Float = 0.3) {
         guard soundEnabled else { return }
-        if music == nil {
-            guard let url = Bundle.gameContent.url(forResource: "theme", withExtension: "wav") else { return }
-            music = try? AVAudioPlayer(contentsOf: url)
-            music?.numberOfLoops = -1
-            music?.prepareToPlay()
+        if currentMusicName == name, music?.isPlaying == true {
+            music?.volume = volume
+            return
         }
-        music?.volume = volume
-        if music?.isPlaying == false { music?.play() }
+        music?.stop()
+        guard let url = Bundle.gameContent.url(forResource: name, withExtension: "wav") else { return }
+        let player = try? AVAudioPlayer(contentsOf: url)
+        player?.numberOfLoops = -1
+        player?.volume = volume
+        player?.prepareToPlay()
+        player?.play()
+        music = player
+        currentMusicName = name
     }
 
-    public func stopMusic() { music?.stop() }
+    public func stopMusic() {
+        music?.stop()
+        currentMusicName = nil
+    }
 }

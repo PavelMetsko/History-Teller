@@ -44,7 +44,7 @@ public struct BookPage<Content: View>: View {
                 RoundedRectangle(cornerRadius: 22, style: .continuous)
                     .strokeBorder(DS.Palette.ink.opacity(0.45), lineWidth: 2)
             )
-            .overlay(GoldCorners(inset: 4, length: 20).padding(6))
+            .overlay(GoldCorners(inset: 4, length: 16).padding(6))
             .shadow(color: .black.opacity(0.45), radius: 14, x: 0, y: 8)
     }
 }
