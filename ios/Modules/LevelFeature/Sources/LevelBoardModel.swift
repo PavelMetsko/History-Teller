@@ -145,8 +145,8 @@ public final class LevelBoardModel {
         // Новые (ещё не показанные) сработавшие правила — для анимаций/звука.
         lastFiredEvents = result.events.filter { !seenEventKeys.contains(Self.key($0)) }
         seenEventKeys = Set(result.events.map(Self.key))
-        // решённую доску не придираем; иначе сверяем каждую полную панель с эталоном.
-        panelDiagnoses = isSolved
+        // Ошибки показываем только когда весь раунд заполнен (и не решён) — иначе не придираемся.
+        panelDiagnoses = (isSolved || !isBoardComplete)
             ? Array(repeating: .ok, count: panels.count)
             : panels.indices.map { diagnose($0) }
         changeToken &+= 1

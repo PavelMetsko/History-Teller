@@ -2,10 +2,11 @@ import SwiftUI
 import DesignSystem
 import GameContent
 
-/// Главное меню.
+/// Главное меню — титульная страница книги.
 public struct MenuView: View {
     private let onPlay: () -> Void
     private let onReset: () -> Void
+    @State private var showResetConfirm = false
 
     public init(onPlay: @escaping () -> Void, onReset: @escaping () -> Void) {
         self.onPlay = onPlay
@@ -14,59 +15,104 @@ public struct MenuView: View {
 
     public var body: some View {
         ZStack {
-            DS.Palette.paper.ignoresSafeArea()
+            DS.Palette.backdrop.ignoresSafeArea()
 
-            HStack(spacing: 24) {
-                VStack(alignment: .leading, spacing: 18) {
+            BookPage {
+                HStack(spacing: 20) {
+                    titleBlock
                     Spacer(minLength: 0)
-
-                    Text("History Teller")
-                        .font(.dsTitle(46))
-                        .foregroundStyle(DS.Palette.ink)
-                    Text("Собирай историю из панелей —\nи узнавай, как было на самом деле.")
-                        .font(.dsBody(16))
-                        .foregroundStyle(DS.Palette.inkSoft)
-
-                    Button(action: onPlay) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "play.fill")
-                            Text("Играть")
-                        }
-                        .font(.dsTitle(20))
-                        .foregroundStyle(DS.Palette.paper)
-                        .padding(.horizontal, 34).padding(.vertical, 14)
-                        .background(Capsule().fill(DS.Palette.maroon))
-                        .overlay(Capsule().strokeBorder(DS.Palette.ink, lineWidth: 3))
-                    }
-                    .padding(.top, 4)
-
-                    Button(action: onReset) {
-                        Text("Сбросить прогресс")
-                            .font(.dsCaption())
-                            .foregroundStyle(DS.Palette.inkSoft)
-                    }
-
-                    Spacer(minLength: 0)
+                    heroSprites
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                heroSprites
+                .padding(EdgeInsets(top: 24, leading: 48, bottom: 24, trailing: 36))
             }
-            .padding(.horizontal, 44)
-            .padding(.vertical, 24)
+            .padding(EdgeInsets(top: 16, leading: 20, bottom: 16, trailing: 20))
+
+            if showResetConfirm {
+                BookDialog(
+                    title: "Сбросить прогресс?",
+                    message: "Все пройденные уровни станут заново закрытыми.\nЭто действие нельзя отменить.",
+                    confirmTitle: "Сбросить",
+                    cancelTitle: "Отмена",
+                    destructive: true,
+                    onConfirm: { onReset(); withAnimation(.easeOut(duration: 0.2)) { showResetConfirm = false } },
+                    onCancel: { withAnimation(.easeOut(duration: 0.2)) { showResetConfirm = false } }
+                )
+                .transition(.opacity)
+                .zIndex(10)
+            }
         }
+        .onAppear {
+            if ProcessInfo.processInfo.environment["HT_RESETDLG"] == "1" { showResetConfirm = true }
+        }
+    }
+
+    private var titleBlock: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Spacer(minLength: 0)
+
+            Text("ИСТОРИЧЕСКАЯ ГОЛОВОЛОМКА")
+                .font(.dsCaption(11))
+                .tracking(2)
+                .foregroundStyle(DS.Palette.maroon)
+
+            Text("History Teller")
+                .font(.dsSerif(48))
+                .foregroundStyle(DS.Palette.ink)
+                .padding(.top, 4)
+
+            // тонкая линия-росчерк под заголовком
+            RoundedRectangle(cornerRadius: 2)
+                .fill(DS.Palette.gold)
+                .frame(width: 120, height: 3)
+                .padding(.top, 8)
+
+            Text("Собери историю из панелей —\nи узнай, как было на самом деле.")
+                .font(.dsBody(15))
+                .foregroundStyle(DS.Palette.inkSoft)
+                .padding(.top, 14)
+
+            playButton
+                .padding(.top, 22)
+
+            Button {
+                withAnimation(.easeIn(duration: 0.2)) { showResetConfirm = true }
+            } label: {
+                Text("Сбросить прогресс")
+                    .font(.dsCaption())
+                    .foregroundStyle(DS.Palette.inkSoft)
+            }
+            .padding(.top, 14)
+
+            Spacer(minLength: 0)
+        }
+    }
+
+    private var playButton: some View {
+        Button(action: onPlay) {
+            HStack(spacing: 10) {
+                Image(systemName: "play.fill")
+                Text("Играть")
+            }
+            .font(.dsSerif(22))
+            .foregroundStyle(DS.Palette.paper)
+            .padding(.horizontal, 40).padding(.vertical, 15)
+            .background(Capsule().fill(DS.Palette.maroon))
+            .overlay(Capsule().strokeBorder(DS.Palette.ink, lineWidth: 3))
+            .shadow(color: .black.opacity(0.25), radius: 5, y: 3)
+        }
+        .buttonStyle(.plain)
     }
 
     private var heroSprites: some View {
         ZStack(alignment: .bottom) {
             Image.character("caesar")
                 .resizable().scaledToFit()
-                .frame(height: 230)
-                .offset(x: -70)
+                .frame(height: 250)
+                .offset(x: -60)
             Image.character("cleopatra")
                 .resizable().scaledToFit()
-                .frame(height: 260)
-                .offset(x: 40)
+                .frame(height: 280)
+                .offset(x: 55)
         }
         .frame(width: 320)
     }
