@@ -90,8 +90,14 @@ public enum RomeContent {
         }
         db.localizeNames(characterNames: chNames, sceneNames: scNames, sceneActions: scActions)
 
+        // заголовки актов: raw-русская строка `act` → локализованная (по обратному соответствию)
+        let actKeys = ["act.rome.1", "act.rome.2", "act.rome.3", "act.tudor.1", "act.tudor.2", "act.tudor.3"]
+        var actMap: [String: String] = [:]
+        for k in actKeys { if let ru = L10n.ruBase(k), let loc = L10n.opt(k) { actMap[ru] = loc } }
+
         for i in levels.indices {
             let id = levels[i].id
+            if let a = levels[i].act, let loc = actMap[a] { levels[i].act = loc }
             if let t = L10n.opt("level.\(id).title") { levels[i].title = t }
             if let t = L10n.opt("level.\(id).goal")  { levels[i].goalText = t }
             if let t = L10n.opt("level.\(id).hint")  { levels[i].goalHint = t }

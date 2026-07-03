@@ -70,12 +70,14 @@ public struct LevelBoardView: View {
             DS.Palette.backdrop.ignoresSafeArea()
 
             BookPage {
-                VStack(spacing: 8) {
-                    titleBar
-                    panelsGrid
-                    tokenTray
+                GeometryReader { boardGeo in
+                    VStack(spacing: 8) {
+                        titleBar
+                        panelsGrid
+                        tokenTray(scale: trayScale(width: boardGeo.size.width))
+                    }
+                    .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
                 }
-                .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
             }
             .padding(EdgeInsets(top: 14, leading: 18, bottom: 14, trailing: 18))
             .overlay(alignment: .topLeading) { bookmark.offset(x: 42, y: -12) }
@@ -234,7 +236,7 @@ public struct LevelBoardView: View {
         GeometryReader { geo in
             let n = max(1, model.panels.count)
             let gap: CGFloat = 16
-            let cellH = geo.size.height
+            let cellH = min(geo.size.height, 370)   // не даём панелям разрастаться на iPad
             let maxCellW = cellH * 1.2
             let cellW = min((geo.size.width - gap * CGFloat(n - 1)) / CGFloat(n), maxCellW)
             HStack(spacing: gap) {
@@ -253,27 +255,34 @@ public struct LevelBoardView: View {
 
     // MARK: Token tray (horizontal, bottom)
 
-    private var tokenTray: some View {
-        HStack(spacing: 12) {
+    private func tokenTray(scale: CGFloat) -> some View {
+        HStack(spacing: 12 * scale) {
             Spacer(minLength: 0)
             ForEach(model.level.scenes, id: \.self) { sid in
-                SceneToken(sceneId: sid, name: model.sceneName(sid), selected: model.selected == .scene(sid))
+                SceneToken(sceneId: sid, name: model.sceneName(sid),
+                           selected: model.selected == .scene(sid), scale: scale)
                     .opacity(draggingItem == .scene(sid) ? 0.35 : 1)
                     .onTapGesture { Audio.shared.play(.select); model.selectItem(.scene(sid)) }
                     .gesture(dragGesture(for: .scene(sid)))
             }
-            Rectangle().fill(DS.Palette.ink.opacity(0.3)).frame(width: 1.5, height: 60).padding(.horizontal, 2)
+            Rectangle().fill(DS.Palette.ink.opacity(0.3))
+                .frame(width: 1.5, height: 60 * scale).padding(.horizontal, 2)
             ForEach(model.roster, id: \.self) { id in
                 CharToken(id: id, name: model.characterName(id),
                           badges: StateBadges.emojis(for: id, in: model.world),
-                          selected: model.selected == .character(id))
+                          selected: model.selected == .character(id), scale: scale)
                     .opacity(draggingItem == .character(id) ? 0.35 : 1)
                     .onTapGesture { Audio.shared.play(.select); model.selectItem(.character(id)) }
                     .gesture(dragGesture(for: .character(id)))
             }
             Spacer(minLength: 0)
         }
-        .frame(height: 90)
+        .frame(height: 90 * scale)
+    }
+
+    /// Крупнее токены на широких экранах (iPad), на iPhone — как было.
+    private func trayScale(width: CGFloat) -> CGFloat {
+        min(1.7, max(1.0, width / 720))
     }
 
     // MARK: Chrome
@@ -322,17 +331,18 @@ private struct SceneToken: View {
     let sceneId: String
     let name: String
     let selected: Bool
+    var scale: CGFloat = 1
 
     var body: some View {
-        VStack(spacing: 3) {
+        VStack(spacing: 3 * scale) {
             Image.scene(sceneId)
                 .resizable().scaledToFill()
-                .frame(width: 66, height: 46)
-                .clipShape(RoundedRectangle(cornerRadius: 7, style: .continuous))
-                .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous)
+                .frame(width: 66 * scale, height: 46 * scale)
+                .clipShape(RoundedRectangle(cornerRadius: 7 * scale, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: 7 * scale, style: .continuous)
                     .strokeBorder(selected ? DS.Palette.gold : DS.Palette.ink.opacity(0.55),
                                   lineWidth: selected ? 3 : 2))
-            Text(name).font(.dsCaption(9)).foregroundStyle(DS.Palette.inkSoft).lineLimit(1)
+            Text(name).font(.dsCaption(9 * scale)).foregroundStyle(DS.Palette.inkSoft).lineLimit(1)
         }
         .contentShape(Rectangle())
     }
@@ -343,20 +353,21 @@ private struct CharToken: View {
     let name: String
     let badges: [String]
     let selected: Bool
+    var scale: CGFloat = 1
 
     var body: some View {
         VStack(spacing: 1) {
             ZStack(alignment: .topTrailing) {
-                Image.character(id).resizable().scaledToFit().frame(height: 52)
+                Image.character(id).resizable().scaledToFit().frame(height: 52 * scale)
                 if !badges.isEmpty {
-                    Text(badges.joined()).font(.system(size: 10))
+                    Text(badges.joined()).font(.system(size: 10 * scale))
                         .padding(2).background(Circle().fill(DS.Palette.paper)).offset(x: 5, y: -1)
                 }
             }
-            .frame(width: 58, height: 54)
+            .frame(width: 58 * scale, height: 54 * scale)
             .background(selected ? RoundedRectangle(cornerRadius: 9).fill(DS.Palette.gold.opacity(0.28)) : nil)
             .overlay(selected ? RoundedRectangle(cornerRadius: 9).strokeBorder(DS.Palette.gold, lineWidth: 3) : nil)
-            Text(name).font(.dsCaption(9)).foregroundStyle(DS.Palette.inkSoft).lineLimit(1)
+            Text(name).font(.dsCaption(9 * scale)).foregroundStyle(DS.Palette.inkSoft).lineLimit(1)
         }
         .contentShape(Rectangle())
     }
@@ -692,10 +703,10 @@ private struct FactPopupCard: View {
 
     private var accuracyLabel: String {
         switch level.factCard?.accuracy {
-        case "fact": return "Факт"
-        case "simplification": return "Упрощение"
-        case "legend": return "Легенда"
-        default: return "Как было"
+        case "fact": return L10n.s("ui.acc_fact")
+        case "simplification": return L10n.s("ui.acc_simplification")
+        case "legend": return L10n.s("ui.acc_legend")
+        default: return L10n.s("ui.acc_fact")
         }
     }
 
@@ -703,7 +714,7 @@ private struct FactPopupCard: View {
         BookPage {
             ScrollView {
                 VStack(spacing: 12) {
-                    PillLabel("Разгадано!", systemImage: "checkmark.seal.fill",
+                    PillLabel(L10n.s("ui.solved"), systemImage: "checkmark.seal.fill",
                               background: DS.Palette.success.opacity(0.2))
                     Text(level.title).font(.serifTitle(22)).foregroundStyle(DS.Palette.ink)
                         .multilineTextAlignment(.center)
@@ -714,7 +725,7 @@ private struct FactPopupCard: View {
                         Text(card.source).font(.dsCaption(11)).italic().foregroundStyle(DS.Palette.inkSoft)
                     }
                     Button(action: onClose) {
-                        Text("Дальше").font(.dsBody())
+                        Text(L10n.s("ui.next")).font(.dsBody())
                             .foregroundStyle(DS.Palette.paper)
                             .padding(.horizontal, 30).padding(.vertical, 11)
                             .background(Capsule().fill(DS.Palette.maroon))

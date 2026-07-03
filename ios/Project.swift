@@ -74,6 +74,7 @@ let project = Project(
                 ],
             ]),
             sources: ["App/Sources/**"],
+            resources: ["App/Resources/**"],
             dependencies: [
                 .target(name: "LevelFeature"),
                 .target(name: "MenuFeature"),
@@ -83,6 +84,18 @@ let project = Project(
                 .target(name: "GameContent"),
                 .target(name: "Simulation"),
             ]
+        ),
+    ],
+    schemes: [
+        .scheme(
+            name: "HistoryTeller",
+            shared: true,
+            buildAction: .buildAction(targets: ["HistoryTeller"]),
+            runAction: .runAction(
+                configuration: "Debug",
+                // StoreKit-конфиг для локального теста покупок в Xcode
+                options: .options(storeKitConfigurationPath: .relativeToManifest("App/Store.storekit"))
+            )
         ),
     ]
 )

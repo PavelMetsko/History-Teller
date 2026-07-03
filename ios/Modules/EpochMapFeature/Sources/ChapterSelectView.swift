@@ -10,26 +10,37 @@ public struct Chapter: Identifiable {
     public let subtitle: String
     public let coverSceneId: String?   // арт обложки (сцена из эпохи)
     public let icon: String            // SF Symbol для заглушки
-    public let available: Bool
+    public let available: Bool         // контент существует
+    public let free: Bool              // бесплатная (иначе — за покупкой)
     public let progressText: String?
 
     public init(id: String, number: Int, title: String, subtitle: String,
-                coverSceneId: String?, icon: String, available: Bool, progressText: String?) {
+                coverSceneId: String?, icon: String, available: Bool,
+                free: Bool = false, progressText: String?) {
         self.id = id; self.number = number; self.title = title; self.subtitle = subtitle
         self.coverSceneId = coverSceneId; self.icon = icon
-        self.available = available; self.progressText = progressText
+        self.available = available; self.free = free; self.progressText = progressText
     }
+
+    /// Заблокирована пейволлом: контент есть, не бесплатна и покупка не сделана.
+    public func locked(unlocked: Bool) -> Bool { available && !free && !unlocked }
 }
 
 public struct ChapterSelectView: View {
     private let chapters: [Chapter]
+    private let unlocked: Bool
+    private let priceText: String
     private let onSelect: (Chapter) -> Void
     private let onBack: () -> Void
 
     public init(chapters: [Chapter],
+                unlocked: Bool = true,
+                priceText: String = "",
                 onSelect: @escaping (Chapter) -> Void,
                 onBack: @escaping () -> Void) {
         self.chapters = chapters
+        self.unlocked = unlocked
+        self.priceText = priceText
         self.onSelect = onSelect
         self.onBack = onBack
     }
@@ -49,7 +60,11 @@ public struct ChapterSelectView: View {
 
                     HStack(spacing: 20) {
                         ForEach(chapters) { ch in
-                            ChapterCard(chapter: ch) { if ch.available { onSelect(ch) } }
+                            ChapterCard(chapter: ch,
+                                        locked: ch.locked(unlocked: unlocked),
+                                        priceText: priceText) {
+                                if ch.available { onSelect(ch) }
+                            }
                         }
                     }
                     .frame(maxHeight: .infinity)
@@ -67,6 +82,8 @@ public struct ChapterSelectView: View {
 
 private struct ChapterCard: View {
     let chapter: Chapter
+    var locked: Bool = false
+    var priceText: String = ""
     let onTap: () -> Void
 
     var body: some View {
@@ -119,6 +136,22 @@ private struct ChapterCard: View {
                     Image(systemName: "lock.fill").font(.system(size: 26, weight: .bold))
                         .foregroundStyle(DS.Palette.ink.opacity(0.5))
                 }
+            } else if locked {
+                // платная глава: золотой замок в углу поверх обложки
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Image(systemName: "lock.fill")
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundStyle(.white)
+                            .padding(7)
+                            .background(Circle().fill(DS.Palette.maroon))
+                            .overlay(Circle().strokeBorder(DS.Palette.gold, lineWidth: 1.5))
+                            .shadow(color: .black.opacity(0.3), radius: 2, y: 1)
+                    }
+                }
+                .padding(8)
             }
         }
         .frame(width: 210, height: 168)
@@ -134,7 +167,13 @@ private struct ChapterCard: View {
                 .font(.dsCaption(10))
                 .foregroundStyle(DS.Palette.inkSoft)
                 .lineLimit(1)
-            if chapter.available, let p = chapter.progressText {
+            if locked {
+                HStack(spacing: 4) {
+                    Image(systemName: "lock.fill").font(.system(size: 9, weight: .bold))
+                    Text(priceText.isEmpty ? L10n.s("ui.locked_hint") : priceText).font(.dsCaption(11))
+                }
+                .foregroundStyle(DS.Palette.maroon)
+            } else if chapter.available, let p = chapter.progressText {
                 Text(p).font(.dsCaption(10)).foregroundStyle(DS.Palette.success)
             } else if !chapter.available {
                 Text(L10n.s("ui.soon")).font(.dsCaption(11)).foregroundStyle(DS.Palette.maroon)

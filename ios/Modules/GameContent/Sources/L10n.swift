@@ -40,6 +40,9 @@ public enum L10n {
     /// Опционально (для локализации контента: если ключа нет — nil, оставляем исходник).
     public static func opt(_ key: String) -> String? { table[key] }
 
+    /// Русское (базовое) значение ключа — для обратного соответствия (напр. локализация акт-заголовков).
+    public static func ruBase(_ key: String) -> String? { base[key] }
+
     private static func read(_ code: String) -> [String: String] {
         guard let url = Bundle.gameContent.url(forResource: "i18n_\(code)", withExtension: "json"),
               let data = try? Data(contentsOf: url),

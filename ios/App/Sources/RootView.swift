@@ -13,6 +13,9 @@ struct RootView: View {
     @State private var loadError: String?
     @State private var progress = ProgressStore()
     @State private var selectedEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "rome"
+    @State private var store = Store.shared
+    @State private var showPaywall = false
+    @State private var pendingEpoch: String?
     @AppStorage("ht.lang") private var langOverride = ""
     @State private var screen: Screen = {
         let env = ProcessInfo.processInfo.environment
@@ -34,8 +37,32 @@ struct RootView: View {
     var body: some View {
         ZStack {
             DS.Palette.backdrop.ignoresSafeArea()
-            content
+
+            // Контент рендерим в landscape-«сцене» с ограничением соотношения сторон:
+            // на iPhone заполняет экран, на «квадратном» iPad — центрированная полоса
+            // (иначе панели/меню растягиваются в пустоту).
+            GeometryReader { geo in
+                let stage = stageSize(geo.size)
+                content
+                    .frame(width: stage.width, height: stage.height)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity)
+            }
+
+            if showPaywall {
+                PaywallView(
+                    onClose: { withAnimation(.easeOut(duration: 0.2)) { showPaywall = false } },
+                    onUnlocked: {
+                        withAnimation(.easeOut(duration: 0.2)) { showPaywall = false }
+                        if let e = pendingEpoch { selectedEpoch = e; go(.map) }
+                    }
+                )
                 .transition(.opacity)
+                .zIndex(30)
+            }
+        }
+        .onAppear {
+            if ProcessInfo.processInfo.environment["HT_PAYWALL"] == "1" { showPaywall = true }
         }
         .onChange(of: screen) { _, _ in updateMusic() }
         .onChange(of: langOverride) { _, _ in
@@ -45,6 +72,14 @@ struct RootView: View {
     }
 
     /// Музыка сквозняком: тема настроения уровня, иначе базовая. Один трек не перезапускается.
+    /// Ограничение «сцены» по минимальному соотношению сторон (ширина/высота).
+    /// Экран элонгированнее — заполняем; «квадратнее» (iPad) — центрируем полосу.
+    private func stageSize(_ s: CGSize) -> CGSize {
+        let minAspect: CGFloat = 1.7
+        guard s.height > 0 else { return s }
+        return (s.width / s.height) >= minAspect ? s : CGSize(width: s.width, height: s.width / minAspect)
+    }
+
     private func updateMusic() {
         guard let pack else { return }
         let track: String
@@ -68,7 +103,17 @@ struct RootView: View {
             case .chapters:
                 ChapterSelectView(
                     chapters: chapters(pack),
-                    onSelect: { ch in if ch.available { selectedEpoch = ch.id; go(.map) } },
+                    unlocked: store.isUnlocked,
+                    priceText: store.priceText,
+                    onSelect: { ch in
+                        guard ch.available else { return }
+                        if ch.free || store.isUnlocked {
+                            selectedEpoch = ch.id; go(.map)
+                        } else {
+                            pendingEpoch = ch.id
+                            withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
+                        }
+                    },
                     onBack: { go(.menu) }
                 )
             case .map:
@@ -105,15 +150,17 @@ struct RootView: View {
             let ls = pack.levels(epoch: epoch)
             return L10n.s("ui.progress", ls.filter { progress.isCompleted($0.id) }.count, ls.count)
         }
-        func ch(_ id: String, _ n: Int, _ cover: String?, _ icon: String, _ available: Bool) -> Chapter {
+        func ch(_ id: String, _ n: Int, _ cover: String?, _ icon: String,
+                _ available: Bool, free: Bool = false) -> Chapter {
             Chapter(id: id, number: n,
                     title: L10n.s("chapter.\(id).title"),
                     subtitle: L10n.s("chapter.\(id).subtitle"),
                     coverSceneId: cover, icon: icon,
-                    available: available, progressText: available ? prog(id) : nil)
+                    available: available, free: free,
+                    progressText: available ? prog(id) : nil)
         }
         return [
-            ch("rome", 1, "forum", "building.columns.fill", true),
+            ch("rome", 1, "forum", "building.columns.fill", true, free: true),
             ch("tudor", 2, "tower", "crown.fill", true),
             ch("egypt", 3, nil, "pyramid.fill", false),
         ]

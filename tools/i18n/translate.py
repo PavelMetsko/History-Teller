@@ -40,7 +40,8 @@ def translate_lang(code,name):
         res=call(prompt)
         if res is None:
             print(f"    ✗ chunk {i//B} failed for {code}"); return None
-        out.update(res)
+        # нормализуем литеральный "\n" (модель иногда экранирует перенос как текст)
+        out.update({k: (v.replace("\\n", "\n") if isinstance(v, str) else v) for k, v in res.items()})
         print(f"    {code}: {len(out)}/{len(keys)}")
     return out
 

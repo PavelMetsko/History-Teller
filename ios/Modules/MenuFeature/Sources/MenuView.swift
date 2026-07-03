@@ -21,9 +21,12 @@ public struct MenuView: View {
             BookPage {
                 HStack(spacing: 20) {
                     titleBlock
+                        .layoutPriority(1)
                     Spacer(minLength: 0)
                     heroSprites
                 }
+                .frame(maxWidth: 720)                       // плотная композиция, не растягиваться на iPad
+                .frame(maxWidth: .infinity)                 // и центрироваться в книге
                 .padding(EdgeInsets(top: 24, leading: 48, bottom: 24, trailing: 36))
             }
             .padding(EdgeInsets(top: 16, leading: 20, bottom: 16, trailing: 20))
@@ -79,6 +82,8 @@ public struct MenuView: View {
             Text("History Teller")
                 .font(.dsSerif(48))
                 .foregroundStyle(DS.Palette.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
                 .padding(.top, 4)
 
             // тонкая линия-росчерк под заголовком
@@ -90,6 +95,7 @@ public struct MenuView: View {
             Text(L10n.s("ui.menu_sub"))
                 .font(.dsBody(15))
                 .foregroundStyle(DS.Palette.inkSoft)
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, 14)
 
             playButton

@@ -28,7 +28,6 @@ public struct EpochMapView: View {
     }
 
     private var orderedIds: [String] { levels.map(\.id) }
-    private var columns: [GridItem] { Array(repeating: GridItem(.flexible(), spacing: 18), count: 4) }
 
     public var body: some View {
         ZStack {
@@ -76,27 +75,32 @@ public struct EpochMapView: View {
     }
 
     private var levelsArea: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 14) {
-                ForEach(Array(sections.enumerated()), id: \.offset) { _, section in
-                    if let act = section.act {
-                        actHeader(act)
-                    }
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(section.items, id: \.level.id) { entry in
-                            LevelCard(
-                                number: entry.index + 1,
-                                title: entry.level.title,
-                                sceneId: entry.level.cover ?? entry.level.scenes.first,
-                                completed: progress.isCompleted(entry.level.id),
-                                unlocked: progress.isUnlocked(levelId: entry.level.id, orderedIds: orderedIds),
-                                onTap: { onSelect(entry.level.id) }
-                            )
+        GeometryReader { geo in
+            // Число колонок от ширины: iPhone (W≈662)→3, iPad (W≈1122)→4 (макс 4).
+            let count = max(2, min(4, Int(geo.size.width / 210)))
+            let cols = Array(repeating: GridItem(.flexible(), spacing: 18), count: count)
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 14) {
+                    ForEach(Array(sections.enumerated()), id: \.offset) { _, section in
+                        if let act = section.act {
+                            actHeader(act)
+                        }
+                        LazyVGrid(columns: cols, spacing: 16) {
+                            ForEach(section.items, id: \.level.id) { entry in
+                                LevelCard(
+                                    number: entry.index + 1,
+                                    title: entry.level.title,
+                                    sceneId: entry.level.cover ?? entry.level.scenes.first,
+                                    completed: progress.isCompleted(entry.level.id),
+                                    unlocked: progress.isUnlocked(levelId: entry.level.id, orderedIds: orderedIds),
+                                    onTap: { onSelect(entry.level.id) }
+                                )
+                            }
                         }
                     }
                 }
+                .padding(.vertical, 4)
             }
-            .padding(.vertical, 4)
         }
     }
 
@@ -151,45 +155,45 @@ private struct LevelCard: View {
     }
 
     private var thumbnail: some View {
-        ZStack {
-            if let sceneId {
-                Image.scene(sceneId)
-                    .resizable().scaledToFill()
-                    .frame(height: 74)
-                    .clipped()
-                    .saturation(unlocked ? 1 : 0)
-            } else {
-                DS.Palette.sky.opacity(0.4).frame(height: 74)
-            }
-
-            if !unlocked {
-                Color.black.opacity(0.4)
-                Image(systemName: "lock.fill")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundStyle(.white.opacity(0.9))
-            } else if completed {
-                VStack {
-                    HStack {
-                        Spacer()
-                        ZStack {
-                            Image(systemName: "seal.fill")
-                                .foregroundStyle(DS.Palette.success)
-                            Image(systemName: "checkmark")
-                                .font(.system(size: 11, weight: .heavy))
-                                .foregroundStyle(.white)
-                        }
-                        .font(.system(size: 26))
-                        .shadow(color: .black.opacity(0.25), radius: 2, y: 1)
-                    }
-                    Spacer()
+        // Пропорциональный тайл: высота = ширина карточки / 1.78 (16:9) — не «сплющивается».
+        Color.clear
+            .aspectRatio(16.0 / 9.0, contentMode: .fit)
+            .overlay {
+                if let sceneId {
+                    Image.scene(sceneId)
+                        .resizable().scaledToFill()
+                        .saturation(unlocked ? 1 : 0)
+                } else {
+                    DS.Palette.sky.opacity(0.4)
                 }
-                .padding(6)
             }
-        }
-        .frame(height: 74)
-        .frame(maxWidth: .infinity)
-        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
-            .strokeBorder(DS.Palette.ink.opacity(0.5), lineWidth: 2))
+            .overlay {
+                if !unlocked {
+                    ZStack {
+                        Color.black.opacity(0.4)
+                        Image(systemName: "lock.fill")
+                            .font(.system(size: 26, weight: .bold))
+                            .foregroundStyle(.white.opacity(0.9))
+                    }
+                } else if completed {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            ZStack {
+                                Image(systemName: "seal.fill").foregroundStyle(DS.Palette.success)
+                                Image(systemName: "checkmark")
+                                    .font(.system(size: 11, weight: .heavy)).foregroundStyle(.white)
+                            }
+                            .font(.system(size: 26))
+                            .shadow(color: .black.opacity(0.25), radius: 2, y: 1)
+                        }
+                        Spacer()
+                    }
+                    .padding(6)
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .strokeBorder(DS.Palette.ink.opacity(0.5), lineWidth: 2))
     }
 }

@@ -47,6 +47,18 @@ cat.update({
  "ui.wrong_scene": "Верные герои — да не то место",
  "ui.wrong_inert": "Совсем не то — ни место, ни лица",
  "ui.load_fail": "Не удалось загрузить контент",
+ "ui.unlock_title": "Открой все главы",
+ "ui.unlock_body": "Первая глава — бесплатно. Разовая покупка открывает все главы, включая будущие.",
+ "ui.unlock_cta": "Открыть все главы",
+ "ui.unlock_cta_price": "Открыть — %@",
+ "ui.restore": "Восстановить покупку",
+ "ui.unlocked_thanks": "Спасибо! Все главы открыты.",
+ "ui.locked_hint": "Требуется покупка",
+ "ui.solved": "Разгадано!",
+ "ui.next": "Дальше",
+ "ui.acc_fact": "Факт",
+ "ui.acc_simplification": "Упрощение",
+ "ui.acc_legend": "Легенда",
 })
 
 os.makedirs(rp("Content/i18n"), exist_ok=True)
