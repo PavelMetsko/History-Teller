@@ -75,6 +75,31 @@ public enum RomeContent {
             guard let raw = try? json(id) else { continue }
             levels.append(try ContentDb.loadLevel(raw))
         }
+        localize(db, &levels)
         return Pack(db: db, levels: levels.sorted { $0.order < $1.order })
+    }
+
+    /// Наложить перевод на имена/сцены/уровни (движок сравнивает по id — на симуляцию не влияет).
+    private static func localize(_ db: ContentDb, _ levels: inout [LevelDef]) {
+        guard L10n.lang != "ru" else { return }
+        var chNames: [String: String] = [:], scNames: [String: String] = [:], scActions: [String: String] = [:]
+        for id in db.characters.keys { if let t = L10n.opt("char.\(id)") { chNames[id] = t } }
+        for id in db.scenes.keys {
+            if let t = L10n.opt("scene.\(id)") { scNames[id] = t }
+            if let t = L10n.opt("scene.\(id).action") { scActions[id] = t }
+        }
+        db.localizeNames(characterNames: chNames, sceneNames: scNames, sceneActions: scActions)
+
+        for i in levels.indices {
+            let id = levels[i].id
+            if let t = L10n.opt("level.\(id).title") { levels[i].title = t }
+            if let t = L10n.opt("level.\(id).goal")  { levels[i].goalText = t }
+            if let t = L10n.opt("level.\(id).hint")  { levels[i].goalHint = t }
+            if let t = L10n.opt("level.\(id).intro") { levels[i].initialText = t }
+            if levels[i].factCard != nil {
+                if let t = L10n.opt("level.\(id).fact")   { levels[i].factCard!.text = t }
+                if let t = L10n.opt("level.\(id).source") { levels[i].factCard!.source = t }
+            }
+        }
     }
 }

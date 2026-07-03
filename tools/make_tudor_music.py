@@ -44,6 +44,13 @@ def bell_sample(t, total, period, freq):
     s = sum(a * math.sin(2*math.pi*freq*m*lt) for m, a in partials)
     return s * env * 0.5
 
+def drum_sample(t, total, period, freq):
+    """Маршевый барабан: низкий тон с быстрым спадом высоты и амплитуды, удар раз в period."""
+    lt = (t % total) % period
+    env = math.exp(-lt * 9.0) * min(1.0, lt * 400)
+    pitch = freq * (1.0 + 3.0 * math.exp(-lt * 40.0))   # щелчок атаки
+    return math.sin(2*math.pi*pitch*lt) * env * 0.9
+
 TRACKS = {
     "tudor_court": dict(     # G–D–Em–C, величаво, яркий лютневый щипок
         chords=[[196.00,246.94,293.66],[146.83,185.00,220.00],
@@ -61,6 +68,12 @@ TRACKS = {
         chord_dur=5.0, step_dur=2.5, pattern=[0,2],
         octave=1.0, decay=3.0, bright=0.15, pad_gain=0.55, arp_gain=0.22,
         bell=dict(period=5.0, freq=73.42, gain=0.30)),
+    "tudor_battle": dict(    # Em–C–G–D, маршевая, стаккато-щипок + барабанный пульс
+        chords=[[164.81,196.00,246.94],[130.81,164.81,196.00],
+                [196.00,246.94,293.66],[146.83,185.00,220.00]],
+        chord_dur=2.0, step_dur=0.25, pattern=[0,1,2,1,0,2,1,2],
+        octave=2.0, decay=9.0, bright=0.5, pad_gain=0.42, arp_gain=0.30,
+        bell=None, drum=dict(period=0.5, freq=60.0, gain=0.5)),
 }
 
 def render(cfg, out: Path):
@@ -73,9 +86,12 @@ def render(cfg, out: Path):
              + cfg["arp_gain"] * arp_sample(t, cfg["chords"], cfg["chord_dur"], total,
                                             cfg["step_dur"], cfg["pattern"], cfg["octave"],
                                             cfg["decay"], cfg["bright"]))
-        if cfg["bell"]:
+        if cfg.get("bell"):
             b = cfg["bell"]
             s += b["gain"] * bell_sample(t, total, b["period"], b["freq"])
+        if cfg.get("drum"):
+            d = cfg["drum"]
+            s += d["gain"] * drum_sample(t, total, d["period"], d["freq"])
         s = max(-1.0, min(1.0, s)) * 0.5
         frames += struct.pack("<h", int(s * 32767))
     with wave.open(str(out), "w") as w:

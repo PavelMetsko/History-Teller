@@ -100,7 +100,7 @@ public struct LevelBoardView: View {
         }
         .onChange(of: model.isSolved) { _, solved in if solved { win() } }
         .alert(model.level.title, isPresented: $showInfo) {
-            Button("Понятно", role: .cancel) {}
+            Button(L10n.s("ui.ok"), role: .cancel) {}
         } message: {
             Text([model.level.initialText, model.level.goalHint]
                 .compactMap { $0 }.joined(separator: "\n\n"))
@@ -381,9 +381,9 @@ private struct PanelCell: View {
     private var wrongHint: String? {
         switch diagnosis {
         case .ok:              return nil
-        case .wrongCharacters: return "Место то — да не те лица"
-        case .wrongScene:      return "Верные герои — да не то место"
-        case .inert:           return "Совсем не то — ни место, ни лица"
+        case .wrongCharacters: return L10n.s("ui.wrong_chars")
+        case .wrongScene:      return L10n.s("ui.wrong_scene")
+        case .inert:           return L10n.s("ui.wrong_inert")
         }
     }
 
@@ -411,7 +411,7 @@ private struct PanelCell: View {
                     Image(systemName: isTapTarget ? "hand.point.up.left.fill" : "photo")
                         .font(.system(size: 20))
                         .foregroundStyle(isTapTarget ? DS.Palette.maroon : DS.Palette.inkSoft.opacity(0.6))
-                    Text(isTapTarget ? "тапни" : "сцена")
+                    Text(isTapTarget ? L10n.s("ui.tap") : L10n.s("ui.scene"))
                         .font(.dsCaption(10)).foregroundStyle(DS.Palette.inkSoft.opacity(0.7))
                 }
             }

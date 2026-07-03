@@ -42,7 +42,7 @@ public struct ChapterSelectView: View {
                 VStack(spacing: 12) {
                     VStack(spacing: 2) {
                         Text("History Teller").font(.dsSerif(26)).foregroundStyle(DS.Palette.ink)
-                        Text("Выбери эпоху").font(.dsCaption(12)).foregroundStyle(DS.Palette.inkSoft)
+                        Text(L10n.s("ui.choose_epoch")).font(.dsCaption(12)).foregroundStyle(DS.Palette.inkSoft)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 2)
@@ -102,7 +102,7 @@ private struct ChapterCard: View {
             // плашка «Глава N» сверху
             VStack {
                 HStack {
-                    Text("Глава \(chapter.number)")
+                    Text(L10n.s("ui.chapter_n", chapter.number))
                         .font(.dsCaption(10))
                         .foregroundStyle(.white)
                         .padding(.horizontal, 8).padding(.vertical, 4)
@@ -137,7 +137,7 @@ private struct ChapterCard: View {
             if chapter.available, let p = chapter.progressText {
                 Text(p).font(.dsCaption(10)).foregroundStyle(DS.Palette.success)
             } else if !chapter.available {
-                Text("Скоро").font(.dsCaption(11)).foregroundStyle(DS.Palette.maroon)
+                Text(L10n.s("ui.soon")).font(.dsCaption(11)).foregroundStyle(DS.Palette.maroon)
             }
         }
         .frame(maxWidth: .infinity)

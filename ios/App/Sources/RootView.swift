@@ -13,6 +13,7 @@ struct RootView: View {
     @State private var loadError: String?
     @State private var progress = ProgressStore()
     @State private var selectedEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "rome"
+    @AppStorage("ht.lang") private var langOverride = ""
     @State private var screen: Screen = {
         let env = ProcessInfo.processInfo.environment
         if let id = env["HT_LEVEL"] { return .level(id) }
@@ -37,6 +38,10 @@ struct RootView: View {
                 .transition(.opacity)
         }
         .onChange(of: screen) { _, _ in updateMusic() }
+        .onChange(of: langOverride) { _, _ in
+            // Смена языка: пересобрать пак (контент локализуется на загрузке) и перерисовать UI.
+            pack = nil; loadError = nil
+        }
     }
 
     /// Музыка сквозняком: тема настроения уровня, иначе базовая. Один трек не перезапускается.
@@ -98,37 +103,31 @@ struct RootView: View {
     private func chapters(_ pack: RomeContent.Pack) -> [Chapter] {
         func prog(_ epoch: String) -> String {
             let ls = pack.levels(epoch: epoch)
-            return "Пройдено \(ls.filter { progress.isCompleted($0.id) }.count) из \(ls.count)"
+            return L10n.s("ui.progress", ls.filter { progress.isCompleted($0.id) }.count, ls.count)
+        }
+        func ch(_ id: String, _ n: Int, _ cover: String?, _ icon: String, _ available: Bool) -> Chapter {
+            Chapter(id: id, number: n,
+                    title: L10n.s("chapter.\(id).title"),
+                    subtitle: L10n.s("chapter.\(id).subtitle"),
+                    coverSceneId: cover, icon: icon,
+                    available: available, progressText: available ? prog(id) : nil)
         }
         return [
-            Chapter(id: "rome", number: 1, title: "Древний Рим",
-                    subtitle: "Цезарь · Клеопатра · Брут",
-                    coverSceneId: "forum", icon: "building.columns.fill",
-                    available: true, progressText: prog("rome")),
-            Chapter(id: "tudor", number: 2, title: "Тюдоры",
-                    subtitle: "Генрих VIII и наследники",
-                    coverSceneId: "tower", icon: "crown.fill",
-                    available: true, progressText: prog("tudor")),
-            Chapter(id: "egypt", number: 3, title: "Древний Египет",
-                    subtitle: "Фараоны и боги",
-                    coverSceneId: nil, icon: "pyramid.fill",
-                    available: false, progressText: nil),
+            ch("rome", 1, "forum", "building.columns.fill", true),
+            ch("tudor", 2, "tower", "crown.fill", true),
+            ch("egypt", 3, nil, "pyramid.fill", false),
         ]
     }
 
     private func chapterTitle(_ epoch: String) -> String {
-        switch epoch {
-        case "tudor": return "Дом Тюдоров"
-        case "egypt": return "Древний Египет"
-        default:      return "Древний Рим"
-        }
+        L10n.s("map.\(epoch)")
     }
 
     private func errorView(_ message: String) -> some View {
         VStack(spacing: 10) {
             Image(systemName: "exclamationmark.triangle.fill")
                 .font(.largeTitle).foregroundStyle(DS.Palette.maroon)
-            Text("Не удалось загрузить контент").font(.dsBody()).foregroundStyle(DS.Palette.ink)
+            Text(L10n.s("ui.load_fail")).font(.dsBody()).foregroundStyle(DS.Palette.ink)
             Text(message)
                 .font(.dsCaption())
                 .foregroundStyle(DS.Palette.inkSoft)
@@ -143,6 +142,7 @@ struct RootView: View {
 
     private func load() {
         do {
+            L10n.configure()
             pack = try RomeContent.load()
             Audio.shared.preload()
             updateMusic()

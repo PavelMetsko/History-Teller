@@ -4,7 +4,7 @@ import Foundation
 
 public struct CharacterDef: Decodable {
     public let id: String
-    public let name: String
+    public var name: String
     public var tags: [String] = []
 
     enum CodingKeys: String, CodingKey { case id, name, tags }
@@ -23,7 +23,7 @@ public struct CharacterDef: Decodable {
 
 public struct SceneDef: Decodable {
     public let id: String
-    public let name: String
+    public var name: String
     public var tags: [String] = []
     public var slots: Int = 2
     public var action: String?        // глагол карты действия («заговор», «соблазнение»)
@@ -113,8 +113,8 @@ public struct RuleDef: Decodable {
 
 public struct FactCard: Decodable {
     public let accuracy: String   // fact | simplification | legend
-    public let text: String
-    public let source: String
+    public var text: String
+    public var source: String
 }
 
 /// Стартовые условия уровня (например, «Брут — союзник Цезаря»).
@@ -153,7 +153,7 @@ public struct Panel: Decodable, Equatable {
 public struct LevelDef: Decodable {
     public let id: String
     public var order: Int = 0
-    public let title: String
+    public var title: String
     public let epoch: String
     public let panels: Int
     public var scenes: [String] = []

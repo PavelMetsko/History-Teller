@@ -7,6 +7,7 @@ public struct MenuView: View {
     private let onPlay: () -> Void
     private let onReset: () -> Void
     @State private var showResetConfirm = false
+    @State private var showSettings = false
 
     public init(onPlay: @escaping () -> Void, onReset: @escaping () -> Void) {
         self.onPlay = onPlay
@@ -26,13 +27,32 @@ public struct MenuView: View {
                 .padding(EdgeInsets(top: 24, leading: 48, bottom: 24, trailing: 36))
             }
             .padding(EdgeInsets(top: 16, leading: 20, bottom: 16, trailing: 20))
+            .overlay(alignment: .topTrailing) {
+                Button { withAnimation(.easeIn(duration: 0.2)) { showSettings = true } } label: {
+                    Image(systemName: "gearshape.fill")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(DS.Palette.ink.opacity(0.7))
+                        .frame(width: 44, height: 44)
+                        .background(Circle().fill(DS.Palette.paper))
+                        .overlay(Circle().strokeBorder(DS.Palette.ink.opacity(0.3), lineWidth: 1.5))
+                        .shadow(color: .black.opacity(0.2), radius: 3, y: 1)
+                }
+                .buttonStyle(.plain)
+                .padding(.top, 30).padding(.trailing, 40)
+            }
+
+            if showSettings {
+                SettingsView(onClose: { withAnimation(.easeOut(duration: 0.2)) { showSettings = false } })
+                    .transition(.opacity)
+                    .zIndex(20)
+            }
 
             if showResetConfirm {
                 BookDialog(
-                    title: "Сбросить прогресс?",
-                    message: "Все пройденные уровни станут заново закрытыми.\nЭто действие нельзя отменить.",
-                    confirmTitle: "Сбросить",
-                    cancelTitle: "Отмена",
+                    title: L10n.s("ui.reset_title"),
+                    message: L10n.s("ui.reset_msg"),
+                    confirmTitle: L10n.s("ui.reset_confirm"),
+                    cancelTitle: L10n.s("ui.cancel"),
                     destructive: true,
                     onConfirm: { onReset(); withAnimation(.easeOut(duration: 0.2)) { showResetConfirm = false } },
                     onCancel: { withAnimation(.easeOut(duration: 0.2)) { showResetConfirm = false } }
@@ -43,6 +63,7 @@ public struct MenuView: View {
         }
         .onAppear {
             if ProcessInfo.processInfo.environment["HT_RESETDLG"] == "1" { showResetConfirm = true }
+            if ProcessInfo.processInfo.environment["HT_SETTINGS"] == "1" { showSettings = true }
         }
     }
 
@@ -50,7 +71,7 @@ public struct MenuView: View {
         VStack(alignment: .leading, spacing: 0) {
             Spacer(minLength: 0)
 
-            Text("ИСТОРИЧЕСКАЯ ГОЛОВОЛОМКА")
+            Text(L10n.s("ui.tagline_caps"))
                 .font(.dsCaption(11))
                 .tracking(2)
                 .foregroundStyle(DS.Palette.maroon)
@@ -66,7 +87,7 @@ public struct MenuView: View {
                 .frame(width: 120, height: 3)
                 .padding(.top, 8)
 
-            Text("Собери историю из панелей —\nи узнай, как было на самом деле.")
+            Text(L10n.s("ui.menu_sub"))
                 .font(.dsBody(15))
                 .foregroundStyle(DS.Palette.inkSoft)
                 .padding(.top, 14)
@@ -77,7 +98,7 @@ public struct MenuView: View {
             Button {
                 withAnimation(.easeIn(duration: 0.2)) { showResetConfirm = true }
             } label: {
-                Text("Сбросить прогресс")
+                Text(L10n.s("ui.reset"))
                     .font(.dsCaption())
                     .foregroundStyle(DS.Palette.inkSoft)
             }
@@ -91,7 +112,7 @@ public struct MenuView: View {
         Button(action: onPlay) {
             HStack(spacing: 10) {
                 Image(systemName: "play.fill")
-                Text("Играть")
+                Text(L10n.s("ui.play"))
             }
             .font(.dsSerif(22))
             .foregroundStyle(DS.Palette.paper)

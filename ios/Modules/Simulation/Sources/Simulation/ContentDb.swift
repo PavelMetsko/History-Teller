@@ -3,14 +3,24 @@ import Foundation
 /// Загруженный контент эпохи. Принимает JSON-строки — источник (бандл, файл, CDN)
 /// решается на уровне приложения, движок об этом не знает.
 public final class ContentDb {
-    public let characters: [String: CharacterDef]
-    public let scenes: [String: SceneDef]
+    public private(set) var characters: [String: CharacterDef]
+    public private(set) var scenes: [String: SceneDef]
     public let rulesByPriorityDesc: [RuleDef]
 
     init(characters: [String: CharacterDef], scenes: [String: SceneDef], rules: [RuleDef]) {
         self.characters = characters
         self.scenes = scenes
         self.rulesByPriorityDesc = rules
+    }
+
+    /// Локализовать отображаемые имена/действия (загрузчик передаёт словари id→перевод).
+    /// Движок сравнивает по id/тегам, так что перевод имён на симуляцию не влияет.
+    public func localizeNames(characterNames: [String: String],
+                              sceneNames: [String: String],
+                              sceneActions: [String: String]) {
+        for (id, name) in characterNames where characters[id] != nil { characters[id]!.name = name }
+        for (id, name) in sceneNames where scenes[id] != nil { scenes[id]!.name = name }
+        for (id, act) in sceneActions where scenes[id] != nil { scenes[id]!.action = act }
     }
 
     public static func fromJson(charactersJson: String, scenesJson: String, rulesJson: String) throws -> ContentDb {

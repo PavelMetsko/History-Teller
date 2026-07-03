@@ -53,7 +53,7 @@ public struct EpochMapView: View {
             Text(title)
                 .font(.dsSerif(26))
                 .foregroundStyle(DS.Palette.ink)
-            Text("Пройдено \(levels.filter { progress.isCompleted($0.id) }.count) из \(levels.count)")
+            Text(L10n.s("ui.progress", levels.filter { progress.isCompleted($0.id) }.count, levels.count))
                 .font(.dsCaption(12))
                 .foregroundStyle(DS.Palette.inkSoft)
         }

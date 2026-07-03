@@ -5,9 +5,9 @@ import AVFoundation
 public final class Audio {
     public static let shared = Audio()
 
-    public var soundEnabled = true {
-        didSet { if !soundEnabled { stopMusic() } }
-    }
+    /// Переключатели из настроек (по умолчанию вкл). Ключи общие с SettingsView.
+    public var musicOn: Bool { (UserDefaults.standard.object(forKey: "ht.music") as? Bool) ?? true }
+    public var sfxOn: Bool   { (UserDefaults.standard.object(forKey: "ht.sfx")   as? Bool) ?? true }
 
     public enum SFX: String, CaseIterable {
         case place, remove, select, ally, conspire, love, kill, crown, envy, win, error
@@ -42,7 +42,7 @@ public final class Audio {
     }
 
     public func play(_ s: SFX, volume: Float = 1.0) {
-        guard soundEnabled else { return }
+        guard sfxOn else { return }
         let p = pool(for: s)
         guard let player = p.first(where: { !$0.isPlaying }) ?? p.first else { return }
         player.volume = volume
@@ -54,7 +54,7 @@ public final class Audio {
 
     /// Запустить фоновую тему по имени. Если та же тема уже играет — не перезапускаем (сквозняк).
     public func startMusic(named name: String = "theme", volume: Float = 0.3) {
-        guard soundEnabled else { return }
+        guard musicOn else { return }
         if currentMusicName == name, music?.isPlaying == true {
             music?.volume = volume
             return
