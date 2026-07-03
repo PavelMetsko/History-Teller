@@ -1,0 +1,61 @@
+{
+  "id": "howard",
+  "order": 70,
+  "epoch": "tudor",
+  "title": "Кэтрин Говард",
+  "panels": 3,
+  "scenes": [
+    "chapel",
+    "court",
+    "tribunal",
+    "tower"
+  ],
+  "characters": [
+    "henry",
+    "howard",
+    "cromwell"
+  ],
+  "goalText": "Юная королева — и снова плаха",
+  "goalHint": "Обвинение — от министра, казнь — в Тауэре. Мириться ей не дадут.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "howard",
+          "is": "beheaded"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "chapel",
+      "characters": [
+        "henry",
+        "howard"
+      ]
+    },
+    {
+      "scene": "tribunal",
+      "characters": [
+        "cromwell",
+        "howard"
+      ]
+    },
+    {
+      "scene": "tower",
+      "characters": [
+        "henry",
+        "howard"
+      ]
+    }
+  ],
+  "cover": "tower",
+  "music": "tudor_lament",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Кэтрин Говард, пятая жена, была совсем юна. Всплыли её добрачные связи и обвинения в измене королю с придворным Томасом Калпепером. 13 февраля 1542 г. её обезглавили в Тауэре. По преданию, накануне она просила принести плаху, чтобы «достойно» отрепетировать казнь.",
+    "source": "Дж. Денни, «Кэтрин Говард»"
+  },
+  "act": "Акт II · Шесть жён"
+}

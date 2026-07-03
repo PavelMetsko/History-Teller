@@ -1,0 +1,58 @@
+{
+  "id": "bosworth",
+  "order": 10,
+  "epoch": "tudor",
+  "act": "Акт I · Восхождение",
+  "title": "Босворт",
+  "panels": 1,
+  "scenes": [
+    "battlefield"
+  ],
+  "characters": [
+    "henry7",
+    "richard3"
+  ],
+  "initialState": {
+    "flags": {
+      "richard3": [
+        "reigns",
+        "crowned"
+      ]
+    }
+  },
+  "initialText": "Ричард III правит; Генрих Тюдор идёт отнять корону",
+  "goalText": "Генрих Тюдор свергает Ричарда III и берёт корону",
+  "goalHint": "Всё решит битва при Босворте.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "richard3",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "henry7",
+          "is": "crowned"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "battlefield",
+      "characters": [
+        "henry7",
+        "richard3"
+      ]
+    }
+  ],
+  "cover": "battlefield",
+  "music": "battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "22 августа 1485 г. при Босворте Генрих Тюдор разбил войско Ричарда III; Ричард пал в бою — последний английский король, погибший на поле брани. Так закончилась Война Алой и Белой розы и началась династия Тюдоров. Корону, по преданию, нашли в кустах боярышника и надели на Генриха прямо на поле.",
+    "source": "Полидор Вергилий, «История Англии»"
+  }
+}

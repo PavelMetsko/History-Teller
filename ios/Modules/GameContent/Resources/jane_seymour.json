@@ -1,0 +1,57 @@
+{
+  "id": "jane_seymour",
+  "order": 50,
+  "epoch": "tudor",
+  "title": "Джейн Сеймур",
+  "panels": 2,
+  "scenes": [
+    "chapel",
+    "chamber"
+  ],
+  "characters": [
+    "henry",
+    "seymour"
+  ],
+  "goalText": "Джейн дарит королю сына — и платит жизнью",
+  "goalHint": "Обвенчай их, затем — опочивальня и наследник. Роды окажутся роковыми.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "henry",
+          "is": "has_heir"
+        }
+      },
+      {
+        "flag": {
+          "char": "seymour",
+          "is": "dead"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "chapel",
+      "characters": [
+        "henry",
+        "seymour"
+      ]
+    },
+    {
+      "scene": "chamber",
+      "characters": [
+        "henry",
+        "seymour"
+      ]
+    }
+  ],
+  "cover": "chamber",
+  "music": "tudor_romance",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Джейн Сеймур, третья жена, в октябре 1537 г. родила Генриху долгожданного сына — будущего Эдуарда VI. Через двенадцать дней она умерла от родильной горячки. Генрих оплакивал её как единственную «истинную» жену и завещал похоронить себя рядом с ней.",
+    "source": "Э. Уир, «Шесть жён Генриха VIII»"
+  },
+  "act": "Акт II · Шесть жён"
+}

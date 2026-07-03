@@ -12,6 +12,7 @@ struct RootView: View {
     @State private var pack: RomeContent.Pack?
     @State private var loadError: String?
     @State private var progress = ProgressStore()
+    @State private var selectedEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "rome"
     @State private var screen: Screen = {
         let env = ProcessInfo.processInfo.environment
         if let id = env["HT_LEVEL"] { return .level(id) }
@@ -62,12 +63,13 @@ struct RootView: View {
             case .chapters:
                 ChapterSelectView(
                     chapters: chapters(pack),
-                    onSelect: { ch in if ch.id == "rome" { go(.map) } },
+                    onSelect: { ch in if ch.available { selectedEpoch = ch.id; go(.map) } },
                     onBack: { go(.menu) }
                 )
             case .map:
                 EpochMapView(
-                    levels: pack.levels,
+                    title: chapterTitle(selectedEpoch),
+                    levels: pack.levels(epoch: selectedEpoch),
                     db: pack.db,
                     progress: progress,
                     onSelect: { go(.level($0)) },
@@ -94,21 +96,32 @@ struct RootView: View {
     }
 
     private func chapters(_ pack: RomeContent.Pack) -> [Chapter] {
-        [
+        func prog(_ epoch: String) -> String {
+            let ls = pack.levels(epoch: epoch)
+            return "Пройдено \(ls.filter { progress.isCompleted($0.id) }.count) из \(ls.count)"
+        }
+        return [
             Chapter(id: "rome", number: 1, title: "Древний Рим",
                     subtitle: "Цезарь · Клеопатра · Брут",
                     coverSceneId: "forum", icon: "building.columns.fill",
-                    available: true,
-                    progressText: "Пройдено \(progress.solvedCount) из \(pack.levels.count)"),
-            Chapter(id: "napoleon", number: 2, title: "Наполеон",
-                    subtitle: "Империя и Сто дней",
-                    coverSceneId: nil, icon: "flag.fill",
-                    available: false, progressText: nil),
+                    available: true, progressText: prog("rome")),
+            Chapter(id: "tudor", number: 2, title: "Тюдоры",
+                    subtitle: "Генрих VIII и наследники",
+                    coverSceneId: "tower", icon: "crown.fill",
+                    available: true, progressText: prog("tudor")),
             Chapter(id: "egypt", number: 3, title: "Древний Египет",
                     subtitle: "Фараоны и боги",
                     coverSceneId: nil, icon: "pyramid.fill",
                     available: false, progressText: nil),
         ]
+    }
+
+    private func chapterTitle(_ epoch: String) -> String {
+        switch epoch {
+        case "tudor": return "Дом Тюдоров"
+        case "egypt": return "Древний Египет"
+        default:      return "Древний Рим"
+        }
     }
 
     private func errorView(_ message: String) -> some View {

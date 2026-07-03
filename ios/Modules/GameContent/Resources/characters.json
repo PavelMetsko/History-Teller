@@ -79,5 +79,144 @@
       "general"
     ],
     "emoji": "👦"
+  },
+  {
+    "id": "henry",
+    "name": "Генрих VIII",
+    "tags": [
+      "king"
+    ],
+    "emoji": "🤴"
+  },
+  {
+    "id": "aragon",
+    "name": "Екатерина Арагонская",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "👑"
+  },
+  {
+    "id": "boleyn",
+    "name": "Анна Болейн",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "🖤"
+  },
+  {
+    "id": "seymour",
+    "name": "Джейн Сеймур",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "🤍"
+  },
+  {
+    "id": "cleves",
+    "name": "Анна Клевская",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "🧡"
+  },
+  {
+    "id": "howard",
+    "name": "Кэтрин Говард",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "💛"
+  },
+  {
+    "id": "parr",
+    "name": "Кэтрин Парр",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "💚"
+  },
+  {
+    "id": "cromwell",
+    "name": "Томас Кромвель",
+    "tags": [
+      "advisor"
+    ],
+    "emoji": "🧥"
+  },
+  {
+    "id": "pope",
+    "name": "Папа Римский",
+    "tags": [
+      "pope"
+    ],
+    "emoji": "⛪"
+  },
+  {
+    "id": "henry7",
+    "name": "Генрих VII",
+    "tags": [
+      "king"
+    ],
+    "emoji": "🤴"
+  },
+  {
+    "id": "richard3",
+    "name": "Ричард III",
+    "tags": [
+      "king"
+    ],
+    "emoji": "👑"
+  },
+  {
+    "id": "eliz_york",
+    "name": "Елизавета Йоркская",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "🌹"
+  },
+  {
+    "id": "jane_grey",
+    "name": "Леди Джейн Грей",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "🕊️"
+  },
+  {
+    "id": "mary1",
+    "name": "Мария I",
+    "tags": [
+      "lady",
+      "catholic"
+    ],
+    "emoji": "🔥"
+  },
+  {
+    "id": "philip",
+    "name": "Филипп Испанский",
+    "tags": [
+      "king",
+      "foreign",
+      "catholic"
+    ],
+    "emoji": "🛡️"
+  },
+  {
+    "id": "elizabeth",
+    "name": "Елизавета I",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "👸"
+  },
+  {
+    "id": "mary_stuart",
+    "name": "Мария Стюарт",
+    "tags": [
+      "lady"
+    ],
+    "emoji": "💔"
   }
 ]

@@ -6,17 +6,20 @@ import GameProgress
 
 /// Карта эпохи — книжный разворот: главы-уровни на пергаментной странице.
 public struct EpochMapView: View {
+    private let title: String
     private let levels: [LevelDef]
     private let db: ContentDb
     private let progress: ProgressStore
     private let onSelect: (String) -> Void
     private let onBack: () -> Void
 
-    public init(levels: [LevelDef],
+    public init(title: String = "Древний Рим",
+                levels: [LevelDef],
                 db: ContentDb,
                 progress: ProgressStore,
                 onSelect: @escaping (String) -> Void,
                 onBack: @escaping () -> Void) {
+        self.title = title
         self.levels = levels
         self.db = db
         self.progress = progress
@@ -47,10 +50,10 @@ public struct EpochMapView: View {
 
     private var header: some View {
         VStack(spacing: 2) {
-            Text("Древний Рим")
+            Text(title)
                 .font(.dsSerif(26))
                 .foregroundStyle(DS.Palette.ink)
-            Text("Пройдено \(progress.solvedCount) из \(levels.count)")
+            Text("Пройдено \(levels.filter { progress.isCompleted($0.id) }.count) из \(levels.count)")
                 .font(.dsCaption(12))
                 .foregroundStyle(DS.Palette.inkSoft)
         }

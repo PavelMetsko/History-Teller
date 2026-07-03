@@ -833,5 +833,669 @@
         "flag": "dead"
       }
     ]
+  },
+  {
+    "id": "marry",
+    "comment": "Король венчается с дамой — та становится королевой",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "wedding"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "notFlags": [
+            "foreign_locked"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "wed",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "wed",
+        "from": "B",
+        "to": "A"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "queen"
+      }
+    ]
+  },
+  {
+    "id": "arrange",
+    "comment": "Министр устраивает королю политический брак с чужеземкой",
+    "priority": 7,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "advisor"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "foreign_locked"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeFlag",
+        "target": "B",
+        "flag": "foreign_locked"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "presented"
+      }
+    ]
+  },
+  {
+    "id": "break_from_rome",
+    "comment": "Король порывает с Папой и объявляет себя главой церкви",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ],
+          "flags": [
+            "defiant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "supreme_head"
+      }
+    ]
+  },
+  {
+    "id": "annul",
+    "comment": "Глава церкви расторгает собственный брак",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "tribunal"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ],
+          "flags": [
+            "supreme_head"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "queen"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeRelation",
+        "rel": "wed",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "removeRelation",
+        "rel": "wed",
+        "from": "B",
+        "to": "A"
+      },
+      {
+        "type": "removeFlag",
+        "target": "B",
+        "flag": "queen"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "cast_off"
+      }
+    ]
+  },
+  {
+    "id": "bear_heir",
+    "comment": "Королева дарит королю наследника",
+    "priority": 8,
+    "trigger": {
+      "sceneTags": [
+        "chamber"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "queen"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "has_heir"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "has_heir"
+      }
+    ]
+  },
+  {
+    "id": "childbed_fever",
+    "comment": "Родильная горячка уносит королеву",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "chamber"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "has_heir"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "dead"
+      }
+    ]
+  },
+  {
+    "id": "accuse",
+    "comment": "Министр возводит на королеву обвинение в измене",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "tribunal"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "advisor"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "queen"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "accused"
+      }
+    ]
+  },
+  {
+    "id": "behead",
+    "comment": "Обвинённую королеву казнят на плахе Тауэра",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "tower"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "accused"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "beheaded"
+      }
+    ]
+  },
+  {
+    "id": "reconcile",
+    "comment": "Умная королева мирится с королём и избегает плахи",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "accused"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeFlag",
+        "target": "B",
+        "flag": "accused"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "pardoned"
+      }
+    ]
+  },
+  {
+    "id": "usurp",
+    "comment": "Претендент разбивает правящего короля в битве и берёт корону",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "battle"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ],
+          "notFlags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "king"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "removeFlag",
+        "target": "B",
+        "flag": "reigns"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "crowned"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "reigns"
+      }
+    ]
+  },
+  {
+    "id": "crown",
+    "comment": "Законный претендент венчается на царство в аббатстве",
+    "priority": 8,
+    "trigger": {
+      "sceneTags": [
+        "coronation"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "flags": [
+            "royal_claim"
+          ],
+          "notFlags": [
+            "reigns"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "crowned"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "reigns"
+      }
+    ]
+  },
+  {
+    "id": "depose",
+    "comment": "Законная наследница низлагает узурпаторшу и восходит сама",
+    "priority": 7,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "royal_claim"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeFlag",
+        "target": "B",
+        "flag": "reigns"
+      },
+      {
+        "type": "removeFlag",
+        "target": "B",
+        "flag": "crowned"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "accused"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "crowned"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "reigns"
+      }
+    ]
+  },
+  {
+    "id": "restore_rome",
+    "comment": "Католическая королева возвращает Англию под власть Рима",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady",
+            "catholic"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "rome_restored"
+      }
+    ]
+  },
+  {
+    "id": "settle_church",
+    "comment": "Протестантская королева утверждает свою церковь",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "reigns"
+          ],
+          "notFlags": [
+            "catholic"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "settled"
+      }
+    ]
+  },
+  {
+    "id": "condemn_rival",
+    "comment": "Правящая королева осуждает соперницу-претендентку на измену",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "tribunal"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "royal_claim"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "accused"
+      }
+    ]
+  },
+  {
+    "id": "execute_rival",
+    "comment": "Правящий монарх казнит осуждённую на плахе",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "tower"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "accused"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "beheaded"
+      }
+    ]
+  },
+  {
+    "id": "repel_armada",
+    "comment": "Английский флот громит армаду чужеземного короля",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "naval"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "king",
+            "foreign"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "defeated"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "triumphant"
+      }
+    ]
   }
 ]

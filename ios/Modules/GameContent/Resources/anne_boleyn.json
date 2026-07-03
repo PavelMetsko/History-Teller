@@ -1,0 +1,60 @@
+{
+  "id": "anne_boleyn",
+  "order": 40,
+  "epoch": "tudor",
+  "title": "Анна Болейн",
+  "panels": 3,
+  "scenes": [
+    "chapel",
+    "tribunal",
+    "tower"
+  ],
+  "characters": [
+    "henry",
+    "boleyn",
+    "cromwell"
+  ],
+  "goalText": "Из-за неё пал Рим — и на плахе она же",
+  "goalHint": "Обвинение возводит министр, а не король. Затем — Тауэр.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "boleyn",
+          "is": "beheaded"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "chapel",
+      "characters": [
+        "henry",
+        "boleyn"
+      ]
+    },
+    {
+      "scene": "tribunal",
+      "characters": [
+        "cromwell",
+        "boleyn"
+      ]
+    },
+    {
+      "scene": "tower",
+      "characters": [
+        "henry",
+        "boleyn"
+      ]
+    }
+  ],
+  "cover": "tower",
+  "music": "tudor_lament",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Анна Болейн, ради которой Генрих порвал с Римом, родила дочь Елизавету, но не сына. Потеряв к ней интерес, король позволил Томасу Кромвелю сфабриковать обвинения в измене, инцесте и колдовстве. 19 мая 1536 г. Анну обезглавили в Тауэре. Обвинения почти наверняка были ложными.",
+    "source": "Э. Айвз, «Жизнь и смерть Анны Болейн»"
+  },
+  "act": "Акт II · Шесть жён"
+}

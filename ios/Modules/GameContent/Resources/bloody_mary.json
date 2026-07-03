@@ -1,0 +1,78 @@
+{
+  "id": "bloody_mary",
+  "order": 100,
+  "epoch": "tudor",
+  "act": "Акт III · Наследники",
+  "title": "Кровавая Мэри",
+  "panels": 3,
+  "scenes": [
+    "abbey",
+    "court",
+    "chapel"
+  ],
+  "characters": [
+    "mary1",
+    "philip"
+  ],
+  "initialState": {
+    "flags": {
+      "mary1": [
+        "royal_claim"
+      ]
+    }
+  },
+  "initialText": "Мария — королева и ревностная католичка; она вернёт Англию Риму",
+  "goalText": "Мария венчается, возвращает Рим и берёт мужа-испанца",
+  "goalHint": "Сначала коронация, затем возврат под Рим при дворе, затем брак с Филиппом.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "mary1",
+          "is": "crowned"
+        }
+      },
+      {
+        "flag": {
+          "char": "mary1",
+          "is": "rome_restored"
+        }
+      },
+      {
+        "relation": {
+          "rel": "wed",
+          "from": "philip",
+          "to": "mary1"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "abbey",
+      "characters": [
+        "mary1"
+      ]
+    },
+    {
+      "scene": "court",
+      "characters": [
+        "mary1"
+      ]
+    },
+    {
+      "scene": "chapel",
+      "characters": [
+        "philip",
+        "mary1"
+      ]
+    }
+  ],
+  "cover": "court",
+  "music": "tudor_court",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Мария I (1553–58) вернула Англию в католичество и вышла за Филиппа II Испанского. Ради веры она сожгла на кострах около 280 протестантов, включая архиепископа Кранмера, — за что и прозвана «Кровавой». Брак был бездетным и непопулярным, а после её смерти Реформацию восстановила Елизавета.",
+    "source": "Э. Уир, «Дети Англии»"
+  }
+}

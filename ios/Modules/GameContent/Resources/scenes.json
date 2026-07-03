@@ -222,5 +222,94 @@
     "emoji": "⚱️",
     "action": "конец",
     "actionIcon": "icon_dead"
+  },
+  {
+    "id": "chapel",
+    "name": "Капелла",
+    "tags": [
+      "wedding"
+    ],
+    "slots": 2,
+    "emoji": "💒",
+    "action": "венчание",
+    "actionIcon": "icon_love",
+    "roles": [
+      "король",
+      "невеста"
+    ]
+  },
+  {
+    "id": "court",
+    "name": "Королевский двор",
+    "tags": [
+      "court"
+    ],
+    "slots": 2,
+    "emoji": "👑",
+    "action": "двор",
+    "actionIcon": "icon_crown"
+  },
+  {
+    "id": "tribunal",
+    "name": "Суд",
+    "tags": [
+      "tribunal"
+    ],
+    "slots": 2,
+    "emoji": "⚖️",
+    "action": "суд",
+    "actionIcon": "icon_plotting"
+  },
+  {
+    "id": "tower",
+    "name": "Тауэр",
+    "tags": [
+      "tower"
+    ],
+    "slots": 2,
+    "emoji": "🗡️",
+    "action": "казнь",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "король",
+      "осуждённая"
+    ]
+  },
+  {
+    "id": "chamber",
+    "name": "Опочивальня",
+    "tags": [
+      "chamber"
+    ],
+    "slots": 2,
+    "emoji": "🕯️",
+    "action": "наследник",
+    "actionIcon": "icon_heir",
+    "roles": [
+      "король",
+      "королева"
+    ]
+  },
+  {
+    "id": "vatican",
+    "name": "Ватикан",
+    "tags": [
+      "vatican"
+    ],
+    "slots": 2,
+    "emoji": "✝️",
+    "action": "прошение",
+    "actionIcon": "icon_box"
+  },
+  {
+    "id": "abbey",
+    "name": "Вестминстер",
+    "tags": [
+      "coronation"
+    ],
+    "slots": 2,
+    "emoji": "⛪",
+    "action": "коронация",
+    "actionIcon": "icon_crown"
   }
 ]
