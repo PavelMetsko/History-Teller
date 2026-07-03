@@ -8,6 +8,13 @@ UnityProject/[Oo]bj/
 UnityProject/[Ll]ogs/
 UnityProject/[Uu]ser[Ss]ettings/
 
+# Tuist-сгенерированное (пересоздаётся: cd ios && tuist generate)
+ios/*.xcodeproj
+ios/*.xcworkspace
+ios/Derived/
+ios/.build/
+ios/**/.build/
+
 # OS / IDE
 .DS_Store
 .idea/

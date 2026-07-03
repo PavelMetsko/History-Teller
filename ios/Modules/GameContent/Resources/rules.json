@@ -1,0 +1,535 @@
+[
+  {
+    "id": "smuggle",
+    "comment": "Слуга тайно проносит спутника внутрь — снимает с него засов 'не впускают'",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "smuggle"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "servant"
+          ]
+        },
+        {
+          "var": "B"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeFlag",
+        "target": "B",
+        "flag": "locked_out"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "inside"
+      }
+    ]
+  },
+  {
+    "id": "befriend",
+    "comment": "Двое живых в публичном месте становятся союзниками",
+    "priority": 1,
+    "trigger": {
+      "sceneTags": [
+        "public"
+      ],
+      "actors": [
+        {
+          "var": "A"
+        },
+        {
+          "var": "B"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "B",
+        "to": "A"
+      }
+    ]
+  },
+  {
+    "id": "conspire",
+    "comment": "Двое живых в тайном месте начинают заговор",
+    "priority": 2,
+    "trigger": {
+      "sceneTags": [
+        "secret"
+      ],
+      "actors": [
+        {
+          "var": "A"
+        },
+        {
+          "var": "B"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "plotting"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "plotting"
+      }
+    ]
+  },
+  {
+    "id": "offer_crown",
+    "comment": "Полководец на празднике подносит корону правителю",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "festival"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general"
+          ],
+          "slot": 0
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ],
+          "slot": 1
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "crowned"
+      }
+    ]
+  },
+  {
+    "id": "charm",
+    "comment": "Обаятельный персонаж в романтической сцене влюбляет в себя собеседника — но только если его сюда впустили (нет флага locked_out)",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "romantic"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming"
+          ],
+          "notFlags": [
+            "locked_out"
+          ]
+        },
+        {
+          "var": "B"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "loves",
+        "from": "B",
+        "to": "A"
+      }
+    ]
+  },
+  {
+    "id": "rivals",
+    "comment": "Двое влюблённых в одного — соперники (срабатывает в любой сцене, где все трое)",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [],
+      "actors": [
+        {
+          "var": "A",
+          "relations": [
+            {
+              "rel": "loves",
+              "to": "C"
+            }
+          ]
+        },
+        {
+          "var": "B",
+          "relations": [
+            {
+              "rel": "loves",
+              "to": "C"
+            }
+          ]
+        },
+        {
+          "var": "C"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "envies",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "envies",
+        "from": "B",
+        "to": "A"
+      }
+    ]
+  },
+  {
+    "id": "betrayal_kill",
+    "comment": "Заговорщик убивает своего союзника в Сенате и становится предателем",
+    "priority": 10,
+    "trigger": {
+      "sceneTags": [
+        "senate"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "flags": [
+            "plotting"
+          ],
+          "relations": [
+            {
+              "rel": "ally_of",
+              "to": "B"
+            }
+          ],
+          "slot": 0
+        },
+        {
+          "var": "B",
+          "slot": 1
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "traitor"
+      },
+      {
+        "type": "addRelation",
+        "rel": "betrayed",
+        "from": "A",
+        "to": "B"
+      }
+    ]
+  },
+  {
+    "id": "battle_justice",
+    "comment": "Полководец карает предателя на поле боя",
+    "priority": 10,
+    "trigger": {
+      "sceneTags": [
+        "battle"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general"
+          ],
+          "slot": 0
+        },
+        {
+          "var": "B",
+          "flags": [
+            "traitor"
+          ],
+          "slot": 1
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "addRelation",
+        "rel": "avenged",
+        "from": "A",
+        "to": "B"
+      }
+    ]
+  },
+  {
+    "id": "conquer",
+    "comment": "Рим разбивает соперника-правителя в битве",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "battle"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "rival"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "conqueror"
+      }
+    ]
+  },
+  {
+    "id": "back_ruler",
+    "comment": "Рим-победитель поддерживает правителя на публике",
+    "priority": 7,
+    "trigger": {
+      "sceneTags": [
+        "public"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman"
+          ],
+          "flags": [
+            "conqueror"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "backed"
+      }
+    ]
+  },
+  {
+    "id": "enthrone",
+    "comment": "Правитель, поддержанный Римом, восходит на трон",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "throne"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "ruler"
+          ],
+          "flags": [
+            "backed"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "crowned"
+      }
+    ]
+  },
+  {
+    "id": "beget_heir",
+    "comment": "Влюблённый правитель и его избранница в покоях обретают наследника",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "family"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ],
+          "relations": [
+            {
+              "rel": "loves",
+              "to": "A"
+            }
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "has_heir"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "has_heir"
+      }
+    ]
+  },
+  {
+    "id": "voyage",
+    "comment": "Слуга сопровождает царицу в дальний путь (в Рим)",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "voyage"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "servant"
+          ]
+        },
+        {
+          "var": "B"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "in_rome"
+      }
+    ]
+  },
+  {
+    "id": "honor",
+    "comment": "Римский правитель публично чествует прибывшую в Рим царицу",
+    "priority": 7,
+    "trigger": {
+      "sceneTags": [
+        "ceremony"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman",
+            "ruler"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ],
+          "flags": [
+            "in_rome"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "honored"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "flaunting"
+      }
+    ]
+  },
+  {
+    "id": "senate_envy",
+    "comment": "Сенатор негодует, видя царственные замашки и чужеземную царицу",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "senate"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "senator"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "roman"
+          ],
+          "flags": [
+            "flaunting"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "plotting"
+      }
+    ]
+  }
+]
