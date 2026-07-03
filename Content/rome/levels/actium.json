@@ -1,0 +1,59 @@
+{
+  "id": "actium",
+  "order": 130,
+  "act": "Акт III · Наследники",
+  "title": "Актиум",
+  "epoch": "rome",
+  "panels": 2,
+  "scenes": [
+    "palace",
+    "naval",
+    "battlefield"
+  ],
+  "characters": [
+    "antony",
+    "octavian",
+    "cleopatra"
+  ],
+  "goalText": "При Акциуме флот Антония разбит наголову",
+  "goalHint": "Антоний связал судьбу с Востоком — на море это его и погубит.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "antony",
+          "is": "fugitive"
+        }
+      },
+      {
+        "flag": {
+          "char": "octavian",
+          "is": "victor"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "palace",
+      "characters": [
+        "antony",
+        "cleopatra"
+      ]
+    },
+    {
+      "scene": "naval",
+      "characters": [
+        "octavian",
+        "antony"
+      ]
+    }
+  ],
+  "cover": "naval",
+  "music": "battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "2 сентября 31 г. до н.э. у мыса Акций флот Октавиана под началом Агриппы разгромил корабли Антония и Клеопатры. В разгар боя Клеопатра увела свою эскадру, Антоний бросился следом — и оба бежали в Египет, проиграв войну.",
+    "source": "Плутарх, «Антоний»; Дион Кассий"
+  }
+}

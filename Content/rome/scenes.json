@@ -166,5 +166,61 @@
       "почитает",
       "царица"
     ]
+  },
+  {
+    "id": "rubicon",
+    "name": "Рубикон",
+    "tags": [
+      "frontier"
+    ],
+    "slots": 2,
+    "emoji": "🌊",
+    "action": "перейти реку",
+    "actionIcon": "icon_ally",
+    "roles": [
+      "полководец",
+      "войско"
+    ]
+  },
+  {
+    "id": "harbor",
+    "name": "Гавань Египта",
+    "tags": [
+      "shore"
+    ],
+    "slots": 2,
+    "emoji": "⚓",
+    "action": "предательство",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "правитель",
+      "беглец"
+    ]
+  },
+  {
+    "id": "naval",
+    "name": "Морская битва",
+    "tags": [
+      "naval"
+    ],
+    "slots": 2,
+    "emoji": "🚢",
+    "action": "разгром",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "победитель",
+      "побеждённый"
+    ]
+  },
+  {
+    "id": "tomb",
+    "name": "Усыпальница",
+    "tags": [
+      "tomb"
+    ],
+    "slots": 2,
+    "emoji": "⚱️",
+    "action": "конец",
+    "actionIcon": "icon_dead"
   }
 ]

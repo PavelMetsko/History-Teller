@@ -1,0 +1,68 @@
+{
+  "id": "tarsus",
+  "order": 110,
+  "act": "Акт III · Наследники",
+  "title": "Царица и полководец",
+  "epoch": "rome",
+  "panels": 2,
+  "scenes": [
+    "gate",
+    "palace"
+  ],
+  "characters": [
+    "antony",
+    "cleopatra",
+    "apollodorus",
+    "octavian"
+  ],
+  "initialState": {
+    "flags": {
+      "cleopatra": [
+        "locked_out"
+      ]
+    }
+  },
+  "initialText": "Клеопатра прибывает к Антонию — но к нему так просто не войти",
+  "goalText": "Клеопатра очаровывает Антония и склоняет его к Востоку",
+  "goalHint": "Сначала устрой ей проход к полководцу, затем — встреча наедине.",
+  "goal": {
+    "all": [
+      {
+        "relation": {
+          "rel": "loves",
+          "from": "antony",
+          "to": "cleopatra"
+        }
+      },
+      {
+        "flag": {
+          "char": "antony",
+          "is": "eastern"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "gate",
+      "characters": [
+        "apollodorus",
+        "cleopatra"
+      ]
+    },
+    {
+      "scene": "palace",
+      "characters": [
+        "antony",
+        "cleopatra"
+      ]
+    }
+  ],
+  "cover": "palace",
+  "music": "romance",
+  "factCard": {
+    "accuracy": "simplification",
+    "text": "В 41 г. до н.э. Антоний вызвал Клеопатру в Тарс для объяснений. Она явилась на золочёной барке с пурпурными парусами, наряженная Афродитой, — и покорила его пиром. С этого началась их связь; Антоний всё крепче привязывался к Египту, отдаляясь от Рима.",
+    "source": "Плутарх, «Антоний»"
+  }
+}

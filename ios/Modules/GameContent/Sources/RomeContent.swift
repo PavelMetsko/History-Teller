@@ -11,12 +11,23 @@ public enum RomeContent {
 
     /// Порядок попыток загрузки уровней. Отсутствующие тихо пропускаются.
     private static let levelIds = [
+        // Акт I · Восхождение (49–48 до н.э.)
+        "rubicon",
+        "pharsalus",
+        "pompey_death",
+        // Акт II · Царица и диктатор (48–44 до н.э.)
         "cleopatra_charm",
         "cleopatra_throne",
         "cleopatra_heir",
         "caesar_crown",
         "caesar_assassination",
+        // Акт III · Наследники (43–30 до н.э.)
+        "triumvirate",
         "philippi",
+        "tarsus",
+        "discord",
+        "actium",
+        "alexandria",
         // "rivals" — вне основной линии (легенда/что-если): Цезарь и Антоний
         // не могли соперничать после мартовских ид. Файл сохранён для будущего блока.
     ]

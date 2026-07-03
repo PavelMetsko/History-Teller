@@ -1,6 +1,6 @@
 {
   "id": "philippi",
-  "order": 60,
+  "order": 100,
   "title": "Месть за Цезаря",
   "epoch": "rome",
   "panels": 3,
@@ -102,5 +102,6 @@
     "source": "Плутарх, «Брут»"
   },
   "music": "battle",
-  "cover": "battlefield"
+  "cover": "battlefield",
+  "act": "Акт III · Наследники"
 }

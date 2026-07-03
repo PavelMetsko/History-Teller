@@ -1,6 +1,6 @@
 {
   "id": "caesar_assassination",
-  "order": 50,
+  "order": 80,
   "title": "И ты, Брут?",
   "epoch": "rome",
   "panels": 3,
@@ -77,5 +77,6 @@
     "source": "Светоний, «Жизнь двенадцати цезарей»"
   },
   "music": "tension",
-  "cover": "senate"
+  "cover": "senate",
+  "act": "Акт II · Царица и диктатор"
 }

@@ -531,5 +531,307 @@
         "flag": "plotting"
       }
     ]
+  },
+  {
+    "id": "cross_rubicon",
+    "comment": "Полководец-римлянин переходит границу — начинается гражданская война",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "frontier"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "at_war"
+      }
+    ]
+  },
+  {
+    "id": "civil_war",
+    "comment": "Объявивший войну римлянин разбивает соперника-полководца",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "battle"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman"
+          ],
+          "flags": [
+            "at_war"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "fugitive"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "victor"
+      }
+    ]
+  },
+  {
+    "id": "slay_fugitive",
+    "comment": "Египетский двор предательски убивает беглеца ради выгоды",
+    "priority": 8,
+    "trigger": {
+      "sceneTags": [
+        "shore"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "egyptian"
+          ]
+        },
+        {
+          "var": "B",
+          "flags": [
+            "fugitive"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "treacherous"
+      }
+    ]
+  },
+  {
+    "id": "go_east",
+    "comment": "Римский полководец, очарованный чужеземной царицей, уходит к Востоку",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "romantic"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming",
+            "ruler"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general",
+            "roman"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "eastern"
+      }
+    ]
+  },
+  {
+    "id": "eastern_split",
+    "comment": "Рим не прощает полководцу его восточных уз — рождается вражда",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "public"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general",
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general",
+            "roman"
+          ],
+          "flags": [
+            "eastern"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "envies",
+        "from": "A",
+        "to": "B"
+      }
+    ]
+  },
+  {
+    "id": "naval_rout",
+    "comment": "На море римлянин топит флот полководца, связавшего судьбу с Востоком",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "naval"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman",
+            "general"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general"
+          ],
+          "flags": [
+            "eastern"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "fugitive"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "victor"
+      }
+    ]
+  },
+  {
+    "id": "fall_on_sword",
+    "comment": "Разбитый полководец бросается на свой меч",
+    "priority": 10,
+    "trigger": {
+      "sceneTags": [
+        "tomb"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general"
+          ],
+          "flags": [
+            "fugitive"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "dead"
+      }
+    ]
+  },
+  {
+    "id": "widow",
+    "comment": "Царица прощается с обречённым возлюбленным — и уже не мыслит жизни без него",
+    "priority": 11,
+    "trigger": {
+      "sceneTags": [
+        "tomb"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming",
+            "ruler"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general"
+          ],
+          "flags": [
+            "fugitive"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "widowed"
+      }
+    ]
+  },
+  {
+    "id": "aspic",
+    "comment": "Овдовевшая царица подносит к груди аспида",
+    "priority": 12,
+    "trigger": {
+      "sceneTags": [
+        "tomb"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming",
+            "ruler"
+          ],
+          "flags": [
+            "widowed"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "dead"
+      }
+    ]
   }
 ]

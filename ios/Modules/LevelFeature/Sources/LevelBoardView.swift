@@ -441,6 +441,27 @@ private struct PanelCell: View {
                 .padding(.top, size.height * 0.14)
         }
         .animation(.easeInOut(duration: 0.2), value: isWrong)
+        .overlay(alignment: .topTrailing) {
+            if panel.sceneId != nil {
+                Button {
+                    Audio.shared.play(.remove); Haptics.light()
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.7)) {
+                        model.setScene(nil, at: index)
+                    }
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 11, weight: .heavy))
+                        .foregroundStyle(DS.Palette.maroon)
+                        .frame(width: 24, height: 24)
+                        .background(Circle().fill(DS.Palette.paper.opacity(0.95)))
+                        .overlay(Circle().strokeBorder(DS.Palette.ink.opacity(0.4), lineWidth: 1.5))
+                        .shadow(color: .black.opacity(0.3), radius: 2, y: 1)
+                }
+                .buttonStyle(.plain)
+                .padding(6)
+                .transition(.scale.combined(with: .opacity))
+            }
+        }
         .background(
             GeometryReader { g in
                 Color.clear.preference(key: PanelFramesKey.self,

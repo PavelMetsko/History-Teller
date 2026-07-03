@@ -1,0 +1,57 @@
+{
+  "id": "pharsalus",
+  "order": 20,
+  "act": "Акт I · Восхождение",
+  "title": "Фарсал",
+  "epoch": "rome",
+  "panels": 2,
+  "scenes": [
+    "rubicon",
+    "battlefield"
+  ],
+  "characters": [
+    "caesar",
+    "pompey",
+    "antony"
+  ],
+  "goalText": "Цезарь разбивает Помпея в решающей битве",
+  "goalHint": "Сперва объяви войну у Рубикона — только тогда легионы пойдут в бой.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "pompey",
+          "is": "fugitive"
+        }
+      },
+      {
+        "flag": {
+          "char": "caesar",
+          "is": "victor"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "rubicon",
+      "characters": [
+        "caesar"
+      ]
+    },
+    {
+      "scene": "battlefield",
+      "characters": [
+        "caesar",
+        "pompey"
+      ]
+    }
+  ],
+  "cover": "battlefield",
+  "music": "battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "9 августа 48 г. до н.э. при Фарсале в Фессалии меньшая, но опытная армия Цезаря разгромила вдвое большие силы Помпея. Помпей бежал с поля боя и отплыл на восток — в Египет.",
+    "source": "Цезарь, «Записки о гражданской войне»; Аппиан"
+  }
+}

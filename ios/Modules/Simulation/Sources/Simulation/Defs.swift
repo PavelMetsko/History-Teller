@@ -167,10 +167,11 @@ public struct LevelDef: Decodable {
     public var solution: [Panel]?  // эталонное решение (для подсказок и валидации)
     public var music: String?      // тема настроения (напр. "battle"); nil → тема главы
     public var cover: String?      // сцена-обложка для карты; nil → первая из scenes
+    public var act: String?        // подглава-акт для группировки на карте («Акт I · Восхождение»)
 
     enum CodingKeys: String, CodingKey {
         case id, order, title, epoch, panels, scenes, characters,
-             initialState, initialText, goalText, goalHint, goal, factCard, solution, music, cover
+             initialState, initialText, goalText, goalHint, goal, factCard, solution, music, cover, act
     }
 
     public init(from decoder: Decoder) throws {
@@ -191,6 +192,7 @@ public struct LevelDef: Decodable {
         solution = try c.decodeIfPresent([Panel].self, forKey: .solution)
         music = try c.decodeIfPresent(String.self, forKey: .music)
         cover = try c.decodeIfPresent(String.self, forKey: .cover)
+        act = try c.decodeIfPresent(String.self, forKey: .act)
     }
 
     /// Свежий мир со стартовыми условиями. Вызывать для каждой симуляции (мир мутируется).

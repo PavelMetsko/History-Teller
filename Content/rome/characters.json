@@ -61,5 +61,23 @@
       "rival"
     ],
     "emoji": "🤴"
+  },
+  {
+    "id": "pompey",
+    "name": "Помпей Великий",
+    "tags": [
+      "roman",
+      "general"
+    ],
+    "emoji": "🎖️"
+  },
+  {
+    "id": "octavian",
+    "name": "Октавиан",
+    "tags": [
+      "roman",
+      "general"
+    ],
+    "emoji": "👦"
   }
 ]

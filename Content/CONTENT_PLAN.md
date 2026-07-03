@@ -34,26 +34,39 @@
 
 ---
 
-## Глава 1 — Древний Рим (Закат Республики, 49–42 до н.э.)
+## Глава 1 — Древний Рим: «Падение Республики» (49–30 до н.э.)
 
-Единая сюжетная арка: Цезарь и Клеопатра → заговор → убийство → месть.
+14 уровней в **3 акта** (поле `act` в JSON группирует карту). Все реализованы, арт есть,
+`solution`-поля провалидированы движком, каждый уровень решается 1–4 различимыми путями.
 
-| order | id | Событие (дата) | Механика (правила) | Статус |
-|---|---|---|---|---|
-| 10 | `cleopatra_charm` | Клеопатра тайно проникает к Цезарю (48) | smuggle → charm | ✅ есть |
-| 20 | `cleopatra_throne` | Разгром Птолемея, Клеопатра — царица (47) | conquer → back_ruler → enthrone | ✅ есть |
-| 30 | `cleopatra_heir` | Рождение Цезариона (47) | beget_heir | ✅ есть |
-| 40 | `cleopatra_in_rome` | Царица прибывает в Рим, сенат ропщет (46) | voyage → honor → senate_envy | 🔲 новый |
-| 50 | `caesar_crown` | Корона на Луперкалиях (44) | offer_crown | ✅ есть |
-| 60 | `rivals` | Соперничество за Клеопатру / ревность | charm → rivals (envy) | ✅ есть (переосмыслить) |
-| 70 | `conspiracy` | Заговор сенаторов созревает (44) | befriend → conspire | 🔲 новый (можно слить с 80) |
-| 80 | `caesar_assassination` | Мартовские иды — «И ты, Брут?» (44) | conspire → betrayal_kill | ✅ есть |
-| 90 | `philippi` | Месть за Цезаря, Филиппы (42) | battle_justice | ✅ есть |
-| 100 | `actium` | Антоний и Клеопатра, Акциум (31) | — | 🔮 будущее (нужен флот-арт) |
+### Акт I · Восхождение (49–48 до н.э.)
+| order | id | Событие | Механика |
+|---|---|---|---|
+| 10 | `rubicon` | Жребий брошен — переход Рубикона (49) | befriend → cross_rubicon |
+| 20 | `pharsalus` | Фарсал — разгром Помпея (48) | cross_rubicon → civil_war |
+| 30 | `pompey_death` | Гибель Помпея в Египте (48) | civil_war → slay_fugitive |
 
-**Итого:** 6 уровней готово, 2 новых дописать (`cleopatra_in_rome`, `conspiracy`), 1 на будущее.
+### Акт II · Царица и диктатор (48–44 до н.э.)
+| 40 | `cleopatra_charm` | Клеопатра тайно к Цезарю (48) | smuggle → charm |
+| 50 | `cleopatra_throne` | Разгром Птолемея, царица (47) | conquer → back_ruler → enthrone |
+| 60 | `cleopatra_heir` (id `cleopatra_rome`) | Клеопатра в Риме, сенат ропщет (46) | voyage → honor → senate_envy |
+| 70 | `caesar_crown` | Корона на Луперкалиях (44) | offer_crown |
+| 80 | `caesar_assassination` | Мартовские иды (44) | conspire(+Кассий) → betrayal_kill |
 
-Арт: все сцены и каст уже есть (forum, palace, gate, throne, battlefield, chambers, voyage, senate, banquet, lupercalia; Цезарь/Клеопатра/Брут/Кассий/Антоний/Аполлодор/Птолемей). Новые уровни собираются из готового.
+### Акт III · Наследники (43–30 до н.э.)
+| 90 | `triumvirate` | Второй триумвират (43) | befriend → conspire |
+| 100 | `philippi` | Месть за Цезаря, Филиппы (42) | battle_justice |
+| 110 | `tarsus` | Царица и полководец, Тарс (41) | smuggle → charm + go_east |
+| 120 | `discord` | Раскол Антоний/Октавиан (33) | go_east → eastern_split |
+| 130 | `actium` | Акциум, разгром флота (31) | go_east → naval_rout |
+| 140 | `alexandria` | Аспид Клеопатры (30) | fall_on_sword + widow → aspic |
+
+`rivals` — вне линии (файл сохранён, легенда/что-если). Новые персонажи: `pompey`, `octavian`.
+Новые сцены: `rubicon`(frontier), `harbor`(shore), `naval`(naval), `tomb`(tomb).
+Новые правила (тайтово по тегам, старые уровни не задеты): cross_rubicon, civil_war, slay_fugitive,
+go_east, eastern_split, naval_rout, fall_on_sword, widow, aspic. Флаги: at_war, victor, fugitive,
+eastern, treacherous, widowed. **Движок матчит только ЖИВЫХ** — смерть-после-смерти делать через флаг
+(widowed), не через мёртвого актора.
 
 ---
 

@@ -1,0 +1,67 @@
+{
+  "id": "pompey_death",
+  "order": 30,
+  "act": "Акт I · Восхождение",
+  "title": "Гибель Помпея",
+  "epoch": "rome",
+  "panels": 2,
+  "scenes": [
+    "battlefield",
+    "harbor"
+  ],
+  "characters": [
+    "caesar",
+    "pompey",
+    "ptolemy",
+    "antony"
+  ],
+  "initialState": {
+    "flags": {
+      "caesar": [
+        "at_war"
+      ]
+    }
+  },
+  "initialText": "Помпей бежит на восток, Цезарь идёт по пятам",
+  "goalText": "Помпей находит смерть на берегу Египта",
+  "goalHint": "Сначала разбей его в бою, затем — египетский берег, где ждёт двор Птолемея.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "pompey",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "ptolemy",
+          "is": "treacherous"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "battlefield",
+      "characters": [
+        "caesar",
+        "pompey"
+      ]
+    },
+    {
+      "scene": "harbor",
+      "characters": [
+        "ptolemy",
+        "pompey"
+      ]
+    }
+  ],
+  "cover": "harbor",
+  "music": "tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "28 сентября 48 г. до н.э. Помпей высадился в Египте, надеясь на убежище. По приказу придворных малолетнего Птолемея XIII (Потина и Ахилла) его закололи прямо в лодке на глазах у жены. Прибывший Цезарь, по преданию, отвернулся и заплакал, получив голову соперника — и обратил гнев на Птолемея.",
+    "source": "Плутарх, «Помпей»; Дион Кассий"
+  }
+}
