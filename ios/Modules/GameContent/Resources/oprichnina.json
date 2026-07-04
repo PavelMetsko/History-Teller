@@ -1,0 +1,39 @@
+{
+  "id": "oprichnina",
+  "order": 30,
+  "epoch": "empire",
+  "act": "Акт I · Иван Грозный",
+  "title": "Опричнина",
+  "panels": 1,
+  "scenes": [
+    "oprichnina"
+  ],
+  "characters": [
+    "ivan",
+    "malyuta"
+  ],
+  "goal": {
+    "flag": {
+      "char": "ivan",
+      "is": "terror"
+    }
+  },
+  "goalText": "Царь вводит опричнину и развязывает террор",
+  "goalHint": "В Александровской слободе царь опирается на верного опричника.",
+  "solution": [
+    {
+      "scene": "oprichnina",
+      "characters": [
+        "ivan",
+        "malyuta"
+      ]
+    }
+  ],
+  "cover": "oprichnina",
+  "music": "empire_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В 1565 г. Иван Грозный учредил опричнину — особый удел с личным войском. Опричники во главе с Малютой Скуратовым сеяли террор; погром Новгорода 1570 г. унёс тысячи жизней.",
+    "source": "История опричнины"
+  }
+}

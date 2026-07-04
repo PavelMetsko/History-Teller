@@ -1,0 +1,39 @@
+{
+  "id": "pugachev",
+  "order": 120,
+  "epoch": "empire",
+  "act": "Акт III · Екатерина Великая",
+  "title": "Восстание Пугачёва",
+  "panels": 1,
+  "scenes": [
+    "bunt"
+  ],
+  "characters": [
+    "pugachev",
+    "suvorov"
+  ],
+  "goal": {
+    "flag": {
+      "char": "pugachev",
+      "is": "condemned"
+    }
+  },
+  "goalText": "Самозванца, назвавшегося Петром III, ловит Суворов",
+  "goalHint": "Против бунтовщика власть посылает лучшего полководца.",
+  "solution": [
+    {
+      "scene": "bunt",
+      "characters": [
+        "suvorov",
+        "pugachev"
+      ]
+    }
+  ],
+  "cover": "bunt",
+  "music": "empire_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В 1773–1775 гг. казак Емельян Пугачёв, выдавший себя за «чудом спасшегося» Петра III, поднял крупнейшее в истории России восстание. К его подавлению привлекли Александра Суворова.",
+    "source": "История Пугачёвского бунта"
+  }
+}

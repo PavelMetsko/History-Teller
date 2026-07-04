@@ -1,0 +1,57 @@
+{
+  "id": "coronation",
+  "order": 30,
+  "epoch": "byzantium",
+  "act": "Акт I · Восхождение",
+  "title": "Порфирородные",
+  "panels": 1,
+  "scenes": [
+    "throne_b"
+  ],
+  "characters": [
+    "justinian",
+    "theodora"
+  ],
+  "initialState": {
+    "flags": {
+      "justinian": [
+        "heir"
+      ]
+    }
+  },
+  "initialText": "Юстиниан — наследник; настал час венчания на царство.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "justinian",
+          "is": "crowned"
+        }
+      },
+      {
+        "flag": {
+          "char": "theodora",
+          "is": "empress"
+        }
+      }
+    ]
+  },
+  "goalText": "Юстиниан и Феодора венчаются на царство",
+  "goalHint": "Император коронует и себя, и супругу-соправительницу.",
+  "solution": [
+    {
+      "scene": "throne_b",
+      "characters": [
+        "justinian",
+        "theodora"
+      ]
+    }
+  ],
+  "cover": "throne_b",
+  "music": "byzantium_ceremony",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В 527 г. Юстиниан стал единовластным императором. Феодора была коронована не просто супругой, а полноправной августой-соправительницей — случай почти небывалый для Византии.",
+    "source": "Хроники 527 г."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "flight",
+  "order": 60,
+  "epoch": "byzantium",
+  "act": "Акт II · Ника",
+  "title": "Пурпур — лучший саван",
+  "panels": 1,
+  "scenes": [
+    "chamber_b"
+  ],
+  "characters": [
+    "justinian",
+    "theodora"
+  ],
+  "initialState": {
+    "flags": {
+      "justinian": [
+        "reigns",
+        "wavering"
+      ],
+      "theodora": [
+        "empress"
+      ]
+    }
+  },
+  "initialText": "Город горит, император дрогнул; слово за императрицей.",
+  "goal": {
+    "flag": {
+      "char": "justinian",
+      "is": "steadfast"
+    }
+  },
+  "goalText": "Феодора удерживает готового бежать императора",
+  "goalHint": "Дрогнувшему государю нужна твёрдость супруги.",
+  "solution": [
+    {
+      "scene": "chamber_b",
+      "characters": [
+        "justinian",
+        "theodora"
+      ]
+    }
+  ],
+  "cover": "chamber_b",
+  "music": "byzantium_ceremony",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Когда Юстиниан уже готовил бегство, Феодора остановила совет словами: «Царская власть — лучший саван», предпочтя смерть на троне бегству. Её решимость спасла престол.",
+    "source": "Прокопий, «Войны»"
+  }
+}

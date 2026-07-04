@@ -19,3 +19,14 @@ ios/**/.build/
 .DS_Store
 .idea/
 .vs/
+
+# Android
+android/.gradle/
+android/build/
+android/*/build/
+android/local.properties
+android/.idea/
+
+# iOS build output (артефакты сборки — НЕ коммитить; там Assets.car >100МБ)
+ios/build/
+ios/DerivedData/

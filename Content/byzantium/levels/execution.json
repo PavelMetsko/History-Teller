@@ -1,0 +1,50 @@
+{
+  "id": "execution",
+  "order": 80,
+  "epoch": "byzantium",
+  "act": "Акт II · Ника",
+  "title": "Казнь Ипатия",
+  "panels": 1,
+  "scenes": [
+    "scaffold_b"
+  ],
+  "characters": [
+    "justinian",
+    "hypatius"
+  ],
+  "initialState": {
+    "flags": {
+      "justinian": [
+        "reigns"
+      ],
+      "hypatius": [
+        "defeated"
+      ]
+    }
+  },
+  "initialText": "Мятеж подавлен; невольного узурпатора ведут на плаху.",
+  "goal": {
+    "flag": {
+      "char": "hypatius",
+      "is": "dead"
+    }
+  },
+  "goalText": "Провозглашённого толпой узурпатора казнят",
+  "goalHint": "Невольного самозванца ждёт плаха.",
+  "solution": [
+    {
+      "scene": "scaffold_b",
+      "characters": [
+        "justinian",
+        "hypatius"
+      ]
+    }
+  ],
+  "cover": "scaffold_b",
+  "music": "byzantium_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Ипатий, против воли поднятый толпой, был казнён по приказу Юстиниана, а тело брошено в море. Так император расправился с тем, кого сам народ навязал ему в соперники.",
+    "source": "Хроники 532 г."
+  }
+}

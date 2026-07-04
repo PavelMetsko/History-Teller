@@ -1,0 +1,47 @@
+{
+  "id": "empress",
+  "order": 130,
+  "epoch": "revolution",
+  "act": "Акт III · Наполеон",
+  "title": "Императрица Жозефина",
+  "panels": 1,
+  "scenes": [
+    "sacre"
+  ],
+  "characters": [
+    "napoleon",
+    "josephine"
+  ],
+  "initialState": {
+    "flags": {
+      "napoleon": [
+        "emperor"
+      ]
+    }
+  },
+  "initialText": "Наполеон — император; ныне коронуется и его супруга Жозефина.",
+  "goal": {
+    "flag": {
+      "char": "josephine",
+      "is": "empress"
+    }
+  },
+  "goalText": "Наполеон коронует Жозефину императрицей",
+  "goalHint": "Император венчает свою супругу в Нотр-Дам.",
+  "solution": [
+    {
+      "scene": "sacre",
+      "characters": [
+        "napoleon",
+        "josephine"
+      ]
+    }
+  ],
+  "cover": "sacre",
+  "music": "revolution_romance",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "На той же церемонии 2 декабря 1804 г. Наполеон короновал свою жену Жозефину Богарне императрицей, возложив корону на неё собственноручно. Их брак, впрочем, был расторгнут в 1809 г. из-за отсутствия наследника.",
+    "source": "Коронация 1804 г."
+  }
+}

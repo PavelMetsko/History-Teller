@@ -1,0 +1,37 @@
+{
+  "id": "toulon",
+  "order": 100,
+  "epoch": "revolution",
+  "act": "Акт III · Наполеон",
+  "title": "Осада Тулона",
+  "panels": 1,
+  "scenes": [
+    "siege"
+  ],
+  "characters": [
+    "napoleon"
+  ],
+  "goal": {
+    "flag": {
+      "char": "napoleon",
+      "is": "hero"
+    }
+  },
+  "goalText": "Молодой Бонапарт добывает славу при Тулоне",
+  "goalHint": "Дай артиллерийскому капитану проявить себя в осаде.",
+  "solution": [
+    {
+      "scene": "siege",
+      "characters": [
+        "napoleon"
+      ]
+    }
+  ],
+  "cover": "siege",
+  "music": "revolution_battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В декабре 1793 г. 24-летний капитан артиллерии Наполеон Бонапарт спланировал взятие Тулона, занятого британцами. Успех принёс ему чин бригадного генерала и первую громкую славу.",
+    "source": "Осада Тулона, 1793 г."
+  }
+}

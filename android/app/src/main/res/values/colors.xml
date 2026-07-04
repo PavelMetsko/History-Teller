@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Совпадает с Palette.backdrop (Theme.kt) — чтобы сплэш не был серым. -->
+    <color name="backdrop">#FF34222E</color>
+    <!-- Фон адаптивной иконки — усреднённый край icon_1024 (тёплый бордовый). -->
+    <color name="ic_launcher_background">#622B26</color>
+</resources>

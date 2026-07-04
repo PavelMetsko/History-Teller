@@ -1,0 +1,48 @@
+{
+  "id": "potemkin",
+  "order": 100,
+  "epoch": "empire",
+  "act": "Акт III · Екатерина Великая",
+  "title": "Потёмкин и Крым",
+  "panels": 1,
+  "scenes": [
+    "buduar"
+  ],
+  "characters": [
+    "catherine",
+    "potemkin"
+  ],
+  "initialState": {
+    "flags": {
+      "catherine": [
+        "reigns",
+        "crowned"
+      ]
+    }
+  },
+  "initialText": "Екатерина царствует; её фаворит Потёмкин вершит большие дела.",
+  "goal": {
+    "flag": {
+      "char": "catherine",
+      "is": "expanded"
+    }
+  },
+  "goalText": "Всесильный фаворит приносит империи Крым",
+  "goalHint": "Фаворит императрицы раздвигает границы державы.",
+  "solution": [
+    {
+      "scene": "buduar",
+      "characters": [
+        "catherine",
+        "potemkin"
+      ]
+    }
+  ],
+  "cover": "buduar",
+  "music": "empire_romance",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Григорий Потёмкин, фаворит и, по слухам, тайный муж Екатерины II, руководил присоединением Крыма (1783) и освоением Новороссии. «Потёмкинские деревни» стали легендой о показном блеске.",
+    "source": "История Новороссии"
+  }
+}

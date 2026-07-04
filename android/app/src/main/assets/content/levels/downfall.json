@@ -1,0 +1,50 @@
+{
+  "id": "downfall",
+  "order": 130,
+  "epoch": "borgia",
+  "act": "Акт III · Государь",
+  "title": "Падение Чезаре",
+  "panels": 1,
+  "scenes": [
+    "piazza"
+  ],
+  "characters": [
+    "rovere",
+    "cesare"
+  ],
+  "initialState": {
+    "flags": {
+      "rovere": [
+        "pope"
+      ],
+      "cesare": [
+        "warlord"
+      ]
+    }
+  },
+  "initialText": "Юлий II на престоле; лишённый покровителя Чезаре беззащитен.",
+  "goal": {
+    "flag": {
+      "char": "cesare",
+      "is": "fallen"
+    }
+  },
+  "goalText": "Потерявший покровителя Чезаре низвергнут",
+  "goalHint": "Без папской тиары за спиной «государь» беззащитен.",
+  "solution": [
+    {
+      "scene": "piazza",
+      "characters": [
+        "rovere",
+        "cesare"
+      ]
+    }
+  ],
+  "cover": "piazza",
+  "music": "borgia_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Лишившись отца-папы, Чезаре Борджиа был арестован Юлием II, потерял все владения и бежал в Испанию, где погиб в ничтожной стычке в 1507 г. Так в одночасье рухнула держава, которой восхищался Макиавелли.",
+    "source": "Хроники падения дома Борджиа"
+  }
+}

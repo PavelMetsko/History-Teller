@@ -1,0 +1,47 @@
+{
+  "id": "excommunicate",
+  "order": 90,
+  "epoch": "borgia",
+  "act": "Акт III · Государь",
+  "title": "Отлучение",
+  "panels": 1,
+  "scenes": [
+    "curia"
+  ],
+  "characters": [
+    "rodrigo",
+    "savonarola"
+  ],
+  "initialState": {
+    "flags": {
+      "rodrigo": [
+        "pope"
+      ]
+    }
+  },
+  "initialText": "Александр VI не терпит обличителя своего двора.",
+  "goal": {
+    "flag": {
+      "char": "savonarola",
+      "is": "condemned"
+    }
+  },
+  "goalText": "Папа отлучает от церкви дерзкого проповедника",
+  "goalHint": "Обличителя разврата настигает папский гнев.",
+  "solution": [
+    {
+      "scene": "curia",
+      "characters": [
+        "rodrigo",
+        "savonarola"
+      ]
+    }
+  ],
+  "cover": "curia",
+  "music": "borgia_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Флорентийский монах Джироламо Савонарола яростно обличал разврат Борджиа и всей церкви, устраивая «костры тщеславия». В 1497 г. Александр VI отлучил его от церкви.",
+    "source": "История Савонаролы"
+  }
+}

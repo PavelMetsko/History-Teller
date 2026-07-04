@@ -1,0 +1,39 @@
+{
+  "id": "poison_death",
+  "order": 110,
+  "epoch": "borgia",
+  "act": "Акт III · Государь",
+  "title": "Роковой пир",
+  "panels": 1,
+  "scenes": [
+    "feast"
+  ],
+  "characters": [
+    "rodrigo",
+    "cesare"
+  ],
+  "goal": {
+    "flag": {
+      "char": "rodrigo",
+      "is": "dead"
+    }
+  },
+  "goalText": "Папа выпивает вино, отравленное для другого",
+  "goalHint": "Яд не разбирает, кто поднёс кубок к губам.",
+  "solution": [
+    {
+      "scene": "feast",
+      "characters": [
+        "rodrigo",
+        "cesare"
+      ]
+    }
+  ],
+  "cover": "feast",
+  "music": "borgia_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В августе 1503 г. Александр VI внезапно умер от лихорадки. По живучей легенде, папа и Чезаре по ошибке выпили вино, отравленное ими для богатого кардинала. Чезаре выжил, но потерял всё.",
+    "source": "Хроники 1503 г."
+  }
+}

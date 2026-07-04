@@ -1,0 +1,65 @@
+{
+  "id": "bonfire",
+  "order": 100,
+  "epoch": "borgia",
+  "act": "Акт III · Государь",
+  "title": "Костёр Савонаролы",
+  "panels": 2,
+  "scenes": [
+    "curia",
+    "piazza"
+  ],
+  "characters": [
+    "rodrigo",
+    "savonarola"
+  ],
+  "initialState": {
+    "flags": {
+      "rodrigo": [
+        "pope"
+      ]
+    }
+  },
+  "initialText": "Отлучённого Савонаролу ждёт костёр.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "savonarola",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "savonarola",
+          "is": "burned"
+        }
+      }
+    ]
+  },
+  "goalText": "Отлучённого проповедника предают огню",
+  "goalHint": "Сначала — отлучение, затем — костёр на площади.",
+  "solution": [
+    {
+      "scene": "curia",
+      "characters": [
+        "rodrigo",
+        "savonarola"
+      ]
+    },
+    {
+      "scene": "piazza",
+      "characters": [
+        "rodrigo",
+        "savonarola"
+      ]
+    }
+  ],
+  "cover": "piazza",
+  "music": "borgia_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "23 мая 1498 г. Джироламо Савонаролу повесили и сожгли на площади Синьории во Флоренции, а пепел бросили в реку Арно, чтобы не осталось реликвий. Так папа расправился с обличителем.",
+    "source": "История казни Савонаролы"
+  }
+}

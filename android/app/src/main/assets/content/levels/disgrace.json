@@ -1,0 +1,50 @@
+{
+  "id": "disgrace",
+  "order": 120,
+  "epoch": "byzantium",
+  "act": "Акт III · Слава и закат",
+  "title": "Опала Велизария",
+  "panels": 1,
+  "scenes": [
+    "court_b"
+  ],
+  "characters": [
+    "justinian",
+    "belisarius"
+  ],
+  "initialState": {
+    "flags": {
+      "justinian": [
+        "reigns"
+      ],
+      "belisarius": [
+        "victor"
+      ]
+    }
+  },
+  "initialText": "Велизарий в зените славы — и потому опасен для трона.",
+  "goal": {
+    "flag": {
+      "char": "belisarius",
+      "is": "disgraced"
+    }
+  },
+  "goalText": "Ревнивый император задвигает слишком славного героя",
+  "goalHint": "Слава полководца пугает престол больше, чем враги.",
+  "solution": [
+    {
+      "scene": "court_b",
+      "characters": [
+        "justinian",
+        "belisarius"
+      ]
+    }
+  ],
+  "cover": "court_b",
+  "music": "byzantium_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Юстиниан, опасаясь чрезмерной славы и популярности Велизария, не раз отзывал его, лишал войск и держал в немилости. Легенда даже сделала великого полководца слепым нищим — символом неблагодарности власти.",
+    "source": "Предания о Велизарии"
+  }
+}

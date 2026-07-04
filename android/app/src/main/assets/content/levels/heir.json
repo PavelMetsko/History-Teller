@@ -1,0 +1,39 @@
+{
+  "id": "heir",
+  "order": 10,
+  "epoch": "byzantium",
+  "act": "Акт I · Восхождение",
+  "title": "Наследник Юстина",
+  "panels": 1,
+  "scenes": [
+    "court_b"
+  ],
+  "characters": [
+    "justin",
+    "justinian"
+  ],
+  "goal": {
+    "flag": {
+      "char": "justinian",
+      "is": "heir"
+    }
+  },
+  "goalText": "Старый Юстин делает племянника наследником",
+  "goalHint": "Дядя-император возвышает племянника при дворе.",
+  "solution": [
+    {
+      "scene": "court_b",
+      "characters": [
+        "justin",
+        "justinian"
+      ]
+    }
+  ],
+  "cover": "court_b",
+  "music": "byzantium_ceremony",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Юстин I, неграмотный солдат, ставший императором, приблизил и усыновил одарённого племянника Юстиниана, сделав его соправителем и наследником престола.",
+    "source": "История Восточной Римской империи"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "varennes",
+  "order": 20,
+  "epoch": "revolution",
+  "act": "Акт I · Революция",
+  "title": "Бегство в Варенн",
+  "panels": 1,
+  "scenes": [
+    "escape"
+  ],
+  "characters": [
+    "louis"
+  ],
+  "goal": {
+    "flag": {
+      "char": "louis",
+      "is": "condemned"
+    }
+  },
+  "goalText": "Король бежит из Парижа — и его объявляют изменником",
+  "goalHint": "Попытка короля тайно покинуть страну лишает его доверия.",
+  "solution": [
+    {
+      "scene": "escape",
+      "characters": [
+        "louis"
+      ]
+    }
+  ],
+  "cover": "escape",
+  "music": "revolution_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В ночь на 21 июня 1791 г. Людовик XVI с семьёй тайно бежал из Парижа, но был опознан и задержан в Варенне. Бегство разрушило образ короля-патриота и приблизило падение монархии.",
+    "source": "Ж. Мишле, «История Французской революции»"
+  }
+}

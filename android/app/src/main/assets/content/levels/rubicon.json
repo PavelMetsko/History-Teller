@@ -1,0 +1,57 @@
+{
+  "id": "rubicon",
+  "order": 10,
+  "act": "Акт I · Восхождение",
+  "title": "Жребий брошен",
+  "epoch": "rome",
+  "panels": 2,
+  "scenes": [
+    "forum",
+    "rubicon"
+  ],
+  "characters": [
+    "caesar",
+    "antony"
+  ],
+  "goalText": "Цезарь переходит Рубикон и идёт на Рим",
+  "goalHint": "Сначала заручись верностью Антония, затем — за реку с легионом.",
+  "goal": {
+    "all": [
+      {
+        "relation": {
+          "rel": "ally_of",
+          "from": "caesar",
+          "to": "antony"
+        }
+      },
+      {
+        "flag": {
+          "char": "caesar",
+          "is": "at_war"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "forum",
+      "characters": [
+        "caesar",
+        "antony"
+      ]
+    },
+    {
+      "scene": "rubicon",
+      "characters": [
+        "caesar"
+      ]
+    }
+  ],
+  "cover": "rubicon",
+  "music": "tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В ночь на 10 января 49 г. до н.э. Цезарь с XIII легионом перешёл пограничную речку Рубикон, чем нарушил закон и начал гражданскую войну против сената и Помпея. По Светонию, он произнёс «Alea iacta est» — «Жребий брошен».",
+    "source": "Светоний; Плутарх, «Цезарь»"
+  }
+}

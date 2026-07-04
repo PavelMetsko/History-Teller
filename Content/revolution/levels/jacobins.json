@@ -1,0 +1,49 @@
+{
+  "id": "jacobins",
+  "order": 60,
+  "epoch": "revolution",
+  "act": "Акт II · Террор",
+  "title": "Клуб якобинцев",
+  "panels": 1,
+  "scenes": [
+    "tribune"
+  ],
+  "characters": [
+    "robespierre",
+    "saintjust"
+  ],
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "robespierre",
+          "is": "radical"
+        }
+      },
+      {
+        "flag": {
+          "char": "saintjust",
+          "is": "radical"
+        }
+      }
+    ]
+  },
+  "goalText": "Вожди якобинцев радикализируются",
+  "goalHint": "В Клубе якобинцев двое единомышленников становятся радикалами.",
+  "solution": [
+    {
+      "scene": "tribune",
+      "characters": [
+        "robespierre",
+        "saintjust"
+      ]
+    }
+  ],
+  "cover": "tribune",
+  "music": "revolution_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Якобинский клуб стал мотором Революции. Робеспьер и его юный соратник Луи де Сен-Жюст превратили его в оплот радикалов, откуда исходил Террор. Сен-Жюста прозвали «архангелом Террора».",
+    "source": "История Якобинского клуба"
+  }
+}

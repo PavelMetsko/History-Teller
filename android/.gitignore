@@ -1,0 +1,5 @@
+
+# Релизная подпись (секреты — НЕ коммитить)
+keystore.properties
+*.keystore
+*.jks

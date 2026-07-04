@@ -1,0 +1,67 @@
+{
+  "id": "execution",
+  "order": 130,
+  "epoch": "empire",
+  "act": "Акт III · Екатерина Великая",
+  "title": "Казнь Пугачёва",
+  "panels": 2,
+  "scenes": [
+    "bunt",
+    "plakha"
+  ],
+  "characters": [
+    "catherine",
+    "pugachev",
+    "suvorov"
+  ],
+  "initialState": {
+    "flags": {
+      "catherine": [
+        "reigns",
+        "crowned"
+      ]
+    }
+  },
+  "initialText": "Императрица царствует; пойманного самозванца ждёт суд.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "pugachev",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "pugachev",
+          "is": "beheaded"
+        }
+      }
+    ]
+  },
+  "goalText": "Пойманного самозванца казнят на Болотной площади",
+  "goalHint": "Сначала — поимка Суворовым, затем — плаха по воле государыни.",
+  "solution": [
+    {
+      "scene": "bunt",
+      "characters": [
+        "suvorov",
+        "pugachev"
+      ]
+    },
+    {
+      "scene": "plakha",
+      "characters": [
+        "catherine",
+        "pugachev"
+      ]
+    }
+  ],
+  "cover": "plakha",
+  "music": "empire_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "10 января 1775 г. Емельян Пугачёв был казнён на Болотной площади в Москве. Восстание было потоплено в крови; Екатерина II переименовала реку Яик в Урал, чтобы стереть память о бунте.",
+    "source": "Приговор по делу Пугачёва, 1775 г."
+  }
+}

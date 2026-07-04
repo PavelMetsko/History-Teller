@@ -1,0 +1,45 @@
+{
+  "id": "theodora_death",
+  "order": 130,
+  "epoch": "byzantium",
+  "act": "Акт III · Слава и закат",
+  "title": "Смерть Феодоры",
+  "panels": 1,
+  "scenes": [
+    "deathbed"
+  ],
+  "characters": [
+    "theodora"
+  ],
+  "initialState": {
+    "flags": {
+      "theodora": [
+        "empress"
+      ]
+    }
+  },
+  "initialText": "Всесильная августа при смерти.",
+  "goal": {
+    "flag": {
+      "char": "theodora",
+      "is": "dead"
+    }
+  },
+  "goalText": "Угасает императрица — и меркнет свет двора",
+  "goalHint": "Приходит час проститься с всесильной августой.",
+  "solution": [
+    {
+      "scene": "deathbed",
+      "characters": [
+        "theodora"
+      ]
+    }
+  ],
+  "cover": "deathbed",
+  "music": "byzantium_romance",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Феодора умерла в 548 г., вероятно от рака. Юстиниан, переживший её на 17 лет, так и не оправился от утраты своей соправительницы и главной опоры. С её смертью «золотой век» его правления начал клониться к закату.",
+    "source": "Хроники 548 г."
+  }
+}

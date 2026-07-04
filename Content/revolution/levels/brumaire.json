@@ -1,0 +1,44 @@
+{
+  "id": "brumaire",
+  "order": 110,
+  "epoch": "revolution",
+  "act": "Акт III · Наполеон",
+  "title": "18 брюмера",
+  "panels": 2,
+  "scenes": [
+    "siege",
+    "coup"
+  ],
+  "characters": [
+    "napoleon"
+  ],
+  "goal": {
+    "flag": {
+      "char": "napoleon",
+      "is": "first_consul"
+    }
+  },
+  "goalText": "Генерал берёт власть и становится первым консулом",
+  "goalHint": "Сперва — слава при Тулоне, затем — государственный переворот.",
+  "solution": [
+    {
+      "scene": "siege",
+      "characters": [
+        "napoleon"
+      ]
+    },
+    {
+      "scene": "coup",
+      "characters": [
+        "napoleon"
+      ]
+    }
+  ],
+  "cover": "coup",
+  "music": "revolution_battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "9–10 ноября 1799 г. (18–19 брюмера VIII года) Наполеон совершил переворот, разогнав Директорию, и установил Консулат. Себя он сделал первым консулом — фактическим диктатором Франции.",
+    "source": "Переворот 18 брюмера"
+  }
+}

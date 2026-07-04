@@ -1,0 +1,47 @@
+{
+  "id": "massacre",
+  "order": 70,
+  "epoch": "byzantium",
+  "act": "Акт II · Ника",
+  "title": "Бойня на ипподроме",
+  "panels": 1,
+  "scenes": [
+    "hippodrome"
+  ],
+  "characters": [
+    "belisarius",
+    "hypatius"
+  ],
+  "initialState": {
+    "flags": {
+      "hypatius": [
+        "acclaimed"
+      ]
+    }
+  },
+  "initialText": "Толпа заперта на арене; полководец готов ударить.",
+  "goal": {
+    "flag": {
+      "char": "hypatius",
+      "is": "defeated"
+    }
+  },
+  "goalText": "Велизарий топит мятеж в крови",
+  "goalHint": "Верный полководец загоняет толпу в ловушку арены.",
+  "solution": [
+    {
+      "scene": "hippodrome",
+      "characters": [
+        "belisarius",
+        "hypatius"
+      ]
+    }
+  ],
+  "cover": "hippodrome",
+  "music": "byzantium_battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Велизарий и Мунд заперли восставших на ипподроме и устроили резню — по свидетельствам, погибло до 30 000 человек. Восстание Ника было потоплено в крови, престол Юстиниана спасён.",
+    "source": "Хроники 532 г."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "fratricide",
+  "order": 50,
+  "epoch": "borgia",
+  "act": "Акт II · Яд и власть",
+  "title": "Тело в Тибре",
+  "panels": 1,
+  "scenes": [
+    "tiber"
+  ],
+  "characters": [
+    "cesare",
+    "juan"
+  ],
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "juan",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "cesare",
+          "is": "ruthless"
+        }
+      }
+    ]
+  },
+  "goalText": "Чезаре тайно убивает брата-соперника",
+  "goalHint": "Зависть находит выход на тёмном берегу реки.",
+  "solution": [
+    {
+      "scene": "tiber",
+      "characters": [
+        "cesare",
+        "juan"
+      ]
+    }
+  ],
+  "cover": "tiber",
+  "music": "borgia_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В июне 1497 г. Хуан Борджиа был убит, а тело сброшено в Тибр. Молва обвинила его брата Чезаре, устранившего соперника за отцовскую любовь и власть. Убийство так и осталось нераскрытым.",
+    "source": "Хроники 1497 г."
+  }
+}

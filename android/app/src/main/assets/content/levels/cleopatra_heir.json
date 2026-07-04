@@ -1,0 +1,66 @@
+{
+  "id": "cleopatra_rome",
+  "order": 60,
+  "title": "Клеопатра в Риме",
+  "epoch": "rome",
+  "panels": 3,
+  "scenes": [
+    "voyage",
+    "triumph",
+    "senate"
+  ],
+  "characters": [
+    "cleopatra",
+    "caesar",
+    "apollodorus",
+    "brutus"
+  ],
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "cleopatra",
+          "is": "honored"
+        }
+      },
+      {
+        "flag": {
+          "char": "brutus",
+          "is": "plotting"
+        }
+      }
+    ]
+  },
+  "goalText": "Почести царице рождают заговор",
+  "goalHint": "Сначала тайно доставь её в Рим, потом — почести на людях",
+  "solution": [
+    {
+      "scene": "voyage",
+      "characters": [
+        "apollodorus",
+        "cleopatra"
+      ]
+    },
+    {
+      "scene": "triumph",
+      "characters": [
+        "caesar",
+        "cleopatra"
+      ]
+    },
+    {
+      "scene": "senate",
+      "characters": [
+        "brutus",
+        "caesar"
+      ]
+    }
+  ],
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В 46 г. до н.э. Клеопатра прибыла в Рим с сыном Цезарионом и жила на вилле Цезаря за Тибром; Цезарь поставил её золотую статую в храме Венеры. Почести чужеземной царице и царские замашки диктатора возмутили сенаторов и подтолкнули заговор.",
+    "source": "Светоний; Дион Кассий; Аппиан"
+  },
+  "music": "romance",
+  "act": "Акт II · Царица и диктатор"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "streltsy",
+  "order": 50,
+  "epoch": "empire",
+  "act": "Акт II · Пётр Великий",
+  "title": "Стрелецкий бунт",
+  "panels": 1,
+  "scenes": [
+    "streletsky"
+  ],
+  "characters": [
+    "peter"
+  ],
+  "goal": {
+    "flag": {
+      "char": "peter",
+      "is": "absolute"
+    }
+  },
+  "goalText": "Молодой царь жестоко подавляет мятеж стрельцов",
+  "goalHint": "Пётр отвечает на бунт беспощадно — власть становится абсолютной.",
+  "solution": [
+    {
+      "scene": "streletsky",
+      "characters": [
+        "peter"
+      ]
+    }
+  ],
+  "cover": "streletsky",
+  "music": "empire_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Подавив стрелецкий бунт 1698 г., Пётр I казнил больше тысячи стрельцов и расформировал войско. Расправа развязала ему руки для реформ и создания регулярной армии.",
+    "source": "История стрелецких казней"
+  }
+}

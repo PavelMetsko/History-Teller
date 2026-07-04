@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 def rp(*p): return os.path.join(ROOT, *p)
 
 cat = {}
-for base in ["Content/rome/levels", "Content/tudor/levels"]:
+for base in ["Content/rome/levels", "Content/tudor/levels", "Content/revolution/levels", "Content/empire/levels", "Content/borgia/levels", "Content/byzantium/levels"]:
     for p in sorted(glob.glob(rp(base, "*.json"))):
         d = json.load(open(p, encoding="utf-8")); i = d["id"]
         def put(k, v):
@@ -31,9 +31,19 @@ cat.update({
  "chapter.rome.title": "Древний Рим", "chapter.rome.subtitle": "Цезарь · Клеопатра · Брут",
  "chapter.tudor.title": "Тюдоры", "chapter.tudor.subtitle": "Генрих VIII и наследники",
  "chapter.egypt.title": "Древний Египет", "chapter.egypt.subtitle": "Фараоны и боги",
+ "chapter.revolution.title": "Французская революция", "chapter.revolution.subtitle": "Робеспьер · Дантон · Наполеон",
+ "chapter.empire.title": "Российская империя", "chapter.empire.subtitle": "Грозный · Пётр · Екатерина",
+ "chapter.borgia.title": "Дом Борджиа", "chapter.borgia.subtitle": "Родриго · Чезаре · Лукреция",
+ "chapter.byzantium.title": "Византия", "chapter.byzantium.subtitle": "Юстиниан · Феодора · Велизарий",
  "map.rome": "Древний Рим", "map.tudor": "Дом Тюдоров", "map.egypt": "Древний Египет",
+ "map.revolution": "Французская революция", "map.empire": "Российская империя", "map.borgia": "Дом Борджиа",
+ "map.byzantium": "Византия",
  "act.rome.1": "Акт I · Восхождение", "act.rome.2": "Акт II · Царица и диктатор", "act.rome.3": "Акт III · Наследники",
  "act.tudor.1": "Акт I · Восхождение", "act.tudor.2": "Акт II · Шесть жён", "act.tudor.3": "Акт III · Наследники",
+ "act.revolution.1": "Акт I · Революция", "act.revolution.2": "Акт II · Террор", "act.revolution.3": "Акт III · Наполеон",
+ "act.empire.1": "Акт I · Иван Грозный", "act.empire.2": "Акт II · Пётр Великий", "act.empire.3": "Акт III · Екатерина Великая",
+ "act.borgia.1": "Акт I · Восхождение", "act.borgia.2": "Акт II · Яд и власть", "act.borgia.3": "Акт III · Государь",
+ "act.byzantium.1": "Акт I · Восхождение", "act.byzantium.2": "Акт II · Ника", "act.byzantium.3": "Акт III · Слава и закат",
  "ui.tagline_caps": "ИСТОРИЧЕСКАЯ ГОЛОВОЛОМКА",
  "ui.menu_sub": "Собери историю из панелей —\nи узнай, как было на самом деле.",
  "ui.play": "Играть", "ui.reset": "Сбросить прогресс", "ui.reset_title": "Сбросить прогресс?",

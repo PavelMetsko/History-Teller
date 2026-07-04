@@ -1,0 +1,49 @@
+{
+  "id": "oath",
+  "order": 10,
+  "epoch": "revolution",
+  "act": "Акт I · Революция",
+  "title": "Клятва третьего сословия",
+  "panels": 1,
+  "scenes": [
+    "assembly"
+  ],
+  "characters": [
+    "robespierre",
+    "danton"
+  ],
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "robespierre",
+          "is": "patriot"
+        }
+      },
+      {
+        "flag": {
+          "char": "danton",
+          "is": "patriot"
+        }
+      }
+    ]
+  },
+  "goalText": "Депутаты объединяются в революционный блок",
+  "goalHint": "Двое якобинцев в Конвенте становятся союзниками.",
+  "solution": [
+    {
+      "scene": "assembly",
+      "characters": [
+        "robespierre",
+        "danton"
+      ]
+    }
+  ],
+  "cover": "assembly",
+  "music": "revolution_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "20 июня 1789 г. депутаты третьего сословия, запертые в зале, собрались в Зале для игры в мяч и поклялись не расходиться, пока не дадут Франции конституцию. «Клятва в зале для игры в мяч» стала первым актом Революции.",
+    "source": "Национальное собрание Франции"
+  }
+}

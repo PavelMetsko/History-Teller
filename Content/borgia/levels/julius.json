@@ -1,0 +1,37 @@
+{
+  "id": "julius",
+  "order": 120,
+  "epoch": "borgia",
+  "act": "Акт III · Государь",
+  "title": "Юлий II",
+  "panels": 1,
+  "scenes": [
+    "conclave"
+  ],
+  "characters": [
+    "rovere"
+  ],
+  "goal": {
+    "flag": {
+      "char": "rovere",
+      "is": "pope"
+    }
+  },
+  "goalText": "Заклятый враг Борджиа восходит на престол",
+  "goalHint": "Конклав возводит старого недруга семьи.",
+  "solution": [
+    {
+      "scene": "conclave",
+      "characters": [
+        "rovere"
+      ]
+    }
+  ],
+  "cover": "conclave",
+  "music": "borgia_ceremony",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В 1503 г. папой стал Джулиано делла Ровере — Юлий II, давний враг Борджиа. «Папа-воин» и покровитель Микеланджело, он поставил целью уничтожить всё, что создал Чезаре.",
+    "source": "История понтификата Юлия II"
+  }
+}

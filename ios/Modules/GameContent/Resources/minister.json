@@ -1,0 +1,47 @@
+{
+  "id": "minister",
+  "order": 40,
+  "epoch": "byzantium",
+  "act": "Акт I · Восхождение",
+  "title": "Ненавистный министр",
+  "panels": 1,
+  "scenes": [
+    "court_b"
+  ],
+  "characters": [
+    "justinian",
+    "john"
+  ],
+  "initialState": {
+    "flags": {
+      "justinian": [
+        "reigns"
+      ]
+    }
+  },
+  "initialText": "Юстиниан царствует; сбор податей отдан жадному министру.",
+  "goal": {
+    "flag": {
+      "char": "john",
+      "is": "hated"
+    }
+  },
+  "goalText": "Всесильный министр душит город поборами",
+  "goalHint": "Император доверяет сбор податей жадному Иоанну.",
+  "solution": [
+    {
+      "scene": "court_b",
+      "characters": [
+        "justinian",
+        "john"
+      ]
+    }
+  ],
+  "cover": "court_b",
+  "music": "byzantium_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Иоанн Каппадокийский, всесильный министр финансов Юстиниана, драл с народа непомерные налоги. Его жадность и жестокость сделали его самым ненавидимым человеком в Константинополе — и одной из причин восстания.",
+    "source": "Прокопий, «Войны»"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "prince",
+  "order": 60,
+  "epoch": "borgia",
+  "act": "Акт II · Яд и власть",
+  "title": "Государь",
+  "panels": 1,
+  "scenes": [
+    "romagna"
+  ],
+  "characters": [
+    "cesare"
+  ],
+  "goal": {
+    "flag": {
+      "char": "cesare",
+      "is": "conqueror"
+    }
+  },
+  "goalText": "Чезаре кроит себе государство в Романье",
+  "goalHint": "Сбросив сутану, кардинал берётся за меч.",
+  "solution": [
+    {
+      "scene": "romagna",
+      "characters": [
+        "cesare"
+      ]
+    }
+  ],
+  "cover": "romagna",
+  "music": "borgia_battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Сложив сан кардинала, Чезаре Борджиа огнём и мечом покорил Романью, создавая себе княжество. Его хладнокровие и вероломство Никколо Макиавелли сделал образцом идеального правителя в трактате «Государь».",
+    "source": "Н. Макиавелли, «Государь»"
+  }
+}

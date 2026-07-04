@@ -1,0 +1,64 @@
+{
+  "id": "marat",
+  "order": 50,
+  "epoch": "revolution",
+  "act": "Акт II · Террор",
+  "title": "Смерть Марата",
+  "panels": 2,
+  "scenes": [
+    "bath",
+    "guillotine"
+  ],
+  "characters": [
+    "corday",
+    "marat",
+    "robespierre"
+  ],
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "marat",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "corday",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "corday",
+          "is": "beheaded"
+        }
+      }
+    ]
+  },
+  "goalText": "Шарлотта Корде убивает Марата — и всходит на эшафот",
+  "goalHint": "Корде находит Марата в его ванне; за это её ждёт гильотина.",
+  "solution": [
+    {
+      "scene": "bath",
+      "characters": [
+        "corday",
+        "marat"
+      ]
+    },
+    {
+      "scene": "guillotine",
+      "characters": [
+        "robespierre",
+        "corday"
+      ]
+    }
+  ],
+  "cover": "bath",
+  "music": "revolution_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "13 июля 1793 г. жирондистка Шарлотта Корде заколола Жана-Поля Марата в его ванне, куда он погружался из-за кожной болезни. Через четыре дня Корде была гильотинирована. Смерть Марата увековечил Жак-Луи Давид.",
+    "source": "Ж.-Л. Давид, «Смерть Марата»"
+  }
+}

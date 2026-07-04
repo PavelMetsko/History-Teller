@@ -58,14 +58,18 @@ public struct ChapterSelectView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.top, 2)
 
-                    HStack(spacing: 20) {
-                        ForEach(chapters) { ch in
-                            ChapterCard(chapter: ch,
-                                        locked: ch.locked(unlocked: unlocked),
-                                        priceText: priceText) {
-                                if ch.available { onSelect(ch) }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(chapters) { ch in
+                                ChapterCard(chapter: ch,
+                                            locked: ch.locked(unlocked: unlocked),
+                                            priceText: priceText) {
+                                    if ch.available { onSelect(ch) }
+                                }
                             }
                         }
+                        .padding(.horizontal, 6)
+                        .frame(maxHeight: .infinity)
                     }
                     .frame(maxHeight: .infinity)
                     .padding(.bottom, 6)

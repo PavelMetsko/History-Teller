@@ -162,7 +162,10 @@ struct RootView: View {
         return [
             ch("rome", 1, "forum", "building.columns.fill", true, free: true),
             ch("tudor", 2, "tower", "crown.fill", true),
-            ch("egypt", 3, nil, "pyramid.fill", false),
+            ch("revolution", 3, "guillotine", "flame.fill", true),
+            ch("empire", 4, "sobor", "seal.fill", true),
+            ch("borgia", 5, "curia", "flame.fill", true),
+            ch("byzantium", 6, "hagia", "cross.fill", true),
         ]
     }
 

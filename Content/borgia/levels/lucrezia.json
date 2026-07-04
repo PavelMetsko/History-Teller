@@ -1,0 +1,47 @@
+{
+  "id": "lucrezia",
+  "order": 70,
+  "epoch": "borgia",
+  "act": "Акт II · Яд и власть",
+  "title": "Дитя политики",
+  "panels": 1,
+  "scenes": [
+    "betrothal"
+  ],
+  "characters": [
+    "rodrigo",
+    "lucrezia"
+  ],
+  "initialState": {
+    "flags": {
+      "rodrigo": [
+        "pope"
+      ]
+    }
+  },
+  "initialText": "Александр VI устраивает дочери выгодный политический брак.",
+  "goal": {
+    "flag": {
+      "char": "lucrezia",
+      "is": "bride"
+    }
+  },
+  "goalText": "Папа выдаёт дочь замуж по расчёту",
+  "goalHint": "Рука Лукреции — разменная монета в игре престолов.",
+  "solution": [
+    {
+      "scene": "betrothal",
+      "characters": [
+        "rodrigo",
+        "lucrezia"
+      ]
+    }
+  ],
+  "cover": "betrothal",
+  "music": "borgia_romance",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Лукрецию Борджиа отец и брат трижды выдавали замуж ради политических союзов; одного ставшего лишним мужа задушили. Молва приписывала ей яды и разврат — вероятно, клевета врагов семьи.",
+    "source": "Биография Лукреции Борджиа"
+  }
+}

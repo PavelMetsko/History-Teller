@@ -1,0 +1,37 @@
+{
+  "id": "conclave",
+  "order": 10,
+  "epoch": "borgia",
+  "act": "Акт I · Восхождение",
+  "title": "Александр VI",
+  "panels": 1,
+  "scenes": [
+    "conclave"
+  ],
+  "characters": [
+    "rodrigo"
+  ],
+  "goal": {
+    "flag": {
+      "char": "rodrigo",
+      "is": "pope"
+    }
+  },
+  "goalText": "Родриго Борджиа покупает себе папский престол",
+  "goalHint": "На конклаве золото решает всё.",
+  "solution": [
+    {
+      "scene": "conclave",
+      "characters": [
+        "rodrigo"
+      ]
+    }
+  ],
+  "cover": "conclave",
+  "music": "borgia_ceremony",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В 1492 г. Родриго Борджиа щедрыми подкупами кардиналов добился избрания папой под именем Александр VI. Его понтификат стал символом продажности и разврата Ренессансной церкви.",
+    "source": "История конклава 1492 г."
+  }
+}

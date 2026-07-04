@@ -1,0 +1,46 @@
+{
+  "id": "reform",
+  "order": 110,
+  "epoch": "empire",
+  "act": "Акт III · Екатерина Великая",
+  "title": "Просвещённая государыня",
+  "panels": 1,
+  "scenes": [
+    "imperator"
+  ],
+  "characters": [
+    "catherine"
+  ],
+  "initialState": {
+    "flags": {
+      "catherine": [
+        "reigns",
+        "crowned"
+      ]
+    }
+  },
+  "initialText": "Екатерина царствует и желает прослыть просвещённой государыней.",
+  "goal": {
+    "flag": {
+      "char": "catherine",
+      "is": "enlightened"
+    }
+  },
+  "goalText": "Императрица даёт державе новые законы",
+  "goalHint": "В Сенате государыня являет себя просвещённой правительницей.",
+  "solution": [
+    {
+      "scene": "imperator",
+      "characters": [
+        "catherine"
+      ]
+    }
+  ],
+  "cover": "imperator",
+  "music": "empire_ceremony",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Екатерина II переписывалась с Вольтером и Дидро, созвала Уложенную комиссию (1767) и написала «Наказ». Её правление вошло в историю как «просвещённый абсолютизм», хотя крепостное право лишь усилилось.",
+    "source": "«Наказ» Екатерины II"
+  }
+}

@@ -53,6 +53,78 @@ public enum RomeContent {
         "elizabeth",
         "mary_stuart",
         "armada",
+
+        // === Глава 3 · Французская революция (1789–1815) ===
+        // Акт I · Революция
+        "oath",
+        "varennes",
+        "king_trial",
+        "antoinette",
+        // Акт II · Террор
+        "marat",
+        "jacobins",
+        "danton",
+        "thermidor",
+        // Акт III · Наполеон
+        "toulon",
+        "brumaire",
+        "sacre",
+        "empress",
+        "waterloo",
+
+        // === Глава 4 · Российская империя (1547–1775) ===
+        // Акт I · Иван Грозный
+        "coronation",
+        "kazan",
+        "oprichnina",
+        "wrath",
+        // Акт II · Пётр Великий
+        "streltsy",
+        "poltava",
+        "alexei",
+        "emperor",
+        // Акт III · Екатерина Великая
+        "coup",
+        "potemkin",
+        "reform",
+        "pugachev",
+        "execution",
+
+        // === Глава 5 · Дом Борджиа (1492–1507) ===
+        // Акт I · Восхождение
+        "conclave",
+        "nepotism",
+        "giulia",
+        "juan",
+        // Акт II · Яд и власть
+        "fratricide",
+        "prince",
+        "lucrezia",
+        "poison",
+        // Акт III · Государь
+        "excommunicate",
+        "bonfire",
+        "poison_death",
+        "julius",
+        "downfall",
+
+        // === Глава 6 · Византия (518–548) ===
+        // Акт I · Восхождение
+        "heir",
+        "marriage",
+        "coronation",
+        "minister",
+        // Акт II · Ника
+        "nika",
+        "flight",
+        "massacre",
+        "execution",
+        "john_fall",
+        // Акт III · Слава и закат
+        "reconquest",
+        "hagia",
+        "disgrace",
+        "theodora_death",
     ]
 
     public static func load() throws -> Pack {
@@ -91,7 +163,11 @@ public enum RomeContent {
         db.localizeNames(characterNames: chNames, sceneNames: scNames, sceneActions: scActions)
 
         // заголовки актов: raw-русская строка `act` → локализованная (по обратному соответствию)
-        let actKeys = ["act.rome.1", "act.rome.2", "act.rome.3", "act.tudor.1", "act.tudor.2", "act.tudor.3"]
+        let actKeys = ["act.rome.1", "act.rome.2", "act.rome.3", "act.tudor.1", "act.tudor.2", "act.tudor.3",
+                       "act.revolution.1", "act.revolution.2", "act.revolution.3",
+                       "act.empire.1", "act.empire.2", "act.empire.3",
+                       "act.borgia.1", "act.borgia.2", "act.borgia.3",
+                       "act.byzantium.1", "act.byzantium.2", "act.byzantium.3"]
         var actMap: [String: String] = [:]
         for k in actKeys { if let ru = L10n.ruBase(k), let loc = L10n.opt(k) { actMap[ru] = loc } }
 

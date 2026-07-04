@@ -1,0 +1,64 @@
+{
+  "id": "mary_stuart",
+  "order": 120,
+  "epoch": "tudor",
+  "act": "Акт III · Наследники",
+  "title": "Мария Стюарт",
+  "panels": 2,
+  "scenes": [
+    "tribunal",
+    "court",
+    "tower"
+  ],
+  "characters": [
+    "elizabeth",
+    "mary_stuart"
+  ],
+  "initialState": {
+    "flags": {
+      "elizabeth": [
+        "reigns",
+        "crowned"
+      ],
+      "mary_stuart": [
+        "royal_claim"
+      ]
+    }
+  },
+  "initialText": "Мария Стюарт, королева шотландцев, притязает на трон Елизаветы и плетёт заговоры",
+  "goalText": "Соперница-претендентка осуждена и казнена",
+  "goalHint": "Суд признает её виновной, затем — плаха. Так решится вопрос о престоле.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "mary_stuart",
+          "is": "beheaded"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "tribunal",
+      "characters": [
+        "elizabeth",
+        "mary_stuart"
+      ]
+    },
+    {
+      "scene": "tower",
+      "characters": [
+        "elizabeth",
+        "mary_stuart"
+      ]
+    }
+  ],
+  "cover": "tower",
+  "music": "tudor_lament",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Мария Стюарт, низложенная королева Шотландии и католическая претендентка на английский трон, 19 лет провела в плену у Елизаветы. После раскрытия заговора Бабингтона её судили за измену и в 1587 г. обезглавили в замке Фотерингей. Елизавета долго колебалась подписать приговор кузине.",
+    "source": "Дж. Гай, «Королева Шотландии»"
+  }
+}

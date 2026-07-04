@@ -1,0 +1,67 @@
+{
+  "id": "union",
+  "order": 20,
+  "epoch": "tudor",
+  "act": "Акт I · Восхождение",
+  "title": "Союз двух роз",
+  "panels": 2,
+  "scenes": [
+    "chapel",
+    "chamber"
+  ],
+  "characters": [
+    "henry7",
+    "eliz_york"
+  ],
+  "initialState": {
+    "flags": {
+      "henry7": [
+        "reigns",
+        "crowned"
+      ]
+    }
+  },
+  "initialText": "Чтобы примирить Ланкастеров и Йорков, король ищет невесту из дома Йорков",
+  "goalText": "Брак Тюдора и Йорков закрепляет династию наследником",
+  "goalHint": "Обвенчай Алую и Белую розу, затем — покои и наследник.",
+  "goal": {
+    "all": [
+      {
+        "relation": {
+          "rel": "wed",
+          "from": "henry7",
+          "to": "eliz_york"
+        }
+      },
+      {
+        "flag": {
+          "char": "henry7",
+          "is": "has_heir"
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "chapel",
+      "characters": [
+        "henry7",
+        "eliz_york"
+      ]
+    },
+    {
+      "scene": "chamber",
+      "characters": [
+        "henry7",
+        "eliz_york"
+      ]
+    }
+  ],
+  "cover": "chapel",
+  "music": "tudor_romance",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В 1486 г. Генрих VII женился на Елизавете Йоркской, соединив враждующие дома Ланкастеров (алая роза) и Йорков (белая) в единую розу Тюдоров. Их сыном стал Генрих VIII. Брак прекратил десятилетия междоусобиц и упрочил новую династию.",
+    "source": "С. Пенн, «Зимний король»"
+  }
+}

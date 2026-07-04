@@ -1,0 +1,37 @@
+{
+  "id": "nika",
+  "order": 50,
+  "epoch": "byzantium",
+  "act": "Акт II · Ника",
+  "title": "Восстание Ника",
+  "panels": 1,
+  "scenes": [
+    "hippodrome"
+  ],
+  "characters": [
+    "hypatius"
+  ],
+  "goal": {
+    "flag": {
+      "char": "hypatius",
+      "is": "acclaimed"
+    }
+  },
+  "goalText": "Мятежная толпа провозглашает Ипатия императором",
+  "goalHint": "На ипподроме бунтующие цирковые партии находят себе государя.",
+  "solution": [
+    {
+      "scene": "hippodrome",
+      "characters": [
+        "hypatius"
+      ]
+    }
+  ],
+  "cover": "hippodrome",
+  "music": "byzantium_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "В январе 532 г. цирковые партии «синих» и «зелёных», обычно враждебные, объединились с кличем «Ника!» («Побеждай!»). Полгорода выгорело; толпа против воли провозгласила императором знатного Ипатия, племянника прежнего государя.",
+    "source": "История восстания Ника"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "reconquest",
+  "order": 100,
+  "epoch": "byzantium",
+  "act": "Акт III · Слава и закат",
+  "title": "Возвращение Запада",
+  "panels": 1,
+  "scenes": [
+    "campaign"
+  ],
+  "characters": [
+    "belisarius"
+  ],
+  "goal": {
+    "flag": {
+      "char": "belisarius",
+      "is": "victor"
+    }
+  },
+  "goalText": "Велизарий отвоёвывает утраченные земли Рима",
+  "goalHint": "Лучший полководец ведёт войско на вандалов и готов.",
+  "solution": [
+    {
+      "scene": "campaign",
+      "characters": [
+        "belisarius"
+      ]
+    }
+  ],
+  "cover": "campaign",
+  "music": "byzantium_battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Велизарий с небольшим войском сокрушил королевство вандалов в Африке (533–534) и отвоевал у остготов Италию с Римом. Мечта Юстиниана о восстановлении Римской империи почти сбылась.",
+    "source": "Прокопий, «Войны»"
+  }
+}

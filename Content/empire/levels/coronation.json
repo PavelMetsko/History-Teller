@@ -1,0 +1,37 @@
+{
+  "id": "coronation",
+  "order": 10,
+  "epoch": "empire",
+  "act": "Акт I · Иван Грозный",
+  "title": "Венчание на царство",
+  "panels": 1,
+  "scenes": [
+    "sobor"
+  ],
+  "characters": [
+    "ivan"
+  ],
+  "goal": {
+    "flag": {
+      "char": "ivan",
+      "is": "crowned"
+    }
+  },
+  "goalText": "Государь всея Руси принимает царский венец",
+  "goalHint": "Первый русский царь венчается в Успенском соборе.",
+  "solution": [
+    {
+      "scene": "sobor",
+      "characters": [
+        "ivan"
+      ]
+    }
+  ],
+  "cover": "sobor",
+  "music": "empire_ceremony",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "16 января 1547 г. великий князь Иван IV венчался на царство в Успенском соборе Кремля, первым приняв титул «царя всея Руси». Так родилось Русское царство.",
+    "source": "Чин венчания Ивана IV, 1547 г."
+  }
+}

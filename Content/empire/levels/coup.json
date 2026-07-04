@@ -1,0 +1,58 @@
+{
+  "id": "coup",
+  "order": 90,
+  "epoch": "empire",
+  "act": "Акт III · Екатерина Великая",
+  "title": "Переворот 1762 года",
+  "panels": 1,
+  "scenes": [
+    "perevorot"
+  ],
+  "characters": [
+    "catherine",
+    "peter3"
+  ],
+  "initialState": {
+    "flags": {
+      "peter3": [
+        "reigns",
+        "crowned"
+      ]
+    }
+  },
+  "initialText": "Пётр III на престоле; гвардия готова возвести на трон Екатерину.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "catherine",
+          "is": "crowned"
+        }
+      },
+      {
+        "flag": {
+          "char": "peter3",
+          "is": "dead"
+        }
+      }
+    ]
+  },
+  "goalText": "Гвардия низлагает Петра III — престол берёт Екатерина",
+  "goalHint": "Дворцовый переворот решает всё: супруг низложен, корона — ей.",
+  "solution": [
+    {
+      "scene": "perevorot",
+      "characters": [
+        "catherine",
+        "peter3"
+      ]
+    }
+  ],
+  "cover": "perevorot",
+  "music": "empire_tension",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "28 июня 1762 г. гвардия возвела на престол Екатерину, низложив её мужа Петра III. Через неделю бывший император погиб в Ропше. Начались 34 года «золотого века» дворянства.",
+    "source": "История дворцового переворота 1762 г."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "marriage",
+  "order": 20,
+  "epoch": "byzantium",
+  "act": "Акт I · Восхождение",
+  "title": "Актриса на троне",
+  "panels": 1,
+  "scenes": [
+    "nuptial"
+  ],
+  "characters": [
+    "justinian",
+    "theodora"
+  ],
+  "goal": {
+    "flag": {
+      "char": "theodora",
+      "is": "augusta"
+    }
+  },
+  "goalText": "Юстиниан женится на бывшей актрисе Феодоре",
+  "goalHint": "Ради этого брака пришлось переписать закон.",
+  "solution": [
+    {
+      "scene": "nuptial",
+      "characters": [
+        "justinian",
+        "theodora"
+      ]
+    }
+  ],
+  "cover": "nuptial",
+  "music": "byzantium_romance",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Феодора, дочь смотрителя медведей и бывшая актриса, покорила Юстиниана. Ради брака с ней он добился отмены закона, запрещавшего сенаторам жениться на актрисах. Она стала одной из влиятельнейших женщин истории.",
+    "source": "Прокопий, «Тайная история»"
+  }
+}

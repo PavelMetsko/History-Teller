@@ -1,0 +1,73 @@
+{
+  "id": "elizabeth",
+  "order": 110,
+  "epoch": "tudor",
+  "act": "Акт III · Наследники",
+  "title": "Королева-девственница",
+  "panels": 2,
+  "scenes": [
+    "abbey",
+    "court",
+    "chapel"
+  ],
+  "characters": [
+    "elizabeth",
+    "philip"
+  ],
+  "initialState": {
+    "flags": {
+      "elizabeth": [
+        "royal_claim"
+      ]
+    }
+  },
+  "initialText": "Елизавета — королева; Филипп сватается, но замужество стоило бы ей власти",
+  "goalText": "Елизавета венчается и правит сама, отвергнув брак",
+  "goalHint": "Коронуй её и утверди её церковь. Но к алтарю с женихом — ни шагу: в этом её сила.",
+  "goal": {
+    "all": [
+      {
+        "flag": {
+          "char": "elizabeth",
+          "is": "crowned"
+        }
+      },
+      {
+        "flag": {
+          "char": "elizabeth",
+          "is": "settled"
+        }
+      },
+      {
+        "not": {
+          "relation": {
+            "rel": "wed",
+            "from": "philip",
+            "to": "elizabeth"
+          }
+        }
+      }
+    ]
+  },
+  "solution": [
+    {
+      "scene": "abbey",
+      "characters": [
+        "elizabeth"
+      ]
+    },
+    {
+      "scene": "court",
+      "characters": [
+        "elizabeth"
+      ]
+    }
+  ],
+  "cover": "abbey",
+  "music": "tudor_court",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "Елизавета I (1558–1603) так и не вышла замуж — за что прозвана «Королевой-девственницей». Она отвергла множество женихов, включая Филиппа II (вдовца её сестры Марии), сохранив независимость короны, и утвердила умеренную протестантскую церковь. Её правление стало «золотым веком» Англии.",
+    "source": "Дж. Гай, «Елизавета»"
+  }
+}

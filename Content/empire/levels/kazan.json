@@ -1,0 +1,44 @@
+{
+  "id": "kazan",
+  "order": 20,
+  "epoch": "empire",
+  "act": "Акт I · Иван Грозный",
+  "title": "Взятие Казани",
+  "panels": 2,
+  "scenes": [
+    "sobor",
+    "kazan"
+  ],
+  "characters": [
+    "ivan"
+  ],
+  "goal": {
+    "flag": {
+      "char": "ivan",
+      "is": "conqueror"
+    }
+  },
+  "goalText": "Царь покоряет Казанское ханство",
+  "goalHint": "Сперва прими венец, затем веди войско на Казань.",
+  "solution": [
+    {
+      "scene": "sobor",
+      "characters": [
+        "ivan"
+      ]
+    },
+    {
+      "scene": "kazan",
+      "characters": [
+        "ivan"
+      ]
+    }
+  ],
+  "cover": "kazan",
+  "music": "empire_battle",
+  "factCard": {
+    "accuracy": "fact",
+    "text": "2 октября 1552 г. войска Ивана Грозного взяли Казань, присоединив Казанское ханство к Русскому царству. Это открыло путь на восток и к покорению Астрахани и Сибири.",
+    "source": "Летописи о Казанском взятии"
+  }
+}
