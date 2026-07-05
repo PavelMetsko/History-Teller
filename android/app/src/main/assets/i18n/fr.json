@@ -681,5 +681,6 @@
   "ui.wrong_chars": "Bon lieu — mais mauvais personnages",
   "ui.wrong_inert": "Tout faux — ni lieu, ni personnages",
   "ui.wrong_scene": "Bons héros — mais mauvais lieu",
-  "ui.replay": "Rejouer"
+  "ui.replay": "Rejouer",
+  "ui.hint": "Indice"
 }

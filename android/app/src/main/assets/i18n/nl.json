@@ -681,5 +681,6 @@
   "ui.wrong_chars": "De juiste plek — maar de verkeerde personen",
   "ui.wrong_inert": "Helemaal verkeerd — noch de plek, noch de personen",
   "ui.wrong_scene": "De juiste personages — maar de verkeerde plek",
-  "ui.replay": "Opnieuw"
+  "ui.replay": "Opnieuw",
+  "ui.hint": "Hint"
 }

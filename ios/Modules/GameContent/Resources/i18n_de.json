@@ -681,5 +681,6 @@
   "ui.wrong_chars": "Richtiger Ort – falsche Personen",
   "ui.wrong_inert": "Weder Ort noch Personen stimmen",
   "ui.wrong_scene": "Richtige Personen – falscher Ort",
-  "ui.replay": "Nochmal"
+  "ui.replay": "Nochmal",
+  "ui.hint": "Hinweis"
 }

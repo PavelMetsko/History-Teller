@@ -282,7 +282,7 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
             BackRibbon(Modifier.align(Alignment.TopStart).statusBarsPadding()) { exit() }
         }
         if (celebrate) ConfettiOverlay()
-        if (showHint) HintPopup(level.goalHint ?: "") { showHint = false }
+        if (showHint) HintPopup(level.title, listOfNotNull(level.initialText, level.goalHint).joinToString("\n\n")) { showHint = false }
         if (showFact) FactPopup(level, onReplay = { Audio.sfx("select"); showFact = false; model.reset() }) { showFact = false; exit() }
     }
 }
@@ -768,14 +768,23 @@ private fun accuracyLabel(acc: String) = when (acc) {
 }
 
 /** Подсказка к уровню — затемнение + книжная карточка (по кнопке ⓘ, как на iOS). */
-@Composable private fun HintPopup(hint: String, onClose: () -> Unit) {
+/** Подсказка в стиле финального окна: пергамент-карточка с плашкой «Подсказка», заголовком и текстом. */
+@Composable private fun HintPopup(title: String, text: String, onClose: () -> Unit) {
     Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f)).clickable { onClose() }, contentAlignment = Alignment.Center) {
-        BookPage(Modifier.widthIn(max = 460.dp).padding(20.dp)) {
-            Column(Modifier.padding(26.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(hint, color = Palette.ink, fontSize = 16.sp, fontFamily = Fonts.rounded, textAlign = TextAlign.Center)
-                Spacer(Modifier.height(18.dp))
-                Box(Modifier.clip(RoundedCornerShape(28.dp)).background(Palette.maroon).clickable { onClose() }
-                    .padding(horizontal = 40.dp, vertical = 10.dp)) {
+        BookPage(Modifier.widthIn(max = 520.dp).padding(20.dp)) {
+            Column(Modifier.padding(22.dp).verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally) {
+                Pill(L10n.s("ui.hint"), Palette.gold.copy(0.25f))
+                Spacer(Modifier.height(10.dp))
+                Text(title, color = Palette.ink, fontSize = 22.sp, fontWeight = FontWeight.Bold,
+                    fontFamily = Fonts.serif, textAlign = TextAlign.Center)
+                if (text.isNotEmpty()) {
+                    Spacer(Modifier.height(10.dp))
+                    Text(text, color = Palette.ink, fontSize = 14.sp, fontFamily = Fonts.rounded, textAlign = TextAlign.Center)
+                }
+                Spacer(Modifier.height(16.dp))
+                Box(Modifier.clip(RoundedCornerShape(30.dp)).background(Palette.maroon).clickable { onClose() }
+                    .padding(horizontal = 30.dp, vertical = 11.dp)) {
                     Text(L10n.s("ui.ok"), color = Palette.paper, fontSize = 16.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
                 }
             }

@@ -681,5 +681,6 @@
   "ui.wrong_chars": "Il luogo è giusto — ma non i personaggi",
   "ui.wrong_inert": "Completamente sbagliato — né luogo, né personaggi",
   "ui.wrong_scene": "I personaggi sono giusti — ma non il luogo",
-  "ui.replay": "Di nuovo"
+  "ui.replay": "Di nuovo",
+  "ui.hint": "Suggerimento"
 }

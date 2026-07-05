@@ -84,6 +84,7 @@ public struct LevelBoardView: View {
 
             if celebrate { ConfettiView().allowsHitTesting(false).transition(.opacity) }
             if model.showFact { factPopup.zIndex(10) }
+            if showInfo { hintPopup.zIndex(11) }
         }
         .coordinateSpace(.named(boardSpace))
         .onPreferenceChange(PanelFramesKey.self) { panelFrames = $0 }
@@ -92,12 +93,6 @@ public struct LevelBoardView: View {
             if !model.isSolved && model.isBoardComplete { triggerWrong() }
         }
         .onChange(of: model.isSolved) { _, solved in if solved { win() } }
-        .alert(model.level.title, isPresented: $showInfo) {
-            Button(L10n.s("ui.ok"), role: .cancel) {}
-        } message: {
-            Text([model.level.initialText, model.level.goalHint]
-                .compactMap { $0 }.joined(separator: "\n\n"))
-        }
         .onAppear {
             // музыкой рулит координатор (RootView) — сквозняком между экранами
             if ProcessInfo.processInfo.environment["HT_DEMO"] == "1" {
@@ -295,7 +290,9 @@ public struct LevelBoardView: View {
 
     private var controls: some View {
         HStack(spacing: 8) {
-            iconButton("info.circle", tint: DS.Palette.ink) { showInfo = true }
+            iconButton("info.circle", tint: DS.Palette.ink) {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { showInfo = true }
+            }
             iconButton("arrow.counterclockwise", tint: DS.Palette.maroon) { Audio.shared.play(.remove); model.reset() }
         }
     }
@@ -319,6 +316,23 @@ public struct LevelBoardView: View {
             FactPopupCard(level: model.level, onClose: dismissFact, onReplay: replayLevel)
                 .padding(.horizontal, 40)
                 .transition(.scale(scale: 0.8).combined(with: .opacity))
+        }
+    }
+
+    private func closeHint() { withAnimation(.easeInOut(duration: 0.2)) { showInfo = false } }
+
+    private var hintPopup: some View {
+        ZStack {
+            Color.black.opacity(0.5).ignoresSafeArea()
+                .onTapGesture { closeHint() }
+                .transition(.opacity)
+            HintPopupCard(
+                title: model.level.title,
+                text: [model.level.initialText, model.level.goalHint].compactMap { $0 }.joined(separator: "\n\n"),
+                onClose: closeHint
+            )
+            .padding(.horizontal, 40)
+            .transition(.scale(scale: 0.8).combined(with: .opacity))
         }
     }
 }
@@ -965,6 +979,39 @@ private struct ConfettiView: View {
 }
 
 // MARK: - Fact popup
+
+/// Подсказка в стиле финального окна: пергамент-карточка с плашкой «Подсказка», заголовком и текстом.
+private struct HintPopupCard: View {
+    let title: String
+    let text: String
+    let onClose: () -> Void
+
+    var body: some View {
+        BookPage {
+            ScrollView {
+                VStack(spacing: 12) {
+                    PillLabel(L10n.s("ui.hint"), systemImage: "lightbulb.fill",
+                              background: DS.Palette.gold.opacity(0.25))
+                    Text(title).font(.serifTitle(22)).foregroundStyle(DS.Palette.ink)
+                        .multilineTextAlignment(.center)
+                    if !text.isEmpty {
+                        Text(text).font(.dsBody(14)).foregroundStyle(DS.Palette.ink)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Button(action: onClose) {
+                        Text(L10n.s("ui.ok")).font(.dsBody())
+                            .foregroundStyle(DS.Palette.paper)
+                            .padding(.horizontal, 30).padding(.vertical, 11)
+                            .background(Capsule().fill(DS.Palette.maroon))
+                    }
+                    .padding(.top, 4)
+                }
+                .padding(24)
+            }
+        }
+        .frame(maxWidth: 540, maxHeight: 440)
+    }
+}
 
 private struct FactPopupCard: View {
     let level: LevelDef

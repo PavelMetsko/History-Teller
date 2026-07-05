@@ -681,5 +681,6 @@
   "ui.wrong_chars": "Right place — wrong characters",
   "ui.wrong_inert": "Completely wrong — neither place nor characters",
   "ui.wrong_scene": "Right characters — wrong place",
-  "ui.replay": "Play again"
+  "ui.replay": "Play again",
+  "ui.hint": "Hint"
 }

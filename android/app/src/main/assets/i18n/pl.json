@@ -681,5 +681,6 @@
   "ui.wrong_chars": "Miejsce się zgadza — ale nie te postacie",
   "ui.wrong_inert": "Zupełnie nie to — ani miejsce, ani postacie",
   "ui.wrong_scene": "Właściwi bohaterowie — ale nie to miejsce",
-  "ui.replay": "Jeszcze raz"
+  "ui.replay": "Jeszcze raz",
+  "ui.hint": "Podpowiedź"
 }
