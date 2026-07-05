@@ -178,7 +178,7 @@ public final class LevelBoardModel {
     public struct Beat: Identifiable {
         public let id = UUID()
         public let panelIndex: Int
-        public enum Kind { case kill, battle, condemn, conquer, crown,
+        public enum Kind { case kill, battle, condemn, conquer, march, crown,
                                 love, ally, triumph, downfall, conspire, birth, spark }
         public let kind: Kind
         public let primary: String?     // тот, «над кем» действие: жертва / коронованный / проигравший / осуждённый
@@ -223,8 +223,12 @@ public final class LevelBoardModel {
         if let accused = flagTarget(["condemned", "accused"]) {
             return mk(.condemn, b[accused], other(than: accused), "⚖️")
         }
-        // Единоличное завоевание/война (без второго актора-жертвы).
-        if let c = flagTarget(["conqueror", "at_war"]) {
+        // Переход/поход — объявление войны, но пока НЕ бой (никого не рубит) → без меча.
+        if let m = flagTarget(["at_war"]) {
+            return mk(.march, b[m], nil, "")
+        }
+        // Единоличное завоевание.
+        if let c = flagTarget(["conqueror"]) {
             return mk(.conquer, b[c], nil, "⚔️")
         }
         // Коронация/воцарение/возвышение.

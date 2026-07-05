@@ -101,7 +101,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
      *  primary — тот, «над кем» действие (жертва/осуждённый/проигравший/коронованный),
      *  secondary — активный (убийца/обвинитель/победитель/второй влюблённый). */
     data class Beat(val panelIndex: Int, val kind: Kind, val primary: String?, val secondary: String?, val symbol: String)
-    enum class Kind { KILL, BATTLE, CONDEMN, CONQUER, CROWN, LOVE, ALLY, TRIUMPH, DOWNFALL, CONSPIRE, BIRTH, SPARK }
+    enum class Kind { KILL, BATTLE, CONDEMN, CONQUER, MARCH, CROWN, LOVE, ALLY, TRIUMPH, DOWNFALL, CONSPIRE, BIRTH, SPARK }
 
     /** Смысл выводим из эффектов правила (не из id), поэтому одна логика покрывает все эпохи. */
     private fun beat(e: Engine.RuleEvent): Beat {
@@ -120,7 +120,8 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         flagTarget(setOf("dead"))?.let { return mk(Kind.KILL, b[it], other(it), "☠️") }
         flagTarget(setOf("fugitive", "defeated"))?.let { return mk(Kind.BATTLE, b[it], other(it), "⚔️") }
         flagTarget(setOf("condemned", "accused"))?.let { return mk(Kind.CONDEMN, b[it], other(it), "⚖️") }
-        flagTarget(setOf("conqueror", "at_war"))?.let { return mk(Kind.CONQUER, b[it], null, "⚔️") }
+        flagTarget(setOf("at_war"))?.let { return mk(Kind.MARCH, b[it], null, "") }
+        flagTarget(setOf("conqueror"))?.let { return mk(Kind.CONQUER, b[it], null, "⚔️") }
         flagTarget(setOf("crowned", "emperor", "empress", "reigns", "supreme_head", "first_consul"))
             ?.let { return mk(Kind.CROWN, b[it], null, "👑") }
         relationPair(setOf("loves"))?.let { (f, t) -> return mk(Kind.LOVE, b[f], b[t], "❤️") }
@@ -137,7 +138,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
     private fun sfxFor(kind: Kind): String = when (kind) {
         Kind.KILL, Kind.BATTLE, Kind.CONQUER -> "kill"
         Kind.CONDEMN, Kind.CONSPIRE -> "conspire"
-        Kind.CROWN, Kind.TRIUMPH, Kind.BIRTH -> "crown"
+        Kind.CROWN, Kind.TRIUMPH, Kind.BIRTH, Kind.MARCH -> "crown"
         Kind.LOVE -> "love"
         Kind.ALLY -> "ally"
         Kind.DOWNFALL -> "error"
@@ -387,7 +388,7 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
                 beats.filter {
                     it.kind != BoardModel.Kind.CROWN && it.kind != BoardModel.Kind.LOVE &&
                         it.kind != BoardModel.Kind.KILL && it.kind != BoardModel.Kind.BATTLE &&
-                        it.kind != BoardModel.Kind.CONQUER
+                        it.kind != BoardModel.Kind.CONQUER && it.kind != BoardModel.Kind.MARCH
                 }.forEach { b -> key(changeToken, b) { FlyingBadge(b.symbol) } }
             }
             // подсказка об ошибке
@@ -427,6 +428,8 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
     val triumphId = if (triumphant) drawableId("char_${cid}_triumph") else 0
     val useTriumphPose = triumphant && triumphId != 0
     val plotting = !dead && snap.hasFlag(cid, "plotting")
+    val plotId = if (plotting && !defeated) drawableId("char_${cid}_plot") else 0
+    val usePlotPose = plotting && !defeated && plotId != 0
     val crowned = !dead && snap.hasFlag(cid, "crowned")
     val micro = model.microState(cid, i)
     val panelChars = model.panels[i].characters
@@ -442,7 +445,7 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
     val motion = when {
         beats.any { it.kind == BoardModel.Kind.CONDEMN && it.primary == cid } -> "recoil"
         !useDefeatedPose && beats.any { (it.kind == BoardModel.Kind.BATTLE || it.kind == BoardModel.Kind.DOWNFALL) && it.primary == cid } -> "slump"
-        beats.any { (it.kind == BoardModel.Kind.TRIUMPH || it.kind == BoardModel.Kind.CONQUER) && it.primary == cid } -> "hop"
+        beats.any { (it.kind == BoardModel.Kind.TRIUMPH || it.kind == BoardModel.Kind.CONQUER || it.kind == BoardModel.Kind.MARCH) && it.primary == cid } -> "hop"
         else -> "none"
     }
     val crownDrop = beats.any { it.kind == BoardModel.Kind.CROWN && it.primary == cid }
@@ -455,8 +458,8 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
     val fall by animateFloatAsState(if (topple) 80f else 0f, spring(dampingRatio = 0.55f), label = "fall")
     // короткое оседание, когда есть поза
     val settle by animateFloatAsState(if (useDeadPose) 1f else 0f, spring(dampingRatio = 0.5f), label = "settle")
-    // дрожь заговорщика
-    val tremble = if (plotting) {
+    // дрожь заговорщика — фолбэк, если нет позы «заговорщик»
+    val tremble = if (plotting && !usePlotPose) {
         val t = rememberInfiniteTransition(label = "tr")
         t.animateFloat(-2.5f, 2.5f, infiniteRepeatable(tween(110), RepeatMode.Reverse), label = "trv").value
     } else 0f
@@ -489,7 +492,7 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
 
     Box(contentAlignment = Alignment.TopCenter) {
         val cd = if (useDeadPose) deadId else if (useDefeatedPose) defeatedId
-            else if (useTriumphPose) triumphId else drawableId("char_$cid")
+            else if (usePlotPose) plotId else if (useTriumphPose) triumphId else drawableId("char_$cid")
         if (cd != 0) Image(painterResource(cd), null,
             Modifier.height(spriteH).graphicsLayer {
                 transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)

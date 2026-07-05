@@ -7,13 +7,14 @@
   "scenes": [
     "voyage",
     "triumph",
-    "senate"
+    "back_room"
   ],
   "characters": [
     "cleopatra",
     "caesar",
     "apollodorus",
-    "brutus"
+    "brutus",
+    "cassius"
   ],
   "goal": {
     "all": [
@@ -26,6 +27,12 @@
       {
         "flag": {
           "char": "brutus",
+          "is": "plotting"
+        }
+      },
+      {
+        "flag": {
+          "char": "cassius",
           "is": "plotting"
         }
       }
@@ -49,10 +56,10 @@
       ]
     },
     {
-      "scene": "senate",
+      "scene": "back_room",
       "characters": [
         "brutus",
-        "caesar"
+        "cassius"
       ]
     }
   ],

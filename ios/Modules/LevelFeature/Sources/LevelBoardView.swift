@@ -14,9 +14,9 @@ private struct PanelFramesKey: PreferenceKey {
 /// Звук по типу события (сами события выводятся из эффектов правила — см. LevelBoardModel.beat).
 private func sfx(for kind: LevelBoardModel.Beat.Kind) -> Audio.SFX {
     switch kind {
-    case .kill, .battle, .conquer: return .kill
-    case .condemn:                 return .conspire
-    case .crown, .triumph, .birth: return .crown
+    case .kill, .battle, .conquer:        return .kill
+    case .condemn:                        return .conspire
+    case .crown, .triumph, .birth, .march: return .crown
     case .love:                    return .love
     case .ally:                    return .ally
     case .downfall:                return .error
@@ -431,7 +431,8 @@ private struct PanelCell: View {
         let kills = beats.filter { $0.kind == .kill }
         let love = beats.filter { $0.kind == .love }
         let badges = beats.filter {
-            $0.kind != .crown && $0.kind != .love && $0.kind != .kill && $0.kind != .battle && $0.kind != .conquer
+            $0.kind != .crown && $0.kind != .love && $0.kind != .kill && $0.kind != .battle
+                && $0.kind != .conquer && $0.kind != .march
         }
         ZStack {
             // удар-вспышка (красная — гибель, золотая — битва/поход)
@@ -598,7 +599,7 @@ private struct PanelCell: View {
                         let motion: SpriteMotion = {
                             if beats.contains(where: { $0.kind == .condemn && $0.primary == charId }) { return .recoil }
                             if !defeated && beats.contains(where: { ($0.kind == .battle || $0.kind == .downfall) && $0.primary == charId }) { return .slump }
-                            if beats.contains(where: { ($0.kind == .triumph || $0.kind == .conquer) && $0.primary == charId }) { return .hop }
+                            if beats.contains(where: { ($0.kind == .triumph || $0.kind == .conquer || $0.kind == .march) && $0.primary == charId }) { return .hop }
                             return .none
                         }()
                         // корона опускается на голову именно этого персонажа
@@ -659,13 +660,16 @@ private struct CharacterSprite: View {
     private var useDeadPose: Bool { dead && GameAssets.hasDeadPose(charId) }
     /// Поза «разгромлен, но жив» (если гибели нет).
     private var useDefeatedPose: Bool { defeated && !dead && GameAssets.hasDefeatedPose(charId) }
-    /// Поза «триумф» на победных состояниях (если гибели/разгрома нет).
-    private var useTriumphPose: Bool { triumphant && !dead && !defeated && GameAssets.hasTriumphPose(charId) }
+    /// Поза «заговорщик» (флаг plotting) — если не мёртв/не разгромлен.
+    private var usePlotPose: Bool { plotting && !dead && !defeated && GameAssets.hasPlotPose(charId) }
+    /// Поза «триумф» на победных состояниях (если гибели/разгрома/заговора нет).
+    private var useTriumphPose: Bool { triumphant && !dead && !defeated && !usePlotPose && GameAssets.hasTriumphPose(charId) }
     /// Старый трюк (ч/б + поворот на 80°) — только когда позы «повержен» нет.
     private var topple: Bool { dead && !useDeadPose }
     private var baseImageName: String {
         if useDeadPose { return GameAssets.deadImageName(charId) }
         if useDefeatedPose { return GameAssets.defeatedImageName(charId) }
+        if usePlotPose { return GameAssets.plotImageName(charId) }
         if useTriumphPose { return GameAssets.triumphImageName(charId) }
         return GameAssets.characterImageName(charId)
     }
@@ -673,7 +677,7 @@ private struct CharacterSprite: View {
     var body: some View {
         Image(baseImageName, bundle: .gameContent)
             .resizable().scaledToFit().frame(height: spriteH)
-            .modifier(Tremble(active: plotting))     // заговорщик дрожит
+            .modifier(Tremble(active: plotting && !usePlotPose))     // дрожь-фолбэк, если нет позы «заговорщик»
             // нет позы «повержен» → старый фолбэк: сереет, валится набок
             .grayscale(topple ? 0.9 : 0)
             .opacity(topple ? 0.82 : 1)
