@@ -6,14 +6,19 @@ package teller.engine
  */
 object Engine {
 
-    /** Результат прогона с трассой: финальный мир + снапшот после каждой панели (для UI-бейджей). */
-    data class SimResult(val world: World, val snapshots: List<World>)
+    /** Сработавшее правило — для анимаций/звука в UI (панель + id правила + биндинг переменных). */
+    data class RuleEvent(val panelIndex: Int, val ruleId: String, val binding: Map<String, String>)
+
+    /** Результат прогона с трассой: финальный мир + снапшот после каждой панели + сработавшие правила. */
+    data class SimResult(val world: World, val snapshots: List<World>, val events: List<RuleEvent>)
 
     /** Прогон со снапшотами (для доски). Солвер использует лёгкий [simulate] без трассы. */
     fun run(panels: List<Panel>, db: ContentDb, initial: World? = null): SimResult {
         val world = initial ?: World()
         val snaps = ArrayList<World>(panels.size)
-        for (panel in panels) {
+        val events = ArrayList<RuleEvent>()
+        for (i in panels.indices) {
+            val panel = panels[i]
             val sceneId = panel.sceneId
             if (sceneId != null) {
                 val sceneTags = db.scenes[sceneId]!!.tags
@@ -23,13 +28,16 @@ object Engine {
                         val stillValid = rule.trigger.actors.all { a ->
                             world.isAlive(binding[a.variable]!!) && actorMatches(a, binding[a.variable]!!, binding, world, db)
                         }
-                        if (stillValid) applyEffects(rule.effects, binding, world)
+                        if (stillValid) {
+                            applyEffects(rule.effects, binding, world)
+                            events.add(RuleEvent(i, rule.id, binding))
+                        }
                     }
                 }
             }
             snaps.add(world.clone())
         }
-        return SimResult(world, snaps)
+        return SimResult(world, snaps, events)
     }
 
     fun simulate(panels: List<Panel>, db: ContentDb, initial: World? = null): World {

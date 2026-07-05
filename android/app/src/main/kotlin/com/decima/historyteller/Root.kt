@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -42,6 +43,7 @@ class Progress(ctx: Context) {
     fun reset() = p.edit().clear().apply()
     fun solvedCount(ids: List<String>) = ids.count { isCompleted(it) }
     fun isUnlocked(id: String, ordered: List<String>): Boolean {
+        if (BuildConfig.DEBUG) return true   // ВРЕМЕННО: в debug-сборках всё открыто для плейтеста
         val i = ordered.indexOf(id)
         if (i <= 0) return true
         return isCompleted(ordered[i - 1])
@@ -204,7 +206,7 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLoc
                     verticalAlignment = Alignment.CenterVertically) {
                     for (ch in chapters) {
                         // premium-заблокированная (не «скоро») — открывает пейволл
-                        val premiumLocked = ch.available && !ch.free && !Billing.isUnlocked
+                        val premiumLocked = ch.available && !ch.free && !Billing.isUnlocked && !BuildConfig.DEBUG
                         ChapterCard(ch, progress, premiumLocked) {
                             if (!ch.available) return@ChapterCard
                             if (premiumLocked) onLocked() else onSelect(ch.id)
@@ -278,7 +280,15 @@ private fun MapScreen(epoch: String, progress: Progress, onSelect: (String) -> U
                     color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded,
                     modifier = Modifier.align(Alignment.CenterHorizontally))
                 Spacer(Modifier.height(10.dp))
-                LazyColumn(verticalArrangement = Arrangement.spacedBy(14.dp)) {
+                // автоскролл к секции с текущим (открытым, но не пройденным) эпизодом — в т.ч. после «Дальше»
+                val listState = rememberLazyListState()
+                val targetSection = run {
+                    val targetId = orderedIds.firstOrNull { progress.isUnlocked(it, orderedIds) && !progress.isCompleted(it) }
+                    if (targetId == null) 0
+                    else sections.indexOfFirst { (_, e) -> e.any { it.second.id == targetId } }.coerceAtLeast(0)
+                }
+                LaunchedEffect(Unit) { if (targetSection > 0) listState.animateScrollToItem(targetSection) }
+                LazyColumn(state = listState, verticalArrangement = Arrangement.spacedBy(14.dp)) {
                     items(sections) { (act, entries) ->
                         Column {
                             if (act != null) ActHeader(act)

@@ -8,6 +8,7 @@ let deployment: DeploymentTargets = .iOS("17.0")
 let baseSettings: SettingsDictionary = [
     "SWIFT_VERSION": "5.0",
     "CODE_SIGN_STYLE": "Automatic",
+    "DEVELOPMENT_TEAM": "LG956X5CL5",
 ]
 
 func framework(_ name: String,
@@ -60,10 +61,25 @@ let project = Project(
             name: "HistoryTeller",
             destinations: destinations,
             product: .app,
+            productName: "HistoryTeller",
             bundleId: "com.decima.historyteller",
             deploymentTargets: deployment,
             infoPlist: .extendingDefault(with: [
+                // MARK: - Название / версия (версию правь здесь)
+                "CFBundleName": "History Teller",
+                "CFBundleDisplayName": "History Teller",
+                "CFBundleShortVersionString": "1.0",    // маркетинговая версия (видна в App Store)
+                "CFBundleVersion": "1",                 // номер сборки — уникален для каждой загрузки в TestFlight
+                // MARK: - Категория / соответствие
+                "LSApplicationCategoryType": "public.app-category.puzzle-games",
+                "ITSAppUsesNonExemptEncryption": false, // своего шифрования нет → без вопроса об экспортном соответствии
+                "LSRequiresIPhoneOS": true,
+                // MARK: - Устройства (iPhone + iPad)
+                "UIDeviceFamily": [1, 2],
+                // MARK: - Запуск / полноэкранность
                 "UILaunchScreen": [:],
+                "UIRequiresFullScreen": true,
+                // MARK: - Ориентация (только ландшафт)
                 "UISupportedInterfaceOrientations": [
                     "UIInterfaceOrientationLandscapeLeft",
                     "UIInterfaceOrientationLandscapeRight",

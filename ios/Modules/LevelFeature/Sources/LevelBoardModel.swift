@@ -14,9 +14,15 @@ public final class LevelBoardModel {
 
     /// Правила, сработавшие в результате последнего действия (для анимаций/звука).
     public private(set) var lastFiredEvents: [RuleEvent] = []
+    /// Семантические «биты» последнего действия — что именно произошло и с кем
+    /// (кого убили + кто убийца, кого короновали, кто кого полюбил). Выводятся из
+    /// эффектов правила, поэтому работают для любой эпохи без хардкода под ruleId.
+    public private(set) var lastBeats: [Beat] = []
     /// Бампается на каждый пересчёт — вью подписывается, чтобы проигрывать «сок».
     public private(set) var changeToken: Int = 0
     private var seenEventKeys: Set<String> = []
+    @ObservationIgnored private lazy var ruleById: [String: RuleDef] =
+        Dictionary(db.rulesByPriorityDesc.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
 
     /// Диагноз панели: почему заполненная панель «мертва» (ни одно правило не сработало).
     public enum PanelDiagnosis: Equatable { case ok, wrongScene, wrongCharacters, inert }
@@ -144,6 +150,7 @@ public final class LevelBoardModel {
         result = Engine.simulate(panels, db, initial: level.createInitialWorld(), collectTrace: true)
         // Новые (ещё не показанные) сработавшие правила — для анимаций/звука.
         lastFiredEvents = result.events.filter { !seenEventKeys.contains(Self.key($0)) }
+        lastBeats = lastFiredEvents.map { beat(from: $0) }
         seenEventKeys = Set(result.events.map(Self.key))
         // Ошибки показываем только когда весь раунд заполнен (и не решён) — иначе не придираемся.
         panelDiagnoses = (isSolved || !isBoardComplete)
@@ -165,6 +172,94 @@ public final class LevelBoardModel {
             return sameChars ? .ok : .wrongCharacters
         }
         return sameChars ? .wrongScene : .inert
+    }
+
+    /// Что «читаемо» произошло в сработавшем правиле — для анимации-взаимодействия.
+    public struct Beat: Identifiable {
+        public let id = UUID()
+        public let panelIndex: Int
+        public enum Kind { case kill, battle, condemn, conquer, crown,
+                                love, ally, triumph, downfall, conspire, birth, spark }
+        public let kind: Kind
+        public let primary: String?     // тот, «над кем» действие: жертва / коронованный / проигравший / осуждённый
+        public let secondary: String?   // действующий: убийца / победитель / обвинитель / второй влюблённый
+        public let symbol: String
+    }
+
+    /// Выводим смысл из эффектов правила (не из его id), поэтому одна логика
+    /// покрывает все эпохи: любое правило со `setFlag dead` — это убийство и т.д.
+    /// Соглашение: `primary` — тот, кто «страдает/возвышается» (жертва, осуждённый,
+    /// проигравший, коронованный), `secondary` — активный (убийца, обвинитель, победитель).
+    private func beat(from e: RuleEvent) -> Beat {
+        let effs = ruleById[e.ruleId]?.effects ?? []
+        let b = e.binding
+        func flagTarget(_ flags: Set<String>) -> String? {
+            effs.first { $0.type == "setFlag" && ($0.flag.map(flags.contains) ?? false) }?.target
+        }
+        func relationPair(_ rels: Set<String>) -> (String, String)? {
+            for ef in effs where ef.type == "addRelation" && (ef.rel.map(rels.contains) ?? false) {
+                if let f = ef.from, let t = ef.to { return (f, t) }
+            }
+            return nil
+        }
+        // «другой» связанный актор — активная сторона напротив пострадавшего
+        func other(than v: String?) -> String? {
+            let target = v.flatMap { b[$0] }
+            return b.first { $0.key != v && $0.value != target }?.value
+        }
+        func mk(_ kind: Beat.Kind, _ p: String?, _ s: String?, _ sym: String) -> Beat {
+            Beat(panelIndex: e.panelIndex, kind: kind, primary: p, secondary: s, symbol: sym)
+        }
+
+        // Убийство: кто-то получает флаг смерти. Убийца — другой связанный актор.
+        if let v = flagTarget(["dead"]) {
+            return mk(.kill, b[v], other(than: v), "☠️")
+        }
+        // Битва с проигравшим: беглец/разбитый + победитель напротив.
+        if let loser = flagTarget(["fugitive", "defeated"]) {
+            return mk(.battle, b[loser], other(than: loser), "⚔️")
+        }
+        // Суд/обвинение: осуждён/обвинён + обвинитель напротив.
+        if let accused = flagTarget(["condemned", "accused"]) {
+            return mk(.condemn, b[accused], other(than: accused), "⚖️")
+        }
+        // Единоличное завоевание/война (без второго актора-жертвы).
+        if let c = flagTarget(["conqueror", "at_war"]) {
+            return mk(.conquer, b[c], nil, "⚔️")
+        }
+        // Коронация/воцарение/возвышение.
+        if let c = flagTarget(["crowned", "emperor", "empress", "reigns", "supreme_head", "first_consul"]) {
+            return mk(.crown, b[c], nil, "👑")
+        }
+        // Любовь.
+        if let (f, t) = relationPair(["loves"]) {
+            return mk(.love, b[f], b[t], "❤️")
+        }
+        // Союз / поддержка.
+        if let (f, t) = relationPair(["ally_of"]) {
+            return mk(.ally, b[f], b[t], "🤝")
+        }
+        if let backed = flagTarget(["backed"]) {
+            return mk(.ally, b[backed], other(than: backed), "🛡")
+        }
+        // Триумф/слава.
+        if let t = flagTarget(["honored", "flaunting", "triumphant", "rome_restored",
+                               "settled", "hero", "absolute", "supreme"]) {
+            return mk(.triumph, b[t], nil, "🎉")
+        }
+        // Низложение/изгнание/утрата.
+        if let d = flagTarget(["exiled", "cast_off", "widowed"]) {
+            return mk(.downfall, b[d], nil, "💔")
+        }
+        // Заговор.
+        if let plot = flagTarget(["plotting"]) {
+            return mk(.conspire, b[plot], nil, "🗡")
+        }
+        // Рождение наследника.
+        if flagTarget(["has_heir"]) != nil {
+            return mk(.birth, nil, nil, "👶")
+        }
+        return mk(.spark, nil, nil, "✨")
     }
 
     private static func key(_ e: RuleEvent) -> String {

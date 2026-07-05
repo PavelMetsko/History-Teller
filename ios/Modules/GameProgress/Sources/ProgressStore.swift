@@ -15,6 +15,15 @@ public final class ProgressStore {
         self.completed = Set(defaults.stringArray(forKey: key) ?? [])
     }
 
+    /// ВРЕМЕННО (только Debug-сборки): всё открыто для плейтеста. В Release-сборке — false.
+    public static var unlockAll: Bool {
+        #if DEBUG
+        return true
+        #else
+        return false
+        #endif
+    }
+
     public func isCompleted(_ id: String) -> Bool { completed.contains(id) }
 
     public func markCompleted(_ id: String) {
@@ -30,6 +39,7 @@ public final class ProgressStore {
 
     /// Уровень открыт, если он первый или предыдущий по порядку пройден.
     public func isUnlocked(levelId: String, orderedIds: [String]) -> Bool {
+        if Self.unlockAll { return true }
         guard let idx = orderedIds.firstIndex(of: levelId) else { return false }
         if idx == 0 { return true }
         return isCompleted(orderedIds[idx - 1])

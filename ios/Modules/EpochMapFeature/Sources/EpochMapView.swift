@@ -74,32 +74,47 @@ public struct EpochMapView: View {
         return result
     }
 
+    /// Следующий к прохождению эпизод — первый открытый и ещё не пройденный.
+    private var nextLevelId: String? {
+        orderedIds.first { progress.isUnlocked(levelId: $0, orderedIds: orderedIds) && !progress.isCompleted($0) }
+    }
+
     private var levelsArea: some View {
         GeometryReader { geo in
             // Число колонок от ширины: iPhone (W≈662)→3, iPad (W≈1122)→4 (макс 4).
             let count = max(2, min(4, Int(geo.size.width / 210)))
             let cols = Array(repeating: GridItem(.flexible(), spacing: 18), count: count)
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 14) {
-                    ForEach(Array(sections.enumerated()), id: \.offset) { _, section in
-                        if let act = section.act {
-                            actHeader(act)
-                        }
-                        LazyVGrid(columns: cols, spacing: 16) {
-                            ForEach(section.items, id: \.level.id) { entry in
-                                LevelCard(
-                                    number: entry.index + 1,
-                                    title: entry.level.title,
-                                    sceneId: entry.level.cover ?? entry.level.scenes.first,
-                                    completed: progress.isCompleted(entry.level.id),
-                                    unlocked: progress.isUnlocked(levelId: entry.level.id, orderedIds: orderedIds),
-                                    onTap: { onSelect(entry.level.id) }
-                                )
+            ScrollViewReader { proxy in
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 14) {
+                        ForEach(Array(sections.enumerated()), id: \.offset) { _, section in
+                            if let act = section.act {
+                                actHeader(act)
+                            }
+                            LazyVGrid(columns: cols, spacing: 16) {
+                                ForEach(section.items, id: \.level.id) { entry in
+                                    LevelCard(
+                                        number: entry.index + 1,
+                                        title: entry.level.title,
+                                        sceneId: entry.level.cover ?? entry.level.scenes.first,
+                                        completed: progress.isCompleted(entry.level.id),
+                                        unlocked: progress.isUnlocked(levelId: entry.level.id, orderedIds: orderedIds),
+                                        onTap: { onSelect(entry.level.id) }
+                                    )
+                                    .id(entry.level.id)
+                                }
                             }
                         }
                     }
+                    .padding(.vertical, 4)
                 }
-                .padding(.vertical, 4)
+                // при входе на карту (в т.ч. после «Дальше») подматываем к текущему эпизоду
+                .onAppear {
+                    guard let target = nextLevelId else { return }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                        withAnimation(.easeInOut(duration: 0.45)) { proxy.scrollTo(target, anchor: .center) }
+                    }
+                }
             }
         }
     }

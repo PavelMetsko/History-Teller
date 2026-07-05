@@ -3,12 +3,6 @@ import Simulation
 import GameContent
 import DesignSystem
 
-struct FlyingBadge: Identifiable, Equatable {
-    let id = UUID()
-    let panelIndex: Int
-    let symbol: String
-}
-
 /// Кадры панелей в системе координат "board" — для хит-теста дропа.
 private struct PanelFramesKey: PreferenceKey {
     static var defaultValue: [Int: CGRect] = [:]
@@ -17,20 +11,17 @@ private struct PanelFramesKey: PreferenceKey {
     }
 }
 
-private func juice(forRule id: String) -> (symbol: String, sfx: Audio.SFX) {
-    switch id {
-    case "charm":                            return ("❤️", .love)
-    case "befriend":                         return ("🤝", .ally)
-    case "conspire":                         return ("🗡", .conspire)
-    case "betrayal_kill":                    return ("☠️", .kill)
-    case "battle_justice", "conquer":        return ("⚔️", .kill)
-    case "offer_crown", "enthrone", "honor": return ("👑", .crown)
-    case "rivals", "senate_envy":            return ("💢", .envy)
-    case "smuggle":                          return ("📦", .place)
-    case "voyage":                           return ("⛵", .place)
-    case "beget_heir":                       return ("👶", .crown)
-    case "back_ruler":                       return ("🛡", .ally)
-    default:                                 return ("✨", .select)
+/// Звук по типу события (сами события выводятся из эффектов правила — см. LevelBoardModel.beat).
+private func sfx(for kind: LevelBoardModel.Beat.Kind) -> Audio.SFX {
+    switch kind {
+    case .kill, .battle, .conquer: return .kill
+    case .condemn:                 return .conspire
+    case .crown, .triumph, .birth: return .crown
+    case .love:                    return .love
+    case .ally:                    return .ally
+    case .downfall:                return .error
+    case .conspire:                return .conspire
+    case .spark:                   return .select
     }
 }
 
@@ -40,7 +31,7 @@ private extension Font {
 
 public struct LevelBoardView: View {
     @State private var model: LevelBoardModel
-    @State private var badges: [FlyingBadge] = []
+    @State private var activeBeats: [LevelBoardModel.Beat] = []
     @State private var celebrate = false
     @State private var showInfo = false
     @State private var demoMode = false
@@ -171,12 +162,12 @@ public struct LevelBoardView: View {
     // MARK: Juice
 
     private func reactToEvents() {
-        for event in model.lastFiredEvents {
-            let j = juice(forRule: event.ruleId)
-            Audio.shared.play(j.sfx); Haptics.rigid()
-            let badge = FlyingBadge(panelIndex: event.panelIndex, symbol: j.symbol)
-            badges.append(badge)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) { badges.removeAll { $0.id == badge.id } }
+        for beat in model.lastBeats {
+            Audio.shared.play(sfx(for: beat.kind))
+            if beat.kind == .kill { Haptics.error() } else { Haptics.rigid() }
+            let id = beat.id
+            activeBeats.append(beat)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) { activeBeats.removeAll { $0.id == id } }
         }
     }
 
@@ -196,6 +187,13 @@ public struct LevelBoardView: View {
     private func dismissFact() {
         withAnimation(.easeInOut(duration: 0.2)) { model.showFact = false }
         onExit?()
+    }
+
+    /// «Ещё раз» — сбросить доску и играть тот же уровень заново.
+    private func replayLevel() {
+        Audio.shared.play(.select)
+        withAnimation(.easeInOut(duration: 0.2)) { model.showFact = false }
+        model.reset()
     }
 
     /// Неверная попытка: доска заполнена, но цель не достигнута — звук + встряска.
@@ -246,7 +244,7 @@ public struct LevelBoardView: View {
                               highlighted: hoverPanel == i || (model.selected != nil),
                               diagnosis: model.panelDiagnoses.indices.contains(i) ? model.panelDiagnoses[i] : .ok,
                               boardSpace: boardSpace,
-                              badges: badges.filter { $0.panelIndex == i })
+                              beats: activeBeats.filter { $0.panelIndex == i })
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -318,7 +316,7 @@ public struct LevelBoardView: View {
             Color.black.opacity(0.5).ignoresSafeArea()
                 .onTapGesture { dismissFact() }
                 .transition(.opacity)
-            FactPopupCard(level: model.level, onClose: dismissFact)
+            FactPopupCard(level: model.level, onClose: dismissFact, onReplay: replayLevel)
                 .padding(.horizontal, 40)
                 .transition(.scale(scale: 0.8).combined(with: .opacity))
         }
@@ -382,11 +380,19 @@ private struct PanelCell: View {
     let highlighted: Bool
     let diagnosis: LevelBoardModel.PanelDiagnosis
     let boardSpace: String
-    let badges: [FlyingBadge]
+    let beats: [LevelBoardModel.Beat]
+
+    @State private var killShake: CGFloat = 0
 
     private var panel: Panel { model.panels[index] }
     private var isTapTarget: Bool { model.selected != nil }
     private var isWrong: Bool { diagnosis != .ok }
+    /// Удар-тряска панели на «жёстких» событиях — гибель, битва, поход/война.
+    private var hasImpact: Bool { beats.contains { $0.kind == .kill || $0.kind == .battle || $0.kind == .conquer } }
+    /// Сцена-гильотина — для падающего ножа.
+    private var isGuillotine: Bool {
+        (panel.sceneId.flatMap { model.db.scenes[$0]?.tags })?.contains("guillotine") ?? false
+    }
 
     /// Литературная подсказка «почему пусто».
     private var wrongHint: String? {
@@ -402,6 +408,39 @@ private struct PanelCell: View {
         if highlighted { return DS.Palette.gold }
         if isWrong { return DS.Palette.maroon }
         return DS.Palette.ink.opacity(0.55)
+    }
+
+    /// Переходный «сок» события поверх панели (вспышка, мечи, нож, сердца, символ).
+    @ViewBuilder private var juiceOverlay: some View {
+        let impact = beats.filter { $0.kind == .kill || $0.kind == .battle || $0.kind == .conquer }
+        let swords = beats.filter { $0.kind == .battle || $0.kind == .conquer }
+        let kills = beats.filter { $0.kind == .kill }
+        let love = beats.filter { $0.kind == .love }
+        let badges = beats.filter {
+            $0.kind != .crown && $0.kind != .love && $0.kind != .kill && $0.kind != .battle && $0.kind != .conquer
+        }
+        ZStack {
+            // удар-вспышка (красная — гибель, золотая — битва/поход)
+            ForEach(impact) { b in
+                ImpactFlash(color: b.kind == .kill ? DS.Palette.maroon : DS.Palette.gold)
+            }
+            // битва/поход — скрещённые мечи в центре
+            ForEach(swords) { _ in
+                PropBurst(name: "swords", size: min(size.width, size.height) * 0.5, rise: 4, hold: 0.5)
+            }
+            // гильотина — нож падает сверху
+            if isGuillotine {
+                ZStack { ForEach(kills) { _ in GuillotineBlade(panelHeight: size.height) } }
+                    .frame(maxHeight: .infinity, alignment: .top)
+            }
+            // сердца между влюблёнными
+            ZStack { ForEach(love) { _ in HeartsRise().padding(.bottom, size.height * 0.28) } }
+                .frame(maxHeight: .infinity, alignment: .bottom)
+            // всплывающий символ прочих событий
+            ZStack { ForEach(badges) { b in FlyingBadgeView(symbol: b.symbol) } }
+                .padding(.top, size.height * 0.14)
+                .frame(maxHeight: .infinity, alignment: .top)
+        }
     }
 
     var body: some View {
@@ -447,9 +486,10 @@ private struct PanelCell: View {
                     .transition(.opacity.combined(with: .scale(scale: 0.9)))
             }
         }
-        .overlay(alignment: .top) {
-            ZStack { ForEach(badges) { b in FlyingBadgeView(symbol: b.symbol) } }
-                .padding(.top, size.height * 0.14)
+        .overlay { juiceOverlay }
+        .modifier(Shake(travel: 5, shakes: 3, animatableData: killShake))
+        .onChange(of: hasImpact) { _, k in
+            if k { withAnimation(.linear(duration: 0.4)) { killShake += 1 } }
         }
         .animation(.easeInOut(duration: 0.2), value: isWrong)
         .overlay(alignment: .topTrailing) {
@@ -513,6 +553,44 @@ private struct PanelCell: View {
                         let state = microState(charId, in: snap)
                         let plotting = !dead && snap.hasFlag(charId, "plotting")
                         let crowned = !dead && snap.hasFlag(charId, "crowned")
+                        // победные/боевые состояния → поза «триумф»
+                        let triumphant = !dead && ["crowned", "reigns", "emperor", "empress", "victor",
+                            "conqueror", "triumphant", "honored", "first_consul", "supreme_head", "absolute", "at_war"]
+                            .contains { snap.hasFlag(charId, $0) }
+                        // взаимодействие: активная сторона (убийца/победитель/обвинитель) — выпад к цели
+                        let aggroBeat = beats.first {
+                            ($0.kind == .kill || $0.kind == .battle || $0.kind == .condemn) && $0.secondary == charId
+                        }
+                        let isAggressor = aggroBeat != nil
+                        let lungeDX: CGFloat = {
+                            guard let vp = aggroBeat?.primary,
+                                  let vs = panel.characters.firstIndex(of: vp) else { return 0 }
+                            return vs > slot ? 20 : -20
+                        }()
+                        // союз: оба наклоняются друг к другу (мягко)
+                        let allyBeat = beats.first { $0.kind == .ally && ($0.primary == charId || $0.secondary == charId) }
+                        let isAlly = allyBeat != nil
+                        let allyLeanDX: CGFloat = {
+                            guard let ab = allyBeat else { return 0 }
+                            let partner = ab.primary == charId ? ab.secondary : ab.primary
+                            guard let p = partner, let ps = panel.characters.firstIndex(of: p) else { return 0 }
+                            return ps > slot ? 12 : -12
+                        }()
+                        // разгромлен, но жив (беглец/разбит/изгнан/отвергнут/овдовел/опала) → поза «повержен-живой»
+                        let defeated = !dead && ["fugitive", "defeated", "exiled", "cast_off", "widowed", "disgraced"]
+                            .contains { snap.hasFlag(charId, $0) }
+                        // реакция того, «над кем» действие: отшатнуться / поникнуть / вскинуться
+                        // (slump не нужен, если уже показываем позу «разгромлен»)
+                        let motion: SpriteMotion = {
+                            if beats.contains(where: { $0.kind == .condemn && $0.primary == charId }) { return .recoil }
+                            if !defeated && beats.contains(where: { ($0.kind == .battle || $0.kind == .downfall) && $0.primary == charId }) { return .slump }
+                            if beats.contains(where: { ($0.kind == .triumph || $0.kind == .conquer) && $0.primary == charId }) { return .hop }
+                            return .none
+                        }()
+                        // корона опускается на голову именно этого персонажа
+                        let crownDrop = beats.contains { $0.kind == .crown && $0.primary == charId }
+                        // этот персонаж — жертва убийства: брызги крови
+                        let killVictim = beats.contains { $0.kind == .kill && $0.primary == charId }
                         Button {
                             // если есть выделенный элемент — ставим его, а не удаляем текущего
                             if model.selected != nil {
@@ -522,24 +600,11 @@ private struct PanelCell: View {
                                 model.removeCharacter(charId, at: index)
                             }
                         } label: {
-                            Image.character(charId)
-                                .resizable().scaledToFit().frame(height: spriteH)
-                                .modifier(Tremble(active: plotting))     // заговорщик дрожит
-                                // погиб — заваливается набок, сереет и притухает
-                                .grayscale(dead ? 0.9 : 0)
-                                .opacity(dead ? 0.82 : 1)
-                                .scaleEffect(dead ? 0.9 : 1)
-                                .rotationEffect(.degrees(dead ? 80 : 0))
-                                .offset(y: dead ? spriteH * 0.26 : 0)
-                                .animation(.spring(response: 0.5, dampingFraction: 0.55), value: dead)
-                                // значок состояния над головой
-                                .overlay(alignment: .top) {
-                                    if let s = state, !dead { StateFloatie(symbol: s) }
-                                }
-                                // золотая вспышка при короновании
-                                .overlay(alignment: .top) { if crowned { CrownFlash() } }
-                                // пыль при падении
-                                .overlay(alignment: .bottom) { if dead { DustPuff() } }
+                            CharacterSprite(charId: charId, spriteH: spriteH, dead: dead, state: state,
+                                            plotting: plotting, crowned: crowned, triumphant: triumphant,
+                                            defeated: defeated, isAggressor: isAggressor, lungeDX: lungeDX,
+                                            isAlly: isAlly, allyLeanDX: allyLeanDX, motion: motion,
+                                            crownDrop: crownDrop, killVictim: killVictim)
                         }
                         .buttonStyle(.plain)
                         .transition(.scale(scale: 0.4).combined(with: .opacity))
@@ -554,6 +619,88 @@ private struct PanelCell: View {
             .padding(.bottom, 6)
             .animation(.spring(response: 0.35, dampingFraction: 0.6), value: panel.characters)
         }
+    }
+}
+
+/// Спрайт персонажа со всей «живостью»: дрожь, падение, выпад, реакция, корона, кровь, пыль.
+/// Вынесен в отдельную структуру — иначе SwiftUI-компилятор не вытягивает такую цепочку по времени.
+private struct CharacterSprite: View {
+    let charId: String
+    let spriteH: CGFloat
+    let dead: Bool
+    let state: String?
+    let plotting: Bool
+    let crowned: Bool
+    let triumphant: Bool
+    let defeated: Bool
+    let isAggressor: Bool
+    let lungeDX: CGFloat
+    let isAlly: Bool
+    let allyLeanDX: CGFloat
+    let motion: SpriteMotion
+    let crownDrop: Bool
+    let killVictim: Bool
+
+    /// Есть отдельная поза «повержен» (слой 3) — тогда показываем её, без ч/б и заваливания.
+    private var useDeadPose: Bool { dead && GameAssets.hasDeadPose(charId) }
+    /// Поза «разгромлен, но жив» (если гибели нет).
+    private var useDefeatedPose: Bool { defeated && !dead && GameAssets.hasDefeatedPose(charId) }
+    /// Поза «триумф» на победных состояниях (если гибели/разгрома нет).
+    private var useTriumphPose: Bool { triumphant && !dead && !defeated && GameAssets.hasTriumphPose(charId) }
+    /// Старый трюк (ч/б + поворот на 80°) — только когда позы «повержен» нет.
+    private var topple: Bool { dead && !useDeadPose }
+    private var baseImageName: String {
+        if useDeadPose { return GameAssets.deadImageName(charId) }
+        if useDefeatedPose { return GameAssets.defeatedImageName(charId) }
+        if useTriumphPose { return GameAssets.triumphImageName(charId) }
+        return GameAssets.characterImageName(charId)
+    }
+
+    var body: some View {
+        Image(baseImageName, bundle: .gameContent)
+            .resizable().scaledToFit().frame(height: spriteH)
+            .modifier(Tremble(active: plotting))     // заговорщик дрожит
+            // нет позы «повержен» → старый фолбэк: сереет, валится набок
+            .grayscale(topple ? 0.9 : 0)
+            .opacity(topple ? 0.82 : 1)
+            .scaleEffect(topple ? 0.9 : 1)
+            .rotationEffect(.degrees(topple ? 80 : 0))
+            .offset(y: topple ? spriteH * 0.26 : 0)
+            .animation(.spring(response: 0.5, dampingFraction: 0.55), value: dead)
+            // короткое оседание при гибели (когда есть поза)
+            .keyframeAnimator(initialValue: CGFloat(0), trigger: useDeadPose) { v, y in
+                v.offset(y: y)
+            } keyframes: { _ in
+                KeyframeTrack {
+                    CubicKeyframe(useDeadPose ? -8 : 0, duration: 0.07)
+                    SpringKeyframe(0, duration: 0.3)
+                }
+            }
+            // активная сторона делает резкий выпад к цели и отскакивает
+            .keyframeAnimator(initialValue: CGFloat(0), trigger: isAggressor) { v, x in
+                v.offset(x: x)
+            } keyframes: { _ in
+                KeyframeTrack {
+                    CubicKeyframe(lungeDX, duration: 0.10)
+                    SpringKeyframe(0, duration: 0.34)
+                }
+            }
+            // союзники мягко наклоняются друг к другу и возвращаются
+            .keyframeAnimator(initialValue: CGFloat(0), trigger: isAlly) { v, x in
+                v.offset(x: x)
+            } keyframes: { _ in
+                KeyframeTrack {
+                    CubicKeyframe(allyLeanDX, duration: 0.22)
+                    SpringKeyframe(0, duration: 0.5)
+                }
+            }
+            // реакция пострадавшего/триумфатора
+            .modifier(ReactionMotion(motion: motion))
+            .overlay(alignment: .top) { if let s = state, !dead { StateFloatie(symbol: s) } }
+            .overlay(alignment: .top) { if crowned { CrownFlash() } }
+            .overlay(alignment: .top) { if crownDrop { DescendingCrown() } }
+            .overlay { if killVictim { PropBurst(name: "blood", size: spriteH * 0.72, rise: 6, hold: 0.75) } }
+            .overlay(alignment: .bottom) { if dead { DustPuff() } }
     }
 }
 
@@ -638,6 +785,128 @@ private struct CrownFlash: View {
     }
 }
 
+/// Удар — цветная вспышка на всю панель, быстро гаснет (поверх идёт пропс: кровь/мечи).
+/// Красная — гибель, золотая — исход битвы.
+private struct ImpactFlash: View {
+    var color: Color = DS.Palette.maroon
+    @State private var go = false
+    var body: some View {
+        RoundedRectangle(cornerRadius: 10, style: .continuous)
+            .fill(color)
+            .opacity(go ? 0 : 0.42)
+            .allowsHitTesting(false)
+            .onAppear { withAnimation(.easeOut(duration: 0.45)) { go = true } }
+    }
+}
+
+/// Пропс-объект, вылетающий на событии: выпрыгивает с пружиной, держится и тает вверх.
+private struct PropBurst: View {
+    let name: String
+    var size: CGFloat = 60
+    var rise: CGFloat = 8
+    var spin: Double = 0
+    var hold: Double = 0.55
+    @State private var appear = false
+    @State private var gone = false
+    var body: some View {
+        Image.prop(name).resizable().scaledToFit()
+            .frame(width: size, height: size)
+            .rotationEffect(.degrees(appear ? 0 : spin))
+            .scaleEffect(appear ? 1 : 0.2)
+            .offset(y: gone ? -rise : 0)
+            .opacity(gone ? 0 : 1)
+            .shadow(color: .black.opacity(0.25), radius: 3, y: 2)
+            .allowsHitTesting(false)
+            .onAppear {
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) { appear = true }
+                withAnimation(.easeOut(duration: 0.55).delay(hold)) { gone = true }
+            }
+    }
+}
+
+/// Нож гильотины падает сверху вниз по центру панели.
+private struct GuillotineBlade: View {
+    let panelHeight: CGFloat
+    @State private var drop = false
+    var body: some View {
+        Image.prop("blade").resizable().scaledToFit()
+            .frame(height: panelHeight * 0.52)
+            .offset(y: drop ? -panelHeight * 0.10 : -panelHeight * 0.78)
+            .opacity(drop ? 1 : 0.9)
+            .allowsHitTesting(false)
+            .onAppear { withAnimation(.easeIn(duration: 0.26)) { drop = true } }
+    }
+}
+
+/// Переходная реакция спрайта на событие «над ним».
+enum SpriteMotion: Equatable { case none, hop, slump, recoil }
+
+/// Проигрывает короткую реакцию при смене `motion`: вскинуться (триумф),
+/// поникнуть (низложение/поражение), отшатнуться (обвинение). Затем возврат в норму.
+private struct ReactionMotion: ViewModifier {
+    let motion: SpriteMotion
+    @State private var active = false
+
+    func body(content: Content) -> some View {
+        content
+            .rotationEffect(.degrees(active ? rot : 0), anchor: .bottom)
+            .scaleEffect(active ? scale : 1, anchor: .bottom)
+            .offset(y: active ? dy : 0)
+            .onChange(of: motion) { _, m in if m != .none { play(m) } }
+            .onAppear { if motion != .none { play(motion) } }
+    }
+
+    private var dy: CGFloat { motion == .hop ? -20 : motion == .slump ? 8 : 0 }
+    private var rot: Double { motion == .slump ? 10 : motion == .recoil ? -12 : 0 }
+    private var scale: CGFloat { motion == .recoil ? 0.9 : motion == .hop ? 1.06 : 1 }
+
+    private func play(_ m: SpriteMotion) {
+        active = false
+        withAnimation(.spring(response: 0.28, dampingFraction: 0.45)) { active = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + (m == .hop ? 0.42 : 0.85)) {
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) { active = false }
+        }
+    }
+}
+
+/// Сердечки между влюблёнными — стайка поднимается вверх и тает.
+private struct HeartsRise: View {
+    @State private var go = false
+    private let count = 5
+    var body: some View {
+        ZStack {
+            ForEach(0..<count, id: \.self) { i in
+                let dx = CGFloat(i - count / 2) * 16
+                Text("❤️")
+                    .font(.system(size: go ? 22 : 12))
+                    .offset(x: dx * (go ? 1.4 : 0.5),
+                            y: go ? -64 - CGFloat(i) * 6 : 0)
+                    .opacity(go ? 0 : 1)
+                    .animation(.easeOut(duration: 1.0).delay(Double(i) * 0.06), value: go)
+            }
+        }
+        .allowsHitTesting(false)
+        .onAppear { go = true }
+    }
+}
+
+/// Корона (пропс-объект) падает сверху на голову и оседает с лёгким отскоком.
+private struct DescendingCrown: View {
+    @State private var landed = false
+    var body: some View {
+        Image.prop("crown").resizable().scaledToFit()
+            .frame(width: 34, height: 34)
+            .shadow(color: DS.Palette.gold.opacity(0.6), radius: landed ? 5 : 0)
+            .scaleEffect(landed ? 1.0 : 1.6)
+            .opacity(landed ? 1 : 0)
+            .offset(y: landed ? -30 : -74)
+            .allowsHitTesting(false)
+            .onAppear {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.5)) { landed = true }
+            }
+    }
+}
+
 /// Нервная дрожь заговорщика.
 private struct Tremble: ViewModifier {
     let active: Bool
@@ -700,6 +969,7 @@ private struct ConfettiView: View {
 private struct FactPopupCard: View {
     let level: LevelDef
     let onClose: () -> Void
+    var onReplay: (() -> Void)? = nil
 
     private var accuracyLabel: String {
         switch level.factCard?.accuracy {
@@ -724,11 +994,23 @@ private struct FactPopupCard: View {
                             .multilineTextAlignment(.leading)
                         Text(card.source).font(.dsCaption(11)).italic().foregroundStyle(DS.Palette.inkSoft)
                     }
-                    Button(action: onClose) {
-                        Text(L10n.s("ui.next")).font(.dsBody())
-                            .foregroundStyle(DS.Palette.paper)
-                            .padding(.horizontal, 30).padding(.vertical, 11)
-                            .background(Capsule().fill(DS.Palette.maroon))
+                    HStack(spacing: 12) {
+                        if let onReplay {
+                            Button(action: onReplay) {
+                                Label(L10n.s("ui.replay"), systemImage: "arrow.counterclockwise")
+                                    .font(.dsBody())
+                                    .foregroundStyle(DS.Palette.maroon)
+                                    .padding(.horizontal, 22).padding(.vertical, 11)
+                                    .background(Capsule().fill(DS.Palette.paper))
+                                    .overlay(Capsule().strokeBorder(DS.Palette.maroon.opacity(0.5), lineWidth: 1.5))
+                            }
+                        }
+                        Button(action: onClose) {
+                            Text(L10n.s("ui.next")).font(.dsBody())
+                                .foregroundStyle(DS.Palette.paper)
+                                .padding(.horizontal, 30).padding(.vertical, 11)
+                                .background(Capsule().fill(DS.Palette.maroon))
+                        }
                     }
                     .padding(.top, 4)
                 }

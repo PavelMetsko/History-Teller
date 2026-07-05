@@ -103,11 +103,11 @@ struct RootView: View {
             case .chapters:
                 ChapterSelectView(
                     chapters: chapters(pack),
-                    unlocked: store.isUnlocked,
+                    unlocked: store.isUnlocked || ProgressStore.unlockAll,
                     priceText: store.priceText,
                     onSelect: { ch in
                         guard ch.available else { return }
-                        if ch.free || store.isUnlocked {
+                        if ch.free || store.isUnlocked || ProgressStore.unlockAll {
                             selectedEpoch = ch.id; go(.map)
                         } else {
                             pendingEpoch = ch.id
