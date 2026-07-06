@@ -375,9 +375,9 @@
   "level.parr.hint": "Auch sie wird angeklagt. Doch das Schafott ist eine Falle: Rettung liegt in der Versöhnung mit dem König am Hof.",
   "level.parr.source": "L. Porter, „Catherine, die Königin“",
   "level.parr.title": "Catherine Parr",
-  "level.pharsalus.fact": "Am 9. August 48 v. Chr. besiegte bei Pharsalos in Thessalien Caesars kleinere, aber erfahrenere Armee die doppelt so großen Streitkräfte des Pompeius. Pompeius floh vom Schlachtfeld und segelte nach Osten – nach Ägypten.",
-  "level.pharsalus.goal": "Caesar besiegt Pompeius in der entscheidenden Schlacht",
-  "level.pharsalus.hint": "Erkläre zuerst am Rubikon den Krieg – nur dann werden die Legionen in die Schlacht ziehen.",
+  "level.pharsalus.fact": "Am 9. August 48 v. Chr. schlug Caesars kleineres, aber erfahrenes Heer bei Pharsalos in Thessalien die doppelt so große Streitmacht des Pompeius. Caesars linken Flügel befehligte Marcus Antonius. Pompeius floh vom Feld und segelte nach Osten — nach Ägypten.",
+  "level.pharsalus.goal": "Caesar zerschlägt Pompeius bei Pharsalos",
+  "level.pharsalus.hint": "Bilde zuerst die Schlachtreihe mit einem treuen Flügelkommandeur — erst dann zerschmettern die Legionen Pompeius auf dem Feld.",
   "level.pharsalus.source": "Caesar, „Kommentare zum Bürgerkrieg“; Appian",
   "level.pharsalus.title": "Pharsalos",
   "level.philippi.fact": "Im Herbst 42 v. Chr. besiegten bei Philippi die Truppen des Antonius und Octavians die Armee der Verschwörer. Cassius nahm sich nach der ersten Schlacht das Leben, Brutus nach der zweiten. Laut Plutarch bedeckte Antonius Brutus' Leichnam mit seinem purpurnen Mantel als Zeichen des Respekts.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "Die Kaiserin regiert; den gefassten Hochstapler erwartet ein Gericht.",
   "level.hypatius.fact": "Am 10. Januar 1775 wurde Jemeljan Pugatschow auf dem Bolotnaja-Platz in Moskau hingerichtet. Der Aufstand wurde in Blut ertränkt; Katharina II. benannte den Fluss Jaik in Ural um, um die Erinnerung an die Rebellion auszulöschen.",
   "level.hypatius.source": "Urteil im Fall Pugatschow, 1775",
-  "ui.hint": "Hinweis"
+  "ui.hint": "Hinweis",
+  "scene.pharsalus_line": "Schlachtreihe",
+  "scene.pharsalus_line.action": "Legionen aufstellen",
+  "scene.pharsalus_field": "Pharsalos",
+  "scene.pharsalus_field.action": "Entscheidungsschlacht"
 }

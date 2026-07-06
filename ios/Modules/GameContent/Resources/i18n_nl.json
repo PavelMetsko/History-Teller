@@ -375,9 +375,9 @@
   "level.parr.hint": "Ook zij zal worden beschuldigd. Maar het schavot is een valstrik: redding ligt in verzoening met de koning aan het hof.",
   "level.parr.source": "L. Porter, 'Catharina, koningin'",
   "level.parr.title": "Catharina Parr",
-  "level.pharsalus.fact": "Op 9 augustus 48 v.Chr. bij Pharsalus in Thessalië versloeg het kleinere, maar ervaren leger van Caesar de tweemaal zo grote strijdkrachten van Pompeius. Pompeius vluchtte van het slagveld en zeilde oostwaarts — naar Egypte.",
-  "level.pharsalus.goal": "Caesar verslaat Pompeius in een beslissende slag",
-  "level.pharsalus.hint": "Verklaar eerst de oorlog bij de Rubicon — pas dan zullen de legioenen ten strijde trekken.",
+  "level.pharsalus.fact": "Op 9 augustus 48 v.Chr. versloeg Caesars kleinere maar doorgewinterde leger bij Pharsalus in Thessalië de tweemaal zo grote strijdmacht van Pompeius. Caesars linkervleugel werd aangevoerd door Marcus Antonius. Pompeius vluchtte van het veld en voer oostwaarts — naar Egypte.",
+  "level.pharsalus.goal": "Caesar verplettert Pompeius bij Pharsalus",
+  "level.pharsalus.hint": "Vorm eerst de slaglinie met een trouwe vleugelcommandant — pas dan verpletteren de legioenen Pompeius op het veld.",
   "level.pharsalus.source": "Caesar, 'Aantekeningen over de burgeroorlog'; Appianus",
   "level.pharsalus.title": "Pharsalus",
   "level.philippi.fact": "In de herfst van 42 v.Chr. bij Philippi versloegen de troepen van Antonius en Octavianus het leger van de samenzweerders. Cassius pleegde zelfmoord na de eerste slag, Brutus — na de tweede. Volgens Plutarchus bedekte Antonius het lichaam van Brutus met zijn purperen mantel als teken van respect.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "De keizerin regeert; de gevangengenomen bedrieger wacht een proces.",
   "level.hypatius.fact": "Op 10 januari 1775 werd Jemeljan Poegatsjov geëxecuteerd op het Bolotnaja-plein in Moskou. De opstand werd in bloed gesmoord; Catharina II hernoemde de rivier de Jaik naar de Oeral om de herinnering aan de opstand uit te wissen.",
   "level.hypatius.source": "Het vonnis in de zaak Poegatsjov, 1775",
-  "ui.hint": "Hint"
+  "ui.hint": "Hint",
+  "scene.pharsalus_line": "Slaglinie",
+  "scene.pharsalus_line.action": "de legioenen opstellen",
+  "scene.pharsalus_field": "Pharsalus",
+  "scene.pharsalus_field.action": "beslissende slag"
 }

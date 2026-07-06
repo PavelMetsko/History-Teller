@@ -375,9 +375,9 @@
   "level.parr.hint": "Ela também será acusada. Mas o cadafalso é uma armadilha: a salvação está na reconciliação com o rei na corte.",
   "level.parr.source": "L. Porter, 'Catarina, a Rainha'",
   "level.parr.title": "Catarina Parr",
-  "level.pharsalus.fact": "Em 9 de agosto de 48 a.C., em Farsália, na Tessália, o exército menor, mas experiente, de César derrotou as forças de Pompeu, que eram o dobro em número. Pompeu fugiu do campo de batalha e navegou para o leste — para o Egito.",
-  "level.pharsalus.goal": "César derrota Pompeu em batalha decisiva",
-  "level.pharsalus.hint": "Primeiro, declara guerra no Rubicão — só então as legiões entrarão em combate.",
+  "level.pharsalus.fact": "Em 9 de agosto de 48 a.C., em Farsalos, na Tessália, o exército menor mas veterano de César derrotou as forças de Pompeu, duas vezes maiores. A ala esquerda de César era comandada por Marco António. Pompeu fugiu do campo e navegou para leste — para o Egito.",
+  "level.pharsalus.goal": "César esmaga Pompeu em Farsalos",
+  "level.pharsalus.hint": "Primeiro forma a linha com um fiel comandante de ala — só então as legiões esmagarão Pompeu no campo.",
   "level.pharsalus.source": "César, 'Comentários sobre a Guerra Civil'; Apiano",
   "level.pharsalus.title": "Farsália",
   "level.philippi.fact": "No outono de 42 a.C., em Filipos, as tropas de António e Otaviano derrotaram o exército dos conspiradores. Cássio suicidou-se após a primeira batalha, Bruto — após a segunda. Segundo Plutarco, António cobriu o corpo de Bruto com seu manto púrpura em sinal de respeito.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "A imperatriz reina; o impostor capturado aguarda julgamento.",
   "level.hypatius.fact": "Em 10 de janeiro de 1775, Iemelián Pugatchov foi executado na Praça Bolotnaya em Moscovo. A revolta foi afogada em sangue; Catarina II renomeou o rio Yaik para Ural, a fim de apagar a memória da rebelião.",
   "level.hypatius.source": "Sentença no caso Pugatchov, 1775",
-  "ui.hint": "Dica"
+  "ui.hint": "Dica",
+  "scene.pharsalus_line": "Linha de batalha",
+  "scene.pharsalus_line.action": "formar as legiões",
+  "scene.pharsalus_field": "Farsalos",
+  "scene.pharsalus_field.action": "batalha decisiva"
 }

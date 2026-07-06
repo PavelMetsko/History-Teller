@@ -375,9 +375,9 @@
   "level.parr.hint": "Ją również oskarżą. Lecz szafot to pułapka: ratunek w pojednaniu z królem na dworze.",
   "level.parr.source": "L. Porter, «Katarzyna, królowa»",
   "level.parr.title": "Katarzyna Parr",
-  "level.pharsalus.fact": "9 sierpnia 48 r. p.n.e. pod Farsalos w Tesalii mniejsza, lecz doświadczona armia Cezara rozgromiła dwukrotnie większe siły Pompejusza. Pompejusz uciekł z pola bitwy i odpłynął na wschód — do Egiptu.",
-  "level.pharsalus.goal": "Cezar rozbija Pompejusza w decydującej bitwie",
-  "level.pharsalus.hint": "Najpierw wypowiedz wojnę nad Rubikonem — tylko wtedy legiony ruszą do walki.",
+  "level.pharsalus.fact": "9 sierpnia 48 r. p.n.e. pod Farsalos w Tesalii mniejsza, lecz doświadczona armia Cezara rozbiła dwukrotnie większe siły Pompejusza. Lewym skrzydłem Cezara dowodził Marek Antoniusz. Pompejusz uciekł z pola i popłynął na wschód — do Egiptu.",
+  "level.pharsalus.goal": "Cezar rozbija Pompejusza pod Farsalos",
+  "level.pharsalus.hint": "Najpierw uformuj szyk z wiernym dowódcą skrzydła — dopiero wtedy legiony zmiażdżą Pompejusza na polu.",
   "level.pharsalus.source": "Cezar, «O wojnie domowej»; Appian",
   "level.pharsalus.title": "Farsalos",
   "level.philippi.fact": "Jesienią 42 r. p.n.e. pod Filippi wojska Antoniusza i Oktawiana rozgromiły armię spiskowców. Kasjusz popełnił samobójstwo po pierwszej bitwie, Brutus — po drugiej. Według Plutarcha, Antoniusz okrył ciało Brutusa swoim purpurowym płaszczem na znak szacunku.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "Cesarzowa panuje; schwytany samozwaniec czeka na sąd.",
   "level.hypatius.fact": "10 stycznia 1775 r. Jemielian Pugaczow został stracony na Placu Błotnym w Moskwie. Powstanie zostało utopione we krwi; Katarzyna II zmieniła nazwę rzeki Jaik na Ural, aby zatrzeć pamięć o buncie.",
   "level.hypatius.source": "Wyrok w sprawie Pugaczowa, 1775 r.",
-  "ui.hint": "Podpowiedź"
+  "ui.hint": "Podpowiedź",
+  "scene.pharsalus_line": "Szyk bojowy",
+  "scene.pharsalus_line.action": "ustawić legiony",
+  "scene.pharsalus_field": "Farsalos",
+  "scene.pharsalus_field.action": "decydująca bitwa"
 }

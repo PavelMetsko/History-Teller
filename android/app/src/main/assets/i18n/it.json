@@ -375,9 +375,9 @@
   "level.parr.hint": "Anche lei sarà accusata. Ma il patibolo è una trappola: la salvezza è nella riconciliazione con il re a corte.",
   "level.parr.source": "L. Porter, «Caterina, regina»",
   "level.parr.title": "Caterina Parr",
-  "level.pharsalus.fact": "Il 9 agosto del 48 a.C., a Farsalo in Tessaglia, l'esercito di Cesare, più piccolo ma esperto, sbaragliò le forze di Pompeo, due volte più numerose. Pompeo fuggì dal campo di battaglia e salpò verso est — in Egitto.",
-  "level.pharsalus.goal": "Cesare sconfigge Pompeo in una battaglia decisiva",
-  "level.pharsalus.hint": "Dapprima dichiara guerra al Rubicone — solo allora le legioni andranno in battaglia.",
+  "level.pharsalus.fact": "Il 9 agosto 48 a.C., a Farsalo in Tessaglia, l'esercito più piccolo ma veterano di Cesare travolse le forze di Pompeo, grandi il doppio. L'ala sinistra di Cesare era comandata da Marco Antonio. Pompeo fuggì dal campo e salpò verso est — in Egitto.",
+  "level.pharsalus.goal": "Cesare schiaccia Pompeo a Farsalo",
+  "level.pharsalus.hint": "Prima schiera la linea con un fedele comandante d'ala: solo allora le legioni travolgeranno Pompeo sul campo.",
   "level.pharsalus.source": "Cesare, «Commentarii de bello civili»; Appiano",
   "level.pharsalus.title": "Farsalo",
   "level.philippi.fact": "Nell'autunno del 42 a.C., a Filippi, le truppe di Antonio e Ottaviano sbaragliarono l'esercito dei congiurati. Cassio si suicidò dopo la prima battaglia, Bruto — dopo la seconda. Secondo Plutarco, Antonio coprì il corpo di Bruto con il suo mantello di porpora in segno di rispetto.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "L'imperatrice regna; l'impostore catturato attende il giudizio.",
   "level.hypatius.fact": "Il 10 gennaio 1775, Emel'jan Pugačëv fu giustiziato nella Piazza Bolotnaja a Mosca. La rivolta fu soffocata nel sangue; Caterina II ribattezzò il fiume Jaik in Ural per cancellare la memoria della ribellione.",
   "level.hypatius.source": "La sentenza nel caso Pugačëv, 1775",
-  "ui.hint": "Suggerimento"
+  "ui.hint": "Suggerimento",
+  "scene.pharsalus_line": "Schieramento",
+  "scene.pharsalus_line.action": "schierare le legioni",
+  "scene.pharsalus_field": "Farsalo",
+  "scene.pharsalus_field.action": "battaglia decisiva"
 }

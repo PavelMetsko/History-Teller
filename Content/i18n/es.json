@@ -375,9 +375,9 @@
   "level.parr.hint": "A ella también la acusarán. Pero el cadalso es una trampa: la salvación está en la reconciliación con el rey en la corte.",
   "level.parr.source": "L. Porter, «Catalina, la reina»",
   "level.parr.title": "Catalina Parr",
-  "level.pharsalus.fact": "El 9 de agosto del 48 a.C., en Farsalia, Tesalia, el ejército de César, más pequeño pero experimentado, derrotó a las fuerzas de Pompeyo, que eran el doble. Pompeyo huyó del campo de batalla y zarpó hacia el este, a Egipto.",
-  "level.pharsalus.goal": "César derrota a Pompeyo en una batalla decisiva",
-  "level.pharsalus.hint": "Primero declara la guerra en el Rubicón — solo entonces las legiones irán a la batalla.",
+  "level.pharsalus.fact": "El 9 de agosto del 48 a. C., en Farsalia (Tesalia), el ejército menor pero veterano de César derrotó a las fuerzas de Pompeyo, el doble de grandes. El ala izquierda de César la mandaba Marco Antonio. Pompeyo huyó del campo y navegó al este, a Egipto.",
+  "level.pharsalus.goal": "César aplasta a Pompeyo en Farsalia",
+  "level.pharsalus.hint": "Primero forma la línea con un fiel comandante de ala: solo entonces las legiones aplastarán a Pompeyo en el campo.",
   "level.pharsalus.source": "César, «Comentarios de la Guerra Civil»; Apiano",
   "level.pharsalus.title": "Farsalia",
   "level.philippi.fact": "En otoño del 42 a.C., en Filipos, las tropas de Antonio y Octaviano derrotaron al ejército de los conspiradores. Casio se suicidó después de la primera batalla, Bruto —después de la segunda. Según Plutarco, Antonio cubrió el cuerpo de Bruto con su manto púrpura en señal de respeto.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "La emperatriz reina; el impostor capturado espera juicio.",
   "level.hypatius.fact": "El 10 de enero de 1775, Yemelián Pugachov fue ejecutado en la Plaza Bolotnaya de Moscú. La rebelión fue ahogada en sangre; Catalina II renombró el río Yaik como Ural para borrar el recuerdo de la revuelta.",
   "level.hypatius.source": "Sentencia en el caso Pugachov, 1775",
-  "ui.hint": "Pista"
+  "ui.hint": "Pista",
+  "scene.pharsalus_line": "Línea de batalla",
+  "scene.pharsalus_line.action": "formar las legiones",
+  "scene.pharsalus_field": "Farsalia",
+  "scene.pharsalus_field.action": "batalla decisiva"
 }

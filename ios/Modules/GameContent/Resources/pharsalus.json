@@ -6,18 +6,25 @@
   "epoch": "rome",
   "panels": 2,
   "scenes": [
-    "battlefield",
-    "rubicon"
+    "pharsalus_line",
+    "pharsalus_field"
   ],
   "characters": [
     "caesar",
-    "pompey",
-    "antony"
+    "antony",
+    "pompey"
   ],
-  "goalText": "Цезарь разбивает Помпея в решающей битве",
-  "goalHint": "Сперва объяви войну у Рубикона — только тогда легионы пойдут в бой.",
+  "goalText": "Цезарь разбивает Помпея при Фарсале",
+  "goalHint": "Сначала сомкни строй с верным командующим крылом — только тогда легионы сокрушат Помпея на поле.",
   "goal": {
     "all": [
+      {
+        "relation": {
+          "rel": "ally_of",
+          "from": "caesar",
+          "to": "antony"
+        }
+      },
       {
         "flag": {
           "char": "pompey",
@@ -34,24 +41,25 @@
   },
   "solution": [
     {
-      "scene": "rubicon",
+      "scene": "pharsalus_line",
       "characters": [
-        "caesar"
+        "caesar",
+        "antony"
       ]
     },
     {
-      "scene": "battlefield",
+      "scene": "pharsalus_field",
       "characters": [
         "caesar",
         "pompey"
       ]
     }
   ],
-  "cover": "battlefield",
+  "cover": "pharsalus_field",
   "music": "battle",
   "factCard": {
     "accuracy": "fact",
-    "text": "9 августа 48 г. до н.э. при Фарсале в Фессалии меньшая, но опытная армия Цезаря разгромила вдвое большие силы Помпея. Помпей бежал с поля боя и отплыл на восток — в Египет.",
+    "text": "9 августа 48 г. до н.э. при Фарсале в Фессалии меньшая, но опытная армия Цезаря разгромила вдвое большие силы Помпея. Левым крылом Цезаря командовал Марк Антоний. Помпей бежал с поля боя и отплыл на восток — в Египет.",
     "source": "Цезарь, «Записки о гражданской войне»; Аппиан"
   }
 }

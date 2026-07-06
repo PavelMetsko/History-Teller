@@ -3340,5 +3340,90 @@
         "flag": "dead"
       }
     ]
+  },
+  {
+    "id": "array_pharsalus",
+    "comment": "Цезарь строит легионы, доверив крыло верному командующему — и объявляет битву",
+    "priority": 2,
+    "trigger": {
+      "sceneTags": [
+        "array_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "ruler",
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general",
+            "roman"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "at_war"
+      },
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "B",
+        "to": "A"
+      }
+    ]
+  },
+  {
+    "id": "pharsalus_rout",
+    "comment": "Сомкнутый строй Цезаря опрокидывает Помпея — тот бежит с поля",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "battle_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "ruler",
+            "roman"
+          ],
+          "flags": [
+            "at_war"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "pompeian"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "fugitive"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "victor"
+      }
+    ]
   }
 ]

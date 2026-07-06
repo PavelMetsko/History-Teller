@@ -1,0 +1,9 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "scene_pharsalus_field.png"
+    }
+  ],
+  "info" : { "author" : "xcode", "version" : 1 }
+}

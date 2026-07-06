@@ -844,5 +844,35 @@
     "emoji": "🕯️",
     "action": "кончина",
     "actionIcon": "icon_dead"
+  },
+  {
+    "id": "pharsalus_line",
+    "name": "Боевой строй",
+    "tags": [
+      "array_p"
+    ],
+    "slots": 2,
+    "emoji": "🛡️",
+    "action": "построить легионы",
+    "actionIcon": "icon_ally",
+    "roles": [
+      "полководец",
+      "командующий крылом"
+    ]
+  },
+  {
+    "id": "pharsalus_field",
+    "name": "Фарсал",
+    "tags": [
+      "battle_p"
+    ],
+    "slots": 2,
+    "emoji": "⚔️",
+    "action": "решающая битва",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "победитель",
+      "соперник"
+    ]
   }
 ]

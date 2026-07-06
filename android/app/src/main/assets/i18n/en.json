@@ -375,9 +375,9 @@
   "level.parr.hint": "She too will be accused. But the block is a trap: salvation lies in reconciliation with the King at court.",
   "level.parr.source": "Linda Porter, 'Katherine the Queen'",
   "level.parr.title": "Catherine Parr",
-  "level.pharsalus.fact": "On August 9, 48 BC, at Pharsalus in Thessaly, Caesar's smaller but experienced army routed Pompey's forces, which were twice its size. Pompey fled the battlefield and sailed east — to Egypt.",
-  "level.pharsalus.goal": "Caesar defeats Pompey in a decisive battle",
-  "level.pharsalus.hint": "First declare war at the Rubicon — only then will the legions go into battle.",
+  "level.pharsalus.fact": "On August 9, 48 BC, at Pharsalus in Thessaly, Caesar's smaller but veteran army routed Pompey's force twice its size. Caesar's left wing was commanded by Mark Antony. Pompey fled the field and sailed east — to Egypt.",
+  "level.pharsalus.goal": "Caesar crushes Pompey at Pharsalus",
+  "level.pharsalus.hint": "First form the line with a loyal wing commander — only then will the legions crush Pompey on the field.",
   "level.pharsalus.source": "Caesar, 'Commentaries on the Civil War'; Appian",
   "level.pharsalus.title": "Pharsalus",
   "level.philippi.fact": "In the autumn of 42 BC, at Philippi, the armies of Antony and Octavian defeated the conspirators' army. Cassius committed suicide after the first battle, Brutus after the second. According to Plutarch, Antony covered Brutus' body with his purple cloak as a sign of respect.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "The Empress reigns; the captured impostor awaits trial.",
   "level.hypatius.fact": "On January 10, 1775, Yemelyan Pugachev was executed on Bolotnaya Square in Moscow. The rebellion was drowned in blood; Catherine II renamed the Yaik River to the Ural to erase the memory of the revolt.",
   "level.hypatius.source": "Verdict in the Pugachev Case, 1775",
-  "ui.hint": "Hint"
+  "ui.hint": "Hint",
+  "scene.pharsalus_line": "Battle Line",
+  "scene.pharsalus_line.action": "form the ranks",
+  "scene.pharsalus_field": "Pharsalus",
+  "scene.pharsalus_field.action": "decisive battle"
 }

@@ -375,9 +375,9 @@
   "level.parr.hint": "Elle sera aussi accusée. Mais l'échafaud est un piège : le salut réside dans la réconciliation avec le roi à la cour.",
   "level.parr.source": "L. Porter, «Catherine, la reine»",
   "level.parr.title": "Catherine Parr",
-  "level.pharsalus.fact": "Le 9 août 48 av. J.-C., à Pharsale en Thessalie, l'armée de César, moins nombreuse mais expérimentée, écrasa les forces de Pompée, deux fois plus importantes. Pompée s'enfuit du champ de bataille et mit le cap à l'est — vers l'Égypte.",
-  "level.pharsalus.goal": "César écrase Pompée dans une bataille décisive",
-  "level.pharsalus.hint": "Déclare d'abord la guerre au Rubicon — ce n'est qu'alors que les légions iront au combat.",
+  "level.pharsalus.fact": "Le 9 août 48 av. J.-C., à Pharsale en Thessalie, l'armée plus petite mais aguerrie de César défit les forces de Pompée, deux fois supérieures. L'aile gauche de César était commandée par Marc Antoine. Pompée s'enfuit du champ et fit voile vers l'est — vers l'Égypte.",
+  "level.pharsalus.goal": "César écrase Pompée à Pharsale",
+  "level.pharsalus.hint": "Forme d'abord la ligne avec un fidèle commandant d'aile — alors seulement les légions écraseront Pompée sur le champ.",
   "level.pharsalus.source": "César, «Commentaires sur la Guerre civile» ; Appien",
   "level.pharsalus.title": "Pharsale",
   "level.philippi.fact": "À l'automne 42 av. J.-C., à Philippes, les troupes d'Antoine et d'Octavien écrasèrent l'armée des conjurés. Cassius se suicida après la première bataille, Brutus — après la seconde. Selon Plutarque, Antoine couvrit le corps de Brutus de son manteau de pourpre en signe de respect.",
@@ -685,5 +685,9 @@
   "level.hypatius.intro": "L'impératrice règne ; l'imposteur capturé attend son jugement.",
   "level.hypatius.fact": "Le 10 janvier 1775, Emelian Pougatchev fut exécuté sur la place Bolotnaïa à Moscou. La révolte fut noyée dans le sang ; Catherine II renomma la rivière Iaïk en Oural, afin d'effacer le souvenir de la sédition.",
   "level.hypatius.source": "Arrêt dans l'affaire Pougatchev, 1775.",
-  "ui.hint": "Indice"
+  "ui.hint": "Indice",
+  "scene.pharsalus_line": "Ligne de bataille",
+  "scene.pharsalus_line.action": "former les légions",
+  "scene.pharsalus_field": "Pharsale",
+  "scene.pharsalus_field.action": "bataille décisive"
 }
