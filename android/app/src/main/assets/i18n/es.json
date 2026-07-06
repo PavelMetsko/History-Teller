@@ -440,7 +440,7 @@
   "level.rivals.title": "Rivales",
   "level.rubicon.fact": "La noche del 10 de enero del 49 a.C., César, con la XIII legión, cruzó el río fronterizo Rubicón, violando así la ley y comenzando la guerra civil contra el senado y Pompeyo. Según Suetonio, pronunció «Alea iacta est» — «La suerte está echada».",
   "level.rubicon.goal": "César cruza el Rubicón y marcha sobre Roma",
-  "level.rubicon.hint": "Primero asegúrate la lealtad de Antonio, luego — cruza el río con la legión.",
+  "level.rubicon.hint": "En el foro, ponte del lado del leal Antonio, pero no del rival Pompeyo. Luego cruza el río con la legión.",
   "level.rubicon.source": "Suetonio; Plutarco, «César»",
   "level.rubicon.title": "La suerte está echada",
   "level.sacre.fact": "El 2 de diciembre de 1804, en la catedral de Notre-Dame, Napoleón se coronó emperador de los franceses. En presencia del papa Pío VII, él mismo se ciñó la corona, un signo de que su poder solo se debía a sí mismo.",
@@ -649,6 +649,7 @@
   "ui.ok": "Entendido",
   "ui.play": "Jugar",
   "ui.progress": "Completado %d de %d",
+  "ui.replay": "Repetir",
   "ui.reset": "Restablecer progreso",
   "ui.reset_confirm": "Restablecer",
   "ui.reset_msg": "Todos los niveles completados se bloquearán de nuevo.\nEsta acción no se puede deshacer.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "Primero, la captura por Suvórov; luego, el cadalso por voluntad de la soberana.",
   "level.hypatius.intro": "La emperatriz reina; el impostor capturado espera juicio.",
   "level.hypatius.fact": "El 10 de enero de 1775, Yemelián Pugachov fue ejecutado en la Plaza Bolotnaya de Moscú. La rebelión fue ahogada en sangre; Catalina II renombró el río Yaik como Ural para borrar el recuerdo de la revuelta.",
-  "level.hypatius.source": "Sentencia en el caso Pugachov, 1775"
+  "level.hypatius.source": "Sentencia en el caso Pugachov, 1775",
+  "ui.hint": "Pista"
 }

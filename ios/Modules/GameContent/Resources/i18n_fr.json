@@ -440,7 +440,7 @@
   "level.rivals.title": "Rivaux",
   "level.rubicon.fact": "Dans la nuit du 10 janvier 49 av. J.-C., César, avec la XIIIe légion, franchit le Rubicon, une petite rivière frontalière, violant ainsi la loi et déclenchant la guerre civile contre le Sénat et Pompée. Selon Suétone, il prononça «Alea iacta est» — «Le sort en est jeté».",
   "level.rubicon.goal": "César franchit le Rubicon et marche sur Rome",
-  "level.rubicon.hint": "Assure-toi d'abord de la loyauté d'Antoine, puis — traverse la rivière avec la légion.",
+  "level.rubicon.hint": "Au forum, range-toi du côté du fidèle Antoine — mais pas de son rival Pompée. Puis fais franchir le fleuve à la légion.",
   "level.rubicon.source": "Suétone ; Plutarque, «César»",
   "level.rubicon.title": "Le Sort en est jeté",
   "level.sacre.fact": "Le 2 décembre 1804, en la cathédrale Notre-Dame, Napoléon est couronné empereur des Français. En présence du pape Pie VII, il se pose lui-même la couronne sur la tête — signe qu'il ne doit son pouvoir qu'à lui-même.",
@@ -649,6 +649,7 @@
   "ui.ok": "Compris",
   "ui.play": "Jouer",
   "ui.progress": "%d sur %d terminés",
+  "ui.replay": "Rejouer",
   "ui.reset": "Réinitialiser la progression",
   "ui.reset_confirm": "Réinitialiser",
   "ui.reset_msg": "Tous les niveaux terminés seront à nouveau verrouillés.\nCette action est irréversible.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "D'abord — la capture par Souvorov, ensuite — le billot par la volonté de la souveraine.",
   "level.hypatius.intro": "L'impératrice règne ; l'imposteur capturé attend son jugement.",
   "level.hypatius.fact": "Le 10 janvier 1775, Emelian Pougatchev fut exécuté sur la place Bolotnaïa à Moscou. La révolte fut noyée dans le sang ; Catherine II renomma la rivière Iaïk en Oural, afin d'effacer le souvenir de la sédition.",
-  "level.hypatius.source": "Arrêt dans l'affaire Pougatchev, 1775."
+  "level.hypatius.source": "Arrêt dans l'affaire Pougatchev, 1775.",
+  "ui.hint": "Indice"
 }

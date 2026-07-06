@@ -440,7 +440,7 @@
   "level.rivals.title": "Rivalen",
   "level.rubicon.fact": "In der Nacht zum 10. Januar 49 v. Chr. überquerte Caesar mit der XIII. Legion den Grenzfluss Rubikon, brach damit das Gesetz und begann den Bürgerkrieg gegen den Senat und Pompeius. Laut Sueton sprach er „Alea iacta est“ – „Der Würfel ist gefallen“.",
   "level.rubicon.goal": "Caesar überquert den Rubikon und marschiert auf Rom",
-  "level.rubicon.hint": "Sichere dir zuerst die Treue des Antonius, dann – über den Fluss mit der Legion.",
+  "level.rubicon.hint": "Stell dich im Forum auf die Seite des treuen Antonius — aber nicht seines Rivalen Pompeius. Führe dann die Legion über den Fluss.",
   "level.rubicon.source": "Sueton; Plutarch, „Caesar“",
   "level.rubicon.title": "Der Würfel ist gefallen",
   "level.sacre.fact": "Am 2. Dezember 1804 krönte sich Napoleon in der Kathedrale Notre-Dame zum Kaiser der Franzosen. In Anwesenheit von Papst Pius VII. setzte er sich die Krone selbst aufs Haupt – ein Zeichen, dass er seine Macht nur sich selbst verdankte.",
@@ -649,6 +649,7 @@
   "ui.ok": "Verstanden",
   "ui.play": "Spielen",
   "ui.progress": "Fortschritt: %d von %d",
+  "ui.replay": "Nochmal",
   "ui.reset": "Fortschritt zurücksetzen",
   "ui.reset_confirm": "Zurücksetzen",
   "ui.reset_msg": "Alle abgeschlossenen Level werden wieder gesperrt.\nDiese Aktion kann nicht rückgängig gemacht werden.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "Zuerst die Gefangennahme durch Suworow, dann das Schafott auf Befehl der Herrscherin.",
   "level.hypatius.intro": "Die Kaiserin regiert; den gefassten Hochstapler erwartet ein Gericht.",
   "level.hypatius.fact": "Am 10. Januar 1775 wurde Jemeljan Pugatschow auf dem Bolotnaja-Platz in Moskau hingerichtet. Der Aufstand wurde in Blut ertränkt; Katharina II. benannte den Fluss Jaik in Ural um, um die Erinnerung an die Rebellion auszulöschen.",
-  "level.hypatius.source": "Urteil im Fall Pugatschow, 1775"
+  "level.hypatius.source": "Urteil im Fall Pugatschow, 1775",
+  "ui.hint": "Hinweis"
 }

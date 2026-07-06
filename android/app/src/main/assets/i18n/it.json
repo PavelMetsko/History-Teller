@@ -440,7 +440,7 @@
   "level.rivals.title": "Rivali",
   "level.rubicon.fact": "Nella notte del 10 gennaio del 49 a.C., Cesare con la XIII legione attraversò il fiume di confine Rubicone, violando la legge e dando inizio alla guerra civile contro il senato e Pompeo. Secondo Svetonio, pronunciò «Alea iacta est» — «Il dado è tratto».",
   "level.rubicon.goal": "Cesare attraversa il Rubicone e marcia su Roma",
-  "level.rubicon.hint": "Prima assicurati la lealtà di Antonio, poi — oltre il fiume con la legione.",
+  "level.rubicon.hint": "Nel foro schierati con il fedele Antonio — ma non con il rivale Pompeo. Poi fai attraversare il fiume alla legione.",
   "level.rubicon.source": "Svetonio; Plutarco, «Cesare»",
   "level.rubicon.title": "Il dado è tratto",
   "level.sacre.fact": "Il 2 dicembre 1804, nella cattedrale di Notre-Dame, Napoleone si incoronò imperatore dei Francesi. In presenza di Papa Pio VII, si pose egli stesso la corona sul capo — un segno che doveva il suo potere solo a sé stesso.",
@@ -649,6 +649,7 @@
   "ui.ok": "OK",
   "ui.play": "Gioca",
   "ui.progress": "Completato %d di %d",
+  "ui.replay": "Rigioca",
   "ui.reset": "Reimposta progressi",
   "ui.reset_confirm": "Reimposta",
   "ui.reset_msg": "Tutti i livelli completati verranno bloccati di nuovo.\nQuesta azione non può essere annullata.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "Prima — la cattura da parte di Suvorov, poi — il patibolo per volontà della sovrana.",
   "level.hypatius.intro": "L'imperatrice regna; l'impostore catturato attende il giudizio.",
   "level.hypatius.fact": "Il 10 gennaio 1775, Emel'jan Pugačëv fu giustiziato nella Piazza Bolotnaja a Mosca. La rivolta fu soffocata nel sangue; Caterina II ribattezzò il fiume Jaik in Ural per cancellare la memoria della ribellione.",
-  "level.hypatius.source": "La sentenza nel caso Pugačëv, 1775"
+  "level.hypatius.source": "La sentenza nel caso Pugačëv, 1775",
+  "ui.hint": "Suggerimento"
 }

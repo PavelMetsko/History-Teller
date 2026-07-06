@@ -440,7 +440,7 @@
   "level.rivals.title": "Rivalen",
   "level.rubicon.fact": "In de nacht van 10 januari 49 v.Chr. stak Caesar met het XIIIe legioen de grensrivier de Rubicon over, waarmee hij de wet overtrad en een burgeroorlog begon tegen de senaat en Pompeius. Volgens Suetonius sprak hij 'Alea iacta est' uit — 'De teerling is geworpen'.",
   "level.rubicon.goal": "Caesar steekt de Rubicon over en marcheert naar Rome",
-  "level.rubicon.hint": "Verzeker je eerst van de loyaliteit van Antonius, daarna — over de rivier met het legioen.",
+  "level.rubicon.hint": "Kies op het forum de kant van de trouwe Antonius — maar niet die van zijn rivaal Pompeius. Voer dan het legioen over de rivier.",
   "level.rubicon.source": "Suetonius; Plutarchus, 'Caesar'",
   "level.rubicon.title": "De teerling is geworpen",
   "level.sacre.fact": "Op 2 december 1804 kroonde Napoleon zichzelf tot keizer der Fransen in de Notre-Dame. In aanwezigheid van paus Pius VII plaatste hij de kroon zelf op zijn hoofd — een teken dat hij zijn macht alleen aan zichzelf te danken had.",
@@ -649,6 +649,7 @@
   "ui.ok": "Oké",
   "ui.play": "Spelen",
   "ui.progress": "Voortgang: %d van %d",
+  "ui.replay": "Opnieuw",
   "ui.reset": "Voortgang resetten",
   "ui.reset_confirm": "Resetten",
   "ui.reset_msg": "Alle voltooide levels worden opnieuw vergrendeld.\nDeze actie kan niet ongedaan worden gemaakt.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "Eerst — de gevangenneming door Soevorov, daarna — het schavot op bevel van de vorstin.",
   "level.hypatius.intro": "De keizerin regeert; de gevangengenomen bedrieger wacht een proces.",
   "level.hypatius.fact": "Op 10 januari 1775 werd Jemeljan Poegatsjov geëxecuteerd op het Bolotnaja-plein in Moskou. De opstand werd in bloed gesmoord; Catharina II hernoemde de rivier de Jaik naar de Oeral om de herinnering aan de opstand uit te wissen.",
-  "level.hypatius.source": "Het vonnis in de zaak Poegatsjov, 1775"
+  "level.hypatius.source": "Het vonnis in de zaak Poegatsjov, 1775",
+  "ui.hint": "Hint"
 }

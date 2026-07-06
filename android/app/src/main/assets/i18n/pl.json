@@ -440,7 +440,7 @@
   "level.rivals.title": "Rywale",
   "level.rubicon.fact": "W noc 10 stycznia 49 r. p.n.e. Cezar z XIII legionem przekroczył graniczną rzeczkę Rubikon, czym naruszył prawo i rozpoczął wojnę domową przeciwko senatowi i Pompejuszowi. Według Swetoniusza, wypowiedział „Alea iacta est” — „Kości zostały rzucone”.",
   "level.rubicon.goal": "Cezar przekracza Rubikon i idzie na Rzym",
-  "level.rubicon.hint": "Najpierw zapewnij sobie wierność Antoniusza, potem — za rzekę z legionem.",
+  "level.rubicon.hint": "Na forum stań po stronie wiernego Antoniusza — ale nie jego rywala Pompejusza. Potem przeprowadź legion przez rzekę.",
   "level.rubicon.source": "Swetoniusz; Plutarch, «Cezar»",
   "level.rubicon.title": "Kości zostały rzucone",
   "level.sacre.fact": "2 grudnia 1804 r. w katedrze Notre-Dame Napoleon koronował się na cesarza Francuzów. W obecności papieża Piusa VII sam włożył sobie koronę na głowę — znak, że władzę zawdzięczał tylko sobie.",
@@ -649,6 +649,7 @@
   "ui.ok": "OK",
   "ui.play": "Graj",
   "ui.progress": "Ukończono %d z %d",
+  "ui.replay": "Ponownie",
   "ui.reset": "Zresetuj postęp",
   "ui.reset_confirm": "Resetuj",
   "ui.reset_msg": "Wszystkie ukończone poziomy zostaną ponownie zablokowane.\nTego działania nie można cofnąć.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "Najpierw — schwytanie przez Suworowa, potem — szafot z woli władczyni.",
   "level.hypatius.intro": "Cesarzowa panuje; schwytany samozwaniec czeka na sąd.",
   "level.hypatius.fact": "10 stycznia 1775 r. Jemielian Pugaczow został stracony na Placu Błotnym w Moskwie. Powstanie zostało utopione we krwi; Katarzyna II zmieniła nazwę rzeki Jaik na Ural, aby zatrzeć pamięć o buncie.",
-  "level.hypatius.source": "Wyrok w sprawie Pugaczowa, 1775 r."
+  "level.hypatius.source": "Wyrok w sprawie Pugaczowa, 1775 r.",
+  "ui.hint": "Podpowiedź"
 }

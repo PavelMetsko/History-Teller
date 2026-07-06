@@ -440,7 +440,7 @@
   "level.rivals.title": "Rivals",
   "level.rubicon.fact": "On the night of January 10, 49 BC, Caesar, with the XIII Legion, crossed the border river Rubicon, thereby violating the law and initiating civil war against the Senate and Pompey. According to Suetonius, he uttered 'Alea iacta est' — 'The die is cast'.",
   "level.rubicon.goal": "Caesar crosses the Rubicon and marches on Rome",
-  "level.rubicon.hint": "First secure Antony's loyalty, then cross the river with the legion.",
+  "level.rubicon.hint": "In the forum, side with loyal Antony — but not his rival Pompey. Then march the legion across the river.",
   "level.rubicon.source": "Suetonius; Plutarch, 'Caesar'",
   "level.rubicon.title": "The Die Is Cast",
   "level.sacre.fact": "On December 2, 1804, in Notre-Dame Cathedral, Napoleon crowned himself Emperor of the French. In the presence of Pope Pius VII, he placed the crown on his own head — a sign that he owed his power only to himself.",
@@ -649,6 +649,7 @@
   "ui.ok": "OK",
   "ui.play": "Play",
   "ui.progress": "Completed %d of %d",
+  "ui.replay": "Replay",
   "ui.reset": "Reset Progress",
   "ui.reset_confirm": "Reset",
   "ui.reset_msg": "All completed levels will be locked again.\nThis action cannot be undone.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "First, capture by Suvorov; then, the execution block by the Empress's will.",
   "level.hypatius.intro": "The Empress reigns; the captured impostor awaits trial.",
   "level.hypatius.fact": "On January 10, 1775, Yemelyan Pugachev was executed on Bolotnaya Square in Moscow. The rebellion was drowned in blood; Catherine II renamed the Yaik River to the Ural to erase the memory of the revolt.",
-  "level.hypatius.source": "Verdict in the Pugachev Case, 1775"
+  "level.hypatius.source": "Verdict in the Pugachev Case, 1775",
+  "ui.hint": "Hint"
 }

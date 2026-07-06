@@ -440,7 +440,7 @@
   "level.rivals.title": "Rivais",
   "level.rubicon.fact": "Na noite de 10 de janeiro de 49 a.C., César, com a XIII Legião, atravessou o rio fronteiriço Rubicão, violando a lei e iniciando uma guerra civil contra o senado e Pompeu. Segundo Suetónio, ele pronunciou 'Alea iacta est' — 'A sorte está lançada'.",
   "level.rubicon.goal": "César atravessa o Rubicão e marcha sobre Roma",
-  "level.rubicon.hint": "Primeiro, garante a lealdade de António, depois — atravessa o rio com a legião.",
+  "level.rubicon.hint": "No fórum, fique ao lado do leal Antônio — mas não do rival Pompeu. Depois faça a legião atravessar o rio.",
   "level.rubicon.source": "Suetónio; Plutarco, 'César'",
   "level.rubicon.title": "A Sorte Está Lançada",
   "level.sacre.fact": "Em 2 de dezembro de 1804, na Catedral de Notre-Dame, Napoleão coroou-se imperador dos franceses. Na presença do Papa Pio VII, ele mesmo colocou a coroa em sua cabeça — um sinal de que devia o poder apenas a si mesmo.",
@@ -649,6 +649,7 @@
   "ui.ok": "Entendido",
   "ui.play": "Jogar",
   "ui.progress": "Concluído %d de %d",
+  "ui.replay": "Repetir",
   "ui.reset": "Redefinir progresso",
   "ui.reset_confirm": "Redefinir",
   "ui.reset_msg": "Todos os níveis concluídos serão bloqueados novamente.\nEsta ação não pode ser desfeita.",
@@ -680,5 +681,6 @@
   "level.hypatius.hint": "Primeiro — a captura por Suvorov, depois — o cadafalso por vontade da soberana.",
   "level.hypatius.intro": "A imperatriz reina; o impostor capturado aguarda julgamento.",
   "level.hypatius.fact": "Em 10 de janeiro de 1775, Iemelián Pugatchov foi executado na Praça Bolotnaya em Moscovo. A revolta foi afogada em sangue; Catarina II renomeou o rio Yaik para Ural, a fim de apagar a memória da rebelião.",
-  "level.hypatius.source": "Sentença no caso Pugatchov, 1775"
+  "level.hypatius.source": "Sentença no caso Pugatchov, 1775",
+  "ui.hint": "Dica"
 }
