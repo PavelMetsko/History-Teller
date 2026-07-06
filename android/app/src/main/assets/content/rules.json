@@ -3425,5 +3425,40 @@
         "flag": "victor"
       }
     ]
+  },
+  {
+    "id": "honor_rival",
+    "comment": "Двор Птолемея подносит Цезарю голову соперника — но тот скорбит и не жалует убийц",
+    "priority": 8,
+    "trigger": {
+      "sceneTags": [
+        "mourn_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "ruler",
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "egyptian"
+          ],
+          "flags": [
+            "treacherous"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "grieving"
+      }
+    ]
   }
 ]

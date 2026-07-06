@@ -301,7 +301,7 @@ public final class LevelBoardModel {
             return mk(.triumph, b[t], nil, "🎉")
         }
         // Низложение/изгнание/утрата.
-        if let d = flagTarget(["exiled", "cast_off", "widowed"]) {
+        if let d = flagTarget(["exiled", "cast_off", "widowed", "grieving"]) {
             return mk(.downfall, b[d], nil, "💔")
         }
         // Заговор.

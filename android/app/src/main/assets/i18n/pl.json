@@ -402,9 +402,9 @@
   "level.poltava.source": "Relacja o bitwie połtawskiej",
   "level.poltava.title": "Połtawa",
   "level.pompey_death.fact": "28 września 48 r. p.n.e. Pompejusz wylądował w Egipcie, licząc na azyl. Na rozkaz dworzan małoletniego Ptolemeusza XIII (Potinusa i Achillesa) został zasztyletowany prosto w łodzi na oczach żony. Przybyły Cezar, według tradycji, odwrócił się i zapłakał, otrzymawszy głowę rywala — i zwrócił swój gniew przeciwko Ptolemeuszowi.",
-  "level.pompey_death.goal": "Pompejusz znajduje śmierć na brzegu Egiptu",
-  "level.pompey_death.hint": "Najpierw pokonaj go w bitwie, potem — egipski brzeg, gdzie czeka dwór Ptolemeusza.",
-  "level.pompey_death.intro": "Pompejusz ucieka na wschód, Cezar podąża jego śladem",
+  "level.pompey_death.goal": "Dwór Ptolemeusza morduje Pompejusza — a Cezar opłakuje poległego rywala",
+  "level.pompey_death.hint": "Niech dwór Ptolemeusza powita zbiega na brzegu. Potem przyprowadź Cezara — podadzą mu głowę rywala, lecz morderców nie nagrodzi.",
+  "level.pompey_death.intro": "Pobity pod Farsalos Pompejusz ucieka do Egiptu po schronienie — Cezar tuż za nim.",
   "level.pompey_death.source": "Plutarch, «Pompejusz»; Dion Kasjusz",
   "level.pompey_death.title": "Śmierć Pompejusza",
   "level.potemkin.fact": "Grigorij Potiomkin, faworyt i, według pogłosek, tajny mąż Katarzyny II, kierował przyłączeniem Krymu (1783) i zagospodarowaniem Noworosji. „Wioski potiomkinowskie” stały się legendą o pokazowym splendorze.",
@@ -689,5 +689,7 @@
   "scene.pharsalus_line": "Szyk bojowy",
   "scene.pharsalus_line.action": "ustawić legiony",
   "scene.pharsalus_field": "Farsalos",
-  "scene.pharsalus_field.action": "decydująca bitwa"
+  "scene.pharsalus_field.action": "decydująca bitwa",
+  "scene.egypt_court": "Dwór Ptolemeusza",
+  "scene.egypt_court.action": "głowa rywala"
 }

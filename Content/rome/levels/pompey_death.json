@@ -7,24 +7,23 @@
   "panels": 2,
   "scenes": [
     "harbor",
-    "battlefield"
+    "egypt_court"
   ],
   "characters": [
     "caesar",
     "pompey",
-    "ptolemy",
-    "antony"
+    "ptolemy"
   ],
   "initialState": {
     "flags": {
-      "caesar": [
-        "at_war"
+      "pompey": [
+        "fugitive"
       ]
     }
   },
-  "initialText": "Помпей бежит на восток, Цезарь идёт по пятам",
-  "goalText": "Помпей находит смерть на берегу Египта",
-  "goalHint": "Сначала разбей его в бою, затем — египетский берег, где ждёт двор Птолемея.",
+  "initialText": "Разбитый при Фарсале Помпей бежит в Египет за убежищем — Цезарь идёт по пятам.",
+  "goalText": "Двор Птолемея убивает Помпея — а Цезарь скорбит о поверженном сопернике",
+  "goalHint": "Пусть двор Птолемея встретит беглеца на берегу. Затем приведи Цезаря — ему поднесут голову соперника, но убийц он не наградит.",
   "goal": {
     "all": [
       {
@@ -38,22 +37,28 @@
           "char": "ptolemy",
           "is": "treacherous"
         }
+      },
+      {
+        "flag": {
+          "char": "caesar",
+          "is": "grieving"
+        }
       }
     ]
   },
   "solution": [
     {
-      "scene": "battlefield",
-      "characters": [
-        "caesar",
-        "pompey"
-      ]
-    },
-    {
       "scene": "harbor",
       "characters": [
         "ptolemy",
         "pompey"
+      ]
+    },
+    {
+      "scene": "egypt_court",
+      "characters": [
+        "caesar",
+        "ptolemy"
       ]
     }
   ],

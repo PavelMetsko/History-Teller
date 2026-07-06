@@ -402,9 +402,9 @@
   "level.poltava.source": "Relazione sulla battaglia di Poltava",
   "level.poltava.title": "Poltava",
   "level.pompey_death.fact": "Il 28 settembre del 48 a.C., Pompeo sbarcò in Egitto, sperando in un rifugio. Per ordine dei cortigiani del giovane Tolomeo XIII (Potino e Achilla), fu pugnalato direttamente nella barca sotto gli occhi della moglie. Cesare, giunto sul posto, secondo la tradizione, si voltò e pianse, ricevendo la testa del rivale — e rivolse la sua ira contro Tolomeo.",
-  "level.pompey_death.goal": "Pompeo trova la morte sulla riva dell'Egitto",
-  "level.pompey_death.hint": "Prima sconfiggilo in battaglia, poi — la riva egiziana, dove attende la corte di Tolomeo.",
-  "level.pompey_death.intro": "Pompeo fugge a est, Cesare lo segue a ruota",
+  "level.pompey_death.goal": "La corte di Tolomeo uccide Pompeo — e Cesare piange il rivale caduto",
+  "level.pompey_death.hint": "Lascia che la corte di Tolomeo accolga il fuggitivo sulla riva. Poi porta Cesare: gli presenteranno la testa del rivale, ma non ricompenserà gli assassini.",
+  "level.pompey_death.intro": "Sconfitto a Farsalo, Pompeo fugge in Egitto in cerca di rifugio — Cesare alle calcagna.",
   "level.pompey_death.source": "Plutarco, «Pompeo»; Dione Cassio",
   "level.pompey_death.title": "La morte di Pompeo",
   "level.potemkin.fact": "Grigorij Potëmkin, favorito e, secondo voci, marito segreto di Caterina II, guidò l'annessione della Crimea (1783) e la colonizzazione della Nuova Russia. I «villaggi Potëmkin» divennero una leggenda di sfarzo ostentato.",
@@ -689,5 +689,7 @@
   "scene.pharsalus_line": "Schieramento",
   "scene.pharsalus_line.action": "schierare le legioni",
   "scene.pharsalus_field": "Farsalo",
-  "scene.pharsalus_field.action": "battaglia decisiva"
+  "scene.pharsalus_field.action": "battaglia decisiva",
+  "scene.egypt_court": "Corte di Tolomeo",
+  "scene.egypt_court.action": "la testa del rivale"
 }

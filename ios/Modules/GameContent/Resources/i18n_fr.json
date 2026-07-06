@@ -402,9 +402,9 @@
   "level.poltava.source": "Relation de la bataille de Poltava",
   "level.poltava.title": "Poltava",
   "level.pompey_death.fact": "Le 28 septembre 48 av. J.-C., Pompée débarqua en Égypte, espérant y trouver refuge. Sur ordre des courtisans du jeune Ptolémée XIII (Pothin et Achillas), il fut poignardé directement dans sa barque, sous les yeux de sa femme. César, arrivé sur les lieux, se détourna et pleura, selon la tradition, en recevant la tête de son rival — et tourna sa colère contre Ptolémée.",
-  "level.pompey_death.goal": "Pompée trouve la mort sur les rives de l'Égypte",
-  "level.pompey_death.hint": "D'abord, vaincs-le au combat, puis — la rive égyptienne, où t'attend la cour de Ptolémée.",
-  "level.pompey_death.intro": "Pompée fuit vers l'est, César le suit de près",
+  "level.pompey_death.goal": "La cour de Ptolémée assassine Pompée — et César pleure son rival déchu",
+  "level.pompey_death.hint": "Que la cour de Ptolémée accueille le fugitif sur le rivage. Amène ensuite César — on lui présentera la tête de son rival, mais il ne récompensera pas les assassins.",
+  "level.pompey_death.intro": "Vaincu à Pharsale, Pompée fuit vers l'Égypte pour trouver refuge — César sur ses talons.",
   "level.pompey_death.source": "Plutarque, «Pompée» ; Dion Cassius",
   "level.pompey_death.title": "La Mort de Pompée",
   "level.potemkin.fact": "Grigori Potemkine, favori et, selon les rumeurs, époux secret de Catherine II, dirigea l'annexion de la Crimée (1783) et la colonisation de la Nouvelle Russie. Les « villages Potemkine » sont devenus une légende de faste ostentatoire.",
@@ -689,5 +689,7 @@
   "scene.pharsalus_line": "Ligne de bataille",
   "scene.pharsalus_line.action": "former les légions",
   "scene.pharsalus_field": "Pharsale",
-  "scene.pharsalus_field.action": "bataille décisive"
+  "scene.pharsalus_field.action": "bataille décisive",
+  "scene.egypt_court": "Cour de Ptolémée",
+  "scene.egypt_court.action": "la tête du rival"
 }

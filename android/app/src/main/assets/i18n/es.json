@@ -402,9 +402,9 @@
   "level.poltava.source": "Relación de la Batalla de Poltava",
   "level.poltava.title": "Poltava",
   "level.pompey_death.fact": "El 28 de septiembre del 48 a.C., Pompeyo desembarcó en Egipto, esperando refugio. Por orden de los cortesanos del joven Ptolomeo XIII (Potino y Aquilas), fue apuñalado directamente en la barca, ante los ojos de su esposa. César, al llegar, según la tradición, se apartó y lloró al recibir la cabeza de su rival —y dirigió su ira contra Ptolomeo.",
-  "level.pompey_death.goal": "Pompeyo encuentra la muerte en la orilla de Egipto",
-  "level.pompey_death.hint": "Primero derrótalo en batalla, luego — la orilla egipcia, donde espera la corte de Ptolomeo.",
-  "level.pompey_death.intro": "Pompeyo huye hacia el este, César le sigue los pasos",
+  "level.pompey_death.goal": "La corte de Ptolomeo asesina a Pompeyo, y César llora a su rival caído",
+  "level.pompey_death.hint": "Deja que la corte de Ptolomeo reciba al fugitivo en la orilla. Luego trae a César: le presentarán la cabeza de su rival, pero no recompensará a los asesinos.",
+  "level.pompey_death.intro": "Derrotado en Farsalia, Pompeyo huye a Egipto en busca de refugio; César le sigue de cerca.",
   "level.pompey_death.source": "Plutarco, «Pompeyo»; Dion Casio",
   "level.pompey_death.title": "Muerte de Pompeyo",
   "level.potemkin.fact": "Grigori Potemkin, favorito y, según rumores, esposo secreto de Catalina II, dirigió la anexión de Crimea (1783) y la colonización de Nueva Rusia. Las «aldeas Potemkin» se convirtieron en una leyenda de ostentación.",
@@ -689,5 +689,7 @@
   "scene.pharsalus_line": "Línea de batalla",
   "scene.pharsalus_line.action": "formar las legiones",
   "scene.pharsalus_field": "Farsalia",
-  "scene.pharsalus_field.action": "batalla decisiva"
+  "scene.pharsalus_field.action": "batalla decisiva",
+  "scene.egypt_court": "Corte de Ptolomeo",
+  "scene.egypt_court.action": "la cabeza del rival"
 }

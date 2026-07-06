@@ -129,7 +129,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         flagTarget(setOf("backed"))?.let { return mk(Kind.ALLY, b[it], other(it), "🛡") }
         flagTarget(setOf("honored", "flaunting", "triumphant", "rome_restored", "settled", "hero", "absolute", "supreme"))
             ?.let { return mk(Kind.TRIUMPH, b[it], null, "🎉") }
-        flagTarget(setOf("exiled", "cast_off", "widowed"))?.let { return mk(Kind.DOWNFALL, b[it], null, "💔") }
+        flagTarget(setOf("exiled", "cast_off", "widowed", "grieving"))?.let { return mk(Kind.DOWNFALL, b[it], null, "💔") }
         flagTarget(setOf("plotting"))?.let { return mk(Kind.CONSPIRE, b[it], null, "🗡") }
         flagTarget(setOf("has_heir"))?.let { return mk(Kind.BIRTH, null, null, "👶") }
         return mk(Kind.SPARK, null, null, "✨")
@@ -457,7 +457,7 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
     val useDeadPose = dead && deadId != 0
     val topple = dead && !useDeadPose   // старый фолбэк
     // разгромлен, но жив → поза «повержен-живой»
-    val defeated = !dead && listOf("fugitive", "defeated", "exiled", "cast_off", "widowed", "disgraced")
+    val defeated = !dead && listOf("fugitive", "defeated", "exiled", "cast_off", "widowed", "disgraced", "grieving")
         .any { snap.hasFlag(cid, it) }
     val defeatedId = if (defeated) drawableId("char_${cid}_defeated") else 0
     val useDefeatedPose = defeated && defeatedId != 0

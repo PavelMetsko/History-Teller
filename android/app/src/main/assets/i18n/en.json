@@ -402,9 +402,9 @@
   "level.poltava.source": "Report on the Battle of Poltava",
   "level.poltava.title": "Poltava",
   "level.pompey_death.fact": "On September 28, 48 BC, Pompey landed in Egypt, hoping for asylum. By order of the courtiers of the young Ptolemy XIII (Pothinus and Achillas), he was stabbed to death directly in his boat, in front of his wife. The arriving Caesar, according to tradition, turned away and wept upon receiving his rival's head — and turned his wrath upon Ptolemy.",
-  "level.pompey_death.goal": "Pompey meets his death on the shores of Egypt",
-  "level.pompey_death.hint": "First defeat him in battle, then the Egyptian shore, where Ptolemy's court awaits.",
-  "level.pompey_death.intro": "Pompey flees east, Caesar follows close behind",
+  "level.pompey_death.goal": "Ptolemy's court murders Pompey — and Caesar mourns his fallen rival",
+  "level.pompey_death.hint": "Let Ptolemy's court meet the fugitive on the shore. Then bring Caesar — they will present his rival's head, but he will not reward the murderers.",
+  "level.pompey_death.intro": "Beaten at Pharsalus, Pompey flees to Egypt for refuge — Caesar close behind.",
   "level.pompey_death.source": "Plutarch, 'Pompey'; Dio Cassius",
   "level.pompey_death.title": "The Death of Pompey",
   "level.potemkin.fact": "Grigory Potemkin, favorite and, by rumor, secret husband of Catherine II, oversaw the annexation of Crimea (1783) and the development of New Russia. 'Potemkin villages' became a legend of ostentatious splendor.",
@@ -689,5 +689,7 @@
   "scene.pharsalus_line": "Battle Line",
   "scene.pharsalus_line.action": "form the ranks",
   "scene.pharsalus_field": "Pharsalus",
-  "scene.pharsalus_field.action": "decisive battle"
+  "scene.pharsalus_field.action": "decisive battle",
+  "scene.egypt_court": "Ptolemy's Court",
+  "scene.egypt_court.action": "the rival's head"
 }

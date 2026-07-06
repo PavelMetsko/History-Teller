@@ -402,9 +402,9 @@
   "level.poltava.source": "Bericht über die Schlacht von Poltawa",
   "level.poltava.title": "Poltawa",
   "level.pompey_death.fact": "Am 28. September 48 v. Chr. landete Pompeius in Ägypten, in der Hoffnung auf Asyl. Auf Befehl der Höflinge des minderjährigen Ptolemäus XIII. (Potinus und Achillas) wurde er direkt im Boot vor den Augen seiner Frau erstochen. Der eintreffende Caesar wandte sich der Überlieferung nach ab und weinte, als er den Kopf seines Rivalen erhielt – und richtete seinen Zorn auf Ptolemäus.",
-  "level.pompey_death.goal": "Pompeius findet den Tod am Ufer Ägyptens",
-  "level.pompey_death.hint": "Besiege ihn zuerst im Kampf, dann – die ägyptische Küste, wo der Hof des Ptolemäus wartet.",
-  "level.pompey_death.intro": "Pompeius flieht nach Osten, Caesar folgt ihm auf den Fersen",
+  "level.pompey_death.goal": "Der Hof des Ptolemäus ermordet Pompeius — und Caesar betrauert den gefallenen Rivalen",
+  "level.pompey_death.hint": "Lass den Hof des Ptolemäus den Flüchtling am Ufer empfangen. Bring dann Caesar — man reicht ihm den Kopf des Rivalen, doch die Mörder belohnt er nicht.",
+  "level.pompey_death.intro": "Bei Pharsalos geschlagen, flieht Pompeius nach Ägypten — Caesar dicht dahinter.",
   "level.pompey_death.source": "Plutarch, „Pompeius“; Cassius Dio",
   "level.pompey_death.title": "Pompeius' Tod",
   "level.potemkin.fact": "Grigori Potemkin, Favorit und, Gerüchten zufolge, heimlicher Ehemann Katharinas II., leitete die Annexion der Krim (1783) und die Erschließung Neurusslands. Die „Potemkinschen Dörfer“ wurden zur Legende von vorgetäuschtem Glanz.",
@@ -689,5 +689,7 @@
   "scene.pharsalus_line": "Schlachtreihe",
   "scene.pharsalus_line.action": "Legionen aufstellen",
   "scene.pharsalus_field": "Pharsalos",
-  "scene.pharsalus_field.action": "Entscheidungsschlacht"
+  "scene.pharsalus_field.action": "Entscheidungsschlacht",
+  "scene.egypt_court": "Hof des Ptolemäus",
+  "scene.egypt_court.action": "der Kopf des Rivalen"
 }

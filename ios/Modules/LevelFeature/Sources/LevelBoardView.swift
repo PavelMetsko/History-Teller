@@ -601,7 +601,7 @@ private struct PanelCell: View {
                             return ps > slot ? 12 : -12
                         }()
                         // разгромлен, но жив (беглец/разбит/изгнан/отвергнут/овдовел/опала) → поза «повержен-живой»
-                        let defeated = !dead && ["fugitive", "defeated", "exiled", "cast_off", "widowed", "disgraced"]
+                        let defeated = !dead && ["fugitive", "defeated", "exiled", "cast_off", "widowed", "disgraced", "grieving"]
                             .contains { snap.hasFlag(charId, $0) }
                         // реакция того, «над кем» действие: отшатнуться / поникнуть / вскинуться
                         // (slump не нужен, если уже показываем позу «разгромлен»)

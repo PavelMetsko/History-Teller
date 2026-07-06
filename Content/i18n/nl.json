@@ -402,9 +402,9 @@
   "level.poltava.source": "Verslag van de Slag bij Poltava",
   "level.poltava.title": "Poltava",
   "level.pompey_death.fact": "Op 28 september 48 v.Chr. landde Pompeius in Egypte, hopend op onderdak. Op bevel van de hovelingen van de minderjarige Ptolemaeus XIII (Potinus en Achillas) werd hij direct in de boot neergestoken, voor de ogen van zijn vrouw. De gearriveerde Caesar, zo wil de overlevering, wendde zich af en huilde toen hij het hoofd van zijn rivaal ontving — en richtte zijn woede op Ptolemaeus.",
-  "level.pompey_death.goal": "Pompeius vindt de dood aan de kust van Egypte",
-  "level.pompey_death.hint": "Versla hem eerst in de strijd, daarna — de Egyptische kust, waar het hof van Ptolemaeus wacht.",
-  "level.pompey_death.intro": "Pompeius vlucht naar het oosten, Caesar volgt hem op de voet",
+  "level.pompey_death.goal": "Ptolemaeus' hof vermoordt Pompeius — en Caesar rouwt om zijn gevallen rivaal",
+  "level.pompey_death.hint": "Laat Ptolemaeus' hof de vluchteling aan de kust ontvangen. Breng dan Caesar — men toont hem het hoofd van zijn rivaal, maar de moordenaars beloont hij niet.",
+  "level.pompey_death.intro": "Verslagen bij Pharsalus vlucht Pompeius naar Egypte voor onderdak — Caesar op de hielen.",
   "level.pompey_death.source": "Plutarchus, 'Pompeius'; Dio Cassius",
   "level.pompey_death.title": "De dood van Pompeius",
   "level.potemkin.fact": "Grigori Potjomkin, favoriet en, naar verluidt, geheime echtgenoot van Catharina de Grote, leidde de annexatie van de Krim (1783) en de kolonisatie van Nieuw-Rusland. De 'Potjomkin-dorpen' werden een legende over schone schijn.",
@@ -689,5 +689,7 @@
   "scene.pharsalus_line": "Slaglinie",
   "scene.pharsalus_line.action": "de legioenen opstellen",
   "scene.pharsalus_field": "Pharsalus",
-  "scene.pharsalus_field.action": "beslissende slag"
+  "scene.pharsalus_field.action": "beslissende slag",
+  "scene.egypt_court": "Hof van Ptolemaeus",
+  "scene.egypt_court.action": "het hoofd van de rivaal"
 }
