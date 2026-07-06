@@ -579,7 +579,7 @@ private struct PanelCell: View {
                         let crowned = !dead && snap.hasFlag(charId, "crowned")
                         // победные/боевые состояния → поза «триумф»
                         let triumphant = !dead && ["crowned", "reigns", "emperor", "empress", "victor",
-                            "conqueror", "triumphant", "honored", "first_consul", "supreme_head", "absolute", "at_war"]
+                            "conqueror", "triumphant", "honored", "beloved", "first_consul", "supreme_head", "absolute", "at_war"]
                             .contains { snap.hasFlag(charId, $0) }
                         // взаимодействие: активная сторона (убийца/победитель/обвинитель) — выпад к цели
                         let aggroBeat = beats.first {

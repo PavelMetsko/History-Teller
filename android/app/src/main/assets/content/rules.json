@@ -3460,5 +3460,130 @@
         "flag": "grieving"
       }
     ]
+  },
+  {
+    "id": "senate_outrage",
+    "comment": "Сенаторы, видя Цезаря в царском блеске рядом с чужеземной царицей, берутся за заговор",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "outrage_r"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman",
+            "ruler"
+          ],
+          "flags": [
+            "flaunting"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "senator"
+          ]
+        },
+        {
+          "var": "C",
+          "tags": [
+            "senator"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "plotting"
+      },
+      {
+        "type": "setFlag",
+        "target": "C",
+        "flag": "plotting"
+      }
+    ]
+  },
+  {
+    "id": "proscribe",
+    "comment": "Заговорщики-триумвиры объявляют убийцу Цезаря вне закона (проскрипция)",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "proscribe_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman"
+          ],
+          "flags": [
+            "plotting"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "roman"
+          ],
+          "flags": [
+            "plotting"
+          ]
+        },
+        {
+          "var": "C",
+          "tags": [
+            "senator"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "C",
+        "flag": "condemned"
+      }
+    ]
+  },
+  {
+    "id": "dazzle",
+    "comment": "Клеопатра является в ослепительном блеске (барка-Афродита) и добивается приёма у полководца",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "spectacle_t"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "servant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeFlag",
+        "target": "A",
+        "flag": "locked_out"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "dazzling"
+      }
+    ]
   }
 ]

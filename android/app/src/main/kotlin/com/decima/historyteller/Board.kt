@@ -127,7 +127,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         relationPair(setOf("loves"))?.let { (f, t) -> return mk(Kind.LOVE, b[f], b[t], "❤️") }
         relationPair(setOf("ally_of"))?.let { (f, t) -> return mk(Kind.ALLY, b[f], b[t], "🤝") }
         flagTarget(setOf("backed"))?.let { return mk(Kind.ALLY, b[it], other(it), "🛡") }
-        flagTarget(setOf("honored", "flaunting", "triumphant", "rome_restored", "settled", "hero", "absolute", "supreme"))
+        flagTarget(setOf("honored", "beloved", "flaunting", "triumphant", "rome_restored", "settled", "hero", "absolute", "supreme"))
             ?.let { return mk(Kind.TRIUMPH, b[it], null, "🎉") }
         flagTarget(setOf("exiled", "cast_off", "widowed", "grieving"))?.let { return mk(Kind.DOWNFALL, b[it], null, "💔") }
         flagTarget(setOf("plotting"))?.let { return mk(Kind.CONSPIRE, b[it], null, "🗡") }
@@ -463,7 +463,7 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
     val useDefeatedPose = defeated && defeatedId != 0
     // победные состояния → поза «триумф» (если не разгромлен)
     val triumphant = !dead && !defeated && listOf("crowned", "reigns", "emperor", "empress", "victor", "conqueror",
-        "triumphant", "honored", "first_consul", "supreme_head", "absolute", "at_war").any { snap.hasFlag(cid, it) }
+        "triumphant", "honored", "beloved", "first_consul", "supreme_head", "absolute", "at_war").any { snap.hasFlag(cid, it) }
     val triumphId = if (triumphant) drawableId("char_${cid}_triumph") else 0
     val useTriumphPose = triumphant && triumphId != 0
     val plotting = !dead && snap.hasFlag(cid, "plotting")

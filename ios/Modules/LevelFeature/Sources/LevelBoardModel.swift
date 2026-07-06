@@ -296,7 +296,7 @@ public final class LevelBoardModel {
             return mk(.ally, b[backed], other(than: backed), "🛡")
         }
         // Триумф/слава.
-        if let t = flagTarget(["honored", "flaunting", "triumphant", "rome_restored",
+        if let t = flagTarget(["honored", "beloved", "flaunting", "triumphant", "rome_restored",
                                "settled", "hero", "absolute", "supreme"]) {
             return mk(.triumph, b[t], nil, "🎉")
         }

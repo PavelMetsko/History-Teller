@@ -4,19 +4,19 @@
   "act": "Акт III · Наследники",
   "title": "Второй триумвират",
   "epoch": "rome",
-  "panels": 2,
+  "panels": 3,
   "scenes": [
     "forum",
     "back_room",
-    "senate"
+    "proscription"
   ],
   "characters": [
     "antony",
     "octavian",
     "brutus"
   ],
-  "goalText": "Антоний и Октавиан клянутся отомстить за Цезаря",
-  "goalHint": "Сначала союз на людях, затем тайный сговор — против убийц.",
+  "goalText": "Триумвиры мстят за Цезаря — и объявляют убийцу вне закона",
+  "goalHint": "Сначала союз на людях, затем тайный пакт. Скреплённые заговором, они обрушат проскрипцию на убийцу Цезаря.",
   "goal": {
     "all": [
       {
@@ -44,6 +44,12 @@
           "char": "octavian",
           "is": "plotting"
         }
+      },
+      {
+        "flag": {
+          "char": "brutus",
+          "is": "condemned"
+        }
       }
     ]
   },
@@ -61,9 +67,17 @@
         "antony",
         "octavian"
       ]
+    },
+    {
+      "scene": "proscription",
+      "characters": [
+        "antony",
+        "octavian",
+        "brutus"
+      ]
     }
   ],
-  "cover": "back_room",
+  "cover": "proscription",
   "music": "tension",
   "factCard": {
     "accuracy": "fact",

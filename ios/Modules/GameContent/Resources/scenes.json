@@ -889,5 +889,52 @@
       "скорбящий",
       "предатель"
     ]
+  },
+  {
+    "id": "curia_rome",
+    "name": "Сенат",
+    "tags": [
+      "outrage_r"
+    ],
+    "slots": 3,
+    "emoji": "🏛️",
+    "action": "негодование",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "диктатор",
+      "сенатор",
+      "сенатор"
+    ]
+  },
+  {
+    "id": "proscription",
+    "name": "Проскрипции",
+    "tags": [
+      "proscribe_p"
+    ],
+    "slots": 3,
+    "emoji": "📜",
+    "action": "вне закона",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "триумвир",
+      "триумвир",
+      "враг"
+    ]
+  },
+  {
+    "id": "barge",
+    "name": "Золочёная барка",
+    "tags": [
+      "spectacle_t"
+    ],
+    "slots": 2,
+    "emoji": "⛵",
+    "action": "явиться в блеске",
+    "actionIcon": "icon_love",
+    "roles": [
+      "царица",
+      "свита"
+    ]
   }
 ]
