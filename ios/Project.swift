@@ -101,6 +101,24 @@ let project = Project(
                 .target(name: "Simulation"),
             ]
         ),
+        // Снапшот-тесты доски: рендерят LevelBoardView в PNG для каждого сценария каждого уровня.
+        .target(
+            name: "SnapshotTests",
+            destinations: destinations,
+            product: .unitTests,
+            bundleId: "com.decima.historyteller.snapshottests",
+            deploymentTargets: deployment,
+            infoPlist: .default,
+            sources: ["Tests/Snapshot/**"],
+            dependencies: [
+                .external(name: "SnapshotTesting"),
+                .target(name: "LevelFeature"),
+                .target(name: "GameContent"),
+                .target(name: "Simulation"),
+                .target(name: "DesignSystem"),
+                .target(name: "GameProgress"),
+            ]
+        ),
     ],
     schemes: [
         .scheme(
@@ -112,6 +130,12 @@ let project = Project(
                 // StoreKit-конфиг для локального теста покупок в Xcode
                 options: .options(storeKitConfigurationPath: .relativeToManifest("App/Store.storekit"))
             )
+        ),
+        .scheme(
+            name: "SnapshotTests",
+            shared: true,
+            buildAction: .buildAction(targets: ["SnapshotTests"]),
+            testAction: .targets(["SnapshotTests"])
         ),
     ]
 )

@@ -584,6 +584,43 @@
     ]
   },
   {
+    "id": "rubicon_rout",
+    "comment": "Цезарь переходит Рубикон навстречу сопернику — объявляет войну, и тот бежит из Рима",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "showdown"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "ruler",
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "pompeian"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "at_war"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "fugitive"
+      }
+    ]
+  },
+  {
     "id": "civil_war",
     "comment": "Объявивший войну римлянин разбивает соперника-полководца",
     "priority": 9,

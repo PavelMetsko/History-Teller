@@ -25,7 +25,8 @@ public final class LevelBoardModel {
         Dictionary(db.rulesByPriorityDesc.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
 
     /// Диагноз панели: почему заполненная панель «мертва» (ни одно правило не сработало).
-    public enum PanelDiagnosis: Equatable { case ok, wrongScene, wrongCharacters, inert }
+    /// `wrongOrder` — сама панель верна, но доска не решается из-за порядка панелей.
+    public enum PanelDiagnosis: Equatable { case ok, wrongScene, wrongCharacters, inert, wrongOrder }
     public private(set) var panelDiagnoses: [PanelDiagnosis] = []
 
     public init(level: LevelDef, db: ContentDb) {
@@ -122,6 +123,16 @@ public final class LevelBoardModel {
         recompute()
     }
 
+    /// Дебаг/снапшот-тест: выставить произвольную расстановку доски.
+    public func applyArrangement(_ arr: [(scene: String?, chars: [String])]) {
+        var next = Array(repeating: Panel(sceneId: nil), count: max(1, level.panels))
+        for (i, step) in arr.enumerated() where i < next.count {
+            next[i] = Panel(sceneId: step.scene, characters: step.chars)
+        }
+        panels = next
+        recompute()
+    }
+
     /// Разложить эталонное решение уровня (dev-хук для превью/скриншотов).
     public func applySolution() {
         guard let solution = level.solution else { return }
@@ -155,23 +166,61 @@ public final class LevelBoardModel {
         // Ошибки показываем только когда весь раунд заполнен (и не решён) — иначе не придираемся.
         panelDiagnoses = (isSolved || !isBoardComplete)
             ? Array(repeating: .ok, count: panels.count)
-            : panels.indices.map { diagnose($0) }
+            : computeDiagnoses()
         changeToken &+= 1
     }
 
-    /// Сверка панели с эталонным решением (позиция за позицией):
-    /// та сцена, но не те лица → wrongCharacters; та расстановка, но не та сцена → wrongScene;
-    /// и то и другое мимо → inert. Пустые/неполные панели и уровни без эталона не трогаем.
-    private func diagnose(_ index: Int) -> PanelDiagnosis {
-        let p = panels[index]
-        guard let sid = p.sceneId, let sc = db.scenes[sid], p.characters.count == sc.slots else { return .ok }
-        guard let solution = level.solution, index < solution.count else { return .ok }
-        let sol = solution[index]
-        let sameChars = Set(sol.characters) == Set(p.characters)
-        if sol.sceneId == sid {
-            return sameChars ? .ok : .wrongCharacters
+    /// Диагноз ВСЕХ панелей разом и БЕЗ привязки к позиции: панель сверяется с эталонным
+    /// решением как с мультимножеством (та же сцена и тот же состав → ok, где бы она ни стояла).
+    /// Так мы не «краснеем» на панели, которая сама по себе верна, а показываем ошибку ровно там,
+    /// где она есть: та сцена, но не те лица → wrongCharacters; те лица, но не та сцена → wrongScene;
+    /// мимо и там и там → inert. Если ВСЕ панели совпали по содержимому, но доска всё равно не
+    /// решена — единственная беда в порядке панелей → wrongOrder на всех. Уровни без эталона не трогаем.
+    private func computeDiagnoses() -> [PanelDiagnosis] {
+        guard let solution = level.solution else {
+            return Array(repeating: .ok, count: panels.count)
         }
-        return sameChars ? .wrongScene : .inert
+        // Остаток эталона (сцена, состав); совпадения его «съедают», чтобы один слот
+        // объяснял не больше одной панели.
+        var remaining: [(scene: String, chars: Set<String>)] =
+            solution.compactMap { p in p.sceneId.map { ($0, Set(p.characters)) } }
+
+        func filled(_ i: Int) -> (scene: String, chars: Set<String>)? {
+            let p = panels[i]
+            guard let sid = p.sceneId, let sc = db.scenes[sid], p.characters.count == sc.slots
+            else { return nil }
+            return (sid, Set(p.characters))
+        }
+
+        var diag = Array(repeating: PanelDiagnosis.ok, count: panels.count)
+        var pending: [Int] = []
+
+        // Проход 1: точные совпадения (сцена + состав) → ok, вычёркиваем из остатка.
+        for i in panels.indices {
+            guard let f = filled(i) else { continue }
+            if let m = remaining.firstIndex(where: { $0.scene == f.scene && $0.chars == f.chars }) {
+                remaining.remove(at: m)
+            } else {
+                pending.append(i)
+            }
+        }
+        // Все заполненные панели совпали по содержимому, но доска не решена → дело только в порядке.
+        if pending.isEmpty {
+            for i in panels.indices where filled(i) != nil { diag[i] = .wrongOrder }
+            return diag
+        }
+        // Проход 2: неточные — по остатку. Та же сцена → не те лица; тот же состав → не то место; иначе мимо.
+        for i in pending {
+            let f = filled(i)!
+            if let m = remaining.firstIndex(where: { $0.scene == f.scene }) {
+                diag[i] = .wrongCharacters; remaining.remove(at: m)
+            } else if let m = remaining.firstIndex(where: { $0.chars == f.chars }) {
+                diag[i] = .wrongScene; remaining.remove(at: m)
+            } else {
+                diag[i] = .inert
+            }
+        }
+        return diag
     }
 
     /// Что «читаемо» произошло в сработавшем правиле — для анимации-взаимодействия.

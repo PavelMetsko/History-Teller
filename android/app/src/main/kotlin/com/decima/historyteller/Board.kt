@@ -190,16 +190,52 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         selected = null
     }
 
-    enum class Diag { OK, WRONG_SCENE, WRONG_CHARS, INERT }
-    fun diagnose(i: Int): Diag {
-        if (isSolved || !isBoardComplete) return Diag.OK
-        val p = panels[i]; val sid = p.sceneId ?: return Diag.OK
-        val sc = db.scenes[sid] ?: return Diag.OK
-        if (p.characters.size != sc.slots) return Diag.OK
-        val sol = level.solution?.getOrNull(i) ?: return Diag.OK
-        val same = sol.characters.toSet() == p.characters.toSet()
-        return if (sol.sceneId == sid) (if (same) Diag.OK else Diag.WRONG_CHARS)
-        else (if (same) Diag.WRONG_SCENE else Diag.INERT)
+    enum class Diag { OK, WRONG_SCENE, WRONG_CHARS, INERT, WRONG_ORDER }
+    fun diagnose(i: Int): Diag = computeDiagnoses().getOrElse(i) { Diag.OK }
+
+    /** Диагноз ВСЕХ панелей разом и БЕЗ привязки к позиции: панель сверяется с эталоном как с
+     *  мультимножеством (та же сцена + тот же состав → OK, где бы она ни стояла). Не «краснеем» на
+     *  панели, которая сама по себе верна: та сцена/не те лица → WRONG_CHARS; те лица/не та сцена →
+     *  WRONG_SCENE; мимо → INERT. Если ВСЕ панели совпали, но доска не решена — беда лишь в порядке
+     *  → WRONG_ORDER. (Зеркало iOS LevelBoardModel.computeDiagnoses.) */
+    private fun computeDiagnoses(): List<Diag> {
+        val n = panels.size
+        if (isSolved || !isBoardComplete) return List(n) { Diag.OK }
+        val solution = level.solution ?: return List(n) { Diag.OK }
+        val remaining = solution.map { it.sceneId to it.characters.toSet() }.toMutableList()
+
+        fun filled(i: Int): Pair<String, Set<String>>? {
+            val p = panels[i]; val sid = p.sceneId ?: return null
+            val sc = db.scenes[sid] ?: return null
+            if (p.characters.size != sc.slots) return null
+            return sid to p.characters.toSet()
+        }
+
+        val diag = MutableList(n) { Diag.OK }
+        val pending = mutableListOf<Int>()
+        // Проход 1: точные совпадения (сцена + состав) → OK, вычёркиваем из остатка эталона.
+        for (i in 0 until n) {
+            val f = filled(i) ?: continue
+            val m = remaining.indexOfFirst { it.first == f.first && it.second == f.second }
+            if (m >= 0) remaining.removeAt(m) else pending.add(i)
+        }
+        // Все заполненные панели совпали по содержимому, но доска не решена → дело только в порядке.
+        if (pending.isEmpty()) {
+            for (i in 0 until n) if (filled(i) != null) diag[i] = Diag.WRONG_ORDER
+            return diag
+        }
+        // Проход 2: неточные — по остатку. Та же сцена → не те лица; тот же состав → не то место; иначе мимо.
+        for (i in pending) {
+            val f = filled(i)!!
+            val ms = remaining.indexOfFirst { it.first == f.first }
+            val mc = remaining.indexOfFirst { it.second == f.second }
+            when {
+                ms >= 0 -> { diag[i] = Diag.WRONG_CHARS; remaining.removeAt(ms) }
+                mc >= 0 -> { diag[i] = Diag.WRONG_SCENE; remaining.removeAt(mc) }
+                else -> diag[i] = Diag.INERT
+            }
+        }
+        return diag
     }
     fun microState(charId: String, i: Int): String? {
         val snap = snapshot(i)
@@ -306,8 +342,10 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
     val panel = model.panels[i]
     val diag = model.diagnose(i)
     val highlighted = model.selected != null
+    val isOrderHint = diag == BoardModel.Diag.WRONG_ORDER
     val border = when {
         highlighted -> Palette.gold
+        isOrderHint -> Palette.gold
         diag != BoardModel.Diag.OK -> Palette.maroon
         else -> Palette.ink.copy(0.55f)
     }
@@ -394,8 +432,9 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
             // подсказка об ошибке
             wrongHint(diag)?.let { hint ->
                 Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp).clip(RoundedCornerShape(20.dp))
-                    .background(Palette.maroon.copy(0.94f)).padding(horizontal = 10.dp, vertical = 5.dp)) {
-                    Text(hint, color = Color.White, fontSize = 10.sp, fontFamily = Fonts.rounded)
+                    .background((if (isOrderHint) Palette.gold else Palette.maroon).copy(0.94f))
+                    .padding(horizontal = 10.dp, vertical = 5.dp)) {
+                    Text(hint, color = if (isOrderHint) Palette.ink else Color.White, fontSize = 10.sp, fontFamily = Fonts.rounded)
                 }
             }
         } else {
@@ -672,6 +711,7 @@ private fun wrongHint(d: BoardModel.Diag): String? = when (d) {
     BoardModel.Diag.WRONG_CHARS -> L10n.s("ui.wrong_chars")
     BoardModel.Diag.WRONG_SCENE -> L10n.s("ui.wrong_scene")
     BoardModel.Diag.INERT -> L10n.s("ui.wrong_inert")
+    BoardModel.Diag.WRONG_ORDER -> L10n.s("ui.wrong_order")
 }
 
 @Composable

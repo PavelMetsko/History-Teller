@@ -6,7 +6,7 @@
   "epoch": "rome",
   "panels": 2,
   "scenes": [
-    "rubicon",
+    "rubicon_march",
     "forum"
   ],
   "characters": [
@@ -14,8 +14,8 @@
     "antony",
     "pompey"
   ],
-  "goalText": "Цезарь переходит Рубикон и идёт на Рим",
-  "goalHint": "На форуме встань за верного Антония — но не за соперника Помпея. Затем переведи легион через реку.",
+  "goalText": "Цезарь переходит Рубикон — и Помпей бежит из Рима",
+  "goalHint": "На форуме заручись верным союзником. А соперника встреть на Рубиконе — переход через реку сметёт того, кто встал на пути.",
   "goal": {
     "all": [
       {
@@ -32,12 +32,9 @@
         }
       },
       {
-        "not": {
-          "relation": {
-            "rel": "ally_of",
-            "from": "caesar",
-            "to": "pompey"
-          }
+        "flag": {
+          "char": "pompey",
+          "is": "fugitive"
         }
       }
     ]
@@ -51,9 +48,10 @@
       ]
     },
     {
-      "scene": "rubicon",
+      "scene": "rubicon_march",
       "characters": [
-        "caesar"
+        "caesar",
+        "pompey"
       ]
     }
   ],

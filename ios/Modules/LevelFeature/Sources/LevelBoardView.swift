@@ -50,8 +50,13 @@ public struct LevelBoardView: View {
     public init(level: LevelDef,
                 db: ContentDb,
                 onSolved: (() -> Void)? = nil,
-                onExit: (() -> Void)? = nil) {
-        _model = State(initialValue: LevelBoardModel(level: level, db: db))
+                onExit: (() -> Void)? = nil,
+                debugArrangement: [(scene: String?, chars: [String])]? = nil,
+                debugShowFact: Bool = false) {
+        let m = LevelBoardModel(level: level, db: db)
+        if let arr = debugArrangement { m.applyArrangement(arr) }
+        if debugShowFact { m.showFact = true }
+        _model = State(initialValue: m)
         self.onSolved = onSolved
         self.onExit = onExit
     }
@@ -401,6 +406,8 @@ private struct PanelCell: View {
     private var panel: Panel { model.panels[index] }
     private var isTapTarget: Bool { model.selected != nil }
     private var isWrong: Bool { diagnosis != .ok }
+    /// Панель верна сама по себе — беда лишь в порядке: мягкий золотой «намёк», не красная ошибка.
+    private var isOrderHint: Bool { diagnosis == .wrongOrder }
     /// Удар-тряска панели на «жёстких» событиях — гибель, битва, поход/война.
     private var hasImpact: Bool { beats.contains { $0.kind == .kill || $0.kind == .battle || $0.kind == .conquer } }
     /// Сцена-гильотина — для падающего ножа.
@@ -415,11 +422,13 @@ private struct PanelCell: View {
         case .wrongCharacters: return L10n.s("ui.wrong_chars")
         case .wrongScene:      return L10n.s("ui.wrong_scene")
         case .inert:           return L10n.s("ui.wrong_inert")
+        case .wrongOrder:      return L10n.s("ui.wrong_order")
         }
     }
 
     private var borderColor: Color {
         if highlighted { return DS.Palette.gold }
+        if isOrderHint { return DS.Palette.gold }
         if isWrong { return DS.Palette.maroon }
         return DS.Palette.ink.opacity(0.55)
     }
@@ -492,9 +501,9 @@ private struct PanelCell: View {
             if let hint = wrongHint {
                 Text(hint)
                     .font(.dsCaption(10))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(isOrderHint ? DS.Palette.ink : .white)
                     .padding(.horizontal, 10).padding(.vertical, 5)
-                    .background(Capsule().fill(DS.Palette.maroon.opacity(0.94)))
+                    .background(Capsule().fill((isOrderHint ? DS.Palette.gold : DS.Palette.maroon).opacity(0.94)))
                     .overlay(Capsule().strokeBorder(.white.opacity(0.3), lineWidth: 1))
                     .padding(.bottom, 8)
                     .shadow(color: .black.opacity(0.3), radius: 3, y: 1)

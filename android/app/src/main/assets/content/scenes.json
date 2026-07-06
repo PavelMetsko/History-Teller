@@ -183,6 +183,21 @@
     ]
   },
   {
+    "id": "rubicon_march",
+    "name": "Рубикон",
+    "tags": [
+      "showdown"
+    ],
+    "slots": 2,
+    "emoji": "🌊",
+    "action": "перейти реку",
+    "actionIcon": "icon_ally",
+    "roles": [
+      "полководец",
+      "соперник"
+    ]
+  },
+  {
     "id": "harbor",
     "name": "Гавань Египта",
     "tags": [
