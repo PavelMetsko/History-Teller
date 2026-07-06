@@ -112,13 +112,13 @@ public enum RomeContent {
         // Акт I · Восхождение
         "heir",
         "marriage",
-        "coronation",
+        "porphyry",
         "minister",
         // Акт II · Ника
         "nika",
         "flight",
         "massacre",
-        "execution",
+        "hypatius",
         "john_fall",
         // Акт III · Слава и закат
         "reconquest",

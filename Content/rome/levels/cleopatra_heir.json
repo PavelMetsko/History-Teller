@@ -5,9 +5,9 @@
   "epoch": "rome",
   "panels": 3,
   "scenes": [
+    "back_room",
     "voyage",
-    "triumph",
-    "back_room"
+    "triumph"
   ],
   "characters": [
     "cleopatra",
@@ -69,5 +69,6 @@
     "source": "Светоний; Дион Кассий; Аппиан"
   },
   "music": "romance",
-  "act": "Акт II · Царица и диктатор"
+  "act": "Акт II · Царица и диктатор",
+  "cover": "voyage"
 }

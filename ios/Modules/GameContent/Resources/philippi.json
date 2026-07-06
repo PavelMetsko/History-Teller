@@ -5,9 +5,9 @@
   "epoch": "rome",
   "panels": 3,
   "scenes": [
+    "battlefield",
     "back_room",
-    "senate",
-    "battlefield"
+    "senate"
   ],
   "characters": [
     "caesar",

@@ -6,8 +6,8 @@
   "epoch": "rome",
   "panels": 2,
   "scenes": [
-    "rubicon",
-    "battlefield"
+    "battlefield",
+    "rubicon"
   ],
   "characters": [
     "caesar",

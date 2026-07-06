@@ -6,8 +6,8 @@
   "title": "Казнь Людовика XVI",
   "panels": 2,
   "scenes": [
-    "assembly",
-    "guillotine"
+    "guillotine",
+    "assembly"
   ],
   "characters": [
     "robespierre",

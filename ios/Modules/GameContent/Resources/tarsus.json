@@ -6,8 +6,8 @@
   "epoch": "rome",
   "panels": 2,
   "scenes": [
-    "gate",
-    "palace"
+    "palace",
+    "gate"
   ],
   "characters": [
     "antony",

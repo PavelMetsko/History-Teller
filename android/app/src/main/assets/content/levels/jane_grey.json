@@ -6,9 +6,9 @@
   "title": "Девять дней королевы",
   "panels": 3,
   "scenes": [
-    "abbey",
     "court",
-    "tower"
+    "tower",
+    "abbey"
   ],
   "characters": [
     "jane_grey",

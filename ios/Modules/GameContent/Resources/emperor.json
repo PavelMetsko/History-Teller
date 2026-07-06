@@ -6,8 +6,8 @@
   "title": "Император всероссийский",
   "panels": 2,
   "scenes": [
-    "poltava",
-    "imperator"
+    "imperator",
+    "poltava"
   ],
   "characters": [
     "peter",

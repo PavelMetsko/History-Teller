@@ -6,8 +6,8 @@
   "epoch": "rome",
   "panels": 2,
   "scenes": [
-    "battlefield",
-    "harbor"
+    "harbor",
+    "battlefield"
   ],
   "characters": [
     "caesar",

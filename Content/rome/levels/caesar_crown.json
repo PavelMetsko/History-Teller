@@ -5,8 +5,8 @@
   "epoch": "rome",
   "panels": 2,
   "scenes": [
-    "forum",
-    "lupercalia"
+    "lupercalia",
+    "forum"
   ],
   "characters": [
     "caesar",
@@ -18,7 +18,7 @@
       {
         "flag": {
           "char": "caesar",
-          "is": "crowned"
+          "is": "beloved"
         }
       },
       {
@@ -31,7 +31,7 @@
       {
         "not": {
           "flag": {
-            "char": "cleopatra",
+            "char": "caesar",
             "is": "crowned"
           }
         }
@@ -62,5 +62,6 @@
     "source": "Плутарх, «Цезарь»; Светоний"
   },
   "music": "ceremony",
-  "act": "Акт II · Царица и диктатор"
+  "act": "Акт II · Царица и диктатор",
+  "cover": "lupercalia"
 }

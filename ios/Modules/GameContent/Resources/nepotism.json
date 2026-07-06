@@ -6,8 +6,8 @@
   "title": "Кардинал в восемнадцать",
   "panels": 2,
   "scenes": [
-    "conclave",
-    "curia"
+    "curia",
+    "conclave"
   ],
   "characters": [
     "rodrigo",

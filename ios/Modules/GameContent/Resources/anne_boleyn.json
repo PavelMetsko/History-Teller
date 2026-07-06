@@ -5,9 +5,9 @@
   "title": "Анна Болейн",
   "panels": 3,
   "scenes": [
-    "chapel",
     "tribunal",
-    "tower"
+    "tower",
+    "chapel"
   ],
   "characters": [
     "henry",

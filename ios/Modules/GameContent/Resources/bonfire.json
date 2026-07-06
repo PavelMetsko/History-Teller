@@ -6,8 +6,8 @@
   "title": "Костёр Савонаролы",
   "panels": 2,
   "scenes": [
-    "curia",
-    "piazza"
+    "piazza",
+    "curia"
   ],
   "characters": [
     "rodrigo",

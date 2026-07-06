@@ -6,8 +6,8 @@
   "title": "Гнев Грозного",
   "panels": 2,
   "scenes": [
-    "oprichnina",
-    "palaty"
+    "palaty",
+    "oprichnina"
   ],
   "characters": [
     "ivan",

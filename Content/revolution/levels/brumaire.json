@@ -6,8 +6,8 @@
   "title": "18 брюмера",
   "panels": 2,
   "scenes": [
-    "siege",
-    "coup"
+    "coup",
+    "siege"
   ],
   "characters": [
     "napoleon"

@@ -6,9 +6,9 @@
   "title": "Коронация императора",
   "panels": 3,
   "scenes": [
+    "sacre",
     "siege",
-    "coup",
-    "sacre"
+    "coup"
   ],
   "characters": [
     "napoleon"

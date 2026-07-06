@@ -6,8 +6,8 @@
   "title": "Взятие Казани",
   "panels": 2,
   "scenes": [
-    "sobor",
-    "kazan"
+    "kazan",
+    "sobor"
   ],
   "characters": [
     "ivan"

@@ -6,8 +6,8 @@
   "title": "Союз двух роз",
   "panels": 2,
   "scenes": [
-    "chapel",
-    "chamber"
+    "chamber",
+    "chapel"
   ],
   "characters": [
     "henry7",

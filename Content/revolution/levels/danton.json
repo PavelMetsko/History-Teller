@@ -6,9 +6,9 @@
   "title": "Дантон на эшафоте",
   "panels": 3,
   "scenes": [
+    "guillotine",
     "tribune",
-    "assembly",
-    "guillotine"
+    "assembly"
   ],
   "characters": [
     "robespierre",

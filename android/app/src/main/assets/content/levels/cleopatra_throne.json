@@ -5,9 +5,9 @@
   "epoch": "rome",
   "panels": 3,
   "scenes": [
+    "throne",
     "battlefield",
-    "forum",
-    "throne"
+    "forum"
   ],
   "characters": [
     "caesar",
@@ -61,5 +61,6 @@
     "source": "Цезарь, «Записки о гражданской войне»; Дион Кассий"
   },
   "music": "battle",
-  "act": "Акт II · Царица и диктатор"
+  "act": "Акт II · Царица и диктатор",
+  "cover": "battlefield"
 }

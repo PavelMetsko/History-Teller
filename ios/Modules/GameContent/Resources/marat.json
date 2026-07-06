@@ -6,8 +6,8 @@
   "title": "Смерть Марата",
   "panels": 2,
   "scenes": [
-    "bath",
-    "guillotine"
+    "guillotine",
+    "bath"
   ],
   "characters": [
     "corday",

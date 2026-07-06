@@ -6,9 +6,9 @@
   "title": "Кровавая Мэри",
   "panels": 3,
   "scenes": [
-    "abbey",
     "court",
-    "chapel"
+    "chapel",
+    "abbey"
   ],
   "characters": [
     "mary1",

@@ -96,7 +96,7 @@
   },
   {
     "id": "offer_crown",
-    "comment": "Полководец на празднике подносит корону правителю",
+    "comment": "Верный полководец на людях подносит корону — правитель прилюдно её отвергает и покоряет толпу",
     "priority": 3,
     "trigger": {
       "sceneTags": [
@@ -107,15 +107,45 @@
           "var": "A",
           "tags": [
             "general"
-          ],
-          "slot": 0
+          ]
         },
         {
           "var": "B",
           "tags": [
             "ruler"
-          ],
-          "slot": 1
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "beloved"
+      }
+    ]
+  },
+  {
+    "id": "queen_crown",
+    "comment": "Царица-возлюбленная венчает правителя короной наедине — он становится ненавистным царём (ловушка)",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "festival"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler",
+            "roman"
+          ]
         }
       ]
     },
@@ -223,12 +253,10 @@
               "rel": "ally_of",
               "to": "B"
             }
-          ],
-          "slot": 0
+          ]
         },
         {
-          "var": "B",
-          "slot": 1
+          "var": "B"
         }
       ]
     },
@@ -264,15 +292,13 @@
           "var": "A",
           "tags": [
             "general"
-          ],
-          "slot": 0
+          ]
         },
         {
           "var": "B",
           "flags": [
             "traitor"
-          ],
-          "slot": 1
+          ]
         }
       ]
     },
@@ -1651,15 +1677,13 @@
           "var": "A",
           "tags": [
             "girondin"
-          ],
-          "slot": 0
+          ]
         },
         {
           "var": "B",
           "tags": [
             "journalist"
-          ],
-          "slot": 1
+          ]
         }
       ]
     },
@@ -2640,15 +2664,13 @@
           "var": "A",
           "tags": [
             "borgia"
-          ],
-          "slot": 0
+          ]
         },
         {
           "var": "B",
           "tags": [
             "cardinal_b"
-          ],
-          "slot": 1
+          ]
         }
       ]
     },

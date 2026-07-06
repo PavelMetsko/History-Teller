@@ -6,8 +6,8 @@
   "title": "Казнь Пугачёва",
   "panels": 2,
   "scenes": [
-    "bunt",
-    "plakha"
+    "plakha",
+    "bunt"
   ],
   "characters": [
     "catherine",
