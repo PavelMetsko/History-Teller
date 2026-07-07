@@ -116,6 +116,16 @@ public final class LevelBoardModel {
         recompute()
     }
 
+    /// Переставить панель (drag-reorder сцен): вынуть из `from` и вставить на `to`.
+    /// Порядок панелей = слева направо, и он значим для причинности — поэтому пересчёт.
+    public func movePanel(from: Int, to: Int) {
+        guard from != to, panels.indices.contains(from), panels.indices.contains(to) else { return }
+        let p = panels.remove(at: from)
+        panels.insert(p, at: to)
+        selected = nil
+        recompute()
+    }
+
     public func reset() {
         panels = Array(repeating: Panel(sceneId: nil), count: max(1, level.panels))
         selected = nil
@@ -151,6 +161,24 @@ public final class LevelBoardModel {
         }
     }
 
+    /// Авто-раскладка внутри панели: «пострадавший» (жертва/проигравший/осуждённый/
+    /// коронованный — `primary` бита) ставится правее активного. Порядок персонажей в
+    /// панели движок не учитывает при решении, так что это чистая косметика — единая
+    /// визуальная грамматика («жертва справа»); SwiftUI анимирует перестановку спрайтов.
+    private func autoArrangePanels() {
+        var primaryByPanel = Array(repeating: Set<String>(), count: panels.count)
+        for e in result.events where e.panelIndex < panels.count {
+            if let p = beat(from: e).primary { primaryByPanel[e.panelIndex].insert(p) }
+        }
+        for i in panels.indices {
+            let prim = primaryByPanel[i]
+            guard !prim.isEmpty else { continue }
+            let chars = panels[i].characters
+            let reordered = chars.filter { !prim.contains($0) } + chars.filter { prim.contains($0) }
+            if reordered != chars { panels[i].characters = reordered }
+        }
+    }
+
     /// Состояние мира после указанной панели (для бейджей внутри панели).
     public func snapshot(after index: Int) -> World {
         guard index >= 0, index < result.snapshots.count else { return result.world }
@@ -159,6 +187,7 @@ public final class LevelBoardModel {
 
     private func recompute() {
         result = Engine.simulate(panels, db, initial: level.createInitialWorld(), collectTrace: true)
+        autoArrangePanels()   // косметика: «пострадавший» бита — правее активного (вью анимирует)
         // Новые (ещё не показанные) сработавшие правила — для анимаций/звука.
         lastFiredEvents = result.events.filter { !seenEventKeys.contains(Self.key($0)) }
         lastBeats = lastFiredEvents.map { beat(from: $0) }

@@ -29,6 +29,7 @@ public enum RomeContent {
         "caesar_assassination",
         // Акт III · Наследники (43–30 до н.э.)
         "triumvirate",
+        "cicero_death",
         "philippi",
         "tarsus",
         "discord",

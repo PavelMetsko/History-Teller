@@ -38,6 +38,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.zIndex
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
@@ -147,6 +150,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
 
     private fun recompute() {
         result = Engine.run(panels, db, level.createInitialWorld())
+        autoArrange()   // «пострадавший» бита — правее активного (косметика; порядок в панели движок не учитывает)
         val fresh = result.events.filter { eventKey(it) !in seenEventKeys }
         lastBeats = fresh.map(::beat)
         seenEventKeys = result.events.map(::eventKey).toSet()
@@ -155,6 +159,29 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
     }
     private fun update(i: Int, transform: (Panel) -> Panel) {
         panels = panels.toMutableList().also { it[i] = transform(it[i]) }; recompute()
+    }
+
+    /** Внутри панели ставим «пострадавшего» (primary бита) правее. Порядок в панели движок
+     *  не учитывает при решении — чистая косметика (единая грамматика «жертва справа»). */
+    private fun autoArrange() {
+        val prim = Array(panels.size) { mutableSetOf<String>() }
+        for (e in result.events) if (e.panelIndex < panels.size) beat(e).primary?.let { prim[e.panelIndex].add(it) }
+        var changed = false
+        val np = panels.toMutableList()
+        for (i in panels.indices) {
+            val p = prim[i]; if (p.isEmpty()) continue
+            val chars = np[i].characters
+            val re = (chars.filter { it !in p } + chars.filter { it in p })
+            if (re != chars) { np[i] = Panel(np[i].sceneId, re.toMutableList()); changed = true }
+        }
+        if (changed) panels = np
+    }
+
+    /** Drag-reorder сцен: вынуть панель из from и вставить на to. Порядок панелей значим — пересчёт. */
+    fun movePanel(from: Int, to: Int) {
+        if (from == to || from !in panels.indices || to !in panels.indices) return
+        val np = panels.toMutableList(); val p = np.removeAt(from); np.add(to, p)
+        panels = np; selected = null; recompute()
     }
 
     fun setScene(i: Int, sceneId: String?) {
@@ -305,11 +332,33 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                         val gap = 14.dp
                         val cellH = min(maxHeight.value, 430f).dp
                         val cellW = min(((maxWidth - gap * (n - 1)).value / n), cellH.value * 1.2f).dp
+                        var draggingPanel by remember { mutableStateOf(-1) }
+                        var dragDX by remember { mutableStateOf(0f) }
                         Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(gap, Alignment.CenterHorizontally),
                             verticalAlignment = Alignment.CenterVertically) {
                             for (i in model.panels.indices) {
                                 val beats = model.lastBeats.filter { it.panelIndex == i }
-                                PanelCell(model, i, cellW, cellH, beats, model.changeToken)
+                                val placed = model.panels[i].sceneId != null
+                                Box(Modifier
+                                    .zIndex(if (draggingPanel == i) 10f else 0f)
+                                    .graphicsLayer {
+                                        if (draggingPanel == i) { translationX = dragDX; scaleX = 1.05f; scaleY = 1.05f }
+                                    }
+                                    .then(if (placed) Modifier.pointerInput(i, model.panels.size) {
+                                        val step = (cellW + gap).toPx()
+                                        detectDragGestures(
+                                            onDragStart = { draggingPanel = i; dragDX = 0f },
+                                            onDrag = { ch, d -> ch.consume(); dragDX += d.x },
+                                            onDragEnd = {
+                                                val to = (i + Math.round(dragDX / step)).coerceIn(0, model.panels.size - 1)
+                                                if (to != i) model.movePanel(i, to)
+                                                draggingPanel = -1; dragDX = 0f
+                                            },
+                                            onDragCancel = { draggingPanel = -1; dragDX = 0f })
+                                    } else Modifier)
+                                ) {
+                                    PanelCell(model, i, cellW, cellH, beats, model.changeToken)
+                                }
                             }
                         }
                     }

@@ -661,8 +661,8 @@
   },
   {
     "id": "slay_fugitive",
-    "comment": "Египетский двор предательски убивает беглеца ради выгоды",
-    "priority": 8,
+    "comment": "Евнух-интриган Потин отдаёт приказ, вина падает на юного царя Птолемея — беглеца закалывают в лодке",
+    "priority": 5,
     "trigger": {
       "sceneTags": [
         "shore"
@@ -671,13 +671,23 @@
         {
           "var": "A",
           "tags": [
-            "egyptian"
+            "schemer"
           ]
         },
         {
           "var": "B",
+          "tags": [
+            "ruler",
+            "egyptian"
+          ]
+        },
+        {
+          "var": "C",
           "flags": [
             "fugitive"
+          ],
+          "notFlags": [
+            "spared"
           ]
         }
       ]
@@ -685,12 +695,12 @@
     "effects": [
       {
         "type": "setFlag",
-        "target": "B",
+        "target": "C",
         "flag": "dead"
       },
       {
         "type": "setFlag",
-        "target": "A",
+        "target": "B",
         "flag": "treacherous"
       }
     ]
@@ -3768,6 +3778,11 @@
         "type": "setFlag",
         "target": "B",
         "flag": "burned"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "rome_restored"
       }
     ]
   },
@@ -3996,6 +4011,383 @@
         "type": "setFlag",
         "target": "B",
         "flag": "favoured"
+      }
+    ]
+  },
+  {
+    "id": "heretic_disrupts",
+    "comment": "Протестант при дворе срывает возврат католической королевы к Риму",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady",
+            "catholic"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "protestant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeFlag",
+        "target": "A",
+        "flag": "rome_restored"
+      }
+    ]
+  },
+  {
+    "id": "heretic_at_coronation",
+    "comment": "Протестант на католической коронации срывает её (королева не венчана)",
+    "priority": 2,
+    "trigger": {
+      "sceneTags": [
+        "coronation"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady",
+            "catholic"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "protestant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "removeFlag",
+        "target": "A",
+        "flag": "crowned"
+      },
+      {
+        "type": "removeFlag",
+        "target": "A",
+        "flag": "reigns"
+      }
+    ]
+  },
+  {
+    "id": "philippic",
+    "comment": "Цицерон-оратор Филиппиками обличает консула Антония — и метит себя во враги",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "oratory"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "orator"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "consul"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "defiant"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "enraged"
+      }
+    ]
+  },
+  {
+    "id": "proscribe_orator",
+    "comment": "Разгневанный триумвир с согласия второго вносит дерзкого оратора в проскрипции",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "proscribe_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "roman"
+          ],
+          "flags": [
+            "enraged"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "roman"
+          ]
+        },
+        {
+          "var": "C",
+          "tags": [
+            "orator"
+          ],
+          "flags": [
+            "defiant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "C",
+        "flag": "condemned"
+      }
+    ]
+  },
+  {
+    "id": "silence_orator",
+    "comment": "Убийцы настигают осуждённого оратора — голову и руки прибивают к ростре",
+    "priority": 8,
+    "trigger": {
+      "sceneTags": [
+        "silence"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general",
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "orator"
+          ],
+          "flags": [
+            "condemned"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "silenced"
+      }
+    ]
+  },
+  {
+    "id": "clementia",
+    "comment": "Милосердие Цезаря: встретив беглеца-соперника лично, он щадит его — и лишает двор Птолемея кровавого подарка",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "shore"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "ruler",
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "flags": [
+            "fugitive"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "spared"
+      }
+    ]
+  },
+  {
+    "id": "cc_charm",
+    "comment": "Клеопатра наедине пленяет Цезаря — и рождает в нём восточное тщеславие",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "cc_romance"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming"
+          ],
+          "notFlags": [
+            "locked_out"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "loves",
+        "from": "B",
+        "to": "A"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "cc_tempted"
+      }
+    ]
+  },
+  {
+    "id": "cc_rally",
+    "comment": "Верный Антоний сплачивает вокруг честолюбивого Цезаря народную партию",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "cc_public"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general",
+            "roman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler",
+            "roman"
+          ],
+          "flags": [
+            "cc_tempted"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "B",
+        "to": "A"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "cc_backed"
+      }
+    ]
+  },
+  {
+    "id": "cc_offer",
+    "comment": "На Луперкалиях соратник трижды подносит корону — и Цезарь красиво отвергает её под рёв толпы",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "cc_festival"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler"
+          ],
+          "flags": [
+            "cc_backed"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "beloved"
+      }
+    ]
+  },
+  {
+    "id": "cc_queen_crown",
+    "comment": "ЛОВУШКА: если корону на празднике держит чаровница — Цезарь принимает её и становится царём",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "cc_festival"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "charming"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "ruler",
+            "roman"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "crowned"
       }
     ]
   }

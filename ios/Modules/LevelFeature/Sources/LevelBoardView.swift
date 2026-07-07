@@ -42,6 +42,8 @@ public struct LevelBoardView: View {
     @State private var dragLocation: CGPoint = .zero
     @State private var panelFrames: [Int: CGRect] = [:]
     @State private var hoverPanel: Int?
+    @State private var draggingPanel: Int?
+    @State private var dragPanelOffset: CGSize = .zero
 
     private let onSolved: (() -> Void)?
     private let onExit: (() -> Void)?
@@ -131,6 +133,23 @@ public struct LevelBoardView: View {
 
     private func panelIndex(at p: CGPoint) -> Int? {
         panelFrames.first { $0.value.contains(p) }?.key
+    }
+
+    /// Drag-reorder сцен: тащишь панель (с любого места, даже поверх героев — тап остаётся тапом,
+    /// т.к. нужен сдвиг ≥ порога) и отпускаешь над другой — сцены меняются местами. Без long-press.
+    private func panelReorderGesture(_ i: Int) -> some Gesture {
+        DragGesture(minimumDistance: 12, coordinateSpace: .named(boardSpace))
+            .onChanged { v in
+                if draggingPanel == nil { draggingPanel = i; model.selected = nil; Haptics.light() }
+                dragPanelOffset = v.translation
+                hoverPanel = panelIndex(at: v.location)
+            }
+            .onEnded { v in
+                if let from = draggingPanel, let to = panelIndex(at: v.location), to != from {
+                    model.movePanel(from: from, to: to); Audio.shared.play(.select); Haptics.light()
+                }
+                draggingPanel = nil; dragPanelOffset = .zero; hoverPanel = nil
+            }
     }
 
     private func applyDrag(_ item: LevelBoardModel.Selection, to idx: Int) {
@@ -245,6 +264,12 @@ public struct LevelBoardView: View {
                               diagnosis: model.panelDiagnoses.indices.contains(i) ? model.panelDiagnoses[i] : .ok,
                               boardSpace: boardSpace,
                               beats: activeBeats.filter { $0.panelIndex == i })
+                        .offset(draggingPanel == i ? dragPanelOffset : .zero)
+                        .scaleEffect(draggingPanel == i ? 1.05 : 1)
+                        .zIndex(draggingPanel == i ? 10 : 0)
+                        .animation(.spring(response: 0.32, dampingFraction: 0.72), value: draggingPanel)
+                        .gesture(panelReorderGesture(i),
+                                 including: model.panels[i].sceneId != nil ? .all : .subviews)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -569,9 +594,9 @@ private struct PanelCell: View {
         return VStack {
             Spacer(minLength: 0)
             HStack(alignment: .bottom, spacing: 4) {
-                ForEach(0..<slots, id: \.self) { slot in
-                    if slot < panel.characters.count {
-                        let charId = panel.characters[slot]
+                ForEach(Array(panel.characters.enumerated()), id: \.element) { pair in
+                        let slot = pair.offset
+                        let charId = pair.element
                         let snap = model.snapshot(after: index)
                         let dead = snap.hasFlag(charId, "dead")
                         let state = microState(charId, in: snap)
@@ -632,12 +657,12 @@ private struct PanelCell: View {
                         }
                         .buttonStyle(.plain)
                         .transition(.scale(scale: 0.4).combined(with: .opacity))
-                    } else {
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .strokeBorder(DS.Palette.ink.opacity(0.3),
-                                          style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
-                            .frame(width: spriteH * 0.5, height: spriteH * 0.8)
-                    }
+                }
+                ForEach(0..<max(0, slots - panel.characters.count), id: \.self) { _ in
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .strokeBorder(DS.Palette.ink.opacity(0.3),
+                                      style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
+                        .frame(width: spriteH * 0.5, height: spriteH * 0.8)
                 }
             }
             .padding(.bottom, 6)

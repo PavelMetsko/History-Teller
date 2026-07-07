@@ -81,7 +81,12 @@ cs=lvl["characters"]; GOAL=lvl["goal"]; NP=lvl["panels"]
 opts=[]
 for sid in lvl["scenes"]:
     sl=scenes[sid].get("slots",2)
-    role=scenes[sid].get("roles")
+    # Порядок в панели значим ТОЛЬКО если правило сцены реально использует slot.
+    # Наличие `roles` (UI-подписи слотов) само по себе порядок НЕ делает значимым —
+    # иначе каноника — фикция (перестановки игрово идентичны; игра ещё и авто-раскладывает).
+    _st=scenes[sid].get("tags",[])
+    role=any(all(t in _st for t in r["trigger"].get("sceneTags",[]))
+             and any(a.get("slot") is not None for a in r["trigger"]["actors"]) for r in rules)
     gen = itertools.permutations if role else itertools.combinations
     for k in range(0,min(sl,len(cs))+1):
         for combo in gen(cs,k):

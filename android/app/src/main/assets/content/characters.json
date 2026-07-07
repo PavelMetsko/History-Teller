@@ -40,7 +40,8 @@
     "name": "Марк Антоний",
     "tags": [
       "general",
-      "roman"
+      "roman",
+      "consul"
     ],
     "emoji": "🧑‍🦰"
   },
@@ -571,5 +572,24 @@
       "admiral"
     ],
     "emoji": "⚓"
+  },
+  {
+    "id": "cicero",
+    "name": "Цицерон",
+    "tags": [
+      "senator",
+      "roman",
+      "orator"
+    ],
+    "emoji": "📜"
+  },
+  {
+    "id": "pothinus",
+    "name": "Потин",
+    "tags": [
+      "egyptian",
+      "schemer"
+    ],
+    "emoji": "🗝️"
   }
 ]

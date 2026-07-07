@@ -175,21 +175,27 @@ def initial_world(level):
 
 # ---------- solver ----------
 
-def panel_options(level, scenes):
-    """Все варианты заполнения кадра. Порядок персонажей = роли-слоты,
-    поэтому перебираем РАЗМЕЩЕНИЯ (permutations), а не сочетания."""
+def panel_options(level, scenes, rules=None):
+    """Варианты заполнения кадра. Порядок персонажей значим (permutations) ТОЛЬКО если
+    правило сцены реально использует slot; иначе combinations — роли лишь UI-подписи,
+    игра авто-раскладывает персонажей внутри панели (каноника без фикции)."""
     opts = []
     chars = level["characters"]
+    rules = rules or []
     for sid in level["scenes"]:
         slots = scenes[sid].get("slots", 2)
+        st = scenes[sid].get("tags", [])
+        slotted = any(all(t in st for t in r["trigger"].get("sceneTags", []))
+                      and any(a.get("slot") is not None for a in r["trigger"]["actors"]) for r in rules)
+        gen = itertools.permutations if slotted else itertools.combinations
         for k in range(0, min(slots, len(chars)) + 1):
-            for perm in itertools.permutations(chars, k):
-                opts.append((sid, list(perm)))
+            for combo in gen(chars, k):
+                opts.append((sid, list(combo)))
     return opts
 
 
 def solve(level, scenes, rules, char_defs, max_solutions=None):
-    opts = panel_options(level, scenes)
+    opts = panel_options(level, scenes, rules)
     solutions = []
     for assignment in itertools.product(opts, repeat=level["panels"]):
         w = simulate(list(assignment), initial_world(level), scenes, rules, char_defs)

@@ -203,12 +203,13 @@
     "tags": [
       "shore"
     ],
-    "slots": 2,
+    "slots": 3,
     "emoji": "⚓",
     "action": "предательство",
     "actionIcon": "icon_dead",
     "roles": [
-      "правитель",
+      "интриган",
+      "царь",
       "беглец"
     ]
   },
@@ -1055,6 +1056,81 @@
     "roles": [
       "королева",
       "король"
+    ]
+  },
+  {
+    "id": "rostra",
+    "name": "Ростра",
+    "tags": [
+      "oratory"
+    ],
+    "slots": 2,
+    "emoji": "📜",
+    "action": "филиппика",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "оратор",
+      "враг"
+    ]
+  },
+  {
+    "id": "cicero_end",
+    "name": "Формийская дорога",
+    "tags": [
+      "silence"
+    ],
+    "slots": 2,
+    "emoji": "🗡️",
+    "action": "настигнуть",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "убийца",
+      "жертва"
+    ]
+  },
+  {
+    "id": "cc_palace",
+    "name": "Покои Цезаря",
+    "tags": [
+      "cc_romance"
+    ],
+    "slots": 2,
+    "emoji": "🌹",
+    "action": "наедине",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "чаровница",
+      "диктатор"
+    ]
+  },
+  {
+    "id": "cc_forum",
+    "name": "Форум",
+    "tags": [
+      "cc_public"
+    ],
+    "slots": 2,
+    "emoji": "🏛️",
+    "action": "сплотить народ",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "соратник",
+      "диктатор"
+    ]
+  },
+  {
+    "id": "cc_lupercalia",
+    "name": "Луперкалии",
+    "tags": [
+      "cc_festival"
+    ],
+    "slots": 2,
+    "emoji": "👑",
+    "action": "поднести корону",
+    "actionIcon": "icon_crown",
+    "roles": [
+      "подносящий",
+      "диктатор"
     ]
   }
 ]
