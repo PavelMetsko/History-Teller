@@ -149,10 +149,10 @@
   "level.bonfire.intro": "Jérôme Savonarole, excommunié, attend le bûcher.",
   "level.bonfire.source": "Histoire de l'exécution de Savonarole",
   "level.bonfire.title": "Le Bûcher de Savonarole",
-  "level.bosworth.fact": "Le 22 août 1485, à Bosworth, Henri Tudor écrasa l'armée de Richard III ; Richard tomba au combat — le dernier roi anglais à mourir sur le champ de bataille. Ainsi se termina la Guerre des Deux-Roses et commença la dynastie des Tudor. La couronne, selon la légende, fut trouvée dans un buisson d'aubépine et placée sur Henri directement sur le champ.",
-  "level.bosworth.goal": "Henri Tudor renverse Richard III et prend la couronne",
-  "level.bosworth.hint": "Tout se décidera à la bataille de Bosworth.",
-  "level.bosworth.intro": "Richard III règne ; Henri Tudor vient prendre la couronne.",
+  "level.bosworth.fact": "Le 22 août 1485, la bataille de Bosworth se joua sur une trahison : Lord Thomas Stanley attendit jusqu'au dernier instant, puis jeta ses troupes du côté d'Henri Tudor. Richard III tomba au combat — le dernier roi anglais mort sur le champ de bataille. Sa couronne, selon la tradition, fut trouvée dans un buisson d'aubépine et posée sur Henri sur-le-champ. Ainsi s'acheva la guerre des Deux-Roses et commença la dynastie Tudor.",
+  "level.bosworth.goal": "La trahison de Stanley décide de Bosworth — la couronne passe à Henri Tudor",
+  "level.bosworth.hint": "Laisse d'abord Stanley passer à Henri — sinon Richard l'emporte. Puis la bataille, et alors seulement la couronne du roi tombé est posée sur le vainqueur.",
+  "level.bosworth.intro": "Richard III règne. Henri Tudor marche pour la couronne — mais tout dépendra du camp que choisira Lord Stanley.",
   "level.bosworth.source": "Polydore Virgile, «Histoire d'Angleterre»",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "Les 9-10 novembre 1799 (18-19 Brumaire an VIII), Napoléon réalisa un coup d'État, dispersant le Directoire et établissant le Consulat. Il se fit Premier Consul — dictateur de facto de la France.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proscriptions",
   "scene.proscription.action": "hors la loi",
   "scene.barge": "La barque dorée",
-  "scene.barge.action": "paraître en splendeur"
+  "scene.barge.action": "paraître en splendeur",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "La trahison de Stanley",
+  "scene.bosworth_turn.action": "changer de camp",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "bataille décisive",
+  "scene.bosworth_crown": "La couronne sur le champ",
+  "scene.bosworth_crown.action": "couronnement sur le champ"
 }

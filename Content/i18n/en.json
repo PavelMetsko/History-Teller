@@ -149,10 +149,10 @@
   "level.bonfire.intro": "The pyre awaits the excommunicated Savonarola.",
   "level.bonfire.source": "The Execution of Savonarola",
   "level.bonfire.title": "Savonarola's Pyre",
-  "level.bosworth.fact": "On August 22, 1485, at Bosworth, Henry Tudor defeated the army of Richard III; Richard fell in battle — the last English king to die on the battlefield. Thus ended the War of the Roses and began the Tudor dynasty. The crown, according to legend, was found in a hawthorn bush and placed on Henry's head right on the field.",
-  "level.bosworth.goal": "Henry Tudor overthrows Richard III and takes the crown.",
-  "level.bosworth.hint": "The Battle of Bosworth will decide everything.",
-  "level.bosworth.intro": "Richard III reigns; Henry Tudor comes to seize the crown.",
+  "level.bosworth.fact": "On 22 August 1485 the Battle of Bosworth was decided by betrayal: Lord Thomas Stanley held back to the last moment, then threw his forces onto Henry Tudor's side. Richard III fell in battle — the last English king to die on the field. His crown, by tradition, was found in a hawthorn bush and placed on Henry right there on the field. So ended the Wars of the Roses and began the Tudor dynasty.",
+  "level.bosworth.goal": "Stanley's betrayal decides Bosworth — the crown passes to Henry Tudor",
+  "level.bosworth.hint": "First let Stanley defect to Henry — otherwise Richard wins. Then the battle, and only then is the fallen king's crown placed on the victor.",
+  "level.bosworth.intro": "Richard III reigns. Henry Tudor marches for the crown — but all will hinge on whose side Lord Stanley takes.",
   "level.bosworth.source": "Polydore Vergil, 'Anglica Historia'",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "On November 9–10, 1799 (18–19 Brumaire, Year VIII), Napoleon staged a coup, dissolving the Directory and establishing the Consulate. He appointed himself First Consul — the de facto dictator of France.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proscriptions",
   "scene.proscription.action": "outlawed",
   "scene.barge": "The Golden Barge",
-  "scene.barge.action": "arrive in splendor"
+  "scene.barge.action": "arrive in splendor",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "Stanley's Betrayal",
+  "scene.bosworth_turn.action": "switch sides",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "decisive battle",
+  "scene.bosworth_crown": "Crown on the Field",
+  "scene.bosworth_crown.action": "crowned on the field"
 }

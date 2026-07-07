@@ -149,10 +149,10 @@
   "level.bonfire.intro": "Na ekskomunikowanego Savonarolę czeka stos.",
   "level.bonfire.source": "Historia egzekucji Savonaroli",
   "level.bonfire.title": "Stos Savonaroli",
-  "level.bosworth.fact": "22 sierpnia 1485 r. pod Bosworth Henryk Tudor rozbił wojska Ryszarda III; Ryszard poległ w bitwie — ostatni angielski król, który zginął na polu walki. Tak zakończyła się Wojna Dwóch Róż i rozpoczęła się dynastia Tudorów. Koronę, według legendy, znaleziono w krzakach głogu i włożono Henrykowi na głowę prosto na polu bitwy.",
-  "level.bosworth.goal": "Henryk Tudor obala Ryszarda III i bierze koronę",
-  "level.bosworth.hint": "Wszystko rozstrzygnie bitwa pod Bosworth.",
-  "level.bosworth.intro": "Ryszard III rządzi; Henryk Tudor idzie odebrać koronę",
+  "level.bosworth.fact": "22 sierpnia 1485 roku o bitwie pod Bosworth zadecydowała zdrada: lord Thomas Stanley zwlekał do ostatniej chwili, po czym rzucił swe wojska po stronie Henryka Tudora. Ryszard III padł w boju — ostatni angielski król poległy na polu bitwy. Jego koronę, według legendy, znaleziono w krzewie głogu i nałożono Henrykowi wprost na polu. Tak zakończyła się Wojna Róż i zaczęła dynastia Tudorów.",
+  "level.bosworth.goal": "Zdrada Stanleya rozstrzyga Bosworth — korona przechodzi na Henryka Tudora",
+  "level.bosworth.hint": "Najpierw niech Stanley przejdzie do Henryka — inaczej wygra Ryszard. Potem bitwa, i dopiero wtedy korona poległego króla trafia na zwycięzcę.",
+  "level.bosworth.intro": "Ryszard III panuje. Henryk Tudor rusza po koronę — ale wszystko rozstrzygnie, po czyjej stronie stanie Lord Stanley.",
   "level.bosworth.source": "Polidor Wergiliusz, „Historia Anglii”",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "9–10 listopada 1799 r. (18–19 Brumaire’a Roku VIII) Napoleon dokonał zamachu stanu, rozwiązując Dyrektoriat i ustanawiając Konsulat. Siebie mianował pierwszym konsulem — faktycznym dyktatorem Francji.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proskrypcje",
   "scene.proscription.action": "wyjęty spod prawa",
   "scene.barge": "Złocona barka",
-  "scene.barge.action": "zjawić się w blasku"
+  "scene.barge.action": "zjawić się w blasku",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "Zdrada Stanleya",
+  "scene.bosworth_turn.action": "zmienić stronę",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "decydująca bitwa",
+  "scene.bosworth_crown": "Korona na polu",
+  "scene.bosworth_crown.action": "koronacja na polu"
 }

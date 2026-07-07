@@ -149,10 +149,10 @@
   "level.bonfire.intro": "Il rogo attende Savonarola, il scomunicato.",
   "level.bonfire.source": "La storia dell'esecuzione di Savonarola",
   "level.bonfire.title": "Il Rogo di Savonarola",
-  "level.bosworth.fact": "Il 22 agosto 1485, a Bosworth, Enrico Tudor sconfisse l'esercito di Riccardo III; Riccardo cadde in battaglia — l'ultimo re inglese a morire sul campo di battaglia. Così terminò la Guerra delle Due Rose e iniziò la dinastia Tudor. La corona, secondo la leggenda, fu trovata in un cespuglio di biancospino e posta su Enrico direttamente sul campo.",
-  "level.bosworth.goal": "Enrico Tudor rovescia Riccardo III e prende la corona.",
-  "level.bosworth.hint": "Tutto sarà deciso dalla battaglia di Bosworth.",
-  "level.bosworth.intro": "Riccardo III regna; Enrico Tudor marcia per prendere la corona.",
+  "level.bosworth.fact": "Il 22 agosto 1485 la battaglia di Bosworth fu decisa da un tradimento: Lord Thomas Stanley attese fino all'ultimo, poi gettò le sue truppe dalla parte di Enrico Tudor. Riccardo III cadde in battaglia — l'ultimo re inglese morto sul campo. La sua corona, per tradizione, fu trovata in un cespuglio di biancospino e posta su Enrico lì sul campo. Così finì la Guerra delle Due Rose e iniziò la dinastia Tudor.",
+  "level.bosworth.goal": "Il tradimento di Stanley decide Bosworth — la corona passa a Enrico Tudor",
+  "level.bosworth.hint": "Prima lascia che Stanley passi a Enrico — altrimenti vince Riccardo. Poi la battaglia, e solo allora la corona del re caduto va al vincitore.",
+  "level.bosworth.intro": "Riccardo III regna. Enrico Tudor marcia per la corona — ma tutto dipenderà da quale parte prenderà Lord Stanley.",
   "level.bosworth.source": "Polidoro Virgilio, «Storia d'Inghilterra»",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "Il 9–10 novembre 1799 (18–19 Brumaio anno VIII), Napoleone attuò un colpo di stato, sciogliendo il Direttorio, e istituì il Consolato. Si nominò Primo Console — di fatto, dittatore di Francia.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proscrizioni",
   "scene.proscription.action": "fuorilegge",
   "scene.barge": "La barca dorata",
-  "scene.barge.action": "apparire in splendore"
+  "scene.barge.action": "apparire in splendore",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "Il tradimento di Stanley",
+  "scene.bosworth_turn.action": "cambiare schieramento",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "battaglia decisiva",
+  "scene.bosworth_crown": "La corona sul campo",
+  "scene.bosworth_crown.action": "incoronazione sul campo"
 }

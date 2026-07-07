@@ -149,10 +149,10 @@
   "level.bonfire.intro": "A Savonarola, excomulgado, le espera la hoguera.",
   "level.bonfire.source": "Historia de la ejecución de Savonarola",
   "level.bonfire.title": "La hoguera de Savonarola",
-  "level.bosworth.fact": "El 22 de agosto de 1485, en Bosworth, Enrique Tudor derrotó al ejército de Ricardo III; Ricardo cayó en combate — el último rey inglés en morir en el campo de batalla. Así terminó la Guerra de las Dos Rosas y comenzó la dinastía Tudor. La corona, según la leyenda, fue encontrada en un espino y colocada sobre Enrique directamente en el campo.",
-  "level.bosworth.goal": "Enrique Tudor derroca a Ricardo III y toma la corona",
-  "level.bosworth.hint": "Todo se decidirá en la batalla de Bosworth.",
-  "level.bosworth.intro": "Ricardo III gobierna; Enrique Tudor viene a arrebatar la corona",
+  "level.bosworth.fact": "El 22 de agosto de 1485, la batalla de Bosworth se decidió por una traición: Lord Thomas Stanley esperó hasta el último momento y lanzó sus fuerzas del lado de Enrique Tudor. Ricardo III cayó en combate, el último rey inglés muerto en el campo. Su corona, según la tradición, se halló en un espino y se ciñó a Enrique allí mismo. Así terminó la Guerra de las Rosas y comenzó la dinastía Tudor.",
+  "level.bosworth.goal": "La traición de Stanley decide Bosworth: la corona pasa a Enrique Tudor",
+  "level.bosworth.hint": "Primero deja que Stanley se pase a Enrique, o Ricardo vencerá. Luego la batalla, y solo después la corona del rey caído se ciñe al vencedor.",
+  "level.bosworth.intro": "Ricardo III reina. Enrique Tudor marcha por la corona, pero todo dependerá del bando que elija Lord Stanley.",
   "level.bosworth.source": "Polidoro Virgilio, «Historia de Inglaterra»",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "El 9-10 de noviembre de 1799 (18-19 de Brumario del año VIII), Napoleón dio un golpe de Estado, disolviendo el Directorio e instaurando el Consulado. Se nombró a sí mismo primer cónsul, convirtiéndose en el dictador de facto de Francia.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proscripciones",
   "scene.proscription.action": "fuera de la ley",
   "scene.barge": "La barca dorada",
-  "scene.barge.action": "llegar con esplendor"
+  "scene.barge.action": "llegar con esplendor",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "La traición de Stanley",
+  "scene.bosworth_turn.action": "cambiar de bando",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "batalla decisiva",
+  "scene.bosworth_crown": "La corona en el campo",
+  "scene.bosworth_crown.action": "coronación en el campo"
 }

@@ -149,10 +149,10 @@
   "level.bonfire.intro": "A fogueira aguarda o excomungado Savonarola.",
   "level.bonfire.source": "História da Execução de Savonarola",
   "level.bonfire.title": "A Fogueira de Savonarola",
-  "level.bosworth.fact": "Em 22 de agosto de 1485, em Bosworth, Henrique Tudor derrotou o exército de Ricardo III; Ricardo caiu em batalha — o último rei inglês a morrer em campo. Assim terminou a Guerra das Rosas e começou a dinastia Tudor. A coroa, segundo a lenda, foi encontrada num arbusto de pilriteiro e colocada em Henrique ali mesmo no campo.",
-  "level.bosworth.goal": "Henrique Tudor depõe Ricardo III e toma a coroa",
-  "level.bosworth.hint": "Tudo será decidido na Batalha de Bosworth.",
-  "level.bosworth.intro": "Ricardo III governa; Henrique Tudor vem para tomar a coroa",
+  "level.bosworth.fact": "Em 22 de agosto de 1485, a Batalha de Bosworth foi decidida por uma traição: Lord Thomas Stanley esperou até ao último momento e lançou as suas forças ao lado de Henrique Tudor. Ricardo III caiu em combate — o último rei inglês morto no campo. A sua coroa, segundo a tradição, foi encontrada num espinheiro e colocada em Henrique ali mesmo no campo. Assim terminou a Guerra das Rosas e começou a dinastia Tudor.",
+  "level.bosworth.goal": "A traição de Stanley decide Bosworth — a coroa passa para Henrique Tudor",
+  "level.bosworth.hint": "Primeiro deixa Stanley passar para Henrique — senão Ricardo vence. Depois a batalha, e só então a coroa do rei caído é posta no vencedor.",
+  "level.bosworth.intro": "Ricardo III reina. Henrique Tudor marcha pela coroa — mas tudo dependerá do lado que Lord Stanley tomar.",
   "level.bosworth.source": "Polidoro Virgílio, «História da Inglaterra»",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "Em 9–10 de novembro de 1799 (18–19 Brumário do Ano VIII), Napoleão realizou um golpe, dissolvendo o Diretório e estabelecendo o Consulado. Ele se tornou o primeiro cônsul — o ditador de facto da França.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proscrições",
   "scene.proscription.action": "fora da lei",
   "scene.barge": "A barca dourada",
-  "scene.barge.action": "surgir em esplendor"
+  "scene.barge.action": "surgir em esplendor",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "A traição de Stanley",
+  "scene.bosworth_turn.action": "mudar de lado",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "batalha decisiva",
+  "scene.bosworth_crown": "A coroa no campo",
+  "scene.bosworth_crown.action": "coroação no campo"
 }

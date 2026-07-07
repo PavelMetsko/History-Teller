@@ -3585,5 +3585,418 @@
         "flag": "dazzling"
       }
     ]
+  },
+  {
+    "id": "stanley_turn",
+    "comment": "Лорд Стэнли в решающий миг переходит на сторону претендента — тот получает его войска",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "turncoat_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lord"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "king"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "backed"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "turncoat"
+      }
+    ]
+  },
+  {
+    "id": "bosworth_battle",
+    "comment": "Поддержанный Стэнли король сокрушает соперника при Босворте",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "field_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ],
+          "flags": [
+            "backed"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "king"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "victor"
+      }
+    ]
+  },
+  {
+    "id": "field_crown",
+    "comment": "Корону павшего короля надевают на победителя прямо на поле боя",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "crown_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ],
+          "flags": [
+            "victor"
+          ]
+        },
+        {
+          "var": "B"
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "crowned"
+      }
+    ]
+  },
+  {
+    "id": "crush_pretender",
+    "comment": "Царствующий король казнит самозванца-йоркиста",
+    "priority": 8,
+    "trigger": {
+      "sceneTags": [
+        "tower"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "king"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "yorkist"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "beheaded"
+      }
+    ]
+  },
+  {
+    "id": "burn_heretic",
+    "comment": "Королева-католичка отправляет протестанта на костёр",
+    "priority": 8,
+    "trigger": {
+      "sceneTags": [
+        "pyre"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady",
+            "catholic"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "protestant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "burned"
+      }
+    ]
+  },
+  {
+    "id": "entrap",
+    "comment": "Шпион перехватывает письма заговорщицы — уличает её",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "spy_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "spymaster"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "royal_claim"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "accused"
+      }
+    ]
+  },
+  {
+    "id": "proclaim_queen",
+    "comment": "Интриган-герцог возводит свою марионетку на престол",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "council_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "kingmaker"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "royal_claim"
+          ],
+          "notFlags": [
+            "reigns"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "reigns"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "crowned"
+      }
+    ]
+  },
+  {
+    "id": "wed_favourite",
+    "comment": "Королева венчается с фаворитом (ловушка независимости)",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "wedding"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "suitor"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "addRelation",
+        "rel": "wed",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "wed",
+        "from": "B",
+        "to": "A"
+      }
+    ]
+  },
+  {
+    "id": "fireship_attack",
+    "comment": "Дрейк пускает брандеры — Армада рассеяна",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "fireship_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "admiral"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "king",
+            "foreign"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "scattered"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "hero"
+      }
+    ]
+  },
+  {
+    "id": "armada_win",
+    "comment": "Английский флот добивает рассеянную Армаду",
+    "priority": 9,
+    "trigger": {
+      "sceneTags": [
+        "armada_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "king",
+            "foreign"
+          ],
+          "flags": [
+            "scattered"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "defeated"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "triumphant"
+      }
+    ]
+  },
+  {
+    "id": "keep_favourite",
+    "comment": "Королева держит фаворита при дворе, но не венчается с ним",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "court"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "lady"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "suitor"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "favoured"
+      }
+    ]
   }
 ]

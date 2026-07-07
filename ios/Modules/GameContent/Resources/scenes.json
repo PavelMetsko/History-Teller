@@ -936,5 +936,125 @@
       "царица",
       "свита"
     ]
+  },
+  {
+    "id": "bosworth_turn",
+    "name": "Измена Стэнли",
+    "tags": [
+      "turncoat_b"
+    ],
+    "slots": 2,
+    "emoji": "🎗️",
+    "action": "перейти на сторону",
+    "actionIcon": "icon_ally",
+    "roles": [
+      "лорд",
+      "претендент"
+    ]
+  },
+  {
+    "id": "bosworth_field",
+    "name": "Босворт",
+    "tags": [
+      "field_b"
+    ],
+    "slots": 2,
+    "emoji": "⚔️",
+    "action": "решающая битва",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "победитель",
+      "король"
+    ]
+  },
+  {
+    "id": "bosworth_crown",
+    "name": "Корона на поле",
+    "tags": [
+      "crown_b"
+    ],
+    "slots": 2,
+    "emoji": "👑",
+    "action": "венчание на поле",
+    "actionIcon": "icon_crown",
+    "roles": [
+      "король",
+      "лорд"
+    ]
+  },
+  {
+    "id": "stake",
+    "name": "Костёр",
+    "tags": [
+      "pyre"
+    ],
+    "slots": 2,
+    "emoji": "🔥",
+    "action": "сожжение",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "королева",
+      "еретик"
+    ]
+  },
+  {
+    "id": "spy_room",
+    "name": "Кабинет Уолсингема",
+    "tags": [
+      "spy_e"
+    ],
+    "slots": 2,
+    "emoji": "🕯️",
+    "action": "перехват писем",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "шпион",
+      "заговорщица"
+    ]
+  },
+  {
+    "id": "council",
+    "name": "Тайный совет",
+    "tags": [
+      "council_e"
+    ],
+    "slots": 2,
+    "emoji": "📜",
+    "action": "провозгласить королеву",
+    "actionIcon": "icon_crown",
+    "roles": [
+      "интриган",
+      "претендентка"
+    ]
+  },
+  {
+    "id": "fireships",
+    "name": "Брандеры",
+    "tags": [
+      "fireship_e"
+    ],
+    "slots": 2,
+    "emoji": "🔥",
+    "action": "поджечь флот",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "адмирал",
+      "враг"
+    ]
+  },
+  {
+    "id": "sea_battle",
+    "name": "Гравелин",
+    "tags": [
+      "armada_e"
+    ],
+    "slots": 2,
+    "emoji": "🚢",
+    "action": "добить Армаду",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "королева",
+      "король"
+    ]
   }
 ]

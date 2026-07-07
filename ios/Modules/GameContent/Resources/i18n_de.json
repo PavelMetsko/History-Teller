@@ -149,10 +149,10 @@
   "level.bonfire.intro": "Den exkommunizierten Savonarola erwartet der Scheiterhaufen.",
   "level.bonfire.source": "Die Geschichte der Hinrichtung Savonarolas",
   "level.bonfire.title": "Savonarolas Scheiterhaufen",
-  "level.bosworth.fact": "Am 22. August 1485 besiegte Heinrich Tudor bei Bosworth die Armee Richards III.; Richard fiel im Kampf – der letzte englische König, der auf dem Schlachtfeld starb. So endete der Rosenkrieg und die Tudor-Dynastie begann. Der Legende nach wurde die Krone in einem Weißdornbusch gefunden und Heinrich direkt auf dem Feld aufgesetzt.",
-  "level.bosworth.goal": "Heinrich Tudor stürzt Richard III. und nimmt die Krone an sich",
-  "level.bosworth.hint": "Alles wird die Schlacht von Bosworth entscheiden.",
-  "level.bosworth.intro": "Richard III. regiert; Heinrich Tudor kommt, um die Krone zu entreißen",
+  "level.bosworth.fact": "Am 22. August 1485 entschied Verrat die Schlacht von Bosworth: Lord Thomas Stanley zögerte bis zuletzt und warf dann seine Truppen auf Heinrich Tudors Seite. Richard III. fiel in der Schlacht — der letzte englische König, der auf dem Feld starb. Seine Krone wurde der Überlieferung nach in einem Weißdornbusch gefunden und Heinrich gleich auf dem Feld aufgesetzt. So endeten die Rosenkriege und begann die Tudor-Dynastie.",
+  "level.bosworth.goal": "Stanleys Verrat entscheidet Bosworth — die Krone geht an Heinrich Tudor",
+  "level.bosworth.hint": "Lass zuerst Stanley zu Heinrich überlaufen — sonst siegt Richard. Dann die Schlacht, und erst danach wird die Krone des gefallenen Königs dem Sieger aufgesetzt.",
+  "level.bosworth.intro": "Richard III. herrscht. Heinrich Tudor zieht um die Krone — doch alles hängt davon ab, wessen Seite Lord Stanley ergreift.",
   "level.bosworth.source": "Polydor Vergil, „Geschichte Englands“",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "Am 9.–10. November 1799 (18.–19. Brumaire des Jahres VIII) verübte Napoleon einen Staatsstreich, löste das Direktorium auf und errichtete das Konsulat. Er ernannte sich selbst zum Ersten Konsul – dem faktischen Diktator Frankreichs.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proskriptionen",
   "scene.proscription.action": "geächtet",
   "scene.barge": "Die goldene Barke",
-  "scene.barge.action": "im Glanz erscheinen"
+  "scene.barge.action": "im Glanz erscheinen",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "Stanleys Verrat",
+  "scene.bosworth_turn.action": "die Seite wechseln",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "Entscheidungsschlacht",
+  "scene.bosworth_crown": "Krone auf dem Feld",
+  "scene.bosworth_crown.action": "Krönung auf dem Feld"
 }

@@ -514,5 +514,62 @@
       "confidante"
     ],
     "emoji": "🎭"
+  },
+  {
+    "id": "stanley",
+    "name": "Лорд Стэнли",
+    "tags": [
+      "lord",
+      "english"
+    ],
+    "emoji": "🛡️"
+  },
+  {
+    "id": "warbeck",
+    "name": "Перкин Уорбек",
+    "tags": [
+      "yorkist"
+    ],
+    "emoji": "🎭"
+  },
+  {
+    "id": "northumberland",
+    "name": "Герцог Нортумберленд",
+    "tags": [
+      "kingmaker"
+    ],
+    "emoji": "🎩"
+  },
+  {
+    "id": "cranmer",
+    "name": "Томас Кранмер",
+    "tags": [
+      "protestant"
+    ],
+    "emoji": "✝️"
+  },
+  {
+    "id": "dudley",
+    "name": "Роберт Дадли",
+    "tags": [
+      "suitor"
+    ],
+    "emoji": "❤️"
+  },
+  {
+    "id": "walsingham",
+    "name": "Фрэнсис Уолсингем",
+    "tags": [
+      "spymaster"
+    ],
+    "emoji": "🕵️"
+  },
+  {
+    "id": "drake",
+    "name": "Фрэнсис Дрейк",
+    "tags": [
+      "admiral"
+    ],
+    "emoji": "⚓"
   }
 ]

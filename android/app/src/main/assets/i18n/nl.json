@@ -149,10 +149,10 @@
   "level.bonfire.intro": "De geëxcommuniceerde Savonarola wacht de brandstapel.",
   "level.bonfire.source": "De geschiedenis van Savonarola's executie",
   "level.bonfire.title": "De brandstapel van Savonarola",
-  "level.bosworth.fact": "Op 22 augustus 1485 versloeg Hendrik Tudor bij Bosworth het leger van Richard III; Richard sneuvelde in de strijd — de laatste Engelse koning die op het slagveld stierf. Zo eindigden de Rozenoorlogen en begon de Tudor-dynastie. De kroon werd, volgens de overlevering, gevonden in een meidoornstruik en direct op het veld op Hendrik geplaatst.",
-  "level.bosworth.goal": "Hendrik Tudor werpt Richard III omver en neemt de kroon",
-  "level.bosworth.hint": "Alles zal beslist worden door de Slag bij Bosworth.",
-  "level.bosworth.intro": "Richard III regeert; Hendrik Tudor komt om de kroon af te nemen",
+  "level.bosworth.fact": "Op 22 augustus 1485 werd de Slag bij Bosworth beslist door verraad: Lord Thomas Stanley wachtte tot het laatste moment en wierp toen zijn troepen aan de kant van Hendrik Tudor. Richard III sneuvelde — de laatste Engelse koning die op het slagveld stierf. Zijn kroon werd volgens de overlevering in een meidoornstruik gevonden en Hendrik meteen op het veld opgezet. Zo eindigden de Rozenoorlogen en begon de Tudor-dynastie.",
+  "level.bosworth.goal": "Stanleys verraad beslist Bosworth — de kroon gaat naar Hendrik Tudor",
+  "level.bosworth.hint": "Laat eerst Stanley naar Hendrik overlopen — anders wint Richard. Dan de slag, en pas daarna gaat de kroon van de gevallen koning naar de overwinnaar.",
+  "level.bosworth.intro": "Richard III heerst. Hendrik Tudor trekt op voor de kroon — maar alles hangt af van wiens kant Lord Stanley kiest.",
   "level.bosworth.source": "Polydorus Vergilius, 'Geschiedenis van Engeland'",
   "level.bosworth.title": "Bosworth",
   "level.brumaire.fact": "Op 9-10 november 1799 (18-19 Brumaire van het jaar VIII) pleegde Napoleon een staatsgreep, ontbond het Directoire en vestigde het Consulaat. Hij benoemde zichzelf tot Eerste Consul – de feitelijke dictator van Frankrijk.",
@@ -697,5 +697,12 @@
   "scene.proscription": "Proscripties",
   "scene.proscription.action": "vogelvrij",
   "scene.barge": "De gouden bark",
-  "scene.barge.action": "in pracht verschijnen"
+  "scene.barge.action": "in pracht verschijnen",
+  "char.stanley": "Lord Stanley",
+  "scene.bosworth_turn": "Stanleys verraad",
+  "scene.bosworth_turn.action": "van kant wisselen",
+  "scene.bosworth_field": "Bosworth",
+  "scene.bosworth_field.action": "beslissende slag",
+  "scene.bosworth_crown": "Kroon op het veld",
+  "scene.bosworth_crown.action": "kroning op het veld"
 }
