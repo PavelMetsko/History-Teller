@@ -2876,7 +2876,7 @@
   },
   {
     "id": "bz_heir",
-    "comment": "Старый император делает племянника наследником",
+    "comment": "Юстин, уже доверивший племяннику гвардию, объявляет его наследником",
     "priority": 4,
     "trigger": {
       "sceneTags": [
@@ -2893,6 +2893,9 @@
           "var": "B",
           "tags": [
             "augustus"
+          ],
+          "flags": [
+            "trusted"
           ]
         }
       ]
@@ -2907,7 +2910,7 @@
   },
   {
     "id": "bz_marry",
-    "comment": "Ради брака с актрисой меняют закон — она становится августой",
+    "comment": "Возведённую в знать Феодору Юстиниан берёт в жёны — она становится августой",
     "priority": 4,
     "trigger": {
       "sceneTags": [
@@ -2924,6 +2927,9 @@
           "var": "B",
           "tags": [
             "actress"
+          ],
+          "flags": [
+            "noble"
           ]
         }
       ]
@@ -2981,11 +2987,11 @@
   },
   {
     "id": "bz_crown_empress",
-    "comment": "Император коронует супругу соправительницей",
+    "comment": "Отдельная коронация: правящий Юстиниан венчает Феодору полноправной соправительницей",
     "priority": 5,
     "trigger": {
       "sceneTags": [
-        "throne_b"
+        "coronation_b"
       ],
       "actors": [
         {
@@ -3015,7 +3021,7 @@
   },
   {
     "id": "bz_minister",
-    "comment": "Всесильный министр давит народ поборами — и ненавидим",
+    "comment": "Народ клянёт того министра, что уже ободрал его поборами",
     "priority": 3,
     "trigger": {
       "sceneTags": [
@@ -3035,6 +3041,9 @@
           "var": "B",
           "tags": [
             "minister_b"
+          ],
+          "flags": [
+            "rapacious"
           ]
         }
       ]
@@ -3054,7 +3063,7 @@
   },
   {
     "id": "bz_acclaim",
-    "comment": "Мятежная толпа провозглашает знатного заложника императором",
+    "comment": "Взбунтовавшаяся толпа провозглашает мятежного претендента императором",
     "priority": 3,
     "trigger": {
       "sceneTags": [
@@ -3065,6 +3074,9 @@
           "var": "A",
           "tags": [
             "usurper"
+          ],
+          "flags": [
+            "rioting"
           ]
         }
       ]
@@ -3118,7 +3130,7 @@
   },
   {
     "id": "bz_crush",
-    "comment": "Полководец топит мятеж на ипподроме в крови",
+    "comment": "Когда толпа расколота подкупом, полководец запирает мятежников и топит бунт в крови",
     "priority": 5,
     "trigger": {
       "sceneTags": [
@@ -3137,7 +3149,8 @@
             "usurper"
           ],
           "flags": [
-            "acclaimed"
+            "acclaimed",
+            "split"
           ]
         }
       ]
@@ -3157,7 +3170,7 @@
   },
   {
     "id": "bz_execute",
-    "comment": "Провозглашённого толпой узурпатора казнят",
+    "comment": "Ожесточённый император казнит поверженного узурпатора",
     "priority": 4,
     "trigger": {
       "sceneTags": [
@@ -3170,7 +3183,8 @@
             "augustus"
           ],
           "flags": [
-            "reigns"
+            "reigns",
+            "merciless"
           ]
         },
         {
@@ -3194,11 +3208,11 @@
   },
   {
     "id": "bz_entrap",
-    "comment": "Наперсница императрицы заманивает министра в западню — тот падает",
+    "comment": "Заманив усыплённого министра в ночную западню, наперсница губит его",
     "priority": 4,
     "trigger": {
       "sceneTags": [
-        "court_b"
+        "ambush_b"
       ],
       "actors": [
         {
@@ -3211,6 +3225,9 @@
           "var": "B",
           "tags": [
             "minister_b"
+          ],
+          "flags": [
+            "ensnared"
           ]
         }
       ]
@@ -3260,7 +3277,7 @@
   },
   {
     "id": "bz_hagia",
-    "comment": "Император возводит Святую Софию — «Соломон, я превзошёл тебя»",
+    "comment": "Задумавший храм император возводит Святую Софию",
     "priority": 4,
     "trigger": {
       "sceneTags": [
@@ -3273,7 +3290,8 @@
             "augustus"
           ],
           "flags": [
-            "reigns"
+            "reigns",
+            "visionary"
           ]
         }
       ]
@@ -3288,7 +3306,7 @@
   },
   {
     "id": "bz_disgrace",
-    "comment": "Ревнивый император отправляет слишком славного полководца в опалу",
+    "comment": "Оболганного героя ревнивый император лишает войск и почестей",
     "priority": 4,
     "trigger": {
       "sceneTags": [
@@ -3310,7 +3328,8 @@
             "strategos"
           ],
           "flags": [
-            "victor"
+            "victor",
+            "suspected"
           ]
         }
       ]
@@ -3325,7 +3344,7 @@
   },
   {
     "id": "bz_death",
-    "comment": "Императрица угасает — свет двора меркнет",
+    "comment": "Императрица угасает от болезни — император овдовел",
     "priority": 4,
     "trigger": {
       "sceneTags": [
@@ -3340,6 +3359,12 @@
           "flags": [
             "empress"
           ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "augustus"
+          ]
         }
       ]
     },
@@ -3348,6 +3373,11 @@
         "type": "setFlag",
         "target": "A",
         "flag": "dead"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "widowed"
       }
     ]
   },
@@ -4388,6 +4418,388 @@
         "type": "setFlag",
         "target": "B",
         "flag": "crowned"
+      }
+    ]
+  },
+  {
+    "id": "bz_command",
+    "comment": "Юстин вверяет племяннику дворцовую гвардию (эскувиторов) — тот входит в силу",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "guard_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "old_emperor"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "augustus"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "trusted"
+      }
+    ]
+  },
+  {
+    "id": "bz_repeal",
+    "comment": "Юстиниан меняет закон, запрещавший знати брать в жёны актрис — Феодора возведена в патрицианки",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "decree_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "augustus"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "actress"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "noble"
+      }
+    ]
+  },
+  {
+    "id": "bz_extort",
+    "comment": "Иоанн Каппадокийский дерёт с народа непомерные подати",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "treasury_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "minister_b"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "augustus"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "rapacious"
+      },
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "taxing"
+      }
+    ]
+  },
+  {
+    "id": "bz_uprising",
+    "comment": "Народ, доведённый ненавистным министром, объединяет цирковые партии и хватает знатного претендента",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "unrest_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "minister_b"
+          ],
+          "flags": [
+            "hated"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "usurper"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "rioting"
+      }
+    ]
+  },
+  {
+    "id": "bz_bribe",
+    "comment": "Евнух Нарсес золотом переманивает синих — толпа раскалывается",
+    "priority": 6,
+    "trigger": {
+      "sceneTags": [
+        "bribe_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "eunuch"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "usurper"
+          ],
+          "flags": [
+            "acclaimed"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "split"
+      }
+    ]
+  },
+  {
+    "id": "bz_condemn_h",
+    "comment": "Феодора отвергает милость к узурпатору — Юстиниан ожесточается",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "council_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "augustus"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "actress"
+          ],
+          "flags": [
+            "empress"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "merciless"
+      }
+    ]
+  },
+  {
+    "id": "bz_lure",
+    "comment": "Антонина мнимой дружбой усыпляет бдительность министра",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "intrigue_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "confidante"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "minister_b"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "ensnared"
+      }
+    ]
+  },
+  {
+    "id": "bz_africa",
+    "comment": "Велизарий малым войском сокрушает вандалов и берёт Карфаген",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "africa_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "strategos"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "carthage"
+      }
+    ]
+  },
+  {
+    "id": "bz_italy",
+    "comment": "Покоритель Африки идёт дальше — отвоёвывает у готов Италию и Рим",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "italy_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "strategos"
+          ],
+          "flags": [
+            "carthage"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "victor"
+      },
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "reconquest"
+      }
+    ]
+  },
+  {
+    "id": "bz_survey",
+    "comment": "На пепелище сгоревшего храма Юстиниан замышляет собор, что превзойдёт Соломонов",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "ashes_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "augustus"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "visionary"
+      }
+    ]
+  },
+  {
+    "id": "bz_slander",
+    "comment": "Соперник-евнух нашёптывает, что слишком славный полководец опасен трону",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "slander_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "eunuch"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "strategos"
+          ],
+          "flags": [
+            "victor"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "B",
+        "flag": "suspected"
+      }
+    ]
+  },
+  {
+    "id": "bz_mourn",
+    "comment": "Овдовевший Юстиниан скорбит по Феодоре и 17 лет не берёт новой жены",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "mourning_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "augustus"
+          ],
+          "flags": [
+            "widowed"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "target": "A",
+        "flag": "grieving"
       }
     ]
   }

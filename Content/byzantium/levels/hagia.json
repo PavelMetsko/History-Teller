@@ -4,12 +4,15 @@
   "epoch": "byzantium",
   "act": "Акт III · Слава и закат",
   "title": "Святая София",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
+    "ashes_b",
     "hagia"
   ],
   "characters": [
-    "justinian"
+    "justinian",
+    "john",
+    "narses"
   ],
   "initialState": {
     "flags": {
@@ -18,7 +21,7 @@
       ]
     }
   },
-  "initialText": "Столица восстаёт из пепла; император строит великий храм.",
+  "initialText": "Восстание Ника выжгло старый храм дотла. На пепелище Юстиниан задумывает невиданное.",
   "goal": {
     "flag": {
       "char": "justinian",
@@ -26,8 +29,14 @@
     }
   },
   "goalText": "Император возводит величайший храм христианства",
-  "goalHint": "Государь венчает столицу невиданным собором.",
+  "goalHint": "Пусть сам император на руинах замыслит собор — и лишь тогда воздвигнет Святую Софию. Придворные храма не строят.",
   "solution": [
+    {
+      "scene": "ashes_b",
+      "characters": [
+        "justinian"
+      ]
+    },
     {
       "scene": "hagia",
       "characters": [

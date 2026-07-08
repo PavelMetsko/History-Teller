@@ -4,13 +4,16 @@
   "epoch": "byzantium",
   "act": "Акт III · Слава и закат",
   "title": "Опала Велизария",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
+    "slander_b",
     "court_b"
   ],
   "characters": [
     "justinian",
-    "belisarius"
+    "belisarius",
+    "narses",
+    "mundus"
   ],
   "initialState": {
     "flags": {
@@ -22,7 +25,7 @@
       ]
     }
   },
-  "initialText": "Велизарий в зените славы — и потому опасен для трона.",
+  "initialText": "Слава Велизария затмевает трон. Соперник Нарсес готов шепнуть императору нужное слово.",
   "goal": {
     "flag": {
       "char": "belisarius",
@@ -30,8 +33,15 @@
     }
   },
   "goalText": "Ревнивый император задвигает слишком славного героя",
-  "goalHint": "Слава полководца пугает престол больше, чем враги.",
+  "goalHint": "Пусть Нарсес сперва оболжет героя наветом — и лишь заподозренного Велизария ревнивый Юстиниан лишит почестей. Мунд не так славен, чтобы бояться его.",
   "solution": [
+    {
+      "scene": "slander_b",
+      "characters": [
+        "narses",
+        "belisarius"
+      ]
+    },
     {
       "scene": "court_b",
       "characters": [

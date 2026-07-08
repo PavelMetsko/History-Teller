@@ -4,12 +4,15 @@
   "epoch": "byzantium",
   "act": "Акт III · Слава и закат",
   "title": "Смерть Феодоры",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
-    "deathbed"
+    "deathbed",
+    "mourning_b"
   ],
   "characters": [
-    "theodora"
+    "theodora",
+    "justinian",
+    "antonina"
   ],
   "initialState": {
     "flags": {
@@ -18,20 +21,37 @@
       ]
     }
   },
-  "initialText": "Всесильная августа при смерти.",
+  "initialText": "548 год. Феодора угасает от болезни. Юстиниан у её ложа — и впереди семнадцать лет вдовства.",
   "goal": {
-    "flag": {
-      "char": "theodora",
-      "is": "dead"
-    }
+    "all": [
+      {
+        "flag": {
+          "char": "theodora",
+          "is": "dead"
+        }
+      },
+      {
+        "flag": {
+          "char": "justinian",
+          "is": "grieving"
+        }
+      }
+    ]
   },
   "goalText": "Угасает императрица — и меркнет свет двора",
-  "goalHint": "Приходит час проститься с всесильной августой.",
+  "goalHint": "Пусть император будет у ложа уходящей императрицы — и лишь овдовев, погрузится в нескончаемую скорбь. Антонина здесь не заменит ни ту, ни другого.",
   "solution": [
     {
       "scene": "deathbed",
       "characters": [
-        "theodora"
+        "theodora",
+        "justinian"
+      ]
+    },
+    {
+      "scene": "mourning_b",
+      "characters": [
+        "justinian"
       ]
     }
   ],

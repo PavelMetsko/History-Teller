@@ -4,12 +4,15 @@
   "epoch": "byzantium",
   "act": "Акт II · Ника",
   "title": "Бойня на ипподроме",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
+    "bribe_b",
     "hippodrome"
   ],
   "characters": [
     "belisarius",
+    "mundus",
+    "narses",
     "hypatius"
   ],
   "initialState": {
@@ -19,7 +22,7 @@
       ]
     }
   },
-  "initialText": "Толпа заперта на арене; полководец готов ударить.",
+  "initialText": "Толпа провозгласила Ипатия и заполнила ипподром. Штурмовать её в лоб — самоубийство. Сначала её надо расколоть.",
   "goal": {
     "flag": {
       "char": "hypatius",
@@ -27,8 +30,15 @@
     }
   },
   "goalText": "Велизарий топит мятеж в крови",
-  "goalHint": "Верный полководец загоняет толпу в ловушку арены.",
+  "goalHint": "Пусть Нарсес золотом переманит синих — и лишь расколотую толпу Велизарий (или Мунд) запрёт и сокрушит. Без подкупа мятеж не сломить.",
   "solution": [
+    {
+      "scene": "bribe_b",
+      "characters": [
+        "narses",
+        "hypatius"
+      ]
+    },
     {
       "scene": "hippodrome",
       "characters": [

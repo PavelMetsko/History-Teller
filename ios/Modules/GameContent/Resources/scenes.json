@@ -841,7 +841,7 @@
     "tags": [
       "deathbed"
     ],
-    "slots": 1,
+    "slots": 2,
     "emoji": "🕯️",
     "action": "кончина",
     "actionIcon": "icon_dead"
@@ -1131,6 +1131,212 @@
     "roles": [
       "подносящий",
       "диктатор"
+    ]
+  },
+  {
+    "id": "guard_b",
+    "name": "Схолы гвардии",
+    "tags": [
+      "guard_b"
+    ],
+    "slots": 2,
+    "emoji": "🛡️",
+    "action": "вверить стражу",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "император",
+      "избранник"
+    ]
+  },
+  {
+    "id": "decree_b",
+    "name": "Палата указов",
+    "tags": [
+      "decree_b"
+    ],
+    "slots": 2,
+    "emoji": "📜",
+    "action": "издать закон",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "августейший",
+      "возвышенная"
+    ]
+  },
+  {
+    "id": "coronation_b",
+    "name": "Коронация",
+    "tags": [
+      "coronation_b"
+    ],
+    "slots": 2,
+    "emoji": "👑",
+    "action": "венчать на царство",
+    "actionIcon": "icon_crown",
+    "roles": [
+      "император",
+      "соправительница"
+    ]
+  },
+  {
+    "id": "treasury_b",
+    "name": "Казна",
+    "tags": [
+      "treasury_b"
+    ],
+    "slots": 2,
+    "emoji": "💰",
+    "action": "драть подати",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "мздоимец",
+      "государь"
+    ]
+  },
+  {
+    "id": "unrest_b",
+    "name": "Мятежный ипподром",
+    "tags": [
+      "unrest_b"
+    ],
+    "slots": 2,
+    "emoji": "🔥",
+    "action": "поднять бунт",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "мздоимец",
+      "претендент"
+    ]
+  },
+  {
+    "id": "bribe_b",
+    "name": "Подкуп синих",
+    "tags": [
+      "bribe_b"
+    ],
+    "slots": 2,
+    "emoji": "💰",
+    "action": "расколоть толпу",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "евнух",
+      "претендент"
+    ]
+  },
+  {
+    "id": "council_b",
+    "name": "Совет о пощаде",
+    "tags": [
+      "council_b"
+    ],
+    "slots": 2,
+    "emoji": "⚖️",
+    "action": "отвергнуть милость",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "император",
+      "императрица"
+    ]
+  },
+  {
+    "id": "intrigue_b",
+    "name": "Мнимая дружба",
+    "tags": [
+      "intrigue_b"
+    ],
+    "slots": 2,
+    "emoji": "🎭",
+    "action": "усыпить бдительность",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "наперсница",
+      "министр"
+    ]
+  },
+  {
+    "id": "ambush_b",
+    "name": "Ночная западня",
+    "tags": [
+      "ambush_b"
+    ],
+    "slots": 2,
+    "emoji": "🗡️",
+    "action": "заманить в ловушку",
+    "actionIcon": "icon_dead",
+    "roles": [
+      "наперсница",
+      "жертва"
+    ]
+  },
+  {
+    "id": "africa_b",
+    "name": "Поход на вандалов",
+    "tags": [
+      "africa_b"
+    ],
+    "slots": 1,
+    "emoji": "⚔️",
+    "action": "взять Карфаген",
+    "actionIcon": "icon_triumph",
+    "roles": [
+      "полководец"
+    ]
+  },
+  {
+    "id": "italy_b",
+    "name": "Поход на готов",
+    "tags": [
+      "italy_b"
+    ],
+    "slots": 1,
+    "emoji": "🦅",
+    "action": "вернуть Италию",
+    "actionIcon": "icon_triumph",
+    "roles": [
+      "полководец"
+    ]
+  },
+  {
+    "id": "ashes_b",
+    "name": "Пепелище Ники",
+    "tags": [
+      "ashes_b"
+    ],
+    "slots": 1,
+    "emoji": "🔥",
+    "action": "замыслить храм",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "император"
+    ]
+  },
+  {
+    "id": "slander_b",
+    "name": "Навет",
+    "tags": [
+      "slander_b"
+    ],
+    "slots": 2,
+    "emoji": "🐍",
+    "action": "оболгать героя",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "соперник",
+      "герой"
+    ]
+  },
+  {
+    "id": "mourning_b",
+    "name": "Траур",
+    "tags": [
+      "mourning_b"
+    ],
+    "slots": 1,
+    "emoji": "🕯️",
+    "action": "скорбеть",
+    "actionIcon": "icon_plotting",
+    "roles": [
+      "вдовец"
     ]
   }
 ]

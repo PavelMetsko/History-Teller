@@ -4,13 +4,15 @@
   "epoch": "byzantium",
   "act": "Акт I · Восхождение",
   "title": "Порфирородные",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
-    "throne_b"
+    "throne_b",
+    "coronation_b"
   ],
   "characters": [
     "justinian",
-    "theodora"
+    "theodora",
+    "germanus"
   ],
   "initialState": {
     "flags": {
@@ -19,7 +21,7 @@
       ]
     }
   },
-  "initialText": "Юстиниан — наследник; настал час венчания на царство.",
+  "initialText": "527 год. Наследник Юстиниан восходит на престол. Он хочет невиданного — короновать жену полноправной соправительницей.",
   "goal": {
     "all": [
       {
@@ -37,10 +39,16 @@
     ]
   },
   "goalText": "Юстиниан и Феодора венчаются на царство",
-  "goalHint": "Император коронует и себя, и супругу-соправительницу.",
+  "goalHint": "Сперва венчай на царство самого Юстиниана — и лишь правящий император возведёт Феодору в соправительницы. Германс короны не достоин.",
   "solution": [
     {
       "scene": "throne_b",
+      "characters": [
+        "justinian"
+      ]
+    },
+    {
+      "scene": "coronation_b",
       "characters": [
         "justinian",
         "theodora"

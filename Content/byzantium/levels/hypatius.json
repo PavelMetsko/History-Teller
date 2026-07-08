@@ -4,12 +4,14 @@
   "epoch": "byzantium",
   "act": "Акт II · Ника",
   "title": "Казнь Ипатия",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
+    "council_b",
     "scaffold_b"
   ],
   "characters": [
     "justinian",
+    "theodora",
     "hypatius"
   ],
   "initialState": {
@@ -19,10 +21,13 @@
       ],
       "hypatius": [
         "defeated"
+      ],
+      "theodora": [
+        "empress"
       ]
     }
   },
-  "initialText": "Мятеж подавлен; невольного узурпатора ведут на плаху.",
+  "initialText": "Ипатий пойман. Он клянётся, что толпа подняла его силой, — и Юстиниан готов простить. Но Феодора иного мнения.",
   "goal": {
     "flag": {
       "char": "hypatius",
@@ -30,8 +35,15 @@
     }
   },
   "goalText": "Провозглашённого толпой узурпатора казнят",
-  "goalHint": "Невольного самозванца ждёт плаха.",
+  "goalHint": "Сперва пусть Феодора отвергнет милосердие и ожесточит императора — и лишь тогда Юстиниан отправит узурпатора на плаху. Без её слова он помилует.",
   "solution": [
+    {
+      "scene": "council_b",
+      "characters": [
+        "justinian",
+        "theodora"
+      ]
+    },
     {
       "scene": "scaffold_b",
       "characters": [

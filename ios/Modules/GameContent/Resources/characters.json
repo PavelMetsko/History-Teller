@@ -591,5 +591,37 @@
       "schemer"
     ],
     "emoji": "🗝️"
+  },
+  {
+    "id": "germanus",
+    "name": "Германс",
+    "tags": [
+      "kinsman"
+    ],
+    "emoji": "🛡️"
+  },
+  {
+    "id": "narses",
+    "name": "Нарсес",
+    "tags": [
+      "eunuch"
+    ],
+    "emoji": "💰"
+  },
+  {
+    "id": "mundus",
+    "name": "Мунд",
+    "tags": [
+      "strategos"
+    ],
+    "emoji": "⚔️"
+  },
+  {
+    "id": "tribonian",
+    "name": "Трибониан",
+    "tags": [
+      "minister_b"
+    ],
+    "emoji": "📜"
   }
 ]
