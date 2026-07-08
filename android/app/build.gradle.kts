@@ -18,6 +18,9 @@ android {
     namespace = "com.decima.historyteller"
     compileSdk = 34
 
+    // Play Asset Delivery: арт глав в on-demand asset-паках (Google Play хостит; свой сервер не нужен).
+    assetPacks += listOf(":chapter_tudor", ":chapter_revolution", ":chapter_empire", ":chapter_borgia", ":chapter_byzantium")
+
     defaultConfig {
         applicationId = "com.decima.historyteller"
         minSdk = 26
@@ -60,4 +63,5 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("com.android.billingclient:billing-ktx:7.1.1")
+    implementation("com.google.android.play:asset-delivery-ktx:2.2.0")
 }

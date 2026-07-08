@@ -419,8 +419,8 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
             // сцена появляется с лёгким наплывом
             val sceneAppear = remember(sid) { Animatable(0f) }
             LaunchedEffect(sid) { sceneAppear.animateTo(1f, tween(280, easing = FastOutSlowInEasing)) }
-            val id = drawableId("scene_$sid")
-            if (id != 0) Image(painterResource(id), null,
+            val scenePainter = artPainter("scene_$sid")
+            if (scenePainter != null) Image(scenePainter, null,
                 Modifier.fillMaxSize().graphicsLayer {
                     alpha = sceneAppear.value
                     val s = 0.9f + 0.1f * sceneAppear.value; scaleX = s; scaleY = s
@@ -499,25 +499,22 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
 @Composable
 private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, spriteH: androidx.compose.ui.unit.Dp,
                        beats: List<BoardModel.Beat>) {
+    val ctx = androidx.compose.ui.platform.LocalContext.current
     val snap = model.snapshot(i)
     val dead = snap.hasFlag(cid, "dead")
-    // слой 3: отдельная поза «повержен». Есть → показываем её без ч/б и заваливания.
-    val deadId = if (dead) drawableId("char_${cid}_dead") else 0
-    val useDeadPose = dead && deadId != 0
+    // слой 3: отдельная поза «повержен». Есть (в res или паке) → показываем её без ч/б и заваливания.
+    val useDeadPose = dead && artExists(ctx, "char_${cid}_dead")
     val topple = dead && !useDeadPose   // старый фолбэк
     // разгромлен, но жив → поза «повержен-живой»
     val defeated = !dead && listOf("fugitive", "defeated", "exiled", "cast_off", "widowed", "disgraced", "grieving")
         .any { snap.hasFlag(cid, it) }
-    val defeatedId = if (defeated) drawableId("char_${cid}_defeated") else 0
-    val useDefeatedPose = defeated && defeatedId != 0
+    val useDefeatedPose = defeated && artExists(ctx, "char_${cid}_defeated")
     // победные состояния → поза «триумф» (если не разгромлен)
     val triumphant = !dead && !defeated && listOf("crowned", "reigns", "emperor", "empress", "victor", "conqueror",
         "triumphant", "honored", "beloved", "first_consul", "supreme_head", "absolute", "at_war").any { snap.hasFlag(cid, it) }
-    val triumphId = if (triumphant) drawableId("char_${cid}_triumph") else 0
-    val useTriumphPose = triumphant && triumphId != 0
+    val useTriumphPose = triumphant && artExists(ctx, "char_${cid}_triumph")
     val plotting = !dead && snap.hasFlag(cid, "plotting")
-    val plotId = if (plotting && !defeated) drawableId("char_${cid}_plot") else 0
-    val usePlotPose = plotting && !defeated && plotId != 0
+    val usePlotPose = plotting && !defeated && artExists(ctx, "char_${cid}_plot")
     val crowned = !dead && snap.hasFlag(cid, "crowned")
     val micro = model.microState(cid, i)
     val panelChars = model.panels[i].characters
@@ -579,9 +576,10 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
     val moScale = when (motion) { "recoil" -> 1f - 0.1f * mo.value; "hop" -> 1f + 0.06f * mo.value; else -> 1f }
 
     Box(contentAlignment = Alignment.TopCenter) {
-        val cd = if (useDeadPose) deadId else if (useDefeatedPose) defeatedId
-            else if (usePlotPose) plotId else if (useTriumphPose) triumphId else drawableId("char_$cid")
-        if (cd != 0) Image(painterResource(cd), null,
+        val poseName = if (useDeadPose) "char_${cid}_dead" else if (useDefeatedPose) "char_${cid}_defeated"
+            else if (usePlotPose) "char_${cid}_plot" else if (useTriumphPose) "char_${cid}_triumph" else "char_$cid"
+        val cdPainter = artPainter(poseName)
+        if (cdPainter != null) Image(cdPainter, null,
             Modifier.height(spriteH).graphicsLayer {
                 transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)
                 val s = appear.value * moScale; scaleX = s; scaleY = s
@@ -778,10 +776,10 @@ private fun SceneToken(model: BoardModel, sid: String, scale: Float) {
     val sel = model.selected == BoardModel.Sel.Scene(sid)
     Column(Modifier.padding(horizontal = (6 * scale).dp).clickable { Audio.sfx("select"); model.selectItem(BoardModel.Sel.Scene(sid)) },
         horizontalAlignment = Alignment.CenterHorizontally) {
-        val id = drawableId("scene_$sid")
+        val stPainter = artPainter("scene_$sid")
         Box(Modifier.size((66 * scale).dp, (46 * scale).dp).clip(RoundedCornerShape(7.dp)).background(Palette.panel)
             .border(if (sel) 3.dp else 2.dp, if (sel) Palette.gold else Palette.ink.copy(0.55f), RoundedCornerShape(7.dp))) {
-            if (id != 0) Image(painterResource(id), null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+            if (stPainter != null) Image(stPainter, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
         }
         Text(model.sceneName(sid), color = Palette.inkSoft, fontSize = (9 * scale).sp, fontFamily = Fonts.rounded, maxLines = 1)
     }
@@ -797,8 +795,8 @@ private fun CharTokenT(model: BoardModel, cid: String, scale: Float) {
             .then(if (sel) Modifier.clip(RoundedCornerShape(9.dp)).background(Palette.gold.copy(0.28f))
                 .border(3.dp, Palette.gold, RoundedCornerShape(9.dp)) else Modifier),
             contentAlignment = Alignment.TopEnd) {
-            val id = drawableId("char_$cid")
-            if (id != 0) Image(painterResource(id), null, Modifier.fillMaxSize(), contentScale = ContentScale.Fit)
+            val ctPainter = artPainter("char_$cid")
+            if (ctPainter != null) Image(ctPainter, null, Modifier.fillMaxSize(), contentScale = ContentScale.Fit)
             if (badges.isNotEmpty()) Text(badges.joinToString(""), fontSize = (10 * scale).sp)
         }
         Text(model.charName(cid), color = Palette.inkSoft, fontSize = (9 * scale).sp, fontFamily = Fonts.rounded, maxLines = 1)

@@ -36,6 +36,10 @@ class Settings(ctx: Context) {
     var lang: String
         get() = p.getString("lang", "") ?: ""
         set(v) = p.edit().putString("lang", v).apply()
+    // Пройден ли первый запуск (выбор языка + онбординг).
+    var onboarded: Boolean
+        get() = p.getBoolean("onboarded", false)
+        set(v) = p.edit().putBoolean("onboarded", v).apply()
     var music: Boolean
         get() = p.getBoolean("music", true)
         set(v) = p.edit().putBoolean("music", v).apply()

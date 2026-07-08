@@ -72,6 +72,10 @@ fun Root(startLevel: String? = null) {
     var showSettings by remember { mutableStateOf(false) }
     var showPaywall by remember { mutableStateOf(false) }
     var screen by remember { mutableStateOf<Screen>(if (startLevel != null) Screen.Level(startLevel) else Screen.Menu) }
+    // Первый запуск: выбор языка → онбординг (пропускаем при deep-link на уровень).
+    var showLangPicker by remember { mutableStateOf(!settings.onboarded && startLevel == null) }
+    var showOnboarding by remember { mutableStateOf(false) }
+    var loadingEpoch by remember { mutableStateOf<String?>(null) }
 
     // Системная кнопка «назад» повторяет навигацию лент; на Меню — выход из app (не перехватываем).
     BackHandler(enabled = screen != Screen.Menu) {
@@ -95,7 +99,7 @@ fun Root(startLevel: String? = null) {
                             onReset = { progress.reset(); tick++ })
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
-                            onSelect = { screen = Screen.Map(it) },
+                            onSelect = { if (it == "rome") screen = Screen.Map(it) else loadingEpoch = it },
                             onLocked = { showPaywall = true },
                             onBack = { screen = Screen.Menu })
                         is Screen.Map -> MapScreen(
@@ -122,6 +126,25 @@ fun Root(startLevel: String? = null) {
         if (showPaywall) PaywallScreen(
             onClose = { showPaywall = false },
             onUnlocked = { showPaywall = false; tick++ })
+
+        // Экран загрузки главы (порт iOS ChapterLoadingView).
+        loadingEpoch?.let { ep ->
+            ChapterLoadingScreen(
+                epoch = ep,
+                chapterTitle = L10n.s("map.$ep"),
+                onReady = { loadingEpoch = null; screen = Screen.Map(ep) })
+        }
+
+        // Первый запуск: выбор языка → онбординг.
+        if (showLangPicker) LanguagePickerScreen(onSelect = { code ->
+            settings.lang = code
+            GameContent.load(ctx.assets, code)
+            tick++
+            showLangPicker = false; showOnboarding = true
+        })
+        if (showOnboarding) OnboardingScreen(onFinish = {
+            settings.onboarded = true; showOnboarding = false
+        })
     }
 }
 
@@ -333,8 +356,8 @@ private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boo
         Box(Modifier.fillMaxWidth().aspectRatio(16f / 9f).clip(RoundedCornerShape(10.dp)).background(Palette.panel),
             contentAlignment = Alignment.Center) {
             val cover = level.cover ?: level.scenes.firstOrNull()
-            val id = if (cover != null) drawableId("scene_$cover") else 0
-            if (id != 0) Image(painterResource(id), null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+            val coverPainter = if (cover != null) artPainter("scene_$cover") else null
+            if (coverPainter != null) Image(coverPainter, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
             if (!unlocked) {
                 Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.4f)), contentAlignment = Alignment.Center) {
                     Icon(Icons.Filled.Lock, null, tint = Color.White.copy(alpha = 0.9f), modifier = Modifier.size(26.dp))
