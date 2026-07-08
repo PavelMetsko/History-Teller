@@ -49,10 +49,16 @@ class Settings(ctx: Context) {
     var haptics: Boolean
         get() = p.getBoolean("haptics", true)
         set(v) = p.edit().putBoolean("haptics", v).apply()
-    // Кэш права на «все главы» (источник истины — Google Play; кэш для оффлайна/старта).
+    // Кэш прав покупок (источник истины — Google Play; кэш для оффлайна/старта).
     var unlocked: Boolean
         get() = p.getBoolean("unlocked", false)
         set(v) = p.edit().putBoolean("unlocked", v).apply()
+    var unlockedEpochs: Set<String>
+        get() = p.getStringSet("unlockedEpochs", emptySet())?.toSet() ?: emptySet()
+        set(v) = p.edit().putStringSet("unlockedEpochs", v).apply()
+    var subscribed: Boolean
+        get() = p.getBoolean("subscribed", false)
+        set(v) = p.edit().putBoolean("subscribed", v).apply()
 }
 
 /** Лёгкая вибрация (учитывает настройку). Аудио — Фаза 5. */

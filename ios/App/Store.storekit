@@ -1,35 +1,145 @@
 {
-  "identifier" : "A1B2C3D4-0000-0000-0000-000000000001",
-  "nonRenewingSubscriptions" : [],
-  "products" : [
+  "identifier": "A1B2C3D4-0000-0000-0000-000000000001",
+  "nonRenewingSubscriptions": [],
+  "products": [
     {
-      "displayPrice" : "4.99",
-      "familyShareable" : false,
-      "internalID" : "A1B2C3D4-0000-0000-0000-000000000002",
-      "localizations" : [
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "A1B2C3D4-0000-0000-0000-000000000010",
+      "localizations": [
         {
-          "description" : "Unlock all chapters — and every future one.",
-          "displayName" : "Unlock All Chapters",
-          "locale" : "en_US"
+          "description": "Unlock the Six Wives chapter.",
+          "displayName": "Six Wives",
+          "locale": "en_US"
         }
       ],
-      "productID" : "com.decima.historyteller.unlockall",
-      "referenceName" : "Unlock All Chapters",
-      "type" : "NonConsumable"
+      "productID": "com.decima.historyteller.chapter.tudor",
+      "referenceName": "Chapter \u2014 Six Wives",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "A1B2C3D4-0000-0000-0000-000000000011",
+      "localizations": [
+        {
+          "description": "Unlock the French Revolution chapter.",
+          "displayName": "French Revolution",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.decima.historyteller.chapter.revolution",
+      "referenceName": "Chapter \u2014 French Revolution",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "3.99",
+      "familyShareable": false,
+      "internalID": "A1B2C3D4-0000-0000-0000-000000000012",
+      "localizations": [
+        {
+          "description": "Unlock the Russian Empire chapter.",
+          "displayName": "Russian Empire",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.decima.historyteller.chapter.empire",
+      "referenceName": "Chapter \u2014 Russian Empire",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "A1B2C3D4-0000-0000-0000-000000000013",
+      "localizations": [
+        {
+          "description": "Unlock the House of Borgia chapter.",
+          "displayName": "House of Borgia",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.decima.historyteller.chapter.borgia",
+      "referenceName": "Chapter \u2014 House of Borgia",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "A1B2C3D4-0000-0000-0000-000000000014",
+      "localizations": [
+        {
+          "description": "Unlock the Byzantium chapter.",
+          "displayName": "Byzantium",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.decima.historyteller.chapter.byzantium",
+      "referenceName": "Chapter \u2014 Byzantium",
+      "type": "NonConsumable"
     }
   ],
-  "settings" : {
-    "_applicationInternalID" : "0000000000",
-    "_developerTeamID" : "0000000000",
-    "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 0,
-    "_locale" : "en_US",
-    "_storefront" : "USA",
-    "_storeKitErrors" : []
+  "settings": {
+    "_applicationInternalID": "0000000000",
+    "_developerTeamID": "0000000000",
+    "_failTransactionsEnabled": false,
+    "_lastSynchronizedDate": 0,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
   },
-  "subscriptionGroups" : [],
-  "version" : {
-    "major" : 3,
-    "minor" : 0
+  "subscriptionGroups": [
+    {
+      "id": "A1B2C3D4-0000-0000-0000-000000000100",
+      "localizations": [],
+      "name": "all_access",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "2.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "A1B2C3D4-0000-0000-0000-000000000015",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Access to all chapters, current and future.",
+              "displayName": "All Access \u2014 Monthly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.decima.historyteller.sub.monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "All Access \u2014 Monthly",
+          "subscriptionGroupID": "A1B2C3D4-0000-0000-0000-000000000100",
+          "type": "RecurringSubscription"
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "14.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "A1B2C3D4-0000-0000-0000-000000000016",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Access to all chapters, current and future.",
+              "displayName": "All Access \u2014 Yearly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.decima.historyteller.sub.yearly",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "All Access \u2014 Yearly",
+          "subscriptionGroupID": "A1B2C3D4-0000-0000-0000-000000000100",
+          "type": "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 3,
+    "minor": 0
   }
 }

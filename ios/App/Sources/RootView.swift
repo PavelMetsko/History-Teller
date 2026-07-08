@@ -56,6 +56,8 @@ struct RootView: View {
 
             if showPaywall {
                 PaywallView(
+                    epoch: pendingEpoch ?? "",
+                    chapterTitle: L10n.s("chapter.\(pendingEpoch ?? "").title"),
                     onClose: { withAnimation(.easeOut(duration: 0.2)) { showPaywall = false } },
                     onUnlocked: {
                         withAnimation(.easeOut(duration: 0.2)) { showPaywall = false }
@@ -151,11 +153,11 @@ struct RootView: View {
             case .chapters:
                 ChapterSelectView(
                     chapters: chapters(pack),
-                    unlocked: store.isUnlocked || ProgressStore.unlockAll,
-                    priceText: store.priceText,
+                    isUnlocked: { store.isUnlocked($0.id) || ProgressStore.unlockAll },
+                    priceText: { store.chapterPrice($0.id) },
                     onSelect: { ch in
                         guard ch.available else { return }
-                        if ch.free || store.isUnlocked || ProgressStore.unlockAll {
+                        if store.isUnlocked(ch.id) || ProgressStore.unlockAll {
                             openChapter(ch.id)
                         } else {
                             pendingEpoch = ch.id

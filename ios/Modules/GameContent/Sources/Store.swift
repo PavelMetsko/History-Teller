@@ -2,18 +2,26 @@ import Foundation
 import StoreKit
 import Observation
 
-/// Покупки (StoreKit 2). Фримиум: первая глава бесплатна, разовая непотребляемая покупка
-/// `unlockall` открывает все остальные главы (и будущие). Права проверяются через
-/// `Transaction.currentEntitlements`, так что покупка переносится между устройствами.
+/// Покупки (StoreKit 2). Модель: первая глава (Рим) бесплатна; остальные — либо разовая
+/// **поглавная** покупка (у каждой своя цена), либо **подписка** на весь контент (текущий и будущий).
+/// Права проверяются через `Transaction.currentEntitlements`, поэтому переносятся между устройствами.
 @Observable
 public final class Store {
     public static let shared = Store()
 
-    /// ID непотребляемой покупки. Должен совпадать с App Store Connect и Store.storekit.
-    public static let unlockAllID = "com.decima.historyteller.unlockall"
+    /// Поглавные непотребляемые продукты: `com.decima.historyteller.chapter.<epoch>`.
+    public static let chapterPrefix = "com.decima.historyteller.chapter."
+    public static let paidEpochs = ["tudor", "revolution", "empire", "borgia", "byzantium"]
+    public static func chapterProductID(_ epoch: String) -> String { chapterPrefix + epoch }
 
-    public private(set) var product: Product?
-    public private(set) var isUnlocked = false
+    /// Подписка на всё (группа `all_access`). Месяц + год.
+    public static let monthlyID = "com.decima.historyteller.sub.monthly"
+    public static let yearlyID  = "com.decima.historyteller.sub.yearly"
+    public static var subscriptionIDs: [String] { [monthlyID, yearlyID] }
+
+    public private(set) var products: [String: Product] = [:]
+    public private(set) var unlockedEpochs: Set<String> = []
+    public private(set) var subscribed = false
     public private(set) var purchasing = false
 
     private var updatesTask: Task<Void, Never>?
@@ -23,29 +31,43 @@ public final class Store {
         Task { await loadProducts(); await refreshEntitlements() }
     }
 
-    /// Цена для кнопки («$4.99»). Пусто, пока продукт не загружен (нет сети / конфигурации).
-    public var priceText: String { product?.displayPrice ?? "" }
+    /// Открыта ли глава: Рим бесплатен, либо активна подписка, либо куплена именно эта глава.
+    public func isUnlocked(_ epoch: String) -> Bool {
+        epoch == "rome" || subscribed || unlockedEpochs.contains(epoch)
+    }
+
+    public func chapterPrice(_ epoch: String) -> String { products[Self.chapterProductID(epoch)]?.displayPrice ?? "" }
+    public var monthlyPrice: String { products[Self.monthlyID]?.displayPrice ?? "" }
+    public var yearlyPrice: String { products[Self.yearlyID]?.displayPrice ?? "" }
 
     public func loadProducts() async {
-        product = try? await Product.products(for: [Self.unlockAllID]).first
+        let ids = Self.paidEpochs.map { Self.chapterProductID($0) } + Self.subscriptionIDs
+        let list = (try? await Product.products(for: ids)) ?? []
+        var map: [String: Product] = [:]
+        for p in list { map[p.id] = p }
+        let final = map
+        await MainActor.run { self.products = final }
     }
 
     public func refreshEntitlements() async {
-        var unlocked = false
+        var epochs: Set<String> = []
+        var sub = false
         for await result in Transaction.currentEntitlements {
-            if case .verified(let t) = result,
-               t.productID == Self.unlockAllID, t.revocationDate == nil {
-                unlocked = true
+            guard case .verified(let t) = result, t.revocationDate == nil else { continue }
+            if t.productID.hasPrefix(Self.chapterPrefix) {
+                epochs.insert(String(t.productID.dropFirst(Self.chapterPrefix.count)))
+            } else if Self.subscriptionIDs.contains(t.productID) {
+                sub = true
             }
         }
-        let final = unlocked
-        await MainActor.run { self.isUnlocked = final }
+        let fe = epochs, fs = sub
+        await MainActor.run { self.unlockedEpochs = fe; self.subscribed = fs }
     }
 
-    /// Купить. Возвращает true при успехе. UI сам обновится через `isUnlocked`.
+    /// Купить продукт по id (поглавный или подписку). UI обновится через entitlements.
     @discardableResult
-    public func purchase() async -> Bool {
-        guard let product else { return false }
+    public func purchase(_ productID: String) async -> Bool {
+        guard let product = products[productID] else { return false }
         await MainActor.run { self.purchasing = true }
         defer { Task { await MainActor.run { self.purchasing = false } } }
         do {
@@ -53,7 +75,7 @@ public final class Store {
             case .success(let verification):
                 if case .verified(let t) = verification {
                     await t.finish()
-                    await MainActor.run { self.isUnlocked = true }
+                    await refreshEntitlements()
                     return true
                 }
             default: break
@@ -61,6 +83,9 @@ public final class Store {
         } catch { }
         return false
     }
+
+    @discardableResult
+    public func purchaseChapter(_ epoch: String) async -> Bool { await purchase(Self.chapterProductID(epoch)) }
 
     /// Восстановить покупки (требование Apple — отдельная кнопка).
     public func restore() async {

@@ -71,6 +71,7 @@ fun Root(startLevel: String? = null) {
     var tick by remember { mutableIntStateOf(0) }
     var showSettings by remember { mutableStateOf(false) }
     var showPaywall by remember { mutableStateOf(false) }
+    var pendingEpoch by remember { mutableStateOf<String?>(null) }
     var screen by remember { mutableStateOf<Screen>(if (startLevel != null) Screen.Level(startLevel) else Screen.Menu) }
     // Первый запуск: выбор языка → онбординг (пропускаем при deep-link на уровень).
     var showLangPicker by remember { mutableStateOf(!settings.onboarded && startLevel == null) }
@@ -100,7 +101,7 @@ fun Root(startLevel: String? = null) {
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
                             onSelect = { if (it == "rome") screen = Screen.Map(it) else loadingEpoch = it },
-                            onLocked = { showPaywall = true },
+                            onLocked = { pendingEpoch = it; showPaywall = true },
                             onBack = { screen = Screen.Menu })
                         is Screen.Map -> MapScreen(
                             epoch = s.epoch, progress = progress,
@@ -124,8 +125,15 @@ fun Root(startLevel: String? = null) {
             onClose = { showSettings = false })
 
         if (showPaywall) PaywallScreen(
+            epoch = pendingEpoch ?: "",
+            chapterTitle = L10n.s("chapter.${pendingEpoch ?: ""}.title"),
             onClose = { showPaywall = false },
-            onUnlocked = { showPaywall = false; tick++ })
+            onUnlocked = {
+                showPaywall = false
+                val e = pendingEpoch; pendingEpoch = null
+                if (e != null) loadingEpoch = e   // куплено → грузим и открываем главу
+                tick++
+            })
 
         // Экран загрузки главы (порт iOS ChapterLoadingView).
         loadingEpoch?.let { ep ->
@@ -208,7 +216,7 @@ private fun IconButtonCircle(icon: androidx.compose.ui.graphics.vector.ImageVect
 private data class Chapter(val id: String, val number: Int, val cover: String?, val available: Boolean, val free: Boolean)
 
 @Composable
-private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLocked: () -> Unit, onBack: () -> Unit) {
+private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLocked: (String) -> Unit, onBack: () -> Unit) {
     val chapters = listOf(
         Chapter("rome", 1, "scene_forum", true, true),
         Chapter("tudor", 2, "scene_tower", true, false),  // фримиум: за покупкой unlockall
@@ -229,10 +237,10 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLoc
                     verticalAlignment = Alignment.CenterVertically) {
                     for (ch in chapters) {
                         // premium-заблокированная (не «скоро») — открывает пейволл
-                        val premiumLocked = ch.available && !ch.free && !Billing.isUnlocked && !BuildConfig.DEBUG
+                        val premiumLocked = ch.available && !Billing.isUnlocked(ch.id) && !BuildConfig.DEBUG
                         ChapterCard(ch, progress, premiumLocked) {
                             if (!ch.available) return@ChapterCard
-                            if (premiumLocked) onLocked() else onSelect(ch.id)
+                            if (premiumLocked) onLocked(ch.id) else onSelect(ch.id)
                         }
                     }
                 }

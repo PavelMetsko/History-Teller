@@ -28,18 +28,18 @@ public struct Chapter: Identifiable {
 
 public struct ChapterSelectView: View {
     private let chapters: [Chapter]
-    private let unlocked: Bool
-    private let priceText: String
+    private let isUnlocked: (Chapter) -> Bool
+    private let priceText: (Chapter) -> String
     private let onSelect: (Chapter) -> Void
     private let onBack: () -> Void
 
     public init(chapters: [Chapter],
-                unlocked: Bool = true,
-                priceText: String = "",
+                isUnlocked: @escaping (Chapter) -> Bool = { _ in true },
+                priceText: @escaping (Chapter) -> String = { _ in "" },
                 onSelect: @escaping (Chapter) -> Void,
                 onBack: @escaping () -> Void) {
         self.chapters = chapters
-        self.unlocked = unlocked
+        self.isUnlocked = isUnlocked
         self.priceText = priceText
         self.onSelect = onSelect
         self.onBack = onBack
@@ -62,8 +62,8 @@ public struct ChapterSelectView: View {
                         HStack(spacing: 20) {
                             ForEach(chapters) { ch in
                                 ChapterCard(chapter: ch,
-                                            locked: ch.locked(unlocked: unlocked),
-                                            priceText: priceText) {
+                                            locked: ch.locked(unlocked: isUnlocked(ch)),
+                                            priceText: priceText(ch)) {
                                     if ch.available { onSelect(ch) }
                                 }
                             }
