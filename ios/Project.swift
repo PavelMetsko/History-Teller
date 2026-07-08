@@ -14,6 +14,7 @@ let baseSettings: SettingsDictionary = [
 func framework(_ name: String,
                sources: SourceFilesList? = nil,
                resources: Bool = false,
+               resourceList: ResourceFileElements? = nil,
                dependencies: [TargetDependency] = []) -> Target {
     .target(
         name: name,
@@ -22,7 +23,8 @@ func framework(_ name: String,
         bundleId: "com.decima.historyteller.\(name.lowercased())",
         deploymentTargets: deployment,
         sources: sources ?? ["Modules/\(name)/Sources/**"],
-        resources: resources ? ["Modules/\(name)/Resources/**"] : nil,
+        // resourceList (с ODR-тегами) имеет приоритет над bool-глобом Resources/**
+        resources: resourceList ?? (resources ? ["Modules/\(name)/Resources/**"] : nil),
         dependencies: dependencies
     )
 }
@@ -37,7 +39,21 @@ let project = Project(
         framework("DesignSystem"),
         framework("GameProgress"),
         framework("GameContent",
-                  resources: true,
+                  resourceList: [
+                      // Установочный бандл: JSON, i18n, арт Рима + общий (prop/ui).
+                      "Modules/GameContent/Resources/**",
+                      // On-Demand Resources по главам — App Store хостит, качается при открытии.
+                      .glob(pattern: "Modules/GameContent/ChapterResources/Tudor.xcassets",
+                            tags: ["chapter_tudor"]),
+                      .glob(pattern: "Modules/GameContent/ChapterResources/Revolution.xcassets",
+                            tags: ["chapter_revolution"]),
+                      .glob(pattern: "Modules/GameContent/ChapterResources/Empire.xcassets",
+                            tags: ["chapter_empire"]),
+                      .glob(pattern: "Modules/GameContent/ChapterResources/Borgia.xcassets",
+                            tags: ["chapter_borgia"]),
+                      .glob(pattern: "Modules/GameContent/ChapterResources/Byzantium.xcassets",
+                            tags: ["chapter_byzantium"]),
+                  ],
                   dependencies: [.target(name: "Simulation")]),
         framework("LevelFeature",
                   dependencies: [

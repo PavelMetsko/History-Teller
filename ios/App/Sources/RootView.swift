@@ -16,6 +16,11 @@ struct RootView: View {
     @State private var store = Store.shared
     @State private var showPaywall = false
     @State private var pendingEpoch: String?
+    @StateObject private var loader = ChapterAssetLoader()
+    @State private var loadingEpoch: String?
+    @AppStorage("ht.onboarded") private var onboarded = false
+    @State private var showOnboarding = false
+    @State private var showLanguagePicker = false
     @AppStorage("ht.lang") private var langOverride = ""
     @State private var screen: Screen = {
         let env = ProcessInfo.processInfo.environment
@@ -54,15 +59,58 @@ struct RootView: View {
                     onClose: { withAnimation(.easeOut(duration: 0.2)) { showPaywall = false } },
                     onUnlocked: {
                         withAnimation(.easeOut(duration: 0.2)) { showPaywall = false }
-                        if let e = pendingEpoch { selectedEpoch = e; go(.map) }
+                        if let e = pendingEpoch { openChapter(e) }
                     }
                 )
                 .transition(.opacity)
                 .zIndex(30)
             }
+
+            if let ep = loadingEpoch, let pack {
+                ChapterLoadingView(
+                    chapterNumber: chapterNumber(ep),
+                    chapterTitle: chapterTitle(ep),
+                    epoch: ep,
+                    demoLevel: loadingDemoLevel(pack),
+                    db: pack.db,
+                    loader: loader,
+                    onReady: {
+                        selectedEpoch = ep
+                        loadingEpoch = nil
+                        go(.map)
+                    }
+                )
+                .transition(.opacity)
+                .zIndex(40)
+            }
+
+            if showOnboarding {
+                OnboardingView(onFinish: {
+                    onboarded = true
+                    withAnimation(.easeOut(duration: 0.25)) { showOnboarding = false }
+                })
+                .transition(.opacity)
+                .zIndex(50)
+            }
+
+            if showLanguagePicker {
+                LanguagePickerView(onSelect: { code in
+                    L10n.setLanguage(code)
+                    langOverride = code   // сохраняет выбор и пересобирает пак на новом языке
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        showLanguagePicker = false
+                        showOnboarding = true
+                    }
+                })
+                .transition(.opacity)
+                .zIndex(60)
+            }
         }
         .onAppear {
             if ProcessInfo.processInfo.environment["HT_PAYWALL"] == "1" { showPaywall = true }
+            let env = ProcessInfo.processInfo.environment
+            let testing = env["HT_SCREEN"] != nil || env["HT_LEVEL"] != nil || env["HT_PAYWALL"] == "1"
+            if !onboarded && !testing { showLanguagePicker = true }
         }
         .onChange(of: screen) { _, _ in updateMusic() }
         .onChange(of: langOverride) { _, _ in
@@ -108,7 +156,7 @@ struct RootView: View {
                     onSelect: { ch in
                         guard ch.available else { return }
                         if ch.free || store.isUnlocked || ProgressStore.unlockAll {
-                            selectedEpoch = ch.id; go(.map)
+                            openChapter(ch.id)
                         } else {
                             pendingEpoch = ch.id
                             withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
@@ -171,6 +219,30 @@ struct RootView: View {
 
     private func chapterTitle(_ epoch: String) -> String {
         L10n.s("map.\(epoch)")
+    }
+
+    /// Открыть главу: встроенная (Rome) — сразу; остальные — через экран загрузки арта.
+    private func openChapter(_ id: String) {
+        if loader.isReady(id) {
+            selectedEpoch = id; go(.map)
+        } else {
+            withAnimation(.easeIn(duration: 0.2)) { loadingEpoch = id }
+        }
+    }
+
+    private func chapterNumber(_ epoch: String) -> Int {
+        ["rome": 1, "tudor": 2, "revolution": 3, "empire": 4, "borgia": 5, "byzantium": 6][epoch] ?? 1
+    }
+
+    /// Демо-уровень для экрана загрузки — берём из встроенного Рима (арт всегда доступен).
+    /// Закреплён египетский «Война за трон» (Цезарь/Клеопатра/Птолемей): красивый 3-панельный,
+    /// стилистически цельный. Фолбэк — любой 3-панельный решаемый.
+    private func loadingDemoLevel(_ pack: RomeContent.Pack) -> LevelDef {
+        let rome = pack.levels(epoch: "rome")
+        return rome.first { $0.id == "cleopatra_throne" }
+            ?? rome.first { $0.panels == 3 && ($0.solution?.isEmpty == false) }
+            ?? rome.first { $0.solution?.isEmpty == false }
+            ?? rome[0]
     }
 
     private func errorView(_ message: String) -> some View {
