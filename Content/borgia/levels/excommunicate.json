@@ -4,9 +4,10 @@
   "epoch": "borgia",
   "act": "Акт III · Государь",
   "title": "Отлучение",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
-    "curia"
+    "pulpit_e",
+    "curia_e"
   ],
   "characters": [
     "rodrigo",
@@ -19,7 +20,7 @@
       ]
     }
   },
-  "initialText": "Александр VI не терпит обличителя своего двора.",
+  "initialText": "Монах Савонарола жжёт «костры тщеславия» и с амвона клеймит развратного папу. Рим раскалывается.",
   "goal": {
     "flag": {
       "char": "savonarola",
@@ -27,10 +28,17 @@
     }
   },
   "goalText": "Папа отлучает от церкви дерзкого проповедника",
-  "goalHint": "Обличителя разврата настигает папский гнев.",
+  "goalHint": "Пусть Савонарола сперва дерзко обличит папу с амвона — и лишь бунтаря папа предаст анафеме. Пока монах не бросил вызов, анафемы нет.",
   "solution": [
     {
-      "scene": "curia",
+      "scene": "pulpit_e",
+      "characters": [
+        "savonarola",
+        "rodrigo"
+      ]
+    },
+    {
+      "scene": "curia_e",
       "characters": [
         "rodrigo",
         "savonarola"

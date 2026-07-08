@@ -4,13 +4,15 @@
   "epoch": "borgia",
   "act": "Акт II · Яд и власть",
   "title": "Дитя политики",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
-    "betrothal"
+    "alliance_l",
+    "betrothal_l"
   ],
   "characters": [
     "rodrigo",
-    "lucrezia"
+    "lucrezia",
+    "giulia"
   ],
   "initialState": {
     "flags": {
@@ -19,7 +21,7 @@
       ]
     }
   },
-  "initialText": "Александр VI устраивает дочери выгодный политический брак.",
+  "initialText": "Папа торгует руку дочери, как разменной картой. Лукреция — пешка в большой игре союзов.",
   "goal": {
     "flag": {
       "char": "lucrezia",
@@ -27,10 +29,17 @@
     }
   },
   "goalText": "Папа выдаёт дочь замуж по расчёту",
-  "goalHint": "Рука Лукреции — разменная монета в игре престолов.",
+  "goalHint": "Пусть папа сперва сторгует брачный союз — и лишь просватанную Лукрецию поведут к венцу. Джулию, любовницу, замуж не выдают.",
   "solution": [
     {
-      "scene": "betrothal",
+      "scene": "alliance_l",
+      "characters": [
+        "rodrigo",
+        "lucrezia"
+      ]
+    },
+    {
+      "scene": "betrothal_l",
       "characters": [
         "rodrigo",
         "lucrezia"

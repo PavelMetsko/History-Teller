@@ -4,9 +4,10 @@
   "epoch": "revolution",
   "act": "Акт III · Наполеон",
   "title": "Ватерлоо",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
-    "waterloo"
+    "rout_w",
+    "exile_w"
   ],
   "characters": [
     "napoleon",
@@ -19,7 +20,7 @@
       ]
     }
   },
-  "initialText": "Император Наполеон против коалиции герцога Веллингтона.",
+  "initialText": "Июнь 1815. Вернувшийся с Эльбы Наполеон ставит всё на одну битву при Ватерлоо против Веллингтона.",
   "goal": {
     "flag": {
       "char": "napoleon",
@@ -27,13 +28,20 @@
     }
   },
   "goalText": "Коалиция низлагает императора — и его отправляют в изгнание",
-  "goalHint": "Сведи императора с герцогом Веллингтоном на поле Ватерлоо.",
+  "goalHint": "Пусть коалиция сперва сломит императора на поле Ватерлоо — и лишь сломленного сошлют на Святую Елену. Непобеждённого за океан не отправить.",
   "solution": [
     {
-      "scene": "waterloo",
+      "scene": "rout_w",
       "characters": [
-        "napoleon",
-        "wellington"
+        "wellington",
+        "napoleon"
+      ]
+    },
+    {
+      "scene": "exile_w",
+      "characters": [
+        "wellington",
+        "napoleon"
       ]
     }
   ],

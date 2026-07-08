@@ -2278,7 +2278,7 @@
   },
   {
     "id": "ru_coup",
-    "comment": "Дворцовый переворот: гвардия низлагает государя, престол — претендентке",
+    "comment": "Опершись на гвардию, Екатерина низлагает и губит Петра III, венчается сама",
     "priority": 5,
     "trigger": {
       "sceneTags": [
@@ -2289,6 +2289,9 @@
           "var": "A",
           "tags": [
             "empress_ru"
+          ],
+          "flags": [
+            "backed"
           ]
         },
         {
@@ -2332,7 +2335,7 @@
   },
   {
     "id": "ru_favorite",
-    "comment": "Всесильный фаворит приносит императрице новые земли",
+    "comment": "Всесильный фаворит Потёмкин присоединяет Крым и осваивает Новороссию",
     "priority": 3,
     "trigger": {
       "sceneTags": [
@@ -2352,6 +2355,9 @@
           "var": "B",
           "tags": [
             "favorite"
+          ],
+          "flags": [
+            "trusted"
           ]
         }
       ]
@@ -4800,6 +4806,1512 @@
         "type": "setFlag",
         "target": "A",
         "flag": "grieving"
+      }
+    ]
+  },
+  {
+    "id": "emp_assert",
+    "comment": "Молодой Иван ломает власть бояр-регентов и становится самодержцем",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "duma_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "tsar"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "boyar"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "sovereign",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_crown",
+    "comment": "Самодержец венчается первым русским царём",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "sobor_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "tsar"
+          ],
+          "flags": [
+            "sovereign"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "crowned",
+        "target": "A"
+      },
+      {
+        "type": "setFlag",
+        "flag": "reigns",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_treason",
+    "comment": "Боярская крамола ожесточает царя",
+    "priority": 3,
+    "trigger": {
+      "sceneTags": [
+        "duma_b"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "boyar"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "tsar"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "betrayed",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "emp_oprich",
+    "comment": "Преданный боярами царь учреждает опричнину — орудие террора",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "oprich_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "tsar"
+          ],
+          "flags": [
+            "betrayed"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "oprichnik"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "terror",
+        "target": "A"
+      },
+      {
+        "type": "setFlag",
+        "flag": "plotting",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "emp_revolt",
+    "comment": "Царевна София поднимает стрельцов против Петра",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "revolt_s"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "regent"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "tsar"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "provoked",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "emp_crush_s",
+    "comment": "Подавив бунт, Пётр становится самодержцем",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "streletsky2"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "tsar"
+          ],
+          "flags": [
+            "provoked"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "absolute",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_muster",
+    "comment": "Пётр собирает и вышколивает регулярное войско",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "muster_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "tsar"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "ready",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_rout",
+    "comment": "Готовое войско Петра наголову бьёт шведа под Полтавой",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "poltava_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "tsar"
+          ],
+          "flags": [
+            "ready"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "swede"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "defeated",
+        "target": "B"
+      },
+      {
+        "type": "setFlag",
+        "flag": "victor",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_rally_c",
+    "comment": "Орлов поднимает гвардию за Екатерину",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "guard_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "guardsman"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "empress_ru"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "backed",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "emp_favor",
+    "comment": "Екатерина возвышает Потёмкина в первейшие вельможи",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "favor_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "empress_ru"
+          ],
+          "flags": [
+            "reigns"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "favorite"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "trusted",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "emp_salon",
+    "comment": "Екатерина внимает идеям просветителей",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "salon_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "empress_ru"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "philosophe"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "ideas",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_reform",
+    "comment": "Проникшись идеями, императрица издаёт просвещённый Наказ",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "decree_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "empress_ru"
+          ],
+          "flags": [
+            "ideas",
+            "reigns"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "enlightened",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_uprising",
+    "comment": "Пугачёв, назвавшись спасшимся Петром III, поднимает бунт",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "uprising_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pretender"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "risen",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "emp_capture",
+    "comment": "Суворов пленит поднявшего мятеж самозванца",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "capture_c"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "commander"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "pretender"
+          ],
+          "flags": [
+            "risen"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "condemned",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_bribe",
+    "comment": "Родриго Борджиа золотом покупает голоса кардиналов",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "bribe_g"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "cardinal_b"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "simony",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_elect",
+    "comment": "Купивший конклав кардинал восходит на престол Петра как Александр VI",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "conclave_g"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ],
+          "flags": [
+            "simony"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "pope",
+        "target": "A"
+      },
+      {
+        "type": "setFlag",
+        "flag": "crowned",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_charm",
+    "comment": "Джулия Фарнезе пленяет понтифика",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "tryst_g"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "mistress"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "smitten",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_favor",
+    "comment": "Влюблённый папа осыпает фаворитку милостями",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "court_g"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ],
+          "flags": [
+            "smitten"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "mistress"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "favored",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_envy",
+    "comment": "Отцовская любовь к Хуану распаляет зависть Чезаре",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "feast_f"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "borgia"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "rival_b"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "jealous",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_kill",
+    "comment": "Снедаемый завистью Чезаре топит брата в Тибре",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "tiber_f"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "borgia"
+          ],
+          "flags": [
+            "jealous"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "rival_b"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "dead",
+        "target": "B"
+      },
+      {
+        "type": "setFlag",
+        "flag": "ruthless",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_fund",
+    "comment": "Папа снаряжает сыну армию на казну церкви",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "army_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "borgia"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "armed",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_conquer",
+    "comment": "Снаряжённый Чезаре огнём и мечом покоряет Романью",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "romagna_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "borgia"
+          ],
+          "flags": [
+            "armed"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "warlord",
+        "target": "A"
+      },
+      {
+        "type": "setFlag",
+        "flag": "conqueror",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_ally",
+    "comment": "Папа сторговывает выгодный брачный союз для дочери",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "alliance_l"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ],
+          "flags": [
+            "pope"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "donna"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "pledged",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_wed",
+    "comment": "Просватанную Лукрецию выдают замуж по расчёту",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "betrothal_l"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "donna"
+          ],
+          "flags": [
+            "pledged"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "bride",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_invite",
+    "comment": "Чезаре зазывает богатого кардинала на дружеский пир",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "feast_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "borgia"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "cardinal_b"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "trusting",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_poison",
+    "comment": "Усыплённому кардиналу подносят кубок с кантареллой",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "cantarella_p"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "borgia"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "cardinal_b"
+          ],
+          "flags": [
+            "trusting"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "dead",
+        "target": "B"
+      },
+      {
+        "type": "setFlag",
+        "flag": "poisoner",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_preach",
+    "comment": "Савонарола с амвона клеймит развратного папу",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "pulpit_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "friar"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "pontiff"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "defiant",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_condemn",
+    "comment": "Папа предаёт анафеме дерзкого проповедника",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "curia_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ],
+          "flags": [
+            "pope"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "friar"
+          ],
+          "flags": [
+            "defiant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "condemned",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_rally_j",
+    "comment": "Делла Ровере сплачивает врагов Борджиа",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "faction_j"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "nemesis"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "borgia"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "ascendant",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_conclave_j",
+    "comment": "Возвысившийся враг Борджиа берёт престол как Юлий II",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "conclave_j"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "nemesis"
+          ],
+          "flags": [
+            "ascendant"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "pope",
+        "target": "A"
+      },
+      {
+        "type": "setFlag",
+        "flag": "crowned",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_arrest",
+    "comment": "Юлий II хватает потерявшего покровителя-отца герцога",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "arrest_d"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "nemesis"
+          ],
+          "flags": [
+            "pope"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "borgia"
+          ],
+          "flags": [
+            "warlord"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "captured",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_strip",
+    "comment": "Схваченного Чезаре лишают всех земель и власти",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "strip_d"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "nemesis"
+          ],
+          "flags": [
+            "pope"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "borgia"
+          ],
+          "flags": [
+            "captured"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "fallen",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "brg_taint",
+    "comment": "Чезаре готовит отравленное вино для богатого кардинала",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "prepare_pd"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "borgia"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "cardinal_b"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "plotter",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "brg_mistake",
+    "comment": "По роковой ошибке отравленное вино выпивает сам папа",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "feast_pd"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "pontiff"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "borgia"
+          ],
+          "flags": [
+            "plotter"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "dead",
+        "target": "A"
+      },
+      {
+        "type": "setFlag",
+        "flag": "poisoned",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_lockout",
+    "comment": "Король запирает депутатов — но это лишь ожесточает их",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "hall_o"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "jacobin"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "monarch_fr"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "resolute",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_oath",
+    "comment": "Изгнанные депутаты в зале для мяча клянутся не расходиться, пока не дадут Франции конституцию",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "court_o"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "jacobin"
+          ],
+          "flags": [
+            "resolute"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "jacobin"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "patriot",
+        "target": "A"
+      },
+      {
+        "type": "setFlag",
+        "flag": "patriot",
+        "target": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "A",
+        "to": "B"
+      },
+      {
+        "type": "addRelation",
+        "rel": "ally_of",
+        "from": "B",
+        "to": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_flee",
+    "comment": "Королевская семья бежит из Парижа переодетой",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "flight_v"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "monarch_fr"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "fugitive",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_recognize",
+    "comment": "Патриот узнаёт беглого короля в Варенне — и бегство оборачивается арестом",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "arrest_v"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "jacobin"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "monarch_fr"
+          ],
+          "flags": [
+            "fugitive"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "condemned",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "rev_rouse",
+    "comment": "Робеспьер в клубе распаляется до радикала",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "debate_j"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "incorruptible"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "radical",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_spread",
+    "comment": "Радикал заражает клуб — соратник тоже становится радикалом",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "spread_j"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "jacobin"
+          ],
+          "flags": [
+            "radical"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "jacobin"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "radical",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "rev_plan",
+    "comment": "Молодой Бонапарт предлагает дерзкий артиллерийский план",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "plan_t"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general_fr"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "strategist",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_fort",
+    "comment": "По своему плану Бонапарт берёт форт — ключ к Тулону — и становится героем",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "fort_t"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general_fr"
+          ],
+          "flags": [
+            "strategist"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "hero",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_selfcrown",
+    "comment": "Наполеон выхватывает корону у папы и venчает себя сам",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "selfcrown_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general_fr"
+          ],
+          "flags": [
+            "emperor"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "self_crowned",
+        "target": "A"
+      }
+    ]
+  },
+  {
+    "id": "rev_empress",
+    "comment": "Коронованный император венчает Жозефину императрицей",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "sacre_e"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "general_fr"
+          ],
+          "flags": [
+            "self_crowned"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "lady_fr"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "empress",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "rev_rout",
+    "comment": "Веллингтон и пруссаки ломают Наполеона при Ватерлоо",
+    "priority": 4,
+    "trigger": {
+      "sceneTags": [
+        "rout_w"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "coalition"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general_fr"
+          ],
+          "flags": [
+            "emperor"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "broken",
+        "target": "B"
+      }
+    ]
+  },
+  {
+    "id": "rev_exile",
+    "comment": "Сломленного императора ссылают на Святую Елену",
+    "priority": 5,
+    "trigger": {
+      "sceneTags": [
+        "exile_w"
+      ],
+      "actors": [
+        {
+          "var": "A",
+          "tags": [
+            "coalition"
+          ]
+        },
+        {
+          "var": "B",
+          "tags": [
+            "general_fr"
+          ],
+          "flags": [
+            "broken"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "type": "setFlag",
+        "flag": "exiled",
+        "target": "B"
+      },
+      {
+        "type": "removeFlag",
+        "flag": "emperor",
+        "target": "B"
       }
     ]
   }

@@ -4,12 +4,15 @@
   "epoch": "empire",
   "act": "Акт III · Екатерина Великая",
   "title": "Просвещённая государыня",
-  "panels": 1,
+  "panels": 2,
   "scenes": [
-    "imperator"
+    "salon_c",
+    "decree_c"
   ],
   "characters": [
-    "catherine"
+    "catherine",
+    "diderot",
+    "potemkin"
   ],
   "initialState": {
     "flags": {
@@ -19,7 +22,7 @@
       ]
     }
   },
-  "initialText": "Екатерина царствует и желает прослыть просвещённой государыней.",
+  "initialText": "Екатерина переписывается с философами Просвещения и мнит себя их ученицей на троне.",
   "goal": {
     "flag": {
       "char": "catherine",
@@ -27,10 +30,17 @@
     }
   },
   "goalText": "Императрица даёт державе новые законы",
-  "goalHint": "В Сенате государыня являет себя просвещённой правительницей.",
+  "goalHint": "Пусть императрица сперва проникнется идеями в переписке с Дидро — и лишь тогда издаст просвещённый Наказ. Вельможа Потёмкин философа не заменит.",
   "solution": [
     {
-      "scene": "imperator",
+      "scene": "salon_c",
+      "characters": [
+        "catherine",
+        "diderot"
+      ]
+    },
+    {
+      "scene": "decree_c",
       "characters": [
         "catherine"
       ]

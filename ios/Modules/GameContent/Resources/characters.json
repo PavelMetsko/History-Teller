@@ -623,5 +623,61 @@
       "minister_b"
     ],
     "emoji": "📜"
+  },
+  {
+    "id": "shuisky",
+    "name": "Князь Шуйский",
+    "tags": [
+      "boyar"
+    ],
+    "emoji": "🐻"
+  },
+  {
+    "id": "sophia",
+    "name": "Царевна София",
+    "tags": [
+      "regent"
+    ],
+    "emoji": "👑"
+  },
+  {
+    "id": "mazepa",
+    "name": "Гетман Мазепа",
+    "tags": [
+      "cossack"
+    ],
+    "emoji": "🏇"
+  },
+  {
+    "id": "orlov",
+    "name": "Григорий Орлов",
+    "tags": [
+      "guardsman"
+    ],
+    "emoji": "🎖️"
+  },
+  {
+    "id": "diderot",
+    "name": "Дени Дидро",
+    "tags": [
+      "philosophe"
+    ],
+    "emoji": "📖"
+  },
+  {
+    "id": "fersen",
+    "name": "Граф Ферзен",
+    "tags": [
+      "royalist"
+    ],
+    "emoji": "🎩"
+  },
+  {
+    "id": "carteaux",
+    "name": "Генерал Карто",
+    "tags": [
+      "officer"
+    ],
+    "emoji": "🎖️"
   }
 ]
