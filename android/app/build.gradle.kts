@@ -16,7 +16,7 @@ val keystoreProps = Properties().apply { if (hasKeystore) load(FileInputStream(k
 
 android {
     namespace = "com.decima.historyteller"
-    compileSdk = 34
+    compileSdk = 35
 
     // Play Asset Delivery: арт глав в on-demand asset-паках (Google Play хостит; свой сервер не нужен).
     assetPacks += listOf(":chapter_tudor", ":chapter_revolution", ":chapter_empire", ":chapter_borgia", ":chapter_byzantium")
@@ -24,7 +24,7 @@ android {
     defaultConfig {
         applicationId = "com.decima.historyteller"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
     }
