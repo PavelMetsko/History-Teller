@@ -142,7 +142,9 @@ public struct LevelBoardView: View {
             .onChanged { v in
                 if draggingPanel == nil { draggingPanel = i; model.selected = nil; Haptics.light() }
                 dragPanelOffset = v.translation
-                hoverPanel = panelIndex(at: v.location)
+                let h = panelIndex(at: v.location)
+                if h != hoverPanel, let t = h, t != draggingPanel { Haptics.light() }  // тик при заходе на новую цель
+                hoverPanel = h
             }
             .onEnded { v in
                 if let from = draggingPanel, let to = panelIndex(at: v.location), to != from {
@@ -264,11 +266,33 @@ public struct LevelBoardView: View {
                               diagnosis: model.panelDiagnoses.indices.contains(i) ? model.panelDiagnoses[i] : .ok,
                               boardSpace: boardSpace,
                               beats: activeBeats.filter { $0.panelIndex == i })
+                        .scaleEffect(draggingPanel == i ? 1.07
+                                     : (draggingPanel != nil && hoverPanel == i ? 0.93 : 1))
+                        .rotationEffect(.degrees(draggingPanel == i ? 2.5 : 0))
                         .offset(draggingPanel == i ? dragPanelOffset : .zero)
-                        .scaleEffect(draggingPanel == i ? 1.05 : 1)
+                        .shadow(color: .black.opacity(draggingPanel == i ? 0.38 : 0),
+                                radius: draggingPanel == i ? 18 : 0, y: draggingPanel == i ? 12 : 0)
+                        .overlay {
+                            // Цель-своп под пальцем: золотая подсветка + стрелки ⇄ «поменять местами».
+                            if draggingPanel != nil && draggingPanel != i && hoverPanel == i {
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(DS.Palette.gold.opacity(0.22))
+                                    .overlay(
+                                        Image(systemName: "arrow.left.arrow.right")
+                                            .font(.system(size: 24, weight: .bold))
+                                            .foregroundStyle(DS.Palette.gold)
+                                            .shadow(color: .black.opacity(0.35), radius: 2, y: 1)
+                                    )
+                                    .allowsHitTesting(false)
+                                    .transition(.opacity)
+                            }
+                        }
                         .zIndex(draggingPanel == i ? 10 : 0)
-                        .animation(.spring(response: 0.32, dampingFraction: 0.72), value: draggingPanel)
-                        .gesture(panelReorderGesture(i),
+                        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: draggingPanel)
+                        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: hoverPanel)
+                        // highPriority: драг (движение) забирает переупорядочивание даже поверх персонажей-Button;
+                        // тап (без движения) проходит в Button на удаление. Без этого драг глох на занятых сценах.
+                        .highPriorityGesture(panelReorderGesture(i),
                                  including: model.panels[i].sceneId != nil ? .all : .subviews)
                 }
             }
@@ -659,10 +683,16 @@ private struct PanelCell: View {
                         .transition(.scale(scale: 0.4).combined(with: .opacity))
                 }
                 ForEach(0..<max(0, slots - panel.characters.count), id: \.self) { _ in
+                    // Явный намёк «сюда нужен ещё персонаж»: пунктирная рамка + «+» (как на Android).
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .strokeBorder(DS.Palette.ink.opacity(0.3),
-                                      style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
-                        .frame(width: spriteH * 0.5, height: spriteH * 0.8)
+                        .strokeBorder(DS.Palette.ink.opacity(0.32),
+                                      style: StrokeStyle(lineWidth: 2, dash: [6, 5]))
+                        .frame(width: spriteH * 0.55, height: spriteH * 0.85)
+                        .overlay(
+                            Text("+")
+                                .font(.system(size: spriteH * 0.28, weight: .bold, design: .serif))
+                                .foregroundStyle(DS.Palette.ink.opacity(0.32))
+                        )
                 }
             }
             .padding(.bottom, 6)

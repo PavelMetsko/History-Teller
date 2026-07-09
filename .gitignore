@@ -29,4 +29,6 @@ android/.idea/
 
 # iOS build output (артефакты сборки — НЕ коммитить; там Assets.car >100МБ)
 ios/build/
+ios/build_device/
 ios/DerivedData/
+**/build_device/

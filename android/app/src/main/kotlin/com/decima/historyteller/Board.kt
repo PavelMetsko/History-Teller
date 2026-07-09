@@ -42,6 +42,15 @@ import androidx.compose.ui.zIndex
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.LayoutCoordinates
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.unit.IntOffset
+import kotlin.math.roundToInt
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -208,6 +217,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         selected = null; recompute()
     }
     fun selectItem(s: Sel) { selected = if (selected == s) null else s }
+    fun clearSelection() { selected = null }
     fun applySelection(i: Int) {
         when (val s = selected) {
             is Sel.Scene -> setScene(i, s.id)
@@ -275,6 +285,48 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
 
 private val grayscale = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) })
 
+/** Состояние drag-and-drop: тянем токен из лотка → бросаем на панель под пальцем (порт iOS dragGesture). */
+private class DragState {
+    var item by mutableStateOf<BoardModel.Sel?>(null)
+    var pos by mutableStateOf(Offset.Zero)       // палец в координатах корневого Box
+    var ghost by mutableStateOf<String?>(null)   // имя арта для плавающего превью
+    var isChar by mutableStateOf(false)
+    var root: LayoutCoordinates? = null
+    val panelRects = mutableStateMapOf<Int, Rect>()
+    var hover by mutableStateOf(-1)
+    fun panelAt(p: Offset): Int? = panelRects.entries.firstOrNull { it.value.contains(p) }?.key
+}
+
+/** Драг токена из лотка: тянем палец и бросаем на панель под ним. origin — позиция токена в корне. */
+@Composable
+private fun Modifier.tokenDrag(drag: DragState, item: BoardModel.Sel, art: String, isChar: Boolean, model: BoardModel): Modifier {
+    var coords by remember { mutableStateOf<LayoutCoordinates?>(null) }
+    return this
+        .onGloballyPositioned { coords = it }
+        .pointerInput(item, drag.root) {
+            detectDragGestures(
+                onDragStart = { off ->
+                    val origin = drag.root?.let { r -> coords?.let { r.localBoundingBoxOf(it).topLeft } } ?: Offset.Zero
+                    drag.item = item; drag.ghost = art; drag.isChar = isChar
+                    drag.pos = origin + off
+                    drag.hover = drag.panelAt(drag.pos) ?: -1
+                    model.clearSelection()
+                },
+                onDrag = { ch, d -> ch.consume(); drag.pos += d; drag.hover = drag.panelAt(drag.pos) ?: -1 },
+                onDragEnd = {
+                    drag.panelAt(drag.pos)?.let { idx ->
+                        when (item) {
+                            is BoardModel.Sel.Scene -> model.setScene(idx, item.id)
+                            is BoardModel.Sel.Char -> model.place(idx, item.id)
+                        }
+                    }
+                    drag.item = null; drag.ghost = null; drag.hover = -1
+                },
+                onDragCancel = { drag.item = null; drag.ghost = null; drag.hover = -1 }
+            )
+        }
+}
+
 @Composable
 fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
     val level = GameContent.level(levelId) ?: return
@@ -302,7 +354,8 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
     val exit = { Audio.sfx("select"); Audio.startMusic("theme"); onExit() }
     val shakeDx = (sin(boardShake.value * PI * 3) * 9.0 * (1f - boardShake.value)).toFloat()
 
-    Box(Modifier.fillMaxSize().padding(14.dp)) {
+    val drag = remember(levelId) { DragState() }
+    Box(Modifier.fillMaxSize().padding(14.dp).onGloballyPositioned { drag.root = it }) {
         BookPage(Modifier.fillMaxSize().graphicsLayer { translationX = shakeDx.dp.toPx() }) {
             BoxWithConstraints(Modifier.fillMaxSize()) {
                 val trayScale = min(1.6f, max(1f, maxWidth.value / 720f))
@@ -357,15 +410,33 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                                             onDragCancel = { draggingPanel = -1; dragDX = 0f })
                                     } else Modifier)
                                 ) {
-                                    PanelCell(model, i, cellW, cellH, beats, model.changeToken)
+                                    PanelCell(model, i, cellW, cellH, beats, model.changeToken, drag)
                                 }
                             }
                         }
                     }
-                    TokenTray(model, trayScale)
+                    TokenTray(model, trayScale, drag)
                 }
             }
             BackRibbon(Modifier.align(Alignment.TopStart).statusBarsPadding()) { exit() }
+        }
+        // Плавающее превью перетаскиваемого токена — следует за пальцем
+        val ghost = drag.ghost
+        if (drag.item != null && ghost != null) {
+            val gp = artPainter(ghost)
+            if (gp != null) {
+                if (drag.isChar) {
+                    Image(gp, null,
+                        Modifier.offset { IntOffset((drag.pos.x - 38.dp.toPx()).roundToInt(), (drag.pos.y - 48.dp.toPx()).roundToInt()) }
+                            .height(96.dp).alpha(0.92f).graphicsLayer { scaleX = 1.1f; scaleY = 1.1f },
+                        contentScale = ContentScale.Fit)
+                } else {
+                    Image(gp, null,
+                        Modifier.offset { IntOffset((drag.pos.x - 54.dp.toPx()).roundToInt(), (drag.pos.y - 38.dp.toPx()).roundToInt()) }
+                            .size(108.dp, 76.dp).clip(RoundedCornerShape(8.dp)).alpha(0.92f),
+                        contentScale = ContentScale.Crop)
+                }
+            }
         }
         if (celebrate) ConfettiOverlay()
         if (showHint) HintPopup(level.title, listOfNotNull(level.initialText, level.goalHint).joinToString("\n\n")) { showHint = false }
@@ -387,12 +458,14 @@ private fun stateBadges(charId: String, w: World): List<String> = buildList {
 
 @Composable
 private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit.Dp, cellH: androidx.compose.ui.unit.Dp,
-                     beats: List<BoardModel.Beat>, changeToken: Int) {
+                     beats: List<BoardModel.Beat>, changeToken: Int, drag: DragState) {
     val panel = model.panels[i]
     val diag = model.diagnose(i)
     val highlighted = model.selected != null
+    val hovered = drag.hover == i          // панель под перетаскиваемым токеном
     val isOrderHint = diag == BoardModel.Diag.WRONG_ORDER
     val border = when {
+        hovered -> Palette.gold
         highlighted -> Palette.gold
         isOrderHint -> Palette.gold
         diag != BoardModel.Diag.OK -> Palette.maroon
@@ -409,9 +482,10 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
     val pDx = (sin(panelShake.value * PI * 3) * 5.0 * (1f - panelShake.value)).toFloat()
     Box(
         Modifier.size(cellW, cellH).graphicsLayer { translationX = pDx.dp.toPx() }
+            .onGloballyPositioned { c -> drag.root?.let { drag.panelRects[i] = it.localBoundingBoxOf(c) } }
             .clip(RoundedCornerShape(10.dp))
             .background(Palette.panel)
-            .border(if (highlighted || diag != BoardModel.Diag.OK) 3.dp else 2.dp, border, RoundedCornerShape(10.dp))
+            .border(if (highlighted || hovered || diag != BoardModel.Diag.OK) 3.dp else 2.dp, border, RoundedCornerShape(10.dp))
             .clickable(enabled = model.selected != null) { model.applySelection(i) }
     ) {
         val sid = panel.sceneId
@@ -445,6 +519,8 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
                 for (slot in 0 until slots) {
                     if (slot < panel.characters.size) {
                         CharSprite(model, i, panel.characters[slot], slot, spriteH, beats)
+                    } else {
+                        EmptySlot(spriteH)   // явный намёк: сюда нужен ещё персонаж
                     }
                 }
             }
@@ -491,6 +567,23 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
                 color = Palette.inkSoft.copy(0.7f), fontSize = 11.sp, fontFamily = Fonts.rounded,
                 modifier = Modifier.align(Alignment.Center))
         }
+    }
+}
+
+/** Пустой слот персонажа: пунктирная рамка + «+». Показывает, сколько ещё героев нужно в сцену. */
+@Composable
+private fun EmptySlot(spriteH: androidx.compose.ui.unit.Dp) {
+    val hint = Palette.ink.copy(alpha = 0.32f)
+    Box(
+        Modifier.height(spriteH * 0.9f).width(spriteH * 0.6f).padding(horizontal = 4.dp, vertical = 6.dp)
+            .drawBehind {
+                drawRoundRect(color = hint,
+                    style = Stroke(width = 2.dp.toPx(), pathEffect = PathEffect.dashPathEffect(floatArrayOf(9f, 8f), 0f)),
+                    cornerRadius = androidx.compose.ui.geometry.CornerRadius(10.dp.toPx()))
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Text("+", color = hint, fontSize = (spriteH.value * 0.26f).sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
     }
 }
 
@@ -762,19 +855,21 @@ private fun wrongHint(d: BoardModel.Diag): String? = when (d) {
 }
 
 @Composable
-private fun TokenTray(model: BoardModel, scale: Float) {
+private fun TokenTray(model: BoardModel, scale: Float, drag: DragState) {
     Row(Modifier.fillMaxWidth().height((90 * scale).dp), horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically) {
-        for (sid in model.level.scenes) SceneToken(model, sid, scale)
+        for (sid in model.level.scenes) SceneToken(model, sid, scale, drag)
         Box(Modifier.padding(horizontal = 6.dp).width(1.5.dp).height((56 * scale).dp).background(Palette.ink.copy(0.3f)))
-        for (cid in model.roster) CharTokenT(model, cid, scale)
+        for (cid in model.roster) CharTokenT(model, cid, scale, drag)
     }
 }
 
 @Composable
-private fun SceneToken(model: BoardModel, sid: String, scale: Float) {
+private fun SceneToken(model: BoardModel, sid: String, scale: Float, drag: DragState) {
     val sel = model.selected == BoardModel.Sel.Scene(sid)
-    Column(Modifier.padding(horizontal = (6 * scale).dp).clickable { Audio.sfx("select"); model.selectItem(BoardModel.Sel.Scene(sid)) },
+    Column(Modifier.padding(horizontal = (6 * scale).dp)
+        .tokenDrag(drag, BoardModel.Sel.Scene(sid), "scene_$sid", false, model)
+        .clickable { Audio.sfx("select"); model.selectItem(BoardModel.Sel.Scene(sid)) },
         horizontalAlignment = Alignment.CenterHorizontally) {
         val stPainter = artPainter("scene_$sid")
         Box(Modifier.size((66 * scale).dp, (46 * scale).dp).clip(RoundedCornerShape(7.dp)).background(Palette.panel)
@@ -786,10 +881,12 @@ private fun SceneToken(model: BoardModel, sid: String, scale: Float) {
 }
 
 @Composable
-private fun CharTokenT(model: BoardModel, cid: String, scale: Float) {
+private fun CharTokenT(model: BoardModel, cid: String, scale: Float, drag: DragState) {
     val sel = model.selected == BoardModel.Sel.Char(cid)
     val badges = stateBadges(cid, model.world)
-    Column(Modifier.padding(horizontal = (6 * scale).dp).clickable { Audio.sfx("select"); model.selectItem(BoardModel.Sel.Char(cid)) },
+    Column(Modifier.padding(horizontal = (6 * scale).dp)
+        .tokenDrag(drag, BoardModel.Sel.Char(cid), "char_$cid", true, model)
+        .clickable { Audio.sfx("select"); model.selectItem(BoardModel.Sel.Char(cid)) },
         horizontalAlignment = Alignment.CenterHorizontally) {
         Box(Modifier.size((58 * scale).dp, (54 * scale).dp)
             .then(if (sel) Modifier.clip(RoundedCornerShape(9.dp)).background(Palette.gold.copy(0.28f))
