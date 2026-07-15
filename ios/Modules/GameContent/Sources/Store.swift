@@ -36,9 +36,15 @@ public final class Store {
         epoch == "rome" || subscribed || unlockedEpochs.contains(epoch)
     }
 
-    public func chapterPrice(_ epoch: String) -> String { products[Self.chapterProductID(epoch)]?.displayPrice ?? "" }
-    public var monthlyPrice: String { products[Self.monthlyID]?.displayPrice ?? "" }
-    public var yearlyPrice: String { products[Self.yearlyID]?.displayPrice ?? "" }
+    /// Только для скриншота ревью (env HT_DEMO_PRICES=1): подставляет демо-цены, т.к. в симуляторе
+    /// StoreKit-конфиг не применяется. В проде флага нет — работают реальные цены.
+    private var demoPrices: Bool { ProcessInfo.processInfo.environment["HT_DEMO_PRICES"] == "1" }
+    public func chapterPrice(_ epoch: String) -> String {
+        if demoPrices { return "$2.99" }
+        return products[Self.chapterProductID(epoch)]?.displayPrice ?? ""
+    }
+    public var monthlyPrice: String { demoPrices ? "$4.99" : (products[Self.monthlyID]?.displayPrice ?? "") }
+    public var yearlyPrice: String { demoPrices ? "$14.99" : (products[Self.yearlyID]?.displayPrice ?? "") }
 
     public func loadProducts() async {
         let ids = Self.paidEpochs.map { Self.chapterProductID($0) } + Self.subscriptionIDs

@@ -109,7 +109,10 @@ struct RootView: View {
             }
         }
         .onAppear {
-            if ProcessInfo.processInfo.environment["HT_PAYWALL"] == "1" { showPaywall = true }
+            if ProcessInfo.processInfo.environment["HT_PAYWALL"] == "1" {
+                pendingEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "tudor"
+                showPaywall = true
+            }
             let env = ProcessInfo.processInfo.environment
             let testing = env["HT_SCREEN"] != nil || env["HT_LEVEL"] != nil || env["HT_PAYWALL"] == "1"
             if !onboarded && !testing { showLanguagePicker = true }
