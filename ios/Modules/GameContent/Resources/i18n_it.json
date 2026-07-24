@@ -904,6 +904,8 @@
  "ui.reset_msg": "Tutti i livelli completati verranno bloccati di nuovo.\nQuesta azione non può essere annullata.",
  "ui.reset_title": "Reimpostare i progressi?",
  "ui.restore": "Ripristina acquisto",
+ "ui.privacy": "Informativa sulla privacy",
+ "ui.terms": "Termini d'uso",
  "ui.scene": "scena",
  "ui.settings": "Impostazioni",
  "ui.solved": "Risolto!",

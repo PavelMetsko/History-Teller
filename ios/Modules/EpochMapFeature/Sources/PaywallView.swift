@@ -65,6 +65,15 @@ public struct PaywallView: View {
                     Button { Task { await store.restore() } } label: {
                         Text(L10n.s("ui.restore")).font(.dsCaption(13)).foregroundStyle(DS.Palette.inkSoft).underline()
                     }.buttonStyle(.plain).padding(.top, 2)
+
+                    // Обязательно для подписок (App Store 3.1.2): рабочие ссылки на условия и приватность.
+                    HStack(spacing: 6) {
+                        Link(L10n.s("ui.terms"), destination: Legal.termsURL)
+                        Text("·").foregroundStyle(DS.Palette.inkSoft.opacity(0.6))
+                        Link(L10n.s("ui.privacy"), destination: Legal.privacyURL)
+                    }
+                    .font(.dsCaption(12)).foregroundStyle(DS.Palette.inkSoft).underline()
+                    .padding(.top, 2)
                 }
                 .padding(EdgeInsets(top: 20, leading: 32, bottom: 20, trailing: 32))
                 .frame(width: 480)

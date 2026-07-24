@@ -904,6 +904,8 @@
  "ui.reset_msg": "All completed levels will be locked again.\nThis action cannot be undone.",
  "ui.reset_title": "Reset Progress?",
  "ui.restore": "Restore Purchase",
+ "ui.privacy": "Privacy Policy",
+ "ui.terms": "Terms of Use",
  "ui.scene": "scene",
  "ui.settings": "Settings",
  "ui.solved": "Solved!",

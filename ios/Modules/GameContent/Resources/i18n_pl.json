@@ -904,6 +904,8 @@
  "ui.reset_msg": "Wszystkie ukończone poziomy zostaną ponownie zablokowane.\nTego działania nie można cofnąć.",
  "ui.reset_title": "Zresetować postęp?",
  "ui.restore": "Przywróć zakup",
+ "ui.privacy": "Polityka prywatności",
+ "ui.terms": "Warunki użytkowania",
  "ui.scene": "scena",
  "ui.settings": "Ustawienia",
  "ui.solved": "Rozwiązano!",
