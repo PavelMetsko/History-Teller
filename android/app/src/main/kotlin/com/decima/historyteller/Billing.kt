@@ -2,6 +2,8 @@ package com.decima.historyteller
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -204,6 +206,18 @@ fun PaywallScreen(epoch: String, chapterTitle: String, onClose: () -> Unit, onUn
                     Spacer(Modifier.height(12.dp))
                     Text(L10n.s("ui.restore"), color = Palette.inkSoft, fontSize = 13.sp, fontFamily = Fonts.rounded,
                         textDecoration = TextDecoration.Underline, modifier = Modifier.clickable { Billing.refreshEntitlements() })
+
+                    // Обязательно для подписок (Google Play): рабочие ссылки на условия и приватность.
+                    Spacer(Modifier.height(8.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                        fun openUrl(url: String) = ctx.startActivity(
+                            Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                        Text(L10n.s("ui.terms"), color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded,
+                            textDecoration = TextDecoration.Underline, modifier = Modifier.clickable { openUrl(Legal.TERMS_URL) })
+                        Text("·", color = Palette.inkSoft)
+                        Text(L10n.s("ui.privacy"), color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded,
+                            textDecoration = TextDecoration.Underline, modifier = Modifier.clickable { openUrl(Legal.PRIVACY_URL) })
+                    }
                 }
             }
             Box(Modifier.padding(10.dp).size(30.dp).clip(CircleShape).background(Palette.paper)

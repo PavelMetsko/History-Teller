@@ -904,6 +904,8 @@
  "ui.reset_msg": "Tous les niveaux terminés seront à nouveau verrouillés.\nCette action est irréversible.",
  "ui.reset_title": "Réinitialiser la progression ?",
  "ui.restore": "Restaurer l'achat",
+ "ui.privacy": "Politique de confidentialité",
+ "ui.terms": "Conditions d'utilisation",
  "ui.scene": "scène",
  "ui.settings": "Paramètres",
  "ui.solved": "Résolu !",

@@ -904,6 +904,8 @@
  "ui.reset_msg": "Alle abgeschlossenen Level werden wieder gesperrt.\nDiese Aktion kann nicht rückgängig gemacht werden.",
  "ui.reset_title": "Fortschritt zurücksetzen?",
  "ui.restore": "Kauf wiederherstellen",
+ "ui.privacy": "Datenschutzerklärung",
+ "ui.terms": "Nutzungsbedingungen",
  "ui.scene": "Szene",
  "ui.settings": "Einstellungen",
  "ui.solved": "Gelöst!",

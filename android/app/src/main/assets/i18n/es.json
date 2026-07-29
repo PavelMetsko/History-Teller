@@ -904,6 +904,8 @@
  "ui.reset_msg": "Todos los niveles completados se bloquearán de nuevo.\nEsta acción no se puede deshacer.",
  "ui.reset_title": "¿Restablecer progreso?",
  "ui.restore": "Restaurar compra",
+ "ui.privacy": "Política de privacidad",
+ "ui.terms": "Términos de uso",
  "ui.scene": "escena",
  "ui.settings": "Ajustes",
  "ui.solved": "¡Resuelto!",
