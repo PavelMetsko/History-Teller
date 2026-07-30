@@ -162,7 +162,7 @@ fun PaywallScreen(epoch: String, chapterTitle: String, onClose: () -> Unit, onUn
         contentAlignment = Alignment.Center) {
         Box(contentAlignment = Alignment.TopEnd) {
             BookPage(Modifier.widthIn(max = 490.dp).clickable(enabled = false) {}) {
-                Column(Modifier.padding(horizontal = 32.dp, vertical = 20.dp),
+                Column(Modifier.padding(start = 32.dp, end = 32.dp, top = 20.dp, bottom = 28.dp),
                     horizontalAlignment = Alignment.CenterHorizontally) {
                     Box(Modifier.size(56.dp).clip(CircleShape).background(Palette.maroon)
                         .border(2.dp, Palette.gold, CircleShape), contentAlignment = Alignment.Center) {
@@ -203,27 +203,28 @@ fun PaywallScreen(epoch: String, chapterTitle: String, onClose: () -> Unit, onUn
                         if (y.isNotEmpty()) SubButton(L10n.s("ui.sub_year", y)) { activity?.let { Billing.purchaseSubscription(it, Billing.SUB_YEARLY) } }
                     }
 
-                    Spacer(Modifier.height(12.dp))
-                    Text(L10n.s("ui.restore"), color = Palette.inkSoft, fontSize = 13.sp, fontFamily = Fonts.rounded,
-                        textDecoration = TextDecoration.Underline, modifier = Modifier.clickable { Billing.refreshEntitlements() })
-
                     // Обязательно для подписок (Google Play): рабочие ссылки на условия и приватность.
-                    Spacer(Modifier.height(8.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                    // Restore на Android не нужен — Play восстанавливает покупки автоматически (refreshEntitlements при старте).
+                    Spacer(Modifier.height(16.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
                         fun openUrl(url: String) = ctx.startActivity(
                             Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-                        Text(L10n.s("ui.terms"), color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded,
+                        Text(L10n.s("ui.terms"), color = Palette.maroon, fontSize = 13.sp, fontFamily = Fonts.rounded,
                             textDecoration = TextDecoration.Underline, modifier = Modifier.clickable { openUrl(Legal.TERMS_URL) })
                         Text("·", color = Palette.inkSoft)
-                        Text(L10n.s("ui.privacy"), color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded,
+                        Text(L10n.s("ui.privacy"), color = Palette.maroon, fontSize = 13.sp, fontFamily = Fonts.rounded,
                             textDecoration = TextDecoration.Underline, modifier = Modifier.clickable { openUrl(Legal.PRIVACY_URL) })
                     }
                 }
             }
-            Box(Modifier.padding(10.dp).size(30.dp).clip(CircleShape).background(Palette.paper)
-                .border(1.dp, Palette.ink.copy(alpha = 0.25f), CircleShape).clickable { onClose() },
+            // Больший тап-таргет (44dp) вокруг видимого кружка 32dp — X легко нажать.
+            Box(Modifier.padding(4.dp).size(44.dp).clip(CircleShape).clickable { onClose() },
                 contentAlignment = Alignment.Center) {
-                Icon(Icons.Filled.Clear, null, tint = Palette.inkSoft, modifier = Modifier.size(16.dp))
+                Box(Modifier.size(32.dp).clip(CircleShape).background(Palette.paper)
+                    .border(1.dp, Palette.ink.copy(alpha = 0.25f), CircleShape),
+                    contentAlignment = Alignment.Center) {
+                    Icon(Icons.Filled.Clear, null, tint = Palette.inkSoft, modifier = Modifier.size(18.dp))
+                }
             }
         }
     }

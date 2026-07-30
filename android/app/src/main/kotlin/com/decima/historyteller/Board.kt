@@ -904,7 +904,7 @@ private fun CharTokenT(model: BoardModel, cid: String, scale: Float, drag: DragS
 private fun FactPopup(level: LevelDef, onReplay: () -> Unit, onClose: () -> Unit) {
     Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f)).clickable { onClose() }, contentAlignment = Alignment.Center) {
         BookPage(Modifier.widthIn(max = 520.dp).padding(20.dp)) {
-            Column(Modifier.padding(22.dp).verticalScroll(rememberScrollState()),
+            Column(Modifier.padding(start = 22.dp, end = 22.dp, top = 22.dp, bottom = 30.dp).verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally) {
                 Pill(L10n.s("ui.solved"), Palette.success.copy(0.2f))
                 Spacer(Modifier.height(10.dp))
