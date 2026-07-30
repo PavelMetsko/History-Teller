@@ -83,8 +83,8 @@ object Billing {
             QueryProductDetailsParams.Product.newBuilder().setProductId(chapterProduct(it))
                 .setProductType(BillingClient.ProductType.INAPP).build()
         }
-        c.queryProductDetailsAsync(QueryProductDetailsParams.newBuilder().setProductList(inapp).build()) { r, list ->
-            if (r.responseCode == BillingClient.BillingResponseCode.OK) for (pd in list) {
+        c.queryProductDetailsAsync(QueryProductDetailsParams.newBuilder().setProductList(inapp).build()) { r, res ->
+            if (r.responseCode == BillingClient.BillingResponseCode.OK) for (pd in res.productDetailsList) {
                 details[pd.productId] = pd
                 prices[pd.productId] = pd.oneTimePurchaseOfferDetails?.formattedPrice ?: ""
             }
@@ -94,8 +94,8 @@ object Billing {
             QueryProductDetailsParams.Product.newBuilder().setProductId(it)
                 .setProductType(BillingClient.ProductType.SUBS).build()
         }
-        c.queryProductDetailsAsync(QueryProductDetailsParams.newBuilder().setProductList(subs).build()) { r, list ->
-            if (r.responseCode == BillingClient.BillingResponseCode.OK) for (pd in list) {
+        c.queryProductDetailsAsync(QueryProductDetailsParams.newBuilder().setProductList(subs).build()) { r, res ->
+            if (r.responseCode == BillingClient.BillingResponseCode.OK) for (pd in res.productDetailsList) {
                 details[pd.productId] = pd
                 prices[pd.productId] = pd.subscriptionOfferDetails?.firstOrNull()
                     ?.pricingPhases?.pricingPhaseList?.firstOrNull()?.formattedPrice ?: ""

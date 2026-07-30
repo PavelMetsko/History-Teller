@@ -16,7 +16,7 @@ val keystoreProps = Properties().apply { if (hasKeystore) load(FileInputStream(k
 
 android {
     namespace = "com.decima.historyteller"
-    compileSdk = 35
+    compileSdk = 36
 
     // Play Asset Delivery: арт глав в on-demand asset-паках (Google Play хостит; свой сервер не нужен).
     assetPacks += listOf(":chapter_tudor", ":chapter_revolution", ":chapter_empire", ":chapter_borgia", ":chapter_byzantium")
@@ -24,9 +24,9 @@ android {
     defaultConfig {
         applicationId = "com.decima.historyteller"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 3
-        versionName = "1.0"
+        targetSdk = 36
+        versionCode = 5
+        versionName = "1.0.2"
     }
     buildFeatures { compose = true; buildConfig = true }
     compileOptions {
@@ -62,6 +62,9 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
-    implementation("com.android.billingclient:billing-ktx:7.1.1")
+    // Play Billing 8.x required by Google Play (deadline 2026-08-31). Plain (non-ktx)
+    // Java artifact: code uses callback APIs only, and billing-ktx 8.x needs Kotlin 2.1
+    // (project is on Kotlin 2.0.21). The Java artifact has no Kotlin metadata → no conflict.
+    implementation("com.android.billingclient:billing:8.0.0")
     implementation("com.google.android.play:asset-delivery-ktx:2.2.0")
 }
