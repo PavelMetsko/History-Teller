@@ -135,20 +135,15 @@ fun ChapterLoadingScreen(epoch: String, chapterTitle: String, onReady: () -> Uni
     }
     val panels = remember(demo) { demo.solution?.filter { it.sceneId != null } ?: emptyList() }
     val tip = remember { L10n.s("ui.tip.${Random.nextInt(8) + 1}") }
-    var progress by remember { mutableFloatStateOf(0f) }
+    var retry by remember { mutableIntStateOf(0) }
+    // Прогресс настоящий — искусственную задержку показа убрали вместе с Play Asset Delivery:
+    // экран и так появляется только когда главы действительно нет на диске.
+    val progress = (ContentSync.phase as? ContentSync.Phase.Syncing)?.progress ?: 0f
+    val failure = (ContentSync.phase as? ContentSync.Phase.Failed)?.message
 
-    LaunchedEffect(Unit) {
-        val start = System.currentTimeMillis()
-        // реальная загрузка пака главы (Play Asset Delivery); держим ≤99% до конца
-        ChapterAssets.fetch(ctx, epoch) { p -> if (p > progress) progress = p.coerceAtMost(0.99f) }
-        // добить минимальное время показа (чтобы анимация/подсказка успели)
-        val minShowMs = 7000L
-        val elapsed = System.currentTimeMillis() - start
-        if (elapsed < minShowMs) {
-            val remaining = minShowMs - elapsed; val steps = 40
-            for (i in 1..steps) { delay(remaining / steps); progress = maxOf(progress, minOf(0.99f, i.toFloat() / steps)) }
-        }
-        progress = 1f; delay(400); onReady()
+    LaunchedEffect(retry) {
+        ContentSync.ensureChapter(ctx, epoch)
+        if (ContentSync.phase is ContentSync.Phase.Ready) { delay(400); onReady() }
     }
 
     // глобальный индекс «прыжков» слева направо
@@ -174,8 +169,7 @@ fun ChapterLoadingScreen(epoch: String, chapterTitle: String, onReady: () -> Uni
                             .border(4.dp, Palette.ink, RoundedCornerShape(16.dp)),
                         contentAlignment = Alignment.BottomCenter
                     ) {
-                        val sid = drawableId("scene_${panel.sceneId}")
-                        if (sid != 0) Image(painterResource(sid), null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+                        ArtImage("scene_${panel.sceneId}", Modifier.fillMaxSize(), ContentScale.Crop)
                         Box(Modifier.fillMaxWidth().fillMaxHeight(0.5f).align(Alignment.BottomCenter)
                             .background(Brush.verticalGradient(listOf(Color.Transparent, Palette.ink.copy(alpha = 0.28f)))))
                         Row(Modifier.fillMaxHeight().padding(bottom = 6.dp), verticalAlignment = Alignment.Bottom) {
@@ -206,6 +200,50 @@ fun ChapterLoadingScreen(epoch: String, chapterTitle: String, onReady: () -> Uni
                 }
             }
         }
+        // Сеть отвалилась посреди докачки — не выкидываем в меню молча, даём повторить.
+        if (failure != null) DownloadFailed(failure, onRetry = { retry++ }, onCancel = onReady)
+    }
+}
+
+/** Загрузка не удалась: причина, «Повторить» и выход — вместо молчаливого возврата. */
+@Composable
+private fun DownloadFailed(message: String, onRetry: () -> Unit, onCancel: () -> Unit) {
+    Box(Modifier.fillMaxSize().background(Palette.backdrop.copy(alpha = 0.94f)), contentAlignment = Alignment.Center) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp)) {
+            Text(L10n.s("ui.load_fail"), color = Palette.paper, fontSize = 20.sp,
+                fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+            Text(message, color = Palette.paper.copy(alpha = 0.7f), fontSize = 12.sp, fontFamily = Fonts.rounded)
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Box(Modifier.clip(RoundedCornerShape(24.dp)).background(Palette.maroon)
+                    .border(2.dp, Palette.gold, RoundedCornerShape(24.dp))
+                    .clickable { onRetry() }.padding(horizontal = 22.dp, vertical = 10.dp)) {
+                    Text(L10n.s("ui.retry"), color = Palette.paper, fontSize = 15.sp, fontFamily = Fonts.rounded)
+                }
+                Box(Modifier.clip(RoundedCornerShape(24.dp))
+                    .clickable { onCancel() }.padding(horizontal = 22.dp, vertical = 10.dp)) {
+                    Text(L10n.s("ui.cancel"), color = Palette.paper.copy(alpha = 0.7f),
+                        fontSize = 15.sp, fontFamily = Fonts.rounded)
+                }
+            }
+        }
+    }
+}
+
+/** Первый запуск: пока едет core, показываем прогресс, а не пустой экран. */
+@Composable
+fun BootScreen(bootError: String? = null, onRetry: () -> Unit) {
+    val progress = (ContentSync.phase as? ContentSync.Phase.Syncing)?.progress ?: 0f
+    val failure = bootError ?: (ContentSync.phase as? ContentSync.Phase.Failed)?.message
+    Box(Modifier.fillMaxSize().background(Palette.backdrop), contentAlignment = Alignment.Center) {
+        if (failure != null) {
+            DownloadFailed(failure, onRetry = onRetry, onCancel = onRetry)
+        } else {
+            Column(Modifier.width(230.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                ProgressBar(progress)
+                Text(L10n.s("ui.downloading_chapter"), color = Palette.paper.copy(alpha = 0.5f),
+                    fontSize = 10.sp, fontFamily = Fonts.rounded, modifier = Modifier.padding(top = 6.dp))
+            }
+        }
     }
 }
 
@@ -215,8 +253,8 @@ private fun HoppingSprite(cid: String, delayMs: Long) {
     LaunchedEffect(cid) { delay(delayMs); anim.animateTo(1f, spring(dampingRatio = 0.55f, stiffness = 260f)) }
     val bobT = rememberInfiniteTransition(label = "bob")
     val bob by bobT.animateFloat(0f, 1f, infiniteRepeatable(tween(1400), RepeatMode.Reverse), label = "b")
-    val id = drawableId("char_$cid")
-    if (id != 0) Image(painterResource(id), null,
+    val painter = artPainter("char_$cid")
+    if (painter != null) Image(painter, null,
         Modifier.fillMaxHeight().graphicsLayer {
             val a = anim.value
             translationY = (1f - a) * 150.dp.toPx() - (if (a > 0.98f) bob * 4.dp.toPx() else 0f)

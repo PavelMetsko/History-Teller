@@ -35,3 +35,6 @@ ios/build*/
 ios/DerivedData/
 **/build_device/
 **/build_sim/
+
+# Облачный бандл контента (пересобирается: python3 tools/publish_content.py)
+dist/

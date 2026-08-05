@@ -19,7 +19,6 @@ android {
     compileSdk = 36
 
     // Play Asset Delivery: арт глав в on-demand asset-паках (Google Play хостит; свой сервер не нужен).
-    assetPacks += listOf(":chapter_tudor", ":chapter_revolution", ":chapter_empire", ":chapter_borgia", ":chapter_byzantium")
 
     defaultConfig {
         applicationId = "com.decima.historyteller"
@@ -66,5 +65,4 @@ dependencies {
     // Java artifact: code uses callback APIs only, and billing-ktx 8.x needs Kotlin 2.1
     // (project is on Kotlin 2.0.21). The Java artifact has no Kotlin metadata → no conflict.
     implementation("com.android.billingclient:billing:8.0.0")
-    implementation("com.google.android.play:asset-delivery-ktx:2.2.0")
 }

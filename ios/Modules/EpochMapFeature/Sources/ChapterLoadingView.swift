@@ -10,23 +10,23 @@ public struct ChapterLoadingView: View {
     private let chapterNumber: Int
     private let chapterTitle: String
     private let epoch: String
-    private let demoLevel: LevelDef
+    private let demoLevel: LevelDef?
     private let db: ContentDb
-    @ObservedObject private var loader: ChapterAssetLoader
     private let onReady: () -> Void
+    private var sync = ContentSync.shared
 
     public init(chapterNumber: Int, chapterTitle: String, epoch: String,
-                demoLevel: LevelDef, db: ContentDb,
-                loader: ChapterAssetLoader, onReady: @escaping () -> Void) {
+                demoLevel: LevelDef?, db: ContentDb,
+                onReady: @escaping () -> Void) {
         self.chapterNumber = chapterNumber
         self.chapterTitle = chapterTitle
         self.epoch = epoch
         self.demoLevel = demoLevel
         self.db = db
-        self.loader = loader
         self.onReady = onReady
     }
 
+    @State private var retryToken = 0
     @State private var assembled = false
     @State private var bob = false
     @State private var shimmer = false
@@ -34,8 +34,9 @@ public struct ChapterLoadingView: View {
     @State private var tipIndex = 0
     private static let tipCount = 8
 
-    /// Панели демо-уровня из эталонного решения (только со сценой).
-    private var panels: [Panel] { (demoLevel.solution ?? []).filter { $0.sceneId != nil } }
+    /// Панели демо-уровня из эталонного решения (только со сценой). Пусто на первом запуске —
+    /// уровней Рима ещё нет на диске, тогда экран показывает только прогресс и подсказку.
+    private var panels: [Panel] { (demoLevel?.solution ?? []).filter { $0.sceneId != nil } }
 
     /// Глобальный порядок «прыжков» — слева направо, кадр за кадром.
     private func stagger(panel: Int, slot: Int) -> Double {
@@ -61,8 +62,15 @@ public struct ChapterLoadingView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             }
         }
-        .task {
-            await loader.ensure(epoch)
+        .overlay {
+            // Сеть отвалилась посреди докачки — не выкидываем в меню молча, даём повторить.
+            if let failure = sync.failure {
+                downloadFailed(failure)
+            }
+        }
+        .task(id: retryToken) {
+            await sync.ensureChapter(epoch)
+            guard sync.failure == nil else { return }
             try? await Task.sleep(nanoseconds: 400_000_000)  // короткий показ «100% · Готово!» перед скрытием
             onReady()
         }
@@ -72,6 +80,28 @@ public struct ChapterLoadingView: View {
             withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) { bob = true }
             withAnimation(.linear(duration: 1.1).repeatForever(autoreverses: false)) { shimmer = true }
             withAnimation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true)) { pulse = true }
+        }
+    }
+
+    /// Загрузка не удалась: причина, «Повторить» и выход в меню — вместо молчаливого возврата.
+    @ViewBuilder
+    private func downloadFailed(_ message: String) -> some View {
+        ZStack {
+            DS.Palette.backdrop.opacity(0.94).ignoresSafeArea()
+            VStack(spacing: 14) {
+                Text(L10n.s("ui.load_fail")).font(.dsSerif(20))
+                    .foregroundStyle(DS.Palette.ink)
+                Text(message).font(.dsCaption(12)).foregroundStyle(DS.Palette.inkSoft)
+                    .multilineTextAlignment(.center)
+                HStack(spacing: 12) {
+                    Button(L10n.s("ui.retry")) { retryToken += 1 }
+                        .buttonStyle(.borderedProminent).tint(DS.Palette.maroon)
+                    Button(L10n.s("ui.cancel")) { onReady() }
+                        .buttonStyle(.bordered).tint(DS.Palette.inkSoft)
+                }
+                .font(.dsBody(14))
+            }
+            .padding(28)
         }
     }
 
@@ -160,10 +190,10 @@ public struct ChapterLoadingView: View {
             VStack(alignment: .trailing, spacing: 6) {
                 progressBar
                 HStack {
-                    Text(loader.progress >= 1 ? L10n.s("ui.ready") : L10n.s("ui.downloading_chapter"))
+                    Text(sync.progressValue >= 1 ? L10n.s("ui.ready") : L10n.s("ui.downloading_chapter"))
                         .font(.dsCaption(10)).foregroundStyle(DS.Palette.paper.opacity(0.5))
                     Spacer()
-                    Text("\(Int((loader.progress * 100).rounded()))%")
+                    Text("\(Int((sync.progressValue * 100).rounded()))%")
                         .font(.dsCaption(10)).foregroundStyle(DS.Palette.gold)
                         .monospacedDigit()
                 }
@@ -175,7 +205,7 @@ public struct ChapterLoadingView: View {
 
     private var progressBar: some View {
         GeometryReader { geo in
-            let fillW = max(6, geo.size.width * CGFloat(loader.progress))
+            let fillW = max(6, geo.size.width * CGFloat(sync.progressValue))
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(DS.Palette.paper.opacity(0.14))
@@ -197,7 +227,7 @@ public struct ChapterLoadingView: View {
                     )
                     .shadow(color: DS.Palette.gold.opacity(pulse ? 0.8 : 0.25),  // пульсирующее свечение
                             radius: pulse ? 7 : 2)
-                    .animation(.easeOut(duration: 0.35), value: loader.progress)
+                    .animation(.easeOut(duration: 0.35), value: sync.progressValue)
             }
         }
         .frame(height: 12)

@@ -31,8 +31,16 @@ object L10n {
     fun opt(key: String): String? = table[key]
     fun ruBase(key: String): String? = base[key]
 
+    /**
+     * Все ключи базы с данным префиксом. Нужно, чтобы не держать списки ключей в коде:
+     * новая глава приносит свои `act.<epoch>.N` вместе с каталогом и подхватывается сама.
+     */
+    fun keys(prefix: String): List<String> = base.keys.filter { it.startsWith(prefix) }.sorted()
+
     private fun read(code: String): Map<String, String> = try {
-        val txt = assets!!.open("i18n/$code.json").bufferedReader().use { it.readText() }
+        // Скачанный каталог перекрывает вшитый — правки переводов приезжают без релиза.
+        val txt = ContentSync.text("content/i18n/$code.json")
+            ?: assets!!.open("i18n/$code.json").bufferedReader().use { it.readText() }
         // Каталоги общие с iOS: `%@` (ObjC) → `%s` для Java String.format.
         Json.parseToJsonElement(txt).jsonObject.mapValues { it.value.jsonPrimitive.content.replace("%@", "%s") }
     } catch (e: Exception) { emptyMap() }
@@ -46,11 +54,22 @@ object GameContent {
         private set
 
     fun load(assets: AssetManager, langOverride: String?) {
-        fun read(p: String) = assets.open(p).bufferedReader().use { it.readText() }
+        // Скачанное перекрывает вшитое: в бандле лишь стартовый набор, актуальный контент — из облака.
+        fun read(logical: String, bundled: String = logical) =
+            ContentSync.text(logical) ?: assets.open(bundled).bufferedReader().use { it.readText() }
+
         L10n.load(assets, langOverride)
         db = ContentDb.fromJson(read("content/characters.json"), read("content/scenes.json"), read("content/rules.json"))
-        val files = assets.list("content/levels")?.filter { it.endsWith(".json") } ?: emptyList()
-        val loaded = files.map { ContentDb.loadLevel(read("content/levels/$it")) }.filter { it.id != "rivals" }
+
+        // Состав уровней задаёт манифест — иначе добавленный в облаке уровень не появился бы,
+        // а выключенный продолжал бы показываться. Без манифеста работаем на вшитом наборе.
+        val ids = ContentSync.levelIds()
+        val loaded = if (ids != null) {
+            ids.mapNotNull { id -> runCatching { ContentDb.loadLevel(read("content/levels/$id.json")) }.getOrNull() }
+        } else {
+            val files = assets.list("content/levels")?.filter { it.endsWith(".json") } ?: emptyList()
+            files.map { ContentDb.loadLevel(read("content/levels/$it")) }.filter { it.id != "rivals" }
+        }
         levels = localize(loaded).sortedBy { it.order }
     }
 
@@ -64,11 +83,8 @@ object GameContent {
         val scA = db.scenes.keys.mapNotNull { id -> L10n.opt("scene.$id.action")?.let { id to it } }.toMap()
         db.localizeNames(chN, scN, scA)
 
-        val actKeys = listOf("act.rome.1", "act.rome.2", "act.rome.3", "act.tudor.1", "act.tudor.2", "act.tudor.3",
-            "act.revolution.1", "act.revolution.2", "act.revolution.3",
-            "act.empire.1", "act.empire.2", "act.empire.3",
-            "act.borgia.1", "act.borgia.2", "act.borgia.3",
-            "act.byzantium.1", "act.byzantium.2", "act.byzantium.3")
+        // Ключи актов берём из самого каталога — так глава, приехавшая из облака, приносит свои акты с собой.
+        val actKeys = L10n.keys("act.")
         val actMap = actKeys.mapNotNull { k ->
             val ru = L10n.ruBase(k); val loc = L10n.opt(k); if (ru != null && loc != null) ru to loc else null
         }.toMap()

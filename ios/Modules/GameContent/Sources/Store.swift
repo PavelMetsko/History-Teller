@@ -11,7 +11,13 @@ public final class Store {
 
     /// Поглавные непотребляемые продукты: `com.decima.historyteller.chapter.<epoch>`.
     public static let chapterPrefix = "com.decima.historyteller.chapter."
-    public static let paidEpochs = ["tudor", "revolution", "empire", "borgia", "byzantium"]
+    /// Платные главы берём из манифеста: новая глава, выложенная в облако, сама попадёт в запрос
+    /// продуктов — достаточно завести IAP в App Store Connect, релиз для этого не нужен.
+    /// Вшитый список — фолбэк на случай, когда манифест ещё не скачан.
+    public static var paidEpochs: [String] {
+        let fromManifest = ContentSync.shared.availableChapters.filter { !$0.free }.map(\.id)
+        return fromManifest.isEmpty ? ["tudor", "revolution", "empire", "borgia", "byzantium"] : fromManifest
+    }
     public static func chapterProductID(_ epoch: String) -> String { chapterPrefix + epoch }
 
     /// Подписка на всё (группа `all_access`). Месяц + год.

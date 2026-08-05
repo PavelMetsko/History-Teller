@@ -11,9 +11,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         Billing.init(this)
         Audio.init(this)
-        // Приоритет: сохранённый язык из настроек → debug-extra "lang" → авто (системная локаль).
-        val savedLang = Settings(this).lang.ifEmpty { null }
-        GameContent.load(assets, langOverride = savedLang ?: intent.getStringExtra("lang"))
+        // Контент грузится в Root после ContentSync.syncCore — здесь его ещё нет.
         val startLevel = intent.getStringExtra("level")
         setContent { Root(startLevel) }
         Audio.startMusic("theme")

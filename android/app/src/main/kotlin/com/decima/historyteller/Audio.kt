@@ -32,9 +32,23 @@ object Audio {
         val sp = SoundPool.Builder().setMaxStreams(6).setAudioAttributes(attrs).build()
         pool = sp
         for (name in SFX) {
+            val file = ContentSync.fileFor("audio/$name.m4a")
+            if (file != null) { ids[name] = sp.load(file.absolutePath, 1); continue }
             val resId = ctx.resources.getIdentifier(name, "raw", ctx.packageName)
             if (resId != 0) ids[name] = sp.load(ctx, resId, 1)
         }
+    }
+
+    /**
+     * Перечитать SFX. Зовётся после синхронизации контента: пул набивается один раз на старте,
+     * и без перезагрузки звук, приехавший из облака, молчал бы до перезапуска.
+     */
+    fun reloadSfx(ctx: Context) {
+        pool?.release()
+        pool = null
+        ids.clear()
+        init(ctx)
+        if (currentMusic != null) { val m = desired; stopMusic(); startMusic(m) }
     }
 
     fun sfx(name: String) {
@@ -51,14 +65,23 @@ object Audio {
         if (currentMusic == name && music?.isPlaying == true) return
         stopMusic()
         val ctx = appCtx ?: return
-        val resId = ctx.resources.getIdentifier(name, "raw", ctx.packageName)
-        if (resId == 0) return
-        val mp = MediaPlayer.create(ctx, resId) ?: return
+        val mp = openMusic(ctx, name) ?: return
         mp.isLooping = true
         mp.setVolume(0.3f, 0.3f)
         mp.start()
         music = mp
         currentMusic = name
+    }
+
+    /** Скачанный трек перекрывает вшитый — звук тоже приезжает из облака. */
+    private fun openMusic(ctx: Context, name: String): MediaPlayer? {
+        ContentSync.fileFor("audio/$name.m4a")?.let { file ->
+            return runCatching {
+                MediaPlayer().apply { setDataSource(file.absolutePath); prepare() }
+            }.getOrNull()
+        }
+        val resId = ctx.resources.getIdentifier(name, "raw", ctx.packageName)
+        return if (resId != 0) MediaPlayer.create(ctx, resId) else null
     }
 
     fun stopMusic() {

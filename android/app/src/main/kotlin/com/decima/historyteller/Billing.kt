@@ -36,7 +36,14 @@ import com.android.billingclient.api.*
  */
 object Billing {
     const val CHAPTER_PREFIX = "com.decima.historyteller.chapter."
-    val PAID_EPOCHS = listOf("tudor", "revolution", "empire", "borgia", "byzantium")
+    /**
+     * Платные главы берём из манифеста: новая глава, выложенная в облако, сама попадёт в запрос
+     * продуктов — достаточно завести IAP в Play Console, релиз для этого не нужен.
+     * Вшитый список — фолбэк на случай, когда манифест ещё не скачан.
+     */
+    val PAID_EPOCHS: List<String>
+        get() = ContentSync.availableChapters().filterNot { it.free }.map { it.id }
+            .ifEmpty { listOf("tudor", "revolution", "empire", "borgia", "byzantium") }
     fun chapterProduct(epoch: String) = CHAPTER_PREFIX + epoch
     const val SUB_MONTHLY = "com.decima.historyteller.sub.monthly"
     const val SUB_YEARLY = "com.decima.historyteller.sub.yearly"

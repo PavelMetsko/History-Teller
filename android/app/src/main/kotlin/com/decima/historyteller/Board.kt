@@ -728,8 +728,8 @@ private fun PropBurst(prop: String, size: androidx.compose.ui.unit.Dp, rise: Flo
         launch { scale.animateTo(1f, spring(dampingRatio = 0.5f, stiffness = Spring.StiffnessMedium)) }
         launch { delay(holdMs); launch { ty.animateTo(-rise, tween(550)) }; alpha.animateTo(0f, tween(550)) }
     }
-    val id = drawableId(prop)
-    if (id != 0) Image(painterResource(id), null, Modifier.size(size).graphicsLayer {
+    val painter = artPainter(prop)
+    if (painter != null) Image(painter, null, Modifier.size(size).graphicsLayer {
         scaleX = scale.value; scaleY = scale.value; translationY = ty.value.dp.toPx(); this.alpha = alpha.value
     }, contentScale = ContentScale.Fit)
 }
@@ -739,8 +739,8 @@ private fun PropBurst(prop: String, size: androidx.compose.ui.unit.Dp, rise: Flo
 private fun GuillotineBlade(panelH: androidx.compose.ui.unit.Dp) {
     val drop = remember { Animatable(0f) }
     LaunchedEffect(Unit) { drop.animateTo(1f, tween(260, easing = FastOutSlowInEasing)) }
-    val id = drawableId("prop_blade")
-    if (id != 0) Image(painterResource(id), null, Modifier.height(panelH * 0.52f).graphicsLayer {
+    val painter = artPainter("prop_blade")
+    if (painter != null) Image(painter, null, Modifier.height(panelH * 0.52f).graphicsLayer {
         translationY = (panelH.toPx() * (-0.78f + 0.68f * drop.value))
     }, contentScale = ContentScale.Fit)
 }
@@ -769,8 +769,8 @@ private fun HeartsRise(modifier: Modifier) {
 private fun DescendingCrown() {
     val land = remember { Animatable(0f) }
     LaunchedEffect(Unit) { land.animateTo(1f, spring(dampingRatio = 0.5f, stiffness = Spring.StiffnessLow)) }
-    val id = drawableId("prop_crown")
-    if (id != 0) Image(painterResource(id), null, Modifier.size(34.dp).graphicsLayer {
+    val painter = artPainter("prop_crown")
+    if (painter != null) Image(painter, null, Modifier.size(34.dp).graphicsLayer {
         val s = 1.6f - 0.6f * land.value; scaleX = s; scaleY = s
         translationY = (-74f + 44f * land.value).dp.toPx()
         alpha = land.value

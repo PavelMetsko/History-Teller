@@ -1,7 +1,7 @@
 import Foundation
 import AVFoundation
 
-/// Проигрывание SFX (пул плееров для наложения) и фоновой музыки. Файлы — из контент-бандла.
+/// Проигрывание SFX (пул плееров для наложения) и фоновой музыки. Файлы — из контент-бандла (AAC/.m4a).
 public final class Audio {
     public static let shared = Audio()
 
@@ -24,13 +24,26 @@ public final class Audio {
         #endif
     }
 
+    /// Сбросить кеш плееров. Зовётся после синхронизации контента: пулы набиваются лениво,
+    /// и без сброса звук, приехавший из облака, молчал бы до перезапуска.
+    public func reset() {
+        pools.removeAll()
+        currentMusicName = nil
+    }
+
     public func preload() {
         for s in SFX.allCases { _ = pool(for: s) }
     }
 
+    /// Скачанный трек перекрывает вшитый — звук тоже приезжает из облака.
+    private static func audioURL(_ name: String) -> URL? {
+        ContentSync.shared.fileURL("audio/\(name).m4a")
+            ?? Bundle.gameContent.url(forResource: name, withExtension: "m4a")
+    }
+
     private func pool(for s: SFX) -> [AVAudioPlayer] {
         if let p = pools[s] { return p }
-        guard let url = Bundle.gameContent.url(forResource: s.rawValue, withExtension: "wav") else {
+        guard let url = Self.audioURL(s.rawValue) else {
             pools[s] = []; return []
         }
         var arr: [AVAudioPlayer] = []
@@ -60,7 +73,7 @@ public final class Audio {
             return
         }
         music?.stop()
-        guard let url = Bundle.gameContent.url(forResource: name, withExtension: "wav") else { return }
+        guard let url = Self.audioURL(name) else { return }
         let player = try? AVAudioPlayer(contentsOf: url)
         player?.numberOfLoops = -1
         player?.volume = volume

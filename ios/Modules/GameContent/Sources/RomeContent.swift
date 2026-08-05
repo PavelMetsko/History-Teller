@@ -24,7 +24,7 @@ public enum RomeContent {
         // Акт II · Царица и диктатор (48–44 до н.э.)
         "cleopatra_charm",
         "cleopatra_throne",
-        "cleopatra_heir",
+        "cleopatra_rome",
         "caesar_crown",
         "caesar_assassination",
         // Акт III · Наследники (43–30 до н.э.)
@@ -130,22 +130,29 @@ public enum RomeContent {
 
     public static func load() throws -> Pack {
         let bundle = Bundle.gameContent
-        func json(_ name: String) throws -> String {
-            guard let url = bundle.url(forResource: name, withExtension: "json") else {
+        let sync = ContentSync.shared
+
+        /// Скачанное имеет приоритет над вшитым: в бандле лежит лишь стартовый набор,
+        /// а актуальный контент приезжает из облака.
+        func json(_ logical: String, bundled: String) throws -> String {
+            if let downloaded = sync.text(logical) { return downloaded }
+            guard let url = bundle.url(forResource: bundled, withExtension: "json") else {
                 throw NSError(domain: "GameContent", code: 1,
-                              userInfo: [NSLocalizedDescriptionKey: "Не найден ресурс \(name).json"])
+                              userInfo: [NSLocalizedDescriptionKey: "Не найден ресурс \(bundled).json"])
             }
             return try String(contentsOf: url, encoding: .utf8)
         }
 
         let db = try ContentDb.fromJson(
-            charactersJson: try json("characters"),
-            scenesJson: try json("scenes"),
-            rulesJson: try json("rules"))
+            charactersJson: try json("content/characters.json", bundled: "characters"),
+            scenesJson: try json("content/scenes.json", bundled: "scenes"),
+            rulesJson: try json("content/rules.json", bundled: "rules"))
 
+        // Состав уровней задаёт манифест — иначе добавленный в облаке уровень не появился бы,
+        // а выключенный продолжал бы показываться. Без манифеста работаем на вшитом списке.
         var levels: [LevelDef] = []
-        for id in levelIds {
-            guard let raw = try? json(id) else { continue }
+        for id in sync.levelIds ?? levelIds {
+            guard let raw = try? json("content/levels/\(id).json", bundled: id) else { continue }
             levels.append(try ContentDb.loadLevel(raw))
         }
         localize(db, &levels)
@@ -163,12 +170,9 @@ public enum RomeContent {
         }
         db.localizeNames(characterNames: chNames, sceneNames: scNames, sceneActions: scActions)
 
-        // заголовки актов: raw-русская строка `act` → локализованная (по обратному соответствию)
-        let actKeys = ["act.rome.1", "act.rome.2", "act.rome.3", "act.tudor.1", "act.tudor.2", "act.tudor.3",
-                       "act.revolution.1", "act.revolution.2", "act.revolution.3",
-                       "act.empire.1", "act.empire.2", "act.empire.3",
-                       "act.borgia.1", "act.borgia.2", "act.borgia.3",
-                       "act.byzantium.1", "act.byzantium.2", "act.byzantium.3"]
+        // заголовки актов: raw-русская строка `act` → локализованная (по обратному соответствию).
+        // Ключи берём из самого каталога — так глава, приехавшая из облака, приносит свои акты с собой.
+        let actKeys = L10n.keys(prefix: "act.")
         var actMap: [String: String] = [:]
         for k in actKeys { if let ru = L10n.ruBase(k), let loc = L10n.opt(k) { actMap[ru] = loc } }
 

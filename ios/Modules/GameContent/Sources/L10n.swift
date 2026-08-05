@@ -10,8 +10,12 @@ public enum L10n {
     private static var table: [String: String] = read("ru")
     public private(set) static var lang: String = "ru"
 
-    /// Вызвать один раз на старте (и при смене языка в настройках).
-    public static func configure() { setLanguage(resolvedLanguage()) }
+    /// Вызвать на старте (и при смене языка). База перечитывается здесь, а не только при
+    /// первом обращении: каталог приезжает из облака, и статик мог инициализироваться пустым.
+    public static func configure() {
+        base = read("ru")
+        setLanguage(resolvedLanguage())
+    }
 
     public static func setLanguage(_ code: String) {
         lang = available.contains(code) ? code : "en"
@@ -43,8 +47,17 @@ public enum L10n {
     /// Русское (базовое) значение ключа — для обратного соответствия (напр. локализация акт-заголовков).
     public static func ruBase(_ key: String) -> String? { base[key] }
 
+    /// Все ключи базы с данным префиксом. Нужно, чтобы не держать списки ключей в коде:
+    /// новая глава приносит свои `act.<epoch>.N` вместе с каталогом и подхватывается сама.
+    public static func keys(prefix: String) -> [String] {
+        base.keys.filter { $0.hasPrefix(prefix) }.sorted()
+    }
+
     private static func read(_ code: String) -> [String: String] {
-        guard let url = Bundle.gameContent.url(forResource: "i18n_\(code)", withExtension: "json"),
+        // Скачанный каталог перекрывает вшитый — правки переводов приезжают без релиза.
+        let url = ContentSync.shared.fileURL("content/i18n/\(code).json")
+            ?? Bundle.gameContent.url(forResource: "i18n_\(code)", withExtension: "json")
+        guard let url,
               let data = try? Data(contentsOf: url),
               let dict = try? JSONDecoder().decode([String: String].self, from: data)
         else { return [:] }

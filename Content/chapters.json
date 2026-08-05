@@ -1,0 +1,8 @@
+[
+  { "id": "rome",       "number": 1, "cover": "forum",      "icon": "building.columns.fill", "free": true,  "minAppVersion": "1.0" },
+  { "id": "tudor",      "number": 2, "cover": "tower",      "icon": "crown.fill",            "free": false, "minAppVersion": "1.0" },
+  { "id": "revolution", "number": 3, "cover": "guillotine", "icon": "flame.fill",            "free": false, "minAppVersion": "1.0" },
+  { "id": "empire",     "number": 4, "cover": "sobor",      "icon": "seal.fill",             "free": false, "minAppVersion": "1.0" },
+  { "id": "borgia",     "number": 5, "cover": "curia",      "icon": "flame.fill",            "free": false, "minAppVersion": "1.0" },
+  { "id": "byzantium",  "number": 6, "cover": "hagia",      "icon": "cross.fill",            "free": false, "minAppVersion": "1.0" }
+]

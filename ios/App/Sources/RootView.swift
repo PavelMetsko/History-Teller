@@ -16,7 +16,7 @@ struct RootView: View {
     @State private var store = Store.shared
     @State private var showPaywall = false
     @State private var pendingEpoch: String?
-    @StateObject private var loader = ChapterAssetLoader()
+    @State private var sync = ContentSync.shared
     @State private var loadingEpoch: String?
     @AppStorage("ht.onboarded") private var onboarded = false
     @State private var showOnboarding = false
@@ -75,8 +75,10 @@ struct RootView: View {
                     epoch: ep,
                     demoLevel: loadingDemoLevel(pack),
                     db: pack.db,
-                    loader: loader,
                     onReady: {
+                        // Уровни главы приезжают вместе с ней — пак надо пересобрать,
+                        // иначе глава откроется пустой.
+                        load()
                         selectedEpoch = ep
                         loadingEpoch = nil
                         go(.map)
@@ -194,7 +196,7 @@ struct RootView: View {
         } else if let loadError {
             errorView(loadError)
         } else {
-            ProgressView().task { load() }
+            bootView.task { await boot() }
         }
     }
 
@@ -212,14 +214,15 @@ struct RootView: View {
                     available: available, free: free,
                     progressText: available ? prog(id) : nil)
         }
-        return [
-            ch("rome", 1, "forum", "building.columns.fill", true, free: true),
-            ch("tudor", 2, "tower", "crown.fill", true),
-            ch("revolution", 3, "guillotine", "flame.fill", true),
-            ch("empire", 4, "sobor", "seal.fill", true),
-            ch("borgia", 5, "curia", "flame.fill", true),
-            ch("byzantium", 6, "hagia", "cross.fill", true),
-        ]
+        // Список глав задаёт манифест — иначе глава, выложенная в облако, не появилась бы в меню.
+        // Без манифеста (первый запуск офлайн) показываем то, что лежит в бандле.
+        let fromManifest = ContentSync.shared.availableChapters
+        guard !fromManifest.isEmpty else {
+            return [ch("rome", 1, "forum", "building.columns.fill", true, free: true)]
+        }
+        return fromManifest.map {
+            ch($0.id, $0.number, $0.cover, $0.icon, true, free: $0.free)
+        }
     }
 
     private func chapterTitle(_ epoch: String) -> String {
@@ -228,7 +231,7 @@ struct RootView: View {
 
     /// Открыть главу: встроенная (Rome) — сразу; остальные — через экран загрузки арта.
     private func openChapter(_ id: String) {
-        if loader.isReady(id) {
+        if sync.isChapterReady(id) {
             selectedEpoch = id; go(.map)
         } else {
             withAnimation(.easeIn(duration: 0.2)) { loadingEpoch = id }
@@ -236,18 +239,20 @@ struct RootView: View {
     }
 
     private func chapterNumber(_ epoch: String) -> Int {
-        ["rome": 1, "tudor": 2, "revolution": 3, "empire": 4, "borgia": 5, "byzantium": 6][epoch] ?? 1
+        sync.availableChapters.first { $0.id == epoch }?.number ?? 1
     }
 
     /// Демо-уровень для экрана загрузки — берём из встроенного Рима (арт всегда доступен).
     /// Закреплён египетский «Война за трон» (Цезарь/Клеопатра/Птолемей): красивый 3-панельный,
     /// стилистически цельный. Фолбэк — любой 3-панельный решаемый.
-    private func loadingDemoLevel(_ pack: RomeContent.Pack) -> LevelDef {
+    /// nil на первом запуске: уровни Рима приезжают вместе с главой, а экран загрузки
+    /// показывается до неё — тогда демо-сборки просто нет.
+    private func loadingDemoLevel(_ pack: RomeContent.Pack) -> LevelDef? {
         let rome = pack.levels(epoch: "rome")
         return rome.first { $0.id == "cleopatra_throne" }
             ?? rome.first { $0.panels == 3 && ($0.solution?.isEmpty == false) }
             ?? rome.first { $0.solution?.isEmpty == false }
-            ?? rome[0]
+            ?? rome.first
     }
 
     private func errorView(_ message: String) -> some View {
@@ -267,6 +272,13 @@ struct RootView: View {
         withAnimation(.easeInOut(duration: 0.25)) { screen = next }
     }
 
+    /// Старт: подтянуть манифест и core, затем собрать пак. Офлайн с пустым кешем — единственный
+    /// случай, когда игру показать нечем; во всех остальных работаем на том, что уже скачано.
+    private func boot() async {
+        await sync.syncCore()
+        load()
+    }
+
     private func load() {
         do {
             L10n.configure()
@@ -274,5 +286,26 @@ struct RootView: View {
             Audio.shared.preload()
             updateMusic()
         } catch { loadError = error.localizedDescription }
+    }
+
+    /// Первый запуск: пока едет core, показываем прогресс, а не бесконечный спиннер.
+    @ViewBuilder
+    private var bootView: some View {
+        VStack(spacing: 12) {
+            if let failure = sync.failure, !sync.hasCore {
+                Text(L10n.s("ui.load_fail")).font(.dsSerif(20)).foregroundStyle(DS.Palette.paper)
+                Text(failure).font(.dsCaption(12)).foregroundStyle(DS.Palette.paper.opacity(0.7))
+                    .multilineTextAlignment(.center)
+                Button(L10n.s("ui.retry")) { Task { await boot() } }
+                    .font(.dsBody(14)).buttonStyle(.borderedProminent).tint(DS.Palette.maroon)
+            } else {
+                ProgressView(value: sync.progressValue)
+                    .tint(DS.Palette.gold)
+                    .frame(width: 200)
+                Text(L10n.s("ui.downloading_chapter")).font(.dsCaption(11))
+                    .foregroundStyle(DS.Palette.paper.opacity(0.7))
+            }
+        }
+        .padding(32)
     }
 }

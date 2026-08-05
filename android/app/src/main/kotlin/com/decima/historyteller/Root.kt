@@ -58,12 +58,6 @@ sealed class Screen {
 }
 
 @Composable
-fun drawableId(name: String): Int {
-    val ctx = LocalContext.current
-    return remember(name) { ctx.resources.getIdentifier(name, "drawable", ctx.packageName) }
-}
-
-@Composable
 fun Root(startLevel: String? = null) {
     val ctx = LocalContext.current
     val progress = remember { Progress(ctx) }
@@ -88,7 +82,25 @@ fun Root(startLevel: String? = null) {
         }
     }
 
+    // Старт: подтянуть манифест и core, затем собрать контент. Офлайн с пустым кешем —
+    // единственный случай, когда игру показать нечем; иначе работаем на уже скачанном.
+    var booted by remember { mutableStateOf(false) }
+    var bootAttempt by remember { mutableIntStateOf(0) }
+    var bootError by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(bootAttempt) {
+        ContentSync.syncCore(ctx)
+        // Вшитого контента больше нет: если core не приехал, собирать нечего — остаёмся
+        // на экране загрузки с кнопкой «Повторить», а не падаем на первом же чтении.
+        runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
+            .onSuccess { booted = true; tick++ }
+            .onFailure { bootError = it.message ?: L10n.s("ui.load_fail") }
+    }
+
     Box(Modifier.fillMaxSize().background(Palette.backdrop), contentAlignment = Alignment.Center) {
+        if (!booted) {
+            BootScreen(bootError, onRetry = { bootError = null; bootAttempt++ })
+            return@Box
+        }
         BoxWithConstraints(Modifier.fillMaxSize()) {
             val stageH = if (maxWidth / maxHeight >= 1.7f) maxHeight else maxWidth / 1.7f
             Box(Modifier.width(maxWidth).height(stageH).align(Alignment.Center)) {
@@ -100,7 +112,7 @@ fun Root(startLevel: String? = null) {
                             onReset = { progress.reset(); tick++ })
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
-                            onSelect = { if (it == "rome") screen = Screen.Map(it) else loadingEpoch = it },
+                            onSelect = { if (ContentSync.isChapterReady(it)) screen = Screen.Map(it) else loadingEpoch = it },
                             onLocked = { pendingEpoch = it; showPaywall = true },
                             onBack = { screen = Screen.Menu })
                         is Screen.Map -> MapScreen(
@@ -140,7 +152,12 @@ fun Root(startLevel: String? = null) {
             ChapterLoadingScreen(
                 epoch = ep,
                 chapterTitle = L10n.s("map.$ep"),
-                onReady = { loadingEpoch = null; screen = Screen.Map(ep) })
+                onReady = {
+                    // Уровни главы приезжают вместе с ней — контент надо пересобрать,
+                    // иначе глава откроется пустой.
+                    runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
+                    loadingEpoch = null; screen = Screen.Map(ep); tick++
+                })
         }
 
         // Первый запуск: выбор языка → онбординг.
@@ -199,8 +216,7 @@ private fun MenuScreen(onPlay: () -> Unit, onSettings: () -> Unit, onReset: () -
 
 @Composable
 private fun Sprite(name: String, height: androidx.compose.ui.unit.Dp) {
-    val id = drawableId(name)
-    if (id != 0) Image(painterResource(id), null, Modifier.height(height), contentScale = ContentScale.Fit)
+    ArtImage(name, Modifier.height(height), ContentScale.Fit)
 }
 
 @Composable
@@ -217,14 +233,14 @@ private data class Chapter(val id: String, val number: Int, val cover: String?, 
 
 @Composable
 private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLocked: (String) -> Unit, onBack: () -> Unit) {
-    val chapters = listOf(
-        Chapter("rome", 1, "scene_forum", true, true),
-        Chapter("tudor", 2, "scene_tower", true, false),  // фримиум: за покупкой unlockall
-        Chapter("revolution", 3, "scene_guillotine", true, false),
-        Chapter("empire", 4, "scene_sobor", true, false),
-        Chapter("borgia", 5, "scene_curia", true, false),
-        Chapter("byzantium", 6, "scene_hagia", true, false),
-    )
+    // Список глав задаёт манифест — иначе глава, выложенная в облако, не появилась бы в меню.
+    // Без манифеста (первый запуск офлайн) показываем то, что лежит в бандле.
+    val fromManifest = ContentSync.availableChapters()
+    val chapters = if (fromManifest.isEmpty()) {
+        listOf(Chapter("rome", 1, "scene_forum", true, true))
+    } else {
+        fromManifest.map { Chapter(it.id, it.number, "scene_${it.cover}", true, it.free) }
+    }
     Box(Modifier.fillMaxSize().padding(16.dp)) {
         BookPage(Modifier.fillMaxSize()) {
             Column(Modifier.fillMaxSize().padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
@@ -260,8 +276,9 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
             .clickable(enabled = clickable) { onTap() }
     ) {
         Box(Modifier.fillMaxWidth().height(150.dp).background(Palette.panel), contentAlignment = Alignment.Center) {
-            val id = if (ch.cover != null && ch.available) drawableId(ch.cover) else 0
-            if (id != 0) Image(painterResource(id), null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+            if (ch.cover != null && ch.available) {
+                ArtImage(ch.cover, Modifier.fillMaxSize(), ContentScale.Crop)
+            }
             if (!ch.available)
                 Icon(Icons.Filled.Lock, null, tint = Palette.ink.copy(alpha = 0.5f), modifier = Modifier.size(26.dp))
             else if (premiumLocked) {

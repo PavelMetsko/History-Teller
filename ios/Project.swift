@@ -38,22 +38,11 @@ let project = Project(
         framework("Simulation", sources: ["Modules/Simulation/Sources/Simulation/**"]),
         framework("DesignSystem"),
         framework("GameProgress"),
+        // Арт — файлами WebP (Resources/Art), не каталогом ассетов: actool перекодирует каталог
+        // без потерь и съедает весь выигрыш. ODR отсюда убран — Apple его в фреймворках не
+        // поддерживает, теги проставлялись, но не работали; доставку глав берёт на себя ContentSync.
         framework("GameContent",
-                  resourceList: [
-                      // Установочный бандл: JSON, i18n, арт Рима + общий (prop/ui).
-                      "Modules/GameContent/Resources/**",
-                      // On-Demand Resources по главам — App Store хостит, качается при открытии.
-                      .glob(pattern: "Modules/GameContent/ChapterResources/Tudor.xcassets",
-                            tags: ["chapter_tudor"]),
-                      .glob(pattern: "Modules/GameContent/ChapterResources/Revolution.xcassets",
-                            tags: ["chapter_revolution"]),
-                      .glob(pattern: "Modules/GameContent/ChapterResources/Empire.xcassets",
-                            tags: ["chapter_empire"]),
-                      .glob(pattern: "Modules/GameContent/ChapterResources/Borgia.xcassets",
-                            tags: ["chapter_borgia"]),
-                      .glob(pattern: "Modules/GameContent/ChapterResources/Byzantium.xcassets",
-                            tags: ["chapter_byzantium"]),
-                  ],
+                  resources: true,
                   dependencies: [.target(name: "Simulation")]),
         framework("LevelFeature",
                   dependencies: [
