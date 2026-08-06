@@ -932,5 +932,6 @@
   "ui.wrong_inert": "Completely wrong — neither place nor characters",
   "ui.wrong_order": "Right pieces — wrong order",
   "ui.wrong_scene": "Right characters — wrong place",
-  "ui.retry": "Retry"
+  "ui.retry": "Retry",
+  "ui.downloading_content": "Downloading content…"
 }

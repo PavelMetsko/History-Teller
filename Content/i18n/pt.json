@@ -932,5 +932,6 @@
   "ui.wrong_inert": "Completamente errado — nem o lugar, nem as personagens",
   "ui.wrong_order": "Tudo certo — mas na ordem errada",
   "ui.wrong_scene": "Personagens certas — mas o lugar errado",
-  "ui.retry": "Tentar novamente"
+  "ui.retry": "Tentar novamente",
+  "ui.downloading_content": "Baixando conteúdo…"
 }

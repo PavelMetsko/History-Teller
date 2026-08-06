@@ -932,5 +932,6 @@
   "ui.wrong_inert": "Helemaal verkeerd — noch de plek, noch de personen",
   "ui.wrong_order": "Alles klopt — maar in de verkeerde volgorde",
   "ui.wrong_scene": "De juiste personages — maar de verkeerde plek",
-  "ui.retry": "Opnieuw"
+  "ui.retry": "Opnieuw",
+  "ui.downloading_content": "Inhoud downloaden…"
 }

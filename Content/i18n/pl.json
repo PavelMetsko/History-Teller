@@ -932,5 +932,6 @@
   "ui.wrong_inert": "Zupełnie nie to — ani miejsce, ani postacie",
   "ui.wrong_order": "Wszystko dobrze — ale w złej kolejności",
   "ui.wrong_scene": "Właściwi bohaterowie — ale nie to miejsce",
-  "ui.retry": "Ponów"
+  "ui.retry": "Ponów",
+  "ui.downloading_content": "Pobieranie zawartości…"
 }

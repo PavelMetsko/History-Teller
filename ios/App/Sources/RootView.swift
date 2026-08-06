@@ -302,7 +302,7 @@ struct RootView: View {
                 ProgressView(value: sync.progressValue)
                     .tint(DS.Palette.gold)
                     .frame(width: 200)
-                Text(L10n.s("ui.downloading_chapter")).font(.dsCaption(11))
+                Text(L10n.s("ui.downloading_content")).font(.dsCaption(11))
                     .foregroundStyle(DS.Palette.paper.opacity(0.7))
             }
         }

@@ -240,7 +240,7 @@ fun BootScreen(bootError: String? = null, onRetry: () -> Unit) {
         } else {
             Column(Modifier.width(230.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 ProgressBar(progress)
-                Text(L10n.s("ui.downloading_chapter"), color = Palette.paper.copy(alpha = 0.5f),
+                Text(L10n.s("ui.downloading_content"), color = Palette.paper.copy(alpha = 0.5f),
                     fontSize = 10.sp, fontFamily = Fonts.rounded, modifier = Modifier.padding(top = 6.dp))
             }
         }

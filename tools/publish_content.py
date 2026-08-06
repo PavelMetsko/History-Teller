@@ -114,9 +114,17 @@ def source_of(logical: str) -> Path:
     return CONTENT / logical
 
 
+def load_disabled() -> list:
+    """Выключенные уровни — `Content/disabled.json`. Это рубильник: правишь файл, публикуешь
+    манифест, и уровень пропадает у всех, кто уже поставил игру. Пересборка не нужна."""
+    f = CONTENT / "disabled.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+
+
 def build(out: Path, version: int) -> dict:
     chapters_meta = json.loads((CONTENT / "chapters.json").read_text(encoding="utf-8"))
     levels = load_levels()
+    disabled = load_disabled()
 
     per_chapter: dict[str, set[str]] = {}
     level_ids: dict[str, list[str]] = {}
@@ -157,7 +165,7 @@ def build(out: Path, version: int) -> dict:
             for c in sorted(chapters_meta, key=lambda c: c["number"])
             if c["id"] in per_chapter
         ],
-        "disabled": [],
+        "disabled": disabled,
         "core": sorted(core),
         "chapterFiles": {k: sorted(v) for k, v in sorted(per_chapter.items())},
         "files": files,
@@ -178,6 +186,8 @@ def report(manifest: dict, out: Path):
     print(f"дедуп: {total/1e6:.1f} МБ логически → {on_disk/1e6:.1f} МБ в облаке "
           f"(минус {(total-on_disk)/1e6:.1f} МБ)")
     print(f"core (первый запуск): {core/1e6:.2f} МБ")
+    if manifest["disabled"]:
+        print(f"выключено: {', '.join(manifest['disabled'])}")
     for c in manifest["chapters"]:
         s = sum(files[f]["s"] for f in manifest["chapterFiles"][c["id"]])
         print(f"  {c['number']}. {c['id']:11s} {len(c['levels']):2d} уровней  {s/1e6:5.2f} МБ")

@@ -932,5 +932,6 @@
   "ui.wrong_inert": "Weder Ort noch Personen stimmen",
   "ui.wrong_order": "Alles richtig — falsche Reihenfolge",
   "ui.wrong_scene": "Richtige Personen – falscher Ort",
-  "ui.retry": "Erneut versuchen"
+  "ui.retry": "Erneut versuchen",
+  "ui.downloading_content": "Inhalte werden geladen…"
 }

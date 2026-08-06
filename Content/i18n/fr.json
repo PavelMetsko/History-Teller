@@ -932,5 +932,6 @@
   "ui.wrong_inert": "Tout faux — ni lieu, ni personnages",
   "ui.wrong_order": "Les bons éléments — mais dans le mauvais ordre",
   "ui.wrong_scene": "Bons héros — mais mauvais lieu",
-  "ui.retry": "Réessayer"
+  "ui.retry": "Réessayer",
+  "ui.downloading_content": "Téléchargement du contenu…"
 }
