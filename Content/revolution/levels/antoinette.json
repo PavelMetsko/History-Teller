@@ -1,58 +1,53 @@
 {
-  "id": "antoinette",
-  "order": 40,
-  "epoch": "revolution",
-  "act": "Акт I · Революция",
-  "title": "Вдова Капет",
-  "panels": 2,
-  "scenes": [
-    "assembly",
-    "guillotine",
-    "tribune"
-  ],
-  "characters": [
+ "id": "antoinette",
+ "order": 40,
+ "epoch": "revolution",
+ "act": "Акт I · Революция",
+ "panels": 2,
+ "scenes": [
+  "assembly",
+  "guillotine",
+  "tribune"
+ ],
+ "characters": [
+  "robespierre",
+  "antoinette"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "antoinette",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "antoinette",
+     "is": "beheaded"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "assembly",
+   "characters": [
     "robespierre",
     "antoinette"
-  ],
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "antoinette",
-          "is": "dead"
-        }
-      },
-      {
-        "flag": {
-          "char": "antoinette",
-          "is": "beheaded"
-        }
-      }
-    ]
+   ]
   },
-  "goalText": "Бывшую королеву судят и казнят",
-  "goalHint": "Клуб якобинцев тут ни при чём — веди её через суд и эшафот.",
-  "solution": [
-    {
-      "scene": "assembly",
-      "characters": [
-        "robespierre",
-        "antoinette"
-      ]
-    },
-    {
-      "scene": "guillotine",
-      "characters": [
-        "robespierre",
-        "antoinette"
-      ]
-    }
-  ],
-  "cover": "guillotine",
-  "music": "revolution_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "16 октября 1793 г. Мария-Антуанетта, «вдова Капет», была казнена на гильотине спустя девять месяцев после мужа. Революционный трибунал обвинил её в измене и заговоре с иностранными державами.",
-    "source": "Революционный трибунал, 1793 г."
+  {
+   "scene": "guillotine",
+   "characters": [
+    "robespierre",
+    "antoinette"
+   ]
   }
+ ],
+ "cover": "guillotine",
+ "music": "revolution_tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

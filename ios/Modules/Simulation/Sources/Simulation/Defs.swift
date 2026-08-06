@@ -111,10 +111,21 @@ public struct RuleDef: Decodable {
     }
 }
 
+/// Достоверность эпизода — метаданные, задаются в файле уровня.
+/// Сам текст и источник живут в каталогах i18n и накладываются на загрузке.
 public struct FactCard: Decodable {
     public let accuracy: String   // fact | simplification | legend
-    public var text: String
-    public var source: String
+    public var text: String = ""
+    public var source: String = ""
+
+    enum CodingKeys: String, CodingKey { case accuracy, text, source }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        accuracy = try c.decode(String.self, forKey: .accuracy)
+        text = try c.decodeIfPresent(String.self, forKey: .text) ?? ""
+        source = try c.decodeIfPresent(String.self, forKey: .source) ?? ""
+    }
 }
 
 /// Стартовые условия уровня (например, «Брут — союзник Цезаря»).
@@ -178,7 +189,7 @@ public struct LevelDef: Decodable {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         id = try c.decode(String.self, forKey: .id)
         order = try c.decodeIfPresent(Int.self, forKey: .order) ?? 0
-        title = try c.decode(String.self, forKey: .title)
+        title = try c.decodeIfPresent(String.self, forKey: .title) ?? ""   // текст приходит из i18n
         epoch = try c.decode(String.self, forKey: .epoch)
         panels = try c.decode(Int.self, forKey: .panels)
         scenes = try c.decodeIfPresent([String].self, forKey: .scenes) ?? []

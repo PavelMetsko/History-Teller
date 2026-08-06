@@ -128,10 +128,18 @@ object ContentSync {
                 phase = if (manifest == null) Phase.Failed("Требуется обновление приложения") else Phase.Ready
                 return@withContext
             }
+            // Какие главы были собраны — считаем по ПРЕЖНЕМУ манифесту, пока он ещё актуален.
+            // По новому это не определить: правка, задевшая все файлы главы разом, обнулила бы
+            // все хеши, и глава выглядела бы никогда не скачанной.
+            val installed = chaptersReady(manifest)
             manifest = fresh
             download(fresh.core, fresh)
-            // Манифест фиксируем только когда core реально на диске.
+            // Догружаем изменившееся в собранных главах: иначе правка уровня выкинула бы его
+            // с карты — файл сменил хеш, а в кеше лежит прежний.
+            for (id in installed) fresh.chapterFiles[id]?.let { download(it, fresh) }
+            // Манифест фиксируем только когда всё реально на диске.
             File(root, "manifest.json").writeText(json.encodeToString(ContentManifest.serializer(), fresh))
+            pruneOrphans(fresh)
             generation++
             Audio.reloadSfx(ctx)
             phase = Phase.Ready
@@ -160,6 +168,26 @@ object ContentSync {
     }
 
     // ---- Внутреннее ----
+
+    /**
+     * Главы, полностью собранные по данному манифесту. Вызывается до подмены манифеста —
+     * по прежним хешам, потому что только они описывают то, что реально лежит на диске.
+     */
+    private fun chaptersReady(m: ContentManifest?): List<String> {
+        if (m == null) return emptyList()
+        return m.chapterFiles.filterValues { files ->
+            files.all { path -> m.files[path]?.let { File(objects, it.h).exists() } == true }
+        }.keys.toList()
+    }
+
+    /**
+     * Выкидывает объекты, на которые новый манифест больше не ссылается: после правки контента
+     * прежняя версия файла осталась бы на диске навсегда.
+     */
+    private fun pruneOrphans(m: ContentManifest) {
+        val alive = m.files.values.map { it.h }.toHashSet()
+        objects.listFiles()?.forEach { if (it.name !in alive) it.delete() }
+    }
 
     /** Качает недостающие объекты. Прогресс — по байтам, чтобы полоска не скакала на мелких JSON. */
     private fun download(logical: List<String>, m: ContentManifest) {

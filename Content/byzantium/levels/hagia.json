@@ -1,54 +1,48 @@
 {
-  "id": "hagia",
-  "order": 110,
-  "epoch": "byzantium",
-  "act": "Акт III · Слава и закат",
-  "title": "Святая София",
-  "panels": 2,
-  "scenes": [
-    "ashes_b",
-    "hagia"
-  ],
-  "characters": [
-    "justinian",
-    "john",
-    "narses"
-  ],
-  "initialState": {
-    "flags": {
-      "justinian": [
-        "reigns"
-      ]
-    }
-  },
-  "initialText": "Восстание Ника выжгло старый храм дотла. На пепелище Юстиниан задумывает невиданное.",
-  "goal": {
-    "flag": {
-      "char": "justinian",
-      "is": "builder"
-    }
-  },
-  "goalText": "Император возводит величайший храм христианства",
-  "goalHint": "Пусть сам император на руинах замыслит собор — и лишь тогда воздвигнет Святую Софию. Придворные храма не строят.",
-  "solution": [
-    {
-      "scene": "ashes_b",
-      "characters": [
-        "justinian"
-      ]
-    },
-    {
-      "scene": "hagia",
-      "characters": [
-        "justinian"
-      ]
-    }
-  ],
-  "cover": "hagia",
-  "music": "byzantium_ceremony",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "После пожара Ника Юстиниан отстроил собор Святой Софии (537) — на тысячу лет величайший храм христианства. Войдя под его исполинский купол, император, по преданию, воскликнул: «Соломон, я превзошёл тебя!».",
-    "source": "Прокопий, «О постройках»"
+ "id": "hagia",
+ "order": 110,
+ "epoch": "byzantium",
+ "act": "Акт III · Слава и закат",
+ "panels": 2,
+ "scenes": [
+  "ashes_b",
+  "hagia"
+ ],
+ "characters": [
+  "justinian",
+  "john",
+  "narses"
+ ],
+ "initialState": {
+  "flags": {
+   "justinian": [
+    "reigns"
+   ]
   }
+ },
+ "goal": {
+  "flag": {
+   "char": "justinian",
+   "is": "builder"
+  }
+ },
+ "solution": [
+  {
+   "scene": "ashes_b",
+   "characters": [
+    "justinian"
+   ]
+  },
+  {
+   "scene": "hagia",
+   "characters": [
+    "justinian"
+   ]
+  }
+ ],
+ "cover": "hagia",
+ "music": "byzantium_ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

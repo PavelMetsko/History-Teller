@@ -1,55 +1,49 @@
 {
-  "id": "nika",
-  "order": 50,
-  "epoch": "byzantium",
-  "act": "Акт II · Ника",
-  "title": "Восстание Ника",
-  "panels": 2,
-  "scenes": [
-    "unrest_b",
-    "hippodrome"
-  ],
-  "characters": [
-    "hypatius",
-    "germanus",
-    "john"
-  ],
-  "goal": {
-    "flag": {
-      "char": "hypatius",
-      "is": "acclaimed"
-    }
+ "id": "nika",
+ "order": 50,
+ "epoch": "byzantium",
+ "act": "Акт II · Ника",
+ "panels": 2,
+ "scenes": [
+  "unrest_b",
+  "hippodrome"
+ ],
+ "characters": [
+  "hypatius",
+  "germanus",
+  "john"
+ ],
+ "goal": {
+  "flag": {
+   "char": "hypatius",
+   "is": "acclaimed"
+  }
+ },
+ "solution": [
+  {
+   "scene": "unrest_b",
+   "characters": [
+    "john",
+    "hypatius"
+   ]
   },
-  "goalText": "Мятежная толпа провозглашает Ипатия императором",
-  "goalHint": "Пусть ярость на мздоимца Иоанна вскинет мятеж — и уже взбунтованная толпа провозгласит Ипатия. Германс знатен, но толпа подняла не его.",
-  "solution": [
-    {
-      "scene": "unrest_b",
-      "characters": [
-        "john",
-        "hypatius"
-      ]
-    },
-    {
-      "scene": "hippodrome",
-      "characters": [
-        "hypatius"
-      ]
-    }
-  ],
-  "cover": "hippodrome",
-  "music": "byzantium_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В январе 532 г. цирковые партии «синих» и «зелёных», обычно враждебные, объединились с кличем «Ника!» («Побеждай!»). Полгорода выгорело; толпа против воли провозгласила императором знатного Ипатия, племянника прежнего государя.",
-    "source": "История восстания Ника"
-  },
-  "initialState": {
-    "flags": {
-      "john": [
-        "hated"
-      ]
-    }
-  },
-  "initialText": "Январь 532 г. Синие и зелёные, вечные враги, объединились против поборов ненавистного Иоанна. Толпе нужен император взамен Юстиниана."
+  {
+   "scene": "hippodrome",
+   "characters": [
+    "hypatius"
+   ]
+  }
+ ],
+ "cover": "hippodrome",
+ "music": "byzantium_tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "john": [
+    "hated"
+   ]
+  }
+ }
 }

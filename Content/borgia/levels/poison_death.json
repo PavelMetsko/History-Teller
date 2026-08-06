@@ -1,49 +1,43 @@
 {
-  "id": "poison_death",
-  "order": 110,
-  "epoch": "borgia",
-  "act": "Акт III · Государь",
-  "title": "Роковой пир",
-  "panels": 2,
-  "scenes": [
-    "prepare_pd",
-    "feast_pd"
-  ],
-  "characters": [
-    "rodrigo",
+ "id": "poison_death",
+ "order": 110,
+ "epoch": "borgia",
+ "act": "Акт III · Государь",
+ "panels": 2,
+ "scenes": [
+  "prepare_pd",
+  "feast_pd"
+ ],
+ "characters": [
+  "rodrigo",
+  "cesare",
+  "orsini"
+ ],
+ "goal": {
+  "flag": {
+   "char": "rodrigo",
+   "is": "dead"
+  }
+ },
+ "solution": [
+  {
+   "scene": "prepare_pd",
+   "characters": [
     "cesare",
     "orsini"
-  ],
-  "goal": {
-    "flag": {
-      "char": "rodrigo",
-      "is": "dead"
-    }
+   ]
   },
-  "goalText": "Папа выпивает вино, отравленное для другого",
-  "goalHint": "Пусть Чезаре сперва приготовит яд для кардинала — и по роковой ошибке отравленное вино на пиру выпьет сам папа. Без заговора сына пир безобиден.",
-  "solution": [
-    {
-      "scene": "prepare_pd",
-      "characters": [
-        "cesare",
-        "orsini"
-      ]
-    },
-    {
-      "scene": "feast_pd",
-      "characters": [
-        "rodrigo",
-        "cesare"
-      ]
-    }
-  ],
-  "cover": "feast",
-  "music": "borgia_tension",
-  "factCard": {
-    "accuracy": "legend",
-    "text": "В августе 1503 г. Александр VI внезапно умер от лихорадки. По живучей легенде, папа и Чезаре по ошибке выпили вино, отравленное ими для богатого кардинала. Чезаре выжил, но потерял всё. Историки же считают причиной малярию.",
-    "source": "Хроники 1503 г."
-  },
-  "initialText": "Борджиа задумали извести на пиру богатого кардинала отравленным вином. Но судьба распорядилась иначе."
+  {
+   "scene": "feast_pd",
+   "characters": [
+    "rodrigo",
+    "cesare"
+   ]
+  }
+ ],
+ "cover": "feast",
+ "music": "borgia_tension",
+ "factCard": {
+  "accuracy": "legend"
+ }
 }

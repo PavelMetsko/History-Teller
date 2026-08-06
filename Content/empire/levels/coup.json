@@ -1,67 +1,61 @@
 {
-  "id": "coup",
-  "order": 90,
-  "epoch": "empire",
-  "act": "Акт III · Екатерина Великая",
-  "title": "Переворот 1762 года",
-  "panels": 2,
-  "scenes": [
-    "guard_c",
-    "perevorot"
-  ],
-  "characters": [
-    "catherine",
-    "peter3",
-    "orlov"
-  ],
-  "initialState": {
-    "flags": {
-      "peter3": [
-        "reigns",
-        "crowned"
-      ]
-    }
-  },
-  "initialText": "Пётр III непопулярен и слаб. Его жена Екатерина и гвардеец Орлов готовят переворот.",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "catherine",
-          "is": "crowned"
-        }
-      },
-      {
-        "flag": {
-          "char": "peter3",
-          "is": "dead"
-        }
-      }
-    ]
-  },
-  "goalText": "Гвардия низлагает Петра III — престол берёт Екатерина",
-  "goalHint": "Пусть Орлов сперва поднимет за Екатерину гвардию — и лишь опершись на штыки, она низложит и погубит Петра III. Без гвардии переворот сорвётся.",
-  "solution": [
-    {
-      "scene": "guard_c",
-      "characters": [
-        "orlov",
-        "catherine"
-      ]
-    },
-    {
-      "scene": "perevorot",
-      "characters": [
-        "catherine",
-        "peter3"
-      ]
-    }
-  ],
-  "cover": "perevorot",
-  "music": "empire_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "28 июня 1762 г. гвардия возвела на престол Екатерину, низложив её мужа Петра III. Через неделю бывший император погиб в Ропше. Начались 34 года «золотого века» дворянства.",
-    "source": "История дворцового переворота 1762 г."
+ "id": "coup",
+ "order": 90,
+ "epoch": "empire",
+ "act": "Акт III · Екатерина Великая",
+ "panels": 2,
+ "scenes": [
+  "guard_c",
+  "perevorot"
+ ],
+ "characters": [
+  "catherine",
+  "peter3",
+  "orlov"
+ ],
+ "initialState": {
+  "flags": {
+   "peter3": [
+    "reigns",
+    "crowned"
+   ]
   }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "catherine",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "peter3",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "guard_c",
+   "characters": [
+    "orlov",
+    "catherine"
+   ]
+  },
+  {
+   "scene": "perevorot",
+   "characters": [
+    "catherine",
+    "peter3"
+   ]
+  }
+ ],
+ "cover": "perevorot",
+ "music": "empire_tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

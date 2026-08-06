@@ -41,7 +41,8 @@ data class TriggerDef(val sceneTags: List<String>, val actors: List<ActorDef>)
 data class EffectDef(val type: String, val target: String?, val flag: String?,
                      val rel: String?, val from: String?, val to: String?)
 data class RuleDef(val id: String, val priority: Int, val trigger: TriggerDef, val effects: List<EffectDef>)
-data class FactCard(val accuracy: String, val text: String, val source: String)
+/** Достоверность эпизода — метаданные из файла уровня. Текст и источник приходят из i18n. */
+data class FactCard(val accuracy: String, val text: String = "", val source: String = "")
 data class InitialStateDef(val flags: Map<String, List<String>>, val relations: List<List<String>>)
 
 /** Заполнение одной панели игроком. */

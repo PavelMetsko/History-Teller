@@ -1,49 +1,43 @@
 {
-  "id": "giulia",
-  "order": 30,
-  "epoch": "borgia",
-  "act": "Акт I · Восхождение",
-  "title": "Невеста Христова",
-  "panels": 2,
-  "scenes": [
-    "tryst_g",
-    "court_g"
-  ],
-  "characters": [
+ "id": "giulia",
+ "order": 30,
+ "epoch": "borgia",
+ "act": "Акт I · Восхождение",
+ "panels": 2,
+ "scenes": [
+  "tryst_g",
+  "court_g"
+ ],
+ "characters": [
+  "rodrigo",
+  "giulia",
+  "lucrezia"
+ ],
+ "goal": {
+  "flag": {
+   "char": "giulia",
+   "is": "favored"
+  }
+ },
+ "solution": [
+  {
+   "scene": "tryst_g",
+   "characters": [
     "rodrigo",
-    "giulia",
-    "lucrezia"
-  ],
-  "goal": {
-    "flag": {
-      "char": "giulia",
-      "is": "favored"
-    }
+    "giulia"
+   ]
   },
-  "goalText": "Юная красавица становится фавориткой папы",
-  "goalHint": "Пусть Джулия сперва пленит папу на свидании — и лишь влюблённый, он осыплет её милостями. Лукреция ему дочь, не любовница.",
-  "solution": [
-    {
-      "scene": "tryst_g",
-      "characters": [
-        "rodrigo",
-        "giulia"
-      ]
-    },
-    {
-      "scene": "court_g",
-      "characters": [
-        "rodrigo",
-        "giulia"
-      ]
-    }
-  ],
-  "cover": "tryst",
-  "music": "borgia_romance",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Джулию Фарнезе, юную любовницу Александра VI, римляне язвительно прозвали «Невестой Христовой». Через неё её брат сделал головокружительную карьеру и сам стал папой Павлом III.",
-    "source": "Хроники папского Рима"
-  },
-  "initialText": "Юная Джулия Фарнезе пленила старого папу. Ключ к папским милостям — через сердце понтифика."
+  {
+   "scene": "court_g",
+   "characters": [
+    "rodrigo",
+    "giulia"
+   ]
+  }
+ ],
+ "cover": "tryst",
+ "music": "borgia_romance",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

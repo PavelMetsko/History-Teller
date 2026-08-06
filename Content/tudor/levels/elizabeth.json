@@ -1,90 +1,84 @@
 {
-  "order": 110,
-  "epoch": "tudor",
-  "act": "Акт III · Наследники",
-  "title": "Королева-девственница",
-  "panels": 2,
-  "scenes": [
-    "abbey",
-    "court",
-    "chapel"
-  ],
-  "characters": [
+ "order": 110,
+ "epoch": "tudor",
+ "act": "Акт III · Наследники",
+ "panels": 2,
+ "scenes": [
+  "abbey",
+  "court",
+  "chapel"
+ ],
+ "characters": [
+  "elizabeth",
+  "philip",
+  "dudley"
+ ],
+ "initialState": {
+  "flags": {
+   "elizabeth": [
+    "royal_claim"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "elizabeth",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "elizabeth",
+     "is": "settled"
+    }
+   },
+   {
+    "flag": {
+     "char": "dudley",
+     "is": "favoured"
+    }
+   },
+   {
+    "not": {
+     "relation": {
+      "rel": "wed",
+      "from": "philip",
+      "to": "elizabeth"
+     }
+    }
+   },
+   {
+    "not": {
+     "relation": {
+      "rel": "wed",
+      "from": "elizabeth",
+      "to": "dudley"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "abbey",
+   "characters": [
+    "elizabeth"
+   ]
+  },
+  {
+   "scene": "court",
+   "characters": [
     "elizabeth",
-    "philip",
     "dudley"
-  ],
-  "initialState": {
-    "flags": {
-      "elizabeth": [
-        "royal_claim"
-      ]
-    }
-  },
-  "initialText": "Елизавета I венчается на царство. Женихи осаждают её: и Филипп Испанский, и любимый Роберт Дадли — но корона дороже.",
-  "goalText": "Елизавета коронуется, примиряет церковь — и остаётся незамужней",
-  "goalHint": "Короновать и уладить церковь. Дадли держи при дворе фаворитом — но к алтарю не веди ни его, ни Филиппа.",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "elizabeth",
-          "is": "crowned"
-        }
-      },
-      {
-        "flag": {
-          "char": "elizabeth",
-          "is": "settled"
-        }
-      },
-      {
-        "flag": {
-          "char": "dudley",
-          "is": "favoured"
-        }
-      },
-      {
-        "not": {
-          "relation": {
-            "rel": "wed",
-            "from": "philip",
-            "to": "elizabeth"
-          }
-        }
-      },
-      {
-        "not": {
-          "relation": {
-            "rel": "wed",
-            "from": "elizabeth",
-            "to": "dudley"
-          }
-        }
-      }
-    ]
-  },
-  "solution": [
-    {
-      "scene": "abbey",
-      "characters": [
-        "elizabeth"
-      ]
-    },
-    {
-      "scene": "court",
-      "characters": [
-        "elizabeth",
-        "dudley"
-      ]
-    }
-  ],
-  "cover": "abbey",
-  "music": "tudor_court",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Елизавета I (1558–1603) короновалась и «Елизаветинским церковным устроением» примирила протестантов и католиков. Женихов — включая Филиппа II и её фаворита Роберта Дадли — она отвергала всю жизнь, оставшись «королевой-девственницей»: незамужняя монархиня сама себе хозяйка.",
-    "source": "Хроники Тюдоров"
-  },
-  "id": "elizabeth"
+   ]
+  }
+ ],
+ "cover": "abbey",
+ "music": "tudor_court",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "id": "elizabeth"
 }

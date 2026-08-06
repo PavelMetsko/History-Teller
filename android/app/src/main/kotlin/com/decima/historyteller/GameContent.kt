@@ -76,8 +76,11 @@ object GameContent {
     fun levels(epoch: String): List<LevelDef> = levels.filter { it.epoch == epoch }.sortedBy { it.order }
     fun level(id: String): LevelDef? = levels.firstOrNull { it.id == id }
 
+    /**
+     * Накладывает тексты из каталога. Тексты уровней вынесены из их JSON целиком, поэтому
+     * накладывать надо всегда — включая русский, иначе уровень останется без названия и цели.
+     */
     private fun localize(levels: List<LevelDef>): List<LevelDef> {
-        if (L10n.lang == "ru") return levels
         val chN = db.characters.keys.mapNotNull { id -> L10n.opt("char.$id")?.let { id to it } }.toMap()
         val scN = db.scenes.keys.mapNotNull { id -> L10n.opt("scene.$id")?.let { id to it } }.toMap()
         val scA = db.scenes.keys.mapNotNull { id -> L10n.opt("scene.$id.action")?.let { id to it } }.toMap()

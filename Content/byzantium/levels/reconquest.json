@@ -1,47 +1,41 @@
 {
-  "id": "reconquest",
-  "order": 100,
-  "epoch": "byzantium",
-  "act": "Акт III · Слава и закат",
-  "title": "Возвращение Запада",
-  "panels": 2,
-  "scenes": [
-    "africa_b",
-    "italy_b"
-  ],
-  "characters": [
-    "belisarius",
-    "mundus",
-    "narses"
-  ],
-  "goal": {
-    "flag": {
-      "char": "belisarius",
-      "is": "victor"
-    }
+ "id": "reconquest",
+ "order": 100,
+ "epoch": "byzantium",
+ "act": "Акт III · Слава и закат",
+ "panels": 2,
+ "scenes": [
+  "africa_b",
+  "italy_b"
+ ],
+ "characters": [
+  "belisarius",
+  "mundus",
+  "narses"
+ ],
+ "goal": {
+  "flag": {
+   "char": "belisarius",
+   "is": "victor"
+  }
+ },
+ "solution": [
+  {
+   "scene": "africa_b",
+   "characters": [
+    "belisarius"
+   ]
   },
-  "goalText": "Велизарий отвоёвывает утраченные земли Рима",
-  "goalHint": "Пусть Велизарий сперва сокрушит вандалов и возьмёт Карфаген — и лишь покоритель Африки отвоюет Италию. Слава должна достаться ему, не Мунду.",
-  "solution": [
-    {
-      "scene": "africa_b",
-      "characters": [
-        "belisarius"
-      ]
-    },
-    {
-      "scene": "italy_b",
-      "characters": [
-        "belisarius"
-      ]
-    }
-  ],
-  "cover": "campaign",
-  "music": "byzantium_battle",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Велизарий с небольшим войском сокрушил королевство вандалов в Африке (533–534) и отвоевал у остготов Италию с Римом. Мечта Юстиниана о восстановлении Римской империи почти сбылась.",
-    "source": "Прокопий, «Войны»"
-  },
-  "initialText": "Юстиниан мечтает вернуть Риму Запад. Велизарий готов — но и другие полководцы рвутся к славе."
+  {
+   "scene": "italy_b",
+   "characters": [
+    "belisarius"
+   ]
+  }
+ ],
+ "cover": "campaign",
+ "music": "byzantium_battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

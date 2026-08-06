@@ -1,48 +1,42 @@
 {
-  "id": "poltava",
-  "order": 60,
-  "epoch": "empire",
-  "act": "Акт II · Пётр Великий",
-  "title": "Полтава",
-  "panels": 2,
-  "scenes": [
-    "muster_p",
-    "poltava_c"
-  ],
-  "characters": [
+ "id": "poltava",
+ "order": 60,
+ "epoch": "empire",
+ "act": "Акт II · Пётр Великий",
+ "panels": 2,
+ "scenes": [
+  "muster_p",
+  "poltava_c"
+ ],
+ "characters": [
+  "peter",
+  "charles",
+  "mazepa"
+ ],
+ "goal": {
+  "flag": {
+   "char": "charles",
+   "is": "defeated"
+  }
+ },
+ "solution": [
+  {
+   "scene": "muster_p",
+   "characters": [
+    "peter"
+   ]
+  },
+  {
+   "scene": "poltava_c",
+   "characters": [
     "peter",
-    "charles",
-    "mazepa"
-  ],
-  "goal": {
-    "flag": {
-      "char": "charles",
-      "is": "defeated"
-    }
-  },
-  "goalText": "Пётр наголову разбивает шведского короля",
-  "goalHint": "Пусть Пётр сперва соберёт и вышколит регулярное войско — и лишь готовая армия разобьёт под Полтавой шведа Карла. Изменник Мазепа — не та цель.",
-  "solution": [
-    {
-      "scene": "muster_p",
-      "characters": [
-        "peter"
-      ]
-    },
-    {
-      "scene": "poltava_c",
-      "characters": [
-        "peter",
-        "charles"
-      ]
-    }
-  ],
-  "cover": "poltava",
-  "music": "empire_battle",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "27 июня 1709 г. под Полтавой армия Петра I разгромила шведов Карла XII. Победа переломила Северную войну и превратила Россию в великую европейскую державу.",
-    "source": "Реляция о Полтавской баталии"
-  },
-  "initialText": "Карл XII вторгся в Россию, а гетман Мазепа предал Петра и увёл казаков к шведу. Решается судьба войны."
+    "charles"
+   ]
+  }
+ ],
+ "cover": "poltava",
+ "music": "empire_battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

@@ -1,46 +1,41 @@
 {
-  "id": "nepotism",
-  "order": 20,
-  "epoch": "borgia",
-  "act": "Акт I · Восхождение",
-  "title": "Кардинал в восемнадцать",
-  "panels": 2,
-  "scenes": [
-    "curia",
-    "conclave"
-  ],
-  "characters": [
+ "id": "nepotism",
+ "order": 20,
+ "epoch": "borgia",
+ "act": "Акт I · Восхождение",
+ "panels": 2,
+ "scenes": [
+  "curia",
+  "conclave"
+ ],
+ "characters": [
+  "rodrigo",
+  "cesare"
+ ],
+ "goal": {
+  "flag": {
+   "char": "cesare",
+   "is": "elevated"
+  }
+ },
+ "solution": [
+  {
+   "scene": "conclave",
+   "characters": [
+    "rodrigo"
+   ]
+  },
+  {
+   "scene": "curia",
+   "characters": [
     "rodrigo",
     "cesare"
-  ],
-  "goal": {
-    "flag": {
-      "char": "cesare",
-      "is": "elevated"
-    }
-  },
-  "goalText": "Папа возводит юного сына в кардиналы",
-  "goalHint": "Сначала — престол, затем папа жалует сыну кардинальскую шапку.",
-  "solution": [
-    {
-      "scene": "conclave",
-      "characters": [
-        "rodrigo"
-      ]
-    },
-    {
-      "scene": "curia",
-      "characters": [
-        "rodrigo",
-        "cesare"
-      ]
-    }
-  ],
-  "cover": "curia",
-  "music": "borgia_ceremony",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В 18 лет Чезаре Борджиа стал кардиналом по воле отца-папы — вопиющий пример непотизма. Церковную карьеру он ненавидел и мечтал о мече, а не о сутане.",
-    "source": "Биография Чезаре Борджиа"
+   ]
   }
+ ],
+ "cover": "curia",
+ "music": "borgia_ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

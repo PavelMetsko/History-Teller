@@ -1,77 +1,71 @@
 {
-  "order": 90,
-  "epoch": "tudor",
-  "act": "Акт III · Наследники",
-  "title": "Девять дней королевы",
-  "panels": 3,
-  "scenes": [
-    "council",
-    "court",
-    "tower"
-  ],
-  "characters": [
-    "jane_grey",
+ "order": 90,
+ "epoch": "tudor",
+ "act": "Акт III · Наследники",
+ "panels": 3,
+ "scenes": [
+  "council",
+  "court",
+  "tower"
+ ],
+ "characters": [
+  "jane_grey",
+  "mary1",
+  "northumberland"
+ ],
+ "initialState": {
+  "flags": {
+   "jane_grey": [
+    "royal_claim"
+   ],
+   "mary1": [
+    "royal_claim"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jane_grey",
+     "is": "beheaded"
+    }
+   },
+   {
+    "flag": {
+     "char": "mary1",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "council",
+   "characters": [
+    "northumberland",
+    "jane_grey"
+   ]
+  },
+  {
+   "scene": "court",
+   "characters": [
     "mary1",
-    "northumberland"
-  ],
-  "initialState": {
-    "flags": {
-      "jane_grey": [
-        "royal_claim"
-      ],
-      "mary1": [
-        "royal_claim"
-      ]
-    }
+    "jane_grey"
+   ]
   },
-  "initialText": "Эдуард VI мёртв. Герцог Нортумберленд возводит на трон свою невестку Джейн Грей — в обход законной Марии.",
-  "goalText": "Марионетку Нортумберленда свергает Мария — и Джейн всходит на эшафот",
-  "goalHint": "Пусть Нортумберленд провозгласит Джейн королевой; затем Мария низложит её и отправит на плаху.",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "jane_grey",
-          "is": "beheaded"
-        }
-      },
-      {
-        "flag": {
-          "char": "mary1",
-          "is": "crowned"
-        }
-      }
-    ]
-  },
-  "solution": [
-    {
-      "scene": "council",
-      "characters": [
-        "northumberland",
-        "jane_grey"
-      ]
-    },
-    {
-      "scene": "court",
-      "characters": [
-        "mary1",
-        "jane_grey"
-      ]
-    },
-    {
-      "scene": "tower",
-      "characters": [
-        "mary1",
-        "jane_grey"
-      ]
-    }
-  ],
-  "cover": "tower",
-  "music": "tudor_court",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В июле 1553 г. герцог Нортумберленд провозгласил королевой леди Джейн Грей — свою невестку. Но народ и знать встали за дочь Генриха VIII Марию; через девять дней Джейн низложили. Нортумберленда казнили сразу, шестнадцатилетнюю Джейн — в феврале 1554 г. Мария I взошла на трон.",
-    "source": "Хроники Тюдоров"
-  },
-  "id": "jane_grey"
+  {
+   "scene": "tower",
+   "characters": [
+    "mary1",
+    "jane_grey"
+   ]
+  }
+ ],
+ "cover": "tower",
+ "music": "tudor_court",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "id": "jane_grey"
 }

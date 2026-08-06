@@ -1,65 +1,59 @@
 {
-  "id": "theodora_death",
-  "order": 130,
-  "epoch": "byzantium",
-  "act": "Акт III · Слава и закат",
-  "title": "Смерть Феодоры",
-  "panels": 2,
-  "scenes": [
-    "deathbed",
-    "mourning_b"
-  ],
-  "characters": [
-    "theodora",
-    "justinian",
-    "antonina"
-  ],
-  "initialState": {
-    "flags": {
-      "theodora": [
-        "empress"
-      ]
-    }
-  },
-  "initialText": "548 год. Феодора угасает от болезни. Юстиниан у её ложа — и впереди семнадцать лет вдовства.",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "theodora",
-          "is": "dead"
-        }
-      },
-      {
-        "flag": {
-          "char": "justinian",
-          "is": "grieving"
-        }
-      }
-    ]
-  },
-  "goalText": "Угасает императрица — и меркнет свет двора",
-  "goalHint": "Пусть император будет у ложа уходящей императрицы — и лишь овдовев, погрузится в нескончаемую скорбь. Антонина здесь не заменит ни ту, ни другого.",
-  "solution": [
-    {
-      "scene": "deathbed",
-      "characters": [
-        "theodora",
-        "justinian"
-      ]
-    },
-    {
-      "scene": "mourning_b",
-      "characters": [
-        "justinian"
-      ]
-    }
-  ],
-  "cover": "deathbed",
-  "music": "byzantium_romance",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Феодора умерла в 548 г., вероятно от рака. Юстиниан, переживший её на 17 лет, так и не оправился от утраты своей соправительницы и главной опоры. С её смертью «золотой век» его правления начал клониться к закату.",
-    "source": "Хроники 548 г."
+ "id": "theodora_death",
+ "order": 130,
+ "epoch": "byzantium",
+ "act": "Акт III · Слава и закат",
+ "panels": 2,
+ "scenes": [
+  "deathbed",
+  "mourning_b"
+ ],
+ "characters": [
+  "theodora",
+  "justinian",
+  "antonina"
+ ],
+ "initialState": {
+  "flags": {
+   "theodora": [
+    "empress"
+   ]
   }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "theodora",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "justinian",
+     "is": "grieving"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "deathbed",
+   "characters": [
+    "theodora",
+    "justinian"
+   ]
+  },
+  {
+   "scene": "mourning_b",
+   "characters": [
+    "justinian"
+   ]
+  }
+ ],
+ "cover": "deathbed",
+ "music": "byzantium_romance",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

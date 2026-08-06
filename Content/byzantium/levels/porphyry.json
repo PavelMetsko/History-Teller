@@ -1,65 +1,59 @@
 {
-  "id": "porphyry",
-  "order": 30,
-  "epoch": "byzantium",
-  "act": "Акт I · Восхождение",
-  "title": "Порфирородные",
-  "panels": 2,
-  "scenes": [
-    "throne_b",
-    "coronation_b"
-  ],
-  "characters": [
-    "justinian",
-    "theodora",
-    "germanus"
-  ],
-  "initialState": {
-    "flags": {
-      "justinian": [
-        "heir"
-      ]
-    }
-  },
-  "initialText": "527 год. Наследник Юстиниан восходит на престол. Он хочет невиданного — короновать жену полноправной соправительницей.",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "justinian",
-          "is": "crowned"
-        }
-      },
-      {
-        "flag": {
-          "char": "theodora",
-          "is": "empress"
-        }
-      }
-    ]
-  },
-  "goalText": "Юстиниан и Феодора венчаются на царство",
-  "goalHint": "Сперва венчай на царство самого Юстиниана — и лишь правящий император возведёт Феодору в соправительницы. Германс короны не достоин.",
-  "solution": [
-    {
-      "scene": "throne_b",
-      "characters": [
-        "justinian"
-      ]
-    },
-    {
-      "scene": "coronation_b",
-      "characters": [
-        "justinian",
-        "theodora"
-      ]
-    }
-  ],
-  "cover": "throne_b",
-  "music": "byzantium_ceremony",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В 527 г. Юстиниан стал единовластным императором. Феодора была коронована не просто супругой, а полноправной августой-соправительницей — случай почти небывалый для Византии.",
-    "source": "Хроники 527 г."
+ "id": "porphyry",
+ "order": 30,
+ "epoch": "byzantium",
+ "act": "Акт I · Восхождение",
+ "panels": 2,
+ "scenes": [
+  "throne_b",
+  "coronation_b"
+ ],
+ "characters": [
+  "justinian",
+  "theodora",
+  "germanus"
+ ],
+ "initialState": {
+  "flags": {
+   "justinian": [
+    "heir"
+   ]
   }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "justinian",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "theodora",
+     "is": "empress"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "throne_b",
+   "characters": [
+    "justinian"
+   ]
+  },
+  {
+   "scene": "coronation_b",
+   "characters": [
+    "justinian",
+    "theodora"
+   ]
+  }
+ ],
+ "cover": "throne_b",
+ "music": "byzantium_ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

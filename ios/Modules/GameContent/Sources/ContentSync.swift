@@ -141,9 +141,19 @@ public final class ContentSync {
                 phase = manifest == nil ? .failed("Требуется обновление приложения") : .ready
                 return
             }
+            // Какие главы были собраны — считаем по ПРЕЖНЕМУ манифесту, пока он ещё актуален.
+            // По новому это не определить: правка, задевшая все файлы главы разом, обнулила бы
+            // все хеши, и глава выглядела бы никогда не скачанной.
+            let installed = chaptersReady(in: manifest)
             manifest = fresh
             try await download(fresh.core, of: fresh)
-            saveManifest(fresh)      // манифест фиксируем только когда core реально на диске
+            // Догружаем изменившееся в собранных главах: иначе правка уровня выкинула бы его
+            // с карты — файл сменил хеш, а в кеше лежит прежний.
+            for id in installed where fresh.chapterFiles[id] != nil {
+                try await download(fresh.chapterFiles[id]!, of: fresh)
+            }
+            saveManifest(fresh)      // манифест фиксируем только когда всё реально на диске
+            pruneOrphans(fresh)
             ArtStore.invalidate()
             Audio.shared.reset()
             phase = .ready
@@ -172,6 +182,30 @@ public final class ContentSync {
     }
 
     // MARK: - Внутреннее
+
+    /// Главы, полностью собранные по данному манифесту. Вызывается до подмены манифеста —
+    /// по прежним хешам, потому что только они описывают то, что реально лежит на диске.
+    private func chaptersReady(in m: ContentManifest?) -> [String] {
+        guard let m else { return [] }
+        let fm = FileManager.default
+        return m.chapterFiles.compactMap { id, files in
+            files.allSatisfy { path in
+                guard let ref = m.files[path] else { return false }
+                return fm.fileExists(atPath: objects.appendingPathComponent(ref.h).path)
+            } ? id : nil
+        }
+    }
+
+    /// Выкидывает объекты, на которые новый манифест больше не ссылается: после правки контента
+    /// прежняя версия файла осталась бы на диске навсегда.
+    private func pruneOrphans(_ m: ContentManifest) {
+        let alive = Set(m.files.values.map(\.h))
+        let fm = FileManager.default
+        guard let names = try? fm.contentsOfDirectory(atPath: objects.path) else { return }
+        for name in names where !alive.contains(name) {
+            try? fm.removeItem(at: objects.appendingPathComponent(name))
+        }
+    }
 
     private func fetchManifest() async throws -> ContentManifest {
         let url = Self.baseURL.appendingPathComponent("manifest.json")

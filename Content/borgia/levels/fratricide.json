@@ -1,58 +1,52 @@
 {
-  "id": "fratricide",
-  "order": 50,
-  "epoch": "borgia",
-  "act": "Акт II · Яд и власть",
-  "title": "Тело в Тибре",
-  "panels": 2,
-  "scenes": [
-    "feast_f",
-    "tiber_f"
-  ],
-  "characters": [
+ "id": "fratricide",
+ "order": 50,
+ "epoch": "borgia",
+ "act": "Акт II · Яд и власть",
+ "panels": 2,
+ "scenes": [
+  "feast_f",
+  "tiber_f"
+ ],
+ "characters": [
+  "cesare",
+  "juan"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "juan",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "cesare",
+     "is": "ruthless"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "feast_f",
+   "characters": [
     "cesare",
     "juan"
-  ],
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "juan",
-          "is": "dead"
-        }
-      },
-      {
-        "flag": {
-          "char": "cesare",
-          "is": "ruthless"
-        }
-      }
-    ]
+   ]
   },
-  "goalText": "Чезаре тайно убивает брата-соперника",
-  "goalHint": "Пусть братский пир распалит зависть Чезаре — и лишь снедаемый ею, он уберёт Хуана в Тибр. Без обиды рука не поднимется.",
-  "solution": [
-    {
-      "scene": "feast_f",
-      "characters": [
-        "cesare",
-        "juan"
-      ]
-    },
-    {
-      "scene": "tiber_f",
-      "characters": [
-        "cesare",
-        "juan"
-      ]
-    }
-  ],
-  "cover": "tiber",
-  "music": "borgia_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В июне 1497 г. Хуан Борджиа был убит, а тело сброшено в Тибр. Молва обвинила его брата Чезаре, устранившего соперника за отцовскую любовь и власть. Убийство так и осталось нераскрытым.",
-    "source": "Хроники 1497 г."
-  },
-  "initialText": "Отец сделал Хуана гонфалоньером церкви, обойдя способного Чезаре. Зависть младшего брата растёт."
+  {
+   "scene": "tiber_f",
+   "characters": [
+    "cesare",
+    "juan"
+   ]
+  }
+ ],
+ "cover": "tiber",
+ "music": "borgia_tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

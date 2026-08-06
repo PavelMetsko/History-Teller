@@ -1,48 +1,43 @@
 {
-  "id": "wrath",
-  "order": 40,
-  "epoch": "empire",
-  "act": "Акт I · Иван Грозный",
-  "title": "Гнев Грозного",
-  "panels": 2,
-  "scenes": [
-    "palaty",
-    "oprichnina"
-  ],
-  "characters": [
-    "ivan",
-    "tsarevich",
-    "malyuta"
-  ],
-  "goal": {
-    "flag": {
-      "char": "tsarevich",
-      "is": "dead"
-    }
-  },
-  "goalText": "Царь в припадке ярости убивает собственного сына",
-  "goalHint": "Сначала опричнина с Малютой; наследника губит уже сам царь в палатах.",
-  "solution": [
-    {
-      "scene": "oprichnina",
-      "characters": [
-        "ivan",
-        "malyuta"
-      ]
-    },
-    {
-      "scene": "palaty",
-      "characters": [
-        "ivan",
-        "tsarevich"
-      ]
-    }
-  ],
-  "cover": "palaty",
-  "music": "empire_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В ноябре 1581 г. Иван Грозный в приступе гнева смертельно ранил посохом своего старшего сына и наследника, царевича Ивана. Сцену увековечил Илья Репин. Гибель наследника обрекла династию на пресечение.",
-    "source": "И. Репин, «Иван Грозный и сын его Иван»"
+ "id": "wrath",
+ "order": 40,
+ "epoch": "empire",
+ "act": "Акт I · Иван Грозный",
+ "panels": 2,
+ "scenes": [
+  "palaty",
+  "oprichnina"
+ ],
+ "characters": [
+  "ivan",
+  "tsarevich",
+  "malyuta"
+ ],
+ "goal": {
+  "flag": {
+   "char": "tsarevich",
+   "is": "dead"
   }
+ },
+ "solution": [
+  {
+   "scene": "oprichnina",
+   "characters": [
+    "ivan",
+    "malyuta"
+   ]
+  },
+  {
+   "scene": "palaty",
+   "characters": [
+    "ivan",
+    "tsarevich"
+   ]
+  }
+ ],
+ "cover": "palaty",
+ "music": "empire_tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

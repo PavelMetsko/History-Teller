@@ -1,81 +1,75 @@
 {
-  "id": "aragon_divorce",
-  "order": 30,
-  "epoch": "tudor",
-  "title": "Развод с Римом",
-  "panels": 2,
-  "scenes": [
-    "vatican",
-    "court",
-    "tribunal"
-  ],
-  "characters": [
+ "id": "aragon_divorce",
+ "order": 30,
+ "epoch": "tudor",
+ "panels": 2,
+ "scenes": [
+  "vatican",
+  "court",
+  "tribunal"
+ ],
+ "characters": [
+  "henry",
+  "aragon",
+  "pope"
+ ],
+ "initialState": {
+  "flags": {
+   "aragon": [
+    "queen"
+   ],
+   "henry": [
+    "defiant"
+   ]
+  },
+  "relations": [
+   [
+    "wed",
     "henry",
+    "aragon"
+   ],
+   [
+    "wed",
     "aragon",
-    "pope"
-  ],
-  "initialState": {
-    "flags": {
-      "aragon": [
-        "queen"
-      ],
-      "henry": [
-        "defiant"
-      ]
-    },
-    "relations": [
-      [
-        "wed",
-        "henry",
-        "aragon"
-      ],
-      [
-        "wed",
-        "aragon",
-        "henry"
-      ]
-    ]
-  },
-  "initialText": "Генрих женат на Екатерине, но жаждет развода — а Папа против",
-  "goalText": "Генрих рвёт с Римом и разводится с Екатериной",
-  "goalHint": "Папа развода не даст. Стань главой церкви сам — и лишь тогда суди свой брак.",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "aragon",
-          "is": "cast_off"
-        }
-      },
-      {
-        "flag": {
-          "char": "henry",
-          "is": "supreme_head"
-        }
-      }
-    ]
-  },
-  "solution": [
-    {
-      "scene": "court",
-      "characters": [
-        "henry"
-      ]
-    },
-    {
-      "scene": "tribunal",
-      "characters": [
-        "henry",
-        "aragon"
-      ]
+    "henry"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "aragon",
+     "is": "cast_off"
     }
-  ],
-  "cover": "tribunal",
-  "music": "tudor_court",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Папа Климент VII отказался расторгнуть брак Генриха с Екатериной Арагонской. В 1533–34 гг. Генрих порвал с Римом: «Актом о супрематии» он объявил себя верховным главой Церкви Англии, сам признал брак недействительным и женился на Анне Болейн. Так началась английская Реформация.",
-    "source": "Акт о супрематии, 1534"
+   },
+   {
+    "flag": {
+     "char": "henry",
+     "is": "supreme_head"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "court",
+   "characters": [
+    "henry"
+   ]
   },
-  "act": "Акт II · Шесть жён"
+  {
+   "scene": "tribunal",
+   "characters": [
+    "henry",
+    "aragon"
+   ]
+  }
+ ],
+ "cover": "tribunal",
+ "music": "tudor_court",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "act": "Акт II · Шесть жён"
 }

@@ -1,61 +1,56 @@
 {
-  "id": "sacre",
-  "order": 120,
-  "epoch": "revolution",
-  "act": "Акт III · Наполеон",
-  "title": "Коронация императора",
-  "panels": 3,
-  "scenes": [
-    "sacre",
-    "siege",
-    "coup"
-  ],
-  "characters": [
-    "napoleon"
-  ],
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "napoleon",
-          "is": "emperor"
-        }
-      },
-      {
-        "flag": {
-          "char": "napoleon",
-          "is": "crowned"
-        }
-      }
-    ]
-  },
-  "goalText": "Наполеон венчает себя короной империи",
-  "goalHint": "Пройди путь: слава → власть → корона в Нотр-Дам.",
-  "solution": [
-    {
-      "scene": "siege",
-      "characters": [
-        "napoleon"
-      ]
-    },
-    {
-      "scene": "coup",
-      "characters": [
-        "napoleon"
-      ]
-    },
-    {
-      "scene": "sacre",
-      "characters": [
-        "napoleon"
-      ]
+ "id": "sacre",
+ "order": 120,
+ "epoch": "revolution",
+ "act": "Акт III · Наполеон",
+ "panels": 3,
+ "scenes": [
+  "sacre",
+  "siege",
+  "coup"
+ ],
+ "characters": [
+  "napoleon"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "emperor"
     }
-  ],
-  "cover": "sacre",
-  "music": "revolution_ceremony",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "2 декабря 1804 г. в соборе Нотр-Дам Наполеон короновался императором французов. В присутствии папы Пия VII он сам возложил корону себе на голову — знак, что властью он обязан лишь себе.",
-    "source": "Ж.-Л. Давид, «Коронация Наполеона»"
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "siege",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "coup",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "sacre",
+   "characters": [
+    "napoleon"
+   ]
   }
+ ],
+ "cover": "sacre",
+ "music": "revolution_ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

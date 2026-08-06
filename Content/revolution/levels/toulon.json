@@ -1,46 +1,40 @@
 {
-  "id": "toulon",
-  "order": 100,
-  "epoch": "revolution",
-  "act": "Акт III · Наполеон",
-  "title": "Осада Тулона",
-  "panels": 2,
-  "scenes": [
-    "plan_t",
-    "fort_t"
-  ],
-  "characters": [
-    "napoleon",
-    "carteaux"
-  ],
-  "goal": {
-    "flag": {
-      "char": "napoleon",
-      "is": "hero"
-    }
+ "id": "toulon",
+ "order": 100,
+ "epoch": "revolution",
+ "act": "Акт III · Наполеон",
+ "panels": 2,
+ "scenes": [
+  "plan_t",
+  "fort_t"
+ ],
+ "characters": [
+  "napoleon",
+  "carteaux"
+ ],
+ "goal": {
+  "flag": {
+   "char": "napoleon",
+   "is": "hero"
+  }
+ },
+ "solution": [
+  {
+   "scene": "plan_t",
+   "characters": [
+    "napoleon"
+   ]
   },
-  "goalText": "Молодой Бонапарт добывает славу при Тулоне",
-  "goalHint": "Пусть Бонапарт сперва предложит на совете дерзкий артиллерийский план — и лишь по своему плану возьмёт форт и станет героем. Карто ключа к городу не видит.",
-  "solution": [
-    {
-      "scene": "plan_t",
-      "characters": [
-        "napoleon"
-      ]
-    },
-    {
-      "scene": "fort_t",
-      "characters": [
-        "napoleon"
-      ]
-    }
-  ],
-  "cover": "siege",
-  "music": "revolution_battle",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В декабре 1793 г. 24-летний капитан артиллерии Наполеон Бонапарт спланировал взятие Тулона, занятого британцами. Успех принёс ему чин бригадного генерала и первую громкую славу.",
-    "source": "Осада Тулона, 1793 г."
-  },
-  "initialText": "1793. Тулон сдан англичанам. Бездарный генерал Карто топчется под городом, а безвестный капитан Бонапарт видит слабое место."
+  {
+   "scene": "fort_t",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "cover": "siege",
+ "music": "revolution_battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

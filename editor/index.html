@@ -87,6 +87,24 @@
   .note.ok { background:rgba(76,139,81,.18); }
   .note.bad { background:rgba(176,48,48,.15); color:var(--bad); font-weight:600; }
   .empty { color:var(--ink-soft); padding:40px 0; text-align:center; }
+
+  .langs { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px; }
+  button.lang { padding:4px 9px; font-size:11px; border-radius:12px; border:1.5px solid var(--ink);
+                background:transparent; color:var(--ink); text-transform:uppercase; }
+  button.lang.on { background:var(--ink); color:var(--paper); }
+  .field { display:block; margin-bottom:10px; }
+  .field > span { display:block; font-size:10px; letter-spacing:.8px; text-transform:uppercase;
+                  color:var(--ink-soft); margin-bottom:3px; }
+  .field input, .field textarea {
+    width:100%; padding:7px 9px; border:1.5px solid rgba(43,36,25,.3); border-radius:6px;
+    background:var(--paper); color:var(--ink); font:13px/1.4 inherit; resize:vertical;
+  }
+  .field input:focus, .field textarea:focus { outline:none; border-color:var(--gold); }
+  .field .ru { display:block; font-size:11px; color:var(--ink-soft); margin-top:3px;
+               padding-left:9px; border-left:2px solid var(--gold); }
+  .savebar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px;
+             padding-top:12px; border-top:1px solid rgba(43,36,25,.15); }
+  #saveinfo { font-size:11px; color:var(--ink-soft); }
 </style>
 </head>
 <body>

@@ -1,48 +1,42 @@
 {
-  "id": "poison",
-  "order": 80,
-  "epoch": "borgia",
-  "act": "Акт II · Яд и власть",
-  "title": "Кантарелла",
-  "panels": 2,
-  "scenes": [
-    "feast_p",
-    "cantarella_p"
-  ],
-  "characters": [
+ "id": "poison",
+ "order": 80,
+ "epoch": "borgia",
+ "act": "Акт II · Яд и власть",
+ "panels": 2,
+ "scenes": [
+  "feast_p",
+  "cantarella_p"
+ ],
+ "characters": [
+  "cesare",
+  "orsini"
+ ],
+ "goal": {
+  "flag": {
+   "char": "orsini",
+   "is": "dead"
+  }
+ },
+ "solution": [
+  {
+   "scene": "feast_p",
+   "characters": [
     "cesare",
     "orsini"
-  ],
-  "goal": {
-    "flag": {
-      "char": "orsini",
-      "is": "dead"
-    }
+   ]
   },
-  "goalText": "Борджиа травят соперника на пиру",
-  "goalHint": "Пусть Чезаре сперва зазовёт кардинала на дружеский пир и усыпит бдительность — и лишь доверчивому поднесёт кантареллу. Настороже яд не сработает.",
-  "solution": [
-    {
-      "scene": "feast_p",
-      "characters": [
-        "cesare",
-        "orsini"
-      ]
-    },
-    {
-      "scene": "cantarella_p",
-      "characters": [
-        "cesare",
-        "orsini"
-      ]
-    }
-  ],
-  "cover": "feast",
-  "music": "borgia_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Борджиа устраняли богатых кардиналов знаменитым ядом «кантарелла», чтобы прибрать их имущество. Кардинал Орсини стал одной из жертв этой практики «наследования через отравление».",
-    "source": "Хроники папского Рима"
-  },
-  "initialText": "Кардинал Орсини богат, а Борджиа нужны деньги. Гостеприимство Чезаре смертельно."
+  {
+   "scene": "cantarella_p",
+   "characters": [
+    "cesare",
+    "orsini"
+   ]
+  }
+ ],
+ "cover": "feast",
+ "music": "borgia_tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

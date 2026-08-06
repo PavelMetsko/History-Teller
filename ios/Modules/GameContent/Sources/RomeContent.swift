@@ -159,9 +159,10 @@ public enum RomeContent {
         return Pack(db: db, levels: levels.sorted { $0.order < $1.order })
     }
 
-    /// Наложить перевод на имена/сцены/уровни (движок сравнивает по id — на симуляцию не влияет).
+    /// Накладывает тексты из каталога на имена, сцены и уровни (движок сравнивает по id —
+    /// на симуляцию не влияет). Тексты уровней вынесены из их JSON целиком, поэтому накладывать
+    /// надо всегда, включая русский: иначе уровень останется без названия и цели.
     private static func localize(_ db: ContentDb, _ levels: inout [LevelDef]) {
-        guard L10n.lang != "ru" else { return }
         var chNames: [String: String] = [:], scNames: [String: String] = [:], scActions: [String: String] = [:]
         for id in db.characters.keys { if let t = L10n.opt("char.\(id)") { chNames[id] = t } }
         for id in db.scenes.keys {

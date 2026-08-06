@@ -1,60 +1,55 @@
 {
-  "id": "discord",
-  "order": 120,
-  "act": "Акт III · Наследники",
-  "title": "Раскол",
-  "epoch": "rome",
-  "panels": 2,
-  "scenes": [
-    "palace",
-    "forum",
-    "senate"
-  ],
-  "characters": [
-    "antony",
-    "octavian",
-    "cleopatra"
-  ],
-  "goalText": "Октавиан не прощает Антонию его восточную царицу",
-  "goalHint": "Сперва Антоний уходит к Клеопатре — потом Рим отворачивается от него.",
-  "goal": {
-    "all": [
-      {
-        "relation": {
-          "rel": "envies",
-          "from": "octavian",
-          "to": "antony"
-        }
-      },
-      {
-        "flag": {
-          "char": "antony",
-          "is": "eastern"
-        }
-      }
-    ]
-  },
-  "solution": [
-    {
-      "scene": "palace",
-      "characters": [
-        "antony",
-        "cleopatra"
-      ]
-    },
-    {
-      "scene": "forum",
-      "characters": [
-        "octavian",
-        "antony"
-      ]
+ "id": "discord",
+ "order": 120,
+ "act": "Акт III · Наследники",
+ "epoch": "rome",
+ "panels": 2,
+ "scenes": [
+  "palace",
+  "forum",
+  "senate"
+ ],
+ "characters": [
+  "antony",
+  "octavian",
+  "cleopatra"
+ ],
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "envies",
+     "from": "octavian",
+     "to": "antony"
     }
-  ],
-  "cover": "forum",
-  "music": "tension",
-  "factCard": {
-    "accuracy": "simplification",
-    "text": "К 33–32 гг. до н.э. союз триумвиров рухнул. Октавиан развернул против Антония пропаганду: обнародовал его завещание, изобразил рабом чужеземной царицы, забывшим Рим. Сенат объявил войну — формально Клеопатре.",
-    "source": "Плутарх; Дион Кассий"
+   },
+   {
+    "flag": {
+     "char": "antony",
+     "is": "eastern"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "palace",
+   "characters": [
+    "antony",
+    "cleopatra"
+   ]
+  },
+  {
+   "scene": "forum",
+   "characters": [
+    "octavian",
+    "antony"
+   ]
   }
+ ],
+ "cover": "forum",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "simplification"
+ }
 }

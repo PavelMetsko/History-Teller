@@ -1,48 +1,42 @@
 {
-  "id": "conclave",
-  "order": 10,
-  "epoch": "borgia",
-  "act": "Акт I · Восхождение",
-  "title": "Александр VI",
-  "panels": 2,
-  "scenes": [
-    "bribe_g",
-    "conclave_g"
-  ],
-  "characters": [
+ "id": "conclave",
+ "order": 10,
+ "epoch": "borgia",
+ "act": "Акт I · Восхождение",
+ "panels": 2,
+ "scenes": [
+  "bribe_g",
+  "conclave_g"
+ ],
+ "characters": [
+  "rodrigo",
+  "rovere",
+  "orsini"
+ ],
+ "goal": {
+  "flag": {
+   "char": "rodrigo",
+   "is": "pope"
+  }
+ },
+ "solution": [
+  {
+   "scene": "bribe_g",
+   "characters": [
     "rodrigo",
-    "rovere",
     "orsini"
-  ],
-  "goal": {
-    "flag": {
-      "char": "rodrigo",
-      "is": "pope"
-    }
+   ]
   },
-  "goalText": "Родриго Борджиа покупает себе папский престол",
-  "goalHint": "Пусть Родриго сперва купит голоса кардиналов — и лишь оплаченный конклав возведёт его на престол. Делла Ровере мошны Борджиа не перебьёт.",
-  "solution": [
-    {
-      "scene": "bribe_g",
-      "characters": [
-        "rodrigo",
-        "orsini"
-      ]
-    },
-    {
-      "scene": "conclave_g",
-      "characters": [
-        "rodrigo"
-      ]
-    }
-  ],
-  "cover": "conclave",
-  "music": "borgia_ceremony",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "В 1492 г. Родриго Борджиа щедрыми подкупами кардиналов добился избрания папой под именем Александр VI. Его понтификат стал символом продажности и разврата Ренессансной церкви.",
-    "source": "История конклава 1492 г."
-  },
-  "initialText": "1492 год. Престол Петра пуст. Кардинал Родриго Борджиа и его давний враг делла Ровере рвутся к тиаре. У Родриго — золото."
+  {
+   "scene": "conclave_g",
+   "characters": [
+    "rodrigo"
+   ]
+  }
+ ],
+ "cover": "conclave",
+ "music": "borgia_ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

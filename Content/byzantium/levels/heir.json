@@ -1,49 +1,43 @@
 {
-  "id": "heir",
-  "order": 10,
-  "epoch": "byzantium",
-  "act": "Акт I · Восхождение",
-  "title": "Наследник Юстина",
-  "panels": 2,
-  "scenes": [
-    "guard_b",
-    "court_b"
-  ],
-  "characters": [
+ "id": "heir",
+ "order": 10,
+ "epoch": "byzantium",
+ "act": "Акт I · Восхождение",
+ "panels": 2,
+ "scenes": [
+  "guard_b",
+  "court_b"
+ ],
+ "characters": [
+  "justin",
+  "justinian",
+  "germanus"
+ ],
+ "goal": {
+  "flag": {
+   "char": "justinian",
+   "is": "heir"
+  }
+ },
+ "solution": [
+  {
+   "scene": "guard_b",
+   "characters": [
     "justin",
-    "justinian",
-    "germanus"
-  ],
-  "goal": {
-    "flag": {
-      "char": "justinian",
-      "is": "heir"
-    }
+    "justinian"
+   ]
   },
-  "goalText": "Старый Юстин делает племянника наследником",
-  "goalHint": "Сперва пусть Юстин вверит одарённому Юстиниану дворцовую гвардию — и лишь испытанного в деле объявит наследником. Германс тут лишний.",
-  "solution": [
-    {
-      "scene": "guard_b",
-      "characters": [
-        "justin",
-        "justinian"
-      ]
-    },
-    {
-      "scene": "court_b",
-      "characters": [
-        "justin",
-        "justinian"
-      ]
-    }
-  ],
-  "cover": "court_b",
-  "music": "byzantium_ceremony",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Юстин I, неграмотный солдат, ставший императором, приблизил и усыновил одарённого племянника Юстиниана, сделав его соправителем и наследником престола.",
-    "source": "История Восточной Римской империи"
-  },
-  "initialText": "Неграмотный солдат Юстин стал императором — но кого из племянников сделать наследником? Честолюбивый Германс тоже ждёт своего часа."
+  {
+   "scene": "court_b",
+   "characters": [
+    "justin",
+    "justinian"
+   ]
+  }
+ ],
+ "cover": "court_b",
+ "music": "byzantium_ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

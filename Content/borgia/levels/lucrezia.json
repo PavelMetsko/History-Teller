@@ -1,56 +1,50 @@
 {
-  "id": "lucrezia",
-  "order": 70,
-  "epoch": "borgia",
-  "act": "Акт II · Яд и власть",
-  "title": "Дитя политики",
-  "panels": 2,
-  "scenes": [
-    "alliance_l",
-    "betrothal_l"
-  ],
-  "characters": [
-    "rodrigo",
-    "lucrezia",
-    "giulia"
-  ],
-  "initialState": {
-    "flags": {
-      "rodrigo": [
-        "pope"
-      ]
-    }
-  },
-  "initialText": "Папа торгует руку дочери, как разменной картой. Лукреция — пешка в большой игре союзов.",
-  "goal": {
-    "flag": {
-      "char": "lucrezia",
-      "is": "bride"
-    }
-  },
-  "goalText": "Папа выдаёт дочь замуж по расчёту",
-  "goalHint": "Пусть папа сперва сторгует брачный союз — и лишь просватанную Лукрецию поведут к венцу. Джулию, любовницу, замуж не выдают.",
-  "solution": [
-    {
-      "scene": "alliance_l",
-      "characters": [
-        "rodrigo",
-        "lucrezia"
-      ]
-    },
-    {
-      "scene": "betrothal_l",
-      "characters": [
-        "rodrigo",
-        "lucrezia"
-      ]
-    }
-  ],
-  "cover": "betrothal",
-  "music": "borgia_romance",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Лукрецию Борджиа отец и брат трижды выдавали замуж ради политических союзов; одного ставшего лишним мужа задушили. Молва приписывала ей яды и разврат — вероятно, клевета врагов семьи.",
-    "source": "Биография Лукреции Борджиа"
+ "id": "lucrezia",
+ "order": 70,
+ "epoch": "borgia",
+ "act": "Акт II · Яд и власть",
+ "panels": 2,
+ "scenes": [
+  "alliance_l",
+  "betrothal_l"
+ ],
+ "characters": [
+  "rodrigo",
+  "lucrezia",
+  "giulia"
+ ],
+ "initialState": {
+  "flags": {
+   "rodrigo": [
+    "pope"
+   ]
   }
+ },
+ "goal": {
+  "flag": {
+   "char": "lucrezia",
+   "is": "bride"
+  }
+ },
+ "solution": [
+  {
+   "scene": "alliance_l",
+   "characters": [
+    "rodrigo",
+    "lucrezia"
+   ]
+  },
+  {
+   "scene": "betrothal_l",
+   "characters": [
+    "rodrigo",
+    "lucrezia"
+   ]
+  }
+ ],
+ "cover": "betrothal",
+ "music": "borgia_romance",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

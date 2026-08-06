@@ -1,86 +1,80 @@
 {
-  "order": 100,
-  "epoch": "tudor",
-  "act": "Акт III · Наследники",
-  "title": "Кровавая Мэри",
-  "panels": 3,
-  "scenes": [
-    "abbey",
-    "chapel",
-    "stake"
-  ],
-  "characters": [
-    "mary1",
+ "order": 100,
+ "epoch": "tudor",
+ "act": "Акт III · Наследники",
+ "panels": 3,
+ "scenes": [
+  "abbey",
+  "chapel",
+  "stake"
+ ],
+ "characters": [
+  "mary1",
+  "philip",
+  "cranmer"
+ ],
+ "initialState": {
+  "flags": {
+   "mary1": [
+    "royal_claim"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mary1",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "mary1",
+     "is": "rome_restored"
+    }
+   },
+   {
+    "relation": {
+     "rel": "wed",
+     "from": "philip",
+     "to": "mary1"
+    }
+   },
+   {
+    "flag": {
+     "char": "cranmer",
+     "is": "burned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "abbey",
+   "characters": [
+    "mary1"
+   ]
+  },
+  {
+   "scene": "chapel",
+   "characters": [
     "philip",
+    "mary1"
+   ]
+  },
+  {
+   "scene": "stake",
+   "characters": [
+    "mary1",
     "cranmer"
-  ],
-  "initialState": {
-    "flags": {
-      "mary1": [
-        "royal_claim"
-      ]
-    }
-  },
-  "initialText": "Мария I — королева. Она вернёт Англию Риму, обвенчается с Филиппом Испанским — и займётся еретиками.",
-  "goalText": "Мария коронуется, венчается с Филиппом, возвращает Рим — и сжигает Кранмера",
-  "goalHint": "Коронуйся, обвенчайся с Филиппом, а протестанта-архиепископа отправь на костёр — этим и вернёшь Англию Риму.",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "mary1",
-          "is": "crowned"
-        }
-      },
-      {
-        "flag": {
-          "char": "mary1",
-          "is": "rome_restored"
-        }
-      },
-      {
-        "relation": {
-          "rel": "wed",
-          "from": "philip",
-          "to": "mary1"
-        }
-      },
-      {
-        "flag": {
-          "char": "cranmer",
-          "is": "burned"
-        }
-      }
-    ]
-  },
-  "solution": [
-    {
-      "scene": "abbey",
-      "characters": [
-        "mary1"
-      ]
-    },
-    {
-      "scene": "chapel",
-      "characters": [
-        "philip",
-        "mary1"
-      ]
-    },
-    {
-      "scene": "stake",
-      "characters": [
-        "mary1",
-        "cranmer"
-      ]
-    }
-  ],
-  "cover": "stake",
-  "music": "tudor_court",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Мария I (1553–1558) вернула Англию под власть Рима и вышла за Филиппа II Испанского. Её правление прозвали «кровавым»: около 280 протестантов сожгли на кострах, включая архиепископа Томаса Кранмера (1556), автора английского молитвенника. Наследника она так и не родила.",
-    "source": "Джон Фокс, «Книга мучеников»"
-  },
-  "id": "bloody_mary"
+   ]
+  }
+ ],
+ "cover": "stake",
+ "music": "tudor_court",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "id": "bloody_mary"
 }

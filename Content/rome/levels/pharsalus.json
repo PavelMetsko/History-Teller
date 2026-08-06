@@ -1,65 +1,60 @@
 {
-  "id": "pharsalus",
-  "order": 20,
-  "act": "Акт I · Восхождение",
-  "title": "Фарсал",
-  "epoch": "rome",
-  "panels": 2,
-  "scenes": [
-    "pharsalus_line",
-    "pharsalus_field"
-  ],
-  "characters": [
-    "caesar",
-    "antony",
-    "pompey"
-  ],
-  "goalText": "Цезарь разбивает Помпея при Фарсале",
-  "goalHint": "Сначала сомкни строй с верным командующим крылом — только тогда легионы сокрушат Помпея на поле.",
-  "goal": {
-    "all": [
-      {
-        "relation": {
-          "rel": "ally_of",
-          "from": "caesar",
-          "to": "antony"
-        }
-      },
-      {
-        "flag": {
-          "char": "pompey",
-          "is": "fugitive"
-        }
-      },
-      {
-        "flag": {
-          "char": "caesar",
-          "is": "victor"
-        }
-      }
-    ]
-  },
-  "solution": [
-    {
-      "scene": "pharsalus_line",
-      "characters": [
-        "caesar",
-        "antony"
-      ]
-    },
-    {
-      "scene": "pharsalus_field",
-      "characters": [
-        "caesar",
-        "pompey"
-      ]
+ "id": "pharsalus",
+ "order": 20,
+ "act": "Акт I · Восхождение",
+ "epoch": "rome",
+ "panels": 2,
+ "scenes": [
+  "pharsalus_line",
+  "pharsalus_field"
+ ],
+ "characters": [
+  "caesar",
+  "antony",
+  "pompey"
+ ],
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "caesar",
+     "to": "antony"
     }
-  ],
-  "cover": "pharsalus_field",
-  "music": "battle",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "9 августа 48 г. до н.э. при Фарсале в Фессалии меньшая, но опытная армия Цезаря разгромила вдвое большие силы Помпея. Левым крылом Цезаря командовал Марк Антоний. Помпей бежал с поля боя и отплыл на восток — в Египет.",
-    "source": "Цезарь, «Записки о гражданской войне»; Аппиан"
+   },
+   {
+    "flag": {
+     "char": "pompey",
+     "is": "fugitive"
+    }
+   },
+   {
+    "flag": {
+     "char": "caesar",
+     "is": "victor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pharsalus_line",
+   "characters": [
+    "caesar",
+    "antony"
+   ]
+  },
+  {
+   "scene": "pharsalus_field",
+   "characters": [
+    "caesar",
+    "pompey"
+   ]
   }
+ ],
+ "cover": "pharsalus_field",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

@@ -1,82 +1,77 @@
 {
-  "id": "caesar_assassination",
-  "order": 80,
-  "title": "И ты, Брут?",
-  "epoch": "rome",
-  "panels": 3,
-  "scenes": [
-    "back_room",
-    "senate",
-    "forum"
-  ],
-  "characters": [
-    "caesar",
-    "brutus",
-    "cassius",
-    "antony"
-  ],
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "caesar",
-          "is": "dead"
-        }
-      },
-      {
-        "relation": {
-          "rel": "betrayed",
-          "from": "brutus",
-          "to": "caesar"
-        }
-      },
-      {
-        "flag": {
-          "char": "cassius",
-          "is": "plotting"
-        }
-      },
-      {
-        "not": {
-          "flag": {
-            "char": "antony",
-            "is": "plotting"
-          }
-        }
-      }
-    ]
-  },
-  "goalText": "Друг Брут вступает в заговор и убивает Цезаря",
-  "goalHint": "Заговор Брут плетёт с Кассием — не с самим Цезарем. Антоний в заговоре быть не должен.",
-  "solution": [
-    {
-      "scene": "forum",
-      "characters": [
-        "caesar",
-        "brutus"
-      ]
-    },
-    {
-      "scene": "back_room",
-      "characters": [
-        "brutus",
-        "cassius"
-      ]
-    },
-    {
-      "scene": "senate",
-      "characters": [
-        "brutus",
-        "caesar"
-      ]
+ "id": "caesar_assassination",
+ "order": 80,
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "back_room",
+  "senate",
+  "forum"
+ ],
+ "characters": [
+  "caesar",
+  "brutus",
+  "cassius",
+  "antony"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "caesar",
+     "is": "dead"
     }
-  ],
-  "factCard": {
-    "accuracy": "fact",
-    "text": "15 марта 44 г. до н.э. (мартовские иды) Юлий Цезарь был убит в Сенате группой заговорщиков — более 60 сенаторов во главе с Брутом и Кассием. Фраза «И ты, Брут?» — литературная версия Шекспира; Светоний передаёт слова «И ты, дитя?» по-гречески.",
-    "source": "Светоний, «Жизнь двенадцати цезарей»"
+   },
+   {
+    "relation": {
+     "rel": "betrayed",
+     "from": "brutus",
+     "to": "caesar"
+    }
+   },
+   {
+    "flag": {
+     "char": "cassius",
+     "is": "plotting"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "antony",
+      "is": "plotting"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "forum",
+   "characters": [
+    "caesar",
+    "brutus"
+   ]
   },
-  "music": "tension",
-  "cover": "senate",
-  "act": "Акт II · Царица и диктатор"
+  {
+   "scene": "back_room",
+   "characters": [
+    "brutus",
+    "cassius"
+   ]
+  },
+  {
+   "scene": "senate",
+   "characters": [
+    "brutus",
+    "caesar"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "music": "tension",
+ "cover": "senate",
+ "act": "Акт II · Царица и диктатор"
 }

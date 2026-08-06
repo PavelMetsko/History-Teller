@@ -1,58 +1,52 @@
 {
-  "id": "downfall",
-  "order": 130,
-  "epoch": "borgia",
-  "act": "Акт III · Государь",
-  "title": "Падение Чезаре",
-  "panels": 2,
-  "scenes": [
-    "arrest_d",
-    "strip_d"
-  ],
-  "characters": [
+ "id": "downfall",
+ "order": 130,
+ "epoch": "borgia",
+ "act": "Акт III · Государь",
+ "panels": 2,
+ "scenes": [
+  "arrest_d",
+  "strip_d"
+ ],
+ "characters": [
+  "rovere",
+  "cesare"
+ ],
+ "initialState": {
+  "flags": {
+   "rovere": [
+    "pope"
+   ],
+   "cesare": [
+    "warlord"
+   ]
+  }
+ },
+ "goal": {
+  "flag": {
+   "char": "cesare",
+   "is": "fallen"
+  }
+ },
+ "solution": [
+  {
+   "scene": "arrest_d",
+   "characters": [
     "rovere",
     "cesare"
-  ],
-  "initialState": {
-    "flags": {
-      "rovere": [
-        "pope"
-      ],
-      "cesare": [
-        "warlord"
-      ]
-    }
+   ]
   },
-  "initialText": "Папа-воин Юлий II ненавидит Борджиа. Со смертью отца Чезаре потерял покровителя — и настал час расплаты.",
-  "goal": {
-    "flag": {
-      "char": "cesare",
-      "is": "fallen"
-    }
-  },
-  "goalText": "Потерявший покровителя Чезаре низвергнут",
-  "goalHint": "Пусть Юлий сперва схватит лишившегося отца герцога — и лишь пленённого лишит всех земель и власти. Непойманного не низложить.",
-  "solution": [
-    {
-      "scene": "arrest_d",
-      "characters": [
-        "rovere",
-        "cesare"
-      ]
-    },
-    {
-      "scene": "strip_d",
-      "characters": [
-        "rovere",
-        "cesare"
-      ]
-    }
-  ],
-  "cover": "piazza",
-  "music": "borgia_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Лишившись отца-папы, Чезаре Борджиа был арестован Юлием II, потерял все владения и бежал в Испанию, где погиб в ничтожной стычке в 1507 г. Так в одночасье рухнула держава, которой восхищался Макиавелли.",
-    "source": "Хроники падения дома Борджиа"
+  {
+   "scene": "strip_d",
+   "characters": [
+    "rovere",
+    "cesare"
+   ]
   }
+ ],
+ "cover": "piazza",
+ "music": "borgia_tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

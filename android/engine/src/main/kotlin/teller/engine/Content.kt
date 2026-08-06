@@ -66,14 +66,14 @@ object Parse {
     fun panel(o: JsonObject) = Panel(
         o.str("scene"), (o["characters"]?.jsonArray?.map { it.jsonPrimitive.content } ?: emptyList()).toMutableList())
 
-    fun factCard(o: JsonObject) = FactCard(o.str("accuracy")!!, o.str("text")!!, o.str("source")!!)
+    fun factCard(o: JsonObject) = FactCard(o.str("accuracy")!!, o.str("text") ?: "", o.str("source") ?: "")
 
     fun initialState(o: JsonObject) = InitialStateDef(
         o["flags"]?.jsonObject?.mapValues { it.value.jsonArray.map { v -> v.jsonPrimitive.content } } ?: emptyMap(),
         o["relations"]?.jsonArray?.map { it.jsonArray.map { v -> v.jsonPrimitive.content } } ?: emptyList())
 
     fun level(o: JsonObject) = LevelDef(
-        o.str("id")!!, o.intOr("order", 0), o.str("title")!!, o.str("epoch")!!, o["panels"]!!.jsonPrimitive.int,
+        o.str("id")!!, o.intOr("order", 0), o.str("title") ?: "", o.str("epoch")!!, o["panels"]!!.jsonPrimitive.int,
         o.strList("scenes"), o.strList("characters"),
         o["initialState"]?.let { initialState(it.jsonObject) },
         o.str("initialText"), o.str("goalText"), o.str("goalHint"),

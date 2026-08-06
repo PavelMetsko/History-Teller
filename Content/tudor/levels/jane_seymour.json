@@ -1,80 +1,74 @@
 {
-  "order": 50,
-  "epoch": "tudor",
-  "act": "Акт II · Шесть жён",
-  "title": "Джейн Сеймур",
-  "panels": 3,
-  "scenes": [
-    "tower",
-    "chapel",
-    "chamber"
-  ],
-  "characters": [
+ "order": 50,
+ "epoch": "tudor",
+ "act": "Акт II · Шесть жён",
+ "panels": 3,
+ "scenes": [
+  "tower",
+  "chapel",
+  "chamber"
+ ],
+ "characters": [
+  "henry",
+  "seymour",
+  "boleyn"
+ ],
+ "initialState": {
+  "flags": {
+   "boleyn": [
+    "accused"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "boleyn",
+     "is": "beheaded"
+    }
+   },
+   {
+    "flag": {
+     "char": "henry",
+     "is": "has_heir"
+    }
+   },
+   {
+    "flag": {
+     "char": "seymour",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tower",
+   "characters": [
     "henry",
-    "seymour",
     "boleyn"
-  ],
-  "initialState": {
-    "flags": {
-      "boleyn": [
-        "accused"
-      ]
-    }
+   ]
   },
-  "initialText": "Анна Болейн осуждена. Генрих уже смотрит на Джейн Сеймур — но путь к новой свадьбе лежит через плаху.",
-  "goalText": "Казнив Болейн, Генрих женится на Джейн — она рождает наследника и умирает",
-  "goalHint": "Сначала казни осуждённую Болейн, затем венчайся с Джейн, и лишь потом — наследник (роды её и погубят).",
-  "goal": {
-    "all": [
-      {
-        "flag": {
-          "char": "boleyn",
-          "is": "beheaded"
-        }
-      },
-      {
-        "flag": {
-          "char": "henry",
-          "is": "has_heir"
-        }
-      },
-      {
-        "flag": {
-          "char": "seymour",
-          "is": "dead"
-        }
-      }
-    ]
+  {
+   "scene": "chapel",
+   "characters": [
+    "henry",
+    "seymour"
+   ]
   },
-  "solution": [
-    {
-      "scene": "tower",
-      "characters": [
-        "henry",
-        "boleyn"
-      ]
-    },
-    {
-      "scene": "chapel",
-      "characters": [
-        "henry",
-        "seymour"
-      ]
-    },
-    {
-      "scene": "chamber",
-      "characters": [
-        "henry",
-        "seymour"
-      ]
-    }
-  ],
-  "cover": "chapel",
-  "music": "tudor_court",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "19 мая 1536 г. Анну Болейн обезглавили в Тауэре; всего через 11 дней Генрих VIII женился на Джейн Сеймур. В октябре 1537 г. она родила долгожданного сына — будущего Эдуарда VI — и через двенадцать дней умерла от родильной горячки. Джейн стала единственной женой, которую Генрих оплакивал.",
-    "source": "Хроники Тюдоров"
-  },
-  "id": "jane_seymour"
+  {
+   "scene": "chamber",
+   "characters": [
+    "henry",
+    "seymour"
+   ]
+  }
+ ],
+ "cover": "chapel",
+ "music": "tudor_court",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "id": "jane_seymour"
 }

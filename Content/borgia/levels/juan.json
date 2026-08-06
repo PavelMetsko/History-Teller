@@ -1,48 +1,42 @@
 {
-  "id": "juan",
-  "order": 40,
-  "epoch": "borgia",
-  "act": "Акт I · Восхождение",
-  "title": "Любимый сын",
-  "panels": 1,
-  "scenes": [
-    "curia"
-  ],
-  "characters": [
-    "rodrigo",
-    "cesare",
-    "juan"
-  ],
-  "initialState": {
-    "flags": {
-      "rodrigo": [
-        "pope"
-      ]
-    }
-  },
-  "initialText": "Александр VI на престоле и осыпает милостями любимого сына.",
-  "goal": {
-    "flag": {
-      "char": "juan",
-      "is": "duke"
-    }
-  },
-  "goalText": "Папа осыпает милостями брата Чезаре — Хуана",
-  "goalHint": "Милость достаётся не кардиналу, а его брату.",
-  "solution": [
-    {
-      "scene": "curia",
-      "characters": [
-        "rodrigo",
-        "juan"
-      ]
-    }
-  ],
-  "cover": "curia",
-  "music": "borgia_tension",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Александр VI открыто предпочитал младшего сына Хуана, сделав его гонфалоньером церкви и герцогом. Это разжигало жгучую зависть в старшем, Чезаре.",
-    "source": "История дома Борджиа"
+ "id": "juan",
+ "order": 40,
+ "epoch": "borgia",
+ "act": "Акт I · Восхождение",
+ "panels": 1,
+ "scenes": [
+  "curia"
+ ],
+ "characters": [
+  "rodrigo",
+  "cesare",
+  "juan"
+ ],
+ "initialState": {
+  "flags": {
+   "rodrigo": [
+    "pope"
+   ]
   }
+ },
+ "goal": {
+  "flag": {
+   "char": "juan",
+   "is": "duke"
+  }
+ },
+ "solution": [
+  {
+   "scene": "curia",
+   "characters": [
+    "rodrigo",
+    "juan"
+   ]
+  }
+ ],
+ "cover": "curia",
+ "music": "borgia_tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }

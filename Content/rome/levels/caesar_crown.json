@@ -1,82 +1,77 @@
 {
-  "id": "caesar_crown",
-  "order": 70,
-  "title": "Царь Рима?",
-  "epoch": "rome",
-  "panels": 3,
-  "scenes": [
-    "cc_palace",
-    "cc_forum",
-    "cc_lupercalia"
-  ],
-  "characters": [
-    "caesar",
-    "antony",
-    "cleopatra"
-  ],
-  "goal": {
-    "all": [
-      {
-        "relation": {
-          "rel": "loves",
-          "from": "caesar",
-          "to": "cleopatra"
-        }
-      },
-      {
-        "relation": {
-          "rel": "ally_of",
-          "from": "antony",
-          "to": "caesar"
-        }
-      },
-      {
-        "flag": {
-          "char": "caesar",
-          "is": "beloved"
-        }
-      },
-      {
-        "not": {
-          "flag": {
-            "char": "caesar",
-            "is": "crowned"
-          }
-        }
-      }
-    ]
-  },
-  "goalText": "Народ любит Цезаря — но царём он не станет",
-  "goalHint": "Сначала — царице покои наедине: Цезарь пленён и честолюбив. Затем Антоний на форуме сплотит вокруг него народ. И лишь тогда на Луперкалиях верный Антоний поднесёт корону — Цезарь красиво отвергнет. Клеопатру к короне не подпускай.",
-  "solution": [
-    {
-      "scene": "cc_palace",
-      "characters": [
-        "caesar",
-        "cleopatra"
-      ]
-    },
-    {
-      "scene": "cc_forum",
-      "characters": [
-        "caesar",
-        "antony"
-      ]
-    },
-    {
-      "scene": "cc_lupercalia",
-      "characters": [
-        "antony",
-        "caesar"
-      ]
+ "id": "caesar_crown",
+ "order": 70,
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "cc_palace",
+  "cc_forum",
+  "cc_lupercalia"
+ ],
+ "characters": [
+  "caesar",
+  "antony",
+  "cleopatra"
+ ],
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "caesar",
+     "to": "cleopatra"
     }
-  ],
-  "factCard": {
-    "accuracy": "fact",
-    "text": "На Луперкалиях в феврале 44 г. до н.э. Марк Антоний трижды подносил Цезарю царскую диадему — и Цезарь трижды публично отверг её под одобрительный рёв толпы. Царём Рима он так и не стал, но упорные слухи о царских амбициях (не в последнюю очередь из-за Клеопатры в Риме) подтолкнули заговорщиков к действию.",
-    "source": "Плутарх, «Цезарь»; Светоний"
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "antony",
+     "to": "caesar"
+    }
+   },
+   {
+    "flag": {
+     "char": "caesar",
+     "is": "beloved"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "caesar",
+      "is": "crowned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cc_palace",
+   "characters": [
+    "caesar",
+    "cleopatra"
+   ]
   },
-  "music": "ceremony",
-  "act": "Акт II · Царица и диктатор",
-  "cover": "cc_lupercalia"
+  {
+   "scene": "cc_forum",
+   "characters": [
+    "caesar",
+    "antony"
+   ]
+  },
+  {
+   "scene": "cc_lupercalia",
+   "characters": [
+    "antony",
+    "caesar"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "music": "ceremony",
+ "act": "Акт II · Царица и диктатор",
+ "cover": "cc_lupercalia"
 }

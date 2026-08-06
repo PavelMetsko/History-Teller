@@ -14,7 +14,25 @@ const readText = (p) => fetch(`${SRC}/${p}`).then(r => {
 const readJson = (p) => readText(p).then(JSON.parse);
 const artUrl = (name) => `${SRC}/art/${name}.webp`;
 
-const state = { db: null, dbRaw: null, chapters: [], levels: [], disabled: new Set(), selected: null };
+const LANGS = ['ru', 'en', 'es', 'de', 'fr', 'it', 'pt', 'pl', 'nl'];
+
+// Все читаемые человеком тексты живут в каталогах i18n под ключом level.<id>.<key>.
+// В самом файле уровня их нет: он описывает только механику (каст, сцены, цель-предикат,
+// эталон), а достоверность факт-карточки — метаданные, и остаётся там.
+const TEXTS = [
+  { key: 'title',  label: 'Название' },
+  { key: 'goal',   label: 'Цель', rows: 2 },
+  { key: 'hint',   label: 'Подсказка', rows: 3 },
+  { key: 'intro',  label: 'Вступление', rows: 2 },
+  { key: 'fact',   label: 'Факт-карточка', rows: 5 },
+  { key: 'source', label: 'Источник' },
+];
+
+const txt = (lid, key, lang) => state.i18n[lang]?.[`level.${lid}.${key}`] ?? '';
+const txtKey = (lid, key) => `level.${lid}.${key}`;
+
+const state = { db: null, dbRaw: null, chapters: [], levels: [], disabled: new Set(),
+                selected: null, i18n: {}, lang: 'ru', pending: new Map() };
 
 // ---- воркер ----
 
@@ -37,13 +55,15 @@ const analyze = (levelJson) => new Promise((resolve) => {
 async function boot() {
   const status = document.getElementById('status');
   try {
-    const [characters, scenes, rules, chapters, disabled] = await Promise.all([
+    const [characters, scenes, rules, chapters, disabled, ...cats] = await Promise.all([
       readText('rome/characters.json'),
       readText('rome/scenes.json'),
       readText('rome/rules.json'),
       readJson('chapters.json'),
       readJson('disabled.json').catch(() => []),
+      ...LANGS.map(l => readJson(`i18n/${l}.json`)),
     ]);
+    state.i18n = Object.fromEntries(LANGS.map((l, i) => [l, cats[i]]));
     state.dbRaw = { characters, scenes, rules };
     state.db = {
       characters: Object.fromEntries(JSON.parse(characters).map(c => [c.id, c])),
@@ -92,7 +112,7 @@ function renderSidebar() {
       row.className = 'lvl';
       row.dataset.id = lv.id;
       row.innerHTML = `<span class="ord">${lv.order}</span><span class="nm"></span>`;
-      row.querySelector('.nm').textContent = lv.title;
+      row.querySelector('.nm').textContent = txt(lv.id, 'title', 'ru') || lv.id;
       if (state.disabled.has(lv.id)) {
         const off = document.createElement('span');
         off.className = 'off';
@@ -119,12 +139,13 @@ function renderDetail(lv) {
   el.className = 'open';
   el.innerHTML = '';
 
-  el.appendChild(node(`<h2></h2>`, h => h.textContent = lv.title));
+  el.appendChild(node(`<h2></h2>`, h => h.textContent = txt(lv.id, 'title', 'ru') || lv.id));
   el.appendChild(node(`<div class="sub"></div>`,
     d => d.textContent = `${lv.id} · ${lv._chapter} · порядок ${lv.order}${lv.act ? ' · ' + lv.act : ''}`));
 
-  el.appendChild(section('Цель', node('<div></div>', d => {
-    d.appendChild(node('<p style="margin:0 0 8px"></p>', p => p.textContent = lv.goalText));
+  el.appendChild(section('Тексты', textsEditor(lv)));
+
+  el.appendChild(section('Условие победы (механика)', node('<div></div>', d => {
     d.appendChild(node('<pre></pre>', p => p.textContent = JSON.stringify(lv.goal, null, 1)));
   })));
 
@@ -168,13 +189,7 @@ function renderDetail(lv) {
   });
   el.appendChild(section('Валидация', node('<div></div>', d => { d.appendChild(btn); d.appendChild(verdict); })));
 
-  if (lv.factCard) {
-    el.appendChild(section('Факт-карточка', node('<div></div>', d => {
-      d.appendChild(node('<p style="margin:0 0 4px"></p>', p => p.textContent = lv.factCard.text));
-      d.appendChild(node('<p style="margin:0;font-size:11px;color:var(--ink-soft)"></p>',
-        p => p.textContent = `${lv.factCard.accuracy} · ${lv.factCard.source}`));
-    })));
-  }
+
 }
 
 function showVerdict(box, r, wallMs) {
@@ -210,6 +225,126 @@ function showVerdict(box, r, wallMs) {
   }
   box.appendChild(node('<div style="font-size:11px;color:var(--ink-soft);margin-top:6px"></div>',
     d => d.textContent = r.cached ? 'из кеша' : `посчитано за ${(r.ms / 1000).toFixed(1)} с`));
+}
+
+// ---- редактор текстов ----
+
+// Правки копятся в state.pending и уезжают на диск по кнопке: сохранять на каждую букву —
+// это 9 файлов каталогов на каждое нажатие клавиши.
+function textsEditor(lv) {
+  return node('<div></div>', box => {
+    box.appendChild(node('<div class="langs"></div>', tabs => {
+      for (const l of LANGS) tabs.appendChild(node('<button class="lang"></button>', b => {
+        b.textContent = l;
+        b.classList.toggle('on', l === state.lang);
+        b.onclick = () => { state.lang = l; renderDetail(lv); };
+      }));
+    }));
+
+    for (const f of TEXTS) {
+      const value = pendingOr(lv.id, f.key, state.lang);
+      const ruValue = txt(lv.id, f.key, 'ru');
+      box.appendChild(node('<label class="field"></label>', label => {
+        label.appendChild(node('<span></span>', s2 => s2.textContent = f.label));
+        const input = f.rows
+          ? node('<textarea></textarea>', el => el.rows = f.rows)
+          : node('<input type="text">');
+        input.value = value;
+        input.oninput = () => setPending(lv.id, f.key, state.lang, input.value);
+        label.appendChild(input);
+        // Перевод легко сверять с оригиналом, только когда оригинал перед глазами.
+        if (state.lang !== 'ru' && ruValue) {
+          label.appendChild(node('<span class="ru"></span>', r => r.textContent = ruValue));
+        }
+      }));
+    }
+
+    box.appendChild(saveBar());
+  });
+}
+
+function pendingOr(lid, key, lang) {
+  const k = `${lang}|${txtKey(lid, key)}`;
+  return state.pending.has(k) ? state.pending.get(k) : txt(lid, key, lang);
+}
+
+function setPending(lid, key, lang, value) {
+  const k = `${lang}|${txtKey(lid, key)}`;
+  if (txt(lid, key, lang) === value) state.pending.delete(k);
+  else state.pending.set(k, value);
+  refreshSaveBar();
+}
+
+function saveBar() {
+  return node('<div class="savebar"></div>', bar => {
+    bar.appendChild(node('<button id="save"></button>', b => { b.onclick = save; }));
+    bar.appendChild(node('<button class="ghost" id="publish"></button>', b => {
+      b.textContent = 'Опубликовать';
+      b.onclick = publish;
+    }));
+    bar.appendChild(node('<span id="saveinfo"></span>'));
+    setTimeout(refreshSaveBar, 0);
+  });
+}
+
+function refreshSaveBar() {
+  const b = document.getElementById('save');
+  if (!b) return;
+  const n = state.pending.size;
+  b.textContent = n ? `Сохранить (${n})` : 'Сохранено';
+  b.disabled = n === 0;
+}
+
+async function save() {
+  const b = document.getElementById('save');
+  const info = document.getElementById('saveinfo');
+  b.disabled = true; b.textContent = 'Сохраняю…';
+
+  // Правки разложены по языкам; на диск уходят только затронутые каталоги.
+  const byLang = new Map();
+  for (const [k, value] of state.pending) {
+    const [lang, key] = [k.slice(0, k.indexOf('|')), k.slice(k.indexOf('|') + 1)];
+    if (!byLang.has(lang)) byLang.set(lang, { ...state.i18n[lang] });
+    byLang.get(lang)[key] = value;
+  }
+  const files = {};
+  for (const [lang, table] of byLang) files[`i18n/${lang}.json`] = JSON.stringify(table, null, 2) + '\n';
+
+  const r = await fetch('/api/save', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ files }),
+  }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
+
+  if (r.ok) {
+    for (const [lang, table] of byLang) state.i18n[lang] = table;
+    state.pending.clear();
+    info.textContent = `записано: ${r.written.join(', ')}`;
+    renderSidebar();
+    document.querySelectorAll('.lvl').forEach(x => x.classList.toggle('sel', x.dataset.id === state.selected));
+  } else {
+    info.textContent = 'ошибка: ' + r.error;
+  }
+  refreshSaveBar();
+}
+
+async function publish() {
+  const b = document.getElementById('publish');
+  const info = document.getElementById('saveinfo');
+  if (state.pending.size && !confirm('Есть несохранённые правки. Публиковать без них?')) return;
+  b.disabled = true; b.textContent = 'Публикую…';
+  info.textContent = 'валидатор → манифест → R2, это займёт пару минут';
+
+  const version = await fetch('/api/version').then(r => r.json()).then(v => v.version + 1).catch(() => 0);
+  const r = await fetch('/api/publish', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ version }),
+  }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
+
+  b.disabled = false; b.textContent = 'Опубликовать';
+  info.textContent = r.ok
+    ? `опубликовано, версия ${version}`
+    : 'не опубликовано: ' + (r.error || (r.steps || []).filter(s => !s.ok).map(s => s.name).join(', '));
+  if (!r.ok && r.steps) console.log(r.steps);
 }
 
 // ---- мелкие помощники ----

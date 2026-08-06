@@ -1,56 +1,50 @@
 {
-  "id": "reform",
-  "order": 110,
-  "epoch": "empire",
-  "act": "Акт III · Екатерина Великая",
-  "title": "Просвещённая государыня",
-  "panels": 2,
-  "scenes": [
-    "salon_c",
-    "decree_c"
-  ],
-  "characters": [
-    "catherine",
-    "diderot",
-    "potemkin"
-  ],
-  "initialState": {
-    "flags": {
-      "catherine": [
-        "reigns",
-        "crowned"
-      ]
-    }
-  },
-  "initialText": "Екатерина переписывается с философами Просвещения и мнит себя их ученицей на троне.",
-  "goal": {
-    "flag": {
-      "char": "catherine",
-      "is": "enlightened"
-    }
-  },
-  "goalText": "Императрица даёт державе новые законы",
-  "goalHint": "Пусть императрица сперва проникнется идеями в переписке с Дидро — и лишь тогда издаст просвещённый Наказ. Вельможа Потёмкин философа не заменит.",
-  "solution": [
-    {
-      "scene": "salon_c",
-      "characters": [
-        "catherine",
-        "diderot"
-      ]
-    },
-    {
-      "scene": "decree_c",
-      "characters": [
-        "catherine"
-      ]
-    }
-  ],
-  "cover": "imperator",
-  "music": "empire_ceremony",
-  "factCard": {
-    "accuracy": "fact",
-    "text": "Екатерина II переписывалась с Вольтером и Дидро, созвала Уложенную комиссию (1767) и написала «Наказ». Её правление вошло в историю как «просвещённый абсолютизм», хотя крепостное право лишь усилилось.",
-    "source": "«Наказ» Екатерины II"
+ "id": "reform",
+ "order": 110,
+ "epoch": "empire",
+ "act": "Акт III · Екатерина Великая",
+ "panels": 2,
+ "scenes": [
+  "salon_c",
+  "decree_c"
+ ],
+ "characters": [
+  "catherine",
+  "diderot",
+  "potemkin"
+ ],
+ "initialState": {
+  "flags": {
+   "catherine": [
+    "reigns",
+    "crowned"
+   ]
   }
+ },
+ "goal": {
+  "flag": {
+   "char": "catherine",
+   "is": "enlightened"
+  }
+ },
+ "solution": [
+  {
+   "scene": "salon_c",
+   "characters": [
+    "catherine",
+    "diderot"
+   ]
+  },
+  {
+   "scene": "decree_c",
+   "characters": [
+    "catherine"
+   ]
+  }
+ ],
+ "cover": "imperator",
+ "music": "empire_ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
 }
