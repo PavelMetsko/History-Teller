@@ -581,6 +581,109 @@ async function publish() {
   }
 }
 
+// ---- загрузка арта ----
+
+// Тот же пайплайн, что в tools/optimize_art.py, только средствами браузера: canvas умеет
+// и ресайз, и WebP, поэтому сервер для картинок не нужен.
+//   персонажи — высота не больше 768 (в игре спрайт рисуется максимум ~560 на 3x)
+//   сцены     — 1024 в длинной стороне (панель не бывает шире ~1330 на 3x)
+const ART = {
+  char:  { maxH: 768,  alpha: true,  label: 'персонаж' },
+  scene: { maxW: 1024, alpha: false, label: 'сцена' },
+};
+
+async function processImage(file, kind) {
+  const bitmap = await createImageBitmap(file);
+  const cfg = ART[kind];
+
+  let { width: w, height: h } = bitmap;
+  if (cfg.maxH && h > cfg.maxH) { w = Math.round(w * cfg.maxH / h); h = cfg.maxH; }
+  if (cfg.maxW && w > cfg.maxW) { h = Math.round(h * cfg.maxW / w); w = cfg.maxW; }
+
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  // Сцены непрозрачны: без заливки прозрачные края превратились бы в чёрные.
+  if (!cfg.alpha) { ctx.fillStyle = '#000'; ctx.fillRect(0, 0, w, h); }
+  ctx.drawImage(bitmap, 0, 0, w, h);
+
+  const blob = await new Promise(res => canvas.toBlob(res, 'image/webp', 0.82));
+  return { blob, w, h, url: URL.createObjectURL(blob) };
+}
+
+const toBase64 = (blob) => new Promise(res => {
+  const fr = new FileReader();
+  fr.onload = () => res(fr.result.split(',')[1]);
+  fr.readAsDataURL(blob);
+});
+
+function uploadArt(preset = {}) {
+  let processed = null;
+  const overlay = node('<div class="overlay"></div>');
+  const kindSel = node('<select></select>', sel => {
+    for (const [k, cfg] of Object.entries(ART)) sel.appendChild(node('<option></option>', o => {
+      o.value = k; o.textContent = cfg.label; o.selected = k === (preset.kind ?? 'char');
+    }));
+  });
+  const idInp = node('<input class="search" placeholder="id, например caesar или forum">');
+  if (preset.id) idInp.value = preset.id;
+  const fileInp = node('<input type="file" accept="image/*">');
+  const preview = node('<div class="dim">выбери файл</div>');
+  const go = node('<button disabled>Загрузить</button>');
+
+  const redraw = async () => {
+    if (!fileInp.files?.[0]) return;
+    preview.innerHTML = 'обрабатываю…';
+    processed = await processImage(fileInp.files[0], kindSel.value);
+    preview.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = processed.url;
+    img.style.cssText = 'max-height:150px;display:block;margin-bottom:6px';
+    preview.appendChild(img);
+    preview.appendChild(node('<div class="dim"></div>', d =>
+      d.textContent = `${processed.w}×${processed.h}, WebP, ${(processed.blob.size / 1024).toFixed(0)} КБ`));
+    go.disabled = !idInp.value.trim();
+  };
+  fileInp.onchange = redraw;
+  kindSel.onchange = redraw;
+  idInp.oninput = () => { go.disabled = !processed || !idInp.value.trim(); };
+
+  go.onclick = async () => {
+    const name = `${kindSel.value}_${idInp.value.trim()}`;
+    go.disabled = true; go.textContent = 'Отправляю…';
+    const r = await fetch(CFG.api + '/api/save', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ binary: { [`art/${name}.webp`]: await toBase64(processed.blob) } }),
+    }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
+    if (!r.ok) { go.disabled = false; go.textContent = 'Загрузить'; alert('не вышло: ' + r.error); return; }
+    overlay.remove();
+    // Браузер держит старую картинку в кеше — пересобираем карточку с новым адресом.
+    if (state.draft) renderDetail();
+    const info = document.getElementById('saveinfo');
+    if (info) info.textContent = `арт загружен: ${name}.webp`;
+  };
+
+  overlay.appendChild(node('<div class="sheet"></div>', sheet => {
+    sheet.appendChild(node('<div class="sheethead"></div>', h => {
+      h.appendChild(node('<b>Загрузить арт</b>'));
+      h.appendChild(node('<button class="ghost">Закрыть</button>', b => b.onclick = () => overlay.remove()));
+    }));
+    sheet.appendChild(node('<div class="fields"></div>', f => {
+      f.appendChild(node('<label class="field small"></label>', l => {
+        l.appendChild(node('<span>Что это</span>')); l.appendChild(kindSel);
+      }));
+      f.appendChild(node('<label class="field" style="flex:1;min-width:200px"></label>', l => {
+        l.appendChild(node('<span>id</span>')); l.appendChild(idInp);
+      }));
+    }));
+    sheet.appendChild(fileInp);
+    sheet.appendChild(node('<div style="margin:10px 0"></div>', d => d.appendChild(preview)));
+    sheet.appendChild(go);
+  }));
+  overlay.onclick = (e) => { if (e.target === overlay) overlay.remove(); };
+  document.body.appendChild(overlay);
+}
+
 // ---- выбор из каталога ----
 
 function picker(title, items, shape, onPick) {
@@ -655,5 +758,6 @@ function note(kind, text) {
 }
 
 document.getElementById('newlevel').onclick = newLevel;
+document.getElementById('newart').onclick = () => uploadArt();
 window.onbeforeunload = () => dirty() ? '' : undefined;
 boot();

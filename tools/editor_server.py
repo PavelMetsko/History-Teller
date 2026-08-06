@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import base64
 import http.server
 import json
 import subprocess
@@ -25,27 +26,46 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "Content"
 
 
+def target(rel: str) -> Path:
+    """Путь приходит из браузера — пускаем строго внутрь Content/, иначе редактор
+    превращается в способ переписать что угодно на диске."""
+    dst = (CONTENT / rel).resolve()
+    if not dst.is_relative_to(CONTENT.resolve()):
+        raise ValueError(f"путь за пределами Content/: {rel}")
+    return dst
+
+
 def save(payload: dict) -> dict:
-    files = payload.get("files") or {}
-    if not files:
+    files = payload.get("files") or {}       # текстовые: JSON контента
+    binary = payload.get("binary") or {}     # бинарные: арт в base64
+    if not files and not binary:
         return {"ok": False, "error": "нечего сохранять"}
 
     written = []
-    for rel, text in files.items():
-        # Путь приходит из браузера — пускаем строго внутрь Content/, иначе редактор
-        # превращается в способ переписать что угодно на диске.
-        dst = (CONTENT / rel).resolve()
-        if not dst.is_relative_to(CONTENT.resolve()):
-            return {"ok": False, "error": f"путь за пределами Content/: {rel}"}
-        if dst.suffix != ".json":
-            return {"ok": False, "error": f"ожидается .json: {rel}"}
-        try:
-            json.loads(text)          # не даём записать сломанный JSON
-        except json.JSONDecodeError as e:
-            return {"ok": False, "error": f"{rel}: невалидный JSON — {e}"}
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        dst.write_text(text, encoding="utf-8")
-        written.append(rel)
+    try:
+        for rel, text in files.items():
+            dst = target(rel)
+            if dst.suffix != ".json":
+                return {"ok": False, "error": f"ожидается .json: {rel}"}
+            try:
+                json.loads(text)          # не даём записать сломанный JSON
+            except json.JSONDecodeError as e:
+                return {"ok": False, "error": f"{rel}: невалидный JSON — {e}"}
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_text(text, encoding="utf-8")
+            written.append(rel)
+
+        for rel, b64 in binary.items():
+            dst = target(rel)
+            # Арт готовит браузер (ресайз и WebP через canvas) — сюда приходит уже готовый файл.
+            if dst.suffix != ".webp" or not rel.startswith("art/"):
+                return {"ok": False, "error": f"ожидается art/*.webp: {rel}"}
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_bytes(base64.b64decode(b64))
+            written.append(rel)
+    except ValueError as e:
+        return {"ok": False, "error": str(e)}
+
     return {"ok": True, "written": written}
 
 

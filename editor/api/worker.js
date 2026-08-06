@@ -73,9 +73,11 @@ async function version(env) {
  * «поправил en», «поправил уровень» без общего смысла. Поэтому собираем дерево вручную:
  * блобы → дерево поверх текущего → коммит → сдвиг ветки.
  */
-async function save(env, { files, message }) {
+async function save(env, { files, binary, message }) {
   const branch = env.BRANCH || 'main';
-  const paths = Object.keys(files || {});
+  const textPaths = Object.keys(files || {});
+  const binPaths = Object.keys(binary || {});
+  const paths = [...textPaths, ...binPaths];
   if (!paths.length) return { ok: false, error: 'нечего сохранять' };
 
   for (const p of paths) {
@@ -89,16 +91,29 @@ async function save(env, { files, message }) {
   const head = ref.object.sha;
   const headCommit = await gh(env, `/git/commits/${head}`);
 
+  // Дерево принимает только текст, поэтому картинки сперва загружаем блобами
+  // и кладём в дерево по их sha.
+  const blobs = {};
+  for (const p of binPaths) {
+    const blob = await gh(env, '/git/blobs', {
+      method: 'POST',
+      body: JSON.stringify({ content: binary[p], encoding: 'base64' }),
+    });
+    blobs[p] = blob.sha;
+  }
+
   const tree = await gh(env, '/git/trees', {
     method: 'POST',
     body: JSON.stringify({
       base_tree: headCommit.tree.sha,
-      tree: paths.map(p => ({
-        path: `Content/${p}`,
-        mode: '100644',
-        type: 'blob',
-        content: files[p],
-      })),
+      tree: [
+        ...textPaths.map(p => ({
+          path: `Content/${p}`, mode: '100644', type: 'blob', content: files[p],
+        })),
+        ...binPaths.map(p => ({
+          path: `Content/${p}`, mode: '100644', type: 'blob', sha: blobs[p],
+        })),
+      ],
     }),
   });
 
