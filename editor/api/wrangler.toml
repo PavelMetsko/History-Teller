@@ -1,0 +1,14 @@
+name = "history-teller-editor-api"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+REPO = "PavelMetsko/History-Teller"
+BRANCH = "main"
+CDN_BASE = "https://pub-6903ffa4531e43d19ab534800387df28.r2.dev"
+# Ограничить источник запросов до адреса редактора после его выкладки на Pages.
+ALLOW_ORIGIN = "*"
+
+# Токен задаётся отдельно и в файл не пишется:
+#   npx wrangler secret put GITHUB_TOKEN
+# Нужен fine-grained PAT на этот репозиторий: contents=write, actions=write.

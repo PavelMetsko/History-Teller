@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Заливка облачного бандла контента в Cloudflare R2 (S3-совместимый API).
 
-Ключи берутся из `.r2.env` в корне репозитория (он в .gitignore — в гит не попадает):
+Ключи — из окружения (так их отдаёт CI) либо из `.r2.env` в корне репозитория (так удобнее
+локально; файл в .gitignore, в гит не попадает):
 
     CLOUDFLARE_ACCOUNT_ID=...
     R2_ACCESS_KEY_ID=...
@@ -20,6 +21,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -27,20 +29,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
+NEEDED = ("CLOUDFLARE_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY")
+
+
 def load_env() -> dict:
+    """Ключи из окружения (так их отдаёт CI) либо из `.r2.env` (так удобнее локально)."""
+    env = {k: os.environ[k] for k in NEEDED if os.environ.get(k)}
+
     env_file = ROOT / ".r2.env"
-    if not env_file.exists():
-        sys.exit(f"нет {env_file}. Создай его с CLOUDFLARE_ACCOUNT_ID, "
-                 f"R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY")
-    env = {}
-    for line in env_file.read_text().splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, v = line.split("=", 1)
-            env[k.strip()] = v.strip()
-    missing = {"CLOUDFLARE_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY"} - set(env)
-    if missing:
-        sys.exit(f"в .r2.env не хватает: {', '.join(sorted(missing))}")
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env.setdefault(k.strip(), v.strip())
+
+    if missing := set(NEEDED) - set(env):
+        sys.exit(f"нет ключей R2: {', '.join(sorted(missing))}. "
+                 f"Задай их в окружении или в {env_file}")
     return env
 
 

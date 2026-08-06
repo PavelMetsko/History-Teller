@@ -6,13 +6,27 @@
 // Правки копятся в черновике и уезжают на диск по кнопке. Сохранять на каждое нажатие нельзя:
 // одна буква в тексте — это перезапись файла каталога, а их девять.
 
-const SRC = '../Content';
-const readText = (p) => fetch(`${SRC}/${p}`).then(r => {
+// Два режима работы. Локально страница отдаётся dev-сервером из корня репозитория: контент
+// лежит рядом, правки пишутся прямо в рабочее дерево и видны в `git diff`. На хостинге контент
+// читается из публичного репозитория, а пишется через Worker, который держит токен у себя.
+const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
+
+const CFG = LOCAL ? {
+  content: '../Content',
+  manifest: '../dist/content/manifest.json',
+  api: '',
+} : {
+  content: 'https://raw.githubusercontent.com/PavelMetsko/History-Teller/main/Content',
+  manifest: 'https://pub-6903ffa4531e43d19ab534800387df28.r2.dev/manifest.json',
+  api: 'https://history-teller-editor-api.workers.dev',
+};
+
+const readText = (p) => fetch(`${CFG.content}/${p}`).then(r => {
   if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`);
   return r.text();
 });
 const readJson = (p) => readText(p).then(JSON.parse);
-const artUrl = (name) => `${SRC}/art/${name}.webp`;
+const artUrl = (name) => `${CFG.content}/art/${name}.webp`;
 
 const LANGS = ['ru', 'en', 'es', 'de', 'fr', 'it', 'pt', 'pl', 'nl'];
 
@@ -96,8 +110,10 @@ async function boot() {
 // источник истины для игры. Локально его собирает tools/publish_content.py.
 async function levelIdsOf(chapterId) {
   if (!state._manifest) {
-    state._manifest = await fetch('../dist/content/manifest.json')
-      .then(r => r.ok ? r.json() : Promise.reject(new Error('нет dist/content/manifest.json — запусти tools/publish_content.py')));
+    state._manifest = await fetch(CFG.manifest)
+      .then(r => r.ok ? r.json() : Promise.reject(new Error(
+        LOCAL ? 'нет dist/content/manifest.json — запусти tools/publish_content.py'
+              : 'манифест недоступен: ' + CFG.manifest)));
   }
   return (state._manifest.chapters.find(c => c.id === chapterId)?.levels) ?? [];
 }
@@ -518,7 +534,7 @@ async function save() {
     files['disabled.json'] = JSON.stringify([...state.disabled].sort(), null, 2) + '\n';
   }
 
-  const r = await fetch('/api/save', {
+  const r = await fetch(CFG.api + '/api/save', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ files }),
   }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
@@ -545,17 +561,24 @@ async function publish() {
   b.disabled = true; b.textContent = 'Публикую…';
   info.textContent = 'валидатор → манифест → R2, это займёт пару минут';
 
-  const version = await fetch('/api/version').then(r => r.json()).then(v => v.version + 1).catch(() => 0);
-  const r = await fetch('/api/publish', {
+  const version = LOCAL
+    ? await fetch(CFG.api + '/api/version').then(r => r.json()).then(v => v.version + 1).catch(() => 0)
+    : 0;   // в облаке номер выбирает CI, отталкиваясь от того, что реально лежит в R2
+  const r = await fetch(CFG.api + '/api/publish', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ version }),
   }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
 
   b.disabled = false; b.textContent = 'Опубликовать';
-  info.textContent = r.ok
-    ? `опубликовано, версия ${version}`
-    : 'не опубликовано: ' + (r.error || (r.steps || []).filter(s => !s.ok).map(s => s.name).join(', '));
-  if (!r.ok && r.steps) console.log(r.steps);
+  if (!r.ok) {
+    info.textContent = 'не опубликовано: ' + (r.error || (r.steps || []).filter(x => !x.ok).map(x => x.name).join(', '));
+    if (r.steps) console.log(r.steps);
+  } else if (r.dispatched) {
+    // На хостинге публикацией занимается CI: он только запущен, результат будет позже.
+    info.textContent = 'публикация запущена — идёт в GitHub Actions, займёт пару минут';
+  } else {
+    info.textContent = `опубликовано, версия ${version}`;
+  }
 }
 
 // ---- выбор из каталога ----
