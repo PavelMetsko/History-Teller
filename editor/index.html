@@ -105,11 +105,62 @@
   .savebar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px;
              padding-top:12px; border-top:1px solid rgba(43,36,25,.15); }
   #saveinfo { font-size:11px; color:var(--ink-soft); }
+  .dim { font-size:11px; color:var(--ink-soft); margin-top:6px; }
+
+  figure { position:relative; }
+  button.x { position:absolute; top:-5px; right:-5px; width:19px; height:19px; padding:0;
+             border-radius:50%; border:1.5px solid var(--ink); background:var(--bad);
+             color:#fff; font:700 12px/1 sans-serif; }
+  button.add { width:52px; height:62px; padding:0; border-radius:8px; border:2px dashed var(--ink);
+               background:transparent; color:var(--ink); font:300 26px/1 sans-serif; }
+  .scenes button.add { width:96px; height:66px; }
+
+  .panel.edit { width:172px; }
+  .panel select { width:100%; border:0; border-top:2px solid var(--ink); border-radius:0;
+                  padding:5px 6px; font:11px inherit; background:var(--panel); color:var(--ink); }
+  .slots { display:flex; flex-wrap:wrap; gap:3px; padding:5px 6px; }
+  button.slot { padding:3px 7px; font-size:10px; border-radius:10px; border:1.5px solid var(--ink);
+                background:transparent; color:var(--ink); }
+  button.slot.on { background:var(--gold); }
+  button.slot:disabled { opacity:.3; }
+
+  .fields { display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }
+  .field.small { width:120px; margin-bottom:0; }
+  .field.small select { width:100%; padding:7px 9px; border:1.5px solid rgba(43,36,25,.3);
+                        border-radius:6px; background:var(--paper); color:var(--ink); font:13px inherit; }
+  .toggle { display:flex; align-items:center; gap:7px; font-size:12px; width:100%; }
+  .miss.wide { width:96px; height:66px; }
+
+  .overlay { position:fixed; inset:0; background:rgba(20,12,18,.7); display:flex;
+             align-items:center; justify-content:center; padding:20px; z-index:50; }
+  .sheet { background:var(--panel); border:3px solid var(--ink); border-radius:14px;
+           width:min(720px,100%); max-height:80vh; display:flex; flex-direction:column; padding:14px; }
+  .sheethead { display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
+  .sheethead button { padding:5px 12px; font-size:12px; }
+  .search { width:100%; padding:8px 10px; margin-bottom:10px; border-radius:7px;
+            border:1.5px solid rgba(43,36,25,.3); background:var(--paper); font:13px inherit; }
+  .pickgrid { overflow-y:auto; display:grid; gap:8px;
+              grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); }
+  button.pick { display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 4px;
+                background:var(--paper); border:1.5px solid rgba(43,36,25,.25); border-radius:8px;
+                color:var(--ink); font:10px inherit; }
+  button.pick:hover { border-color:var(--gold); }
+  button.pick img { height:56px; object-fit:contain; }
+  button.pick img.wide { width:80px; height:52px; object-fit:cover; border-radius:4px; }
+
+  button.mini { padding:5px 11px; font-size:12px; border-width:1.5px; border-color:var(--gold);
+                background:transparent; color:var(--gold); }
+  textarea.code { width:100%; padding:9px 11px; border:1.5px solid rgba(43,36,25,.3);
+                  border-radius:7px; background:var(--paper); color:var(--ink);
+                  font:11px/1.4 ui-monospace,Menlo,monospace; resize:vertical; }
+  textarea.code:focus { outline:none; border-color:var(--gold); }
+  textarea.code.broken { border-color:var(--bad); }
 </style>
 </head>
 <body>
 <header>
   <h1>History Teller · редактор</h1>
+  <button id="newlevel" class="mini">+ уровень</button>
   <div class="status" id="status">загрузка контента…</div>
 </header>
 <main id="main">
