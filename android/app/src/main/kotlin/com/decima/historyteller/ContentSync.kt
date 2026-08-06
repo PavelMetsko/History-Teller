@@ -64,11 +64,13 @@ object ContentSync {
     var generation by mutableStateOf(0); private set
 
     /**
-     * Базовый URL раздачи. Для локального стенда (`tools/publish_content.py --serve`) ставится
-     * в `http://10.0.2.2:8787` — это адрес хоста изнутри эмулятора. Учти: с API 28 открытый HTTP
-     * запрещён по умолчанию, для стенда нужен networkSecurityConfig с cleartext на 10.0.2.2.
+     * Базовый URL раздачи — публичный dev-адрес бакета R2. Cloudflare его троттлит и не
+     * рекомендует для продакшена: перед релизом сюда должен встать свой домен.
+     *
+     * Для локального стенда (`tools/publish_content.py --serve`) ставится в `http://10.0.2.2:8787`
+     * — это адрес хоста изнутри эмулятора; открытый HTTP с API 28 требует networkSecurityConfig.
      */
-    var baseUrl: String = "https://content.historyteller.app"
+    var baseUrl: String = "https://pub-6903ffa4531e43d19ab534800387df28.r2.dev"
 
     private val json = Json { ignoreUnknownKeys = true }
     private lateinit var root: File

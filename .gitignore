@@ -38,3 +38,6 @@ ios/DerivedData/
 
 # Облачный бандл контента (пересобирается: python3 tools/publish_content.py)
 dist/
+
+# Ключи R2 — НЕ коммитить
+.r2.env
