@@ -159,6 +159,16 @@ if __name__ == "__main__":
     if not (ROOT / "editor/engine.js").exists():
         sys.exit("нет editor/engine.js — сначала ./tools/build_editor.sh")
     http.server.ThreadingHTTPServer.allow_reuse_address = True
-    with http.server.ThreadingHTTPServer(("127.0.0.1", port), Handler) as srv:
+    try:
+        srv = http.server.ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    except OSError as e:
+        if e.errno != 48:                     # 48 = порт занят
+            raise
+        sys.exit(f"порт {port} занят. Либо редактор уже запущен — открой "
+                 f"http://localhost:{port}/editor/, либо освободи порт: pkill -f editor_server.py")
+    with srv:
         print(f"редактор: http://localhost:{port}/editor/   (Ctrl-C чтобы остановить)")
-        srv.serve_forever()
+        try:
+            srv.serve_forever()
+        except KeyboardInterrupt:
+            print("\nостановлен")
