@@ -56,9 +56,9 @@ public final class ContentSync {
         if let s = ProcessInfo.processInfo.environment["HT_CONTENT_URL"], let u = URL(string: s) { return u }
         if let s = Bundle.main.object(forInfoDictionaryKey: "HTContentBaseURL") as? String,
            let u = URL(string: s) { return u }
-        // Публичный dev-адрес бакета R2. Cloudflare его троттлит и не рекомендует для продакшена —
-        // перед релизом сюда должен встать свой домен, подключённый к бакету.
-        return URL(string: "https://pub-6903ffa4531e43d19ab534800387df28.r2.dev")!
+        // Свой домен, подключённый к бакету R2. Публичный `*.r2.dev` Cloudflare троттлит
+        // и для продакшена не рекомендует — на нём мы жили только до покупки домена.
+        return URL(string: "https://cdn.historyteller.app")!
     }()
 
     private let root: URL

@@ -2,17 +2,20 @@ name = "history-teller-editor-api"
 main = "worker.js"
 compatibility_date = "2026-01-01"
 
-# Публичный маршрут выключен намеренно: у Worker'а токен с правом записи в репозиторий,
-# и до настройки Cloudflare Access открывать его в интернет нельзя — адрес лежит
-# в коде редактора, то есть общеизвестен.
+# Свой домен вместо *.workers.dev: адрес Worker'а лежит в коде редактора, то есть
+# общеизвестен, а внутри у него токен с правом записи в репозиторий. Открывать его можно
+# только за Cloudflare Access, а тот работает лишь на собственной зоне.
 workers_dev = false
+routes = [
+  { pattern = "api.historyteller.app", custom_domain = true },
+]
 
 [vars]
 REPO = "PavelMetsko/History-Teller"
 BRANCH = "main"
-CDN_BASE = "https://pub-6903ffa4531e43d19ab534800387df28.r2.dev"
-# Ограничить источник запросов до адреса редактора после его выкладки на Pages.
-ALLOW_ORIGIN = "*"
+CDN_BASE = "https://cdn.historyteller.app"
+# Только редактор — чтобы чужая страница не дёргала API из браузера пользователя.
+ALLOW_ORIGIN = "https://editor.historyteller.app"
 
 # Токен задаётся отдельно и в файл не пишется:
 #   npx wrangler secret put GITHUB_TOKEN

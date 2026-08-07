@@ -51,7 +51,7 @@ jobs:
           echo "next=$((CURRENT + 1))" >> "$GITHUB_OUTPUT"
           echo "в облаке сейчас v$CURRENT, публикуем v$((CURRENT + 1))"
         env:
-          BASE: https://pub-6903ffa4531e43d19ab534800387df28.r2.dev
+          BASE: https://cdn.historyteller.app
 
       - name: Сборка манифеста
         run: python3 tools/publish_content.py --version ${{ steps.ver.outputs.next }}

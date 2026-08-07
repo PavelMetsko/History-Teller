@@ -16,8 +16,13 @@ const api = 'https://api.github.com';
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    // Редактор и API — разные поддомены, и оба за Cloudflare Access. Браузер пошлёт куку
+    // Access только при `credentials: include`, а тот запрещает ответ с `*` в Allow-Origin,
+    // поэтому origin отдаём точный и явно разрешаем передачу учётных данных.
     const cors = {
       'Access-Control-Allow-Origin': env.ALLOW_ORIGIN || '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Vary': 'Origin',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     };

@@ -11,10 +11,10 @@
 // читается из публичного репозитория, а пишется через Worker, который держит токен у себя.
 const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
 
-// Правка возможна только там, где есть куда писать. На хостинге запись идёт через Worker,
-// но он закрыт до тех пор, пока его нечем защитить: у него токен на запись в репозиторий,
-// а Cloudflare Access требует собственного домена, которого пока нет. Поэтому выложенная
-// версия — только просмотр, и это состояние обозначено явно, а не спрятано в сломанных кнопках.
+// Правка возможна и на хостинге: запись идёт через Worker на api.historyteller.app, а он
+// вместе с самим редактором закрыт Cloudflare Access — пускает только владельца. До покупки
+// домена этого было нельзя (Access работает лишь на своей зоне), и выложенная версия жила
+// в режиме просмотра.
 const CFG = LOCAL ? {
   content: '../Content',
   manifest: '../dist/content/manifest.json',
@@ -22,9 +22,9 @@ const CFG = LOCAL ? {
   canEdit: true,
 } : {
   content: 'https://raw.githubusercontent.com/PavelMetsko/History-Teller/main/Content',
-  manifest: 'https://pub-6903ffa4531e43d19ab534800387df28.r2.dev/manifest.json',
-  api: 'https://history-teller-editor-api.decima-games.workers.dev',
-  canEdit: false,
+  manifest: 'https://cdn.historyteller.app/manifest.json',
+  api: 'https://api.historyteller.app',
+  canEdit: true,
 };
 
 const readText = (p) => fetch(`${CFG.content}/${p}`).then(r => {
@@ -545,6 +545,7 @@ async function save() {
   }
 
   const r = await fetch(CFG.api + '/api/save', {
+    credentials: 'include',
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ files }),
   }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
@@ -572,9 +573,10 @@ async function publish() {
   info.textContent = 'валидатор → манифест → R2, это займёт пару минут';
 
   const version = LOCAL
-    ? await fetch(CFG.api + '/api/version').then(r => r.json()).then(v => v.version + 1).catch(() => 0)
+    ? await fetch(CFG.api + '/api/version', { credentials: 'include' }).then(r => r.json()).then(v => v.version + 1).catch(() => 0)
     : 0;   // в облаке номер выбирает CI, отталкиваясь от того, что реально лежит в R2
   const r = await fetch(CFG.api + '/api/publish', {
+    credentials: 'include',
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ version }),
   }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
@@ -662,6 +664,7 @@ function uploadArt(preset = {}) {
     const name = `${kindSel.value}_${idInp.value.trim()}`;
     go.disabled = true; go.textContent = 'Отправляю…';
     const r = await fetch(CFG.api + '/api/save', {
+      credentials: 'include',
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ binary: { [`art/${name}.webp`]: await toBase64(processed.blob) } }),
     }).then(x => x.json()).catch(e => ({ ok: false, error: e.message }));
