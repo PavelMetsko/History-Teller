@@ -33,8 +33,12 @@ jobs:
       - name: Валидатор
         # Гоняет солвер по всем уровням. Ненулевой код — нерешаемый уровень или неверный
         # эталон; тогда шаг падает и до заливки дело не доходит.
+        #
+        # java.home перекрываем: в android/gradle.properties прибит путь к JDK от Android
+        # Studio (системная Java на машине разработчика новее, чем переваривает AGP),
+        # а на раннере такого пути нет — Gradle падал ещё до запуска валидатора.
         working-directory: android
-        run: ./gradlew -q :engine:run
+        run: ./gradlew -q :engine:run -Dorg.gradle.java.home="$JAVA_HOME"
 
       - uses: actions/setup-python@v5
         with:
