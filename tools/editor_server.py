@@ -78,6 +78,13 @@ def publish(payload: dict) -> dict:
     """Валидатор → манифест → R2. Порядок важен: публиковать сломанный контент нельзя."""
     steps = []
 
+    # Движок редактора собирается отдельно и молча устаревает после правок :engine —
+    # тогда валидация в браузере считает по старой логике. Пересобираем перед публикацией.
+    code, out = run(["./tools/build_editor.sh"], ROOT)
+    steps.append({"name": "движок редактора", "ok": code == 0, "log": out[-2000:]})
+    if code != 0:
+        return {"ok": False, "steps": steps, "error": "не удалось пересобрать движок редактора"}
+
     code, out = run(["./gradlew", "-q", ":engine:run"], ROOT / "android")
     steps.append({"name": "валидатор", "ok": code == 0, "log": out[-4000:]})
     if code != 0:

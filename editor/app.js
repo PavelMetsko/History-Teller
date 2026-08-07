@@ -11,14 +11,20 @@
 // читается из публичного репозитория, а пишется через Worker, который держит токен у себя.
 const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
 
+// Правка возможна только там, где есть куда писать. На хостинге запись идёт через Worker,
+// но он закрыт до тех пор, пока его нечем защитить: у него токен на запись в репозиторий,
+// а Cloudflare Access требует собственного домена, которого пока нет. Поэтому выложенная
+// версия — только просмотр, и это состояние обозначено явно, а не спрятано в сломанных кнопках.
 const CFG = LOCAL ? {
   content: '../Content',
   manifest: '../dist/content/manifest.json',
   api: '',
+  canEdit: true,
 } : {
   content: 'https://raw.githubusercontent.com/PavelMetsko/History-Teller/main/Content',
   manifest: 'https://pub-6903ffa4531e43d19ab534800387df28.r2.dev/manifest.json',
   api: 'https://history-teller-editor-api.decima-games.workers.dev',
+  canEdit: false,
 };
 
 const readText = (p) => fetch(`${CFG.content}/${p}`).then(r => {
@@ -494,6 +500,10 @@ function setPending(lid, key, lang, value) {
 // ---- сохранение и публикация ----
 
 function saveBar() {
+  if (!CFG.canEdit) {
+    return node('<div class="savebar"></div>', bar => bar.appendChild(node('<span id="saveinfo"></span>', s =>
+      s.textContent = 'Только просмотр. Правка — в локальном редакторе: python3 tools/editor_server.py')));
+  }
   return node('<div class="savebar"></div>', bar => {
     bar.appendChild(node('<button id="save"></button>', b => { b.onclick = save; }));
     bar.appendChild(node('<button class="ghost" id="publish">Опубликовать</button>', b => { b.onclick = publish; }));
@@ -757,7 +767,13 @@ function note(kind, text) {
   return node(`<div class="note ${kind}"></div>`, d => d.textContent = text);
 }
 
-document.getElementById('newlevel').onclick = newLevel;
-document.getElementById('newart').onclick = () => uploadArt();
+if (CFG.canEdit) {
+  document.getElementById('newlevel').onclick = newLevel;
+  document.getElementById('newart').onclick = () => uploadArt();
+} else {
+  for (const id of ['newlevel', 'newart']) document.getElementById(id).remove();
+  // Отдельной меткой, а не в статусе: статус перезапишет загрузка контента.
+  document.querySelector('header h1').after(node('<span class="ro">только просмотр</span>'));
+}
 window.onbeforeunload = () => dirty() ? '' : undefined;
 boot();
