@@ -18,7 +18,7 @@ const CFG = LOCAL ? {
 } : {
   content: 'https://raw.githubusercontent.com/PavelMetsko/History-Teller/main/Content',
   manifest: 'https://pub-6903ffa4531e43d19ab534800387df28.r2.dev/manifest.json',
-  api: 'https://history-teller-editor-api.workers.dev',
+  api: 'https://history-teller-editor-api.decima-games.workers.dev',
 };
 
 const readText = (p) => fetch(`${CFG.content}/${p}`).then(r => {
