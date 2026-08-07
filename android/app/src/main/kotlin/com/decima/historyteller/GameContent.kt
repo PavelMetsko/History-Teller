@@ -26,7 +26,33 @@ object L10n {
         return if (dev in available) dev else "en"
     }
 
-    fun s(key: String): String = table[key] ?: base[key] ?: key
+    /**
+     * Строки, которые нужны ДО того, как каталог скачан: их показывает экран первого запуска,
+     * а каталог в этот момент ещё едет. Без них на экране висел бы голый ключ.
+     */
+    private val builtin: Map<String, Map<String, String>> = mapOf(
+        "ui.downloading_content" to mapOf(
+            "ru" to "Загрузка контента…", "en" to "Downloading content…", "es" to "Descargando contenido…",
+            "de" to "Inhalte werden geladen…", "fr" to "Téléchargement du contenu…",
+            "it" to "Download dei contenuti…", "pt" to "Baixando conteúdo…",
+            "pl" to "Pobieranie zawartości…", "nl" to "Inhoud downloaden…",
+        ),
+        "ui.load_fail" to mapOf(
+            "ru" to "Не удалось загрузить контент", "en" to "Failed to load content",
+            "es" to "No se pudo cargar el contenido", "de" to "Inhalte konnten nicht geladen werden",
+            "fr" to "Échec du chargement du contenu", "it" to "Impossibile caricare i contenuti",
+            "pt" to "Falha ao carregar o conteúdo", "pl" to "Nie udało się pobrać zawartości",
+            "nl" to "Laden van inhoud mislukt",
+        ),
+        "ui.retry" to mapOf(
+            "ru" to "Повторить", "en" to "Retry", "es" to "Reintentar", "de" to "Erneut versuchen",
+            "fr" to "Réessayer", "it" to "Riprova", "pt" to "Tentar novamente",
+            "pl" to "Ponów", "nl" to "Opnieuw",
+        ),
+    )
+
+    fun s(key: String): String =
+        table[key] ?: base[key] ?: builtin[key]?.get(lang) ?: builtin[key]?.get("en") ?: key
     fun s(key: String, vararg args: Any): String = String.format(s(key), *args)
     fun opt(key: String): String? = table[key]
     fun ruBase(key: String): String? = base[key]

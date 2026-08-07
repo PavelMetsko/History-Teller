@@ -23,6 +23,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.draw.alpha
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
@@ -34,6 +35,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
@@ -333,15 +335,20 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
     val model = remember(levelId) { BoardModel(level, GameContent.db) }
     model.onSfx = { Audio.sfx(it) }
     var showFact by remember { mutableStateOf(false) }
+    /** Уровень решён, история ещё не открыта: на доске висит зов «Дальше». */
+    var awaitingReveal by remember(levelId) { mutableStateOf(false) }
     var showHint by remember { mutableStateOf(false) }
     var celebrate by remember(levelId) { mutableStateOf(false) }
     val boardShake = remember(levelId) { Animatable(0f) }
     LaunchedEffect(levelId) { Audio.startMusic(level.music ?: "theme") }
     LaunchedEffect(model.isSolved) {
         if (model.isSolved) {
+            // Историю не выкидываем сама собой: игрок только что собрал сцену и хочет
+            // разглядеть, что получилось. Вместо этого зовём кнопкой — открыть её можно
+            // когда захочется, а из карточки вернуться назад на доску.
             Audio.sfx("win"); onSolved(); celebrate = true
-            delay(2400); showFact = true
-            delay(500); celebrate = false
+            delay(1000); awaitingReveal = true
+            delay(1900); celebrate = false
         }
     }
     // неверный ход: доска заполнена, но цель не достигнута — тряска (+ звук, если панели «мертвы»)
@@ -359,7 +366,7 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
         BookPage(Modifier.fillMaxSize().graphicsLayer { translationX = shakeDx.dp.toPx() }) {
             BoxWithConstraints(Modifier.fillMaxSize()) {
                 val trayScale = min(1.6f, max(1f, maxWidth.value / 720f))
-                Column(Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 12.dp).statusBarsPadding()) {
+                Column(Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 12.dp)) {
                     // titleBar — чекбокс+заголовок по центру (как iOS); лента слева и кнопки справа не наезжают
                     Box(Modifier.fillMaxWidth().padding(bottom = 6.dp)) {
                         Row(Modifier.align(Alignment.Center).padding(horizontal = 72.dp),
@@ -418,8 +425,9 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                     TokenTray(model, trayScale, drag)
                 }
             }
-            BackRibbon(Modifier.align(Alignment.TopStart).statusBarsPadding()) { exit() }
         }
+        // Лента висит на верхней кромке страницы, а не внутри неё (как закладка в книге).
+        BackRibbon(Modifier.align(Alignment.TopStart)) { exit() }
         // Плавающее превью перетаскиваемого токена — следует за пальцем
         val ghost = drag.ghost
         if (drag.item != null && ghost != null) {
@@ -440,7 +448,33 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
         }
         if (celebrate) ConfettiOverlay()
         if (showHint) HintPopup(level.title, listOfNotNull(level.initialText, level.goalHint).joinToString("\n\n")) { showHint = false }
-        if (showFact) FactPopup(level, onReplay = { Audio.sfx("select"); showFact = false; model.reset() }) { showFact = false; exit() }
+        if (awaitingReveal && !showFact) RevealButton { Audio.sfx("select"); showFact = true }
+        if (showFact) FactPopup(level,
+            onReplay = { Audio.sfx("select"); showFact = false; model.reset() },
+            onBack = { showFact = false }) { showFact = false; exit() }
+    }
+}
+
+/** Зов к истории: появляется на решённой доске и ждёт столько, сколько нужно игроку. */
+@Composable
+private fun BoxScope.RevealButton(onTap: () -> Unit) {
+    val t = rememberInfiniteTransition(label = "reveal")
+    val glow by t.animateFloat(0.15f, 0.55f,
+        infiniteRepeatable(tween(1200), RepeatMode.Reverse), label = "glow")
+    Row(
+        Modifier.align(Alignment.BottomEnd).padding(end = 34.dp, bottom = 26.dp)
+            .shadow(if (glow > 0.35f) 12.dp else 4.dp, RoundedCornerShape(30.dp),
+                ambientColor = Palette.gold, spotColor = Palette.gold)
+            .clip(RoundedCornerShape(30.dp)).background(Palette.maroon)
+            .border(2.dp, Palette.gold.copy(alpha = 0.7f), RoundedCornerShape(30.dp))
+            .clickable { onTap() }
+            .padding(horizontal = 24.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Text("\uD83D\uDCDC", fontSize = 14.sp)
+        Text(L10n.s("ui.next"), color = Palette.paper, fontSize = 15.sp,
+            fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded)
     }
 }
 
@@ -901,9 +935,16 @@ private fun CharTokenT(model: BoardModel, cid: String, scale: Float, drag: DragS
 }
 
 @Composable
-private fun FactPopup(level: LevelDef, onReplay: () -> Unit, onClose: () -> Unit) {
-    Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f)).clickable { onClose() }, contentAlignment = Alignment.Center) {
+private fun FactPopup(level: LevelDef, onReplay: () -> Unit, onBack: () -> Unit, onClose: () -> Unit) {
+    // Тап по фону возвращает на доску, а не уводит с уровня: карточку теперь зовут вручную,
+    // и закрыть её должно значить «хочу ещё посмотреть на сцену».
+    Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f)).clickable { onBack() }, contentAlignment = Alignment.Center) {
         BookPage(Modifier.widthIn(max = 520.dp).padding(20.dp)) {
+            Box(Modifier.align(Alignment.TopEnd).padding(10.dp).size(32.dp).clip(CircleShape)
+                .background(Palette.paper).border(1.5.dp, Palette.ink.copy(0.25f), CircleShape)
+                .clickable { onBack() }, contentAlignment = Alignment.Center) {
+                Icon(Icons.Filled.Close, null, tint = Palette.inkSoft, modifier = Modifier.size(15.dp))
+            }
             Column(Modifier.padding(start = 22.dp, end = 22.dp, top = 22.dp, bottom = 30.dp).verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally) {
                 Pill(L10n.s("ui.solved"), Palette.success.copy(0.2f))
@@ -980,9 +1021,11 @@ private fun accuracyLabel(acc: String) = when (acc) {
 }
 
 @Composable private fun BackRibbon(modifier: Modifier, onBack: () -> Unit) {
-    Box(modifier.offset(x = 42.dp, y = 0.dp).size(40.dp, 52.dp)
-        .clip(RoundedCornerShape(bottomStart = 8.dp, bottomEnd = 8.dp)).background(Palette.ribbon)
+    Box(modifier.offset(x = 42.dp, y = (-4).dp).size(40.dp, 52.dp)
+        .shadow(3.dp, RibbonShape).clip(RibbonShape).background(Palette.ribbon)
+        .border(1.5.dp, Palette.ink.copy(alpha = 0.35f), RibbonShape)
         .clickable { onBack() }, contentAlignment = Alignment.Center) {
-        Icon(Icons.AutoMirrored.Filled.ArrowBack, null, tint = Color.White, modifier = Modifier.size(18.dp))
+        Icon(Icons.Filled.KeyboardArrowLeft, null, tint = Color.White,
+            modifier = Modifier.size(22.dp).offset(y = (-4).dp))
     }
 }

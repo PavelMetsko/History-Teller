@@ -71,6 +71,13 @@ public enum GameAssets {
 }
 
 public extension Image {
+    /// Картинка по готовому имени ассета (`char_caesar_dead` и т.п.) — когда имя уже выбрано
+    /// вызывающим. Единственный путь к арту: `Image(name, bundle:)` ищет в каталоге ассетов,
+    /// которого в проекте больше нет, и молча рисует пустоту.
+    init(art name: String) {
+        self.init(uiImage: ArtStore.image(name) ?? ArtStore.blank)
+    }
+
     /// Спрайт персонажа (прозрачный фон).
     static func character(_ id: String) -> Image {
         Image(uiImage: ArtStore.image(GameAssets.characterImageName(id)) ?? ArtStore.blank)

@@ -33,8 +33,33 @@ public enum L10n {
         return "en"
     }
 
-    /// Строка по ключу (фолбэк: база → сам ключ).
-    public static func s(_ key: String) -> String { table[key] ?? base[key] ?? key }
+    /// Строки, которые нужны ДО того, как каталог скачан: их показывает экран первого запуска,
+    /// а каталог в этот момент ещё едет. Без них на экране висел бы голый ключ.
+    private static let builtin: [String: [String: String]] = [
+        "ui.downloading_content": [
+            "ru": "Загрузка контента…", "en": "Downloading content…", "es": "Descargando contenido…",
+            "de": "Inhalte werden geladen…", "fr": "Téléchargement du contenu…",
+            "it": "Download dei contenuti…", "pt": "Baixando conteúdo…",
+            "pl": "Pobieranie zawartości…", "nl": "Inhoud downloaden…",
+        ],
+        "ui.load_fail": [
+            "ru": "Не удалось загрузить контент", "en": "Failed to load content",
+            "es": "No se pudo cargar el contenido", "de": "Inhalte konnten nicht geladen werden",
+            "fr": "Échec du chargement du contenu", "it": "Impossibile caricare i contenuti",
+            "pt": "Falha ao carregar o conteúdo", "pl": "Nie udało się pobrać zawartości",
+            "nl": "Laden van inhoud mislukt",
+        ],
+        "ui.retry": [
+            "ru": "Повторить", "en": "Retry", "es": "Reintentar", "de": "Erneut versuchen",
+            "fr": "Réessayer", "it": "Riprova", "pt": "Tentar novamente",
+            "pl": "Ponów", "nl": "Opnieuw",
+        ],
+    ]
+
+    /// Строка по ключу (фолбэк: база → встроенная → сам ключ).
+    public static func s(_ key: String) -> String {
+        table[key] ?? base[key] ?? builtin[key]?[lang] ?? builtin[key]?["en"] ?? key
+    }
 
     /// Форматированная строка (для `%d`, `%@`).
     public static func s(_ key: String, _ args: CVarArg...) -> String {

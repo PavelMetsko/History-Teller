@@ -8,6 +8,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,6 +16,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Lock
@@ -26,12 +28,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -68,7 +72,9 @@ fun Root(startLevel: String? = null) {
     var pendingEpoch by remember { mutableStateOf<String?>(null) }
     var screen by remember { mutableStateOf<Screen>(if (startLevel != null) Screen.Level(startLevel) else Screen.Menu) }
     // Первый запуск: выбор языка → онбординг (пропускаем при deep-link на уровень).
-    var showLangPicker by remember { mutableStateOf(!settings.onboarded && startLevel == null) }
+    // Поднимаем ТОЛЬКО после загрузки контента: раньше эти экраны всплывали поверх загрузки,
+    // и новичка встречали голые ключи — каталог переводов в этот момент ещё ехал.
+    var showLangPicker by remember { mutableStateOf(false) }
     var showOnboarding by remember { mutableStateOf(false) }
     var loadingEpoch by remember { mutableStateOf<String?>(null) }
 
@@ -92,11 +98,18 @@ fun Root(startLevel: String? = null) {
         // Вшитого контента больше нет: если core не приехал, собирать нечего — остаёмся
         // на экране загрузки с кнопкой «Повторить», а не падаем на первом же чтении.
         runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
-            .onSuccess { booted = true; tick++ }
+            .onSuccess {
+                booted = true; tick++
+                if (!settings.onboarded && startLevel == null) showLangPicker = true
+            }
             .onFailure { bootError = it.message ?: L10n.s("ui.load_fail") }
     }
 
-    Box(Modifier.fillMaxSize().background(Palette.backdrop), contentAlignment = Alignment.Center) {
+    // Отступы под системные панели и вырез — один раз на всё приложение, после фона: подложка
+    // остаётся во весь экран, а содержимое (включая онбординг, выбор языка и экран загрузки)
+    // не лезет под статус-бар. Раньше их вешали точечно, и накрыто было далеко не всё.
+    Box(Modifier.fillMaxSize().background(Palette.backdrop).safeDrawingPadding(),
+        contentAlignment = Alignment.Center) {
         if (!booted) {
             BootScreen(bootError, onRetry = { bootError = null; bootAttempt++ })
             return@Box
@@ -209,7 +222,7 @@ private fun MenuScreen(onPlay: () -> Unit, onSettings: () -> Unit, onReset: () -
                 Sprite("char_caesar", 250.dp)
                 Sprite("char_cleopatra", 250.dp)
             }
-            IconButtonCircle(Icons.Filled.Settings, Modifier.align(Alignment.TopEnd).statusBarsPadding().padding(top = 16.dp, end = 24.dp), onSettings)
+            IconButtonCircle(Icons.Filled.Settings, Modifier.align(Alignment.TopEnd).padding(top = 16.dp, end = 24.dp), onSettings)
         }
     }
 }
@@ -268,14 +281,20 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLoc
 
 @Composable
 private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean, onTap: () -> Unit) {
-    val ls = GameContent.levels(ch.id)
+    // Всего уровней берём из манифеста: файлы уровней приезжают вместе с главой,
+    // и до входа в неё пак пуст — на карточке было «0 из 0».
+    val ls = ContentSync.availableChapters().firstOrNull { it.id == ch.id }?.levels
+        ?: GameContent.levels(ch.id).map { it.id }
     val clickable = ch.available   // premiumLocked всё равно кликается — ведёт на пейволл
+    // Карточка тянется по высоте строки, а обложка забирает остаток: при фиксированных 150 dp
+    // на невысоком экране карточка не влезала и обрезалась ровно по середине названия.
     Column(
-        Modifier.width(210.dp).clip(RoundedCornerShape(16.dp)).background(Palette.paper)
+        Modifier.width(210.dp).fillMaxHeight().heightIn(max = 240.dp)
+            .clip(RoundedCornerShape(16.dp)).background(Palette.paper)
             .border(2.5.dp, Palette.ink.copy(alpha = if (ch.available) 0.6f else 0.35f), RoundedCornerShape(16.dp))
             .clickable(enabled = clickable) { onTap() }
     ) {
-        Box(Modifier.fillMaxWidth().height(150.dp).background(Palette.panel), contentAlignment = Alignment.Center) {
+        Box(Modifier.fillMaxWidth().weight(1f).background(Palette.panel), contentAlignment = Alignment.Center) {
             if (ch.cover != null && ch.available) {
                 ArtImage(ch.cover, Modifier.fillMaxSize(), ContentScale.Crop)
             }
@@ -290,15 +309,21 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
                 }
             }
         }
-        Column(Modifier.fillMaxWidth().padding(vertical = 8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        // Подписи с отступами и переносом: карточка фиксированной ширины, а названия глав на
+        // разных языках сильно разной длины — без этого «Французская революция» обрезалась
+        // прямо по букве, упираясь в край карточки.
+        Column(Modifier.fillMaxWidth().padding(horizontal = 10.dp, vertical = 8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally) {
             Text(L10n.s("chapter.${ch.id}.title"), color = if (ch.available) Palette.ink else Palette.inkSoft,
                 fontSize = 17.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif, maxLines = 2,
-                textAlign = TextAlign.Center)
-            Text(L10n.s("chapter.${ch.id}.subtitle"), color = Palette.inkSoft, fontSize = 10.sp, fontFamily = Fonts.rounded, maxLines = 1)
+                lineHeight = 20.sp, overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center)
+            Text(L10n.s("chapter.${ch.id}.subtitle"), color = Palette.inkSoft, fontSize = 10.sp,
+                fontFamily = Fonts.rounded, maxLines = 2, lineHeight = 13.sp,
+                overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center)
             when {
                 !ch.available -> Text(L10n.s("ui.soon"), color = Palette.maroon, fontSize = 11.sp, fontFamily = Fonts.rounded)
                 premiumLocked -> Text(L10n.s("ui.locked_hint"), color = Palette.maroon, fontSize = 11.sp, fontFamily = Fonts.rounded)
-                else -> Text(L10n.s("ui.progress", progress.solvedCount(ls.map { it.id }), ls.size),
+                else -> Text(L10n.s("ui.progress", progress.solvedCount(ls), ls.size),
                     color = Palette.success, fontSize = 10.sp, fontFamily = Fonts.rounded)
             }
         }
@@ -404,9 +429,11 @@ private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boo
 
 @Composable
 private fun BackButton(modifier: Modifier, onBack: () -> Unit) {
-    Box(modifier.statusBarsPadding().offset(x = 42.dp, y = (-4).dp).size(width = 40.dp, height = 52.dp)
-        .clip(RoundedCornerShape(bottomStart = 8.dp, bottomEnd = 8.dp)).background(Palette.ribbon)
+    Box(modifier.offset(x = 42.dp, y = (-4).dp).size(width = 40.dp, height = 52.dp)
+        .shadow(3.dp, RibbonShape).clip(RibbonShape).background(Palette.ribbon)
+        .border(1.5.dp, Palette.ink.copy(alpha = 0.35f), RibbonShape)
         .clickable { onBack() }, contentAlignment = Alignment.Center) {
-        Icon(Icons.AutoMirrored.Filled.ArrowBack, null, tint = Color.White, modifier = Modifier.size(18.dp))
+        Icon(Icons.Filled.KeyboardArrowLeft, null, tint = Color.White,
+            modifier = Modifier.size(22.dp).offset(y = (-4).dp))
     }
 }

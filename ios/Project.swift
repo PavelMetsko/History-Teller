@@ -54,6 +54,7 @@ let project = Project(
                   dependencies: [
                     .target(name: "DesignSystem"),
                     .target(name: "GameContent"),
+                    .target(name: "Simulation"),   // онбординг разбирает реальный уровень
                   ]),
         framework("EpochMapFeature",
                   dependencies: [

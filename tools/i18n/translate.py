@@ -28,15 +28,7 @@ def translate_lang(code,name):
     B=45
     for i in range(0,len(keys),B):
         chunk={k:ru[k] for k in keys[i:i+B]}
-        prompt=(f"You are a professional game localizer. Translate the VALUES of this JSON object from "
-            f"Russian into {name}. Rules:\n"
-            f"- Keep every KEY exactly unchanged.\n"
-            f"- Preserve format specifiers like %d and %@ and newlines \\n exactly as in the source.\n"
-            f"- For historical figures, dynasties and place names use the conventional {name} form "
-            f"(e.g. Henry VIII, Julius Caesar, Cleopatra), not a transliteration of the Russian.\n"
-            f"- Keep the tone: literary, evocative, concise. Fact-card texts stay factual.\n"
-            f"- Return ONLY a valid JSON object mapping the same keys to translated strings.\n\n"
-            f"{json.dumps(chunk,ensure_ascii=False)}")
+        prompt=prompt_for(name,chunk)
         res=call(prompt)
         if res is None:
             print(f"    ✗ chunk {i//B} failed for {code}"); return None
@@ -45,11 +37,47 @@ def translate_lang(code,name):
         print(f"    {code}: {len(out)}/{len(keys)}")
     return out
 
-targets=sys.argv[1:] if len(sys.argv)>1 else list(LANGS.keys())
+
+def prompt_for(name,chunk):
+    return (f"You are a professional game localizer. Translate the VALUES of this JSON object from "
+            f"Russian into {name}. Rules:\n"
+            f"- Keep every KEY exactly unchanged.\n"
+            f"- Preserve format specifiers like %d and %@ and newlines \\n exactly as in the source.\n"
+            f"- For historical figures, dynasties and place names use the conventional {name} form "
+            f"(e.g. Henry VIII, Julius Caesar, Cleopatra), not a transliteration of the Russian.\n"
+            f"- Keep the tone: literary, evocative, concise. Fact-card texts stay factual.\n"
+            f"- Return ONLY a valid JSON object mapping the same keys to translated strings.\n\n"
+            f"{json.dumps(chunk,ensure_ascii=False)}")
+
+def translate_missing(code,name):
+    """Дописать в готовый каталог только те ключи, которых в нём нет.
+
+    Полный прогон стоит дорого и переписывает уже выверенные строки: правка одного экрана
+    не должна перетряхивать все девять языков. Ключ, который надо перевести заново,
+    сначала удаляют из <code>.json — тогда он попадёт в «недостающие»."""
+    f=f"{I18N}/{code}.json"
+    if not os.path.exists(f):
+        print(f"  нет {code}.json — нужен полный прогон"); return None
+    cur=json.load(open(f,encoding="utf-8"))
+    todo=[k for k in keys if k not in cur]
+    if not todo:
+        print(f"  {code}: нечего добавлять"); return cur
+    print(f"  {code}: {len(todo)} новых ключей")
+    for i in range(0,len(todo),45):
+        chunk={k:ru[k] for k in todo[i:i+45]}
+        res=call(prompt_for(name,chunk))
+        if res is None:
+            print(f"    ✗ chunk {i//45} failed for {code}"); return None
+        cur.update({k:(v.replace("\\n","\n") if isinstance(v,str) else v) for k,v in res.items()})
+    return cur
+
+
+targets=[a for a in sys.argv[1:] if not a.startswith("-")] or list(LANGS.keys())
+missing_only="--missing" in sys.argv
 for code in targets:
     name=LANGS[code]
     print(f"== {code} ({name}) ==")
-    res=translate_lang(code,name)
+    res=translate_missing(code,name) if missing_only else translate_lang(code,name)
     if res and len(res)>=len(keys)*0.95:
         # ensure all keys present (fallback to ru for any missing)
         for k in keys:

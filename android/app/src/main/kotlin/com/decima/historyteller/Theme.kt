@@ -14,6 +14,12 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.LayoutDirection
 
 /** Бумажная палитра History Teller (порт DS.Palette из iOS). */
 object Palette {
@@ -73,4 +79,23 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.goldCorners(inset: 
     line(Offset(i, h - i - l), Offset(i, h - i)); line(Offset(i, h - i), Offset(i + l, h - i))
     // BR
     line(Offset(w - i - l, h - i), Offset(w - i, h - i)); line(Offset(w - i, h - i), Offset(w - i, h - i - l))
+}
+
+
+/**
+ * Лента-закладка: прямоугольник с треугольным вырезом снизу («рыбий хвост»).
+ * Порт RibbonShape из iOS — на Android «назад» была простой скруглённой плашкой.
+ */
+object RibbonShape : Shape {
+    override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
+        val notch = with(density) { 12.dp.toPx() }
+        return Outline.Generic(Path().apply {
+            moveTo(0f, 0f)
+            lineTo(size.width, 0f)
+            lineTo(size.width, size.height)
+            lineTo(size.width / 2f, size.height - notch)
+            lineTo(0f, size.height)
+            close()
+        })
+    }
 }

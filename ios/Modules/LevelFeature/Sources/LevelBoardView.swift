@@ -33,6 +33,9 @@ public struct LevelBoardView: View {
     @State private var model: LevelBoardModel
     @State private var activeBeats: [LevelBoardModel.Beat] = []
     @State private var celebrate = false
+    /// Уровень решён, история ещё не открыта: на доске висит зов «Дальше».
+    @State private var awaitingReveal = false
+    @State private var revealPulse = false
     @State private var showInfo = false
     @State private var demoMode = false
     @State private var shakeData: CGFloat = 0
@@ -90,6 +93,7 @@ public struct LevelBoardView: View {
             }
 
             if celebrate { ConfettiView().allowsHitTesting(false).transition(.opacity) }
+            if awaitingReveal && !model.showFact { revealButton.zIndex(9) }
             if model.showFact { factPopup.zIndex(10) }
             if showInfo { hintPopup.zIndex(11) }
         }
@@ -108,6 +112,9 @@ public struct LevelBoardView: View {
             if ProcessInfo.processInfo.environment["HT_WRONG"] == "1" {
                 model.fillDebugWrong()
             }
+            // Как HT_DEMO, но с полным финалом: демо-режим глушит победу ради снапшот-тестов,
+            // а посмотреть на зов к истории и карточку иначе можно только руками.
+            if ProcessInfo.processInfo.environment["HT_SOLVED"] == "1" { model.applySolution() }
         }
     }
 
@@ -197,9 +204,11 @@ public struct LevelBoardView: View {
         withAnimation(.spring(response: 0.4, dampingFraction: 0.5)) { celebrate = true }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.6) { withAnimation { celebrate = false } }
         if !demoMode {
-            // даём налюбоваться решённой сценой (конфетти + зелёная галочка), потом плавно выезжает справка
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.72)) { model.showFact = true }
+            // Историю не выкидываем сама собой: игрок только что собрал сцену и хочет
+            // разглядеть, что получилось. Вместо этого зовём кнопкой — открыть её можно
+            // когда захочется, а из карточки вернуться назад на доску.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) { awaitingReveal = true }
             }
         }
         onSolved?()
@@ -362,15 +371,55 @@ public struct LevelBoardView: View {
         }
     }
 
+    /// Зов к истории: появляется на решённой доске и ждёт столько, сколько нужно игроку.
+    private var revealButton: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Button {
+                    Audio.shared.play(.select)
+                    withAnimation(.spring(response: 0.5, dampingFraction: 0.72)) { model.showFact = true }
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "scroll.fill").font(.system(size: 14))
+                        Text(L10n.s("ui.next")).font(.dsBody(15))
+                    }
+                    .foregroundStyle(DS.Palette.paper)
+                    .padding(.horizontal, 24).padding(.vertical, 12)
+                    .background(
+                        Capsule().fill(DS.Palette.maroon)
+                            .overlay(Capsule().strokeBorder(DS.Palette.gold.opacity(0.7), lineWidth: 2))
+                    )
+                    .shadow(color: DS.Palette.gold.opacity(revealPulse ? 0.55 : 0.15),
+                            radius: revealPulse ? 12 : 4)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.trailing, 34)
+        .padding(.bottom, 26)
+        .transition(.move(edge: .bottom).combined(with: .opacity))
+        .onAppear {
+            withAnimation(.easeInOut(duration: 1.2).repeatForever(autoreverses: true)) { revealPulse = true }
+        }
+    }
+
     private var factPopup: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
-                .onTapGesture { dismissFact() }
+                .onTapGesture { hideFact() }
                 .transition(.opacity)
-            FactPopupCard(level: model.level, onClose: dismissFact, onReplay: replayLevel)
+            FactPopupCard(level: model.level, onClose: dismissFact,
+                          onReplay: replayLevel, onBack: hideFact)
                 .padding(.horizontal, 40)
                 .transition(.scale(scale: 0.8).combined(with: .opacity))
         }
+    }
+
+    /// Закрыть историю, оставшись на решённой доске (кнопка «Дальше» никуда не девается).
+    private func hideFact() {
+        withAnimation(.easeInOut(duration: 0.2)) { model.showFact = false }
     }
 
     private func closeHint() { withAnimation(.easeInOut(duration: 0.2)) { showInfo = false } }
@@ -739,7 +788,7 @@ private struct CharacterSprite: View {
     }
 
     var body: some View {
-        Image(baseImageName, bundle: .gameContent)
+        Image(art: baseImageName)
             .resizable().scaledToFit().frame(height: spriteH)
             .modifier(Tremble(active: plotting && !usePlotPose))     // дрожь-фолбэк, если нет позы «заговорщик»
             // нет позы «повержен» → старый фолбэк: сереет, валится набок
@@ -1085,6 +1134,8 @@ private struct FactPopupCard: View {
     let level: LevelDef
     let onClose: () -> Void
     var onReplay: (() -> Void)? = nil
+    /// Вернуться на решённую доску, не уходя с уровня.
+    var onBack: (() -> Void)? = nil
 
     private var accuracyLabel: String {
         switch level.factCard?.accuracy {
@@ -1133,5 +1184,19 @@ private struct FactPopupCard: View {
             }
         }
         .frame(maxWidth: 540, maxHeight: 440)
+        .overlay(alignment: .topTrailing) {
+            if let onBack {
+                Button(action: onBack) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(DS.Palette.inkSoft)
+                        .frame(width: 32, height: 32)
+                        .background(Circle().fill(DS.Palette.paper))
+                        .overlay(Circle().strokeBorder(DS.Palette.ink.opacity(0.25), lineWidth: 1.5))
+                }
+                .buttonStyle(.plain)
+                .padding(10)
+            }
+        }
     }
 }

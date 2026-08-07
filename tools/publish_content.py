@@ -80,7 +80,15 @@ def chapter_files(level: dict) -> set[str]:
     return files
 
 
-def core_files(chapters: list) -> set[str]:
+def load_demo() -> str | None:
+    """Показательный уровень — `Content/demo.json`. На нём построены онбординг и экран
+    загрузки главы, поэтому он и его арт лежат в core: оба экрана показываются ДО того,
+    как скачана хоть одна глава."""
+    f = CONTENT / "demo.json"
+    return json.loads(f.read_text(encoding="utf-8")).get("level") if f.exists() else None
+
+
+def core_files(chapters: list, levels: list) -> set[str]:
     """Нужно до открытия любой главы: БД, локализация, пропсы, звуки интерфейса, тема меню,
     а также арт, который видно ещё до выбора главы — иначе первый запуск встречает пустым
     меню и карточками глав без обложек."""
@@ -98,6 +106,12 @@ def core_files(chapters: list) -> set[str]:
     for cid in MENU_CHARACTERS:
         if a := art(f"char_{cid}"):
             files.add(a)
+    # Демо-уровень целиком: его разбирает онбординг и собирает экран загрузки главы.
+    if demo := load_demo():
+        lv = next((l for l in levels if l["id"] == demo), None)
+        if lv is None:
+            sys.exit(f"demo.json ссылается на уровень {demo}, которого нет")
+        files |= chapter_files(lv)
     return files
 
 
@@ -133,7 +147,7 @@ def build(out: Path, version: int) -> dict:
         per_chapter.setdefault(epoch, set()).update(chapter_files(lv))
         level_ids.setdefault(epoch, []).append(lv["id"])
 
-    core = core_files(chapters_meta)
+    core = core_files(chapters_meta, levels)
     known = {c["id"] for c in chapters_meta}
     if orphans := set(per_chapter) - known:
         sys.exit(f"уровни ссылаются на главы, которых нет в chapters.json: {sorted(orphans)}")
@@ -166,6 +180,7 @@ def build(out: Path, version: int) -> dict:
             if c["id"] in per_chapter
         ],
         "disabled": disabled,
+        "demo": load_demo(),
         "core": sorted(core),
         "chapterFiles": {k: sorted(v) for k, v in sorted(per_chapter.items())},
         "files": files,

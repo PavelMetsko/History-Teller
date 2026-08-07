@@ -1,6 +1,12 @@
 package com.decima.historyteller
 
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.foundation.Canvas
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.spring
@@ -22,6 +28,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -31,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlin.random.Random
+import teller.engine.LevelDef
+import teller.engine.Panel
 
 // ============================ Выбор языка (первый запуск) ============================
 
@@ -68,59 +77,209 @@ fun LanguagePickerScreen(onSelect: (String) -> Unit) {
 
 // ============================ Пошаговый онбординг ============================
 
-private data class OnbStep(val title: String, val body: String)
+/**
+ * Шаг онбординга: что написано внизу и сколько кадров доски к этому моменту собрано.
+ * Порт iOS OnboardingView.
+ */
+private data class OnbStep(
+    val key: Int,
+    val filled: Int,             // сколько панелей заполнено героями
+    val goal: Boolean = false,   // показывать баннер цели
+    val cast: Boolean = false,   // показывать трей персонажей
+    val fact: Boolean = false,   // показывать факт-карточку
+)
 
+private val ONB_STEPS = listOf(
+    OnbStep(1, 0),
+    OnbStep(2, 0, goal = true),
+    OnbStep(3, 0, goal = true, cast = true),
+    OnbStep(4, 1, goal = true, cast = true),
+    OnbStep(5, 3, goal = true, cast = true),
+    OnbStep(6, 3, fact = true),
+)
+
+/**
+ * Онбординг: не абстрактные правила, а разбор одного настоящего уровня — пустые кадры
+ * получают цель, каст и по эталонному решению героев, затем открывается факт-карточка.
+ *
+ * Уровень задан в `Content/demo.json` и лежит в core, поэтому доступен на первом запуске.
+ * Без него (старый манифест) экран откатывается на текстовые шаги без доски.
+ */
 @Composable
 fun OnboardingScreen(onFinish: () -> Unit) {
-    val steps = (1..6).map { OnbStep(L10n.s("ui.onb.$it.title"), L10n.s("ui.onb.$it.body")) }
+    val demo = remember { demoLevel() }
+    val panels = remember(demo) { demo?.solution?.filter { it.sceneId != null } ?: emptyList() }
     var step by remember { mutableIntStateOf(0) }
-    val isLast = step >= steps.size - 1
+    val cur = ONB_STEPS[step]
+    val isLast = step == ONB_STEPS.size - 1
 
     Box(Modifier.fillMaxSize().background(Palette.backdrop), contentAlignment = Alignment.Center) {
         Column(
-            Modifier.widthIn(max = 720.dp).fillMaxSize().padding(horizontal = 54.dp, vertical = 26.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            Modifier.widthIn(max = 860.dp).fillMaxSize().padding(horizontal = 40.dp, vertical = 8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
-            Text(L10n.s("ui.how_to_play").uppercase(), color = Palette.gold, fontSize = 12.sp,
-                fontWeight = FontWeight.Bold, letterSpacing = 2.sp, fontFamily = Fonts.rounded)
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text(L10n.s("ui.how_to_play").uppercase(), color = Palette.gold, fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold, letterSpacing = 2.sp, fontFamily = Fonts.rounded)
+                Spacer(Modifier.weight(1f))
+                if (!isLast) Text(L10n.s("ui.skip"), color = Palette.paper.copy(alpha = 0.5f),
+                    fontSize = 12.sp, fontFamily = Fonts.rounded,
+                    modifier = Modifier.clickable { onFinish() })
+            }
 
-            Box(
-                Modifier.fillMaxWidth().weight(1f).padding(vertical = 18.dp)
-                    .clip(RoundedCornerShape(22.dp)).background(Palette.panel)
-                    .border(4.dp, Palette.ink, RoundedCornerShape(22.dp)),
-                contentAlignment = Alignment.Center
-            ) {
-                Row(Modifier.padding(horizontal = 34.dp), verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(30.dp)) {
-                    Box(Modifier.size(140.dp).clip(CircleShape).background(Palette.gold.copy(alpha = 0.16f))
-                        .border(3.dp, Palette.gold.copy(alpha = 0.5f), CircleShape),
-                        contentAlignment = Alignment.Center) {
-                        Text("${step + 1}", color = Palette.maroon, fontSize = 58.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+            if (panels.isNotEmpty()) {
+                // Цель разбираемого уровня. Скрытые блоки не держат за собой место: пока цель
+                // и каст не показаны, их полосы читались как пустой провал между доской и
+                // подписью, а на последних шагах сумма высот уже не влезала в landscape.
+                if (cur.goal) Text(demo?.goalText ?: "", color = Palette.gold, fontSize = 14.sp,
+                    fontFamily = Fonts.rounded)
+
+                Box(Modifier.fillMaxWidth().weight(1f)) {
+                    Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(14.dp,
+                        Alignment.CenterHorizontally)) {
+                        panels.forEachIndexed { i, panel ->
+                            // Пропорция вместо растяжения по ширине: на низком экране доске
+                            // достаётся мало высоты, и кадры во всю ширину вырождались в полоски.
+                            OnbPanel(panel, landed = i < cur.filled,
+                                modifier = Modifier.fillMaxHeight().aspectRatio(1.3f))
+                        }
                     }
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                        Text(steps[step].title, color = Palette.ink, fontSize = 25.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
-                        Text(steps[step].body, color = Palette.inkSoft, fontSize = 17.sp, fontFamily = Fonts.rounded, lineHeight = 24.sp)
+                    // Награда ложится поверх собранной доски — как в игре. Затемнение ограничено
+                    // доской: во весь экран оно гасило и подпись, и кнопку «Начать», будто они
+                    // недоступны.
+                    if (cur.fact && demo?.factCard != null) OnbFactCard(demo)
+                }
+
+                // Трей персонажей.
+                if (cur.cast) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                        for (cid in demo?.characters.orEmpty()) {
+                            Row(
+                                Modifier.clip(RoundedCornerShape(10.dp))
+                                    .background(Palette.panel.copy(alpha = 0.5f))
+                                    .border(2.dp, Palette.ink.copy(alpha = 0.7f), RoundedCornerShape(10.dp))
+                                    .padding(horizontal = 9.dp, vertical = 3.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(5.dp),
+                            ) {
+                                artPainter("char_$cid")?.let {
+                                    Image(it, null, Modifier.height(32.dp), contentScale = ContentScale.Fit)
+                                }
+                                Text(GameContent.db.characters[cid]?.name ?: cid, color = Palette.paper,
+                                    fontSize = 11.sp, fontFamily = Fonts.rounded)
+                            }
+                        }
                     }
                 }
+            } else {
+                Spacer(Modifier.weight(1f))
+            }
+
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(3.dp)) {
+                Text(L10n.s("ui.onb.${cur.key}.title"), color = Palette.paper, fontSize = 17.sp,
+                    fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+                Text(L10n.s("ui.onb.${cur.key}.body"), color = Palette.paper.copy(alpha = 0.72f),
+                    fontSize = 13.sp, fontFamily = Fonts.rounded, textAlign = TextAlign.Center,
+                    lineHeight = 17.sp, maxLines = 3)
             }
 
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    for (i in steps.indices)
-                        Box(Modifier.size(8.dp).clip(CircleShape)
-                            .background(if (i == step) Palette.gold else Palette.paper.copy(alpha = 0.35f)))
+                Row(horizontalArrangement = Arrangement.spacedBy(7.dp)) {
+                    for (i in ONB_STEPS.indices)
+                        Box(Modifier.size(7.dp).clip(CircleShape)
+                            .background(if (i == step) Palette.gold else Palette.paper.copy(alpha = 0.3f)))
                 }
                 Spacer(Modifier.weight(1f))
                 Box(
                     Modifier.clip(RoundedCornerShape(24.dp)).background(Palette.maroon)
                         .border(3.dp, Palette.ink, RoundedCornerShape(24.dp))
                         .clickable { if (isLast) onFinish() else step++ }
-                        .padding(horizontal = 26.dp, vertical = 11.dp)
-                ) { Text(L10n.s(if (isLast) "ui.start" else "ui.next"), color = Palette.paper, fontSize = 16.sp,
+                        .padding(horizontal = 24.dp, vertical = 9.dp)
+                ) { Text(L10n.s(if (isLast) "ui.start" else "ui.next"), color = Palette.paper, fontSize = 15.sp,
                     fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded) }
             }
         }
+
     }
+}
+
+/** Кадр доски: сцена, а поверх — герои, когда до кадра дошёл разбор. */
+@Composable
+private fun OnbPanel(panel: Panel, landed: Boolean, modifier: Modifier = Modifier) {
+    val enter by animateFloatAsState(if (landed) 1f else 0f,
+        spring(dampingRatio = 0.68f, stiffness = 420f), label = "onb-enter")
+    Column(modifier.fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            Modifier.fillMaxWidth().weight(1f).clip(RoundedCornerShape(14.dp))
+                .border(4.dp, Palette.ink, RoundedCornerShape(14.dp)),
+            contentAlignment = Alignment.BottomCenter
+        ) {
+            panel.sceneId?.let { sid ->
+                artPainter("scene_$sid")?.let {
+                    Image(it, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+                }
+            }
+            Box(Modifier.fillMaxSize().background(
+                Brush.verticalGradient(listOf(Color.Transparent, Palette.ink.copy(alpha = 0.32f)))))
+
+            Row(Modifier.fillMaxHeight().padding(bottom = 4.dp),
+                verticalAlignment = Alignment.Bottom,
+                horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                for (cid in panel.characters) {
+                    artPainter("char_$cid")?.let {
+                        Image(it, null,
+                            Modifier.fillMaxHeight().graphicsLayer {
+                                alpha = enter
+                                scaleX = 0.4f + 0.6f * enter; scaleY = scaleX
+                                translationY = (1f - enter) * 120f
+                            },
+                            contentScale = ContentScale.Fit)
+                    }
+                }
+            }
+            if (landed) Box(Modifier.fillMaxSize()
+                .border(3.dp, Palette.gold.copy(alpha = 0.9f * enter), RoundedCornerShape(14.dp)))
+        }
+        // Подпись кадра — только у собранных: до этого подсказывать порядок нечестно,
+        // новичок как раз учится его выводить.
+        Text(if (landed) GameContent.db.scenes[panel.sceneId]?.name.orEmpty() else " ",
+            color = Palette.paper.copy(alpha = 0.65f), fontSize = 10.sp, fontFamily = Fonts.rounded,
+            maxLines = 1, modifier = Modifier.padding(top = 5.dp))
+    }
+}
+
+/** Факт-карточка последнего шага — та же награда, что ждёт за решённый уровень. */
+@Composable
+private fun OnbFactCard(level: LevelDef) {
+    Box(Modifier.fillMaxSize().background(Palette.backdrop.copy(alpha = 0.88f)),
+        contentAlignment = Alignment.Center) {
+        Column(
+            Modifier.widthIn(max = 560.dp).padding(10.dp)
+                .clip(RoundedCornerShape(18.dp)).background(Palette.paper)
+                .border(4.dp, Palette.ink, RoundedCornerShape(18.dp)).padding(18.dp),
+            verticalArrangement = Arrangement.spacedBy(9.dp)
+        ) {
+            Text(L10n.s("ui.acc_${level.factCard?.accuracy ?: "fact"}").uppercase(),
+                color = Palette.gold, fontSize = 10.sp, fontWeight = FontWeight.Bold,
+                letterSpacing = 1.6.sp, fontFamily = Fonts.rounded)
+            Text(level.factCard?.text.orEmpty(), color = Palette.ink, fontSize = 15.sp,
+                fontFamily = Fonts.rounded, lineHeight = 21.sp)
+            Text(level.factCard?.source.orEmpty(), color = Palette.inkSoft, fontSize = 11.sp,
+                fontFamily = Fonts.rounded)
+        }
+    }
+}
+
+/**
+ * Показательный уровень из `Content/demo.json`. Раньше здесь стоял `levels("rome").first()`,
+ * который на первом запуске падал: уровни Рима приезжают только вместе с главой.
+ */
+private fun demoLevel(): LevelDef? {
+    ContentSync.demoLevelId()?.let { id -> GameContent.level(id)?.let { return it } }
+    return GameContent.levels("rome").firstOrNull { it.panels == 3 && it.solution != null }
+        ?: GameContent.levels("rome").firstOrNull()
 }
 
 // ============================ Экран загрузки главы ============================
@@ -128,12 +287,8 @@ fun OnboardingScreen(onFinish: () -> Unit) {
 @Composable
 fun ChapterLoadingScreen(epoch: String, chapterTitle: String, onReady: () -> Unit) {
     val ctx = androidx.compose.ui.platform.LocalContext.current
-    val demo = remember {
-        GameContent.level("cleopatra_throne")
-            ?: GameContent.levels("rome").firstOrNull { it.panels == 3 && it.solution != null }
-            ?: GameContent.levels("rome").first()
-    }
-    val panels = remember(demo) { demo.solution?.filter { it.sceneId != null } ?: emptyList() }
+    val demo = remember { demoLevel() }
+    val panels = remember(demo) { demo?.solution?.filter { it.sceneId != null } ?: emptyList() }
     val tip = remember { L10n.s("ui.tip.${Random.nextInt(8) + 1}") }
     var retry by remember { mutableIntStateOf(0) }
     // Прогресс настоящий — искусственную задержку показа убрали вместе с Play Asset Delivery:
@@ -238,11 +393,63 @@ fun BootScreen(bootError: String? = null, onRetry: () -> Unit) {
         if (failure != null) {
             DownloadFailed(failure, onRetry = onRetry, onCancel = onRetry)
         } else {
-            Column(Modifier.width(230.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                ProgressBar(progress)
-                Text(L10n.s("ui.downloading_content"), color = Palette.paper.copy(alpha = 0.5f),
-                    fontSize = 10.sp, fontFamily = Fonts.rounded, modifier = Modifier.padding(top = 6.dp))
+            BootLoader(progress)
+        }
+    }
+}
+
+/**
+ * Лоадер первого запуска: страница книги с сургучной печатью, вокруг которой золотое кольцо
+ * наливается по мере загрузки. Тот же словарь, что и на остальных экранах — пергамент,
+ * чернильный контур, золотые уголки. Порт iOS BootLoader.
+ *
+ * Единственная надпись — название игры: оно одинаково на всех языках. Каталог переводов в этот
+ * момент ещё едет, а L10n до его появления сидит на русском, поэтому любая переводимая строка
+ * здесь оказалась бы не на языке игрока.
+ */
+@Composable
+private fun BootLoader(progress: Float) {
+    val t = rememberInfiniteTransition(label = "boot")
+    val spin by t.animateFloat(0f, 360f, infiniteRepeatable(tween(2200, easing = LinearEasing)), label = "spin")
+    val pulse by t.animateFloat(0.97f, 1.05f,
+        infiniteRepeatable(tween(1100), RepeatMode.Reverse), label = "pulse")
+    val shown by animateFloatAsState(progress.coerceAtLeast(0.02f), tween(400), label = "ring")
+
+    BookPage {
+        Column(
+            Modifier.padding(horizontal = 34.dp, vertical = 26.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Box(Modifier.size(96.dp), contentAlignment = Alignment.Center) {
+                Canvas(Modifier.fillMaxSize()) {
+                    val stroke = 7.dp.toPx()
+                    val pad = stroke / 2
+                    val arc = Size(size.width - stroke, size.height - stroke)
+                    drawArc(Palette.ink.copy(alpha = 0.14f), 0f, 360f, false,
+                        topLeft = Offset(pad, pad), size = arc, style = Stroke(stroke))
+                    drawArc(Palette.gold, -90f, 360f * shown, false,
+                        topLeft = Offset(pad, pad), size = arc,
+                        style = Stroke(stroke, cap = StrokeCap.Round))
+                    // Бегущая искра: прогресс может стоять на месте, а экран должен жить.
+                    drawArc(Palette.gold.copy(alpha = 0.55f), spin, 43f, false,
+                        topLeft = Offset(pad, pad), size = arc,
+                        style = Stroke(3.dp.toPx(), cap = StrokeCap.Round))
+                }
+                // Сургучная печать.
+                Box(
+                    Modifier.size(64.dp).graphicsLayer { scaleX = pulse; scaleY = pulse }
+                        .clip(CircleShape).background(Palette.maroon)
+                        .border(2.dp, Palette.ink.copy(alpha = 0.4f), CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("HT", color = Palette.paper.copy(alpha = 0.9f), fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+                }
             }
+
+            Text("History Teller", color = Palette.ink, fontSize = 19.sp,
+                fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
         }
     }
 }

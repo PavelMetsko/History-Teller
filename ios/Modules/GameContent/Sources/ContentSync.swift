@@ -21,6 +21,8 @@ public struct ContentManifest: Codable, Sendable {
     public let minAppVersion: String
     public let chapters: [Chapter]
     public let disabled: [String]
+    /// Показательный уровень: на нём построены онбординг и экран загрузки главы. Лежит в core.
+    public let demo: String?
     public let core: [String]
     public let chapterFiles: [String: [String]]
     public let files: [String: FileRef]
@@ -94,6 +96,10 @@ public final class ContentSync {
         return availableChapters.flatMap(\.levels).filter { !isLevelDisabled($0) }
     }
 
+    /// Уровень для онбординга и экрана загрузки. Его файлы входят в core, поэтому он на диске
+    /// с первого запуска — до того, как скачана хоть одна глава.
+    public var demoLevelId: String? { manifest?.demo }
+
     public func isChapterReady(_ id: String) -> Bool {
         guard let files = manifest?.chapterFiles[id] else { return false }
         return files.allSatisfy { fileURL($0) != nil }
@@ -135,7 +141,11 @@ public final class ContentSync {
     public func syncCore() async {
         phase = .syncing(0)
         do {
-            let fresh = try await fetchManifest()
+            guard let fresh = try await fetchManifest() else {
+                // Контент не менялся с прошлого запуска — на диске всё, что нужно.
+                phase = hasCore ? .ready : .failed("Контент не найден в кеше")
+                return
+            }
             guard Self.supports(fresh.minAppVersion) else {
                 // Контент новее приложения целиком — работаем на том, что уже скачано.
                 phase = manifest == nil ? .failed("Требуется обновление приложения") : .ready
@@ -207,14 +217,31 @@ public final class ContentSync {
         }
     }
 
-    private func fetchManifest() async throws -> ContentManifest {
+    /// Загрузить манифест, если он изменился. `nil` — сервер ответил 304, на диске уже свежий.
+    ///
+    /// Манифест — единственное, что запрашивается на КАЖДОМ запуске (сам контент лежит в кеше
+    /// по хешу и не перекачивается). Он весит ~100 КБ, поэтому спрашиваем условно, по ETag:
+    /// когда контент не менялся, ответ — пустой 304 в пару сотен байт.
+    private func fetchManifest() async throws -> ContentManifest? {
         let url = Self.baseURL.appendingPathComponent("manifest.json")
         var req = URLRequest(url: url)
         req.cachePolicy = .reloadIgnoringLocalCacheData
+        if manifest != nil, let tag = UserDefaults.standard.string(forKey: Self.etagKey) {
+            req.setValue(tag, forHTTPHeaderField: "If-None-Match")
+        }
         let (data, response) = try await session.data(for: req)
+        if let http = response as? HTTPURLResponse, http.statusCode == 304 { return nil }
         try Self.checkOK(response)
-        return try JSONDecoder().decode(ContentManifest.self, from: data)
+        let fresh = try JSONDecoder().decode(ContentManifest.self, from: data)
+        // ETag сохраняем ПОСЛЕ разбора: на битом ответе он бы навсегда заглушил обновления.
+        if let http = response as? HTTPURLResponse,
+           let tag = http.value(forHTTPHeaderField: "Etag") {
+            UserDefaults.standard.set(tag, forKey: Self.etagKey)
+        }
+        return fresh
     }
+
+    private static let etagKey = "ht.manifest.etag" 
 
     /// Качает недостающие объекты. Прогресс — по байтам, чтобы полоска не скакала на мелких JSON.
     private func download(_ logical: [String], of m: ContentManifest) async throws {

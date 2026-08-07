@@ -20,6 +20,8 @@ data class ContentManifest(
     val minAppVersion: String,
     val chapters: List<Chapter>,
     val disabled: List<String>,
+    /** Показательный уровень: на нём построены онбординг и экран загрузки главы. Лежит в core. */
+    val demo: String? = null,
     val core: List<String>,
     val chapterFiles: Map<String, List<String>>,
     val files: Map<String, FileRef>,
@@ -109,6 +111,12 @@ object ContentSync {
         return files.all { fileFor(it) != null }
     }
 
+    /**
+     * Уровень для онбординга и экрана загрузки. Его файлы входят в core, поэтому он на диске
+     * с первого запуска — до того, как скачана хоть одна глава.
+     */
+    fun demoLevelId(): String? = manifest?.demo
+
     /** Главы, доступные этой сборке: манифест может нести контент, требующий более новой версии. */
     fun availableChapters(): List<ContentManifest.Chapter> =
         manifest?.chapters.orEmpty().filter { supports(it.minAppVersion) }
@@ -122,7 +130,11 @@ object ContentSync {
         ensureDirs(ctx)
         phase = Phase.Syncing(0f)
         try {
-            val fresh = json.decodeFromString<ContentManifest>(String(get("manifest.json")))
+            val fresh = fetchManifest(ctx)
+            if (fresh == null) {
+                phase = Phase.Ready      // контент не менялся — всё нужное уже на диске
+                return@withContext
+            }
             if (!supports(fresh.minAppVersion)) {
                 // Контент новее приложения целиком — работаем на том, что уже скачано.
                 phase = if (manifest == null) Phase.Failed("Требуется обновление приложения") else Phase.Ready
@@ -216,6 +228,37 @@ object ContentSync {
             phase = Phase.Syncing(done.toFloat() / total)
         }
     }
+
+    /**
+     * Манифест, если он изменился. `null` — сервер ответил 304, на диске уже актуальный.
+     *
+     * Манифест — единственное, что запрашивается на КАЖДОМ запуске: сам контент лежит в кеше
+     * по хешу и второй раз не качается. Но весит он ~100 КБ, поэтому спрашиваем условно,
+     * по ETag — когда контент не менялся, ответ пустой, пара сотен байт заголовков.
+     */
+    private fun fetchManifest(ctx: Context): ContentManifest? {
+        val prefs = ctx.getSharedPreferences("ht.sync", Context.MODE_PRIVATE)
+        val conn = (URL("${baseUrl.trimEnd('/')}/manifest.json").openConnection() as HttpURLConnection).apply {
+            connectTimeout = 15_000
+            readTimeout = 30_000
+            if (manifest != null) prefs.getString(ETAG, null)?.let { setRequestProperty("If-None-Match", it) }
+        }
+        try {
+            if (conn.responseCode == 304) return null
+            if (conn.responseCode !in 200..299) {
+                throw IllegalStateException("Сервер контента ответил ${conn.responseCode}")
+            }
+            val body = conn.inputStream.use { it.readBytes() }
+            val fresh = json.decodeFromString<ContentManifest>(String(body))
+            // ETag запоминаем ПОСЛЕ разбора: на битом ответе он бы навсегда заглушил обновления.
+            conn.getHeaderField("ETag")?.let { prefs.edit().putString(ETAG, it).apply() }
+            return fresh
+        } finally {
+            conn.disconnect()
+        }
+    }
+
+    private const val ETAG = "manifest.etag"
 
     private fun get(path: String): ByteArray {
         val conn = (URL("${baseUrl.trimEnd('/')}/$path").openConnection() as HttpURLConnection).apply {

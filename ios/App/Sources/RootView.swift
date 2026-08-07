@@ -20,6 +20,9 @@ struct RootView: View {
     @State private var loadingEpoch: String?
     @AppStorage("ht.onboarded") private var onboarded = false
     @State private var showOnboarding = false
+    /// Первый запуск уже предложен в этой сессии. Выбор языка пишет `langOverride`, на его
+    /// изменение пак сбрасывается и boot идёт заново — без флага выбор языка всплывал дважды.
+    @State private var firstRunOffered = false
     @State private var showLanguagePicker = false
     @AppStorage("ht.lang") private var langOverride = ""
     @State private var screen: Screen = {
@@ -73,7 +76,7 @@ struct RootView: View {
                     chapterNumber: chapterNumber(ep),
                     chapterTitle: chapterTitle(ep),
                     epoch: ep,
-                    demoLevel: loadingDemoLevel(pack),
+                    demoLevel: demoLevel(pack),
                     db: pack.db,
                     onReady: {
                         // Уровни главы приезжают вместе с ней — пак надо пересобрать,
@@ -89,7 +92,7 @@ struct RootView: View {
             }
 
             if showOnboarding {
-                OnboardingView(onFinish: {
+                OnboardingView(level: pack.flatMap { demoLevel($0) }, db: pack?.db, onFinish: {
                     onboarded = true
                     withAnimation(.easeOut(duration: 0.25)) { showOnboarding = false }
                 })
@@ -115,9 +118,6 @@ struct RootView: View {
                 pendingEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "tudor"
                 showPaywall = true
             }
-            let env = ProcessInfo.processInfo.environment
-            let testing = env["HT_SCREEN"] != nil || env["HT_LEVEL"] != nil || env["HT_PAYWALL"] == "1"
-            if !onboarded && !testing { showLanguagePicker = true }
         }
         .onChange(of: screen) { _, _ in updateMusic() }
         .onChange(of: langOverride) { _, _ in
@@ -201,9 +201,13 @@ struct RootView: View {
     }
 
     private func chapters(_ pack: RomeContent.Pack) -> [Chapter] {
+        // Всего уровней берём из манифеста, а не из загруженного пака: файлы уровней приезжают
+        // вместе с главой, и до входа в неё пак пуст — на карточке было «0 из 0».
         func prog(_ epoch: String) -> String {
-            let ls = pack.levels(epoch: epoch)
-            return L10n.s("ui.progress", ls.filter { progress.isCompleted($0.id) }.count, ls.count)
+            let ids = sync.availableChapters.first { $0.id == epoch }?.levels
+                ?? pack.levels(epoch: epoch).map(\.id)
+            let done = ids.filter { progress.isCompleted($0) }.count
+            return L10n.s("ui.progress", done, ids.count)
         }
         func ch(_ id: String, _ n: Int, _ cover: String?, _ icon: String,
                 _ available: Bool, free: Bool = false) -> Chapter {
@@ -242,17 +246,13 @@ struct RootView: View {
         sync.availableChapters.first { $0.id == epoch }?.number ?? 1
     }
 
-    /// Демо-уровень для экрана загрузки — берём из встроенного Рима (арт всегда доступен).
-    /// Закреплён египетский «Война за трон» (Цезарь/Клеопатра/Птолемей): красивый 3-панельный,
-    /// стилистически цельный. Фолбэк — любой 3-панельный решаемый.
-    /// nil на первом запуске: уровни Рима приезжают вместе с главой, а экран загрузки
-    /// показывается до неё — тогда демо-сборки просто нет.
-    private func loadingDemoLevel(_ pack: RomeContent.Pack) -> LevelDef? {
-        let rome = pack.levels(epoch: "rome")
-        return rome.first { $0.id == "cleopatra_throne" }
-            ?? rome.first { $0.panels == 3 && ($0.solution?.isEmpty == false) }
-            ?? rome.first { $0.solution?.isEmpty == false }
-            ?? rome.first
+    /// Показательный уровень для онбординга и экрана загрузки. Задан в `Content/demo.json`,
+    /// его файлы входят в core — поэтому он на диске с первого запуска, ещё до любой главы.
+    /// Раньше брался из скачанного Рима, и первая же загрузка главы показывала пустую доску.
+    private func demoLevel(_ pack: RomeContent.Pack) -> LevelDef? {
+        if let id = sync.demoLevelId, let lv = pack.levels.first(where: { $0.id == id }) { return lv }
+        return pack.levels.first { $0.panels == 3 && ($0.solution?.isEmpty == false) }
+            ?? pack.levels.first { $0.solution?.isEmpty == false }
     }
 
     private func errorView(_ message: String) -> some View {
@@ -275,6 +275,9 @@ struct RootView: View {
     /// Старт: подтянуть манифест и core, затем собрать пак. Офлайн с пустым кешем — единственный
     /// случай, когда игру показать нечем; во всех остальных работаем на том, что уже скачано.
     private func boot() async {
+        // Язык — до сети: иначе строки экрана ошибки идут на дефолтном русском,
+        // независимо от того, на каком говорит игрок.
+        L10n.configure()
         await sync.syncCore()
         load()
     }
@@ -285,7 +288,27 @@ struct RootView: View {
             pack = try RomeContent.load()
             Audio.shared.preload()
             updateMusic()
+            offerFirstRun()
         } catch { loadError = error.localizedDescription }
+    }
+
+    /// Выбор языка и онбординг — только после того, как контент на диске. Раньше они всплывали
+    /// поверх экрана загрузки, и первый экран игры встречал новичка голыми ключами: каталог
+    /// переводов в этот момент ещё ехал.
+    private func offerFirstRun() {
+        guard !firstRunOffered else { return }
+        let env = ProcessInfo.processInfo.environment
+        // Отсмотр онбординга без сноса приложения (как HT_RESETDLG / HT_SETTINGS в меню).
+        if env["HT_ONBOARDING"] == "1" {
+            firstRunOffered = true
+            showOnboarding = true
+            return
+        }
+        guard !onboarded else { return }
+        let testing = env["HT_SCREEN"] != nil || env["HT_LEVEL"] != nil || env["HT_PAYWALL"] == "1"
+        guard !testing else { return }
+        firstRunOffered = true
+        withAnimation(.easeIn(duration: 0.25)) { showLanguagePicker = true }
     }
 
     /// Первый запуск: пока едет core, показываем прогресс, а не бесконечный спиннер.
@@ -299,13 +322,75 @@ struct RootView: View {
                 Button(L10n.s("ui.retry")) { Task { await boot() } }
                     .font(.dsBody(14)).buttonStyle(.borderedProminent).tint(DS.Palette.maroon)
             } else {
-                ProgressView(value: sync.progressValue)
-                    .tint(DS.Palette.gold)
-                    .frame(width: 200)
-                Text(L10n.s("ui.downloading_content")).font(.dsCaption(11))
-                    .foregroundStyle(DS.Palette.paper.opacity(0.7))
+                BootLoader(progress: sync.progressValue)
             }
         }
         .padding(32)
+    }
+}
+
+/// Лоадер первого запуска: страница книги с сургучной печатью, вокруг которой золотое
+/// кольцо наливается по мере загрузки. Тот же словарь, что и на остальных экранах —
+/// пергамент, чернильный контур, золотые уголки.
+///
+/// Единственная надпись — название игры: оно одинаково на всех языках. Каталог переводов
+/// в этот момент ещё едет, а `L10n` до его появления сидит на русском, поэтому любая
+/// переводимая строка здесь оказалась бы не на языке игрока.
+private struct BootLoader: View {
+    let progress: Double
+
+    @State private var spin = false
+    @State private var pulse = false
+
+    var body: some View {
+        BookPage {
+            VStack(spacing: 16) {
+                ZStack {
+                    // Дорожка кольца.
+                    Circle()
+                        .stroke(DS.Palette.ink.opacity(0.14), lineWidth: 7)
+
+                    // Реальный прогресс.
+                    Circle()
+                        .trim(from: 0, to: max(0.02, progress))
+                        .stroke(DS.Palette.gold,
+                                style: StrokeStyle(lineWidth: 7, lineCap: .round))
+                        .rotationEffect(.degrees(-90))
+                        .animation(.easeOut(duration: 0.4), value: progress)
+
+                    // Бегущая искра: прогресс может стоять на месте, а экран должен жить.
+                    Circle()
+                        .trim(from: 0, to: 0.12)
+                        .stroke(DS.Palette.gold.opacity(0.55),
+                                style: StrokeStyle(lineWidth: 3, lineCap: .round))
+                        .rotationEffect(.degrees(spin ? 360 : 0))
+
+                    // Сургучная печать.
+                    Circle()
+                        .fill(DS.Palette.maroon)
+                        .overlay(Circle().strokeBorder(DS.Palette.ink.opacity(0.4), lineWidth: 2))
+                        .overlay(
+                            Image(systemName: "book.closed.fill")
+                                .font(.system(size: 22, weight: .semibold))
+                                .foregroundStyle(DS.Palette.paper.opacity(0.9))
+                        )
+                        .padding(16)
+                        .scaleEffect(pulse ? 1.05 : 0.97)
+                        .shadow(color: .black.opacity(0.3), radius: 4, y: 2)
+                }
+                .frame(width: 96, height: 96)
+
+                Text("History Teller")
+                    .font(.dsSerif(19))
+                    .foregroundStyle(DS.Palette.ink)
+            }
+            .padding(.horizontal, 34)
+            .padding(.vertical, 26)
+        }
+        .fixedSize()
+        .onAppear {
+            withAnimation(.linear(duration: 2.2).repeatForever(autoreverses: false)) { spin = true }
+            withAnimation(.easeInOut(duration: 1.1).repeatForever(autoreverses: true)) { pulse = true }
+        }
     }
 }

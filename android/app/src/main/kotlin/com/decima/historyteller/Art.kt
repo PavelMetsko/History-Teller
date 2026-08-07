@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
@@ -33,7 +34,10 @@ fun artPainter(name: String): Painter? {
     val file = remember(name, ContentSync.generation) { artFile(name) }
     if (file != null) {
         val bmp = remember(file.absolutePath) { BitmapFactory.decodeFile(file.absolutePath)?.asImageBitmap() }
-        if (bmp != null) return BitmapPainter(bmp)
+        // High (бикубика), а не дефолтный Low: спрайт 768 px рисуется на доске в ~70 px, и
+        // билинейная фильтрация рассыпает его в «лесенку». Заметно на плотных экранах
+        // невысокого разрешения — на 720p арт выглядел откровенно шакальным.
+        if (bmp != null) return BitmapPainter(bmp, filterQuality = FilterQuality.High)
     }
     val resId = remember(name) { ctx.resources.getIdentifier(name, "drawable", ctx.packageName) }
     return if (resId != 0) painterResource(resId) else null
