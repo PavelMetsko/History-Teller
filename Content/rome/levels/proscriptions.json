@@ -1,0 +1,108 @@
+{
+ "id": "proscriptions",
+ "order": 140,
+ "act": "Акт III · Трещина",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "dictator_law",
+  "lists_forum",
+  "spare_youth"
+ ],
+ "characters": [
+  "sulla",
+  "flaccus",
+  "marius_younger",
+  "crassus",
+  "caesar_young"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sulla",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "marius_younger",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "crassus",
+     "is": "enriched"
+    }
+   },
+   {
+    "flag": {
+     "char": "caesar_young",
+     "is": "spared"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "caesar_young",
+      "is": "condemned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dictator_law",
+   "characters": [
+    "sulla",
+    "flaccus"
+   ]
+  },
+  {
+   "scene": "lists_forum",
+   "characters": [
+    "sulla",
+    "marius_younger",
+    "crassus"
+   ]
+  },
+  {
+   "scene": "spare_youth",
+   "characters": [
+    "sulla",
+    "caesar_young"
+   ]
+  }
+ ],
+ "cover": "lists_forum",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "ally_of",
+    "flaccus",
+    "sulla"
+   ],
+   [
+    "enemy_of",
+    "sulla",
+    "marius_younger"
+   ],
+   [
+    "enemy_of",
+    "sulla",
+    "caesar_young"
+   ]
+  ],
+  "flags": {
+   "flaccus": [
+    "standing"
+   ]
+  }
+ }
+}

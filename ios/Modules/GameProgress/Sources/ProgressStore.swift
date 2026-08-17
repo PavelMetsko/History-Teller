@@ -42,7 +42,9 @@ public final class ProgressStore {
         if Self.unlockAll { return true }
         guard let idx = orderedIds.firstIndex(of: levelId) else { return false }
         if idx == 0 { return true }
-        return isCompleted(orderedIds[idx - 1])
+        // Уже пройденный уровень открыт всегда: иначе вставка новых уровней в начало главы
+        // (приквел к Риму) заперла бы прогресс тех, кто прошёл главу до обновления.
+        return isCompleted(levelId) || isCompleted(orderedIds[idx - 1])
     }
 
     public var solvedCount: Int { completed.count }

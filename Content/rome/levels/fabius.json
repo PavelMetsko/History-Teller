@@ -1,0 +1,110 @@
+{
+ "id": "fabius",
+ "order": 70,
+ "act": "Акт II · Республика и Карфаген",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "shadow_march",
+  "torch_oxen",
+  "open_battle",
+  "rescue_field"
+ ],
+ "characters": [
+  "fabius",
+  "minucius",
+  "hannibal"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hannibal",
+     "is": "starved"
+    }
+   },
+   {
+    "flag": {
+     "char": "minucius",
+     "is": "grateful"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "hannibal",
+      "is": "escaped"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "fabius",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "shadow_march",
+   "characters": [
+    "fabius",
+    "hannibal"
+   ]
+  },
+  {
+   "scene": "open_battle",
+   "characters": [
+    "minucius",
+    "hannibal"
+   ]
+  },
+  {
+   "scene": "rescue_field",
+   "characters": [
+    "fabius",
+    "minucius"
+   ]
+  }
+ ],
+ "cover": "shadow_march",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "hannibal": [
+    "strong"
+   ],
+   "fabius": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "fabius",
+    "hannibal"
+   ],
+   [
+    "enemy_of",
+    "hannibal",
+    "fabius"
+   ],
+   [
+    "enemy_of",
+    "minucius",
+    "hannibal"
+   ],
+   [
+    "enemy_of",
+    "hannibal",
+    "minucius"
+   ]
+  ]
+ }
+}

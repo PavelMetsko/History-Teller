@@ -1,0 +1,96 @@
+{
+ "id": "four_emperors",
+ "order": 490,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "donative_f",
+  "forum_murder_f",
+  "legions_hail_f",
+  "bedriacum_f"
+ ],
+ "characters": [
+  "galba",
+  "otho",
+  "vitellius",
+  "vespasian"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "galba",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "vespasian",
+     "is": "purple"
+    }
+   },
+   {
+    "flag": {
+     "char": "otho",
+     "is": "deposed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "vitellius",
+      "is": "purple"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "donative_f",
+   "characters": [
+    "galba",
+    "otho"
+   ]
+  },
+  {
+   "scene": "forum_murder_f",
+   "characters": [
+    "otho",
+    "galba"
+   ]
+  },
+  {
+   "scene": "legions_hail_f",
+   "characters": [
+    "vespasian",
+    "otho"
+   ]
+  }
+ ],
+ "cover": "legions_hail_f",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "vitellius": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "vitellius",
+    "otho"
+   ],
+   [
+    "enemy_of",
+    "otho",
+    "vitellius"
+   ]
+  ]
+ }
+}

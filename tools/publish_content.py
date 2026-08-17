@@ -98,6 +98,9 @@ def core_files(chapters: list, levels: list) -> set[str]:
     files |= {f"audio/{n}.m4a" for n in SFX if (CONTENT / "audio" / f"{n}.m4a").exists()}
     if (CONTENT / "audio" / "theme.m4a").exists():
         files.add("audio/theme.m4a")
+    # Метаданные склейки лупа (priming AAC) — нужны Android-плееру для бесшовного лупа.
+    if (CONTENT / "audio" / "loops.json").exists():
+        files.add("audio/loops.json")
     # Обложки всех глав — экран выбора эпохи.
     for c in chapters:
         if a := art(f"scene_{c['cover']}"):
@@ -219,8 +222,10 @@ def serve(out: Path, port: int):
                              "no-cache" if self.path.endswith("manifest.json") else "max-age=31536000, immutable")
             super().end_headers()
 
-        def log_message(self, *a):
-            pass
+        def log_message(self, fmt, *a):
+            # Лог нужен: когда устройство молча играет на старом кеше, единственный способ
+            # понять, дошёл ли до стенда хоть один запрос, — увидеть его здесь.
+            print(f"  {self.client_address[0]}  {fmt % a}", flush=True)
 
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", port), Handler) as httpd:

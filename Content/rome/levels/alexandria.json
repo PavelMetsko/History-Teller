@@ -1,15 +1,19 @@
 {
  "id": "alexandria",
- "order": 140,
- "act": "Акт III · Наследники",
+ "order": 440,
+ "act": "Акт VI · Наследники",
  "epoch": "rome",
- "panels": 2,
+ "panels": 3,
  "scenes": [
-  "tomb"
+  "tomb",
+  "parley_a",
+  "aspic_a",
+  "triumph_rome"
  ],
  "characters": [
   "antony",
-  "cleopatra"
+  "cleopatra",
+  "octavian"
  ],
  "initialState": {
   "flags": {
@@ -31,6 +35,14 @@
      "char": "cleopatra",
      "is": "dead"
     }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cleopatra",
+      "is": "captured"
+     }
+    }
    }
   ]
  },
@@ -43,7 +55,14 @@
    ]
   },
   {
-   "scene": "tomb",
+   "scene": "parley_a",
+   "characters": [
+    "cleopatra",
+    "octavian"
+   ]
+  },
+  {
+   "scene": "aspic_a",
    "characters": [
     "cleopatra"
    ]

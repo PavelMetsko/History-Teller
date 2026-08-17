@@ -1,12 +1,13 @@
 {
  "id": "pharsalus",
- "order": 20,
- "act": "Акт I · Восхождение",
+ "order": 320,
+ "act": "Акт IV · Падение республики",
  "epoch": "rome",
- "panels": 2,
+ "panels": 3,
  "scenes": [
   "pharsalus_line",
-  "pharsalus_field"
+  "pharsalus_field",
+  "pompey_camp"
  ],
  "characters": [
   "caesar",
@@ -16,22 +17,21 @@
  "goal": {
   "all": [
    {
-    "relation": {
-     "rel": "ally_of",
-     "from": "caesar",
-     "to": "antony"
+    "flag": {
+     "char": "caesar",
+     "is": "victor"
     }
    },
    {
     "flag": {
      "char": "pompey",
-     "is": "fugitive"
+     "is": "defeated"
     }
    },
    {
     "flag": {
-     "char": "caesar",
-     "is": "victor"
+     "char": "pompey",
+     "is": "overconfident"
     }
    }
   ]
@@ -40,8 +40,13 @@
   {
    "scene": "pharsalus_line",
    "characters": [
-    "caesar",
-    "antony"
+    "caesar"
+   ]
+  },
+  {
+   "scene": "pompey_camp",
+   "characters": [
+    "pompey"
    ]
   },
   {
@@ -56,5 +61,24 @@
  "music": "battle",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "pompey": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "caesar",
+    "pompey"
+   ],
+   [
+    "enemy_of",
+    "pompey",
+    "caesar"
+   ]
+  ]
  }
 }

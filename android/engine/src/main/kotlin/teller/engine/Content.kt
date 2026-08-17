@@ -79,5 +79,11 @@ object Parse {
         o.str("initialText"), o.str("goalText"), o.str("goalHint"),
         GoalNode.parse(o["goal"]!!), o["factCard"]?.let { factCard(it.jsonObject) },
         o["solution"]?.jsonArray?.map { panel(it.jsonObject) },
-        o.str("music"), o.str("cover"), o.str("act"))
+        o.str("music"), o.str("cover"), o.str("act"),
+        o["coach"]?.jsonArray?.map { coachStep(it.jsonObject) } ?: emptyList())
+
+    fun coachStep(o: JsonObject) = CoachStep(
+        o.str("text")!!,
+        o["until"]?.let { GoalNode.parse(it) },
+        o.str("untilScene"), o.strList("highlightScenes"), o.strList("highlightChars"))
 }

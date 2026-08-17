@@ -1,13 +1,14 @@
 {
  "id": "actium",
- "order": 130,
- "act": "Акт III · Наследники",
+ "order": 430,
+ "act": "Акт VI · Наследники",
  "epoch": "rome",
- "panels": 2,
+ "panels": 3,
  "scenes": [
-  "palace",
+  "line_of_battle_a",
   "naval",
-  "battlefield"
+  "flight_a",
+  "palace"
  ],
  "characters": [
   "antony",
@@ -19,7 +20,7 @@
    {
     "flag": {
      "char": "antony",
-     "is": "fugitive"
+     "is": "defeated"
     }
    },
    {
@@ -27,12 +28,18 @@
      "char": "octavian",
      "is": "victor"
     }
+   },
+   {
+    "flag": {
+     "char": "antony",
+     "is": "dishonoured"
+    }
    }
   ]
  },
  "solution": [
   {
-   "scene": "palace",
+   "scene": "line_of_battle_a",
    "characters": [
     "antony",
     "cleopatra"
@@ -44,11 +51,41 @@
     "octavian",
     "antony"
    ]
+  },
+  {
+   "scene": "flight_a",
+   "characters": [
+    "cleopatra",
+    "antony"
+   ]
   }
  ],
- "cover": "naval",
+ "cover": "flight_a",
  "music": "battle",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "antony": [
+    "eastern",
+    "strong"
+   ],
+   "octavian": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "octavian",
+    "antony"
+   ],
+   [
+    "enemy_of",
+    "antony",
+    "octavian"
+   ]
+  ]
  }
 }

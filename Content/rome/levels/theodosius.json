@@ -1,0 +1,70 @@
+{
+ "id": "theodosius",
+ "order": 560,
+ "act": "Акт VIII · Закат",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "massacre_t",
+  "church_door_t",
+  "penance_t",
+  "purple_pride_t"
+ ],
+ "characters": [
+  "theodosius",
+  "ambrose",
+  "rufinus"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "theodosius",
+     "is": "absolved"
+    }
+   },
+   {
+    "flag": {
+     "char": "ambrose",
+     "is": "church_above"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "theodosius",
+      "is": "defiant_t"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "massacre_t",
+   "characters": [
+    "theodosius",
+    "rufinus"
+   ]
+  },
+  {
+   "scene": "church_door_t",
+   "characters": [
+    "ambrose",
+    "theodosius"
+   ]
+  },
+  {
+   "scene": "penance_t",
+   "characters": [
+    "theodosius",
+    "ambrose"
+   ]
+  }
+ ],
+ "cover": "penance_t",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

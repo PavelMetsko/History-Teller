@@ -16,8 +16,28 @@ public enum RomeContent {
 
     /// Порядок попыток загрузки уровней. Отсутствующие тихо пропускаются.
     private static let levelIds = [
-        // === Глава 1 · Древний Рим (Падение Республики) ===
-        // Акт I · Восхождение (49–48 до н.э.)
+        // === Глава 1 · Древний Рим (от Ромула до Ромула) ===
+        // Акт I · Цари и рождение республики (753–494 до н.э.)
+        "sabines",
+        "lucretia",
+        "mucius",
+        "secession",
+        // Акт II · Республика и Карфаген (390–146 до н.э.)
+        "brennus",
+        "corvus",
+        "fabius",
+        "cannae",
+        "zama",
+        "delenda",
+        // Акт III · Трещина (133–63 до н.э.)
+        "gracchus",
+        "marius",
+        "sulla_march",
+        "proscriptions",
+        "spartacus",
+        "pirates",
+        "catilina",
+        // Акт IV · Падение республики (49–44 до н.э.)
         "rubicon",
         "pharsalus",
         "pompey_death",
@@ -35,6 +55,23 @@ public enum RomeContent {
         "discord",
         "actium",
         "alexandria",
+        // Акт VII · Империя (27 до н.э. – 180)
+        "augustus",
+        "sejanus",
+        "claudius_mushrooms",
+        "nero_fire",
+        "four_emperors",
+        "vesuvius",
+        "trajan",
+        "commodus",
+        // Акт VIII · Закат (270–476)
+        "aurelian",
+        "diocletian",
+        "constantine",
+        "theodosius",
+        "alaric",
+        "attila",
+        "romulus_augustulus",
         // "rivals" — вне основной линии (легенда/что-если). Файл сохранён.
 
         // === Глава 2 · Тюдоры (Династия, 1485–1603) ===

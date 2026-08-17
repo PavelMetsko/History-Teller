@@ -1,0 +1,78 @@
+{
+ "id": "diocletian",
+ "order": 540,
+ "act": "Акт VIII · Закат",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "split_d",
+  "caesars_d",
+  "abdicate_d",
+  "sole_rule_d"
+ ],
+ "characters": [
+  "diocletian",
+  "maximian",
+  "galerius",
+  "constantius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "galerius",
+     "is": "caesar_named"
+    }
+   },
+   {
+    "flag": {
+     "char": "constantius",
+     "is": "caesar_named"
+    }
+   },
+   {
+    "flag": {
+     "char": "diocletian",
+     "is": "retired"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "diocletian",
+      "is": "sole"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "split_d",
+   "characters": [
+    "diocletian",
+    "maximian"
+   ]
+  },
+  {
+   "scene": "caesars_d",
+   "characters": [
+    "diocletian",
+    "galerius",
+    "constantius"
+   ]
+  },
+  {
+   "scene": "abdicate_d",
+   "characters": [
+    "diocletian",
+    "maximian"
+   ]
+  }
+ ],
+ "cover": "caesars_d",
+ "music": "ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

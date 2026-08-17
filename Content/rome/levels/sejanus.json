@@ -1,0 +1,69 @@
+{
+ "id": "sejanus",
+ "order": 460,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "capri_villa",
+  "guard_swap",
+  "long_letter"
+ ],
+ "characters": [
+  "tiberius_princeps",
+  "sejanus",
+  "macro",
+  "memmius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sejanus",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "macro",
+     "is": "commands_guard"
+    }
+   },
+   {
+    "flag": {
+     "char": "tiberius_princeps",
+     "is": "absent"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "capri_villa",
+   "characters": [
+    "tiberius_princeps",
+    "sejanus"
+   ]
+  },
+  {
+   "scene": "guard_swap",
+   "characters": [
+    "tiberius_princeps",
+    "macro"
+   ]
+  },
+  {
+   "scene": "long_letter",
+   "characters": [
+    "memmius",
+    "sejanus",
+    "macro"
+   ]
+  }
+ ],
+ "cover": "long_letter",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

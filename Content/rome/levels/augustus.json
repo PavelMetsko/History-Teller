@@ -1,0 +1,72 @@
+{
+ "id": "augustus",
+ "order": 450,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 2,
+ "scenes": [
+  "resign_curia",
+  "grant_curia",
+  "diadem_offer"
+ ],
+ "characters": [
+  "octavian",
+  "munatius",
+  "agrippa"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "munatius",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "octavian",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "octavian",
+      "is": "tyrant_named"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "resign_curia",
+   "characters": [
+    "octavian",
+    "munatius"
+   ]
+  },
+  {
+   "scene": "grant_curia",
+   "characters": [
+    "octavian",
+    "munatius"
+   ]
+  }
+ ],
+ "cover": "grant_curia",
+ "music": "ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "octavian": [
+    "standing"
+   ],
+   "munatius": [
+    "standing"
+   ]
+  }
+ }
+}

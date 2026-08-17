@@ -1,8 +1,8 @@
 {
  "id": "cicero_death",
- "order": 95,
+ "order": 395,
  "epoch": "rome",
- "act": "Акт III · Наследники",
+ "act": "Акт VI · Наследники",
  "panels": 3,
  "scenes": [
   "rostra",
@@ -25,7 +25,13 @@
    {
     "flag": {
      "char": "cicero",
-     "is": "silenced"
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "cicero",
+     "is": "dead"
     }
    }
   ]

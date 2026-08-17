@@ -1,0 +1,88 @@
+{
+ "id": "sulla_march",
+ "order": 130,
+ "act": "Акт III · Трещина",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "nola_camp",
+  "march_rome",
+  "forum_expel"
+ ],
+ "characters": [
+  "sulla",
+  "lucullus",
+  "pompeius_rufus",
+  "sulpicius_r",
+  "marius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sulla",
+     "is": "victor"
+    }
+   },
+   {
+    "flag": {
+     "char": "marius",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "sulpicius_r",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "nola_camp",
+   "characters": [
+    "lucullus",
+    "sulla"
+   ]
+  },
+  {
+   "scene": "march_rome",
+   "characters": [
+    "sulla",
+    "marius"
+   ]
+  },
+  {
+   "scene": "forum_expel",
+   "characters": [
+    "sulla",
+    "sulpicius_r"
+   ]
+  }
+ ],
+ "cover": "march_rome",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "sulla",
+    "marius"
+   ],
+   [
+    "enemy_of",
+    "marius",
+    "sulla"
+   ],
+   [
+    "enemy_of",
+    "sulla",
+    "sulpicius_r"
+   ]
+  ]
+ }
+}

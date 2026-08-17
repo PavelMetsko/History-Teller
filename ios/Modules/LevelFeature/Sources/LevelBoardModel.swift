@@ -161,6 +161,51 @@ public final class LevelBoardModel {
         }
     }
 
+    /// Подобрать порядок персонажей внутри панели за игрока.
+    ///
+    /// Правила с `slot` жёстко привязывают актора к позиции в кадре (сцена с `roles`:
+    /// слот 0 — убийца, слот 1 — жертва), и движок это учитывает. Заставлять игрока
+    /// угадывать ещё и порядок внутри панели — не тот пазл: думать он должен над тем,
+    /// КОГО и в КАКУЮ сцену поставить. Поэтому если из тех же персонажей есть перестановка,
+    /// при которой в панели срабатывает больше правил, молча применяем её.
+    ///
+    /// Панели проходим слева направо: причинность идёт в ту же сторону, и порядок,
+    /// выбранный для ранней панели, меняет то, что вообще может сработать в поздней.
+    /// На сценах без `roles` перестановки ничего не меняют — там цикл просто ничего не найдёт.
+    private func autoAssignSlots() {
+        for i in panels.indices where panels[i].characters.count > 1 {
+            let current = panels[i].characters
+            var best = current
+            var bestScore = firedCount(inPanel: i)
+            for candidate in Self.permutations(of: current) where candidate != current {
+                panels[i].characters = candidate
+                let score = firedCount(inPanel: i)
+                if score > bestScore {                    // строго больше: при равенстве
+                    bestScore = score                     // сохраняем расстановку игрока
+                    best = candidate
+                }
+            }
+            panels[i].characters = best
+        }
+    }
+
+    private func firedCount(inPanel index: Int) -> Int {
+        Engine.simulate(panels, db, initial: level.createInitialWorld(), collectTrace: true)
+            .events.reduce(0) { $0 + ($1.panelIndex == index ? 1 : 0) }
+    }
+
+    /// Все перестановки (в панели максимум 3 слота → не больше шести вариантов).
+    private static func permutations(of items: [String]) -> [[String]] {
+        guard items.count > 1 else { return [items] }
+        var out: [[String]] = []
+        for (i, item) in items.enumerated() {
+            var rest = items
+            rest.remove(at: i)
+            for tail in permutations(of: rest) { out.append([item] + tail) }
+        }
+        return out
+    }
+
     /// Авто-раскладка внутри панели: «пострадавший» (жертва/проигравший/осуждённый/
     /// коронованный — `primary` бита) ставится правее активного. Порядок персонажей в
     /// панели движок не учитывает при решении, так что это чистая косметика — единая
@@ -173,10 +218,45 @@ public final class LevelBoardModel {
         for i in panels.indices {
             let prim = primaryByPanel[i]
             guard !prim.isEmpty else { continue }
+            // На сценах с ролями порядок значим (правила со `slot`), и его уже подобрал
+            // autoAssignSlots — косметика тут переставила бы персонажей после симуляции
+            // и расстроила бы сошедшуюся панель.
+            if let sid = panels[i].sceneId, db.scenes[sid]?.roles?.isEmpty == false { continue }
             let chars = panels[i].characters
             let reordered = chars.filter { !prim.contains($0) } + chars.filter { prim.contains($0) }
             if reordered != chars { panels[i].characters = reordered }
         }
+    }
+
+    /// Текущий шаг гида: первый невыполненный. Ничего не выполнено — гида на уровне нет.
+    ///
+    /// Шаги закрываются состоянием доски, а не нажатиями: игрок не может «пролистать» гид,
+    /// не сделав ход, и наоборот — сделав ход сам, не получит подсказку о том, что уже сделал.
+    public var coachStep: CoachStep? {
+        // Уровень решён — гид молчит. Без этой проверки он оживал на финальном ходу: правило
+        // `intercede` снимает `at_arms`, и условие шага «объяви войну» снова становилось
+        // невыполненным, хотя история уже сложилась.
+        guard !isSolved else { return nil }
+        return level.coach.first { step in
+            if let scene = step.untilScene {
+                return !panels.contains { $0.sceneId == scene }
+            }
+            if let until = step.until { return !until.isMet(result.world) }
+            return !isSolved
+        }
+    }
+
+    /// Что подсветить в нижнем ряду. Гасим, как только предмет уже на доске: гид показывает,
+    /// что взять СЛЕДУЮЩИМ, а шаг закрывается позже — по срабатыванию правила, для которого
+    /// нужен ещё и второй участник. Без этого кольцо висело на уже поставленной фигуре.
+    public var coachHighlightScenes: Set<String> {
+        guard let step = coachStep else { return [] }
+        return Set(step.highlightScenes.filter { sid in !panels.contains { $0.sceneId == sid } })
+    }
+
+    public var coachHighlightChars: Set<String> {
+        guard let step = coachStep else { return [] }
+        return Set(step.highlightChars.filter { cid in !panels.contains { $0.characters.contains(cid) } })
     }
 
     /// Состояние мира после указанной панели (для бейджей внутри панели).
@@ -186,6 +266,7 @@ public final class LevelBoardModel {
     }
 
     private func recompute() {
+        autoAssignSlots()     // до симуляции: порядок внутри панели подбираем за игрока
         result = Engine.simulate(panels, db, initial: level.createInitialWorld(), collectTrace: true)
         autoArrangePanels()   // косметика: «пострадавший» бита — правее активного (вью анимирует)
         // Новые (ещё не показанные) сработавшие правила — для анимаций/звука.

@@ -227,10 +227,22 @@ def canonical_count(solutions, scenes):
     return len(seen)
 
 
+def level_title(level_id):
+    """Заголовок уровня живёт в каталоге i18n, а не в JSON уровня (тексты вынесены из контента)."""
+    global _catalog
+    if _catalog is None:
+        p = Path(__file__).resolve().parent.parent / "Content/i18n/ru.json"
+        _catalog = json.loads(p.read_text()) if p.exists() else {}
+    return _catalog.get(f"level.{level_id}.title", "без названия")
+
+
+_catalog = None
+
+
 def validate_level(level_path, content_dir):
     char_defs, scenes, rules = load_content(content_dir)
     level = json.loads(Path(level_path).read_text())
-    print(f"=== {level['id']} — «{level['title']}» ===")
+    print(f"=== {level['id']} — «{level_title(level['id'])}» ===")
     ok = True
 
     # 1. Эталонное решение из level['solution'] обязано решать уровень

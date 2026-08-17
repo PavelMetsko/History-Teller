@@ -1,683 +1,1637 @@
 [
-  {
-    "id": "caesar",
-    "name": "Юлий Цезарь",
-    "tags": [
-      "ruler",
-      "roman"
-    ],
-    "emoji": "🧓"
-  },
-  {
-    "id": "brutus",
-    "name": "Марк Брут",
-    "tags": [
-      "senator",
-      "roman"
-    ],
-    "emoji": "🧔"
-  },
-  {
-    "id": "cassius",
-    "name": "Гай Кассий",
-    "tags": [
-      "senator",
-      "roman"
-    ],
-    "emoji": "👨‍🦱"
-  },
-  {
-    "id": "cleopatra",
-    "name": "Клеопатра",
-    "tags": [
-      "ruler",
-      "charming"
-    ],
-    "emoji": "👸"
-  },
-  {
-    "id": "antony",
-    "name": "Марк Антоний",
-    "tags": [
-      "general",
-      "roman",
-      "consul"
-    ],
-    "emoji": "🧑‍🦰"
-  },
-  {
-    "id": "apollodorus",
-    "name": "Аполлодор",
-    "tags": [
-      "servant"
-    ],
-    "emoji": "🧎"
-  },
-  {
-    "id": "ptolemy",
-    "name": "Птолемей XIII",
-    "tags": [
-      "ruler",
-      "egyptian",
-      "rival"
-    ],
-    "emoji": "🤴"
-  },
-  {
-    "id": "pompey",
-    "name": "Помпей Великий",
-    "tags": [
-      "roman",
-      "general",
-      "pompeian"
-    ],
-    "emoji": "🎖️"
-  },
-  {
-    "id": "octavian",
-    "name": "Октавиан",
-    "tags": [
-      "roman",
-      "general"
-    ],
-    "emoji": "👦"
-  },
-  {
-    "id": "henry",
-    "name": "Генрих VIII",
-    "tags": [
-      "king"
-    ],
-    "emoji": "🤴"
-  },
-  {
-    "id": "aragon",
-    "name": "Екатерина Арагонская",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "👑"
-  },
-  {
-    "id": "boleyn",
-    "name": "Анна Болейн",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "🖤"
-  },
-  {
-    "id": "seymour",
-    "name": "Джейн Сеймур",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "🤍"
-  },
-  {
-    "id": "cleves",
-    "name": "Анна Клевская",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "🧡"
-  },
-  {
-    "id": "howard",
-    "name": "Кэтрин Говард",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "💛"
-  },
-  {
-    "id": "parr",
-    "name": "Кэтрин Парр",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "💚"
-  },
-  {
-    "id": "cromwell",
-    "name": "Томас Кромвель",
-    "tags": [
-      "advisor"
-    ],
-    "emoji": "🧥"
-  },
-  {
-    "id": "pope",
-    "name": "Папа Римский",
-    "tags": [
-      "pope"
-    ],
-    "emoji": "⛪"
-  },
-  {
-    "id": "henry7",
-    "name": "Генрих VII",
-    "tags": [
-      "king"
-    ],
-    "emoji": "🤴"
-  },
-  {
-    "id": "richard3",
-    "name": "Ричард III",
-    "tags": [
-      "king"
-    ],
-    "emoji": "👑"
-  },
-  {
-    "id": "eliz_york",
-    "name": "Елизавета Йоркская",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "🌹"
-  },
-  {
-    "id": "jane_grey",
-    "name": "Леди Джейн Грей",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "🕊️"
-  },
-  {
-    "id": "mary1",
-    "name": "Мария I",
-    "tags": [
-      "lady",
-      "catholic"
-    ],
-    "emoji": "🔥"
-  },
-  {
-    "id": "philip",
-    "name": "Филипп Испанский",
-    "tags": [
-      "king",
-      "foreign",
-      "catholic"
-    ],
-    "emoji": "🛡️"
-  },
-  {
-    "id": "elizabeth",
-    "name": "Елизавета I",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "👸"
-  },
-  {
-    "id": "mary_stuart",
-    "name": "Мария Стюарт",
-    "tags": [
-      "lady"
-    ],
-    "emoji": "💔"
-  },
-  {
-    "id": "louis",
-    "name": "Людовик XVI",
-    "tags": [
-      "royal_fr",
-      "monarch_fr"
-    ],
-    "emoji": "🤴"
-  },
-  {
-    "id": "antoinette",
-    "name": "Мария-Антуанетта",
-    "tags": [
-      "royal_fr"
-    ],
-    "emoji": "👑"
-  },
-  {
-    "id": "robespierre",
-    "name": "Максимилиан Робеспьер",
-    "tags": [
-      "jacobin",
-      "incorruptible"
-    ],
-    "emoji": "🗡️"
-  },
-  {
-    "id": "danton",
-    "name": "Жорж Дантон",
-    "tags": [
-      "jacobin",
-      "deputy"
-    ],
-    "emoji": "🎙️"
-  },
-  {
-    "id": "marat",
-    "name": "Жан-Поль Марат",
-    "tags": [
-      "jacobin",
-      "deputy",
-      "journalist"
-    ],
-    "emoji": "📜"
-  },
-  {
-    "id": "saintjust",
-    "name": "Луи де Сен-Жюст",
-    "tags": [
-      "jacobin",
-      "deputy"
-    ],
-    "emoji": "⚜️"
-  },
-  {
-    "id": "corday",
-    "name": "Шарлотта Корде",
-    "tags": [
-      "girondin"
-    ],
-    "emoji": "🌹"
-  },
-  {
-    "id": "napoleon",
-    "name": "Наполеон Бонапарт",
-    "tags": [
-      "general_fr"
-    ],
-    "emoji": "🎖️"
-  },
-  {
-    "id": "josephine",
-    "name": "Жозефина",
-    "tags": [
-      "lady_fr"
-    ],
-    "emoji": "👸"
-  },
-  {
-    "id": "wellington",
-    "name": "Герцог Веллингтон",
-    "tags": [
-      "coalition"
-    ],
-    "emoji": "🎩"
-  },
-  {
-    "id": "ivan",
-    "name": "Иван Грозный",
-    "tags": [
-      "tsar"
-    ],
-    "emoji": "👑"
-  },
-  {
-    "id": "tsarevich",
-    "name": "Царевич Иван",
-    "tags": [
-      "heir"
-    ],
-    "emoji": "🧑"
-  },
-  {
-    "id": "malyuta",
-    "name": "Малюта Скуратов",
-    "tags": [
-      "oprichnik"
-    ],
-    "emoji": "🗡️"
-  },
-  {
-    "id": "peter",
-    "name": "Пётр Великий",
-    "tags": [
-      "tsar"
-    ],
-    "emoji": "🧔"
-  },
-  {
-    "id": "alexei",
-    "name": "Царевич Алексей",
-    "tags": [
-      "heir"
-    ],
-    "emoji": "😔"
-  },
-  {
-    "id": "charles",
-    "name": "Карл XII",
-    "tags": [
-      "swede"
-    ],
-    "emoji": "⚔️"
-  },
-  {
-    "id": "catherine",
-    "name": "Екатерина II",
-    "tags": [
-      "empress_ru"
-    ],
-    "emoji": "👸"
-  },
-  {
-    "id": "peter3",
-    "name": "Пётр III",
-    "tags": [
-      "tsar"
-    ],
-    "emoji": "🤴"
-  },
-  {
-    "id": "potemkin",
-    "name": "Григорий Потёмкин",
-    "tags": [
-      "favorite"
-    ],
-    "emoji": "🎖️"
-  },
-  {
-    "id": "pugachev",
-    "name": "Емельян Пугачёв",
-    "tags": [
-      "pretender"
-    ],
-    "emoji": "🔥"
-  },
-  {
-    "id": "suvorov",
-    "name": "Александр Суворов",
-    "tags": [
-      "commander"
-    ],
-    "emoji": "🎗️"
-  },
-  {
-    "id": "rodrigo",
-    "name": "Родриго Борджиа",
-    "tags": [
-      "pontiff"
-    ],
-    "emoji": "✝️"
-  },
-  {
-    "id": "cesare",
-    "name": "Чезаре Борджиа",
-    "tags": [
-      "borgia"
-    ],
-    "emoji": "🗡️"
-  },
-  {
-    "id": "lucrezia",
-    "name": "Лукреция Борджиа",
-    "tags": [
-      "donna"
-    ],
-    "emoji": "🌹"
-  },
-  {
-    "id": "juan",
-    "name": "Хуан Борджиа",
-    "tags": [
-      "rival_b"
-    ],
-    "emoji": "🎗️"
-  },
-  {
-    "id": "giulia",
-    "name": "Джулия Фарнезе",
-    "tags": [
-      "mistress"
-    ],
-    "emoji": "💃"
-  },
-  {
-    "id": "savonarola",
-    "name": "Джироламо Савонарола",
-    "tags": [
-      "friar"
-    ],
-    "emoji": "🔥"
-  },
-  {
-    "id": "rovere",
-    "name": "Джулиано делла Ровере",
-    "tags": [
-      "pontiff",
-      "nemesis"
-    ],
-    "emoji": "⛪"
-  },
-  {
-    "id": "orsini",
-    "name": "Кардинал Орсини",
-    "tags": [
-      "cardinal_b"
-    ],
-    "emoji": "🍷"
-  },
-  {
-    "id": "justin",
-    "name": "Юстин I",
-    "tags": [
-      "old_emperor"
-    ],
-    "emoji": "👴"
-  },
-  {
-    "id": "justinian",
-    "name": "Юстиниан I",
-    "tags": [
-      "augustus"
-    ],
-    "emoji": "👑"
-  },
-  {
-    "id": "theodora",
-    "name": "Феодора",
-    "tags": [
-      "actress"
-    ],
-    "emoji": "👸"
-  },
-  {
-    "id": "belisarius",
-    "name": "Велизарий",
-    "tags": [
-      "strategos"
-    ],
-    "emoji": "⚔️"
-  },
-  {
-    "id": "hypatius",
-    "name": "Ипатий",
-    "tags": [
-      "usurper"
-    ],
-    "emoji": "😰"
-  },
-  {
-    "id": "john",
-    "name": "Иоанн Каппадокийский",
-    "tags": [
-      "minister_b"
-    ],
-    "emoji": "💰"
-  },
-  {
-    "id": "antonina",
-    "name": "Антонина",
-    "tags": [
-      "confidante"
-    ],
-    "emoji": "🎭"
-  },
-  {
-    "id": "stanley",
-    "name": "Лорд Стэнли",
-    "tags": [
-      "lord",
-      "english"
-    ],
-    "emoji": "🛡️"
-  },
-  {
-    "id": "warbeck",
-    "name": "Перкин Уорбек",
-    "tags": [
-      "yorkist"
-    ],
-    "emoji": "🎭"
-  },
-  {
-    "id": "northumberland",
-    "name": "Герцог Нортумберленд",
-    "tags": [
-      "kingmaker"
-    ],
-    "emoji": "🎩"
-  },
-  {
-    "id": "cranmer",
-    "name": "Томас Кранмер",
-    "tags": [
-      "protestant"
-    ],
-    "emoji": "✝️"
-  },
-  {
-    "id": "dudley",
-    "name": "Роберт Дадли",
-    "tags": [
-      "suitor"
-    ],
-    "emoji": "❤️"
-  },
-  {
-    "id": "walsingham",
-    "name": "Фрэнсис Уолсингем",
-    "tags": [
-      "spymaster"
-    ],
-    "emoji": "🕵️"
-  },
-  {
-    "id": "drake",
-    "name": "Фрэнсис Дрейк",
-    "tags": [
-      "admiral"
-    ],
-    "emoji": "⚓"
-  },
-  {
-    "id": "cicero",
-    "name": "Цицерон",
-    "tags": [
-      "senator",
-      "roman",
-      "orator"
-    ],
-    "emoji": "📜"
-  },
-  {
-    "id": "pothinus",
-    "name": "Потин",
-    "tags": [
-      "egyptian",
-      "schemer"
-    ],
-    "emoji": "🗝️"
-  },
-  {
-    "id": "germanus",
-    "name": "Германс",
-    "tags": [
-      "kinsman"
-    ],
-    "emoji": "🛡️"
-  },
-  {
-    "id": "narses",
-    "name": "Нарсес",
-    "tags": [
-      "eunuch"
-    ],
-    "emoji": "💰"
-  },
-  {
-    "id": "mundus",
-    "name": "Мунд",
-    "tags": [
-      "strategos"
-    ],
-    "emoji": "⚔️"
-  },
-  {
-    "id": "tribonian",
-    "name": "Трибониан",
-    "tags": [
-      "minister_b"
-    ],
-    "emoji": "📜"
-  },
-  {
-    "id": "shuisky",
-    "name": "Князь Шуйский",
-    "tags": [
-      "boyar"
-    ],
-    "emoji": "🐻"
-  },
-  {
-    "id": "sophia",
-    "name": "Царевна София",
-    "tags": [
-      "regent"
-    ],
-    "emoji": "👑"
-  },
-  {
-    "id": "mazepa",
-    "name": "Гетман Мазепа",
-    "tags": [
-      "cossack"
-    ],
-    "emoji": "🏇"
-  },
-  {
-    "id": "orlov",
-    "name": "Григорий Орлов",
-    "tags": [
-      "guardsman"
-    ],
-    "emoji": "🎖️"
-  },
-  {
-    "id": "diderot",
-    "name": "Дени Дидро",
-    "tags": [
-      "philosophe"
-    ],
-    "emoji": "📖"
-  },
-  {
-    "id": "fersen",
-    "name": "Граф Ферзен",
-    "tags": [
-      "royalist"
-    ],
-    "emoji": "🎩"
-  },
-  {
-    "id": "carteaux",
-    "name": "Генерал Карто",
-    "tags": [
-      "officer"
-    ],
-    "emoji": "🎖️"
-  }
+ {
+  "id": "caesar",
+  "name": "Юлий Цезарь",
+  "tags": [
+   "ruler",
+   "roman"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "brutus",
+  "name": "Марк Брут",
+  "tags": [
+   "senator",
+   "roman"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "cassius",
+  "name": "Гай Кассий",
+  "tags": [
+   "senator",
+   "roman"
+  ],
+  "emoji": "👨‍🦱"
+ },
+ {
+  "id": "cleopatra",
+  "name": "Клеопатра",
+  "tags": [
+   "ruler",
+   "charming"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "antony",
+  "name": "Марк Антоний",
+  "tags": [
+   "general",
+   "roman",
+   "consul"
+  ],
+  "emoji": "🧑‍🦰"
+ },
+ {
+  "id": "apollodorus",
+  "name": "Аполлодор",
+  "tags": [
+   "servant"
+  ],
+  "emoji": "🧎"
+ },
+ {
+  "id": "ptolemy",
+  "name": "Птолемей XIII",
+  "tags": [
+   "ruler",
+   "egyptian",
+   "rival"
+  ],
+  "emoji": "🤴"
+ },
+ {
+  "id": "pompey",
+  "name": "Помпей Великий",
+  "tags": [
+   "roman",
+   "general",
+   "pompeian"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "octavian",
+  "name": "Октавиан",
+  "tags": [
+   "roman",
+   "general",
+   "heir_r"
+  ],
+  "emoji": "👦"
+ },
+ {
+  "id": "henry",
+  "name": "Генрих VIII",
+  "tags": [
+   "king"
+  ],
+  "emoji": "🤴"
+ },
+ {
+  "id": "aragon",
+  "name": "Екатерина Арагонская",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "boleyn",
+  "name": "Анна Болейн",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "🖤"
+ },
+ {
+  "id": "seymour",
+  "name": "Джейн Сеймур",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "🤍"
+ },
+ {
+  "id": "cleves",
+  "name": "Анна Клевская",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "🧡"
+ },
+ {
+  "id": "howard",
+  "name": "Кэтрин Говард",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "💛"
+ },
+ {
+  "id": "parr",
+  "name": "Кэтрин Парр",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "💚"
+ },
+ {
+  "id": "cromwell",
+  "name": "Томас Кромвель",
+  "tags": [
+   "advisor"
+  ],
+  "emoji": "🧥"
+ },
+ {
+  "id": "pope",
+  "name": "Папа Римский",
+  "tags": [
+   "pope"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "henry7",
+  "name": "Генрих VII",
+  "tags": [
+   "king"
+  ],
+  "emoji": "🤴"
+ },
+ {
+  "id": "richard3",
+  "name": "Ричард III",
+  "tags": [
+   "king"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "eliz_york",
+  "name": "Елизавета Йоркская",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "🌹"
+ },
+ {
+  "id": "jane_grey",
+  "name": "Леди Джейн Грей",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "🕊️"
+ },
+ {
+  "id": "mary1",
+  "name": "Мария I",
+  "tags": [
+   "lady",
+   "catholic"
+  ],
+  "emoji": "🔥"
+ },
+ {
+  "id": "philip",
+  "name": "Филипп Испанский",
+  "tags": [
+   "king",
+   "foreign",
+   "catholic"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "elizabeth",
+  "name": "Елизавета I",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "mary_stuart",
+  "name": "Мария Стюарт",
+  "tags": [
+   "lady"
+  ],
+  "emoji": "💔"
+ },
+ {
+  "id": "louis",
+  "name": "Людовик XVI",
+  "tags": [
+   "royal_fr",
+   "monarch_fr"
+  ],
+  "emoji": "🤴"
+ },
+ {
+  "id": "antoinette",
+  "name": "Мария-Антуанетта",
+  "tags": [
+   "royal_fr"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "robespierre",
+  "name": "Максимилиан Робеспьер",
+  "tags": [
+   "jacobin",
+   "incorruptible"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "danton",
+  "name": "Жорж Дантон",
+  "tags": [
+   "jacobin",
+   "deputy"
+  ],
+  "emoji": "🎙️"
+ },
+ {
+  "id": "marat",
+  "name": "Жан-Поль Марат",
+  "tags": [
+   "jacobin",
+   "deputy",
+   "journalist"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "saintjust",
+  "name": "Луи де Сен-Жюст",
+  "tags": [
+   "jacobin",
+   "deputy"
+  ],
+  "emoji": "⚜️"
+ },
+ {
+  "id": "corday",
+  "name": "Шарлотта Корде",
+  "tags": [
+   "girondin"
+  ],
+  "emoji": "🌹"
+ },
+ {
+  "id": "napoleon",
+  "name": "Наполеон Бонапарт",
+  "tags": [
+   "general_fr"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "josephine",
+  "name": "Жозефина",
+  "tags": [
+   "lady_fr"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "wellington",
+  "name": "Герцог Веллингтон",
+  "tags": [
+   "coalition"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "ivan",
+  "name": "Иван Грозный",
+  "tags": [
+   "tsar"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "tsarevich",
+  "name": "Царевич Иван",
+  "tags": [
+   "heir"
+  ],
+  "emoji": "🧑"
+ },
+ {
+  "id": "malyuta",
+  "name": "Малюта Скуратов",
+  "tags": [
+   "oprichnik"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "peter",
+  "name": "Пётр Великий",
+  "tags": [
+   "tsar"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "alexei",
+  "name": "Царевич Алексей",
+  "tags": [
+   "heir"
+  ],
+  "emoji": "😔"
+ },
+ {
+  "id": "charles",
+  "name": "Карл XII",
+  "tags": [
+   "swede"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "catherine",
+  "name": "Екатерина II",
+  "tags": [
+   "empress_ru"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "peter3",
+  "name": "Пётр III",
+  "tags": [
+   "tsar"
+  ],
+  "emoji": "🤴"
+ },
+ {
+  "id": "potemkin",
+  "name": "Григорий Потёмкин",
+  "tags": [
+   "favorite"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "pugachev",
+  "name": "Емельян Пугачёв",
+  "tags": [
+   "pretender"
+  ],
+  "emoji": "🔥"
+ },
+ {
+  "id": "suvorov",
+  "name": "Александр Суворов",
+  "tags": [
+   "commander"
+  ],
+  "emoji": "🎗️"
+ },
+ {
+  "id": "rodrigo",
+  "name": "Родриго Борджиа",
+  "tags": [
+   "pontiff"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "cesare",
+  "name": "Чезаре Борджиа",
+  "tags": [
+   "borgia"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "lucrezia",
+  "name": "Лукреция Борджиа",
+  "tags": [
+   "donna"
+  ],
+  "emoji": "🌹"
+ },
+ {
+  "id": "juan",
+  "name": "Хуан Борджиа",
+  "tags": [
+   "rival_b"
+  ],
+  "emoji": "🎗️"
+ },
+ {
+  "id": "giulia",
+  "name": "Джулия Фарнезе",
+  "tags": [
+   "mistress"
+  ],
+  "emoji": "💃"
+ },
+ {
+  "id": "savonarola",
+  "name": "Джироламо Савонарола",
+  "tags": [
+   "friar"
+  ],
+  "emoji": "🔥"
+ },
+ {
+  "id": "rovere",
+  "name": "Джулиано делла Ровере",
+  "tags": [
+   "pontiff",
+   "nemesis"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "orsini",
+  "name": "Кардинал Орсини",
+  "tags": [
+   "cardinal_b"
+  ],
+  "emoji": "🍷"
+ },
+ {
+  "id": "justin",
+  "name": "Юстин I",
+  "tags": [
+   "old_emperor"
+  ],
+  "emoji": "👴"
+ },
+ {
+  "id": "justinian",
+  "name": "Юстиниан I",
+  "tags": [
+   "augustus"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "theodora",
+  "name": "Феодора",
+  "tags": [
+   "actress"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "belisarius",
+  "name": "Велизарий",
+  "tags": [
+   "strategos"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "hypatius",
+  "name": "Ипатий",
+  "tags": [
+   "usurper"
+  ],
+  "emoji": "😰"
+ },
+ {
+  "id": "john",
+  "name": "Иоанн Каппадокийский",
+  "tags": [
+   "minister_b"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "antonina",
+  "name": "Антонина",
+  "tags": [
+   "confidante"
+  ],
+  "emoji": "🎭"
+ },
+ {
+  "id": "stanley",
+  "name": "Лорд Стэнли",
+  "tags": [
+   "lord",
+   "english"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "warbeck",
+  "name": "Перкин Уорбек",
+  "tags": [
+   "yorkist"
+  ],
+  "emoji": "🎭"
+ },
+ {
+  "id": "northumberland",
+  "name": "Герцог Нортумберленд",
+  "tags": [
+   "kingmaker"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "cranmer",
+  "name": "Томас Кранмер",
+  "tags": [
+   "protestant"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "dudley",
+  "name": "Роберт Дадли",
+  "tags": [
+   "suitor"
+  ],
+  "emoji": "❤️"
+ },
+ {
+  "id": "walsingham",
+  "name": "Фрэнсис Уолсингем",
+  "tags": [
+   "spymaster"
+  ],
+  "emoji": "🕵️"
+ },
+ {
+  "id": "drake",
+  "name": "Фрэнсис Дрейк",
+  "tags": [
+   "admiral"
+  ],
+  "emoji": "⚓"
+ },
+ {
+  "id": "cicero",
+  "name": "Цицерон",
+  "tags": [
+   "senator",
+   "roman",
+   "orator"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "pothinus",
+  "name": "Потин",
+  "tags": [
+   "egyptian",
+   "schemer"
+  ],
+  "emoji": "🗝️"
+ },
+ {
+  "id": "germanus",
+  "name": "Германс",
+  "tags": [
+   "kinsman"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "narses",
+  "name": "Нарсес",
+  "tags": [
+   "eunuch"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "mundus",
+  "name": "Мунд",
+  "tags": [
+   "strategos"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "tribonian",
+  "name": "Трибониан",
+  "tags": [
+   "minister_b"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "shuisky",
+  "name": "Князь Шуйский",
+  "tags": [
+   "boyar"
+  ],
+  "emoji": "🐻"
+ },
+ {
+  "id": "sophia",
+  "name": "Царевна София",
+  "tags": [
+   "regent"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "mazepa",
+  "name": "Гетман Мазепа",
+  "tags": [
+   "cossack"
+  ],
+  "emoji": "🏇"
+ },
+ {
+  "id": "orlov",
+  "name": "Григорий Орлов",
+  "tags": [
+   "guardsman"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "diderot",
+  "name": "Дени Дидро",
+  "tags": [
+   "philosophe"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "fersen",
+  "name": "Граф Ферзен",
+  "tags": [
+   "royalist"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "carteaux",
+  "name": "Генерал Карто",
+  "tags": [
+   "officer"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "romulus",
+  "name": "Ромул",
+  "tags": [
+   "king_r",
+   "roman"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "hersilia",
+  "name": "Герсилия",
+  "tags": [
+   "sabine",
+   "woman_r"
+  ],
+  "emoji": "👰"
+ },
+ {
+  "id": "tatius",
+  "name": "Тит Таций",
+  "tags": [
+   "sabine",
+   "king_r"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "tarquin",
+  "name": "Тарквиний Гордый",
+  "tags": [
+   "king_r",
+   "tyrant_r"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "sextus",
+  "name": "Секст Тарквиний",
+  "tags": [
+   "prince_r",
+   "tyrant_r"
+  ],
+  "emoji": "🤴"
+ },
+ {
+  "id": "lucretia",
+  "name": "Лукреция",
+  "tags": [
+   "matron_r"
+  ],
+  "emoji": "🧕"
+ },
+ {
+  "id": "junius",
+  "name": "Луций Юний Брут",
+  "tags": [
+   "noble_r",
+   "roman"
+  ],
+  "emoji": "🧔‍♂️"
+ },
+ {
+  "id": "porsenna",
+  "name": "Ларс Порсенна",
+  "tags": [
+   "etruscan",
+   "king_r"
+  ],
+  "emoji": "🧙"
+ },
+ {
+  "id": "mucius",
+  "name": "Гай Муций",
+  "tags": [
+   "roman",
+   "youth_r"
+  ],
+  "emoji": "🧑"
+ },
+ {
+  "id": "cocles",
+  "name": "Гораций Коклес",
+  "tags": [
+   "roman",
+   "soldier_r"
+  ],
+  "emoji": "💂"
+ },
+ {
+  "id": "cloelia",
+  "name": "Клелия",
+  "tags": [
+   "roman",
+   "maiden_r"
+  ],
+  "emoji": "👧"
+ },
+ {
+  "id": "menenius",
+  "name": "Менений Агриппа",
+  "tags": [
+   "patrician_r",
+   "orator_r"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "sicinius",
+  "name": "Луций Сициний",
+  "tags": [
+   "plebeian_r"
+  ],
+  "emoji": "🧑‍🌾"
+ },
+ {
+  "id": "appius",
+  "name": "Аппий Клавдий",
+  "tags": [
+   "patrician_r"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "coriolanus",
+  "name": "Гней Марций Кориолан",
+  "tags": [
+   "patrician_r",
+   "general_r"
+  ],
+  "emoji": "🪖"
+ },
+ {
+  "id": "brennus",
+  "name": "Бренн",
+  "tags": [
+   "gaul",
+   "chieftain_g"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "camillus",
+  "name": "Марк Фурий Камилл",
+  "tags": [
+   "roman",
+   "general_r"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "manlius",
+  "name": "Марк Манлий Капитолин",
+  "tags": [
+   "roman",
+   "soldier_r"
+  ],
+  "emoji": "💂"
+ },
+ {
+  "id": "sulpicius",
+  "name": "Квинт Сульпиций",
+  "tags": [
+   "roman",
+   "tribune_g"
+  ],
+  "emoji": "🧑‍⚖️"
+ },
+ {
+  "id": "duilius",
+  "name": "Гай Дуилий",
+  "tags": [
+   "roman",
+   "consul_r"
+  ],
+  "emoji": "⚓"
+ },
+ {
+  "id": "regulus",
+  "name": "Марк Атилий Регул",
+  "tags": [
+   "roman",
+   "consul_r"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "gisco",
+  "name": "Ганнибал Гисгон",
+  "tags": [
+   "punic",
+   "admiral_p"
+  ],
+  "emoji": "🧿"
+ },
+ {
+  "id": "fabius",
+  "name": "Фабий Максим",
+  "tags": [
+   "roman",
+   "dictator_r"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "minucius",
+  "name": "Марк Минуций Руф",
+  "tags": [
+   "roman",
+   "general_r"
+  ],
+  "emoji": "🪖"
+ },
+ {
+  "id": "hannibal",
+  "name": "Ганнибал Барка",
+  "tags": [
+   "punic",
+   "general_p"
+  ],
+  "emoji": "🐘"
+ },
+ {
+  "id": "maharbal",
+  "name": "Магарбал",
+  "tags": [
+   "punic",
+   "horseman_p"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "varro",
+  "name": "Гай Теренций Варрон",
+  "tags": [
+   "roman",
+   "consul_r"
+  ],
+  "emoji": "🧑‍🦰"
+ },
+ {
+  "id": "paullus",
+  "name": "Луций Эмилий Павел",
+  "tags": [
+   "roman",
+   "consul_r"
+  ],
+  "emoji": "🧔‍♂️"
+ },
+ {
+  "id": "scipio",
+  "name": "Сципион Африканский",
+  "tags": [
+   "roman",
+   "general_r"
+  ],
+  "emoji": "🦅"
+ },
+ {
+  "id": "masinissa",
+  "name": "Масинисса",
+  "tags": [
+   "numidian"
+  ],
+  "emoji": "🏇"
+ },
+ {
+  "id": "syphax",
+  "name": "Сифакс",
+  "tags": [
+   "numidian"
+  ],
+  "emoji": "🐫"
+ },
+ {
+  "id": "cato_elder",
+  "name": "Марк Порций Катон",
+  "tags": [
+   "roman",
+   "senator",
+   "censor_r"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "nasica",
+  "name": "Сципион Насика",
+  "tags": [
+   "roman",
+   "senator",
+   "dove_c"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "aemilianus",
+  "name": "Сципион Эмилиан",
+  "tags": [
+   "roman",
+   "senator",
+   "general_r"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "hasdrubal",
+  "name": "Гасдрубал Боэтарх",
+  "tags": [
+   "punic",
+   "defender_p"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "tiberius",
+  "name": "Тиберий Гракх",
+  "tags": [
+   "roman",
+   "tribune_r"
+  ],
+  "emoji": "🌾"
+ },
+ {
+  "id": "octavius",
+  "name": "Марк Октавий",
+  "tags": [
+   "roman",
+   "tribune_r"
+  ],
+  "emoji": "🧑"
+ },
+ {
+  "id": "serapio",
+  "name": "Сципион Насика Серапион",
+  "tags": [
+   "roman",
+   "senator"
+  ],
+  "emoji": "🩸"
+ },
+ {
+  "id": "marius",
+  "name": "Гай Марий",
+  "tags": [
+   "roman",
+   "general_r",
+   "novus_r"
+  ],
+  "emoji": "🐴"
+ },
+ {
+  "id": "metellus",
+  "name": "Квинт Цецилий Метелл",
+  "tags": [
+   "roman",
+   "general_r",
+   "patrician_r"
+  ],
+  "emoji": "🎗️"
+ },
+ {
+  "id": "jugurtha",
+  "name": "Югурта",
+  "tags": [
+   "numidian",
+   "rival_j"
+  ],
+  "emoji": "🦁"
+ },
+ {
+  "id": "sulla",
+  "name": "Луций Корнелий Сулла",
+  "tags": [
+   "roman",
+   "patrician_r",
+   "commander_r",
+   "quaestor_r"
+  ],
+  "emoji": "🐺"
+ },
+ {
+  "id": "lucullus",
+  "name": "Луций Лукулл",
+  "tags": [
+   "roman",
+   "officer_r"
+  ],
+  "emoji": "🪶"
+ },
+ {
+  "id": "pompeius_rufus",
+  "name": "Квинт Помпей Руф",
+  "tags": [
+   "roman",
+   "consul_r"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "sulpicius_r",
+  "name": "Публий Сульпиций Руф",
+  "tags": [
+   "roman",
+   "tribune_r"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "flaccus",
+  "name": "Луций Валерий Флакк",
+  "tags": [
+   "roman",
+   "senator"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "marius_younger",
+  "name": "Гай Марий Младший",
+  "tags": [
+   "roman",
+   "marian_r"
+  ],
+  "emoji": "🧑‍🦱"
+ },
+ {
+  "id": "caesar_young",
+  "name": "Юный Цезарь",
+  "tags": [
+   "roman",
+   "youth_r",
+   "marian_r"
+  ],
+  "emoji": "👦"
+ },
+ {
+  "id": "crassus",
+  "name": "Марк Лициний Красс",
+  "tags": [
+   "roman",
+   "general_r",
+   "profiteer_r"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "spartacus",
+  "name": "Спартак",
+  "tags": [
+   "thracian",
+   "gladiator_s"
+  ],
+  "emoji": "⛓️"
+ },
+ {
+  "id": "crixus",
+  "name": "Крикс",
+  "tags": [
+   "gaul",
+   "gladiator_s"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "gabinius",
+  "name": "Авл Габиний",
+  "tags": [
+   "roman",
+   "tribune_r"
+  ],
+  "emoji": "📯"
+ },
+ {
+  "id": "catulus",
+  "name": "Квинт Лутаций Катул",
+  "tags": [
+   "roman",
+   "senator",
+   "objector_r"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "archipirate",
+  "name": "Киликийский архипират",
+  "tags": [
+   "pirate_p"
+  ],
+  "emoji": "🏴‍☠️"
+ },
+ {
+  "id": "catilina",
+  "name": "Луций Сергий Катилина",
+  "tags": [
+   "roman",
+   "senator",
+   "conspirator_c"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "lentulus",
+  "name": "Публий Лентул Сура",
+  "tags": [
+   "roman",
+   "senator",
+   "conspirator_c"
+  ],
+  "emoji": "✉️"
+ },
+ {
+  "id": "agrippa",
+  "name": "Марк Агриппа",
+  "tags": [
+   "roman",
+   "general"
+  ],
+  "emoji": "🛠️"
+ },
+ {
+  "id": "munatius",
+  "name": "Мунаций Планк",
+  "tags": [
+   "roman",
+   "senator"
+  ],
+  "emoji": "🗣️"
+ },
+ {
+  "id": "sejanus",
+  "name": "Элий Сеян",
+  "tags": [
+   "roman",
+   "prefect_r"
+  ],
+  "emoji": "🦂"
+ },
+ {
+  "id": "macro",
+  "name": "Невий Макрон",
+  "tags": [
+   "roman",
+   "prefect_r"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "memmius",
+  "name": "Меммий Регул",
+  "tags": [
+   "roman",
+   "senator"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "claudius",
+  "name": "Клавдий",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "📚"
+ },
+ {
+  "id": "agrippina",
+  "name": "Агриппина Младшая",
+  "tags": [
+   "lady_r"
+  ],
+  "emoji": "🍄"
+ },
+ {
+  "id": "nero",
+  "name": "Нерон",
+  "tags": [
+   "roman",
+   "princeps_r",
+   "heir_r2"
+  ],
+  "emoji": "🎭"
+ },
+ {
+  "id": "britannicus",
+  "name": "Британник",
+  "tags": [
+   "roman",
+   "heir_r2"
+  ],
+  "emoji": "👦"
+ },
+ {
+  "id": "tigellinus",
+  "name": "Софоний Тигеллин",
+  "tags": [
+   "roman",
+   "prefect_r"
+  ],
+  "emoji": "🔥"
+ },
+ {
+  "id": "thrasea",
+  "name": "Тразея Пет",
+  "tags": [
+   "roman",
+   "senator"
+  ],
+  "emoji": "🧿"
+ },
+ {
+  "id": "tiberius_princeps",
+  "name": "Тиберий",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "galba",
+  "name": "Гальба",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "otho",
+  "name": "Отон",
+  "tags": [
+   "roman",
+   "claimant_r"
+  ],
+  "emoji": "💇"
+ },
+ {
+  "id": "vitellius",
+  "name": "Вителлий",
+  "tags": [
+   "roman",
+   "claimant_r"
+  ],
+  "emoji": "🍖"
+ },
+ {
+  "id": "vespasian",
+  "name": "Веспасиан",
+  "tags": [
+   "roman",
+   "claimant_r"
+  ],
+  "emoji": "🧱"
+ },
+ {
+  "id": "pliny_elder",
+  "name": "Плиний Старший",
+  "tags": [
+   "roman",
+   "admiral_v"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "pliny_younger",
+  "name": "Плиний Младший",
+  "tags": [
+   "roman",
+   "youth_v"
+  ],
+  "emoji": "✍️"
+ },
+ {
+  "id": "rectina",
+  "name": "Ректина",
+  "tags": [
+   "lady_r"
+  ],
+  "emoji": "🆘"
+ },
+ {
+  "id": "trajan",
+  "name": "Траян",
+  "tags": [
+   "roman",
+   "princeps_r",
+   "general"
+  ],
+  "emoji": "🏛️"
+ },
+ {
+  "id": "decebalus",
+  "name": "Децебал",
+  "tags": [
+   "dacian"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "hadrian",
+  "name": "Адриан",
+  "tags": [
+   "roman",
+   "successor_t"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "marcus",
+  "name": "Марк Аврелий",
+  "tags": [
+   "roman",
+   "princeps_r",
+   "stoic_m"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "commodus",
+  "name": "Коммод",
+  "tags": [
+   "roman",
+   "heir_r2"
+  ],
+  "emoji": "🦁"
+ },
+ {
+  "id": "pompeianus",
+  "name": "Клавдий Помпеян",
+  "tags": [
+   "roman",
+   "general"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "aurelian",
+  "name": "Аврелиан",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "zenobia",
+  "name": "Зенобия",
+  "tags": [
+   "lady_r",
+   "ruler"
+  ],
+  "emoji": "🏜️"
+ },
+ {
+  "id": "tetricus",
+  "name": "Тетрик",
+  "tags": [
+   "roman",
+   "usurper_a"
+  ],
+  "emoji": "🍂"
+ },
+ {
+  "id": "eros_scribe",
+  "name": "Эрот, секретарь",
+  "tags": [
+   "servant"
+  ],
+  "emoji": "🖋️"
+ },
+ {
+  "id": "diocletian",
+  "name": "Диоклетиан",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "🧱"
+ },
+ {
+  "id": "maximian",
+  "name": "Максимиан",
+  "tags": [
+   "roman",
+   "augustus_d"
+  ],
+  "emoji": "🐗"
+ },
+ {
+  "id": "galerius",
+  "name": "Галерий",
+  "tags": [
+   "roman",
+   "caesar_d"
+  ],
+  "emoji": "🐺"
+ },
+ {
+  "id": "constantius",
+  "name": "Констанций Хлор",
+  "tags": [
+   "roman",
+   "caesar_d"
+  ],
+  "emoji": "🌫️"
+ },
+ {
+  "id": "constantine",
+  "name": "Константин",
+  "tags": [
+   "roman",
+   "claimant_c"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "maxentius",
+  "name": "Максенций",
+  "tags": [
+   "roman",
+   "claimant_c"
+  ],
+  "emoji": "🌉"
+ },
+ {
+  "id": "ossius",
+  "name": "Осий Кордубский",
+  "tags": [
+   "bishop_c"
+  ],
+  "emoji": "📿"
+ },
+ {
+  "id": "theodosius",
+  "name": "Феодосий",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "ambrose",
+  "name": "Амвросий Медиоланский",
+  "tags": [
+   "bishop_c"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "rufinus",
+  "name": "Руфин, префект",
+  "tags": [
+   "roman",
+   "minister_t"
+  ],
+  "emoji": "📕"
+ },
+ {
+  "id": "alaric",
+  "name": "Аларих",
+  "tags": [
+   "goth"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "stilicho",
+  "name": "Стилихон",
+  "tags": [
+   "roman",
+   "general"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "honorius",
+  "name": "Гонорий",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "🐓"
+ },
+ {
+  "id": "attila",
+  "name": "Аттила",
+  "tags": [
+   "hun"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "leo_pope",
+  "name": "Папа Лев",
+  "tags": [
+   "bishop_c"
+  ],
+  "emoji": "🕊️"
+ },
+ {
+  "id": "aetius",
+  "name": "Аэций",
+  "tags": [
+   "roman",
+   "general"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "romulus_aug",
+  "name": "Ромул Августул",
+  "tags": [
+   "roman",
+   "princeps_r"
+  ],
+  "emoji": "👦"
+ },
+ {
+  "id": "orestes",
+  "name": "Орест",
+  "tags": [
+   "roman",
+   "general"
+  ],
+  "emoji": "🎗️"
+ },
+ {
+  "id": "odoacer",
+  "name": "Одоакр",
+  "tags": [
+   "germanic"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "scribe_e",
+  "name": "Царский писец",
+  "tags": [
+   "etruscan",
+   "servant"
+  ],
+  "emoji": "🖋️"
+ },
+ {
+  "id": "bocchus",
+  "name": "Бокх",
+  "tags": [
+   "moor",
+   "king_r"
+  ],
+  "emoji": "👑"
+ }
 ]

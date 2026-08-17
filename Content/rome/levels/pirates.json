@@ -1,0 +1,101 @@
+{
+ "id": "pirates",
+ "order": 160,
+ "act": "Акт III · Трещина",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "lex_gabinia",
+  "sea_sweep",
+  "pirate_farms",
+  "pirate_crosses"
+ ],
+ "characters": [
+  "pompey",
+  "gabinius",
+  "catulus",
+  "archipirate"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pompey",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "archipirate",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "archipirate",
+     "is": "conceded"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "archipirate",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "lex_gabinia",
+   "characters": [
+    "pompey",
+    "gabinius"
+   ]
+  },
+  {
+   "scene": "sea_sweep",
+   "characters": [
+    "pompey",
+    "archipirate"
+   ]
+  },
+  {
+   "scene": "pirate_farms",
+   "characters": [
+    "pompey",
+    "archipirate"
+   ]
+  }
+ ],
+ "cover": "sea_sweep",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "ally_of",
+    "gabinius",
+    "pompey"
+   ],
+   [
+    "enemy_of",
+    "pompey",
+    "archipirate"
+   ],
+   [
+    "enemy_of",
+    "archipirate",
+    "pompey"
+   ]
+  ],
+  "flags": {
+   "gabinius": [
+    "standing"
+   ]
+  }
+ }
+}

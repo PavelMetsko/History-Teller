@@ -1,6 +1,6 @@
 {
  "id": "cleopatra_rome",
- "order": 60,
+ "order": 360,
  "epoch": "rome",
  "panels": 3,
  "scenes": [
@@ -65,6 +65,6 @@
   "accuracy": "fact"
  },
  "music": "romance",
- "act": "Акт II · Царица и диктатор",
+ "act": "Акт V · Царица и диктатор",
  "cover": "voyage"
 }

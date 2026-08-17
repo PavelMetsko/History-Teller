@@ -1,0 +1,74 @@
+{
+ "id": "vesuvius",
+ "order": 500,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "letter_v",
+  "ships_v",
+  "aboard_v",
+  "misenum_v"
+ ],
+ "characters": [
+  "pliny_elder",
+  "pliny_younger",
+  "rectina"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pliny_elder",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "pliny_elder",
+     "is": "remembered"
+    }
+   },
+   {
+    "flag": {
+     "char": "pliny_younger",
+     "is": "witness"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pliny_younger",
+      "is": "aboard"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "letter_v",
+   "characters": [
+    "rectina",
+    "pliny_elder"
+   ]
+  },
+  {
+   "scene": "ships_v",
+   "characters": [
+    "pliny_elder"
+   ]
+  },
+  {
+   "scene": "misenum_v",
+   "characters": [
+    "pliny_younger"
+   ]
+  }
+ ],
+ "cover": "stabiae_v",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

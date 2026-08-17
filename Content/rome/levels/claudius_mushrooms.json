@@ -1,0 +1,95 @@
+{
+ "id": "claudius_mushrooms",
+ "order": 470,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "adoption_c",
+  "mushroom_dish",
+  "praetorian_camp"
+ ],
+ "characters": [
+  "claudius",
+  "agrippina",
+  "nero",
+  "britannicus"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nero",
+     "is": "adopted"
+    }
+   },
+   {
+    "flag": {
+     "char": "claudius",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "nero",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "britannicus",
+      "is": "crowned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "adoption_c",
+   "characters": [
+    "claudius",
+    "nero"
+   ]
+  },
+  {
+   "scene": "mushroom_dish",
+   "characters": [
+    "agrippina",
+    "claudius"
+   ]
+  },
+  {
+   "scene": "praetorian_camp",
+   "characters": [
+    "nero",
+    "agrippina"
+   ]
+  }
+ ],
+ "cover": "mushroom_dish",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "agrippina": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "agrippina",
+    "nero"
+   ],
+   [
+    "enemy_of",
+    "agrippina",
+    "claudius"
+   ]
+  ]
+ }
+}

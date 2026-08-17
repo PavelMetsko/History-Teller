@@ -1,0 +1,82 @@
+{
+ "id": "trajan",
+ "order": 510,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "danube_bridge",
+  "sarmizegetusa",
+  "column_t",
+  "east_march"
+ ],
+ "characters": [
+  "trajan",
+  "decebalus",
+  "hadrian"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "decebalus",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "trajan",
+     "is": "commemorated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "trajan",
+      "is": "overreached"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "danube_bridge",
+   "characters": [
+    "trajan"
+   ]
+  },
+  {
+   "scene": "sarmizegetusa",
+   "characters": [
+    "trajan",
+    "decebalus"
+   ]
+  },
+  {
+   "scene": "column_t",
+   "characters": [
+    "trajan"
+   ]
+  }
+ ],
+ "cover": "column_t",
+ "music": "ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "trajan",
+    "decebalus"
+   ],
+   [
+    "enemy_of",
+    "decebalus",
+    "trajan"
+   ]
+  ]
+ }
+}

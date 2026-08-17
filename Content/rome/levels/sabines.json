@@ -1,0 +1,138 @@
+{
+ "id": "sabines",
+ "order": 10,
+ "act": "Акт I · Цари и рождение республики",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "consualia",
+  "asylum_hill",
+  "sabine_war",
+  "between_lines"
+ ],
+ "characters": [
+  "romulus",
+  "hersilia",
+  "tatius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "romulus",
+     "to": "hersilia"
+    }
+   },
+   {
+    "flag": {
+     "char": "romulus",
+     "is": "at_peace"
+    }
+   },
+   {
+    "flag": {
+     "char": "tatius",
+     "is": "at_peace"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "consualia",
+   "characters": [
+    "romulus",
+    "hersilia"
+   ]
+  },
+  {
+   "scene": "sabine_war",
+   "characters": [
+    "tatius",
+    "romulus"
+   ]
+  },
+  {
+   "scene": "between_lines",
+   "characters": [
+    "romulus",
+    "hersilia",
+    "tatius"
+   ]
+  }
+ ],
+ "cover": "between_lines",
+ "music": "ceremony",
+ "factCard": {
+  "accuracy": "legend"
+ },
+ "coach": [
+  {
+   "text": "1",
+   "untilScene": "consualia",
+   "highlightScenes": [
+    "consualia"
+   ]
+  },
+  {
+   "text": "2",
+   "until": {
+    "flag": {
+     "char": "hersilia",
+     "is": "taken"
+    }
+   },
+   "highlightChars": [
+    "romulus",
+    "hersilia"
+   ]
+  },
+  {
+   "text": "3",
+   "until": {
+    "flag": {
+     "char": "romulus",
+     "is": "at_arms"
+    }
+   },
+   "highlightScenes": [
+    "sabine_war"
+   ],
+   "highlightChars": [
+    "tatius",
+    "romulus"
+   ]
+  },
+  {
+   "text": "4",
+   "highlightScenes": [
+    "between_lines"
+   ],
+   "highlightChars": [
+    "hersilia",
+    "tatius",
+    "romulus"
+   ]
+  }
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "kin",
+    "tatius",
+    "hersilia"
+   ],
+   [
+    "enemy_of",
+    "tatius",
+    "romulus"
+   ],
+   [
+    "enemy_of",
+    "romulus",
+    "tatius"
+   ]
+  ]
+ }
+}

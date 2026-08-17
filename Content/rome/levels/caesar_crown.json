@@ -1,6 +1,6 @@
 {
  "id": "caesar_crown",
- "order": 70,
+ "order": 370,
  "epoch": "rome",
  "panels": 3,
  "scenes": [
@@ -49,15 +49,15 @@
   {
    "scene": "cc_palace",
    "characters": [
-    "caesar",
-    "cleopatra"
+    "cleopatra",
+    "caesar"
    ]
   },
   {
    "scene": "cc_forum",
    "characters": [
-    "caesar",
-    "antony"
+    "antony",
+    "caesar"
    ]
   },
   {
@@ -72,6 +72,6 @@
   "accuracy": "fact"
  },
  "music": "ceremony",
- "act": "Акт II · Царица и диктатор",
+ "act": "Акт V · Царица и диктатор",
  "cover": "cc_lupercalia"
 }

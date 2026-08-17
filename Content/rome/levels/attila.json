@@ -1,0 +1,100 @@
+{
+ "id": "attila",
+ "order": 580,
+ "act": "Акт VIII · Закат",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "aquileia_a2",
+  "famine_a",
+  "mincio_a",
+  "open_a"
+ ],
+ "characters": [
+  "attila",
+  "leo_pope",
+  "aetius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "attila",
+     "is": "unstoppable"
+    }
+   },
+   {
+    "flag": {
+     "char": "attila",
+     "is": "starved"
+    }
+   },
+   {
+    "flag": {
+     "char": "attila",
+     "is": "conceded"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "aetius",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "aquileia_a2",
+   "characters": [
+    "attila"
+   ]
+  },
+  {
+   "scene": "famine_a",
+   "characters": [
+    "aetius",
+    "attila"
+   ]
+  },
+  {
+   "scene": "mincio_a",
+   "characters": [
+    "leo_pope",
+    "attila"
+   ]
+  }
+ ],
+ "cover": "mincio_a",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "legend"
+ },
+ "initialState": {
+  "flags": {
+   "attila": [
+    "strong"
+   ],
+   "aetius": [
+    "standing"
+   ],
+   "leo_pope": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "aetius",
+    "attila"
+   ],
+   [
+    "enemy_of",
+    "attila",
+    "aetius"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "id": "corvus",
+ "order": 60,
+ "act": "Акт II · Республика и Карфаген",
+ "epoch": "rome",
+ "panels": 2,
+ "scenes": [
+  "ostia_yard",
+  "mylae_sea"
+ ],
+ "characters": [
+  "duilius",
+  "regulus",
+  "gisco"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "duilius",
+     "is": "victor"
+    }
+   },
+   {
+    "flag": {
+     "char": "gisco",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ostia_yard",
+   "characters": [
+    "duilius"
+   ]
+  },
+  {
+   "scene": "mylae_sea",
+   "characters": [
+    "duilius",
+    "gisco"
+   ]
+  }
+ ],
+ "cover": "mylae_sea",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "gisco": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "duilius",
+    "gisco"
+   ],
+   [
+    "enemy_of",
+    "gisco",
+    "duilius"
+   ],
+   [
+    "enemy_of",
+    "regulus",
+    "gisco"
+   ],
+   [
+    "enemy_of",
+    "gisco",
+    "regulus"
+   ]
+  ]
+ }
+}

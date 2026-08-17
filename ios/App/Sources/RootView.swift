@@ -259,10 +259,12 @@ struct RootView: View {
         VStack(spacing: 10) {
             Image(systemName: "exclamationmark.triangle.fill")
                 .font(.largeTitle).foregroundStyle(DS.Palette.maroon)
-            Text(L10n.s("ui.load_fail")).font(.dsBody()).foregroundStyle(DS.Palette.ink)
+            // Экран лежит на тёмном backdrop (см. body), поэтому текст бумажный:
+            // ink по баклажану давал контраст около 1.1:1 — ошибку невозможно было прочитать.
+            Text(L10n.s("ui.load_fail")).font(.dsBody()).foregroundStyle(DS.Palette.paper)
             Text(message)
                 .font(.dsCaption())
-                .foregroundStyle(DS.Palette.inkSoft)
+                .foregroundStyle(DS.Palette.paper.opacity(0.75))
                 .multilineTextAlignment(.center)
         }
         .padding()

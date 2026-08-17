@@ -1,25 +1,45 @@
 {
  "id": "philippi",
- "order": 100,
+ "order": 400,
  "epoch": "rome",
  "panels": 3,
  "scenes": [
-  "battlefield",
-  "back_room",
-  "senate"
+  "philippi_first",
+  "cassius_tent",
+  "caesar_ghost"
  ],
  "characters": [
-  "caesar",
+  "antony",
+  "octavian",
   "brutus",
-  "cassius",
-  "antony"
+  "cassius"
  ],
  "initialState": {
+  "flags": {
+   "antony": [
+    "strong"
+   ]
+  },
   "relations": [
    [
-    "ally_of",
-    "brutus",
-    "caesar"
+    "enemy_of",
+    "antony",
+    "brutus"
+   ],
+   [
+    "enemy_of",
+    "antony",
+    "cassius"
+   ],
+   [
+    "enemy_of",
+    "octavian",
+    "brutus"
+   ],
+   [
+    "enemy_of",
+    "octavian",
+    "cassius"
    ]
   ]
  },
@@ -27,65 +47,40 @@
   "all": [
    {
     "flag": {
-     "char": "caesar",
-     "is": "dead"
+     "char": "cassius",
+     "is": "misled"
     }
    },
    {
     "flag": {
      "char": "brutus",
-     "is": "dead"
+     "is": "defeated"
     }
    },
    {
-    "relation": {
-     "rel": "betrayed",
-     "from": "brutus",
-     "to": "caesar"
-    }
-   },
-   {
-    "relation": {
-     "rel": "avenged",
-     "from": "antony",
-     "to": "brutus"
-    }
-   },
-   {
-    "not": {
-     "flag": {
-      "char": "antony",
-      "is": "plotting"
-     }
-    }
-   },
-   {
-    "not": {
-     "flag": {
-      "char": "caesar",
-      "is": "plotting"
-     }
+    "flag": {
+     "char": "antony",
+     "is": "victor"
     }
    }
   ]
  },
  "solution": [
   {
-   "scene": "back_room",
+   "scene": "philippi_first",
    "characters": [
-    "brutus",
+    "antony",
     "cassius"
    ]
   },
   {
-   "scene": "senate",
+   "scene": "cassius_tent",
    "characters": [
-    "brutus",
-    "caesar"
+    "cassius"
    ]
   },
   {
-   "scene": "battlefield",
+   "scene": "philippi_first",
    "characters": [
     "antony",
     "brutus"
@@ -96,6 +91,6 @@
   "accuracy": "fact"
  },
  "music": "battle",
- "cover": "battlefield",
- "act": "Акт III · Наследники"
+ "cover": "philippi_second",
+ "act": "Акт VI · Наследники"
 }

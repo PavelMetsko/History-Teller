@@ -1,0 +1,83 @@
+{
+ "id": "constantine",
+ "order": 550,
+ "act": "Акт VIII · Закат",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "vision_c",
+  "milvian_c",
+  "edict_c",
+  "old_gods_c"
+ ],
+ "characters": [
+  "constantine",
+  "maxentius",
+  "ossius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "maxentius",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "constantine",
+     "is": "christian_emperor"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "constantine",
+      "is": "pagan_vow"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "vision_c",
+   "characters": [
+    "constantine"
+   ]
+  },
+  {
+   "scene": "milvian_c",
+   "characters": [
+    "constantine",
+    "maxentius"
+   ]
+  },
+  {
+   "scene": "edict_c",
+   "characters": [
+    "constantine",
+    "ossius"
+   ]
+  }
+ ],
+ "cover": "milvian_c",
+ "music": "ceremony",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "constantine",
+    "maxentius"
+   ],
+   [
+    "enemy_of",
+    "maxentius",
+    "constantine"
+   ]
+  ]
+ }
+}

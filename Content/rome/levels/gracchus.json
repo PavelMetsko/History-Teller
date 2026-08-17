@@ -1,0 +1,94 @@
+{
+ "id": "gracchus",
+ "order": 110,
+ "act": "Акт III · Трещина",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "depose_rostra",
+  "assembly_g",
+  "veto_rostra",
+  "capitol_mob"
+ ],
+ "characters": [
+  "tiberius",
+  "octavius",
+  "serapio"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tiberius",
+     "is": "law_passed"
+    }
+   },
+   {
+    "flag": {
+     "char": "octavius",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "tiberius",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "depose_rostra",
+   "characters": [
+    "tiberius",
+    "octavius"
+   ]
+  },
+  {
+   "scene": "assembly_g",
+   "characters": [
+    "tiberius"
+   ]
+  },
+  {
+   "scene": "capitol_mob",
+   "characters": [
+    "serapio",
+    "tiberius"
+   ]
+  }
+ ],
+ "cover": "capitol_mob",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "tiberius": [
+    "standing"
+   ],
+   "octavius": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "serapio",
+    "tiberius"
+   ],
+   [
+    "enemy_of",
+    "tiberius",
+    "octavius"
+   ],
+   [
+    "enemy_of",
+    "octavius",
+    "tiberius"
+   ]
+  ]
+ }
+}

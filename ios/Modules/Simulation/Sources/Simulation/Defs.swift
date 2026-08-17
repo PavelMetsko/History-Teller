@@ -161,6 +161,33 @@ public struct Panel: Decodable, Equatable {
     }
 }
 
+/// Шаг гида-помощника: реплика, которая висит на доске, пока не выполнено `until`.
+///
+/// Нужен на первых уровнях: игра нигде не объясняет, что правила срабатывают сами, что сцен
+/// больше, чем кадров, и что порядок кадров значим. Онбординг говорит это на демо-уровне
+/// абстрактно, а здесь игрок доходит до того же руками — и получает историю как награду.
+/// Условие описано тем же деревом, что и цель уровня, поэтому гид не требует своей логики.
+public struct CoachStep: Decodable {
+    public var text: String            // суффикс ключа `level.<id>.coach.<text>`
+    public var until: GoalNode?        // шаг закрыт, когда предикат выполнен
+    public var untilScene: String?     // …или когда эта сцена выставлена в любой кадр
+    // Списки, а не одиночные значения: на шаге «положи в кадр Ромула и Герсилию» звать надо
+    // обоих, и подсветка должна переходить на оставшегося, когда первого уже поставили.
+    public var highlightScenes: [String] = []
+    public var highlightChars: [String] = []
+
+    enum CodingKeys: String, CodingKey { case text, until, untilScene, highlightScenes, highlightChars }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        text = try c.decode(String.self, forKey: .text)
+        until = try c.decodeIfPresent(GoalNode.self, forKey: .until)
+        untilScene = try c.decodeIfPresent(String.self, forKey: .untilScene)
+        highlightScenes = try c.decodeIfPresent([String].self, forKey: .highlightScenes) ?? []
+        highlightChars = try c.decodeIfPresent([String].self, forKey: .highlightChars) ?? []
+    }
+}
+
 public struct LevelDef: Decodable {
     public let id: String
     public var order: Int = 0
@@ -179,10 +206,12 @@ public struct LevelDef: Decodable {
     public var music: String?      // тема настроения (напр. "battle"); nil → тема главы
     public var cover: String?      // сцена-обложка для карты; nil → первая из scenes
     public var act: String?        // подглава-акт для группировки на карте («Акт I · Восхождение»)
+    public var coach: [CoachStep] = []   // гид-помощник (обычно только на первом уровне главы)
 
     enum CodingKeys: String, CodingKey {
         case id, order, title, epoch, panels, scenes, characters,
-             initialState, initialText, goalText, goalHint, goal, factCard, solution, music, cover, act
+             initialState, initialText, goalText, goalHint, goal, factCard, solution, music, cover,
+             act, coach
     }
 
     public init(from decoder: Decoder) throws {
@@ -199,6 +228,7 @@ public struct LevelDef: Decodable {
         goalText = try c.decodeIfPresent(String.self, forKey: .goalText)
         goalHint = try c.decodeIfPresent(String.self, forKey: .goalHint)
         goal = try c.decode(GoalNode.self, forKey: .goal)
+        coach = try c.decodeIfPresent([CoachStep].self, forKey: .coach) ?? []
         factCard = try c.decodeIfPresent(FactCard.self, forKey: .factCard)
         solution = try c.decodeIfPresent([Panel].self, forKey: .solution)
         music = try c.decodeIfPresent(String.self, forKey: .music)

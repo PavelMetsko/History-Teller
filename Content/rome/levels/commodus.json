@@ -1,0 +1,94 @@
+{
+ "id": "commodus",
+ "order": 520,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "danube_camp_m",
+  "adopt_best_m",
+  "deathbed_m",
+  "peace_m"
+ ],
+ "characters": [
+  "marcus",
+  "commodus",
+  "pompeianus"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "marcus",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "commodus",
+     "is": "purple"
+    }
+   },
+   {
+    "flag": {
+     "char": "commodus",
+     "is": "quit_war"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pompeianus",
+      "is": "crowned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "danube_camp_m",
+   "characters": [
+    "commodus",
+    "marcus"
+   ]
+  },
+  {
+   "scene": "deathbed_m",
+   "characters": [
+    "marcus",
+    "commodus"
+   ]
+  },
+  {
+   "scene": "peace_m",
+   "characters": [
+    "commodus"
+   ]
+  }
+ ],
+ "cover": "deathbed_m",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "marcus": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "marcus",
+    "commodus"
+   ],
+   [
+    "ally_of",
+    "marcus",
+    "pompeianus"
+   ]
+  ]
+ }
+}

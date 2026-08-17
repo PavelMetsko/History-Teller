@@ -1,0 +1,91 @@
+{
+ "id": "mucius",
+ "order": 30,
+ "act": "Акт I · Цари и рождение республики",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "etruscan_camp",
+  "brazier_m",
+  "tiber_swim",
+  "exile_tent"
+ ],
+ "characters": [
+  "mucius",
+  "scribe_e",
+  "porsenna",
+  "cloelia",
+  "tarquin"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "scribe_e",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "porsenna",
+     "is": "awed"
+    }
+   },
+   {
+    "flag": {
+     "char": "cloelia",
+     "is": "away"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "porsenna",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "etruscan_camp",
+   "characters": [
+    "mucius",
+    "scribe_e"
+   ]
+  },
+  {
+   "scene": "brazier_m",
+   "characters": [
+    "mucius",
+    "porsenna"
+   ]
+  },
+  {
+   "scene": "tiber_swim",
+   "characters": [
+    "cloelia"
+   ]
+  }
+ ],
+ "cover": "brazier_m",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "legend"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "mucius",
+    "scribe_e"
+   ],
+   [
+    "enemy_of",
+    "mucius",
+    "porsenna"
+   ]
+  ]
+ }
+}

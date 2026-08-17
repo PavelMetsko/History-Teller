@@ -1,0 +1,83 @@
+{
+ "id": "zama",
+ "order": 90,
+ "act": "Акт II · Республика и Карфаген",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "numidia_pact",
+  "zama_lanes",
+  "zama_field"
+ ],
+ "characters": [
+  "scipio",
+  "hannibal",
+  "masinissa",
+  "syphax"
+ ],
+ "initialState": {
+  "flags": {
+   "hannibal": [
+    "strong"
+   ],
+   "syphax": [
+    "bought"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "scipio",
+    "hannibal"
+   ],
+   [
+    "enemy_of",
+    "hannibal",
+    "scipio"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "scipio",
+     "is": "victor"
+    }
+   },
+   {
+    "flag": {
+     "char": "hannibal",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "numidia_pact",
+   "characters": [
+    "scipio",
+    "masinissa"
+   ]
+  },
+  {
+   "scene": "zama_lanes",
+   "characters": [
+    "scipio"
+   ]
+  },
+  {
+   "scene": "zama_field",
+   "characters": [
+    "scipio",
+    "hannibal"
+   ]
+  }
+ ],
+ "cover": "zama_field",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

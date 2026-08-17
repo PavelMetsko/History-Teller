@@ -1,12 +1,13 @@
 {
  "id": "rubicon",
- "order": 10,
- "act": "Акт I · Восхождение",
+ "order": 310,
+ "act": "Акт IV · Падение республики",
  "epoch": "rome",
  "panels": 2,
  "scenes": [
+  "forum",
   "rubicon_march",
-  "forum"
+  "senate_ultimatum"
  ],
  "characters": [
   "caesar",
@@ -25,13 +26,21 @@
    {
     "flag": {
      "char": "caesar",
-     "is": "at_war"
+     "is": "victor"
     }
    },
    {
     "flag": {
      "char": "pompey",
-     "is": "fugitive"
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "caesar",
+      "is": "condemned"
+     }
     }
    }
   ]
@@ -56,5 +65,27 @@
  "music": "tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "caesar": [
+    "strong"
+   ],
+   "pompey": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "caesar",
+    "pompey"
+   ],
+   [
+    "enemy_of",
+    "pompey",
+    "caesar"
+   ]
+  ]
  }
 }

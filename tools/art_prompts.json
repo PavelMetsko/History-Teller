@@ -1,0 +1,324 @@
+{
+ "_comment": "Описания для tools/genart_batch.py. Ключ — уровень (для --only), значение — имя файла в Content/art без расширения → что рисовать. Стиль задаётся не здесь, а референсом и шаблоном в genart_batch.py.",
+ "sabines": {
+  "char_romulus": "Romulus, first king of Rome: a young warrior-king with tousled dark hair, a grey wolf pelt over one shoulder, simple bronze circlet, short red tunic, leather sandals, a spear in one hand",
+  "char_hersilia": "Hersilia, a young Sabine woman: long dark hair in a thick braid, saffron-yellow dress with a blue shawl, bronze pin at the shoulder, brave and worried expression",
+  "char_tatius": "Titus Tatius, king of the Sabines: a stocky older man with a grey beard, plain bronze helmet, dark blue woollen cloak, heavy round shield on his back",
+  "scene_consualia": "an ancient rustic Roman festival ground at the foot of a hill: wooden stands, garlands, an altar smoking, a race track marked with poles, late afternoon light, empty of people",
+  "scene_asylum_hill": "a rough hilltop refuge in earliest Rome: a palisade of stakes, huts with thatched roofs, an open gate, scrubby oaks, morning haze over the Tiber valley",
+  "scene_sabine_war": "two armies about to meet on a dusty plain between low hills, dropped spears and standards planted in the ground, dust in the air, no figures",
+  "scene_between_lines": "a narrow strip of trampled ground between two facing battle lines seen from the side, spears raised on both edges of the frame, an empty gap in the middle, tense dusty light"
+ },
+ "lucretia": {
+  "char_sextus": "Sextus Tarquinius, an Etruscan-Roman prince: young man with oiled dark curls, purple-bordered tunic, gold arm ring, a sly arrogant smile, hand on a dagger hilt",
+  "char_lucretia": "Lucretia, a Roman matron: modest white stola with a dark red mantle, hair bound in a simple knot, calm and grave face, holding a spindle",
+  "char_junius": "Lucius Junius Brutus: a Roman nobleman in a plain undyed toga, unkempt dark hair, deliberately blank simpleton's expression that hides sharp eyes, a rod of office in his hand",
+  "char_tarquin": "Tarquin the Proud, last king of Rome: a haughty older king in a deep purple robe with gold embroidery, heavy gold crown, black beard streaked with grey, cruel narrow eyes",
+  "scene_collatia": "the dim inner room of an early Roman house at night: a low bed with red covers, an oil lamp guttering on a stand, a loom in the corner, shutters half open to darkness",
+  "scene_dagger_oath": "an austere Roman atrium at dawn: a shallow rain pool, a wooden bench, a dagger lying on the floor tiles, cold blue morning light through the roof opening",
+  "scene_king_court": "the audience hall of an Etruscan-style palace: heavy painted columns, a raised throne on a dais, bronze braziers, gaudy frescoes of banquets, oppressive warm light",
+  "scene_forum_rouse": "the early Roman forum crowded with empty speaker's platform: the rostra of rough stone, wooden market stalls shuttered, temple steps behind, torches burning in daylight"
+ },
+ "mucius": {
+  "char_porsenna": "Lars Porsenna, an Etruscan king: an imposing man in a tall conical embroidered hat, richly patterned cloak with fringe, curled grey beard, gold pectoral",
+  "char_mucius": "Gaius Mucius Scaevola: a lean young Roman in a plain grey tunic, jaw set, his right hand blackened and scorched, a short dagger in his left hand",
+  "char_cocles": "Horatius Cocles: a broad-shouldered Roman soldier, crested bronze helmet, big oval shield, mud to the knees, one eye scarred shut, planted stance",
+  "char_cloelia": "Cloelia: a teenage Roman girl in a soaked plain tunic, wet hair plastered to her neck, bare feet, defiant chin up",
+  "scene_sublician": "an old wooden pile bridge over a wide muddy river, half its planks already torn up, axes and beams on the near end, smoke on the far bank",
+  "scene_etruscan_camp": "an Etruscan army paymaster's tent at night: a table heaped with coins and wax tablets, a strongbox, soldiers' cloaks on stools, oil lamps, tent canvas, no figures",
+  "scene_tiber_swim": "the broad Tiber at dusk seen from the reedy bank, current dark and fast, an abandoned rope and a wooden stake on the shore, hills beyond",
+  "scene_exile_tent": "the cramped tent of an exiled king: a folding stool, a rolled map, a dusty crown resting on a chest, a single lamp, shadows on canvas",
+  "char_scribe_e": "an Etruscan royal scribe: a well-dressed clerk in an embroidered robe with gold trim, wax tablets and a stylus in hand, soft self-important face, clearly mistakable for a king at a glance",
+  "scene_brazier_m": "an Etruscan king's tent interior: a bronze brazier of glowing coals on a tripod in the centre, a folding throne with a purple cloth behind it, spears of guards leaning at the edges, hot red light, no figures",
+  "char_scribe_e_dead": "an Etruscan royal scribe struck down: the same well-dressed clerk in an embroidered robe with gold trim, slumped kneeling on the ground, head drooping, eyes drawn as simple X crosses, wax tablets and stylus dropped from his limp hands"
+ },
+ "secession": {
+  "char_menenius": "Menenius Agrippa: a genial elderly Roman patrician in a white toga, bald crown with white fringe of hair, one hand raised mid-story, warm crinkled eyes",
+  "char_sicinius": "Lucius Sicinius, leader of the plebs: a weather-beaten farmer-soldier in a coarse brown tunic, rope belt, work-scarred hands, a stout staff, stubborn set to his mouth",
+  "char_appius": "Appius Claudius: a severe patrician, hawk nose, thin lips, dark toga with a broad purple stripe, arms crossed",
+  "char_coriolanus": "Coriolanus: a proud young Roman general in a muscled bronze cuirass and red cloak, chin lifted in scorn, sword at his hip",
+  "scene_mons_sacer": "a bare green hill above a river valley at dawn, a rough camp of the common people: cooking fires, carts, bundles, a single standard of plaited straw, the distant city small on the horizon",
+  "scene_plebs_parley": "a meeting place in the open air between camp and city: a flat rock used as a table, two empty stools facing each other, olive trees, mid-morning light",
+  "scene_curia_hard": "the interior of an early senate house: tiers of hard wooden benches, a bare stone floor, narrow high windows throwing cold shafts of light, austere and cheerless",
+  "scene_tribune_grant": "a small formal chamber with a bronze tablet of law being set into the wall, a curule chair, scroll cases, warm lamplight"
+ },
+ "brennus": {
+  "char_brennus": "Brennus, a Gaulish chieftain: tall barbarian with long lime-washed red hair and a drooping moustache, thick gold torc, chequered trousers, mail over a bare chest, a long iron sword",
+  "char_camillus": "Marcus Furius Camillus: a dignified Roman general, iron-grey hair, muscled cuirass, deep red cloak, calm commanding face, baton in hand",
+  "char_manlius": "Marcus Manlius Capitolinus: an alert Roman soldier at night, cloak pulled close, round shield, tousled hair, wide watchful eyes",
+  "char_sulpicius": "Quintus Sulpicius, a Roman tribune: a middle-aged man in a toga, holding a small bronze balance-scale, humiliated angry expression",
+  "scene_allia": "a bleak river plain strewn with dropped Roman shields and standards, a grey sky, crows, a shallow stream, no figures",
+  "scene_capitol_geese": "the Capitoline citadel wall at night from inside: rough stone parapet, a sacred goose pen with white geese, the temple roof behind, moonlight and one torch",
+  "scene_gold_scales": "a large bronze balance-scale set up in a ruined forum, heaps of gold coins and cups in one pan, burnt buildings around, ash falling",
+  "scene_veii_return": "a Roman army column arriving on a road above the smoking city at dawn, standards and spears in silhouette on the ridge, no faces visible"
+ },
+ "corvus": {
+  "char_duilius": "Gaius Duilius, a Roman consul: solid middle-aged man in a bronze cuirass decorated with a ship's prow, red cloak, sea-weathered face, confident half-smile",
+  "char_regulus": "Marcus Atilius Regulus: a stern lean Roman consul, deep-lined face, close-cropped grey hair, plain cuirass, grim mouth",
+  "char_gisco": "a Carthaginian admiral: dark curled beard, conical felt cap, deep purple tunic with gold hem, heavy earrings, hand resting on a curved sword",
+  "scene_ostia_yard": "a Roman shipyard on a river mouth: half-built warship hulls on stocks, stacked timber, a huge boarding-bridge with an iron spike lying ready, sawdust and rope, bright noon",
+  "scene_mylae_sea": "a blue Sicilian sea with empty warship decks close together, oars and rams, wooden boarding bridge lowered between two hulls, spray, no crew visible",
+  "scene_rostra_column": "a marble column on the Roman forum studded with bronze ship prows, laurel garlands at its base, clear sky"
+ },
+ "fabius": {
+  "char_fabius": "Quintus Fabius Maximus: an unhurried elderly Roman dictator, grey beard, plain red cloak over a simple cuirass, walking staff, patient unreadable face",
+  "char_minucius": "Marcus Minucius Rufus: a hot-tempered young Roman officer, tall red horsehair crest, flushed face, sword already half drawn",
+  "char_hannibal": "Hannibal Barca: a Carthaginian general with a short dark curled beard, one eye lost and lidded shut, scale armour under a dust-red cloak, a small elephant emblem on his shoulder guard, cold intelligent stare",
+  "scene_shadow_march": "a high rocky ridge above a wide valley in Italy, a goat path along the crest, burnt fields far below sending up thin smoke, hot hazy afternoon",
+  "scene_torch_oxen": "a dark mountain pass at night with scattered points of fire moving along the slope, an abandoned Roman picket post, confusion of smoke and sparks, no figures",
+  "scene_open_battle": "an open flat Italian plain prepared for pitched battle: churned soil, a dry stream bed, discarded pila, dust hanging in still air",
+  "scene_rescue_field": "the edge of a battlefield at evening: a broken ring of shields, standards leaning, a corridor of trampled ground leading out, low golden light"
+ },
+ "cannae": {
+  "char_maharbal": "Maharbal, Carthaginian cavalry commander: wiry rider in a short cloak, leather cuirass, a bundle of javelins on his back, sun-dark face, impatient grin",
+  "char_varro": "Gaius Terentius Varro: a red-haired Roman consul of plebeian stock, plain cuirass, broad blunt features, loud confident bearing",
+  "char_paullus": "Lucius Aemilius Paullus: an aristocratic Roman consul, silver at the temples, finely worked cuirass, tired resigned dignity",
+  "scene_cannae_wing": "a battle line seen from above on a dusty plain by a river, the centre of the line deliberately bowed forward into a crescent, no figures, ochre earth",
+  "scene_cannae_field": "a wide dusty plain at high summer, a slow brown river on one side, trampled stubble, a hot white sky, oppressive heat shimmer",
+  "scene_cannae_council": "a Carthaginian command tent after a victory: a map weighted with daggers, a cup of wine, captured Roman rings in a bowl, lamplight"
+ },
+ "zama": {
+  "char_scipio": "Publius Cornelius Scipio Africanus: a young Roman general, clean-shaven, dark hair, gilded muscled cuirass, sky-blue cloak, calm charismatic face",
+  "char_masinissa": "Masinissa, Numidian king: a lean dark-skinned rider in a leopard-skin cloak over a white tunic, gold armlets, no helmet, sharp watchful eyes",
+  "char_syphax": "Syphax, Numidian king: an older heavier rider in rich striped robes and heavy gold jewellery, ostrich plume in his headband, wary expression",
+  "scene_numidia_pact": "a Numidian camp on dry African grassland: low tents of striped cloth, tethered horses, a fire with a copper pot, red evening light",
+  "scene_zama_lanes": "a Roman battle formation seen from above, maniples deliberately drawn apart to leave straight open lanes through the whole depth of the line, dry cracked earth",
+  "scene_zama_field": "a broad North African plain of pale dust and thorn scrub, distant hills, hard midday sun, elephant tracks in the dust, no figures"
+ },
+ "delenda": {
+  "char_cato_elder": "Marcus Porcius Cato the Elder: a severe old Roman censor, red hair gone grey, weathered farmer's face, coarse plain toga, holding a fresh fig",
+  "char_nasica": "Scipio Nasica: a thoughtful middle-aged Roman senator in a fine toga, one hand raised in cautious objection, worried intelligent face",
+  "char_aemilianus": "Scipio Aemilianus: a young Roman general with a melancholy handsome face, plain but excellent cuirass, red cloak, laurel wreath held rather than worn",
+  "char_hasdrubal": "Hasdrubal the Boetarch, last defender of Carthage: a soot-stained Carthaginian officer, dented scale armour, torn purple sash, desperate hollow eyes",
+  "scene_punic_harbor": "the great circular military harbour of Carthage seen from a terrace: concentric quays, covered ship sheds, masts crowded together, a prosperous white city behind, brilliant sea light",
+  "scene_senate_delenda": "the Roman curia interior: tiers of benches, a speaker's floor, a scatter of dropped figs on the marble, shafts of dusty light from high windows",
+  "scene_byrsa_fall": "the Byrsa hill of Carthage burning: collapsing terraced houses, narrow streets choked with rubble, orange fire glow through black smoke, no figures",
+  "scene_eshmun_temple": "the steps of a Punic temple at the top of a burning citadel: tall columns, a bronze door, votive stelae, smoke drifting across, empty steps"
+ },
+ "gracchus": {
+  "char_tiberius": "Tiberius Gracchus, a Roman tribune: an earnest young aristocrat in a plain white toga, short dark hair, open honest face, a rolled land-law scroll in one hand, ears of wheat tucked in his belt",
+  "char_octavius": "Marcus Octavius, a Roman tribune: a young man in a white toga, hand raised palm-out in refusal, uncomfortable stubborn expression",
+  "char_serapio": "Scipio Nasica Serapio, a Roman senator: a heavy-set angry senator, toga wrapped tight around his left arm like a shield, gripping a broken wooden bench leg as a club, flushed face",
+  "scene_depose_rostra": "the speaker's platform on the Roman forum during a vote: rough stone rostra decorated with ship prows, voting urns and tablets on a table, an empty magistrate's stool tipped over",
+  "scene_assembly_g": "a Roman popular assembly ground: roped voting pens of wood, a raised tribunal, wheat fields painted on a banner, bright noon, empty of people",
+  "scene_veto_rostra": "the same forum platform seen closer at dusk, a single bronze tablet of law half covered by a cloth, torn voting tablets scattered, cold shadow across the stones",
+  "scene_capitol_mob": "the steps below the Capitoline temple in disorder: smashed wooden benches, broken bench legs and a torn toga on the ground, blood-dark stains on stone, harsh afternoon light, no figures"
+ },
+ "marius": {
+  "char_marius": "Gaius Marius, a Roman general of humble birth: broad blunt peasant features, close-cropped grey hair, plain functional cuirass without ornament, heavy jaw, hard confident stare",
+  "char_metellus": "Quintus Caecilius Metellus, an aristocratic Roman general: sleek grey hair, finely decorated gilded cuirass, patrician disdain, a commander's baton",
+  "char_jugurtha": "Jugurtha, king of Numidia: a sinewy North African king in a white robe with a purple border, gold diadem over black braided hair, sharp cunning smile, curved dagger at his belt",
+  "char_sulla": "Lucius Cornelius Sulla: a Roman commander with striking pale blue eyes, reddish-blond hair, a blotchy red-and-white complexion, an immaculate cuirass and red cloak, a thin unsettling smile",
+  "scene_head_count": "a Roman recruiting ground outside the city: a table with enlistment rolls, stacked plain shields and packs, barefoot poor men's sandals lined up, dusty morning",
+  "scene_senate_command": "the interior of the Roman senate house with a map of North Africa on a stand, benches, an hourglass of sand, cold formal light",
+  "scene_numidia_war": "a North African desert battlefield: ochre dunes and dry riverbed, palm trees, an abandoned Numidian standard in the sand, harsh white sun",
+  "scene_bocchus_tent": "a rich Moorish royal tent: striped carpets, low table with dates and a silver jug, hanging lamps, a leopard skin on the floor, conspiratorial half-light",
+  "char_bocchus": "Bocchus, king of Mauretania: a shrewd elderly Berber king in a striped desert robe with a gold circlet over a white headcloth, grey beard, calculating half-smile"
+ },
+ "sulla_march": {
+  "char_lucullus": "Lucius Lucullus, a young Roman quaestor: neat dark hair, a scholar's calm face, plain officer's cuirass and cloak, a writing tablet tucked under one arm",
+  "char_pompeius_rufus": "Quintus Pompeius Rufus, a Roman consul: a middle-aged man in a toga with a broad purple stripe, worried decent face, hands spread in refusal",
+  "char_sulpicius_r": "Publius Sulpicius Rufus, a Roman tribune: a fiery orator in a white toga, dark curly hair, mouth open mid-speech, a scroll clenched in his fist",
+  "scene_nola_camp": "a Roman legionary camp outside a besieged Italian town: leather tents in ordered rows, a command platform of turf, standards planted, evening cookfires, no figures",
+  "scene_march_rome": "an empty paved road leading toward the walls and gate of Rome at dawn, a boundary stone of the sacred pomerium in the foreground, cypresses, cold pink light",
+  "scene_forum_expel": "the Roman forum occupied by soldiers: shields stacked against the rostra, shuttered shops, an overturned bench, smoke from a burnt house, hard midday light, no people"
+ },
+ "proscriptions": {
+  "char_flaccus": "Lucius Valerius Flaccus, an elderly Roman senator: thin, stooped, white toga, holding a bronze law tablet, resigned expression",
+  "char_marius_younger": "Gaius Marius the Younger: a young Roman in a dusty military tunic, resemblance to a famous father, defiant frightened eyes",
+  "char_caesar_young": "the young Julius Caesar at eighteen: a slender teenage Roman patrician in a loose belted tunic, tousled dark hair, stubborn intelligent face, no laurel and no armour",
+  "char_crassus": "Marcus Licinius Crassus: a well-fed Roman magnate in an expensive toga, calculating pleasant smile, rings on his fingers, a ledger tablet under his arm",
+  "scene_dictator_law": "the Roman senate house, near empty: a single bronze tablet on a stand, rows of vacant benches, a lictor's bundle of rods leaning by the door, oppressive silence",
+  "scene_lists_forum": "a whitewashed wall on the Roman forum covered with posted name-lists on wooden boards, a small table with a money box and scales, crumpled tablets on the ground",
+  "scene_spare_youth": "a private room in a Roman house: a curtained doorway, a stool, a bowl of water, a shaft of afternoon light across a mosaic floor, quiet and tense"
+ },
+ "spartacus": {
+  "char_spartacus": "Spartacus, a Thracian gladiator: a powerful man in a patched tunic with broken shackles still on one wrist, dark shoulder-length hair, a short curved thracian sword, steady defiant eyes",
+  "char_crixus": "Crixus, a Gaulish gladiator: a huge red-haired Gaul, bare chest with old scars, a heavy axe over his shoulder, wild grin",
+  "scene_capua_ludus": "the training yard of a gladiator school: a sanded ring, wooden practice posts, barred cell doors along one side, a rack of blunt weapons, kitchen knives left on a bench, hot glare",
+  "scene_decimation": "a Roman camp parade ground at grey dawn: an empty formation square marked in the dirt, a helmet upturned with lots inside on a stool, a single centurion's vine staff, bleak",
+  "scene_appian_way": "a long straight Roman road lined with tall bare wooden crosses receding to the horizon, umbrella pines, dust, sombre evening light, no bodies and no figures",
+  "scene_senate_triumph": "an anteroom of the senate: a laurel wreath on a cushion, two sealed dispatch scrolls on a table, a curtained doorway, cool marble"
+ },
+ "pirates": {
+  "char_gabinius": "Aulus Gabinius, a Roman tribune: an energetic middle-aged man in a toga, arm outstretched proposing a law, a sea chart in his other hand",
+  "char_catulus": "Quintus Lutatius Catulus, an old Roman senator: white-haired, deeply lined face, plain toga, one hand raised in grave warning",
+  "char_archipirate": "a Cilician arch-pirate: a lean weather-burnt sea captain in a sleeveless leather jerkin, a red headscarf, gold hoop earring, a boarding axe at his belt, wary calculating grin",
+  "scene_lex_gabinia": "the Roman forum during a law vote with the sea in mind: a big painted chart of the Mediterranean propped on the rostra, voting urns, gulls on the roof tiles, bright light",
+  "scene_sea_sweep": "an open blue sea divided by distant squadron sails on the horizon, empty foreground water and a rocky Cilician cape, clear hard daylight, no ships in front",
+  "scene_pirate_farms": "a newly settled inland valley: fresh furrows, a plough, young olive trees, a rough new farmhouse, the sea nowhere in sight, warm calm light",
+  "scene_pirate_crosses": "a rocky coastline with bare wooden crosses standing along the cliff edge above the surf, grey sky, cold wind, no figures"
+ },
+ "catilina": {
+  "char_catilina": "Lucius Sergius Catilina: a gaunt aristocratic Roman with hollow burning eyes, an expensive but disordered toga, unshaven, one hand hidden in the folds of cloth",
+  "char_lentulus": "Publius Lentulus Sura: a heavy self-satisfied Roman praetor in a fine toga, thinning hair, holding a folded sealed letter",
+  "scene_senate_oratio": "the Roman senate house during a speech: tiers of benches with an empty semicircle of space left around one isolated seat, a consul's curule chair, dusty light shafts",
+  "scene_allobroges": "a night interception on a bridge outside Rome: a dropped satchel spilling sealed letters, a lantern on the parapet, mist over the river, no figures",
+  "scene_caesar_speech": "the senate floor at night lit by lamps: benches, a speaker's spot marked on the mosaic, an unrolled law scroll on a stand, deep shadows",
+  "scene_tullianum": "the underground stone execution chamber of the Tullianum: a round hole in the vaulted ceiling, damp black walls, a coil of rope, a single guttering lamp"
+ },
+ "philippi": {
+  "scene_philippi_first": "a wide Macedonian plain at dawn seen from a low ridge: two marked camp lines with earthworks and ditches, marsh reeds on one side, dropped standards, morning mist, no figures",
+  "scene_cassius_tent": "the inside of a Roman general's campaign tent at dusk: a folding stool tipped over, a sword lying on a spread cloak, a helmet on a chest, one oil lamp, heavy shadow, no figures",
+  "scene_philippi_second": "the same Macedonian plain three weeks later, churned mud and broken palisade stakes, scattered shields, low grey sky, rain starting, no figures",
+  "scene_caesar_ghost": "a dim Roman command tent at night lit by one failing lamp, a writing desk with scrolls, an empty camp chair, a strange pale glow at the tent opening, unsettling, no figures"
+ },
+ "alexandria": {
+  "scene_parley_a": "a bare guarded chamber in a Ptolemaic palace: two chairs facing each other, a low table with an untouched cup, tall doors, hard daylight through a high window, no figures",
+  "scene_triumph_rome": "a Roman triumphal street seen empty before the procession: laurel garlands on balconies, a waiting gilded chariot, chains and captive placards laid on a cart, bright harsh noon, no figures"
+ },
+ "rubicon": {
+  "scene_senate_ultimatum": "the Roman senate house interior at night, a single bronze decree tablet propped on a stand, empty benches in shadow, a lictor's bundle of rods leaning by the door, cold lamplight, no figures"
+ },
+ "pharsalus": {
+  "scene_pompey_camp": "a Roman army camp decked for a victory feast before the battle: tents dressed with myrtle garlands, tables laid with silver cups and wine jars, couches set out, bright confident afternoon light, no figures"
+ },
+ "tarsus": {
+  "scene_summons_t": "a Roman tribunal set up in a provincial Greek town square: an empty curule chair on a low wooden dais, standards planted, a scribe's table with tablets, harsh noon light, no figures",
+  "scene_pearl_feast": "an opulent Hellenistic banquet chamber: low couches with purple cushions, a table with gold cups and a small dish of vinegar, hanging lamps, rose petals on the floor, warm night light, no figures"
+ },
+ "discord": {
+  "scene_donations_d": "a Ptolemaic ceremonial dais in Alexandria: two golden thrones on a silver platform, smaller thrones beside them, provincial standards and crowns laid on cushions, bright Mediterranean light, no figures",
+  "scene_will_read_d": "the Roman senate house with a single unrolled papyrus will on a stand, wax seals broken, tiers of empty benches, shafts of dusty light, tense emptiness, no figures"
+ },
+ "actium": {
+  "scene_line_of_battle_a": "a naval battle line at dawn seen from above: heavy Roman warships drawn up across a gulf mouth, a separate squadron of Egyptian ships with purple sails held behind the line, calm sea, no crew visible",
+  "scene_flight_a": "open sea seen from a deck rail: a squadron of purple-sailed ships receding south under full canvas, abandoned oars and a dropped standard in the foreground, hazy afternoon, no figures"
+ },
+ "augustus": {
+  "char_agrippa": "Marcus Agrippa: a solid Roman commander in a plain muscled cuirass and dark red cloak, cropped hair, blunt practical face, an engineer's rolled plan under one arm",
+  "char_munatius": "Munatius Plancus: an elderly Roman senator in a white toga with purple stripe, thinning grey hair, one hand raised making a formal proposal, shrewd courtier's face",
+  "scene_resign_curia": "the Roman senate house interior, a lone empty speaker's spot on the marble floor, tiers of benches, a laurel wreath and a bundle of scrolls laid down on the steps as if surrendered, cold shafts of light, no figures",
+  "scene_grant_curia": "the Roman senate house in celebration: laurel garlands draped on the benches, a golden shield propped on a stand, an inscribed bronze tablet, warm light, no figures",
+  "scene_diadem_offer": "a white cushion on a low table holding a golden royal diadem, a purple cloth beside it, marble columns behind, tempting and ominous, no figures"
+ },
+ "sejanus": {
+  "char_tiberius_princeps": "the emperor Tiberius in old age: a tall gaunt Roman in a plain dark toga, sour closed face, thin grey hair, holding a sealed letter",
+  "char_sejanus": "Sejanus, prefect of the guard: a fit ambitious Roman officer in a decorated praetorian cuirass, close beard, confident predatory smile, sword at hip",
+  "char_macro": "Macro, a praetorian officer: a hard-faced Roman soldier in plain guard armour, scarred jaw, watchful and expressionless",
+  "char_memmius": "Memmius Regulus, a Roman consul: a careful middle-aged senator in a toga, unrolling a long papyrus letter, cautious expression",
+  "scene_capri_villa": "a cliff-top Roman villa on a Mediterranean island: colonnaded terrace, sea far below, cypresses, a couch with cushions, empty and isolated, bright hard light, no figures",
+  "scene_guard_swap": "a praetorian guardroom at night: a rack of standards and helmets, a wax tablet with orders on a table, a heavy key, lamplight, no figures",
+  "scene_long_letter": "the Roman senate house mid-session seen empty: a very long unrolled papyrus draped over a reading stand, benches, closed bronze doors, tense stillness, no figures"
+ },
+ "claudius_mushrooms": {
+  "char_claudius": "the emperor Claudius: an ageing scholarly Roman in an imperial toga, slightly stooped, kind distracted face, holding a book scroll",
+  "char_agrippina": "Agrippina the Younger: an imperial Roman lady in a rich stola and pearl diadem, elaborate braided hair, beautiful and utterly composed, cold calculating eyes",
+  "char_nero": "the young Nero: a plump teenage Roman in a purple-bordered tunic, curled reddish hair, soft petulant face, a lyre held loosely",
+  "char_britannicus": "Britannicus: a slight Roman boy of thirteen in a plain white tunic with purple border, serious wary face",
+  "scene_adoption_c": "a formal Roman palace hall with a bronze adoption tablet on a stand, curule chair, family masks in wall niches, solemn warm light, no figures",
+  "scene_mushroom_dish": "an imperial Roman dining room: a couch, a low table with a silver dish of mushrooms, an overturned cup, a feather lying on the floor, lamplight, sinister calm, no figures",
+  "scene_praetorian_camp": "the praetorian camp parade ground: a raised tribunal platform, standards planted, a chest of coins open beside it, hard morning light, no figures"
+ },
+ "nero_fire": {
+  "char_tigellinus": "Tigellinus, praetorian prefect: a heavy brutal Roman officer in dark guard armour, thick neck, cruel amused expression",
+  "char_thrasea": "Thrasea Paetus, a stoic Roman senator: a lean austere man in a plain white toga, calm unyielding face, arms folded",
+  "scene_fire_night": "Rome burning at night seen from a hill: insula tenements collapsing in flame, orange smoke over the whole skyline, embers in the air, no figures",
+  "scene_lyre_roof": "a palace rooftop terrace at night facing a burning city: a lyre resting on a marble bench, a wine cup, the glow of fire on the columns, no figures",
+  "scene_scapegoat_n": "a Roman prison yard at dusk: chains and iron collars on the stone floor, a barred door, a brazier, cold cruel emptiness, no figures",
+  "scene_golden_house": "a vast opulent palace under construction: gilded coffered ceiling, marble colonnade, an artificial lake with scaffolding around a colossal statue's feet, bright ostentatious light, no figures"
+ },
+ "four_emperors": {
+  "char_galba": "Galba, an aged Roman emperor: gaunt severe old man in imperial toga, bald with a hooked nose, gouty hands, tight-lipped and stingy",
+  "char_otho": "Otho, a Roman claimant: a dandyish young noble in a fine toga, carefully arranged wig-like hair, smooth charming face",
+  "char_vitellius": "Vitellius, a Roman claimant: an enormously fat commander in a straining cuirass, florid face, greedy self-satisfied smile",
+  "char_vespasian": "Vespasian, a Roman general: a broad weather-beaten soldier in plain functional armour, creased peasant face, dry humorous eyes",
+  "scene_donative_f": "a Roman palace hall with an open strongbox of coins deliberately closed and locked, a rejected pay ledger on a table, cold marble, tense emptiness, no figures",
+  "scene_forum_murder_f": "the Roman forum at dawn: an overturned litter, a dropped imperial wreath on the paving stones, dark stains, standards leaning, no figures",
+  "scene_legions_hail_f": "a provincial legionary camp at sunrise in the east: eagles and standards raised together, a tribunal of turf, palm trees beyond the rampart, no figures",
+  "scene_bedriacum_f": "a north Italian plain after a clash between Roman armies: broken shields with the same eagles on both sides, mist, poplar trees, no figures"
+ },
+ "vesuvius": {
+  "char_pliny_elder": "Pliny the Elder: a stout elderly Roman in a naval commander's cloak over a tunic, wax tablet in hand, curious fearless expression",
+  "char_pliny_younger": "Pliny the Younger: a slim studious Roman youth of eighteen in a plain tunic, stylus and tablet, thoughtful careful face",
+  "char_rectina": "Rectina, a Roman lady: a frightened well-dressed woman in a dusty stola, shawl over her hair, a sealed note clutched in her hand",
+  "scene_letter_v": "a Roman seaside villa terrace at Misenum: a writing table with a sealed wax note just delivered, a cup, the bay beyond with a dark pine-shaped cloud on the horizon, no figures",
+  "scene_ships_v": "a Roman naval harbour with quadriremes being launched, oars run out, ropes cast off, ash beginning to fall on the water, ominous brown sky, no figures",
+  "scene_stabiae_v": "a beach under volcanic ash fall at night: a beached boat, a discarded cloak and cushion on the sand, pumice piling up, red glow inland, no figures",
+  "scene_misenum_v": "a quiet Roman study with scroll cases, a reading couch, an oil lamp, a window showing a distant dark cloud over the bay, no figures",
+  "scene_aboard_v": "the deck of a Roman quadrireme at sea under a towering grey-black volcanic cloud, ash falling like snow on the planks and rigging, a coiled rope and a wax tablet on a bench, dark orange glow on the horizon, no figures"
+ },
+ "trajan": {
+  "char_trajan": "Trajan, a Roman emperor: a tall soldierly man in an ornate muscled cuirass and red cloak, short hair, calm capable face",
+  "char_decebalus": "Decebalus, king of Dacia: a bearded mountain king in a peaked felt cap, scale armour, heavy curved falx sword, proud defiant face",
+  "char_hadrian": "Hadrian: a Roman successor with a neat full beard, plain toga over a cuirass, cool intellectual expression",
+  "scene_danube_bridge": "a colossal stone-and-timber bridge across a wide river, arch after arch receding into mist, scaffolding on the far bank, no figures",
+  "scene_sarmizegetusa": "a Dacian mountain stronghold: circular sanctuary of stone pillars, terraced walls, pine forest and crags, smoke rising, no figures",
+  "scene_column_t": "a tall marble column wrapped in a spiral relief band standing in a Roman forum, laurel garlands at its base, blue sky, no figures",
+  "scene_east_march": "an endless dry eastern plain with a Roman road petering out into sand, milestone tilted, distant palms, harsh empty horizon, no figures"
+ },
+ "commodus": {
+  "char_marcus": "Marcus Aurelius: a bearded philosopher-emperor in a plain campaign cloak over a cuirass, tired thoughtful eyes, a small notebook in hand",
+  "char_commodus": "Commodus: a strong young Roman with long curled hair and a wispy beard, purple tunic, a lion skin thrown over one shoulder, vain expression",
+  "char_pompeianus": "Claudius Pompeianus: a sober middle-aged Roman general in a plain cuirass, greying temples, dependable weary face",
+  "scene_danube_camp_m": "a Roman frontier camp in winter on the Danube: leather tents, a command platform, snow on the palisade, cold grey light, no figures",
+  "scene_adopt_best_m": "a campaign tent interior with a folding desk, an adoption tablet and stylus, a lamp, maps pinned to the canvas, no figures",
+  "scene_deathbed_m": "a plain military bed in a campaign tent, a folded purple cloak laid at its foot, a guttering lamp, a closed notebook, no figures",
+  "scene_peace_m": "a treaty ground on a river bank: a table with a signed tablet and a chest of coins, barbarian standards planted opposite Roman ones, thaw and mud, no figures"
+ },
+ "aurelian": {
+  "char_aurelian": "Aurelian, a Roman soldier-emperor: a hard lean commander in a plain but ornate cuirass, cropped grey hair, scarred jaw, unsmiling",
+  "char_zenobia": "Zenobia of Palmyra: a striking desert queen in a purple robe with heavy gold and pearl jewellery, dark braided hair under a diadem, proud unbroken gaze",
+  "char_tetricus": "Tetricus, a Gallic usurper: a tired middle-aged Roman in a provincial purple cloak, thinning hair, resigned relieved expression",
+  "char_eros_scribe": "a Roman palace secretary: a nervous thin young man in a plain tunic, ink-stained fingers, a wax tablet clutched to his chest, frightened eyes",
+  "scene_palmyra_a": "a desert caravan city with colonnaded street and palm groves, monumental arch, sand drifting over the paving, siege ramps at the walls, no figures",
+  "scene_gaul_a": "a Gallic provincial camp at the edge of a forest: Roman standards planted point-down in surrender, a folding table with a signed tablet, autumn light, no figures",
+  "scene_restitutor_a": "a Roman triumphal way strewn with laurel, a mint table with fresh coins spread out, three provincial crowns laid together on a cloth, bright ceremonial light, no figures",
+  "scene_forged_list": "a campaign tent desk at night: a half-written list of names, a forged seal, spilled ink, a lamp burning low, no figures"
+ },
+ "diocletian": {
+  "char_diocletian": "Diocletian, a Roman emperor: a stern practical man in a jewelled late-Roman diadem and stiff embroidered robe, blunt soldier's face",
+  "char_maximian": "Maximian, a Roman co-emperor: a heavy-set brutal soldier in imperial purple over armour, thick neck, bad-tempered face",
+  "char_galerius": "Galerius, a Roman caesar: a huge coarse-featured soldier in scale armour and a short purple cloak, cropped hair, menacing",
+  "char_constantius": "Constantius Chlorus, a Roman caesar: a pale composed officer in a plain cuirass and white cloak, receding hair, mild reserved face",
+  "scene_split_d": "a late-Roman audience hall: two identical thrones side by side on a dais, two purple cloaks laid out, porphyry columns, cold formal light, no figures",
+  "scene_caesars_d": "a late-Roman ceremonial hall with four seats arranged two and two, four diadems on cushions, mosaic floor, no figures",
+  "scene_abdicate_d": "a modest villa garden by the sea: neat vegetable beds with cabbages, a straw hat and a spade, a discarded purple cloak folded on a bench, warm calm light, no figures",
+  "scene_sole_rule_d": "a single throne alone in a vast echoing hall, one diadem on it, long empty floor, cold shadows, no figures"
+ },
+ "constantine": {
+  "char_constantine": "Constantine: a big-jawed Roman emperor in a gilded cuirass and jewelled diadem, clean-shaven, intense forward stare",
+  "char_maxentius": "Maxentius: a Roman rival emperor in ornate armour and purple, curled hair and short beard, uneasy arrogant face",
+  "char_ossius": "Ossius of Corduba: an elderly bishop in a simple pale robe with a stole, white beard, calm patient face, holding a codex",
+  "scene_vision_c": "a Roman military camp at midday with an enormous sun and a faint cross-shaped light in the sky above it, standards below, awed empty ground, no figures",
+  "scene_old_gods_c": "a Roman altar before a temple: a bull garlanded for sacrifice tethered nearby, sacrificial knife and patera on the altar, incense smoke, no human figures",
+  "scene_milvian_c": "a broad river with a stone bridge and a broken pontoon bridge beside it, shields and helmets floating in the current, city walls beyond, no figures",
+  "scene_edict_c": "a late-Roman chancery: an unrolled edict with two seals on a marble table, a chi-rho carved on the wall behind, bright northern light, no figures"
+ },
+ "theodosius": {
+  "char_theodosius": "Theodosius: a bearded late-Roman emperor in a jewelled diadem and heavy purple robe, powerful build, quick-tempered face",
+  "char_ambrose": "Ambrose of Milan: a spare ascetic bishop in dark vestments with a pallium, sharp intelligent eyes, one hand raised in refusal",
+  "char_rufinus": "Rufinus, a praetorian prefect: a sleek court official in an embroidered robe, thin smile, a folded order in his hand",
+  "scene_massacre_t": "an empty stone hippodrome after violence: overturned benches, dropped sandals and cloaks on the sand, gates barred from outside, grey light, no figures",
+  "scene_church_door_t": "the closed wooden doors of a late-Roman basilica seen from outside, a bishop's staff leaning across them, steps below, cold rain-washed stone, no figures",
+  "scene_penance_t": "a basilica interior: bare stone floor before the altar, an imperial purple cloak lying discarded on the flagstones, candles, shafts of light, no figures",
+  "scene_purple_pride_t": "a throne room with a jewelled diadem set defiantly on a purple cushion, guards' spears leaning by the wall, hard golden light, no figures"
+ },
+ "alaric": {
+  "char_alaric": "Alaric, a Gothic king: a tall warrior in mail with a red cloak, long fair hair and beard, gold arm rings, hard patient face",
+  "char_stilicho": "Stilicho, a Roman general of Vandal descent: a tall commander in a rich late-Roman cuirass and chlamys, short beard, competent weary look",
+  "char_honorius": "Honorius, a weak late-Roman emperor: a soft-faced young man in an oversized jewelled diadem and heavy robe, vacant expression, holding a pet rooster",
+  "scene_ravenna_h": "a late-Roman palace hall in a marshy capital: mosaic floors, heavy curtains, an execution order on a table, damp cold light, no figures",
+  "scene_parley_h": "a parley ground outside Rome's walls: a table with two empty stools between besiegers' stakes and the city gate, dust, tense noon, no figures",
+  "scene_chickens_h": "a palace poultry yard: fat hens and a proud rooster, feed scattered on the ground, marble columns absurdly framing the coop, sunny and oblivious, no figures",
+  "scene_sack_h": "a Roman city gate forced open at night, fires in the streets beyond, dropped household goods on the paving, smoke against the moon, no figures"
+ },
+ "attila": {
+  "char_attila": "Attila the Hun: a short broad steppe king with a wispy beard and flat features, lamellar armour under a fur-trimmed coat, unreadable stare",
+  "char_leo_pope": "Pope Leo the Great: an elderly bishop of Rome in white and gold vestments, calm fearless face, holding a processional cross",
+  "char_aetius": "Aetius, the last Roman general: a lean scarred commander in a plain late-Roman cuirass, grey at the temples, grimly competent",
+  "scene_aquileia_a2": "a north Italian city razed to the ground: broken walls, burnt beams, a lagoon visible in the distance, ash over everything, no figures",
+  "scene_famine_a": "a summer river valley stripped bare: empty granaries, dead cattle, stagnant marsh water, flies in the heat haze, tents in the distance, no figures",
+  "scene_open_a": "a wide Italian plain prepared for battle: dust, dry grass, a lone milestone, distant dark mass of horsemen on the horizon, no figures",
+  "scene_mincio_a": "a meeting place on a river bank: a plain table with bread and wine between two standards, willows, quiet water, no figures"
+ },
+ "romulus_augustulus": {
+  "char_romulus_aug": "Romulus Augustulus: a boy of fifteen in an imperial purple robe far too large for him, a jewelled diadem slipping on his head, uncertain frightened face",
+  "char_orestes": "Orestes, a Roman magister militum: a hard-eyed general in late-Roman armour and a purple-edged cloak, greying hair, tense authority",
+  "char_odoacer": "Odoacer, a Germanic king: a big warrior in mail with a fur cloak, long braided hair, plain iron circlet, calm decisive face",
+  "scene_federati_o": "a late-Roman army camp in Italy: Germanic shields stacked beside Roman standards, a map of Italy weighted on a table with a line drawn across it, tense grey light, no figures",
+  "scene_pavia_o": "a north Italian town after a brief fight: a broken church door, a dropped commander's cloak on the steps, smoke over tiled roofs, no figures",
+  "scene_depose_o": "a palace hall with a wooden crate packed with imperial regalia — diadem, purple cloak, sceptre — a shipping label tied to it, an empty throne behind, cold final light, no figures",
+  "scene_mercy_o": "a quiet seaside villa in Campania: shaded colonnade, olive trees, a boy's abandoned wooden sword on a bench, calm blue bay, no figures"
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "id": "cannae",
+ "order": 80,
+ "act": "Акт II · Республика и Карфаген",
+ "epoch": "rome",
+ "panels": 2,
+ "scenes": [
+  "cannae_wing",
+  "cannae_field",
+  "cannae_council"
+ ],
+ "characters": [
+  "hannibal",
+  "paullus",
+  "varro",
+  "maharbal"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "paullus",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "hannibal",
+     "is": "victor"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "varro",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cannae_wing",
+   "characters": [
+    "hannibal"
+   ]
+  },
+  {
+   "scene": "cannae_field",
+   "characters": [
+    "hannibal",
+    "paullus"
+   ]
+  }
+ ],
+ "cover": "cannae_field",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

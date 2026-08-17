@@ -48,12 +48,30 @@ data class InitialStateDef(val flags: Map<String, List<String>>, val relations: 
 /** Заполнение одной панели игроком. */
 data class Panel(val sceneId: String?, val characters: MutableList<String>)
 
+/**
+ * Шаг гида-помощника: реплика, которая висит на доске, пока не выполнено условие.
+ *
+ * Нужен на первых уровнях: игра нигде не объясняет, что правила срабатывают сами и что сцен
+ * больше, чем кадров. Условие описано тем же деревом, что и цель уровня, поэтому своей логики
+ * гид не требует. Порт iOS `CoachStep`.
+ */
+data class CoachStep(
+    val text: String,                 // суффикс ключа `level.<id>.coach.<text>`
+    val until: GoalNode? = null,      // шаг закрыт, когда предикат выполнен
+    val untilScene: String? = null,   // …или когда эта сцена выставлена в любой кадр
+    // Списки: на одном шаге гид может звать сразу двоих, и подсветка переходит на того,
+    // кого ещё не поставили.
+    val highlightScenes: List<String> = emptyList(),
+    val highlightChars: List<String> = emptyList(),
+)
+
 data class LevelDef(
     val id: String, val order: Int, val title: String, val epoch: String, val panels: Int,
     val scenes: List<String>, val characters: List<String>,
     val initialState: InitialStateDef?, val initialText: String?, val goalText: String?, val goalHint: String?,
     val goal: GoalNode, val factCard: FactCard?, val solution: List<Panel>?,
-    val music: String?, val cover: String?, val act: String?
+    val music: String?, val cover: String?, val act: String?,
+    val coach: List<CoachStep> = emptyList()
 ) {
     /** Свежий мир со стартовыми условиями. Вызывать для каждой симуляции. */
     fun createInitialWorld(): World {

@@ -43,7 +43,15 @@ android {
         }
     }
     buildTypes {
+        getByName("debug") {
+            // Адрес локального стенда контента (tools/publish_content.py --serve).
+            // Пусто по умолчанию — сборка идёт на прод-CDN, как и раньше. Передаётся так:
+            //   ./gradlew :app:assembleDebug -PhtContentUrl=http://127.0.0.1:8787
+            val url = (project.findProperty("htContentUrl") as String?).orEmpty()
+            buildConfigField("String", "CONTENT_URL", "\"$url\"")
+        }
         getByName("release") {
+            buildConfigField("String", "CONTENT_URL", "\"\"")
             isMinifyEnabled = false
             if (hasKeystore) signingConfig = signingConfigs.getByName("release")
         }

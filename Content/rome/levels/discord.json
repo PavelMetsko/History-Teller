@@ -1,13 +1,13 @@
 {
  "id": "discord",
- "order": 120,
- "act": "Акт III · Наследники",
+ "order": 420,
+ "act": "Акт VI · Наследники",
  "epoch": "rome",
  "panels": 2,
  "scenes": [
-  "palace",
-  "forum",
-  "senate"
+  "donations_d",
+  "will_read_d",
+  "palace"
  ],
  "characters": [
   "antony",
@@ -26,28 +26,28 @@
    {
     "flag": {
      "char": "antony",
-     "is": "eastern"
+     "is": "outlawed"
     }
    }
   ]
  },
  "solution": [
   {
-   "scene": "palace",
+   "scene": "donations_d",
    "characters": [
     "antony",
     "cleopatra"
    ]
   },
   {
-   "scene": "forum",
+   "scene": "will_read_d",
    "characters": [
     "octavian",
     "antony"
    ]
   }
  ],
- "cover": "forum",
+ "cover": "donations_d",
  "music": "tension",
  "factCard": {
   "accuracy": "simplification"

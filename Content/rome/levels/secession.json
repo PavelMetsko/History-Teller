@@ -1,0 +1,83 @@
+{
+ "id": "secession",
+ "order": 40,
+ "act": "Акт I · Цари и рождение республики",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "mons_sacer",
+  "curia_hard",
+  "plebs_parley",
+  "tribune_grant"
+ ],
+ "characters": [
+  "sicinius",
+  "menenius",
+  "appius",
+  "coriolanus"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sicinius",
+     "is": "away"
+    }
+   },
+   {
+    "flag": {
+     "char": "sicinius",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "menenius",
+      "is": "plotting"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mons_sacer",
+   "characters": [
+    "sicinius"
+   ]
+  },
+  {
+   "scene": "plebs_parley",
+   "characters": [
+    "sicinius",
+    "menenius"
+   ]
+  },
+  {
+   "scene": "tribune_grant",
+   "characters": [
+    "sicinius",
+    "menenius"
+   ]
+  }
+ ],
+ "cover": "mons_sacer",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "simplification"
+ },
+ "initialState": {
+  "flags": {
+   "appius": [
+    "plotting"
+   ],
+   "coriolanus": [
+    "plotting"
+   ],
+   "menenius": [
+    "standing"
+   ]
+  }
+ }
+}

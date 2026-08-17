@@ -1,0 +1,112 @@
+{
+ "id": "aurelian",
+ "order": 530,
+ "act": "Акт VIII · Закат",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "palmyra_a",
+  "gaul_a",
+  "restitutor_a",
+  "forged_list"
+ ],
+ "characters": [
+  "aurelian",
+  "zenobia",
+  "tetricus",
+  "eros_scribe"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "zenobia",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "tetricus",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "aurelian",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "aurelian",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "palmyra_a",
+   "characters": [
+    "aurelian",
+    "zenobia"
+   ]
+  },
+  {
+   "scene": "gaul_a",
+   "characters": [
+    "aurelian",
+    "tetricus"
+   ]
+  },
+  {
+   "scene": "restitutor_a",
+   "characters": [
+    "aurelian",
+    "tetricus"
+   ]
+  }
+ ],
+ "cover": "restitutor_a",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "aurelian": [
+    "strong"
+   ],
+   "tetricus": [
+    "standing"
+   ],
+   "zenobia": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "aurelian",
+    "zenobia"
+   ],
+   [
+    "enemy_of",
+    "zenobia",
+    "aurelian"
+   ],
+   [
+    "enemy_of",
+    "aurelian",
+    "tetricus"
+   ],
+   [
+    "enemy_of",
+    "eros_scribe",
+    "aurelian"
+   ]
+  ]
+ }
+}

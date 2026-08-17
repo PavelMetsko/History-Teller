@@ -1,0 +1,118 @@
+{
+ "id": "marius",
+ "order": 120,
+ "act": "Акт III · Трещина",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "head_count",
+  "senate_command",
+  "numidia_war",
+  "bocchus_tent"
+ ],
+ "characters": [
+  "marius",
+  "metellus",
+  "jugurtha",
+  "sulla",
+  "bocchus"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "marius",
+     "is": "victor"
+    }
+   },
+   {
+    "flag": {
+     "char": "jugurtha",
+     "is": "captured"
+    }
+   },
+   {
+    "relation": {
+     "rel": "captor",
+     "from": "sulla",
+     "to": "jugurtha"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "marius",
+      "is": "condemned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "head_count",
+   "characters": [
+    "marius"
+   ]
+  },
+  {
+   "scene": "numidia_war",
+   "characters": [
+    "marius",
+    "jugurtha"
+   ]
+  },
+  {
+   "scene": "bocchus_tent",
+   "characters": [
+    "sulla",
+    "bocchus",
+    "jugurtha"
+   ]
+  }
+ ],
+ "cover": "numidia_war",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "metellus": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "marius",
+    "jugurtha"
+   ],
+   [
+    "enemy_of",
+    "jugurtha",
+    "marius"
+   ],
+   [
+    "enemy_of",
+    "metellus",
+    "jugurtha"
+   ],
+   [
+    "enemy_of",
+    "jugurtha",
+    "metellus"
+   ],
+   [
+    "enemy_of",
+    "sulla",
+    "jugurtha"
+   ],
+   [
+    "enemy_of",
+    "metellus",
+    "marius"
+   ]
+  ]
+ }
+}

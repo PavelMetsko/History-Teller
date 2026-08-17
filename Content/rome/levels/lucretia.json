@@ -1,0 +1,85 @@
+{
+ "id": "lucretia",
+ "order": 20,
+ "act": "Акт I · Цари и рождение республики",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "collatia",
+  "king_court",
+  "dagger_oath",
+  "forum_rouse"
+ ],
+ "characters": [
+  "sextus",
+  "lucretia",
+  "junius",
+  "tarquin"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lucretia",
+     "is": "dishonoured"
+    }
+   },
+   {
+    "flag": {
+     "char": "tarquin",
+     "is": "condemned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "junius",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "collatia",
+   "characters": [
+    "sextus",
+    "lucretia"
+   ]
+  },
+  {
+   "scene": "dagger_oath",
+   "characters": [
+    "junius",
+    "lucretia"
+   ]
+  },
+  {
+   "scene": "forum_rouse",
+   "characters": [
+    "junius",
+    "tarquin"
+   ]
+  }
+ ],
+ "cover": "dagger_oath",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "junius",
+    "tarquin"
+   ],
+   [
+    "enemy_of",
+    "junius",
+    "sextus"
+   ]
+  ]
+ }
+}

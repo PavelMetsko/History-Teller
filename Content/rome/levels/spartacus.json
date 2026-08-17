@@ -1,0 +1,105 @@
+{
+ "id": "spartacus",
+ "order": 150,
+ "act": "Акт III · Трещина",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "capua_ludus",
+  "decimation",
+  "appian_way"
+ ],
+ "characters": [
+  "spartacus",
+  "crixus",
+  "crassus",
+  "pompey"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "spartacus",
+     "is": "plotting"
+    }
+   },
+   {
+    "flag": {
+     "char": "crixus",
+     "is": "plotting"
+    }
+   },
+   {
+    "flag": {
+     "char": "spartacus",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "crassus",
+     "is": "victor"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pompey",
+      "is": "triumphant"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "capua_ludus",
+   "characters": [
+    "spartacus",
+    "crixus"
+   ]
+  },
+  {
+   "scene": "decimation",
+   "characters": [
+    "crassus"
+   ]
+  },
+  {
+   "scene": "appian_way",
+   "characters": [
+    "crassus",
+    "spartacus"
+   ]
+  }
+ ],
+ "cover": "appian_way",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "crassus",
+    "spartacus"
+   ],
+   [
+    "enemy_of",
+    "spartacus",
+    "crassus"
+   ],
+   [
+    "enemy_of",
+    "crassus",
+    "crixus"
+   ],
+   [
+    "enemy_of",
+    "pompey",
+    "spartacus"
+   ]
+  ]
+ }
+}

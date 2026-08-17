@@ -13,6 +13,8 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.ui.draw.scale
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -25,6 +27,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
@@ -100,6 +103,36 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
     val isBoardComplete
         get() = panels.all { p -> p.sceneId != null && db.scenes[p.sceneId]?.let { p.characters.size == it.slots } == true }
 
+    /**
+     * Текущий шаг гида: первый невыполненный. Шаги закрываются состоянием доски, а не
+     * нажатиями — пролистать гид, не сделав ход, нельзя.
+     *
+     * На решённом уровне гид молчит: без этой проверки он оживал на финальном ходу там, где
+     * правило снимает флаг (в сабинянках `intercede` убирает `at_arms`), и условие шага
+     * снова становилось невыполненным. Порт iOS `LevelBoardModel.coachStep`.
+     */
+    val coachStep: CoachStep?
+        get() {
+            if (isSolved) return null
+            return level.coach.firstOrNull { st ->
+                val until = st.until
+                when {
+                    st.untilScene != null -> panels.none { it.sceneId == st.untilScene }
+                    until != null -> !until.isMet(world)
+                    else -> true
+                }
+            }
+        }
+
+    /** Что подсветить в нижнем ряду. Уже поставленное не подсвечиваем: шаг гида закрывается
+     *  позже, по срабатыванию правила, а кольцо должно показывать, что взять следующим. */
+    val coachHighlightScenes: Set<String>
+        get() = coachStep?.highlightScenes.orEmpty()
+            .filter { sid -> panels.none { it.sceneId == sid } }.toSet()
+    val coachHighlightChars: Set<String>
+        get() = coachStep?.highlightChars.orEmpty()
+            .filter { cid -> panels.none { cid in it.characters } }.toSet()
+
     fun snapshot(i: Int): World = result.snapshots.getOrElse(i) { world }
     fun slots(i: Int): Int = panels[i].sceneId?.let { db.scenes[it]?.slots } ?: 0
     fun sceneName(id: String) = db.scenes[id]?.name ?: id
@@ -160,8 +193,9 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
     }
 
     private fun recompute() {
+        autoAssignSlots()   // до симуляции: порядок внутри панели подбираем за игрока
         result = Engine.run(panels, db, level.createInitialWorld())
-        autoArrange()   // «пострадавший» бита — правее активного (косметика; порядок в панели движок не учитывает)
+        autoArrange()   // «пострадавший» бита — правее активного (косметика, только сцены без ролей)
         val fresh = result.events.filter { eventKey(it) !in seenEventKeys }
         lastBeats = fresh.map(::beat)
         seenEventKeys = result.events.map(::eventKey).toSet()
@@ -172,8 +206,47 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         panels = panels.toMutableList().also { it[i] = transform(it[i]) }; recompute()
     }
 
-    /** Внутри панели ставим «пострадавшего» (primary бита) правее. Порядок в панели движок
-     *  не учитывает при решении — чистая косметика (единая грамматика «жертва справа»). */
+    /**
+     * Подобрать порядок персонажей внутри панели за игрока.
+     *
+     * Правила со `slot` привязывают актора к позиции в кадре (сцена с `roles`: слот 0 — убийца,
+     * слот 1 — жертва), и движок это учитывает. Но пазл — в том, КОГО и в КАКУЮ сцену поставить,
+     * а не в угадывании слота, поэтому если из тех же персонажей есть перестановка, при которой
+     * в панели срабатывает больше правил, применяем её молча. Порт iOS `autoAssignSlots`.
+     */
+    private fun autoAssignSlots() {
+        for (i in panels.indices) {
+            val chars = panels[i].characters
+            if (chars.size < 2) continue
+            fun score(order: List<String>): Int {
+                val trial = panels.toMutableList()
+                trial[i] = Panel(trial[i].sceneId, order.toMutableList())
+                return Engine.run(trial, db, level.createInitialWorld())
+                    .events.count { it.panelIndex == i }
+            }
+            var best = chars.toList()
+            var bestScore = score(best)
+            for (cand in permutations(chars.toList())) {
+                if (cand == best) continue
+                val s = score(cand)
+                if (s > bestScore) { bestScore = s; best = cand }   // при равенстве — расстановка игрока
+            }
+            if (best != chars.toList()) {
+                panels = panels.toMutableList().also { it[i] = Panel(it[i].sceneId, best.toMutableList()) }
+            }
+        }
+    }
+
+    /** Все перестановки (в панели максимум 3 слота → не больше шести вариантов). */
+    private fun permutations(items: List<String>): List<List<String>> =
+        if (items.size < 2) listOf(items)
+        else items.flatMapIndexed { i, item ->
+            permutations(items.filterIndexed { j, _ -> j != i }).map { listOf(item) + it }
+        }
+
+    /** Внутри панели ставим «пострадавшего» (primary бита) правее — косметика, единая
+     *  грамматика «жертва справа». На сценах с ролями порядок значим и уже подобран
+     *  в [autoAssignSlots], поэтому их не трогаем. */
     private fun autoArrange() {
         val prim = Array(panels.size) { mutableSetOf<String>() }
         for (e in result.events) if (e.panelIndex < panels.size) beat(e).primary?.let { prim[e.panelIndex].add(it) }
@@ -181,6 +254,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         val np = panels.toMutableList()
         for (i in panels.indices) {
             val p = prim[i]; if (p.isEmpty()) continue
+            if (np[i].sceneId?.let { db.scenes[it]?.roles?.isNotEmpty() } == true) continue
             val chars = np[i].characters
             val re = (chars.filter { it !in p } + chars.filter { it in p })
             if (re != chars) { np[i] = Panel(np[i].sceneId, re.toMutableList()); changed = true }
@@ -349,6 +423,9 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
             Audio.sfx("win"); onSolved(); celebrate = true
             delay(1000); awaitingReveal = true
             delay(1900); celebrate = false
+        } else {
+            // Доска разобрана («заново» или снятый токен) — звать к истории больше нечем.
+            awaitingReveal = false; celebrate = false
         }
     }
     // неверный ход: доска заполнена, но цель не достигнута — тряска (+ звук, если панели «мертвы»)
@@ -362,11 +439,16 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
     val shakeDx = (sin(boardShake.value * PI * 3) * 9.0 * (1f - boardShake.value)).toFloat()
 
     val drag = remember(levelId) { DragState() }
-    Box(Modifier.fillMaxSize().padding(14.dp).onGloballyPositioned { drag.root = it }) {
+    // По вертикали полей меньше, чем по горизонтали: экран в ландшафте низкий,
+    // и каждая точка высоты уходит кадрам, а не полям страницы.
+    Box(Modifier.fillMaxSize().padding(horizontal = 14.dp, vertical = 6.dp)
+        .onGloballyPositioned { drag.root = it }) {
         BookPage(Modifier.fillMaxSize().graphicsLayer { translationX = shakeDx.dp.toPx() }) {
             BoxWithConstraints(Modifier.fillMaxSize()) {
-                val trayScale = min(1.6f, max(1f, maxWidth.value / 720f))
-                Column(Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 12.dp)) {
+                // Считать по одной ширине нельзя: телефон в ландшафте широкий и низкий, и ряд
+                // токенов переставал помещаться по высоте, съедая место у кадров.
+                val trayScale = min(1.6f, max(0.78f, min(maxWidth.value / 720f, maxHeight.value / 440f)))
+                Column(Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 8.dp)) {
                     // titleBar — чекбокс+заголовок по центру (как iOS); лента слева и кнопки справа не наезжают
                     Box(Modifier.fillMaxWidth().padding(bottom = 6.dp)) {
                         Row(Modifier.align(Alignment.Center).padding(horizontal = 72.dp),
@@ -387,7 +469,12 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                         }
                     }
                     // panels
-                    BoxWithConstraints(Modifier.fillMaxWidth().weight(1f)) {
+                    // Реплику гида рисуем поверх доски, а место под неё освобождаем отступом:
+                    // если положить её отдельным ребёнком колонки, weight(1f) у кадров обнуляется
+                    // и они исчезают совсем (проверено подсветкой областей на устройстве).
+                    // 34dp — высота реплики, +12dp зазор, иначе она упирается в нижнюю кромку кадров
+                    val coachPad = if (model.coachStep != null && !showFact && !awaitingReveal) 46.dp else 0.dp
+                    BoxWithConstraints(Modifier.fillMaxWidth().weight(1f).padding(bottom = coachPad)) {
                         val n = max(1, model.panels.size)
                         val gap = 14.dp
                         val cellH = min(maxHeight.value, 430f).dp
@@ -425,6 +512,11 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                     TokenTray(model, trayScale, drag)
                 }
             }
+        }
+        // Реплика гида — поверх доски, в зазоре, который освобождает coachPad выше.
+        model.coachStep?.let { st ->
+            if (!showFact && !awaitingReveal) CoachBubble(model.level.id, st,
+                Modifier.align(Alignment.BottomCenter).padding(bottom = 82.dp))
         }
         // Лента висит на верхней кромке страницы, а не внутри неё (как закладка в книге).
         BackRibbon(Modifier.align(Alignment.TopStart)) { exit() }
@@ -534,9 +626,15 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
                     val s = 0.9f + 0.1f * sceneAppear.value; scaleX = s; scaleY = s
                 }, contentScale = ContentScale.Crop)
             model.sceneAction(sid)?.let { action ->
-                Box(Modifier.padding(7.dp).clip(RoundedCornerShape(10.dp)).background(Palette.paper.copy(0.92f))
-                    .padding(horizontal = 8.dp, vertical = 3.dp)) {
-                    Text(action, color = Palette.ink, fontSize = 11.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded)
+                // Отступ справа — под крестик «убрать сцену»: длинные подписи вроде
+                // «заступничество» иначе уезжали ему под кнопку.
+                Box(Modifier.padding(7.dp).padding(end = 28.dp).clip(RoundedCornerShape(10.dp))
+                    .background(Palette.paper.copy(0.92f))
+                    .padding(horizontal = 7.dp, vertical = 3.dp)) {
+                    // Одна строка: узкая плашка переносила длинные подписи по слогам
+                    // («похище/ние»), а крестик рядом не оставляет ширины на два ряда.
+                    Text(action, color = Palette.ink, fontSize = 9.sp, fontWeight = FontWeight.Bold,
+                        fontFamily = Fonts.rounded, maxLines = 1, softWrap = false)
                 }
             }
             // X убрать сцену
@@ -597,9 +695,16 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
                 }
             }
         } else {
-            Text(if (highlighted) L10n.s("ui.tap") else L10n.s("ui.scene"),
-                color = Palette.inkSoft.copy(0.7f), fontSize = 11.sp, fontFamily = Fonts.rounded,
-                modifier = Modifier.align(Alignment.Center))
+            // как на iOS: значок над подписью — пустой кадр читается как «сюда нужна сцена»
+            Column(Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
+                // Только базовый набор иконок: расширенного (TouchApp/Image) в проекте нет.
+                Icon(Icons.Filled.Add, null,
+                    tint = if (highlighted) Palette.maroon else Palette.inkSoft.copy(0.6f),
+                    modifier = Modifier.size(20.dp))
+                Spacer(Modifier.height(4.dp))
+                Text(if (highlighted) L10n.s("ui.tap") else L10n.s("ui.scene"),
+                    color = Palette.inkSoft.copy(0.7f), fontSize = 11.sp, fontFamily = Fonts.rounded)
+            }
         }
     }
 }
@@ -666,8 +771,12 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
     // появление — пружиной из уменьшенного
     val appear = remember(cid) { Animatable(0.4f) }
     LaunchedEffect(cid) { appear.animateTo(1f, spring(dampingRatio = 0.55f, stiffness = Spring.StiffnessMediumLow)) }
-    // падение при гибели (только если нет позы «повержен»)
-    val fall by animateFloatAsState(if (topple) 80f else 0f, spring(dampingRatio = 0.55f), label = "fall")
+    // Падение при гибели (только если нет позы «повержен»). Валимся внутрь кадра: поворот
+    // на 80° вокруг ступней уводит голову на целый рост вбок, и у крайнего справа персонажа
+    // она оказывалась за кромкой кадра.
+    val fallsLeft = slot * 2 >= panelChars.size
+    val fall by animateFloatAsState(if (topple) (if (fallsLeft) -80f else 80f) else 0f,
+        spring(dampingRatio = 0.55f), label = "fall")
     // короткое оседание, когда есть поза
     val settle by animateFloatAsState(if (useDeadPose) 1f else 0f, spring(dampingRatio = 0.5f), label = "settle")
     // дрожь заговорщика — фолбэк, если нет позы «заговорщик»
@@ -711,7 +820,10 @@ private fun CharSprite(model: BoardModel, i: Int, cid: String, slot: Int, sprite
                 transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)
                 val s = appear.value * moScale; scaleX = s; scaleY = s
                 rotationZ = fall + tremble + moRot
-                translationY = (if (topple) spriteH.toPx() * 0.24f else 0f) + moDy.dp.toPx() +
+                // Сдвига вниз у завала нет: вращаем вокруг ступней (transformOrigin выше),
+                // поэтому тело и так ложится на пол. С ним оно уезжало под нижнюю кромку кадра
+                // и обрезалось — выглядело как «падает за сцену».
+                translationY = moDy.dp.toPx() +
                     (if (useDeadPose) ((1f - settle) * -6f).dp.toPx() else 0f)
                 translationX = (lunge.value + lean.value).dp.toPx()
             }.clickable { if (model.selected != null) model.applySelection(i) else model.removeChar(i, cid) },
@@ -902,12 +1014,14 @@ private fun TokenTray(model: BoardModel, scale: Float, drag: DragState) {
 private fun SceneToken(model: BoardModel, sid: String, scale: Float, drag: DragState) {
     val sel = model.selected == BoardModel.Sel.Scene(sid)
     Column(Modifier.padding(horizontal = (6 * scale).dp)
+        .coachPulse(sid in model.coachHighlightScenes)
         .tokenDrag(drag, BoardModel.Sel.Scene(sid), "scene_$sid", false, model)
         .clickable { Audio.sfx("select"); model.selectItem(BoardModel.Sel.Scene(sid)) },
         horizontalAlignment = Alignment.CenterHorizontally) {
         val stPainter = artPainter("scene_$sid")
         Box(Modifier.size((66 * scale).dp, (46 * scale).dp).clip(RoundedCornerShape(7.dp)).background(Palette.panel)
-            .border(if (sel) 3.dp else 2.dp, if (sel) Palette.gold else Palette.ink.copy(0.55f), RoundedCornerShape(7.dp))) {
+            .border(if (sel) 3.dp else 2.dp, if (sel) Palette.gold else Palette.ink.copy(0.55f), RoundedCornerShape(7.dp))
+            .coachRing(sid in model.coachHighlightScenes, 7.dp)) {
             if (stPainter != null) Image(stPainter, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
         }
         Text(model.sceneName(sid), color = Palette.inkSoft, fontSize = (9 * scale).sp, fontFamily = Fonts.rounded, maxLines = 1)
@@ -919,12 +1033,14 @@ private fun CharTokenT(model: BoardModel, cid: String, scale: Float, drag: DragS
     val sel = model.selected == BoardModel.Sel.Char(cid)
     val badges = stateBadges(cid, model.world)
     Column(Modifier.padding(horizontal = (6 * scale).dp)
+        .coachPulse(cid in model.coachHighlightChars)
         .tokenDrag(drag, BoardModel.Sel.Char(cid), "char_$cid", true, model)
         .clickable { Audio.sfx("select"); model.selectItem(BoardModel.Sel.Char(cid)) },
         horizontalAlignment = Alignment.CenterHorizontally) {
         Box(Modifier.size((58 * scale).dp, (54 * scale).dp)
             .then(if (sel) Modifier.clip(RoundedCornerShape(9.dp)).background(Palette.gold.copy(0.28f))
-                .border(3.dp, Palette.gold, RoundedCornerShape(9.dp)) else Modifier),
+                .border(3.dp, Palette.gold, RoundedCornerShape(9.dp)) else Modifier)
+            .coachRing(cid in model.coachHighlightChars, 9.dp),
             contentAlignment = Alignment.TopEnd) {
             val ctPainter = artPainter("char_$cid")
             if (ctPainter != null) Image(ctPainter, null, Modifier.fillMaxSize(), contentScale = ContentScale.Fit)
@@ -938,37 +1054,53 @@ private fun CharTokenT(model: BoardModel, cid: String, scale: Float, drag: DragS
 private fun FactPopup(level: LevelDef, onReplay: () -> Unit, onBack: () -> Unit, onClose: () -> Unit) {
     // Тап по фону возвращает на доску, а не уводит с уровня: карточку теперь зовут вручную,
     // и закрыть её должно значить «хочу ещё посмотреть на сцену».
-    Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f)).clickable { onBack() }, contentAlignment = Alignment.Center) {
-        BookPage(Modifier.widthIn(max = 520.dp).padding(20.dp)) {
+    //
+    // indication = null у обеих зон обязательно: с обычным ripple подложка во весь экран
+    // вспыхивала на каждое касание, в том числе на каждый жест прокрутки текста — читалось
+    // как мигание экрана.
+    val dismiss = remember { MutableInteractionSource() }
+    val swallow = remember { MutableInteractionSource() }
+    Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f))
+        .clickable(interactionSource = dismiss, indication = null) { onBack() },
+        contentAlignment = Alignment.Center) {
+        BookPage(Modifier.fillMaxWidth(0.94f).fillMaxHeight(0.94f).widthIn(max = 720.dp)
+            // Карточка съедает касания: иначе прокрутка текста била по фоновому «закрыть».
+            .clickable(interactionSource = swallow, indication = null) { }) {
             Box(Modifier.align(Alignment.TopEnd).padding(10.dp).size(32.dp).clip(CircleShape)
                 .background(Palette.paper).border(1.5.dp, Palette.ink.copy(0.25f), CircleShape)
                 .clickable { onBack() }, contentAlignment = Alignment.Center) {
                 Icon(Icons.Filled.Close, null, tint = Palette.inkSoft, modifier = Modifier.size(15.dp))
             }
-            Column(Modifier.padding(start = 22.dp, end = 22.dp, top = 22.dp, bottom = 30.dp).verticalScroll(rememberScrollState()),
+            Column(Modifier.fillMaxSize().padding(start = 22.dp, end = 22.dp, top = 18.dp, bottom = 14.dp),
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                Pill(L10n.s("ui.solved"), Palette.success.copy(0.2f))
-                Spacer(Modifier.height(10.dp))
-                Text(level.title, color = Palette.ink, fontSize = 22.sp, fontWeight = FontWeight.Bold,
-                    fontFamily = Fonts.serif, textAlign = TextAlign.Center)
-                level.factCard?.let { fc ->
-                    Spacer(Modifier.height(10.dp))
-                    Pill(accuracyLabel(fc.accuracy), Palette.gold.copy(0.25f))
-                    Spacer(Modifier.height(10.dp))
-                    Text(fc.text, color = Palette.ink, fontSize = 14.sp, fontFamily = Fonts.rounded)
+                // Прокручивается только текст. Кнопки закреплены снизу: раньше они ехали
+                // вместе с текстом, и «Дальше» пряталась за нижней кромкой — на телефоне
+                // в ландшафте догадаться, что надо доскроллить, было невозможно.
+                Column(Modifier.weight(1f).verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally) {
+                    Pill(L10n.s("ui.solved"), Palette.success.copy(0.2f))
                     Spacer(Modifier.height(8.dp))
-                    Text(fc.source, color = Palette.inkSoft, fontSize = 11.sp, fontStyle = FontStyle.Italic, fontFamily = Fonts.rounded)
+                    Text(level.title, color = Palette.ink, fontSize = 22.sp, fontWeight = FontWeight.Bold,
+                        fontFamily = Fonts.serif, textAlign = TextAlign.Center)
+                    level.factCard?.let { fc ->
+                        Spacer(Modifier.height(8.dp))
+                        Pill(accuracyLabel(fc.accuracy), Palette.gold.copy(0.25f))
+                        Spacer(Modifier.height(8.dp))
+                        Text(fc.text, color = Palette.ink, fontSize = 14.sp, fontFamily = Fonts.rounded)
+                        Spacer(Modifier.height(8.dp))
+                        Text(fc.source, color = Palette.inkSoft, fontSize = 11.sp, fontStyle = FontStyle.Italic,
+                            fontFamily = Fonts.rounded)
+                    }
                 }
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(10.dp))
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
-                    // «Ещё раз» — сыграть уровень заново
                     Box(Modifier.clip(RoundedCornerShape(30.dp)).background(Palette.paper)
                         .border(1.5.dp, Palette.maroon.copy(0.5f), RoundedCornerShape(30.dp))
-                        .clickable { onReplay() }.padding(horizontal = 22.dp, vertical = 11.dp)) {
+                        .clickable { onReplay() }.padding(horizontal = 22.dp, vertical = 10.dp)) {
                         Text(L10n.s("ui.replay"), color = Palette.maroon, fontSize = 16.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
                     }
                     Box(Modifier.clip(RoundedCornerShape(30.dp)).background(Palette.maroon).clickable { onClose() }
-                        .padding(horizontal = 30.dp, vertical = 11.dp)) {
+                        .padding(horizontal = 30.dp, vertical = 10.dp)) {
                         Text(L10n.s("ui.next"), color = Palette.paper, fontSize = 16.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
                     }
                 }
@@ -998,8 +1130,17 @@ private fun accuracyLabel(acc: String) = when (acc) {
 /** Подсказка к уровню — затемнение + книжная карточка (по кнопке ⓘ, как на iOS). */
 /** Подсказка в стиле финального окна: пергамент-карточка с плашкой «Подсказка», заголовком и текстом. */
 @Composable private fun HintPopup(title: String, text: String, onClose: () -> Unit) {
-    Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f)).clickable { onClose() }, contentAlignment = Alignment.Center) {
-        BookPage(Modifier.widthIn(max = 520.dp).padding(20.dp)) {
+    // indication = null у обеих зон — та же история, что и в FactPopup: с обычным ripple
+    // подложка во весь экран вспыхивала на каждый жест прокрутки текста, и это читалось
+    // как мигание экрана. Карточка вдобавок съедает касания, иначе скролл длинной подсказки
+    // попутно жмёт «закрыть» на фоне.
+    val dismiss = remember { MutableInteractionSource() }
+    val swallow = remember { MutableInteractionSource() }
+    Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f))
+        .clickable(interactionSource = dismiss, indication = null) { onClose() },
+        contentAlignment = Alignment.Center) {
+        BookPage(Modifier.widthIn(max = 520.dp).padding(20.dp)
+            .clickable(interactionSource = swallow, indication = null) { }) {
             Column(Modifier.padding(22.dp).verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally) {
                 Pill(L10n.s("ui.hint"), Palette.gold.copy(0.25f))
@@ -1027,5 +1168,49 @@ private fun accuracyLabel(acc: String) = when (acc) {
         .clickable { onBack() }, contentAlignment = Alignment.Center) {
         Icon(Icons.Filled.KeyboardArrowLeft, null, tint = Color.White,
             modifier = Modifier.size(22.dp).offset(y = (-4).dp))
+    }
+}
+
+
+/**
+ * Пульсация всей карточки токена: больше — обычный — меньше, по кругу.
+ *
+ * Пульсировать кольцом внутри токена оказалось плохо: собственная тёмная рамка карточки
+ * его перекрывает, и мигание читается «внутрь», а не как указание.
+ */
+@Composable
+private fun Modifier.coachPulse(active: Boolean): Modifier {
+    if (!active) return this
+    val pulse = rememberInfiniteTransition(label = "coach")
+    val s by pulse.animateFloat(
+        initialValue = 1.12f, targetValue = 0.94f,
+        animationSpec = infiniteRepeatable(tween(750), RepeatMode.Reverse), label = "pulse")
+    return this.scale(s)
+}
+
+/** Статичная золотая обводка на самой картинке — чтобы было видно, какой именно токен зовут. */
+@Composable
+private fun Modifier.coachRing(active: Boolean, radius: androidx.compose.ui.unit.Dp): Modifier =
+    if (active) this.border(3.dp, Palette.gold, RoundedCornerShape(radius)) else this
+
+/** Реплика гида: пергаментное окошко над рядом токенов. Не перехватывает касания —
+ *  игрок должен продолжать играть, а не закрывать подсказки. */
+@Composable
+private fun CoachBubble(levelId: String, step: CoachStep, modifier: Modifier = Modifier) {
+    Row(
+        modifier                       // позицию задаёт вызывающий: внутренний отступ складывался
+            .widthIn(max = 560.dp)     // с внешним и выбрасывал реплику под заголовок
+            .clip(RoundedCornerShape(12.dp))
+            .background(Palette.paper)
+            .border(2.dp, Palette.gold, RoundedCornerShape(12.dp))
+            .padding(horizontal = 14.dp, vertical = 9.dp),
+        verticalAlignment = Alignment.Top) {
+        // Кегль тот же, что у текста: более крупная стрелка садилась на свою базовую линию
+        // ниже первой строки и выглядела съехавшей вниз.
+        Text("→", color = Palette.maroon, fontSize = 13.sp, fontFamily = Fonts.rounded,
+             modifier = Modifier.padding(end = 8.dp).alignByBaseline())
+        Text(L10n.s("level.$levelId.coach.${step.text}"),
+             color = Palette.ink, fontSize = 13.sp, fontFamily = Fonts.rounded,
+             modifier = Modifier.alignByBaseline())
     }
 }

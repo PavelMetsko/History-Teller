@@ -1,0 +1,82 @@
+{
+ "id": "delenda",
+ "order": 100,
+ "act": "Акт II · Республика и Карфаген",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "punic_harbor",
+  "senate_delenda",
+  "byrsa_fall",
+  "eshmun_temple"
+ ],
+ "characters": [
+  "cato_elder",
+  "nasica",
+  "aemilianus",
+  "hasdrubal"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cato_elder",
+     "is": "war_voted"
+    }
+   },
+   {
+    "flag": {
+     "char": "aemilianus",
+     "is": "victor"
+    }
+   },
+   {
+    "flag": {
+     "char": "hasdrubal",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "punic_harbor",
+   "characters": [
+    "cato_elder"
+   ]
+  },
+  {
+   "scene": "senate_delenda",
+   "characters": [
+    "cato_elder",
+    "aemilianus"
+   ]
+  },
+  {
+   "scene": "byrsa_fall",
+   "characters": [
+    "aemilianus",
+    "hasdrubal"
+   ]
+  }
+ ],
+ "cover": "byrsa_fall",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "aemilianus",
+    "hasdrubal"
+   ],
+   [
+    "enemy_of",
+    "hasdrubal",
+    "aemilianus"
+   ]
+  ]
+ }
+}

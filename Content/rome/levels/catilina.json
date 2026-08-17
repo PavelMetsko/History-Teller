@@ -1,0 +1,102 @@
+{
+ "id": "catilina",
+ "order": 170,
+ "act": "Акт III · Трещина",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "senate_oratio",
+  "allobroges",
+  "caesar_speech",
+  "tullianum"
+ ],
+ "characters": [
+  "cicero",
+  "catilina",
+  "lentulus",
+  "caesar"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "catilina",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "lentulus",
+     "is": "caught"
+    }
+   },
+   {
+    "flag": {
+     "char": "lentulus",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "cicero",
+     "is": "killer"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "senate_oratio",
+   "characters": [
+    "cicero",
+    "catilina"
+   ]
+  },
+  {
+   "scene": "allobroges",
+   "characters": [
+    "cicero",
+    "lentulus"
+   ]
+  },
+  {
+   "scene": "tullianum",
+   "characters": [
+    "cicero",
+    "lentulus"
+   ]
+  }
+ ],
+ "cover": "senate_oratio",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "cicero": [
+    "standing"
+   ],
+   "caesar": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cicero",
+    "catilina"
+   ],
+   [
+    "enemy_of",
+    "cicero",
+    "lentulus"
+   ],
+   [
+    "enemy_of",
+    "caesar",
+    "cicero"
+   ]
+  ]
+ }
+}

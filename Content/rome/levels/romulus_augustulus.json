@@ -1,0 +1,83 @@
+{
+ "id": "romulus_augustulus",
+ "order": 590,
+ "act": "Акт VIII · Закат",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "federati_o",
+  "pavia_o",
+  "depose_o",
+  "mercy_o"
+ ],
+ "characters": [
+  "odoacer",
+  "orestes",
+  "romulus_aug"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "orestes",
+     "is": "refused_land"
+    }
+   },
+   {
+    "flag": {
+     "char": "orestes",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "romulus_aug",
+     "is": "deposed_last"
+    }
+   },
+   {
+    "flag": {
+     "char": "odoacer",
+     "is": "king_of_italy"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "federati_o",
+   "characters": [
+    "odoacer",
+    "orestes"
+   ]
+  },
+  {
+   "scene": "pavia_o",
+   "characters": [
+    "odoacer",
+    "orestes"
+   ]
+  },
+  {
+   "scene": "depose_o",
+   "characters": [
+    "odoacer",
+    "romulus_aug"
+   ]
+  }
+ ],
+ "cover": "depose_o",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "odoacer",
+    "orestes"
+   ]
+  ]
+ }
+}

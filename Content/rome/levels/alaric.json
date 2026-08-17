@@ -1,0 +1,69 @@
+{
+ "id": "alaric",
+ "order": 570,
+ "act": "Акт VIII · Закат",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "ravenna_h",
+  "parley_h",
+  "sack_h",
+  "chickens_h"
+ ],
+ "characters": [
+  "alaric",
+  "stilicho",
+  "honorius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "stilicho",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "alaric",
+     "is": "sacker"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "honorius",
+      "is": "away"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ravenna_h",
+   "characters": [
+    "honorius",
+    "stilicho"
+   ]
+  },
+  {
+   "scene": "parley_h",
+   "characters": [
+    "alaric",
+    "honorius"
+   ]
+  },
+  {
+   "scene": "sack_h",
+   "characters": [
+    "alaric"
+   ]
+  }
+ ],
+ "cover": "sack_h",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

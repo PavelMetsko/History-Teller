@@ -50,7 +50,9 @@ class Progress(ctx: Context) {
         if (BuildConfig.DEBUG) return true   // ВРЕМЕННО: в debug-сборках всё открыто для плейтеста
         val i = ordered.indexOf(id)
         if (i <= 0) return true
-        return isCompleted(ordered[i - 1])
+        // Уже пройденный уровень открыт всегда: иначе вставка новых уровней в начало главы
+        // (приквел к Риму) заперла бы прогресс тех, кто прошёл главу до обновления.
+        return isCompleted(id) || isCompleted(ordered[i - 1])
     }
 }
 

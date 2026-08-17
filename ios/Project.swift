@@ -11,6 +11,13 @@ let baseSettings: SettingsDictionary = [
     "DEVELOPMENT_TEAM": "LG956X5CL5",
 ]
 
+/// Откуда приложение берёт контент. Debug-сборка на устройстве ходит на локальный стенд
+/// (`tools/publish_content.py --serve 8787`) по адресу Мака в той же Wi-Fi — иначе телефон
+/// видит только то, что залито на боевой CDN, и новые уровни на нём не появляются.
+/// Адрес переопределяется из командной строки: `xcodebuild HT_CONTENT_BASE_URL=http://…`.
+let debugContentURL = "http://192.168.1.68:8787"
+let releaseContentURL = "https://cdn.historyteller.app"
+
 func framework(_ name: String,
                sources: SourceFilesList? = nil,
                resources: Bool = false,
@@ -71,6 +78,13 @@ let project = Project(
             bundleId: "com.decima.historyteller",
             deploymentTargets: deployment,
             infoPlist: .extendingDefault(with: [
+                // MARK: - Источник контента (см. debugContentURL выше)
+                "HTContentBaseURL": "$(HT_CONTENT_BASE_URL)",
+                // Стенд раздаётся по http на серый адрес — для Debug это надо разрешить явно,
+                // и iOS отдельно спросит разрешение на локальную сеть.
+                "NSAppTransportSecurity": ["NSAllowsLocalNetworking": true],
+                "NSLocalNetworkUsageDescription":
+                    "Загрузка контента с локального стенда разработки.",
                 // MARK: - Название / версия (версию правь здесь)
                 "CFBundleName": "History Teller",
                 "CFBundleDisplayName": "History Teller",
@@ -105,7 +119,11 @@ let project = Project(
                 .target(name: "DesignSystem"),
                 .target(name: "GameContent"),
                 .target(name: "Simulation"),
-            ]
+            ],
+            settings: .settings(configurations: [
+                .debug(name: "Debug", settings: ["HT_CONTENT_BASE_URL": .string(debugContentURL)]),
+                .release(name: "Release", settings: ["HT_CONTENT_BASE_URL": .string(releaseContentURL)]),
+            ])
         ),
     ],
     schemes: [

@@ -1,0 +1,68 @@
+{
+ "id": "nero_fire",
+ "order": 480,
+ "act": "Акт VII · Империя",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "fire_night",
+  "scapegoat_n",
+  "golden_house",
+  "lyre_roof"
+ ],
+ "characters": [
+  "nero",
+  "tigellinus",
+  "thrasea"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nero",
+     "is": "extravagant"
+    }
+   },
+   {
+    "flag": {
+     "char": "tigellinus",
+     "is": "bloodied"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "nero",
+      "is": "infamous"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fire_night",
+   "characters": [
+    "nero"
+   ]
+  },
+  {
+   "scene": "scapegoat_n",
+   "characters": [
+    "nero",
+    "tigellinus"
+   ]
+  },
+  {
+   "scene": "golden_house",
+   "characters": [
+    "nero"
+   ]
+  }
+ ],
+ "cover": "fire_night",
+ "music": "battle",
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

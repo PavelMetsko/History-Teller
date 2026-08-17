@@ -75,12 +75,15 @@ public struct LevelBoardView: View {
                     VStack(spacing: 8) {
                         titleBar
                         panelsGrid
-                        tokenTray(scale: trayScale(width: boardGeo.size.width))
+                        if let step = model.coachStep, !model.showFact, !awaitingReveal {
+                            coachBubble(step)
+                        }
+                        tokenTray(scale: trayScale(size: boardGeo.size))
                     }
-                    .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
+                    .padding(EdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 20))
                 }
             }
-            .padding(EdgeInsets(top: 14, leading: 18, bottom: 14, trailing: 18))
+            .padding(EdgeInsets(top: 6, leading: 18, bottom: 6, trailing: 18))
             .overlay(alignment: .topLeading) { bookmark.offset(x: 42, y: -12) }
             .modifier(Shake(animatableData: shakeData))
 
@@ -103,7 +106,11 @@ public struct LevelBoardView: View {
             reactToEvents()
             if !model.isSolved && model.isBoardComplete { triggerWrong() }
         }
-        .onChange(of: model.isSolved) { _, solved in if solved { win() } }
+        .onChange(of: model.isSolved) { _, solved in
+            if solved { win() }
+            // Доска разобрана («заново» или снятый токен) — звать к истории больше нечем.
+            else { awaitingReveal = false; celebrate = false }
+        }
         .onAppear {
             // музыкой рулит координатор (RootView) — сквозняком между экранами
             if ProcessInfo.processInfo.environment["HT_DEMO"] == "1" {
@@ -142,23 +149,60 @@ public struct LevelBoardView: View {
         panelFrames.first { $0.value.contains(p) }?.key
     }
 
-    /// Drag-reorder сцен: тащишь панель (с любого места, даже поверх героев — тап остаётся тапом,
-    /// т.к. нужен сдвиг ≥ порога) и отпускаешь над другой — сцены меняются местами. Без long-press.
+    /// Цель для перетаскивания панели.
+    ///
+    /// Опираемся только на рамки ОСТАЛЬНЫХ кадров: рамка перетаскиваемого меряется геометрией
+    /// внутри него самого и едет за пальцем, поэтому по ней ничего определить нельзя — ни того,
+    /// что палец над чужим кадром, ни того, что над своим.
+    ///
+    /// Между кадрами есть зазоры, и палец нередко отпускают там. Чтобы бросок не пропадал,
+    /// добираем ближайший кадр — но только когда палец реально ушёл в сторону: иначе
+    /// удержание с микросдвигом меняло кадры местами само по себе.
+    private func panelDropTarget(at p: CGPoint, shift: CGFloat) -> Int? {
+        let others = panelFrames.filter { $0.key != draggingPanel }
+        if let hit = others.first(where: { $0.value.contains(p) })?.key { return hit }
+        guard let (idx, frame) = others.min(by: { a, b in
+            hypot(a.value.midX - p.x, a.value.midY - p.y) < hypot(b.value.midX - p.x, b.value.midY - p.y)
+        }) else { return nil }
+        guard shift >= frame.width * 0.5 else { return nil }
+        return hypot(frame.midX - p.x, frame.midY - p.y) <= frame.width * 1.2 ? idx : nil
+    }
+
+    /// Перестановка кадров: удержание «берёт» кадр, затем его ведут пальцем.
+    ///
+    /// Раньше это был один sequenced-жест, и у него не приходил `onEnded`, если палец после
+    /// удержания не двигался, — кадр так и оставался увеличенным, будто всё ещё выделен.
+    /// Поэтому перенос вынесен в обычный DragGesture: он получает отпускание всегда и
+    /// служит единственной точкой сброса состояния.
     private func panelReorderGesture(_ i: Int) -> some Gesture {
-        DragGesture(minimumDistance: 12, coordinateSpace: .named(boardSpace))
+        let minShift: CGFloat = 24        // меньше — считаем, что игрок кадр не двигал
+
+        let pick = LongPressGesture(minimumDuration: 0.45)
+            .onEnded { _ in
+                if draggingPanel == nil {
+                    draggingPanel = i; model.selected = nil; Haptics.light()
+                }
+            }
+
+        let move = DragGesture(minimumDistance: 0, coordinateSpace: .named(boardSpace))
             .onChanged { v in
-                if draggingPanel == nil { draggingPanel = i; model.selected = nil; Haptics.light() }
-                dragPanelOffset = v.translation
-                let h = panelIndex(at: v.location)
-                if h != hoverPanel, let t = h, t != draggingPanel { Haptics.light() }  // тик при заходе на новую цель
-                hoverPanel = h
+                guard draggingPanel == i else { return }
+                let shift = hypot(v.translation.width, v.translation.height)
+                dragPanelOffset = shift < 8 ? .zero : v.translation
+                let target = shift < minShift ? nil : panelDropTarget(at: v.location, shift: shift)
+                if target != hoverPanel, target != nil { Haptics.light() }
+                hoverPanel = target
             }
             .onEnded { v in
-                if let from = draggingPanel, let to = panelIndex(at: v.location), to != from {
-                    model.movePanel(from: from, to: to); Audio.shared.play(.select); Haptics.light()
+                guard draggingPanel == i else { return }
+                let shift = hypot(v.translation.width, v.translation.height)
+                if shift >= minShift, let to = panelDropTarget(at: v.location, shift: shift), to != i {
+                    model.movePanel(from: i, to: to); Audio.shared.play(.select); Haptics.light()
                 }
                 draggingPanel = nil; dragPanelOffset = .zero; hoverPanel = nil
             }
+
+        return pick.simultaneously(with: move)
     }
 
     private func applyDrag(_ item: LevelBoardModel.Selection, to idx: Int) {
@@ -208,6 +252,8 @@ public struct LevelBoardView: View {
             // разглядеть, что получилось. Вместо этого зовём кнопкой — открыть её можно
             // когда захочется, а из карточки вернуться назад на доску.
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                // За эту секунду доску могли уже разобрать — тогда звать некуда.
+                guard model.isSolved else { return }
                 withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) { awaitingReveal = true }
             }
         }
@@ -274,10 +320,11 @@ public struct LevelBoardView: View {
                               highlighted: hoverPanel == i || (model.selected != nil),
                               diagnosis: model.panelDiagnoses.indices.contains(i) ? model.panelDiagnoses[i] : .ok,
                               boardSpace: boardSpace,
-                              beats: activeBeats.filter { $0.panelIndex == i })
-                        .scaleEffect(draggingPanel == i ? 1.07
-                                     : (draggingPanel != nil && hoverPanel == i ? 0.93 : 1))
-                        .rotationEffect(.degrees(draggingPanel == i ? 2.5 : 0))
+                              beats: activeBeats.filter { $0.panelIndex == i },
+                              isReordering: draggingPanel != nil)
+                        // Без наклона: кадр — страница комикса, перекошенная она читается как сбой.
+                        .scaleEffect(draggingPanel == i ? 1.04
+                                     : (draggingPanel != nil && hoverPanel == i ? 0.96 : 1))
                         .offset(draggingPanel == i ? dragPanelOffset : .zero)
                         .shadow(color: .black.opacity(draggingPanel == i ? 0.38 : 0),
                                 radius: draggingPanel == i ? 18 : 0, y: draggingPanel == i ? 12 : 0)
@@ -299,9 +346,9 @@ public struct LevelBoardView: View {
                         .zIndex(draggingPanel == i ? 10 : 0)
                         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: draggingPanel)
                         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: hoverPanel)
-                        // highPriority: драг (движение) забирает переупорядочивание даже поверх персонажей-Button;
-                        // тап (без движения) проходит в Button на удаление. Без этого драг глох на занятых сценах.
-                        .highPriorityGesture(panelReorderGesture(i),
+                        // simultaneous, а не highPriority: жест начинается только после удержания,
+                        // поэтому обычные тапы должны свободно доходить до кнопок персонажей.
+                        .simultaneousGesture(panelReorderGesture(i),
                                  including: model.panels[i].sceneId != nil ? .all : .subviews)
                 }
             }
@@ -316,7 +363,9 @@ public struct LevelBoardView: View {
             Spacer(minLength: 0)
             ForEach(model.level.scenes, id: \.self) { sid in
                 SceneToken(sceneId: sid, name: model.sceneName(sid),
-                           selected: model.selected == .scene(sid), scale: scale)
+                           selected: model.selected == .scene(sid), scale: scale,
+                           coached: model.coachHighlightScenes.contains(sid))
+                    .modifier(CoachPulse(active: model.coachHighlightScenes.contains(sid)))
                     .opacity(draggingItem == .scene(sid) ? 0.35 : 1)
                     .onTapGesture { Audio.shared.play(.select); model.selectItem(.scene(sid)) }
                     .gesture(dragGesture(for: .scene(sid)))
@@ -326,7 +375,9 @@ public struct LevelBoardView: View {
             ForEach(model.roster, id: \.self) { id in
                 CharToken(id: id, name: model.characterName(id),
                           badges: StateBadges.emojis(for: id, in: model.world),
-                          selected: model.selected == .character(id), scale: scale)
+                          selected: model.selected == .character(id), scale: scale,
+                          coached: model.coachHighlightChars.contains(id))
+                    .modifier(CoachPulse(active: model.coachHighlightChars.contains(id)))
                     .opacity(draggingItem == .character(id) ? 0.35 : 1)
                     .onTapGesture { Audio.shared.play(.select); model.selectItem(.character(id)) }
                     .gesture(dragGesture(for: .character(id)))
@@ -337,8 +388,37 @@ public struct LevelBoardView: View {
     }
 
     /// Крупнее токены на широких экранах (iPad), на iPhone — как было.
-    private func trayScale(width: CGFloat) -> CGFloat {
-        min(1.7, max(1.0, width / 720))
+    /// Масштаб нижнего ряда токенов.
+    ///
+    /// Считался по одной ширине — а телефон в ландшафте как раз широкий и низкий (у 15 Pro
+    /// 852×393): ширина давала множитель больше единицы, и ряд не помещался по высоте.
+    /// Теперь берём меньшее из двух ограничений.
+    private func trayScale(size: CGSize) -> CGFloat {
+        min(1.7, max(0.78, min(size.width / 720, size.height / 440)))
+    }
+
+    /// Реплика гида-помощника. Висит над рядом токенов и не перехватывает касания:
+    /// игрок должен продолжать играть, а не закрывать окошки.
+    @ViewBuilder
+    private func coachBubble(_ step: CoachStep) -> some View {
+        HStack(alignment: .top, spacing: 8) {
+                Image(systemName: "hand.point.right.fill")
+                    .font(.system(size: 13)).foregroundStyle(DS.Palette.maroon)
+                Text(L10n.s("level.\(model.level.id).coach.\(step.text)"))
+                    .font(.dsBody(13)).foregroundStyle(DS.Palette.ink)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(.horizontal, 14).padding(.vertical, 6)
+            .background(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .fill(DS.Palette.paper)
+                    .shadow(color: DS.Palette.ink.opacity(0.28), radius: 8, y: 3))
+            .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .strokeBorder(DS.Palette.gold, lineWidth: 2))
+        .frame(maxWidth: 520)
+        .id(step.text)                          // смена шага — новая реплика, а не правка старой
+        .allowsHitTesting(false)
+        .animation(.easeInOut(duration: 0.28), value: step.text)
     }
 
     // MARK: Chrome
@@ -410,10 +490,16 @@ public struct LevelBoardView: View {
             Color.black.opacity(0.5).ignoresSafeArea()
                 .onTapGesture { hideFact() }
                 .transition(.opacity)
-            FactPopupCard(level: model.level, onClose: dismissFact,
-                          onReplay: replayLevel, onBack: hideFact)
-                .padding(.horizontal, 40)
-                .transition(.scale(scale: 0.8).combined(with: .opacity))
+            // Высота — от экрана, а не фиксированные 440: айфон в ландшафте ниже этого,
+            // и карточка вылезала за верх и низ вместе с кнопками.
+            GeometryReader { geo in
+                FactPopupCard(level: model.level, onClose: dismissFact,
+                              onReplay: replayLevel, onBack: hideFact)
+                    .frame(maxHeight: max(200, geo.size.height - 24))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .padding(.horizontal, 40)
+            .transition(.scale(scale: 0.8).combined(with: .opacity))
         }
     }
 
@@ -429,11 +515,15 @@ public struct LevelBoardView: View {
             Color.black.opacity(0.5).ignoresSafeArea()
                 .onTapGesture { closeHint() }
                 .transition(.opacity)
-            HintPopupCard(
-                title: model.level.title,
-                text: [model.level.initialText, model.level.goalHint].compactMap { $0 }.joined(separator: "\n\n"),
-                onClose: closeHint
-            )
+            GeometryReader { geo in
+                HintPopupCard(
+                    title: model.level.title,
+                    text: [model.level.initialText, model.level.goalHint].compactMap { $0 }.joined(separator: "\n\n"),
+                    onClose: closeHint
+                )
+                .frame(maxHeight: max(200, geo.size.height - 24))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
             .padding(.horizontal, 40)
             .transition(.scale(scale: 0.8).combined(with: .opacity))
         }
@@ -447,6 +537,7 @@ private struct SceneToken: View {
     let name: String
     let selected: Bool
     var scale: CGFloat = 1
+    var coached: Bool = false
 
     var body: some View {
         VStack(spacing: 3 * scale) {
@@ -457,7 +548,12 @@ private struct SceneToken: View {
                 .overlay(RoundedRectangle(cornerRadius: 7 * scale, style: .continuous)
                     .strokeBorder(selected ? DS.Palette.gold : DS.Palette.ink.opacity(0.55),
                                   lineWidth: selected ? 3 : 2))
-            Text(name).font(.dsCaption(9 * scale)).foregroundStyle(DS.Palette.inkSoft).lineLimit(1)
+                .overlay(coached ? RoundedRectangle(cornerRadius: 7 * scale, style: .continuous)
+                    .strokeBorder(DS.Palette.gold, lineWidth: 3) : nil)
+            Text(name).font(.dsCaption(9 * scale)).foregroundStyle(DS.Palette.inkSoft)
+                // Длинные имена («Марк Манлий Капитолин») раньше обрезались многоточием.
+                // Ужимаем кегль вместо обрезки: высота строки не меняется, вёрстка не едет.
+                .lineLimit(1).minimumScaleFactor(0.6).allowsTightening(true)
         }
         .contentShape(Rectangle())
     }
@@ -469,6 +565,7 @@ private struct CharToken: View {
     let badges: [String]
     let selected: Bool
     var scale: CGFloat = 1
+    var coached: Bool = false
 
     var body: some View {
         VStack(spacing: 1) {
@@ -482,7 +579,12 @@ private struct CharToken: View {
             .frame(width: 58 * scale, height: 54 * scale)
             .background(selected ? RoundedRectangle(cornerRadius: 9).fill(DS.Palette.gold.opacity(0.28)) : nil)
             .overlay(selected ? RoundedRectangle(cornerRadius: 9).strokeBorder(DS.Palette.gold, lineWidth: 3) : nil)
-            Text(name).font(.dsCaption(9 * scale)).foregroundStyle(DS.Palette.inkSoft).lineLimit(1)
+            .overlay(coached ? RoundedRectangle(cornerRadius: 9)
+                .strokeBorder(DS.Palette.gold, lineWidth: 3) : nil)
+            Text(name).font(.dsCaption(9 * scale)).foregroundStyle(DS.Palette.inkSoft)
+                // Длинные имена («Марк Манлий Капитолин») раньше обрезались многоточием.
+                // Ужимаем кегль вместо обрезки: высота строки не меняется, вёрстка не едет.
+                .lineLimit(1).minimumScaleFactor(0.6).allowsTightening(true)
         }
         .contentShape(Rectangle())
     }
@@ -498,6 +600,8 @@ private struct PanelCell: View {
     let diagnosis: LevelBoardModel.PanelDiagnosis
     let boardSpace: String
     let beats: [LevelBoardModel.Beat]
+    /// Кадр сейчас «взят» долгим нажатием — касания по героям не должны их удалять.
+    let isReordering: Bool
 
     @State private var killShake: CGFloat = 0
 
@@ -573,8 +677,18 @@ private struct PanelCell: View {
                     .transition(.scale(scale: 0.88).combined(with: .opacity))
                     .id(sid)
                 if let action = model.sceneAction(sid) {
-                    VStack { HStack { PillLabel(action, background: DS.Palette.paper.opacity(0.92)); Spacer() }; Spacer() }
-                        .padding(7)
+                    // Отступ справа — под кнопку «убрать сцену»: длинные подписи вроде
+                    // «заступничество» иначе переносились и заезжали ей под крестик.
+                    VStack {
+                        HStack {
+                            PillLabel(action, background: DS.Palette.paper.opacity(0.92))
+                                .lineLimit(1).minimumScaleFactor(0.7)
+                            Spacer(minLength: 0)
+                        }
+                        Spacer(minLength: 0)
+                    }
+                    .padding(7)
+                    .padding(.trailing, 26)
                 }
                 charactersOverlay(sceneId: sid)
             } else {
@@ -714,6 +828,8 @@ private struct PanelCell: View {
                         // этот персонаж — жертва убийства: брызги крови
                         let killVictim = beats.contains { $0.kind == .kill && $0.primary == charId }
                         Button {
+                            // панель сейчас перетаскивают — касание не должно удалить героя
+                            if isReordering { return }
                             // если есть выделенный элемент — ставим его, а не удаляем текущего
                             if model.selected != nil {
                                 applyTap()
@@ -726,7 +842,8 @@ private struct PanelCell: View {
                                             plotting: plotting, crowned: crowned, triumphant: triumphant,
                                             defeated: defeated, isAggressor: isAggressor, lungeDX: lungeDX,
                                             isAlly: isAlly, allyLeanDX: allyLeanDX, motion: motion,
-                                            crownDrop: crownDrop, killVictim: killVictim)
+                                            crownDrop: crownDrop, killVictim: killVictim,
+                                            fallsLeft: slot * 2 >= panel.characters.count)
                         }
                         .buttonStyle(.plain)
                         .transition(.scale(scale: 0.4).combined(with: .opacity))
@@ -768,6 +885,10 @@ private struct CharacterSprite: View {
     let motion: SpriteMotion
     let crownDrop: Bool
     let killVictim: Bool
+    /// Валиться внутрь кадра, а не наружу: тот, кто стоит справа, падает влево.
+    /// Поворот на 80° вокруг ступней уводит голову на целый рост вбок — у крайнего
+    /// персонажа она оказывалась за кромкой кадра и уезжала за экран.
+    var fallsLeft: Bool = false
 
     /// Есть отдельная поза «повержен» (слой 3) — тогда показываем её, без ч/б и заваливания.
     private var useDeadPose: Bool { dead && GameAssets.hasDeadPose(charId) }
@@ -795,8 +916,11 @@ private struct CharacterSprite: View {
             .grayscale(topple ? 0.9 : 0)
             .opacity(topple ? 0.82 : 1)
             .scaleEffect(topple ? 0.9 : 1)
-            .rotationEffect(.degrees(topple ? 80 : 0))
-            .offset(y: topple ? spriteH * 0.26 : 0)
+            // Вращаем вокруг ступней: раньше поворот шёл вокруг центра, и тело приходилось
+            // опускать на четверть роста, чтобы «легло на пол», — из-за чего оно уходило
+            // под нижнюю кромку кадра и обрезалось.
+            .rotationEffect(.degrees(topple ? (fallsLeft ? -80 : 80) : 0), anchor: .bottom)
+            .offset(y: topple ? spriteH * 0.04 : 0)
             .animation(.spring(response: 0.5, dampingFraction: 0.55), value: dead)
             // короткое оседание при гибели (когда есть поза)
             .keyframeAnimator(initialValue: CGFloat(0), trigger: useDeadPose) { v, y in
@@ -1105,25 +1229,27 @@ private struct HintPopupCard: View {
 
     var body: some View {
         BookPage {
-            ScrollView {
-                VStack(spacing: 12) {
-                    PillLabel(L10n.s("ui.hint"), systemImage: "lightbulb.fill",
-                              background: DS.Palette.gold.opacity(0.25))
-                    Text(title).font(.serifTitle(22)).foregroundStyle(DS.Palette.ink)
-                        .multilineTextAlignment(.center)
-                    if !text.isEmpty {
-                        Text(text).font(.dsBody(14)).foregroundStyle(DS.Palette.ink)
-                            .multilineTextAlignment(.leading)
+            VStack(spacing: 0) {
+                ScrollView {
+                    VStack(spacing: 12) {
+                        PillLabel(L10n.s("ui.hint"), systemImage: "lightbulb.fill",
+                                  background: DS.Palette.gold.opacity(0.25))
+                        Text(title).font(.serifTitle(22)).foregroundStyle(DS.Palette.ink)
+                            .multilineTextAlignment(.center)
+                        if !text.isEmpty {
+                            Text(text).font(.dsBody(14)).foregroundStyle(DS.Palette.ink)
+                                .multilineTextAlignment(.leading)
+                        }
                     }
-                    Button(action: onClose) {
-                        Text(L10n.s("ui.ok")).font(.dsBody())
-                            .foregroundStyle(DS.Palette.paper)
-                            .padding(.horizontal, 30).padding(.vertical, 11)
-                            .background(Capsule().fill(DS.Palette.maroon))
-                    }
-                    .padding(.top, 4)
+                    .padding(.horizontal, 24).padding(.top, 22).padding(.bottom, 12)
                 }
-                .padding(24)
+                Button(action: onClose) {
+                    Text(L10n.s("ui.ok")).font(.dsBody())
+                        .foregroundStyle(DS.Palette.paper)
+                        .padding(.horizontal, 30).padding(.vertical, 11)
+                        .background(Capsule().fill(DS.Palette.maroon))
+                }
+                .padding(.bottom, 18)
             }
         }
         .frame(maxWidth: 540, maxHeight: 440)
@@ -1148,39 +1274,44 @@ private struct FactPopupCard: View {
 
     var body: some View {
         BookPage {
-            ScrollView {
-                VStack(spacing: 12) {
-                    PillLabel(L10n.s("ui.solved"), systemImage: "checkmark.seal.fill",
-                              background: DS.Palette.success.opacity(0.2))
-                    Text(level.title).font(.serifTitle(22)).foregroundStyle(DS.Palette.ink)
-                        .multilineTextAlignment(.center)
-                    if let card = level.factCard {
-                        PillLabel(accuracyLabel, background: DS.Palette.gold.opacity(0.25))
-                        Text(card.text).font(.dsBody(14)).foregroundStyle(DS.Palette.ink)
-                            .multilineTextAlignment(.leading)
-                        Text(card.source).font(.dsCaption(11)).italic().foregroundStyle(DS.Palette.inkSoft)
-                    }
-                    HStack(spacing: 12) {
-                        if let onReplay {
-                            Button(action: onReplay) {
-                                Label(L10n.s("ui.replay"), systemImage: "arrow.counterclockwise")
-                                    .font(.dsBody())
-                                    .foregroundStyle(DS.Palette.maroon)
-                                    .padding(.horizontal, 22).padding(.vertical, 11)
-                                    .background(Capsule().fill(DS.Palette.paper))
-                                    .overlay(Capsule().strokeBorder(DS.Palette.maroon.opacity(0.5), lineWidth: 1.5))
-                            }
-                        }
-                        Button(action: onClose) {
-                            Text(L10n.s("ui.next")).font(.dsBody())
-                                .foregroundStyle(DS.Palette.paper)
-                                .padding(.horizontal, 30).padding(.vertical, 11)
-                                .background(Capsule().fill(DS.Palette.maroon))
+            // Прокручивается только текст, кнопки закреплены снизу: иначе на длинной истории
+            // «Дальше» уезжает за нижнюю кромку — в ландшафте догадаться, что надо доскроллить,
+            // невозможно.
+            VStack(spacing: 0) {
+                ScrollView {
+                    VStack(spacing: 12) {
+                        PillLabel(L10n.s("ui.solved"), systemImage: "checkmark.seal.fill",
+                                  background: DS.Palette.success.opacity(0.2))
+                        Text(level.title).font(.serifTitle(22)).foregroundStyle(DS.Palette.ink)
+                            .multilineTextAlignment(.center)
+                        if let card = level.factCard {
+                            PillLabel(accuracyLabel, background: DS.Palette.gold.opacity(0.25))
+                            Text(card.text).font(.dsBody(14)).foregroundStyle(DS.Palette.ink)
+                                .multilineTextAlignment(.leading)
+                            Text(card.source).font(.dsCaption(11)).italic().foregroundStyle(DS.Palette.inkSoft)
                         }
                     }
-                    .padding(.top, 4)
+                    .padding(.horizontal, 24).padding(.top, 22).padding(.bottom, 12)
                 }
-                .padding(24)
+                HStack(spacing: 12) {
+                    if let onReplay {
+                        Button(action: onReplay) {
+                            Label(L10n.s("ui.replay"), systemImage: "arrow.counterclockwise")
+                                .font(.dsBody())
+                                .foregroundStyle(DS.Palette.maroon)
+                                .padding(.horizontal, 22).padding(.vertical, 11)
+                                .background(Capsule().fill(DS.Palette.paper))
+                                .overlay(Capsule().strokeBorder(DS.Palette.maroon.opacity(0.5), lineWidth: 1.5))
+                        }
+                    }
+                    Button(action: onClose) {
+                        Text(L10n.s("ui.next")).font(.dsBody())
+                            .foregroundStyle(DS.Palette.paper)
+                            .padding(.horizontal, 30).padding(.vertical, 11)
+                            .background(Capsule().fill(DS.Palette.maroon))
+                    }
+                }
+                .padding(.horizontal, 24).padding(.bottom, 18)
             }
         }
         .frame(maxWidth: 540, maxHeight: 440)
@@ -1198,5 +1329,28 @@ private struct FactPopupCard: View {
                 .padding(10)
             }
         }
+    }
+}
+
+
+/// Пульсация всей карточки токена, на который показывает гид: больше — обычный — меньше.
+///
+/// Раньше пульсировало кольцо внутри токена, и его сильно перекрывала собственная тёмная
+/// рамка — со стороны это читалось как мигание внутрь, а не как «посмотри сюда».
+private struct CoachPulse: ViewModifier {
+    let active: Bool
+    @State private var phase = false
+
+    func body(content: Content) -> some View {
+        content
+            .scaleEffect(active ? (phase ? 1.12 : 0.94) : 1.0)
+            // Анимацию привязываем к признаку активности: пока гид зовёт — бесконечный цикл,
+            // как только перестал — цикл снимается вместе с ней, и карточка встаёт на место.
+            // С `withAnimation(.repeatForever)` анимация оставалась в полёте и продолжала дышать.
+            .animation(active ? .easeInOut(duration: 0.75).repeatForever(autoreverses: true) : nil,
+                       value: phase)
+            .animation(.easeOut(duration: 0.18), value: active)
+            .onAppear { phase = active }
+            .onChange(of: active) { _, now in phase = now }
     }
 }

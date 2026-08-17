@@ -1,6 +1,6 @@
 {
  "id": "cleopatra_charm",
- "order": 40,
+ "order": 340,
  "epoch": "rome",
  "panels": 2,
  "scenes": [
@@ -61,5 +61,5 @@
   "accuracy": "simplification"
  },
  "music": "romance",
- "act": "Акт II · Царица и диктатор"
+ "act": "Акт V · Царица и диктатор"
 }

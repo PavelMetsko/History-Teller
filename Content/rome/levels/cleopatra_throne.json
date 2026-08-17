@@ -1,6 +1,6 @@
 {
  "id": "cleopatra_throne",
- "order": 50,
+ "order": 350,
  "epoch": "rome",
  "panels": 3,
  "scenes": [
@@ -24,7 +24,7 @@
    {
     "flag": {
      "char": "ptolemy",
-     "is": "dead"
+     "is": "defeated"
     }
    }
   ]
@@ -56,6 +56,25 @@
   "accuracy": "fact"
  },
  "music": "battle",
- "act": "Акт II · Царица и диктатор",
- "cover": "battlefield"
+ "act": "Акт V · Царица и диктатор",
+ "cover": "battlefield",
+ "initialState": {
+  "flags": {
+   "caesar": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "caesar",
+    "ptolemy"
+   ],
+   [
+    "enemy_of",
+    "ptolemy",
+    "caesar"
+   ]
+  ]
+ }
 }

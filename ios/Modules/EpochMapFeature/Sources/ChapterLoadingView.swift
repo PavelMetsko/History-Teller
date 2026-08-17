@@ -89,15 +89,17 @@ public struct ChapterLoadingView: View {
         ZStack {
             DS.Palette.backdrop.opacity(0.94).ignoresSafeArea()
             VStack(spacing: 14) {
+                // Подложка здесь — тёмный backdrop, поэтому текст бумажный: ink на нём
+                // давал контраст около 1.1:1, то есть не читался вовсе.
                 Text(L10n.s("ui.load_fail")).font(.dsSerif(20))
-                    .foregroundStyle(DS.Palette.ink)
-                Text(message).font(.dsCaption(12)).foregroundStyle(DS.Palette.inkSoft)
+                    .foregroundStyle(DS.Palette.paper)
+                Text(message).font(.dsCaption(12)).foregroundStyle(DS.Palette.paper.opacity(0.75))
                     .multilineTextAlignment(.center)
                 HStack(spacing: 12) {
                     Button(L10n.s("ui.retry")) { retryToken += 1 }
                         .buttonStyle(.borderedProminent).tint(DS.Palette.maroon)
                     Button(L10n.s("ui.cancel")) { onReady() }
-                        .buttonStyle(.bordered).tint(DS.Palette.inkSoft)
+                        .buttonStyle(.bordered).tint(DS.Palette.paper)
                 }
                 .font(.dsBody(14))
             }

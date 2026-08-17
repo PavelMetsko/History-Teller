@@ -1,7 +1,7 @@
 {
  "id": "pompey_death",
- "order": 30,
- "act": "Акт I · Восхождение",
+ "order": 330,
+ "act": "Акт IV · Падение республики",
  "epoch": "rome",
  "panels": 2,
  "scenes": [
@@ -19,7 +19,19 @@
    "pompey": [
     "fugitive"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "pothinus",
+    "pompey"
+   ],
+   [
+    "enemy_of",
+    "ptolemy",
+    "pompey"
+   ]
+  ]
  },
  "goal": {
   "all": [
@@ -27,12 +39,6 @@
     "flag": {
      "char": "pompey",
      "is": "dead"
-    }
-   },
-   {
-    "flag": {
-     "char": "ptolemy",
-     "is": "treacherous"
     }
    },
    {
@@ -48,7 +54,6 @@
    "scene": "harbor",
    "characters": [
     "pothinus",
-    "ptolemy",
     "pompey"
    ]
   },
@@ -56,7 +61,7 @@
    "scene": "egypt_court",
    "characters": [
     "caesar",
-    "ptolemy"
+    "pothinus"
    ]
   }
  ],

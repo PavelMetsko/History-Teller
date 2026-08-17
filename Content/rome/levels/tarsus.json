@@ -1,12 +1,13 @@
 {
  "id": "tarsus",
- "order": 110,
- "act": "Акт III · Наследники",
+ "order": 410,
+ "act": "Акт VI · Наследники",
  "epoch": "rome",
  "panels": 2,
  "scenes": [
   "barge",
-  "palace"
+  "pearl_feast",
+  "summons_t"
  ],
  "characters": [
   "antony",
@@ -18,8 +19,18 @@
   "flags": {
    "cleopatra": [
     "locked_out"
+   ],
+   "antony": [
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "antony",
+    "cleopatra"
+   ]
+  ]
  },
  "goal": {
   "all": [
@@ -35,6 +46,14 @@
      "char": "antony",
      "is": "eastern"
     }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cleopatra",
+      "is": "condemned"
+     }
+    }
    }
   ]
  },
@@ -42,19 +61,19 @@
   {
    "scene": "barge",
    "characters": [
-    "apollodorus",
-    "cleopatra"
+    "cleopatra",
+    "apollodorus"
    ]
   },
   {
-   "scene": "palace",
+   "scene": "pearl_feast",
    "characters": [
-    "antony",
-    "cleopatra"
+    "cleopatra",
+    "antony"
    ]
   }
  ],
- "cover": "palace",
+ "cover": "pearl_feast",
  "music": "romance",
  "factCard": {
   "accuracy": "simplification"

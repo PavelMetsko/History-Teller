@@ -1,6 +1,6 @@
 {
  "id": "caesar_assassination",
- "order": 80,
+ "order": 380,
  "epoch": "rome",
  "panels": 3,
  "scenes": [
@@ -73,5 +73,5 @@
  },
  "music": "tension",
  "cover": "senate",
- "act": "Акт II · Царица и диктатор"
+ "act": "Акт V · Царица и диктатор"
 }

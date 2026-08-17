@@ -1,0 +1,97 @@
+{
+ "id": "brennus",
+ "order": 50,
+ "act": "Акт II · Республика и Карфаген",
+ "epoch": "rome",
+ "panels": 3,
+ "scenes": [
+  "allia",
+  "capitol_geese",
+  "gold_scales",
+  "veii_return"
+ ],
+ "characters": [
+  "brennus",
+  "camillus",
+  "manlius",
+  "sulpicius"
+ ],
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "manlius",
+     "is": "hero"
+    }
+   },
+   {
+    "flag": {
+     "char": "brennus",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "brennus",
+      "is": "bought"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "camillus",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "capitol_geese",
+   "characters": [
+    "manlius",
+    "brennus"
+   ]
+  },
+  {
+   "scene": "veii_return",
+   "characters": [
+    "camillus"
+   ]
+  },
+  {
+   "scene": "allia",
+   "characters": [
+    "camillus",
+    "brennus"
+   ]
+  }
+ ],
+ "cover": "capitol_geese",
+ "music": "tension",
+ "factCard": {
+  "accuracy": "legend"
+ },
+ "initialState": {
+  "flags": {
+   "brennus": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "camillus",
+    "brennus"
+   ],
+   [
+    "enemy_of",
+    "brennus",
+    "camillus"
+   ]
+  ]
+ }
+}

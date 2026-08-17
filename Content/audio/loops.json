@@ -1,0 +1,127 @@
+{
+ "battle": {
+  "skip": 1024,
+  "frames": 2035385,
+  "sampleRate": 44100
+ },
+ "borgia_battle": {
+  "skip": 1024,
+  "frames": 1996981,
+  "sampleRate": 44100
+ },
+ "borgia_ceremony": {
+  "skip": 1024,
+  "frames": 3146595,
+  "sampleRate": 44100
+ },
+ "borgia_romance": {
+  "skip": 1024,
+  "frames": 3755613,
+  "sampleRate": 44100
+ },
+ "borgia_tension": {
+  "skip": 1024,
+  "frames": 3326400,
+  "sampleRate": 44100
+ },
+ "byzantium_battle": {
+  "skip": 1024,
+  "frames": 2205000,
+  "sampleRate": 44100
+ },
+ "byzantium_ceremony": {
+  "skip": 1024,
+  "frames": 3880800,
+  "sampleRate": 44100
+ },
+ "byzantium_romance": {
+  "skip": 1024,
+  "frames": 4158000,
+  "sampleRate": 44100
+ },
+ "byzantium_tension": {
+  "skip": 1024,
+  "frames": 4312000,
+  "sampleRate": 44100
+ },
+ "ceremony": {
+  "skip": 1024,
+  "frames": 3234000,
+  "sampleRate": 44100
+ },
+ "empire_battle": {
+  "skip": 1024,
+  "frames": 2160000,
+  "sampleRate": 44100
+ },
+ "empire_ceremony": {
+  "skip": 1024,
+  "frames": 3528000,
+  "sampleRate": 44100
+ },
+ "empire_romance": {
+  "skip": 1024,
+  "frames": 4014621,
+  "sampleRate": 44100
+ },
+ "empire_tension": {
+  "skip": 1024,
+  "frames": 4158000,
+  "sampleRate": 44100
+ },
+ "revolution_battle": {
+  "skip": 1024,
+  "frames": 1890000,
+  "sampleRate": 44100
+ },
+ "revolution_ceremony": {
+  "skip": 1024,
+  "frames": 2910600,
+  "sampleRate": 44100
+ },
+ "revolution_romance": {
+  "skip": 1024,
+  "frames": 4014621,
+  "sampleRate": 44100
+ },
+ "revolution_tension": {
+  "skip": 1024,
+  "frames": 3528000,
+  "sampleRate": 44100
+ },
+ "romance": {
+  "skip": 1024,
+  "frames": 3880800,
+  "sampleRate": 44100
+ },
+ "tension": {
+  "skip": 1024,
+  "frames": 3638250,
+  "sampleRate": 44100
+ },
+ "theme": {
+  "skip": 1024,
+  "frames": 3424235,
+  "sampleRate": 44100
+ },
+ "tudor_battle": {
+  "skip": 1024,
+  "frames": 2116800,
+  "sampleRate": 44100
+ },
+ "tudor_court": {
+  "skip": 1024,
+  "frames": 3063789,
+  "sampleRate": 44100
+ },
+ "tudor_lament": {
+  "skip": 1024,
+  "frames": 4477846,
+  "sampleRate": 44100
+ },
+ "tudor_romance": {
+  "skip": 1024,
+  "frames": 3755613,
+  "sampleRate": 44100
+ }
+}
