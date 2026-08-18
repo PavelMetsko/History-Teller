@@ -1,0 +1,90 @@
+{
+ "id": "hannibal_alps",
+ "order": 66,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "battle",
+ "cover": "alps_pass",
+ "panels": 3,
+ "scenes": [
+  "alps_pass",
+  "gaul_alliance",
+  "trasimene",
+  "sea_route"
+ ],
+ "characters": [
+  "hannibal",
+  "flaminius",
+  "boii_chief"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "hannibal",
+    "flaminius"
+   ],
+   [
+    "enemy_of",
+    "flaminius",
+    "hannibal"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hannibal",
+     "is": "in_italy"
+    }
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "boii_chief",
+     "to": "hannibal"
+    }
+   },
+   {
+    "flag": {
+     "char": "flaminius",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "hannibal",
+      "is": "intercepted"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "alps_pass",
+   "characters": [
+    "hannibal"
+   ]
+  },
+  {
+   "scene": "gaul_alliance",
+   "characters": [
+    "hannibal",
+    "boii_chief"
+   ]
+  },
+  {
+   "scene": "trasimene",
+   "characters": [
+    "hannibal",
+    "flaminius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

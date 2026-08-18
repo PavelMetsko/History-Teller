@@ -14,10 +14,20 @@
   "shuisky"
  ],
  "goal": {
-  "flag": {
-   "char": "ivan",
-   "is": "terror"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "shuisky",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "ivan",
+     "is": "terror"
+    }
+   }
+  ]
  },
  "solution": [
   {
@@ -39,5 +49,19 @@
  "music": "empire_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "ivan": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "ivan",
+    "shuisky"
+   ]
+  ]
  }
 }

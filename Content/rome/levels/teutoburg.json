@@ -1,0 +1,82 @@
+{
+ "id": "teutoburg",
+ "order": 455,
+ "epoch": "rome",
+ "act": "Акт VII · Империя",
+ "music": "battle",
+ "cover": "forest_ambush",
+ "panels": 3,
+ "scenes": [
+  "varus_table",
+  "segestes_warning",
+  "forest_ambush",
+  "varus_sword"
+ ],
+ "characters": [
+  "varus",
+  "arminius",
+  "segestes"
+ ],
+ "initialState": {
+  "flags": {
+   "segestes": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "segestes",
+    "arminius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "arminius",
+     "to": "varus"
+    }
+   },
+   {
+    "flag": {
+     "char": "varus",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "varus",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "varus_table",
+   "characters": [
+    "varus",
+    "arminius"
+   ]
+  },
+  {
+   "scene": "forest_ambush",
+   "characters": [
+    "arminius",
+    "varus"
+   ]
+  },
+  {
+   "scene": "varus_sword",
+   "characters": [
+    "varus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

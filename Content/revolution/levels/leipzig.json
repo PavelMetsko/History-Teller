@@ -1,0 +1,96 @@
+{
+ "id": "leipzig",
+ "order": 338,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_battle",
+ "cover": "leipzig_field",
+ "panels": 3,
+ "scenes": [
+  "coalition_oath",
+  "leipzig_field",
+  "elster_bridge",
+  "saxons_desert"
+ ],
+ "characters": [
+  "napoleon",
+  "alexander1",
+  "blucher"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "strong"
+   ],
+   "alexander1": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "alexander1",
+    "napoleon"
+   ],
+   [
+    "enemy_of",
+    "napoleon",
+    "alexander1"
+   ],
+   [
+    "enemy_of",
+    "blucher",
+    "napoleon"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "blucher",
+     "to": "alexander1"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "broken"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "coalition_oath",
+   "characters": [
+    "alexander1",
+    "blucher"
+   ]
+  },
+  {
+   "scene": "leipzig_field",
+   "characters": [
+    "alexander1",
+    "napoleon",
+    "blucher"
+   ]
+  },
+  {
+   "scene": "elster_bridge",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

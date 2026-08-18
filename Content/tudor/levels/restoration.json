@@ -1,0 +1,97 @@
+{
+ "id": "restoration",
+ "order": 260,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_court",
+ "cover": "royal_oak",
+ "panels": 3,
+ "scenes": [
+  "worcester",
+  "royal_oak",
+  "monck_march",
+  "cromwell_execute_king2"
+ ],
+ "characters": [
+  "charles2",
+  "cromwell_ol",
+  "monck"
+ ],
+ "initialState": {
+  "flags": {
+   "cromwell_ol": [
+    "strong",
+    "standing"
+   ],
+   "monck": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cromwell_ol",
+    "charles2"
+   ],
+   [
+    "enemy_of",
+    "charles2",
+    "cromwell_ol"
+   ],
+   [
+    "ally_of",
+    "monck",
+    "charles2"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles2",
+     "is": "hidden"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles2",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "charles2",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "worcester",
+   "characters": [
+    "charles2",
+    "cromwell_ol"
+   ]
+  },
+  {
+   "scene": "royal_oak",
+   "characters": [
+    "charles2"
+   ]
+  },
+  {
+   "scene": "monck_march",
+   "characters": [
+    "charles2",
+    "monck"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

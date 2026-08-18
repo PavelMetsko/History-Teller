@@ -1,8 +1,8 @@
 {
  "id": "bosworth",
- "order": 10,
+ "order": 110,
  "epoch": "tudor",
- "act": "Акт I · Восхождение",
+ "act": "Акт III · Восхождение Тюдоров",
  "panels": 3,
  "scenes": [
   "bosworth_turn",
@@ -19,15 +19,30 @@
    "richard3": [
     "reigns",
     "crowned"
+   ],
+   "stanley": [
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry7",
+    "richard3"
+   ],
+   [
+    "enemy_of",
+    "richard3",
+    "henry7"
+   ]
+  ]
  },
  "goal": {
   "all": [
    {
     "flag": {
      "char": "richard3",
-     "is": "dead"
+     "is": "defeated"
     }
    },
    {

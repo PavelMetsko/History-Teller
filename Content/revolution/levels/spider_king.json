@@ -1,0 +1,82 @@
+{
+ "id": "spider_king",
+ "order": 26,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_tension",
+ "cover": "peronne_tower",
+ "panels": 4,
+ "scenes": [
+  "peronne_tower",
+  "liege_ride",
+  "swiss_pikes",
+  "nancy_snow",
+  "burgundy_treasury"
+ ],
+ "characters": [
+  "louis11",
+  "charles_bold",
+  "swiss_captain"
+ ],
+ "initialState": {
+  "flags": {
+   "louis11": [
+    "reigns",
+    "standing"
+   ],
+   "charles_bold": [
+    "strong",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louis11",
+     "is": "sly"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles_bold",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "peronne_tower",
+   "characters": [
+    "charles_bold",
+    "louis11"
+   ]
+  },
+  {
+   "scene": "liege_ride",
+   "characters": [
+    "louis11",
+    "charles_bold"
+   ]
+  },
+  {
+   "scene": "swiss_pikes",
+   "characters": [
+    "louis11",
+    "swiss_captain"
+   ]
+  },
+  {
+   "scene": "nancy_snow",
+   "characters": [
+    "swiss_captain",
+    "charles_bold"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

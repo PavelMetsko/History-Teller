@@ -1,0 +1,74 @@
+{
+ "id": "romanov",
+ "order": 47,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_ceremony",
+ "cover": "susanin_forest",
+ "panels": 4,
+ "scenes": [
+  "zemsky_sobor",
+  "susanin_forest",
+  "ipatiev",
+  "sobor_c",
+  "vladislav_gold"
+ ],
+ "characters": [
+  "mikhail",
+  "pozharsky",
+  "hetman"
+ ],
+ "initialState": {
+  "flags": {
+   "pozharsky": [
+    "standing",
+    "victor"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "hetman",
+    "mikhail"
+   ]
+  ]
+ },
+ "goal": {
+  "flag": {
+   "char": "mikhail",
+   "is": "crowned"
+  }
+ },
+ "solution": [
+  {
+   "scene": "zemsky_sobor",
+   "characters": [
+    "pozharsky",
+    "mikhail"
+   ]
+  },
+  {
+   "scene": "susanin_forest",
+   "characters": [
+    "hetman",
+    "mikhail"
+   ]
+  },
+  {
+   "scene": "ipatiev",
+   "characters": [
+    "pozharsky",
+    "mikhail"
+   ]
+  },
+  {
+   "scene": "sobor_c",
+   "characters": [
+    "mikhail"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

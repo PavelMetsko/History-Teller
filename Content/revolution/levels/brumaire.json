@@ -1,8 +1,8 @@
 {
  "id": "brumaire",
- "order": 110,
+ "order": 315,
  "epoch": "revolution",
- "act": "Акт III · Наполеон",
+ "act": "Акт IV · Наполеон",
  "panels": 2,
  "scenes": [
   "coup",
@@ -35,5 +35,6 @@
  "music": "revolution_battle",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

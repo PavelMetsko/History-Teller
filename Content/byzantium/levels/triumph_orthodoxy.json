@@ -1,0 +1,84 @@
+{
+ "id": "triumph_orthodoxy",
+ "order": 151,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_ceremony",
+ "cover": "orthodoxy_procession",
+ "panels": 3,
+ "scenes": [
+  "depose_grammarian",
+  "new_patriarch",
+  "orthodoxy_procession",
+  "bosphorus_monastery"
+ ],
+ "characters": [
+  "theodora_ic",
+  "methodios",
+  "john_grammar"
+ ],
+ "initialState": {
+  "flags": {
+   "theodora_ic": [
+    "reigns"
+   ],
+   "john_grammar": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "theodora_ic",
+    "methodios"
+   ],
+   [
+    "ally_of",
+    "methodios",
+    "theodora_ic"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_grammar",
+     "is": "deposed"
+    }
+   },
+   {
+    "flag": {
+     "char": "theodora_ic",
+     "is": "blessed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "depose_grammarian",
+   "characters": [
+    "theodora_ic",
+    "john_grammar"
+   ]
+  },
+  {
+   "scene": "new_patriarch",
+   "characters": [
+    "methodios",
+    "theodora_ic"
+   ]
+  },
+  {
+   "scene": "orthodoxy_procession",
+   "characters": [
+    "methodios",
+    "theodora_ic"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

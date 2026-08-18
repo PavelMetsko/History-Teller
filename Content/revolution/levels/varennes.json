@@ -1,8 +1,8 @@
 {
  "id": "varennes",
- "order": 20,
+ "order": 220,
  "epoch": "revolution",
- "act": "Акт I · Революция",
+ "act": "Акт III · Революция",
  "panels": 2,
  "scenes": [
   "flight_v",
@@ -14,10 +14,20 @@
   "fersen"
  ],
  "goal": {
-  "flag": {
-   "char": "louis",
-   "is": "condemned"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "louis",
+     "is": "away"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis",
+     "is": "condemned"
+    }
+   }
+  ]
  },
  "solution": [
   {
@@ -38,5 +48,19 @@
  "music": "revolution_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "robespierre": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "robespierre",
+    "louis"
+   ]
+  ]
  }
 }

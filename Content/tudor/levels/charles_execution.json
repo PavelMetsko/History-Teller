@@ -1,0 +1,110 @@
+{
+ "id": "charles_execution",
+ "order": 250,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_battle",
+ "cover": "whitehall_block",
+ "panels": 4,
+ "scenes": [
+  "new_model",
+  "naseby",
+  "kings_trial",
+  "whitehall_block",
+  "treaty_king"
+ ],
+ "characters": [
+  "charles1",
+  "cromwell_ol",
+  "bradshaw"
+ ],
+ "initialState": {
+  "flags": {
+   "charles1": [
+    "standing"
+   ],
+   "bradshaw": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cromwell_ol",
+    "charles1"
+   ],
+   [
+    "enemy_of",
+    "charles1",
+    "cromwell_ol"
+   ],
+   [
+    "enemy_of",
+    "bradshaw",
+    "charles1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cromwell_ol",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "new_model",
+   "characters": [
+    "cromwell_ol"
+   ]
+  },
+  {
+   "scene": "naseby",
+   "characters": [
+    "cromwell_ol",
+    "charles1"
+   ]
+  },
+  {
+   "scene": "kings_trial",
+   "characters": [
+    "bradshaw",
+    "charles1"
+   ]
+  },
+  {
+   "scene": "whitehall_block",
+   "characters": [
+    "bradshaw",
+    "charles1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

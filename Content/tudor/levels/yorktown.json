@@ -1,0 +1,88 @@
+{
+ "id": "yorktown",
+ "order": 320,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_battle",
+ "cover": "yorktown_siege",
+ "panels": 3,
+ "scenes": [
+  "boston_tea",
+  "french_fleet",
+  "yorktown_siege",
+  "king_concedes"
+ ],
+ "characters": [
+  "george3",
+  "cornwallis",
+  "washington"
+ ],
+ "initialState": {
+  "flags": {
+   "cornwallis": [],
+   "george3": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "washington",
+    "cornwallis"
+   ],
+   [
+    "enemy_of",
+    "cornwallis",
+    "washington"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "washington",
+     "is": "defiant"
+    }
+   },
+   {
+    "flag": {
+     "char": "cornwallis",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "george3",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "boston_tea",
+   "characters": [
+    "washington"
+   ]
+  },
+  {
+   "scene": "french_fleet",
+   "characters": [
+    "washington"
+   ]
+  },
+  {
+   "scene": "yorktown_siege",
+   "characters": [
+    "washington",
+    "cornwallis"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "id": "tabel",
+ "order": 82,
+ "epoch": "empire",
+ "act": "Акт III · Пётр Великий",
+ "music": "empire_ceremony",
+ "cover": "fourteen_classes",
+ "panels": 3,
+ "scenes": [
+  "fourteen_classes",
+  "turnery",
+  "eighth_class",
+  "pedigree_roll"
+ ],
+ "characters": [
+  "peter",
+  "dolgoruky",
+  "nartov"
+ ],
+ "initialState": {
+  "flags": {
+   "peter": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "dolgoruky": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dolgoruky",
+     "is": "birth_void"
+    }
+   },
+   {
+    "flag": {
+     "char": "nartov",
+     "is": "ranked"
+    }
+   },
+   {
+    "flag": {
+     "char": "nartov",
+     "is": "ennobled"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fourteen_classes",
+   "characters": [
+    "peter",
+    "dolgoruky"
+   ]
+  },
+  {
+   "scene": "turnery",
+   "characters": [
+    "peter",
+    "nartov"
+   ]
+  },
+  {
+   "scene": "eighth_class",
+   "characters": [
+    "nartov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

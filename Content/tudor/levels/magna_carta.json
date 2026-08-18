@@ -1,0 +1,98 @@
+{
+ "id": "magna_carta",
+ "order": 22,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_court",
+ "cover": "runnymede",
+ "panels": 3,
+ "scenes": [
+  "barons_muster",
+  "runnymede",
+  "pope_annuls",
+  "john_defies"
+ ],
+ "characters": [
+  "john_lackland",
+  "fitzwalter",
+  "langton",
+  "pope"
+ ],
+ "initialState": {
+  "flags": {
+   "john_lackland": [
+    "standing"
+   ],
+   "fitzwalter": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "john_lackland",
+    "fitzwalter"
+   ],
+   [
+    "enemy_of",
+    "fitzwalter",
+    "john_lackland"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "fitzwalter",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_lackland",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_lackland",
+     "is": "absolved"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "fitzwalter",
+      "is": "condemned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "barons_muster",
+   "characters": [
+    "fitzwalter"
+   ]
+  },
+  {
+   "scene": "runnymede",
+   "characters": [
+    "fitzwalter",
+    "john_lackland"
+   ]
+  },
+  {
+   "scene": "pope_annuls",
+   "characters": [
+    "john_lackland",
+    "pope"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

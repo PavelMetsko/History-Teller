@@ -1,0 +1,106 @@
+{
+ "id": "menshikov_fall",
+ "order": 87,
+ "epoch": "empire",
+ "act": "Акт IV · Дворцовые перевороты",
+ "music": "empire_tension",
+ "cover": "beryozov",
+ "panels": 4,
+ "scenes": [
+  "boy_emperor",
+  "hunting_plot",
+  "menshikov_disgrace",
+  "beryozov",
+  "betrothal_maria"
+ ],
+ "characters": [
+  "menshikov",
+  "peter2",
+  "dolgoruky"
+ ],
+ "initialState": {
+  "flags": {
+   "menshikov": [
+    "standing",
+    "titled"
+   ],
+   "peter2": [
+    "royal_claim"
+   ],
+   "dolgoruky": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "menshikov",
+    "peter2"
+   ],
+   [
+    "ally_of",
+    "peter2",
+    "menshikov"
+   ],
+   [
+    "enemy_of",
+    "dolgoruky",
+    "menshikov"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "peter2",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "menshikov",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "menshikov",
+     "is": "away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "boy_emperor",
+   "characters": [
+    "peter2",
+    "menshikov"
+   ]
+  },
+  {
+   "scene": "hunting_plot",
+   "characters": [
+    "dolgoruky",
+    "peter2"
+   ]
+  },
+  {
+   "scene": "menshikov_disgrace",
+   "characters": [
+    "dolgoruky",
+    "menshikov"
+   ]
+  },
+  {
+   "scene": "beryozov",
+   "characters": [
+    "menshikov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

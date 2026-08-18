@@ -1,0 +1,74 @@
+{
+ "id": "bruno",
+ "order": 150,
+ "epoch": "borgia",
+ "act": "Акт VI · Инквизиция",
+ "music": "borgia_tension",
+ "cover": "campo_fiori",
+ "panels": 3,
+ "scenes": [
+  "mocenigo_denounce",
+  "eight_years",
+  "campo_fiori",
+  "recant_bruno"
+ ],
+ "characters": [
+  "bruno",
+  "bellarmine"
+ ],
+ "initialState": {
+  "flags": {
+   "bellarmine": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "bellarmine",
+    "bruno"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bruno",
+     "is": "unrepentant"
+    }
+   },
+   {
+    "flag": {
+     "char": "bruno",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mocenigo_denounce",
+   "characters": [
+    "bellarmine",
+    "bruno"
+   ]
+  },
+  {
+   "scene": "eight_years",
+   "characters": [
+    "bruno"
+   ]
+  },
+  {
+   "scene": "campo_fiori",
+   "characters": [
+    "bellarmine",
+    "bruno"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

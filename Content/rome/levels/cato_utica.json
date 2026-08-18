@@ -1,0 +1,88 @@
+{
+ "id": "cato_utica",
+ "order": 325,
+ "epoch": "rome",
+ "act": "Акт IV · Падение республики",
+ "music": "tension",
+ "cover": "sword_utica",
+ "panels": 3,
+ "scenes": [
+  "thapsus",
+  "phaedo",
+  "sword_utica",
+  "clemency_caesar"
+ ],
+ "characters": [
+  "caesar",
+  "cato_younger",
+  "metellus_scipio"
+ ],
+ "initialState": {
+  "flags": {
+   "caesar": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "caesar",
+    "metellus_scipio"
+   ],
+   [
+    "enemy_of",
+    "metellus_scipio",
+    "caesar"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "metellus_scipio",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "cato_younger",
+     "is": "honourable"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cato_younger",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "thapsus",
+   "characters": [
+    "caesar",
+    "metellus_scipio"
+   ]
+  },
+  {
+   "scene": "phaedo",
+   "characters": [
+    "cato_younger"
+   ]
+  },
+  {
+   "scene": "sword_utica",
+   "characters": [
+    "cato_younger"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

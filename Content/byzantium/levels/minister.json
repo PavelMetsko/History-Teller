@@ -2,11 +2,11 @@
  "id": "minister",
  "order": 40,
  "epoch": "byzantium",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Юстиниана",
  "panels": 2,
  "scenes": [
   "treasury_b",
-  "court_b"
+  "court_min"
  ],
  "characters": [
   "justinian",
@@ -16,15 +16,26 @@
  "initialState": {
   "flags": {
    "justinian": [
-    "reigns"
+    "reigns",
+    "standing"
    ]
   }
  },
  "goal": {
-  "flag": {
-   "char": "john",
-   "is": "hated"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "john",
+     "is": "rapacious"
+    }
+   },
+   {
+    "flag": {
+     "char": "john",
+     "is": "condemned"
+    }
+   }
+  ]
  },
  "solution": [
   {
@@ -35,7 +46,7 @@
    ]
   },
   {
-   "scene": "court_b",
+   "scene": "court_min",
    "characters": [
     "justinian",
     "john"

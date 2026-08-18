@@ -1,0 +1,103 @@
+{
+ "id": "deulino",
+ "order": 48,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_battle",
+ "cover": "deulino_village",
+ "panels": 4,
+ "scenes": [
+  "arbat_gates",
+  "deulino_village",
+  "polyanovka_exchange",
+  "patriarch_seat",
+  "sobor_treasury"
+ ],
+ "characters": [
+  "mikhail",
+  "filaret",
+  "vladislav"
+ ],
+ "initialState": {
+  "flags": {
+   "mikhail": [
+    "reigns",
+    "crowned"
+   ],
+   "vladislav": [
+    "strong",
+    "standing"
+   ],
+   "filaret": [
+    "captive"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "vladislav",
+    "mikhail"
+   ],
+   [
+    "enemy_of",
+    "mikhail",
+    "vladislav"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "vladislav",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "mikhail",
+     "is": "truce"
+    }
+   },
+   {
+    "flag": {
+     "char": "filaret",
+     "is": "co_ruler"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "arbat_gates",
+   "characters": [
+    "vladislav",
+    "mikhail"
+   ]
+  },
+  {
+   "scene": "deulino_village",
+   "characters": [
+    "mikhail",
+    "vladislav"
+   ]
+  },
+  {
+   "scene": "polyanovka_exchange",
+   "characters": [
+    "filaret",
+    "mikhail"
+   ]
+  },
+  {
+   "scene": "patriarch_seat",
+   "characters": [
+    "filaret",
+    "mikhail"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

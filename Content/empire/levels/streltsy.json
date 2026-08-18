@@ -2,7 +2,7 @@
  "id": "streltsy",
  "order": 50,
  "epoch": "empire",
- "act": "Акт II · Пётр Великий",
+ "act": "Акт III · Пётр Великий",
  "panels": 2,
  "scenes": [
   "revolt_s",
@@ -22,8 +22,8 @@
   {
    "scene": "revolt_s",
    "characters": [
-    "peter",
-    "sophia"
+    "sophia",
+    "peter"
    ]
   },
   {
@@ -37,5 +37,6 @@
  "music": "empire_tension",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

@@ -12,16 +12,23 @@ private struct PanelFramesKey: PreferenceKey {
 }
 
 /// Звук по типу события (сами события выводятся из эффектов правила — см. LevelBoardModel.beat).
-private func sfx(for kind: LevelBoardModel.Beat.Kind) -> Audio.SFX {
-    switch kind {
-    case .kill, .battle, .conquer:        return .kill
-    case .condemn:                        return .conspire
-    case .crown, .triumph, .birth, .march: return .crown
+private func sfx(for beat: LevelBoardModel.Beat) -> Audio.SFX {
+    switch beat.kind {
+    case .kill:                    return .kill
+    case .battle, .conquer:        return .clash
+    case .condemn:                 return .gavel
+    case .crown, .triumph, .birth: return .crown
+    case .march:                   return .drum
     case .love:                    return .love
-    case .ally:                    return .ally
+    case .ally:                    return beat.symbol == "💰" ? .coin : .ally
     case .downfall:                return .error
     case .conspire:                return .conspire
-    case .spark:                   return .select
+    case .spark:
+        switch beat.symbol {
+        case "💪", "🚩": return .drum
+        case "🏃":       return .flee
+        default:         return .select
+        }
     }
 }
 
@@ -35,6 +42,8 @@ public struct LevelBoardView: View {
     @State private var celebrate = false
     /// Уровень решён, история ещё не открыта: на доске висит зов «Дальше».
     @State private var awaitingReveal = false
+    /// Подсказка «кадры можно менять местами»: показывается, когда стоят ≥2 сцен, первые три раза.
+    @State private var showSwapHint = false
     @State private var revealPulse = false
     @State private var showInfo = false
     @State private var demoMode = false
@@ -75,6 +84,20 @@ public struct LevelBoardView: View {
                     VStack(spacing: 8) {
                         titleBar
                         panelsGrid
+                            .overlay(alignment: .top) {
+                                if showSwapHint {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "arrow.left.arrow.right").font(.system(size: 12, weight: .bold))
+                                        Text(L10n.s("ui.swap_hint")).font(.dsCaption(12))
+                                    }
+                                    .foregroundStyle(DS.Palette.ink)
+                                    .padding(.horizontal, 12).padding(.vertical, 6)
+                                    .background(Capsule().fill(DS.Palette.gold.opacity(0.95)))
+                                    .shadow(color: .black.opacity(0.3), radius: 3, y: 1)
+                                    .padding(.top, 6)
+                                    .transition(.move(edge: .top).combined(with: .opacity))
+                                }
+                            }
                         if let step = model.coachStep, !model.showFact, !awaitingReveal {
                             coachBubble(step)
                         }
@@ -103,9 +126,13 @@ public struct LevelBoardView: View {
         .coordinateSpace(.named(boardSpace))
         .onPreferenceChange(PanelFramesKey.self) { panelFrames = $0 }
         .onChange(of: model.changeToken) { _, _ in
+            maybeShowSwapHint()
             reactToEvents()
-            if !model.isSolved && model.isBoardComplete { triggerWrong() }
+            // Полная, но нерешённая доска без единого диагноза (уровень без эталона) — общая тряска.
+            if !model.isSolved && model.isBoardComplete && model.panelDiagnoses.allSatisfy({ $0 == .ok }) { triggerWrong() }
         }
+        // Валидация мгновенная: как только у панели появился диагноз — звук и тряска.
+        .onChange(of: model.wrongToken) { _, _ in triggerWrong() }
         .onChange(of: model.isSolved) { _, solved in
             if solved { win() }
             // Доска разобрана («заново» или снятый токен) — звать к истории больше нечем.
@@ -235,12 +262,25 @@ public struct LevelBoardView: View {
 
     private func reactToEvents() {
         for beat in model.lastBeats {
-            Audio.shared.play(sfx(for: beat.kind))
+            Audio.shared.play(sfx(for: beat))
             if beat.kind == .kill { Haptics.error() } else { Haptics.rigid() }
             let id = beat.id
             activeBeats.append(beat)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) { activeBeats.removeAll { $0.id == id } }
         }
+    }
+
+    /// Первые три уровня: как только стоят две сцены — на 6 секунд всплывает «зажми и перетащи».
+    private func maybeShowSwapHint() {
+        let key = "ht.swap_hint_shown"
+        let shown = UserDefaults.standard.integer(forKey: key)
+        // На туториальных уровнях плашку не показываем: там про перетаскивание говорит гид,
+        // и две подсказки одновременно только загромождают доску.
+        guard shown < 3, !showSwapHint, !model.isSolved, model.level.coach.isEmpty,
+              model.panels.filter({ $0.sceneId != nil }).count >= 2 else { return }
+        UserDefaults.standard.set(shown + 1, forKey: key)
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { showSwapHint = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) { withAnimation { showSwapHint = false } }
     }
 
     private func win() {
@@ -289,10 +329,13 @@ public struct LevelBoardView: View {
                     .font(.system(size: 16, weight: .bold))
                     .foregroundStyle(model.isSolved ? DS.Palette.success : DS.Palette.ink)
                     .padding(.top, 2)
+                // Цель — это условие задачи: обрезать её многоточием нельзя. Три строки и
+                // ужатие шрифта до 60% — длинные формулировки влезают целиком.
                 Text(model.level.goalText ?? model.level.title)
                     .font(.serifTitle(18))
                     .foregroundStyle(DS.Palette.ink)
-                    .lineLimit(2)
+                    .lineLimit(3)
+                    .minimumScaleFactor(0.6)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -609,7 +652,7 @@ private struct PanelCell: View {
     private var isTapTarget: Bool { model.selected != nil }
     private var isWrong: Bool { diagnosis != .ok }
     /// Панель верна сама по себе — беда лишь в порядке: мягкий золотой «намёк», не красная ошибка.
-    private var isOrderHint: Bool { diagnosis == .wrongOrder }
+    private var isOrderHint: Bool { diagnosis == .wrongOrder || diagnosis == .wrongSlots }
     /// Удар-тряска панели на «жёстких» событиях — гибель, битва, поход/война.
     private var hasImpact: Bool { beats.contains { $0.kind == .kill || $0.kind == .battle || $0.kind == .conquer } }
     /// Сцена-гильотина — для падающего ножа.
@@ -625,6 +668,8 @@ private struct PanelCell: View {
         case .wrongScene:      return L10n.s("ui.wrong_scene")
         case .inert:           return L10n.s("ui.wrong_inert")
         case .wrongOrder:      return L10n.s("ui.wrong_order")
+        case .wrongSlots:      return L10n.s("ui.wrong_slots")
+        case .sceneUnused:     return L10n.s("ui.wrong_unused")
         }
     }
 
@@ -720,6 +765,35 @@ private struct PanelCell: View {
                     .padding(.bottom, 8)
                     .shadow(color: .black.opacity(0.3), radius: 3, y: 1)
                     .transition(.opacity.combined(with: .scale(scale: 0.9)))
+            }
+        }
+        .overlay(alignment: .top) {
+            // Постоянный значок «что тут происходит» — сердце, мечи, корона… (см. panelSymbols).
+            if let sym = model.panelSymbols.indices.contains(index) ? model.panelSymbols[index] : nil,
+               panel.sceneId != nil {
+                Text(sym)
+                    .font(.system(size: 20))
+                    .padding(5)
+                    .background(Circle().fill(DS.Palette.paper.opacity(0.9)))
+                    .overlay(Circle().strokeBorder(DS.Palette.ink.opacity(0.35), lineWidth: 1))
+                    .shadow(color: .black.opacity(0.25), radius: 2, y: 1)
+                    .padding(.top, 34)
+                    .transition(.scale.combined(with: .opacity))
+                    .id(sym)
+            }
+        }
+        .animation(.spring(response: 0.35, dampingFraction: 0.7), value: model.panelSymbols.indices.contains(index) ? model.panelSymbols[index] : nil)
+        .overlay(alignment: .bottomLeading) {
+            // Постоянная «ручка»: кадр со сценой можно взять долгим нажатием и поменять местами.
+            // Иконка без текста — не зависит от каталога переводов и не мешает читать кадр.
+            if panel.sceneId != nil && model.panels.count > 1 && !isReordering {
+                Image(systemName: "arrow.left.arrow.right")
+                    .font(.system(size: 11, weight: .bold))
+                    .foregroundStyle(DS.Palette.ink.opacity(0.75))
+                    .padding(5)
+                    .background(Circle().fill(DS.Palette.paper.opacity(0.8)))
+                    .padding(6)
+                    .allowsHitTesting(false)
             }
         }
         .overlay { juiceOverlay }

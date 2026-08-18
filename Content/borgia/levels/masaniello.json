@@ -1,0 +1,87 @@
+{
+ "id": "masaniello",
+ "order": 156,
+ "epoch": "borgia",
+ "act": "Акт VI · Инквизиция",
+ "music": "borgia_battle",
+ "cover": "fruit_tax",
+ "panels": 4,
+ "scenes": [
+  "fruit_tax",
+  "naples_rising",
+  "viceroy_pact",
+  "masaniello_mad",
+  "flee_castle"
+ ],
+ "characters": [
+  "masaniello",
+  "viceroy_arcos"
+ ],
+ "initialState": {
+  "flags": {
+   "viceroy_arcos": [
+    "reigns"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "masaniello",
+    "viceroy_arcos"
+   ],
+   [
+    "enemy_of",
+    "viceroy_arcos",
+    "masaniello"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "viceroy_arcos",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "masaniello",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fruit_tax",
+   "characters": [
+    "masaniello"
+   ]
+  },
+  {
+   "scene": "naples_rising",
+   "characters": [
+    "masaniello",
+    "viceroy_arcos"
+   ]
+  },
+  {
+   "scene": "viceroy_pact",
+   "characters": [
+    "masaniello",
+    "viceroy_arcos"
+   ]
+  },
+  {
+   "scene": "masaniello_mad",
+   "characters": [
+    "masaniello",
+    "viceroy_arcos"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

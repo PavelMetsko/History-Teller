@@ -1,0 +1,68 @@
+{
+ "id": "pazzi",
+ "order": 9,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_tension",
+ "cover": "duomo_mass",
+ "panels": 3,
+ "scenes": [
+  "sixtus_blessing",
+  "duomo_mass",
+  "palle_palle",
+  "bank_loan"
+ ],
+ "characters": [
+  "lorenzo",
+  "giuliano",
+  "francesco_pazzi"
+ ],
+ "initialState": {
+  "flags": {
+   "lorenzo": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "giuliano",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "francesco_pazzi",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sixtus_blessing",
+   "characters": [
+    "francesco_pazzi"
+   ]
+  },
+  {
+   "scene": "duomo_mass",
+   "characters": [
+    "francesco_pazzi",
+    "giuliano"
+   ]
+  },
+  {
+   "scene": "palle_palle",
+   "characters": [
+    "lorenzo",
+    "francesco_pazzi"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

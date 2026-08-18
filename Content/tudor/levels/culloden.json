@@ -1,0 +1,86 @@
+{
+ "id": "culloden",
+ "order": 305,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_lament",
+ "cover": "culloden_moor",
+ "panels": 3,
+ "scenes": [
+  "glenfinnan",
+  "culloden_moor",
+  "skye_boat",
+  "derby_turn"
+ ],
+ "characters": [
+  "bonnie_charlie",
+  "cumberland",
+  "flora"
+ ],
+ "initialState": {
+  "flags": {
+   "cumberland": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "bonnie_charlie",
+    "cumberland"
+   ],
+   [
+    "enemy_of",
+    "cumberland",
+    "bonnie_charlie"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bonnie_charlie",
+     "is": "rallied"
+    }
+   },
+   {
+    "flag": {
+     "char": "bonnie_charlie",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "bonnie_charlie",
+     "is": "hidden"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "glenfinnan",
+   "characters": [
+    "bonnie_charlie"
+   ]
+  },
+  {
+   "scene": "culloden_moor",
+   "characters": [
+    "cumberland",
+    "bonnie_charlie"
+   ]
+  },
+  {
+   "scene": "skye_boat",
+   "characters": [
+    "flora",
+    "bonnie_charlie"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

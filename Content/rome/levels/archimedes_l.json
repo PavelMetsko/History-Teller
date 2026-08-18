@@ -1,0 +1,90 @@
+{
+ "id": "archimedes_l",
+ "order": 84,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "tension",
+ "cover": "sand_circles",
+ "panels": 3,
+ "scenes": [
+  "machines_a",
+  "artemis_feast",
+  "assault_syracuse",
+  "sand_circles"
+ ],
+ "characters": [
+  "marcellus",
+  "epicydes",
+  "archimedes",
+  "legionary"
+ ],
+ "initialState": {
+  "flags": {
+   "marcellus": [
+    "strong"
+   ],
+   "epicydes": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "marcellus",
+    "epicydes"
+   ],
+   [
+    "enemy_of",
+    "epicydes",
+    "marcellus"
+   ],
+   [
+    "enemy_of",
+    "legionary",
+    "archimedes"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "epicydes",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "archimedes",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "artemis_feast",
+   "characters": [
+    "marcellus",
+    "epicydes"
+   ]
+  },
+  {
+   "scene": "assault_syracuse",
+   "characters": [
+    "marcellus",
+    "epicydes"
+   ]
+  },
+  {
+   "scene": "sand_circles",
+   "characters": [
+    "legionary",
+    "archimedes"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

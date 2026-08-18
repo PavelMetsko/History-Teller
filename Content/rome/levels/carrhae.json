@@ -1,0 +1,93 @@
+{
+ "id": "carrhae",
+ "order": 168,
+ "epoch": "rome",
+ "act": "Акт III · Трещина",
+ "music": "battle",
+ "cover": "carrhae_field",
+ "panels": 3,
+ "scenes": [
+  "abgar_guide",
+  "desert_march",
+  "carrhae_field",
+  "parley_surena",
+  "euphrates_road"
+ ],
+ "characters": [
+  "crassus",
+  "surena",
+  "abgar"
+ ],
+ "initialState": {
+  "flags": {
+   "crassus": [
+    "strong"
+   ],
+   "surena": [
+    "strong"
+   ],
+   "abgar": [
+    "bought"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "surena",
+    "crassus"
+   ],
+   [
+    "enemy_of",
+    "crassus",
+    "surena"
+   ],
+   [
+    "ally_of",
+    "abgar",
+    "surena"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "crassus",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "crassus",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "desert_march",
+   "characters": [
+    "abgar",
+    "crassus"
+   ]
+  },
+  {
+   "scene": "carrhae_field",
+   "characters": [
+    "surena",
+    "crassus"
+   ]
+  },
+  {
+   "scene": "parley_surena",
+   "characters": [
+    "surena",
+    "crassus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

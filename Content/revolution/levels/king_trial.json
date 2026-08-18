@@ -1,8 +1,8 @@
 {
  "id": "king_trial",
- "order": 30,
+ "order": 230,
  "epoch": "revolution",
- "act": "Акт I · Революция",
+ "act": "Акт III · Революция",
  "panels": 2,
  "scenes": [
   "guillotine",
@@ -17,13 +17,13 @@
    {
     "flag": {
      "char": "louis",
-     "is": "dead"
+     "is": "condemned"
     }
    },
    {
     "flag": {
      "char": "louis",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]
@@ -48,5 +48,19 @@
  "music": "revolution_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "robespierre": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "robespierre",
+    "louis"
+   ]
+  ]
  }
 }

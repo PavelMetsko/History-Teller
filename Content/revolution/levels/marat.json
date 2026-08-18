@@ -1,8 +1,8 @@
 {
  "id": "marat",
- "order": 50,
+ "order": 240,
  "epoch": "revolution",
- "act": "Акт II · Террор",
+ "act": "Акт III · Революция",
  "panels": 2,
  "scenes": [
   "guillotine",
@@ -24,13 +24,7 @@
    {
     "flag": {
      "char": "corday",
-     "is": "dead"
-    }
-   },
-   {
-    "flag": {
-     "char": "corday",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]
@@ -55,5 +49,19 @@
  "music": "revolution_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "robespierre": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "corday",
+    "marat"
+   ]
+  ]
  }
 }

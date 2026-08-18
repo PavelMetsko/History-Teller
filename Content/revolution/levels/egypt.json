@@ -1,0 +1,86 @@
+{
+ "id": "egypt",
+ "order": 310,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_battle",
+ "cover": "pyramids",
+ "panels": 3,
+ "scenes": [
+  "pyramids",
+  "aboukir_bay",
+  "abandon_army",
+  "rosetta"
+ ],
+ "characters": [
+  "napoleon",
+  "murad",
+  "nelson"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "napoleon",
+    "murad"
+   ],
+   [
+    "enemy_of",
+    "murad",
+    "napoleon"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "murad",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "stranded"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pyramids",
+   "characters": [
+    "napoleon",
+    "murad"
+   ]
+  },
+  {
+   "scene": "aboukir_bay",
+   "characters": [
+    "nelson",
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "abandon_army",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

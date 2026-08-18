@@ -1,0 +1,80 @@
+{
+ "id": "lepanto",
+ "order": 148,
+ "epoch": "borgia",
+ "act": "Акт VI · Инквизиция",
+ "music": "borgia_battle",
+ "cover": "lepanto_gulf",
+ "panels": 3,
+ "scenes": [
+  "galleass_line",
+  "lepanto_gulf",
+  "cervantes_hand",
+  "wait_messina"
+ ],
+ "characters": [
+  "don_juan",
+  "ali_pasha",
+  "cervantes"
+ ],
+ "initialState": {
+  "flags": {
+   "ali_pasha": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "don_juan",
+    "ali_pasha"
+   ],
+   [
+    "enemy_of",
+    "ali_pasha",
+    "don_juan"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ali_pasha",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "cervantes",
+     "is": "immortal"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "galleass_line",
+   "characters": [
+    "don_juan"
+   ]
+  },
+  {
+   "scene": "lepanto_gulf",
+   "characters": [
+    "don_juan",
+    "ali_pasha"
+   ]
+  },
+  {
+   "scene": "cervantes_hand",
+   "characters": [
+    "cervantes",
+    "don_juan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

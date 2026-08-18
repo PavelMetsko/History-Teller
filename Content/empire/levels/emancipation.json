@@ -1,0 +1,86 @@
+{
+ "id": "emancipation",
+ "order": 175,
+ "epoch": "empire",
+ "act": "Акт VII · Николай I и Александр II",
+ "music": "empire_ceremony",
+ "cover": "manifest_1861",
+ "panels": 4,
+ "scenes": [
+  "moscow_nobles",
+  "editorial_commission",
+  "nobles_object",
+  "manifest_1861",
+  "nobles_gift"
+ ],
+ "characters": [
+  "alexander2",
+  "landowner",
+  "milyutin"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander2": [
+    "reigns",
+    "crowned"
+   ],
+   "landowner": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "alexander2",
+    "landowner"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "landowner",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexander2",
+     "is": "liberator"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "moscow_nobles",
+   "characters": [
+    "alexander2"
+   ]
+  },
+  {
+   "scene": "editorial_commission",
+   "characters": [
+    "milyutin"
+   ]
+  },
+  {
+   "scene": "nobles_object",
+   "characters": [
+    "alexander2",
+    "landowner"
+   ]
+  },
+  {
+   "scene": "manifest_1861",
+   "characters": [
+    "alexander2",
+    "milyutin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

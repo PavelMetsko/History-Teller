@@ -1,0 +1,76 @@
+{
+ "id": "chrysostom",
+ "order": 7,
+ "epoch": "byzantium",
+ "act": "Акт I · Новый Рим",
+ "music": "byzantium_tension",
+ "cover": "oak_synod",
+ "panels": 3,
+ "scenes": [
+  "silver_statue",
+  "oak_synod",
+  "exile_road",
+  "palace_chapel"
+ ],
+ "characters": [
+  "chrysostom",
+  "eudoxia",
+  "arkadios"
+ ],
+ "initialState": {
+  "flags": {
+   "chrysostom": [
+    "standing"
+   ],
+   "eudoxia": [
+    "queen",
+    "standing"
+   ],
+   "arkadios": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "chrysostom",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "chrysostom",
+     "is": "martyr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "silver_statue",
+   "characters": [
+    "chrysostom",
+    "eudoxia"
+   ]
+  },
+  {
+   "scene": "oak_synod",
+   "characters": [
+    "eudoxia",
+    "chrysostom"
+   ]
+  },
+  {
+   "scene": "exile_road",
+   "characters": [
+    "chrysostom"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

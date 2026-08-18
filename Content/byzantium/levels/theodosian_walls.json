@@ -1,0 +1,88 @@
+{
+ "id": "theodosian_walls",
+ "order": 3,
+ "epoch": "byzantium",
+ "act": "Акт I · Новый Рим",
+ "music": "byzantium_battle",
+ "cover": "attila_walls",
+ "panels": 3,
+ "scenes": [
+  "quake_447",
+  "sixty_days",
+  "attila_walls",
+  "hun_gold"
+ ],
+ "characters": [
+  "theodosius2",
+  "prefect_constantine",
+  "attila"
+ ],
+ "initialState": {
+  "flags": {
+   "theodosius2": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "prefect_constantine": [
+    "standing"
+   ],
+   "attila": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "attila",
+    "theodosius2"
+   ],
+   [
+    "enemy_of",
+    "theodosius2",
+    "attila"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "prefect_constantine",
+     "is": "walls_rebuilt"
+    }
+   },
+   {
+    "flag": {
+     "char": "attila",
+     "is": "turned_away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "quake_447",
+   "characters": [
+    "theodosius2",
+    "prefect_constantine"
+   ]
+  },
+  {
+   "scene": "sixty_days",
+   "characters": [
+    "prefect_constantine"
+   ]
+  },
+  {
+   "scene": "attila_walls",
+   "characters": [
+    "attila",
+    "prefect_constantine"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

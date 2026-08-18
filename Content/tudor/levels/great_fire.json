@@ -1,0 +1,68 @@
+{
+ "id": "great_fire",
+ "order": 265,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_lament",
+ "cover": "pudding_lane",
+ "panels": 3,
+ "scenes": [
+  "pudding_lane",
+  "mayor_dithers",
+  "king_firebreak",
+  "mayor_acts"
+ ],
+ "characters": [
+  "farriner",
+  "bludworth",
+  "charles2"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "farriner",
+     "is": "fire_started"
+    }
+   },
+   {
+    "flag": {
+     "char": "bludworth",
+     "is": "fire_spread"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles2",
+     "is": "fire_stopped"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pudding_lane",
+   "characters": [
+    "farriner"
+   ]
+  },
+  {
+   "scene": "mayor_dithers",
+   "characters": [
+    "bludworth"
+   ]
+  },
+  {
+   "scene": "king_firebreak",
+   "characters": [
+    "charles2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

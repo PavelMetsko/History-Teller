@@ -1,0 +1,92 @@
+{
+ "id": "izmail",
+ "order": 135,
+ "epoch": "empire",
+ "act": "Акт V · Екатерина Великая",
+ "music": "empire_battle",
+ "cover": "izmail_storm",
+ "panels": 4,
+ "scenes": [
+  "potemkin_order",
+  "mock_walls",
+  "ultimatum",
+  "izmail_storm",
+  "lift_siege"
+ ],
+ "characters": [
+  "suvorov",
+  "potemkin",
+  "aydos"
+ ],
+ "initialState": {
+  "flags": {
+   "aydos": [
+    "strong",
+    "standing"
+   ],
+   "potemkin": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "suvorov",
+    "aydos"
+   ],
+   [
+    "enemy_of",
+    "aydos",
+    "suvorov"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "aydos",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "suvorov",
+     "is": "victor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "potemkin_order",
+   "characters": [
+    "potemkin",
+    "suvorov"
+   ]
+  },
+  {
+   "scene": "mock_walls",
+   "characters": [
+    "suvorov"
+   ]
+  },
+  {
+   "scene": "ultimatum",
+   "characters": [
+    "suvorov",
+    "aydos"
+   ]
+  },
+  {
+   "scene": "izmail_storm",
+   "characters": [
+    "suvorov",
+    "aydos"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

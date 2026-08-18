@@ -9,6 +9,9 @@ import java.util.Locale
 object L10n {
     val available = listOf("ru", "en", "es", "de", "fr", "it", "pt", "pl", "nl")
     private var base: Map<String, String> = emptyMap()
+    /** Английский слой между выбранным языком и русской базой: непереведённый ключ читается
+     *  по-английски, а не кириллицей (каталог перевода может отставать от контента). */
+    private var fallback: Map<String, String> = emptyMap()
     private var table: Map<String, String> = emptyMap()
     var lang: String = "ru"; private set
     private var assets: AssetManager? = null
@@ -18,6 +21,7 @@ object L10n {
         base = read("ru")
         lang = resolve(override)
         table = if (lang == "ru") base else read(lang)
+        fallback = if (lang == "en" || lang == "ru") emptyMap() else read("en")
     }
 
     private fun resolve(override: String?): String {
@@ -27,10 +31,33 @@ object L10n {
     }
 
     /**
-     * Строки, которые нужны ДО того, как каталог скачан: их показывает экран первого запуска,
-     * а каталог в этот момент ещё едет. Без них на экране висел бы голый ключ.
+     * Строки, которые нужны ДО того, как каталог скачан (первый запуск), И новые UI-ключи,
+     * добавленные вместе с кодом: облачный каталог публикуется отдельно, и до публикации такой
+     * ключ показывался игроку голым. Правило: добавил ключ в код — продублируй его здесь.
      */
     private val builtin: Map<String, Map<String, String>> = mapOf(
+        "ui.swap_hint" to mapOf(
+            "ru" to "Зажми кадр и перетащи на другой — кадры можно менять местами",
+            "en" to "Press and hold a panel, then drag it onto another — panels swap places",
+            "es" to "Mantén pulsado un panel y arrástralo sobre otro: los paneles se intercambian",
+            "de" to "Halte ein Panel gedrückt und zieh es auf ein anderes – Panels tauschen die Plätze",
+            "fr" to "Maintiens un cadre appuyé et fais-le glisser sur un autre — les cadres s'échangent",
+            "it" to "Tieni premuto un riquadro e trascinalo su un altro: i riquadri si scambiano",
+            "pt" to "Segure um quadro e arraste-o sobre outro — os quadros trocam de lugar",
+            "pl" to "Przytrzymaj kadr i przeciągnij go na inny — kadry zamienią się miejscami",
+            "nl" to "Houd een kader ingedrukt en sleep het op een ander — kaders wisselen van plaats",
+        ),
+        "ui.wrong_unused" to mapOf(
+            "ru" to "Такой сцены в этой истории нет",
+            "en" to "This scene isn't part of the story",
+            "es" to "Esta escena no forma parte de la historia",
+            "de" to "Diese Szene gehört nicht zur Geschichte",
+            "fr" to "Cette scène ne fait pas partie de l'histoire",
+            "it" to "Questa scena non fa parte della storia",
+            "pt" to "Esta cena não faz parte da história",
+            "pl" to "Tej sceny nie ma w tej historii",
+            "nl" to "Deze scène hoort niet bij het verhaal",
+        ),
         "ui.downloading_content" to mapOf(
             "ru" to "Загрузка контента…", "en" to "Downloading content…", "es" to "Descargando contenido…",
             "de" to "Inhalte werden geladen…", "fr" to "Téléchargement du contenu…",
@@ -52,9 +79,10 @@ object L10n {
     )
 
     fun s(key: String): String =
-        table[key] ?: base[key] ?: builtin[key]?.get(lang) ?: builtin[key]?.get("en") ?: key
+        table[key] ?: fallback[key] ?: base[key] ?: builtin[key]?.get(lang) ?: builtin[key]?.get("en") ?: key
     fun s(key: String, vararg args: Any): String = String.format(s(key), *args)
-    fun opt(key: String): String? = table[key]
+    /** Тот же английский слой, что и в s(): непереведённый уровень читается по-английски. */
+    fun opt(key: String): String? = table[key] ?: fallback[key]
     fun ruBase(key: String): String? = base[key]
 
     /**

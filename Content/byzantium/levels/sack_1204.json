@@ -1,0 +1,79 @@
+{
+ "id": "sack_1204",
+ "order": 160,
+ "epoch": "byzantium",
+ "act": "Акт VII · Крестоносцы и падение",
+ "music": "byzantium_battle",
+ "cover": "april_1204",
+ "panels": 4,
+ "scenes": [
+  "promise_marks",
+  "restored_throne",
+  "empty_treasury",
+  "april_1204",
+  "flee_thrace"
+ ],
+ "characters": [
+  "alexios4",
+  "dandolo"
+ ],
+ "initialState": {
+  "flags": {
+   "dandolo": [
+    "standing",
+    "strong"
+   ],
+   "alexios4": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexios4",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "dandolo",
+     "is": "sacked_city"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "promise_marks",
+   "characters": [
+    "alexios4",
+    "dandolo"
+   ]
+  },
+  {
+   "scene": "restored_throne",
+   "characters": [
+    "alexios4",
+    "dandolo"
+   ]
+  },
+  {
+   "scene": "empty_treasury",
+   "characters": [
+    "alexios4"
+   ]
+  },
+  {
+   "scene": "april_1204",
+   "characters": [
+    "dandolo",
+    "alexios4"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

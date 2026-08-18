@@ -1,0 +1,68 @@
+{
+ "id": "leonardo",
+ "order": 133,
+ "epoch": "borgia",
+ "act": "Акт V · Медичи и Макиавелли",
+ "music": "borgia_ceremony",
+ "cover": "last_supper",
+ "panels": 3,
+ "scenes": [
+  "sforza_horse",
+  "bronze_to_cannon",
+  "last_supper",
+  "venice_leave"
+ ],
+ "characters": [
+  "leonardo",
+  "ludovico"
+ ],
+ "initialState": {
+  "flags": {
+   "ludovico": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ludovico",
+     "is": "bronze_spent"
+    }
+   },
+   {
+    "flag": {
+     "char": "leonardo",
+     "is": "masterpiece"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sforza_horse",
+   "characters": [
+    "leonardo"
+   ]
+  },
+  {
+   "scene": "bronze_to_cannon",
+   "characters": [
+    "ludovico",
+    "leonardo"
+   ]
+  },
+  {
+   "scene": "last_supper",
+   "characters": [
+    "leonardo",
+    "ludovico"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -80,7 +80,7 @@
    "until": {
     "flag": {
      "char": "hersilia",
-     "is": "taken"
+     "is": "in_love"
     }
    },
    "highlightChars": [
@@ -93,7 +93,7 @@
    "until": {
     "flag": {
      "char": "romulus",
-     "is": "at_arms"
+     "is": "at_war"
     }
    },
    "highlightScenes": [

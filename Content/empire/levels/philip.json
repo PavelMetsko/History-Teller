@@ -1,0 +1,73 @@
+{
+ "id": "philip",
+ "order": 35,
+ "epoch": "empire",
+ "act": "Акт I · Иван Грозный",
+ "music": "empire_tension",
+ "cover": "bless_refuse",
+ "panels": 3,
+ "scenes": [
+  "bless_refuse",
+  "sud",
+  "otroch",
+  "solovki"
+ ],
+ "characters": [
+  "ivan",
+  "philip_metr",
+  "malyuta"
+ ],
+ "initialState": {
+  "flags": {
+   "ivan": [
+    "standing",
+    "terror"
+   ],
+   "philip_metr": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "philip_metr",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "philip_metr",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bless_refuse",
+   "characters": [
+    "philip_metr",
+    "ivan"
+   ]
+  },
+  {
+   "scene": "sud",
+   "characters": [
+    "ivan",
+    "philip_metr"
+   ]
+  },
+  {
+   "scene": "otroch",
+   "characters": [
+    "malyuta",
+    "philip_metr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

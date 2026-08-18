@@ -1,0 +1,88 @@
+{
+ "id": "komnenos_crusade",
+ "order": 158,
+ "epoch": "byzantium",
+ "act": "Акт VII · Крестоносцы и падение",
+ "music": "byzantium_tension",
+ "cover": "nicaea_banners",
+ "panels": 3,
+ "scenes": [
+  "blachernae_oath",
+  "nicaea_siege",
+  "nicaea_banners",
+  "palace_gold"
+ ],
+ "characters": [
+  "alexios1",
+  "bohemond",
+  "kilij"
+ ],
+ "initialState": {
+  "flags": {
+   "alexios1": [
+    "reigns",
+    "standing"
+   ],
+   "bohemond": [
+    "standing"
+   ],
+   "kilij": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "bohemond",
+    "kilij"
+   ],
+   [
+    "enemy_of",
+    "kilij",
+    "bohemond"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexios1",
+     "is": "nicaea"
+    }
+   },
+   {
+    "flag": {
+     "char": "bohemond",
+     "is": "cheated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "blachernae_oath",
+   "characters": [
+    "alexios1",
+    "bohemond"
+   ]
+  },
+  {
+   "scene": "nicaea_siege",
+   "characters": [
+    "bohemond",
+    "kilij"
+   ]
+  },
+  {
+   "scene": "nicaea_banners",
+   "characters": [
+    "alexios1",
+    "bohemond"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

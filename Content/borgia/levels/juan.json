@@ -2,7 +2,7 @@
  "id": "juan",
  "order": 40,
  "epoch": "borgia",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Борджиа",
  "panels": 1,
  "scenes": [
   "curia"
@@ -15,22 +15,30 @@
  "initialState": {
   "flags": {
    "rodrigo": [
-    "pope"
+    "pope",
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "ally_of",
+    "rodrigo",
+    "juan"
+   ]
+  ]
  },
  "goal": {
   "flag": {
    "char": "juan",
-   "is": "duke"
+   "is": "crowned"
   }
  },
  "solution": [
   {
    "scene": "curia",
    "characters": [
-    "rodrigo",
-    "juan"
+    "juan",
+    "rodrigo"
    ]
   }
  ],

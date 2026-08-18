@@ -1,0 +1,97 @@
+{
+ "id": "scipio_trial",
+ "order": 95,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "tension",
+ "cover": "zama_day",
+ "panels": 3,
+ "scenes": [
+  "charge_cato",
+  "zama_day",
+  "liternum",
+  "scipio_replies"
+ ],
+ "characters": [
+  "scipio",
+  "cato_censor"
+ ],
+ "initialState": {
+  "flags": {
+   "cato_censor": [
+    "standing"
+   ],
+   "scipio": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cato_censor",
+    "scipio"
+   ],
+   [
+    "enemy_of",
+    "scipio",
+    "cato_censor"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "scipio",
+     "is": "beloved"
+    }
+   },
+   {
+    "flag": {
+     "char": "scipio",
+     "is": "away"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "scipio",
+      "is": "condemned"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cato_censor",
+      "is": "condemned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "charge_cato",
+   "characters": [
+    "cato_censor",
+    "scipio"
+   ]
+  },
+  {
+   "scene": "zama_day",
+   "characters": [
+    "scipio"
+   ]
+  },
+  {
+   "scene": "liternum",
+   "characters": [
+    "scipio"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "id": "decembrists",
+ "order": 160,
+ "epoch": "empire",
+ "act": "Акт VI · От Павла до декабристов",
+ "music": "empire_tension",
+ "cover": "senate_square",
+ "panels": 4,
+ "scenes": [
+  "reoath",
+  "senate_square",
+  "grapeshot",
+  "streletsky",
+  "constantine_oath"
+ ],
+ "characters": [
+  "nicholas1",
+  "ryleev"
+ ],
+ "initialState": {
+  "flags": {
+   "nicholas1": [
+    "royal_claim",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "nicholas1",
+    "ryleev"
+   ],
+   [
+    "enemy_of",
+    "ryleev",
+    "nicholas1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ryleev",
+     "is": "executed"
+    }
+   },
+   {
+    "flag": {
+     "char": "nicholas1",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "reoath",
+   "characters": [
+    "nicholas1"
+   ]
+  },
+  {
+   "scene": "senate_square",
+   "characters": [
+    "ryleev"
+   ]
+  },
+  {
+   "scene": "grapeshot",
+   "characters": [
+    "nicholas1",
+    "ryleev"
+   ]
+  },
+  {
+   "scene": "streletsky",
+   "characters": [
+    "nicholas1",
+    "ryleev"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

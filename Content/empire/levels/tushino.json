@@ -1,0 +1,90 @@
+{
+ "id": "tushino",
+ "order": 45,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_tension",
+ "cover": "tushino_camp",
+ "panels": 4,
+ "scenes": [
+  "tushino_camp",
+  "marina_recognises",
+  "lyapunov_shout",
+  "tonsure",
+  "storm_moscow_t"
+ ],
+ "characters": [
+  "false_dmitry2",
+  "marina",
+  "shuisky"
+ ],
+ "initialState": {
+  "flags": {
+   "shuisky": [
+    "reigns",
+    "crowned",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "false_dmitry2",
+    "shuisky"
+   ],
+   [
+    "enemy_of",
+    "shuisky",
+    "false_dmitry2"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "marina",
+     "is": "in_love"
+    }
+   },
+   {
+    "flag": {
+     "char": "shuisky",
+     "is": "monk"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tushino_camp",
+   "characters": [
+    "false_dmitry2"
+   ]
+  },
+  {
+   "scene": "marina_recognises",
+   "characters": [
+    "marina",
+    "false_dmitry2"
+   ]
+  },
+  {
+   "scene": "lyapunov_shout",
+   "characters": [
+    "false_dmitry2",
+    "shuisky"
+   ]
+  },
+  {
+   "scene": "tonsure",
+   "characters": [
+    "shuisky"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

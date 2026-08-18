@@ -1,8 +1,8 @@
 {
  "id": "conclave",
- "order": 10,
+ "order": 11,
  "epoch": "borgia",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Борджиа",
  "panels": 2,
  "scenes": [
   "bribe_g",
@@ -14,10 +14,20 @@
   "orsini"
  ],
  "goal": {
-  "flag": {
-   "char": "rodrigo",
-   "is": "pope"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "orsini",
+     "is": "bought"
+    }
+   },
+   {
+    "flag": {
+     "char": "rodrigo",
+     "is": "crowned"
+    }
+   }
+  ]
  },
  "solution": [
   {
@@ -30,7 +40,8 @@
   {
    "scene": "conclave_g",
    "characters": [
-    "rodrigo"
+    "rodrigo",
+    "orsini"
    ]
   }
  ],
@@ -38,5 +49,12 @@
  "music": "borgia_ceremony",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "orsini": [
+    "standing"
+   ]
+  }
  }
 }

@@ -1,0 +1,85 @@
+{
+ "id": "narodnaya_volya",
+ "order": 180,
+ "epoch": "empire",
+ "act": "Акт VII · Николай I и Александр II",
+ "music": "empire_tension",
+ "cover": "catherine_canal",
+ "panels": 3,
+ "scenes": [
+  "kibalchich_bombs",
+  "catherine_canal",
+  "semyonovsky",
+  "loris_constitution"
+ ],
+ "characters": [
+  "alexander2",
+  "perovskaya",
+  "alexander3"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander2": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "alexander3": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "perovskaya",
+    "alexander2"
+   ],
+   [
+    "enemy_of",
+    "alexander2",
+    "perovskaya"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander2",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "perovskaya",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kibalchich_bombs",
+   "characters": [
+    "perovskaya"
+   ]
+  },
+  {
+   "scene": "catherine_canal",
+   "characters": [
+    "perovskaya",
+    "alexander2"
+   ]
+  },
+  {
+   "scene": "semyonovsky",
+   "characters": [
+    "alexander3",
+    "perovskaya"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

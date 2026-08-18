@@ -2,7 +2,7 @@
  "id": "giulia",
  "order": 30,
  "epoch": "borgia",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Борджиа",
  "panels": 2,
  "scenes": [
   "tryst_g",
@@ -39,5 +39,6 @@
  "music": "borgia_romance",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

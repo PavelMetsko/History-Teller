@@ -1,0 +1,95 @@
+{
+ "id": "pavia",
+ "order": 28,
+ "epoch": "revolution",
+ "act": "Акт II · Религиозные войны и Бурбоны",
+ "music": "revolution_battle",
+ "cover": "arquebus_hedge",
+ "panels": 4,
+ "scenes": [
+  "mirabello_wall",
+  "gendarmes_charge",
+  "arquebus_hedge",
+  "letter_to_mother",
+  "milan_road"
+ ],
+ "characters": [
+  "francis1",
+  "bourbon",
+  "louise_savoy"
+ ],
+ "initialState": {
+  "flags": {
+   "francis1": [
+    "reigns",
+    "standing"
+   ],
+   "bourbon": [
+    "standing"
+   ],
+   "louise_savoy": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "francis1",
+    "bourbon"
+   ],
+   [
+    "enemy_of",
+    "bourbon",
+    "francis1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francis1",
+     "is": "captured"
+    }
+   },
+   {
+    "flag": {
+     "char": "francis1",
+     "is": "honour"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mirabello_wall",
+   "characters": [
+    "bourbon"
+   ]
+  },
+  {
+   "scene": "gendarmes_charge",
+   "characters": [
+    "francis1",
+    "bourbon"
+   ]
+  },
+  {
+   "scene": "arquebus_hedge",
+   "characters": [
+    "bourbon",
+    "francis1"
+   ]
+  },
+  {
+   "scene": "letter_to_mother",
+   "characters": [
+    "francis1",
+    "louise_savoy"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

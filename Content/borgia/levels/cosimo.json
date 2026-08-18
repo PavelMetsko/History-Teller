@@ -1,0 +1,89 @@
+{
+ "id": "cosimo",
+ "order": 8,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_tension",
+ "cover": "medici_return",
+ "panels": 4,
+ "scenes": [
+  "albizzi_charge",
+  "venice_exile",
+  "florence_broke",
+  "medici_return",
+  "bribe_signoria"
+ ],
+ "characters": [
+  "cosimo",
+  "albizzi"
+ ],
+ "initialState": {
+  "flags": {
+   "albizzi": [
+    "standing"
+   ],
+   "cosimo": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "albizzi",
+    "cosimo"
+   ],
+   [
+    "enemy_of",
+    "cosimo",
+    "albizzi"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "albizzi",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "cosimo",
+     "is": "pater_patriae"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "albizzi_charge",
+   "characters": [
+    "albizzi",
+    "cosimo"
+   ]
+  },
+  {
+   "scene": "venice_exile",
+   "characters": [
+    "cosimo"
+   ]
+  },
+  {
+   "scene": "florence_broke",
+   "characters": [
+    "cosimo"
+   ]
+  },
+  {
+   "scene": "medici_return",
+   "characters": [
+    "cosimo",
+    "albizzi"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -2,7 +2,7 @@
  "id": "potemkin",
  "order": 100,
  "epoch": "empire",
- "act": "Акт III · Екатерина Великая",
+ "act": "Акт V · Екатерина Великая",
  "panels": 2,
  "scenes": [
   "favor_c",
@@ -22,10 +22,22 @@
   }
  },
  "goal": {
-  "flag": {
-   "char": "catherine",
-   "is": "expanded"
-  }
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "catherine",
+     "to": "potemkin"
+    }
+   },
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "catherine",
+     "to": "potemkin"
+    }
+   }
+  ]
  },
  "solution": [
   {

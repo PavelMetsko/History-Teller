@@ -1,0 +1,85 @@
+{
+ "id": "sevastopol",
+ "order": 170,
+ "epoch": "empire",
+ "act": "Акт VII · Николай I и Александр II",
+ "music": "empire_battle",
+ "cover": "malakhov",
+ "panels": 4,
+ "scenes": [
+  "sinop",
+  "allies_land",
+  "sevastopol_siege",
+  "malakhov",
+  "scuttle_fleet"
+ ],
+ "characters": [
+  "nakhimov",
+  "raglan"
+ ],
+ "initialState": {
+  "flags": {
+   "raglan": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "nakhimov",
+    "raglan"
+   ],
+   [
+    "enemy_of",
+    "raglan",
+    "nakhimov"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nakhimov",
+     "is": "victor"
+    }
+   },
+   {
+    "flag": {
+     "char": "nakhimov",
+     "is": "hero"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sinop",
+   "characters": [
+    "nakhimov"
+   ]
+  },
+  {
+   "scene": "allies_land",
+   "characters": [
+    "raglan"
+   ]
+  },
+  {
+   "scene": "sevastopol_siege",
+   "characters": [
+    "raglan",
+    "nakhimov"
+   ]
+  },
+  {
+   "scene": "malakhov",
+   "characters": [
+    "nakhimov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

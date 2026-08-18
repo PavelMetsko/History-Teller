@@ -1,0 +1,103 @@
+{
+ "id": "drake_knight",
+ "order": 225,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_battle",
+ "cover": "golden_hind",
+ "panels": 2,
+ "scenes": [
+  "cadiz_raid",
+  "golden_hind",
+  "court_refuse",
+  "tower_cell"
+ ],
+ "characters": [
+  "elizabeth",
+  "drake",
+  "philip"
+ ],
+ "initialState": {
+  "flags": {
+   "elizabeth": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "drake": [
+    "strong"
+   ],
+   "philip": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "drake",
+    "philip"
+   ],
+   [
+    "enemy_of",
+    "philip",
+    "drake"
+   ],
+   [
+    "ally_of",
+    "elizabeth",
+    "drake"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "philip",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "drake",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "elizabeth",
+      "is": "conceded"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "drake",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cadiz_raid",
+   "characters": [
+    "drake",
+    "philip"
+   ]
+  },
+  {
+   "scene": "golden_hind",
+   "characters": [
+    "drake",
+    "elizabeth"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

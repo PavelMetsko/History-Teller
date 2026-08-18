@@ -1,10 +1,10 @@
 {
  "id": "anne_cleves",
- "order": 60,
+ "order": 160,
  "epoch": "tudor",
  "panels": 3,
  "scenes": [
-  "court",
+  "court_present",
   "chapel",
   "tribunal",
   "tower"
@@ -17,19 +17,34 @@
  "initialState": {
   "flags": {
    "henry": [
-    "supreme_head"
+    "supreme_head",
+    "standing"
    ],
    "cleves": [
-    "foreign_locked"
+    "locked_out"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry",
+    "cleves"
+   ]
+  ]
  },
  "goal": {
   "all": [
    {
+    "relation": {
+     "rel": "wed",
+     "from": "henry",
+     "to": "cleves"
+    }
+   },
+   {
     "flag": {
      "char": "cleves",
-     "is": "cast_off"
+     "is": "condemned"
     }
    },
    {
@@ -44,7 +59,7 @@
  },
  "solution": [
   {
-   "scene": "court",
+   "scene": "court_present",
    "characters": [
     "cromwell",
     "cleves"
@@ -70,5 +85,5 @@
  "factCard": {
   "accuracy": "fact"
  },
- "act": "Акт II · Шесть жён"
+ "act": "Акт IV · Шесть жён"
 }

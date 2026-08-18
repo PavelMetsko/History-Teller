@@ -1,0 +1,92 @@
+{
+ "id": "plassey",
+ "order": 310,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_battle",
+ "cover": "plassey_grove",
+ "panels": 3,
+ "scenes": [
+  "jafar_deal",
+  "plassey_grove",
+  "nawab_throne",
+  "clive_retreat"
+ ],
+ "characters": [
+  "clive",
+  "siraj",
+  "mir_jafar"
+ ],
+ "initialState": {
+  "flags": {
+   "clive": [
+    "strong",
+    "standing"
+   ],
+   "siraj": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "clive",
+    "siraj"
+   ],
+   [
+    "enemy_of",
+    "siraj",
+    "clive"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mir_jafar",
+     "is": "bought"
+    }
+   },
+   {
+    "flag": {
+     "char": "siraj",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "mir_jafar",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jafar_deal",
+   "characters": [
+    "clive",
+    "mir_jafar"
+   ]
+  },
+  {
+   "scene": "plassey_grove",
+   "characters": [
+    "clive",
+    "siraj",
+    "mir_jafar"
+   ]
+  },
+  {
+   "scene": "nawab_throne",
+   "characters": [
+    "mir_jafar",
+    "clive"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

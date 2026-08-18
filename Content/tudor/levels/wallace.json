@@ -1,0 +1,104 @@
+{
+ "id": "wallace",
+ "order": 26,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_battle",
+ "cover": "stirling_bridge",
+ "panels": 4,
+ "scenes": [
+  "stirling_bridge",
+  "stirling_field",
+  "falkirk",
+  "smithfield_w"
+ ],
+ "characters": [
+  "wallace",
+  "edward1",
+  "surrey"
+ ],
+ "initialState": {
+  "flags": {
+   "edward1": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wallace",
+    "surrey"
+   ],
+   [
+    "enemy_of",
+    "surrey",
+    "wallace"
+   ],
+   [
+    "enemy_of",
+    "edward1",
+    "wallace"
+   ],
+   [
+    "enemy_of",
+    "wallace",
+    "edward1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "surrey",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "wallace",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "wallace",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "stirling_bridge",
+   "characters": [
+    "wallace"
+   ]
+  },
+  {
+   "scene": "stirling_field",
+   "characters": [
+    "wallace",
+    "surrey"
+   ]
+  },
+  {
+   "scene": "falkirk",
+   "characters": [
+    "edward1",
+    "wallace"
+   ]
+  },
+  {
+   "scene": "smithfield_w",
+   "characters": [
+    "edward1",
+    "wallace"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

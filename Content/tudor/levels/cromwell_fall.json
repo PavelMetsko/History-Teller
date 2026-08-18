@@ -1,0 +1,85 @@
+{
+ "id": "cromwell_fall",
+ "order": 165,
+ "epoch": "tudor",
+ "act": "Акт IV · Шесть жён",
+ "music": "tudor_court",
+ "cover": "attainder",
+ "panels": 3,
+ "scenes": [
+  "court_present",
+  "attainder",
+  "tower_cell",
+  "court_pardon"
+ ],
+ "characters": [
+  "henry",
+  "cromwell",
+  "cleves"
+ ],
+ "initialState": {
+  "flags": {
+   "henry": [
+    "standing"
+   ],
+   "cleves": [
+    "locked_out"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry",
+    "cromwell"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cleves",
+     "is": "presented"
+    }
+   },
+   {
+    "flag": {
+     "char": "cromwell",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "cromwell",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "court_present",
+   "characters": [
+    "cromwell",
+    "cleves"
+   ]
+  },
+  {
+   "scene": "attainder",
+   "characters": [
+    "henry",
+    "cromwell"
+   ]
+  },
+  {
+   "scene": "tower_cell",
+   "characters": [
+    "henry",
+    "cromwell"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

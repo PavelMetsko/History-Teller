@@ -2,7 +2,7 @@
  "id": "heir",
  "order": 10,
  "epoch": "byzantium",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Юстиниана",
  "panels": 2,
  "scenes": [
   "guard_b",
@@ -16,7 +16,7 @@
  "goal": {
   "flag": {
    "char": "justinian",
-   "is": "heir"
+   "is": "crowned"
   }
  },
  "solution": [
@@ -30,8 +30,8 @@
   {
    "scene": "court_b",
    "characters": [
-    "justin",
-    "justinian"
+    "justinian",
+    "justin"
    ]
   }
  ],
@@ -39,5 +39,12 @@
  "music": "byzantium_ceremony",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "justin": [
+    "standing"
+   ]
+  }
  }
 }

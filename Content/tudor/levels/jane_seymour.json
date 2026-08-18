@@ -1,7 +1,7 @@
 {
- "order": 50,
+ "order": 150,
  "epoch": "tudor",
- "act": "Акт II · Шесть жён",
+ "act": "Акт IV · Шесть жён",
  "panels": 3,
  "scenes": [
   "tower",
@@ -16,7 +16,10 @@
  "initialState": {
   "flags": {
    "boleyn": [
-    "accused"
+    "condemned"
+   ],
+   "henry": [
+    "standing"
    ]
   }
  },
@@ -25,7 +28,7 @@
    {
     "flag": {
      "char": "boleyn",
-     "is": "beheaded"
+     "is": "executed"
     }
    },
    {

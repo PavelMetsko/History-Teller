@@ -1,0 +1,79 @@
+{
+ "id": "bouvines",
+ "order": 10,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_battle",
+ "cover": "bouvines_field",
+ "panels": 3,
+ "scenes": [
+  "communes_muster",
+  "bouvines_field",
+  "chinon_truce",
+  "sunday_no_fight"
+ ],
+ "characters": [
+  "philip_augustus",
+  "john_lackland"
+ ],
+ "initialState": {
+  "flags": {
+   "john_lackland": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "philip_augustus",
+    "john_lackland"
+   ],
+   [
+    "enemy_of",
+    "john_lackland",
+    "philip_augustus"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_lackland",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_lackland",
+     "is": "conceded"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "communes_muster",
+   "characters": [
+    "philip_augustus"
+   ]
+  },
+  {
+   "scene": "bouvines_field",
+   "characters": [
+    "philip_augustus",
+    "john_lackland"
+   ]
+  },
+  {
+   "scene": "chinon_truce",
+   "characters": [
+    "philip_augustus",
+    "john_lackland"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

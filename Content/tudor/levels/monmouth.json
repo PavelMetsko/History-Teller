@@ -1,0 +1,103 @@
+{
+ "id": "monmouth",
+ "order": 270,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_battle",
+ "cover": "sedgemoor",
+ "panels": 3,
+ "scenes": [
+  "taunton",
+  "sedgemoor",
+  "bloody_assizes",
+  "monmouth_pleads"
+ ],
+ "characters": [
+  "monmouth",
+  "james2",
+  "jeffreys"
+ ],
+ "initialState": {
+  "flags": {
+   "james2": [
+    "strong",
+    "standing"
+   ],
+   "jeffreys": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "monmouth",
+    "james2"
+   ],
+   [
+    "enemy_of",
+    "james2",
+    "monmouth"
+   ],
+   [
+    "enemy_of",
+    "jeffreys",
+    "monmouth"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "monmouth",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "monmouth",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "monmouth",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "james2",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "taunton",
+   "characters": [
+    "monmouth"
+   ]
+  },
+  {
+   "scene": "sedgemoor",
+   "characters": [
+    "monmouth",
+    "james2"
+   ]
+  },
+  {
+   "scene": "bloody_assizes",
+   "characters": [
+    "jeffreys",
+    "monmouth"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

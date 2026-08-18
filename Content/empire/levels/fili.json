@@ -1,0 +1,97 @@
+{
+ "id": "fili",
+ "order": 150,
+ "epoch": "empire",
+ "act": "Акт VI · От Павла до декабристов",
+ "music": "empire_battle",
+ "cover": "fili_hut",
+ "panels": 3,
+ "scenes": [
+  "borodino_r",
+  "fili_hut",
+  "maloyaroslavets",
+  "answer_letter"
+ ],
+ "characters": [
+  "kutuzov",
+  "napoleon",
+  "alexander1"
+ ],
+ "initialState": {
+  "flags": {
+   "kutuzov": [
+    "strong",
+    "standing"
+   ],
+   "napoleon": [
+    "strong",
+    "standing"
+   ],
+   "alexander1": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "kutuzov",
+    "napoleon"
+   ],
+   [
+    "enemy_of",
+    "napoleon",
+    "kutuzov"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "kutuzov",
+     "is": "yields_moscow"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "napoleon",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "borodino_r",
+   "characters": [
+    "napoleon",
+    "kutuzov"
+   ]
+  },
+  {
+   "scene": "fili_hut",
+   "characters": [
+    "kutuzov",
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "maloyaroslavets",
+   "characters": [
+    "kutuzov",
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

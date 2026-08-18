@@ -1,0 +1,72 @@
+{
+ "id": "verginia",
+ "order": 48,
+ "epoch": "rome",
+ "act": "Акт I · Цари и рождение республики",
+ "music": "tension",
+ "cover": "butcher_stall_v",
+ "panels": 3,
+ "scenes": [
+  "false_claim_v",
+  "butcher_stall_v",
+  "forum_decemvir_v",
+  "betrothal_v"
+ ],
+ "characters": [
+  "appius_dec",
+  "verginia",
+  "verginius",
+  "icilius"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "verginius",
+    "appius_dec"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "verginia",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "appius_dec",
+     "is": "condemned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "false_claim_v",
+   "characters": [
+    "appius_dec",
+    "verginia"
+   ]
+  },
+  {
+   "scene": "butcher_stall_v",
+   "characters": [
+    "verginius",
+    "verginia"
+   ]
+  },
+  {
+   "scene": "forum_decemvir_v",
+   "characters": [
+    "verginius",
+    "appius_dec"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

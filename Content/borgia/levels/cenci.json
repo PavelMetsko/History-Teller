@@ -1,0 +1,70 @@
+{
+ "id": "cenci",
+ "order": 152,
+ "epoch": "borgia",
+ "act": "Акт VI · Инквизиция",
+ "music": "borgia_tension",
+ "cover": "hammer_night",
+ "panels": 3,
+ "scenes": [
+  "petrella_tower",
+  "hammer_night",
+  "sant_angelo_block",
+  "beg_clement"
+ ],
+ "characters": [
+  "beatrice",
+  "francesco_cenci",
+  "clement8"
+ ],
+ "initialState": {
+  "flags": {
+   "clement8": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francesco_cenci",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "beatrice",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "petrella_tower",
+   "characters": [
+    "francesco_cenci",
+    "beatrice"
+   ]
+  },
+  {
+   "scene": "hammer_night",
+   "characters": [
+    "beatrice",
+    "francesco_cenci"
+   ]
+  },
+  {
+   "scene": "sant_angelo_block",
+   "characters": [
+    "clement8",
+    "beatrice"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

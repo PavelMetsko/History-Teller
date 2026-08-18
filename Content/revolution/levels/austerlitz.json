@@ -1,0 +1,81 @@
+{
+ "id": "austerlitz",
+ "order": 330,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_battle",
+ "cover": "austerlitz_field",
+ "panels": 2,
+ "scenes": [
+  "pratzen_bait",
+  "austerlitz_field",
+  "kutuzov_advises",
+  "attack_heights"
+ ],
+ "characters": [
+  "napoleon",
+  "alexander1",
+  "kutuzov"
+ ],
+ "initialState": {
+  "flags": {
+   "kutuzov": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "alexander1",
+    "napoleon"
+   ],
+   [
+    "enemy_of",
+    "napoleon",
+    "alexander1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexander1",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "alexander1",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pratzen_bait",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "austerlitz_field",
+   "characters": [
+    "alexander1",
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

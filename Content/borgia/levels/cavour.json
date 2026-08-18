@@ -1,0 +1,89 @@
+{
+ "id": "cavour",
+ "order": 158,
+ "epoch": "borgia",
+ "act": "Акт VII · Рисорджименто",
+ "music": "borgia_tension",
+ "cover": "plombieres",
+ "panels": 4,
+ "scenes": [
+  "crimea_troops",
+  "plombieres",
+  "solferino",
+  "nice_savoy",
+  "appeal_england"
+ ],
+ "characters": [
+  "cavour",
+  "napoleon3",
+  "franz_joseph"
+ ],
+ "initialState": {
+  "flags": {
+   "franz_joseph": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "napoleon3",
+    "franz_joseph"
+   ],
+   [
+    "enemy_of",
+    "franz_joseph",
+    "napoleon3"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "franz_joseph",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon3",
+     "is": "bought"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "crimea_troops",
+   "characters": [
+    "cavour"
+   ]
+  },
+  {
+   "scene": "plombieres",
+   "characters": [
+    "cavour",
+    "napoleon3"
+   ]
+  },
+  {
+   "scene": "solferino",
+   "characters": [
+    "napoleon3",
+    "franz_joseph"
+   ]
+  },
+  {
+   "scene": "nice_savoy",
+   "characters": [
+    "cavour",
+    "napoleon3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

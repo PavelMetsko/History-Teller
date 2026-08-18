@@ -1,0 +1,70 @@
+{
+ "id": "trianon",
+ "order": 208,
+ "epoch": "revolution",
+ "act": "Акт III · Революция",
+ "music": "revolution_romance",
+ "cover": "petit_trianon",
+ "panels": 3,
+ "scenes": [
+  "petit_trianon",
+  "fersen_visit",
+  "pamphlets",
+  "court_etiquette"
+ ],
+ "characters": [
+  "antoinette",
+  "fersen",
+  "louis"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "antoinette",
+     "is": "flaunting"
+    }
+   },
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "antoinette",
+     "to": "fersen"
+    }
+   },
+   {
+    "flag": {
+     "char": "antoinette",
+     "is": "hated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "petit_trianon",
+   "characters": [
+    "antoinette"
+   ]
+  },
+  {
+   "scene": "fersen_visit",
+   "characters": [
+    "antoinette",
+    "fersen"
+   ]
+  },
+  {
+   "scene": "pamphlets",
+   "characters": [
+    "antoinette"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

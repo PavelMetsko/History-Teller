@@ -1,0 +1,90 @@
+{
+ "id": "varangians",
+ "order": 152,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_romance",
+ "cover": "porphyrogenita_wed",
+ "panels": 3,
+ "scenes": [
+  "six_thousand",
+  "chersonesus",
+  "porphyrogenita_wed",
+  "raid_constantinople"
+ ],
+ "characters": [
+  "basil2",
+  "vladimir",
+  "anna_byz"
+ ],
+ "initialState": {
+  "flags": {
+   "basil2": [
+    "reigns",
+    "standing"
+   ],
+   "vladimir": [
+    "locked_out",
+    "strong"
+   ],
+   "anna_byz": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "vladimir",
+    "basil2"
+   ],
+   [
+    "enemy_of",
+    "basil2",
+    "vladimir"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "vladimir",
+     "is": "baptized"
+    }
+   },
+   {
+    "relation": {
+     "rel": "wed",
+     "from": "vladimir",
+     "to": "anna_byz"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "six_thousand",
+   "characters": [
+    "vladimir",
+    "basil2"
+   ]
+  },
+  {
+   "scene": "chersonesus",
+   "characters": [
+    "vladimir",
+    "basil2"
+   ]
+  },
+  {
+   "scene": "porphyrogenita_wed",
+   "characters": [
+    "vladimir",
+    "anna_byz"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

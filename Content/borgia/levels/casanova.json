@@ -1,0 +1,73 @@
+{
+ "id": "casanova",
+ "order": 153,
+ "epoch": "borgia",
+ "act": "Акт VI · Инквизиция",
+ "music": "borgia_romance",
+ "cover": "roof_escape",
+ "panels": 3,
+ "scenes": [
+  "venice_denounce",
+  "piombi",
+  "roof_escape",
+  "beg_inquisitor"
+ ],
+ "characters": [
+  "casanova",
+  "inquisitor_v"
+ ],
+ "initialState": {
+  "flags": {
+   "inquisitor_v": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "inquisitor_v",
+    "casanova"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "casanova",
+     "is": "prepared_escape"
+    }
+   },
+   {
+    "flag": {
+     "char": "casanova",
+     "is": "legend"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "venice_denounce",
+   "characters": [
+    "inquisitor_v",
+    "casanova"
+   ]
+  },
+  {
+   "scene": "piombi",
+   "characters": [
+    "casanova"
+   ]
+  },
+  {
+   "scene": "roof_escape",
+   "characters": [
+    "casanova"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

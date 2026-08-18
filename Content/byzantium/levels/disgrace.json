@@ -2,11 +2,11 @@
  "id": "disgrace",
  "order": 120,
  "epoch": "byzantium",
- "act": "Акт III · Слава и закат",
+ "act": "Акт IV · Слава и закат",
  "panels": 2,
  "scenes": [
   "slander_b",
-  "court_b"
+  "court_dis"
  ],
  "characters": [
   "justinian",
@@ -39,7 +39,7 @@
    ]
   },
   {
-   "scene": "court_b",
+   "scene": "court_dis",
    "characters": [
     "justinian",
     "belisarius"

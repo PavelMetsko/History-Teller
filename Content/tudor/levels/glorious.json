@@ -1,0 +1,94 @@
+{
+ "id": "glorious",
+ "order": 275,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_court",
+ "cover": "seal_thames",
+ "panels": 3,
+ "scenes": [
+  "torbay",
+  "seal_thames",
+  "joint_crown",
+  "james_stands"
+ ],
+ "characters": [
+  "james2",
+  "william3",
+  "mary2"
+ ],
+ "initialState": {
+  "flags": {
+   "william3": [
+    "strong"
+   ],
+   "mary2": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "william3",
+    "james2"
+   ],
+   [
+    "enemy_of",
+    "james2",
+    "william3"
+   ],
+   [
+    "ally_of",
+    "mary2",
+    "william3"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "james2",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "james2",
+     "is": "away"
+    }
+   },
+   {
+    "flag": {
+     "char": "william3",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "torbay",
+   "characters": [
+    "william3",
+    "james2"
+   ]
+  },
+  {
+   "scene": "seal_thames",
+   "characters": [
+    "james2"
+   ]
+  },
+  {
+   "scene": "joint_crown",
+   "characters": [
+    "william3",
+    "mary2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

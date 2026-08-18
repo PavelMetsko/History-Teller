@@ -1,0 +1,72 @@
+{
+ "id": "february",
+ "order": 199,
+ "epoch": "empire",
+ "act": "Акт VIII · Закат империи",
+ "music": "empire_tension",
+ "cover": "pskov_station",
+ "panels": 3,
+ "scenes": [
+  "bread_riots",
+  "duma_demands",
+  "pskov_station",
+  "buy_duma",
+  "shoot_crowd"
+ ],
+ "characters": [
+  "nicholas2",
+  "rodzianko",
+  "ruzsky"
+ ],
+ "initialState": {
+  "flags": {
+   "nicholas2": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nicholas2",
+     "is": "starved"
+    }
+   },
+   {
+    "flag": {
+     "char": "nicholas2",
+     "is": "abdicated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bread_riots",
+   "characters": [
+    "rodzianko",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "duma_demands",
+   "characters": [
+    "rodzianko",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "pskov_station",
+   "characters": [
+    "ruzsky",
+    "nicholas2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

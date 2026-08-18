@@ -1,0 +1,77 @@
+{
+ "id": "lomonosov",
+ "order": 92,
+ "epoch": "empire",
+ "act": "Акт V · Екатерина Великая",
+ "music": "empire_ceremony",
+ "cover": "university_project",
+ "panels": 3,
+ "scenes": [
+  "fish_train",
+  "academy_chancery",
+  "university_project",
+  "praise_ode"
+ ],
+ "characters": [
+  "lomonosov",
+  "shuvalov",
+  "schumacher"
+ ],
+ "initialState": {
+  "flags": {
+   "shuvalov": [
+    "standing"
+   ],
+   "schumacher": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lomonosov",
+     "is": "barred"
+    }
+   },
+   {
+    "flag": {
+     "char": "lomonosov",
+     "is": "professor"
+    }
+   },
+   {
+    "flag": {
+     "char": "shuvalov",
+     "is": "founder"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fish_train",
+   "characters": [
+    "lomonosov"
+   ]
+  },
+  {
+   "scene": "academy_chancery",
+   "characters": [
+    "schumacher",
+    "lomonosov"
+   ]
+  },
+  {
+   "scene": "university_project",
+   "characters": [
+    "shuvalov",
+    "lomonosov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

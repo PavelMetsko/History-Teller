@@ -1,0 +1,76 @@
+{
+ "id": "sudebnik",
+ "order": 15,
+ "epoch": "empire",
+ "act": "Акт I · Иван Грозный",
+ "music": "empire_ceremony",
+ "cover": "rada_circle",
+ "panels": 3,
+ "scenes": [
+  "fire_sermon",
+  "rada_circle",
+  "sudebnik_code",
+  "kazenny_dvor"
+ ],
+ "characters": [
+  "ivan",
+  "silvestr",
+  "adashev"
+ ],
+ "initialState": {
+  "flags": {
+   "ivan": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ivan",
+     "is": "chastened"
+    }
+   },
+   {
+    "flag": {
+     "char": "adashev",
+     "is": "rada"
+    }
+   },
+   {
+    "flag": {
+     "char": "adashev",
+     "is": "lawgiver"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fire_sermon",
+   "characters": [
+    "silvestr",
+    "ivan"
+   ]
+  },
+  {
+   "scene": "rada_circle",
+   "characters": [
+    "ivan",
+    "adashev"
+   ]
+  },
+  {
+   "scene": "sudebnik_code",
+   "characters": [
+    "adashev"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

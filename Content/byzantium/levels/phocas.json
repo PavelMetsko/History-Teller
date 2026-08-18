@@ -1,0 +1,73 @@
+{
+ "id": "phocas",
+ "order": 137,
+ "epoch": "byzantium",
+ "act": "Акт V · Ираклий и ислам",
+ "music": "byzantium_battle",
+ "cover": "chalcedon_pier",
+ "panels": 3,
+ "scenes": [
+  "danube_winter",
+  "chalcedon_pier",
+  "carthage_fleet",
+  "persian_border"
+ ],
+ "characters": [
+  "maurice",
+  "phocas_c",
+  "heraclius"
+ ],
+ "initialState": {
+  "flags": {
+   "maurice": [
+    "reigns",
+    "standing"
+   ],
+   "heraclius": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "maurice",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "heraclius",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "danube_winter",
+   "characters": [
+    "phocas_c",
+    "maurice"
+   ]
+  },
+  {
+   "scene": "chalcedon_pier",
+   "characters": [
+    "phocas_c",
+    "maurice"
+   ]
+  },
+  {
+   "scene": "carthage_fleet",
+   "characters": [
+    "heraclius",
+    "phocas_c"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

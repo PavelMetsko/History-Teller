@@ -2,7 +2,7 @@
  "id": "julius",
  "order": 120,
  "epoch": "borgia",
- "act": "Акт III · Государь",
+ "act": "Акт IV · Государь",
  "panels": 2,
  "scenes": [
   "faction_j",
@@ -15,7 +15,7 @@
  "goal": {
   "flag": {
    "char": "rovere",
-   "is": "pope"
+   "is": "crowned"
   }
  },
  "solution": [
@@ -29,7 +29,8 @@
   {
    "scene": "conclave_j",
    "characters": [
-    "rovere"
+    "rovere",
+    "cesare"
    ]
   }
  ],
@@ -37,5 +38,12 @@
  "music": "borgia_ceremony",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "cesare": [
+    "standing"
+   ]
+  }
  }
 }

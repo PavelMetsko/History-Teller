@@ -1,11 +1,11 @@
 {
- "order": 90,
+ "order": 190,
  "epoch": "tudor",
- "act": "Акт III · Наследники",
+ "act": "Акт V · Наследники Генриха",
  "panels": 3,
  "scenes": [
   "council",
-  "court",
+  "court_depose",
   "tower"
  ],
  "characters": [
@@ -19,22 +19,44 @@
     "royal_claim"
    ],
    "mary1": [
-    "royal_claim"
+    "royal_claim",
+    "standing"
+   ],
+   "northumberland": [
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "ally_of",
+    "northumberland",
+    "jane_grey"
+   ],
+   [
+    "enemy_of",
+    "mary1",
+    "jane_grey"
+   ]
+  ]
  },
  "goal": {
   "all": [
    {
     "flag": {
      "char": "jane_grey",
-     "is": "beheaded"
+     "is": "crowned"
     }
    },
    {
     "flag": {
-     "char": "mary1",
-     "is": "crowned"
+     "char": "jane_grey",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "jane_grey",
+     "is": "executed"
     }
    }
   ]
@@ -43,12 +65,12 @@
   {
    "scene": "council",
    "characters": [
-    "northumberland",
-    "jane_grey"
+    "jane_grey",
+    "northumberland"
    ]
   },
   {
-   "scene": "court",
+   "scene": "court_depose",
    "characters": [
     "mary1",
     "jane_grey"

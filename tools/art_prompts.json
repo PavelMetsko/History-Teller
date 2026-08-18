@@ -320,5 +320,702 @@
   "scene_pavia_o": "a north Italian town after a brief fight: a broken church door, a dropped commander's cloak on the steps, smoke over tiled roofs, no figures",
   "scene_depose_o": "a palace hall with a wooden crate packed with imperial regalia — diadem, purple cloak, sceptre — a shipping label tied to it, an empty throne behind, cold final light, no figures",
   "scene_mercy_o": "a quiet seaside villa in Campania: shaded colonnade, olive trees, a boy's abandoned wooden sword on a bench, calm blue bay, no figures"
+ },
+ "tarpeia": {
+  "char_tarpeia": "Tarpeia, a Roman maiden: young girl in a simple white tunic carrying a water jug, greedy bright eyes fixed on gold bracelets, dark braided hair",
+  "char_spurius": "Spurius Tarpeius, commander of the Capitol guard: grizzled Roman officer in an early bronze helmet and leather cuirass, stern tired face",
+  "scene_bracelets_t": "a spring outside a hill fortress at dusk: a dropped water jug, several heavy gold bracelets glinting on a rock, Sabine shields leaning nearby, no figures",
+  "scene_citadel_gate_t": "a wooden fortress gate on a rocky hill at night, bar lifted, gate ajar with torchlight spilling through, no figures",
+  "scene_shields_t": "a heap of round bronze Sabine shields piled high inside a fortress courtyard, one gold bracelet fallen beside the pile, grim dawn light, no figures",
+  "scene_father_watch_t": "a fortress rampart at night: a brazier, stacked spears, a lookout post overlooking an enemy camp with distant fires, no figures"
+ },
+ "horatii": {
+  "char_tullus": "Tullus Hostilius, third king of Rome: a hard warlike king in an archaic bronze crown and red cloak, black beard, fierce eyes",
+  "char_horatius": "Publius Horatius, a young Roman champion: lean fighter in an early Roman tunic and bronze breastplate, sword raised, blood on his arm, grim resolve",
+  "char_curiatius": "a Curiatius brother, Alban champion: young warrior in Alban armour with a distinctive embroidered cloak, wounded, defiant",
+  "char_horatia": "Horatia, sister of the Horatii: a young Roman woman in mourning veil, hands clasped, tears on her face, holding a folded embroidered cloak",
+  "scene_feign_flight_h": "an open field between two armies with three sets of footprints stretching apart in the dust, one runner's path curving back, no figures",
+  "scene_duel_h": "a trampled dueling ground between two ancient armies, three fallen shields, broken spears, both camps watching from low hills, no figures",
+  "scene_sister_gate_h": "the Capena gate of early Rome from inside: stone arch, an embroidered cloak lying on the threshold, a dropped dagger, harsh noon light, no figures",
+  "scene_king_trial_h": "an archaic Roman assembly ground: a wooden royal seat, a rough beam laid across two posts like a low doorway, gathered empty benches, no figures"
+ },
+ "coriolanus_v": {
+  "char_aufidius": "Attius Tullius, king of the Volsci: broad barbarian-italic chieftain in a wolf-fur cloak over bronze scale, thick beard, wary proud face",
+  "char_veturia": "Veturia, mother of Coriolanus: a stern grey-haired Roman matron in a dark stola and palla, upright, commanding, sorrowful",
+  "scene_tribunes_court_c": "the Roman forum set for a plebeian trial: tribunes' bench, a hostile crowd's dropped stones and staves, grey overcast light, no figures",
+  "scene_volsci_hall_c": "a Volscian chieftain's hall: rough timber pillars, hearth fire, wolf pelts, spears on the wall, a guest's cloak on a bench, no figures",
+  "scene_mother_at_walls_c": "a Roman military camp before the walls of Rome at dawn: an empty commander's chair, women's shawls left on the ground, the city gate in the distance, no figures",
+  "scene_assault_rome_c": "the walls of early Rome under assault: siege ladders against stone, smoke, arrows in the ground, no figures"
+ },
+ "cincinnatus": {
+  "char_cincinnatus": "Cincinnatus: a lean weathered old Roman farmer in a rough tunic with a plough handle, sun-browned face, calm authoritative eyes",
+  "char_cloelius": "Cloelius Gracchus, chieftain of the Aequi: a shaggy hill-tribe war leader in hide and bronze, war axe, arrogant scowl",
+  "char_minucius_c": "Consul Minucius: an anxious Roman consul in a dusty toga praetexta over armour, sweaty, looking over his shoulder",
+  "scene_plough_field": "a small ploughed field by the Tiber: a wooden plough with oxen unhitched, a folded toga on a stump, senators' lictor rods leaning nearby, morning light, no figures",
+  "scene_algidus": "a wooded mountain pass at night, a ring of palisade stakes encircling a valley camp, torches, no figures",
+  "scene_rescue_camp_c": "a besieged Roman camp: rampart with tired sentries' shields, empty grain sacks, enemy campfires all around, no figures",
+  "scene_return_plough": "the same field by the Tiber at evening: the plough back in the furrow, lictors' rods left at the field's edge, a farmer's hat on the plough, no figures",
+  "scene_keep_power_c": "a Roman curule chair with twelve bundled fasces arranged around it like a wall, dark heavy shadows, no figures"
+ },
+ "verginia": {
+  "char_appius_dec": "Appius Claudius the Decemvir: a sleek arrogant Roman patrician in a purple-bordered toga holding law tablets, cold lustful eyes",
+  "char_verginia": "Verginia: a modest young Roman girl in a plain tunic with a school satchel, frightened, holding her father's hand",
+  "char_verginius": "Verginius, a centurion: a rugged Roman soldier in campaign gear with a vine-staff, face contorted with grief and fury",
+  "char_icilius": "Icilius, a plebeian tribune: an earnest young Roman in a plain toga, clenched fist, protective stance",
+  "scene_false_claim_v": "a Roman tribunal in the forum: a raised judge's seat, a slave-collar and chain on the step, an unrolled false document, no figures",
+  "scene_butcher_stall_v": "a butcher's stall at the edge of the Roman forum: hanging meat, a bloodied knife on the block, an overturned basket, no figures",
+  "scene_forum_decemvir_v": "the Roman forum in uproar: ten curule chairs overturned, law tablets smashed on the ground, no figures",
+  "scene_betrothal_v": "a modest plebeian house courtyard: a betrothal ring on a small table, wildflowers, a spinning distaff, warm light, no figures"
+ },
+ "falerii": {
+  "char_schoolmaster": "a Faliscan schoolmaster: a smug thin man in a Greek-style himation with a switch and wax tablets, sly eyes",
+  "char_falisci_chief": "a Faliscan elder: a dignified old man in a striped Etruscan-Italic mantle with a staff, worried but proud",
+  "scene_siege_falerii": "an Italic hill town under siege: Roman siege lines, empty fields, thin smoke over the walls, no figures",
+  "scene_children_camp_f": "a Roman camp gate with a group of small children's satchels and a teacher's switch dropped in the dust, no figures",
+  "scene_gates_open_f": "the gates of an Italic town swung wide open, elders' staffs and olive branches laid on the threshold, no figures",
+  "scene_take_hostages_f": "a Roman camp tent with iron shackles and children's satchels heaped on a table, cold light, no figures"
+ },
+ "caudine": {
+  "char_pontius": "Gaius Pontius, Samnite general: a tough highland commander in a triple-disc Samnite cuirass and feathered helmet, shrewd face",
+  "char_herennius": "Herennius Pontius, Samnite elder: a very old wise man in a plain wool cloak, long white beard, sitting with a staff",
+  "char_postumius": "Consul Postumius: a haggard Roman consul in a torn toga over armour, hollow-eyed with humiliation",
+  "scene_caudine_pass": "a narrow wooded mountain gorge with both exits blocked by felled trees and boulders, a trapped army's abandoned standards, no figures",
+  "scene_elder_advice": "a Samnite hill village at night: an old man's seat by a fire, a rough map scratched in the dirt with two lines and nothing between, no figures",
+  "scene_yoke": "a yoke of three spears set up like a low doorway on a road, discarded Roman armour and swords piled beside it, no figures",
+  "scene_massacre_pass": "a mountain gorge floor strewn with broken Roman shields and helmets, dark blood on the stones, crows, no figures"
+ },
+ "pyrrhus": {
+  "char_pyrrhus": "Pyrrhus of Epirus: a handsome Hellenistic king in a plumed helmet and muscle cuirass, purple cloak, keen restless eyes",
+  "char_laevinus": "Consul Laevinus: a sturdy Roman consul in early republican armour, dented shield, angry determined face",
+  "char_fabricius": "Gaius Fabricius: a plain-living old Roman senator in a coarse worn toga, unimpressed honest face, empty hands",
+  "char_pyrrhus_doctor": "Pyrrhus's physician: a shifty Greek doctor in a dark himation with a medicine box, hiding a small vial",
+  "scene_heraclea": "a river plain battlefield with huge elephant footprints in the mud, broken Roman cavalry standards, no figures",
+  "scene_one_more_victory": "a Hellenistic royal tent after battle: rows of dead men's helmets laid out on the ground, a king's cloak thrown over a chair, no figures",
+  "scene_doctor_letter": "a Roman camp table with an opened letter, a wax seal, a small poison vial pushed away, a lamp, no figures",
+  "scene_gold_for_fabricius": "a heap of gold cups and coins spread on a rich carpet before a plain wooden Roman stool, no figures"
+ },
+ "regulus_word": {
+  "char_xanthippus": "Xanthippus the Spartan: a hard mercenary general in a Spartan crimson cloak and Corinthian helmet pushed back, cropped grey beard",
+  "char_senator_r": "a Roman senator: a grave middle-aged man in a white toga with a broad purple stripe, listening intently",
+  "scene_bagradas": "an African river plain with elephant tracks and scattered Roman armour, dusty heat haze, no figures",
+  "scene_senate_regulus": "the Roman curia interior with a heavy iron chain lying on the speaker's floor, senators' empty seats, no figures",
+  "scene_return_carthage": "a Carthaginian harbour quay with a Roman ship departing, a Punic prison tower on the shore, cruel bright sun, no figures",
+  "scene_stay_rome": "a quiet Roman house atrium with a garden, a family shrine, a soldier's cloak hung up for good, no figures"
+ },
+ "hannibal_alps": {
+  "char_flaminius": "Consul Flaminius: a brash Roman consul in a red cloak and helmet, impatient face, fog around him",
+  "char_boii_chief": "a chieftain of the Boii Gauls: tall long-haired Celtic warrior with a torc, drooping moustache, checked trousers, longsword",
+  "scene_alps_pass": "a snowbound Alpine pass: an elephant silhouette on a narrow ledge, a fallen mule, avalanche snow, cold blue peaks, no figures",
+  "scene_gaul_alliance": "a Celtic camp in the Po valley: a longhouse, torcs and a joined pair of drinking horns on a table, standards of a Gaulish tribe, no figures",
+  "scene_trasimene": "a lakeshore road in thick morning fog, dropped Roman standards half-visible, wooded slopes above, no figures",
+  "scene_sea_route": "a Mediterranean strait with Roman warships in a line blocking the passage, a lone Punic cargo ship, no figures"
+ },
+ "archimedes_l": {
+  "char_marcellus": "Marcus Claudius Marcellus: a hardened Roman general in a plain cuirass and red cloak, weathered face with respectful sorrow",
+  "char_epicydes": "Epicydes, commander of Syracuse: a Greek-Carthaginian officer in a bronze cuirass and Greek helmet, sharp suspicious face",
+  "char_archimedes": "Archimedes: a very old Greek sage in a plain chiton, wild white hair and beard, absorbed, holding a stylus and a compass",
+  "char_legionary": "a Roman legionary: an ordinary young soldier in mail and helmet with a gladius, blank confused face",
+  "scene_machines_a": "the sea walls of Syracuse bristling with wooden cranes and giant iron claws, catapults, a Roman ship being lifted from the water, no figures",
+  "scene_artemis_feast": "a Greek city street at night during a festival: garlands, spilled wine, torches guttering, an unguarded wall tower, no figures",
+  "scene_assault_syracuse": "Roman ladders against Greek city walls at dawn, a breached gate, standards, no figures",
+  "scene_sand_circles": "a courtyard sand tray with geometric circles drawn in it, a compass and stylus dropped, a Roman sandal print across the drawing, no figures"
+ },
+ "scipio_spain": {
+  "char_mago_nc": "Mago, Carthaginian commandant of New Carthage: a stocky Punic officer in a scale cuirass and conical helmet, worried",
+  "char_allucius": "Allucius, a Celtiberian chieftain: a young handsome Iberian noble in a fringed cloak with a falcata sword, hopeful proud face",
+  "char_iberian_bride": "an Iberian noble bride: a beautiful young woman in a bright embroidered Iberian dress and elaborate headdress, dignified and afraid",
+  "scene_new_carthage": "a walled harbour city on a peninsula with a shallow lagoon at low tide, Roman soldiers' ladders on the lagoon side, no figures",
+  "scene_captive_bride": "a Roman general's tent: a bridal veil and jewellery on a table, a chest of ransom gold left untouched, warm lamplight, no figures",
+  "scene_horsemen_a": "a dusty Iberian plain with a column of fine horses and Iberian cavalry standards approaching a Roman camp, no figures",
+  "scene_victor_love": "a Roman general's tent at night: a couch with rich cushions, a bridal veil dropped on the floor, dim red lamplight, no figures"
+ },
+ "tullia": {
+  "char_servius": "Servius Tullius, sixth king of Rome: a kindly old king in an archaic bronze crown and simple purple-edged robe, white beard, tired wise face",
+  "char_tullia": "Tullia, daughter of the king: a haughty young Roman noblewoman in a rich stola with a golden diadem, cruel ambitious eyes",
+  "scene_plot_tullia": "a royal bedchamber in archaic Rome: two whispered heads' cushions, a dagger under a pillow, a lamp, heavy curtains, no figures",
+  "scene_curia_steps": "the stone steps of an archaic senate house with a royal robe torn on the steps and a fallen crown, no figures",
+  "scene_chariot_street": "a narrow Roman street with a chariot's wheel tracks running straight through a dark bloodstain, a dropped royal sandal, no figures",
+  "scene_mourn_father": "an archaic Roman funeral bier with candles and cypress branches, an empty mourner's stool, no figures"
+ },
+ "decius": {
+  "char_decius": "Publius Decius Mus, Roman consul: a grave middle-aged commander in a toga pulled over his head like a priest, over armour, holding a spear, resolved face",
+  "char_latin_chief": "a Latin war chief: a warrior indistinguishable from a Roman in bronze armour and crested helmet, hard suspicious face",
+  "scene_devotio": "a Roman battlefield altar at dawn: a spear planted upright, a consul's cloak folded over it, a priest's ritual tablets, no figures",
+  "scene_veseris": "a plain beneath a smoking volcano with two identical Roman-style armies' shield lines facing each other, no figures",
+  "scene_death_in_line": "a wall of Latin spears with a riderless Roman warhorse galloping away, a fallen consul's cloak among the spearpoints, no figures",
+  "scene_consul_flees": "a road leading away from a battle, a dropped consul's helmet and abandoned standard, dust, no figures"
+ },
+ "torquatus": {
+  "char_torquatus": "Titus Manlius Torquatus: an iron-faced Roman consul with a golden torc at his neck, grey hair, jaw set, holding the fasces",
+  "char_manlius_son": "the young son of Torquatus: a proud eager Roman cavalry officer in a plumed helmet, holding an enemy's bloodied spoils, defiant",
+  "char_geminus": "Geminus Maecius, Latin horseman: a swaggering mounted champion in ornate Latin armour, taunting expression",
+  "scene_duel_challenge": "a no man's land between two camps with two horses' tracks meeting, a broken lance, a fallen ornate helmet, no figures",
+  "scene_fathers_axe": "a Roman camp tribunal: a lictor's axe stuck in a wooden block, spread bundles of rods, a young officer's spoils laid at its foot, silent ranks of shields behind, no figures",
+  "scene_pardon_son": "a Roman consul's tent with the fasces laid aside and a young man's helmet returned on the table, gentle light, no figures",
+  "scene_latin_field": "a Latin battlefield with Roman and Latin standards clashing, dust and spears, no figures"
+ },
+ "scipio_trial": {
+  "char_cato_censor": "Cato the Elder: a hard-faced old Roman in a plain rough toga, cropped grey hair, thin lips, accusing finger",
+  "scene_charge_cato": "the rostra in the Roman forum with account tablets stacked for a trial, an accuser's empty place, grey sky, no figures",
+  "scene_zama_day": "torn account books scattered on the forum paving, the crowd's footprints all leading toward the Capitoline temple in bright sun, no figures",
+  "scene_liternum": "a quiet seaside villa on the Campanian coast: a modest tomb under a pine, olive trees, calm sea, no figures",
+  "scene_scipio_replies": "the rostra with a speaker's lectern and a general's laurel wreath laid on it, restless crowd's shadows, no figures"
+ },
+ "gaius_gracchus": {
+  "char_gaius_gracchus": "Gaius Gracchus, tribune: a fiery young Roman orator in a plain toga, arm outstretched, intense burning eyes",
+  "char_opimius": "Consul Opimius: a cold heavy Roman consul in a purple-bordered toga over armour, jowly ruthless face",
+  "char_philocrates": "Philocrates, a loyal slave: a thin young Greek slave in a short tunic, tears in his eyes, gripping a dagger",
+  "scene_scu": "the Roman curia with a decree tablet on the altar of Victory and a consul's sword laid across it, no figures",
+  "scene_aventine_battle": "the Aventine hill temple of Diana with archers' arrows in the doors and broken clubs on the steps, no figures",
+  "scene_grove_furrina": "a dark sacred grove beyond the Tiber, an old wooden bridge behind, a fallen toga among the roots, no figures",
+  "scene_flee_gaius": "a wooden Tiber bridge at dawn, a dropped sandal, the road beyond curving into hills, no figures"
+ },
+ "aquae_sextiae": {
+  "char_teutobod": "Teutobod, king of the Teutones: a gigantic Germanic king with braided blond hair and beard, bearskin cloak, huge sword, roaring",
+  "char_marcellus_leg": "Legate Marcellus: a compact tough Roman officer in a plain cuirass, crouched watchful expression",
+  "scene_camp_walls_m": "a Roman camp rampart above the Rhone with an endless barbarian column of wagons and cattle passing below in the dust, no figures",
+  "scene_hidden_cohorts": "a wooded Provençal hillside with Roman shields hidden among pines and rocks, no figures",
+  "scene_aquae_sextiae": "a slope above hot springs strewn with broken Germanic wagons and shields, a river below, no figures"
+ },
+ "sertorius": {
+  "char_sertorius": "Quintus Sertorius: a lean one-eyed Roman general with an eyepatch and grey hair, plain Iberian cloak over armour, shrewd kind face",
+  "char_perperna": "Perperna: a sleek envious Roman aristocrat-officer in a fine cloak, hand near a hidden dagger, false smile",
+  "scene_white_fawn": "a white fawn standing alone in an Iberian mountain camp among rough tents, morning mist, no figures",
+  "scene_sucro": "a river valley in Spain with Roman standards fallen on one bank and Iberian round shields on the other, no figures",
+  "scene_banquet_osca": "a banqueting hall in an Iberian town: overturned couches, spilled wine cups, a dagger on the table, no figures",
+  "scene_plot_perperna": "a Roman officers' tent at night with heads bent over a lamp, wine cups, a hidden dagger on a stool, no figures"
+ },
+ "carrhae": {
+  "char_surena": "Surena, Parthian general: an elegant Parthian noble in scale armour and a tall tiara, painted face, long curled hair, holding a composite bow",
+  "char_abgar": "Abgar of Osroene: a sly Arab princeling in a striped robe and headcloth, gold rings, ingratiating smile",
+  "scene_abgar_guide": "a desert-edge camp with a Parthian gold purse on a rug and an Osroene guide's camel saddle, no figures",
+  "scene_desert_march": "an endless flat Mesopotamian steppe under white sun, a legion's dusty track leading away from a distant green river, no figures",
+  "scene_carrhae_field": "a bare plain with thousands of arrows standing in the ground around a shattered Roman shield square, camel tracks, no figures",
+  "scene_parley_surena": "a parley ground between armies: a rich Parthian carpet, a Roman general's dropped helmet, blood on the sand, no figures",
+  "scene_euphrates_road": "a road along the green Euphrates with Roman standards marching beside water and palms, no figures"
+ },
+ "alesia": {
+  "char_vercingetorix": "Vercingetorix: a tall Gaulish king with long hair and moustache, gold torc, ornate mail, defiant tragic eyes",
+  "char_commius": "Commius, Gaulish chieftain: a rugged Atrebatian noble on horseback gear, checked cloak, torc, wary",
+  "scene_gergovia": "a steep Gaulish hill-fort with Roman ladders thrown down its slope and shields scattered on the incline, no figures",
+  "scene_double_wall": "a vast double ring of Roman earthworks with towers and stakes encircling a hill town, a second wall facing outward, no figures",
+  "scene_alesia_hunger": "the walls of a besieged Gaulish town with empty grain baskets and starving cattle bones inside, no figures",
+  "scene_arms_at_feet": "a Roman general's tribunal with a magnificent Gaulish sword, helmet and mail thrown in a heap at its foot, no figures"
+ },
+ "cato_utica": {
+  "char_cato_younger": "Cato the Younger: a gaunt austere Roman senator in a plain dark toga, unkempt hair and beard of mourning, book scroll in hand",
+  "char_metellus_scipio": "Metellus Scipio: a pompous Roman general in ornate armour and purple, weak chin, arrogant face",
+  "scene_thapsus": "a North African coastal plain with elephants' bodies and broken Roman standards, sea beyond, no figures",
+  "scene_phaedo": "a lamp-lit bedroom in Utica with an open Greek scroll on the bed and an empty sword-hook on the wall, no figures",
+  "scene_sword_utica": "the same bedroom at dawn: a bloodied sword on the floor, torn bandages, the scroll fallen open, no figures",
+  "scene_clemency_caesar": "a Roman general's tent with two chairs facing, a laurel wreath and an offered hand's empty glove on the table, no figures"
+ },
+ "teutoburg": {
+  "char_varus": "Publius Quinctilius Varus: a plump complacent Roman governor in a toga over armour, wine cup, trusting smile",
+  "char_arminius": "Arminius: a handsome young Germanic noble in Roman officer's armour with a Germanic cloak and torc, calm treacherous eyes",
+  "char_segestes": "Segestes: an old Germanic chieftain in furs with a long grey beard, worried warning gesture",
+  "scene_varus_table": "a Roman governor's dining tent in Germany: two couches, wine, a map of the forest, friendly lamplight, no figures",
+  "scene_segestes_warning": "a Roman camp gate at dusk with an old man's staff left leaning against it and a warning tablet ignored on the ground, no figures",
+  "scene_forest_ambush": "a dark rain-soaked German forest with a narrow muddy track, Roman shields and standards sinking in the bog, spears from the trees, no figures",
+  "scene_varus_sword": "a forest clearing with a Roman general's sword driven into the ground beside a fallen eagle standard, rain, no figures"
+ },
+ "caligula": {
+  "char_caligula": "Caligula: a young balding emperor with a hollow-eyed manic stare, purple robe, golden laurel, thin cruel mouth",
+  "char_chaerea": "Cassius Chaerea: a grizzled praetorian tribune in armour, humiliated red face, hand on sword hilt",
+  "char_incitatus": "Incitatus, a racehorse: a magnificent white stallion in a purple blanket with a jewelled collar and a tiny consul's laurel wreath",
+  "scene_horse_consul": "a marble stable with ivory manger, purple blankets, a jewelled collar and a consul's chair set before it, no figures",
+  "scene_password_insult": "a palace guardroom with a wax tablet bearing a scrawled password and a mocking obscene doodle, a tribune's helmet on the bench, no figures",
+  "scene_palace_passage": "a narrow underground palace corridor with torches, a purple robe on the floor, dagger marks on the wall, no figures",
+  "scene_bribe_chaerea": "a palace table with a purse of gold and a signet ring pushed toward a praetorian's helmet, no figures"
+ },
+ "hastings": {
+  "char_harold": "Harold Godwinson, Anglo-Saxon king of England: a tall bearded warrior-king in a mail hauberk with a Saxon crown, drooping moustache, weary determined eyes",
+  "char_hardrada": "Harald Hardrada, Norwegian king: a giant Viking king with a long blond beard, mail and a huge two-handed axe, wolfish grin",
+  "char_william": "William the Conqueror: a stocky hard-faced Norman duke in mail with a nasal helmet pushed back, cropped hair shaved at the back, ruthless calm",
+  "scene_stamford_bridge": "a narrow wooden bridge over an English river with Viking round shields and axes fallen on the planks, autumn light, no figures",
+  "scene_forced_march": "a muddy Roman road across English downs stretching south, dropped Saxon shields and spent boots along the way, grey dawn, no figures",
+  "scene_hastings_field": "a Sussex hillside with a broken Saxon shield-wall, Norman kite shields and arrows in the grass, a fallen banner, dusk, no figures",
+  "scene_wait_london": "medieval London's wooden walls with fresh troops mustering, banners on the ramparts, a well-fed camp, no figures"
+ },
+ "becket": {
+  "char_henry2": "Henry II of England: a red-haired stocky king in a short riding cloak and plain crown, bull-necked, quick furious eyes",
+  "char_becket": "Thomas Becket: a tall austere archbishop in white pallium and mitre, hollow cheeks, unbending gaze, holding a crozier",
+  "char_fitzurse": "Reginald FitzUrse, a Norman knight: a mailed knight with a bear on his shield, sword drawn, brutal eager face",
+  "scene_canterbury_see": "the archbishop's throne in Canterbury cathedral with pallium and mitre laid on it, candles, no figures",
+  "scene_rid_me": "a Norman royal hall at Christmas: an overturned wine cup, a king's chair kicked back, four knights' cloaks missing from the wall pegs, no figures",
+  "scene_cathedral_altar": "a Romanesque cathedral altar at vespers with candles blown over, a broken crozier and blood on the flagstones, no figures",
+  "scene_reconcile_becket": "a green meadow in Touraine with two horses standing side by side, riders' seats empty, a friendly campfire, no figures"
+ },
+ "lionheart": {
+  "char_richard1": "Richard the Lionheart: a tall golden-bearded crusader king in mail with three lions on his surcoat, plain crown, bold laughing eyes",
+  "char_john_lackland": "John Lackland: a shifty pale prince-king in a rich fur-trimmed robe and small crown, receding chin, sly resentful look",
+  "char_leopold": "Leopold V of Austria: a proud bearded duke in a red-white-red surcoat over mail, offended stern face",
+  "char_eleanor": "Eleanor of Aquitaine: an elderly majestic queen in a white wimple and dark gown with a golden crown, sharp intelligent eyes",
+  "scene_vienna_inn": "a low medieval Austrian tavern kitchen: a spit of meat, a dropped merchant's hood, a heavy gold ring on the table, armed men's shadow at the door, no figures",
+  "scene_ransom_silver": "a castle treasury with heaped silver marks and church chalices in open chests, a scale, no figures",
+  "scene_john_pardon": "a Norman castle hall with a king's chair and a penitent's empty kneeling cushion before it, no figures",
+  "scene_john_plot": "a candlelit chamber with French fleur-de-lis and English lions on two sealed letters, a purse of gold, no figures"
+ },
+ "magna_carta": {
+  "char_fitzwalter": "Robert FitzWalter, baron: a grim mailed baron with a great sword and a banner of the Army of God, hard jaw",
+  "char_langton": "Stephen Langton, archbishop: a wise thin cleric in a mitre and plain robe holding a parchment, calm mediator's face",
+  "scene_barons_muster": "a field of baronial tents and banners near London with mailed horses and heaped lances, no figures",
+  "scene_runnymede": "a green meadow by the Thames with a canopied table, a great parchment with a hanging royal seal, quill and inkhorn, no figures",
+  "scene_pope_annuls": "a papal chamber with a bull bearing lead seal on a desk, a torn charter beside it, keys of Peter on the wall, no figures",
+  "scene_john_defies": "a royal dais in a castle hall with a throne, a scattered baron's petition torn on the floor, no figures"
+ },
+ "wallace": {
+  "char_wallace": "William Wallace: a huge broad-shouldered Scottish rebel in a rough plaid cloak and mail shirt, wild hair and beard, two-handed sword, fierce eyes",
+  "char_edward1": "Edward I Longshanks: a very tall grey-bearded English king in a red surcoat with three lions and a crown over mail, cold commanding stare",
+  "char_surrey": "the Earl of Surrey: an elderly English noble in a checkered surcoat over mail, complacent tired face",
+  "scene_stirling_bridge": "a narrow wooden bridge over the river Forth beneath a castle rock, half an army's shields dropped on the far bank, no figures",
+  "scene_stirling_field": "a marshy field by the Forth with English horses' bodies, broken lances, a fallen banner, no figures",
+  "scene_falkirk": "a Scottish moor with a ring of long spears (schiltron) toppled and arrows thick in the ground, no figures",
+  "scene_smithfield_w": "a London execution ground with a wooden scaffold, gallows and a hurdle, crowd's barrier, grey sky, no figures"
+ },
+ "isabella": {
+  "char_isabella": "Isabella of France, She-Wolf: a beautiful cold queen in a blue gown with fleur-de-lis and a golden crown, wolfish smile",
+  "char_mortimer": "Roger Mortimer: a dark handsome ambitious baron in mail and a green surcoat, arrogant confident face",
+  "char_edward2": "Edward II: a tall handsome but weak king in a rich robe, golden curls, sulky petulant face",
+  "char_despenser": "Hugh Despenser: a sleek greedy court favourite in a jewelled robe, thin sneer, hands full of rings",
+  "scene_paris_exile": "a Parisian palace garden with a stone bench for two, roses, fleur-de-lis banners, spring light, no figures",
+  "scene_invasion_i": "the Suffolk coast with mercenary ships beached and a small army's tents, English royal banners abandoned in flight, no figures",
+  "scene_berkeley": "a dark castle bedchamber with a heavy oak door barred from outside, a cold hearth, a fallen crown on the floor, no figures",
+  "scene_despenser_gallows": "an enormous fifty-foot gallows in a market square, a rich robe torn beneath it, a jeering crowd's dropped hats, no figures"
+ },
+ "crecy": {
+  "char_edward3": "Edward III: a magnificent bearded warrior-king in a surcoat quartering lions and lilies, crown on helm, keen confident face",
+  "char_black_prince": "Edward the Black Prince: a young knight in black armour with ostrich feathers, sixteen, fierce and proud",
+  "char_philip6": "Philip VI of France: a stout French king in blue with golden lilies, ostrich-plumed crown, dismayed face",
+  "scene_longbows_c": "a hillside with rows of English longbows planted in the turf and sheaves of arrows, a windmill behind, no figures",
+  "scene_crecy_field": "a slope covered with fallen French knights' banners and dead warhorses, arrows everywhere, sunset, no figures",
+  "scene_win_spurs": "a windmill overlooking a battle, a king's messenger's horse turned back, a pair of golden spurs on the mill step, no figures",
+  "scene_send_help": "a reserve of mounted knights with lances lowered, riding downhill toward a hard-pressed line, dust, no figures"
+ },
+ "wat_tyler": {
+  "char_tyler": "Wat Tyler, rebel leader: a rough Kentish tiler in a leather jerkin with a hammer and dagger, defiant burly face",
+  "char_richard2": "Richard II: a fourteen-year-old boy king in a white robe with a golden crown, fair curls, brave anxious face",
+  "char_walworth": "William Walworth, Lord Mayor of London: a stout mayor in a red robe and gold chain, dagger half-drawn, indignant",
+  "scene_blackheath": "a heath with a rebel camp of thousands: pitchforks, banners of St George, smoke from London in the distance, no figures",
+  "scene_smithfield_meet": "an open cattle market outside London's walls, a rebel's dropped dagger and cap on the ground, a mayor's horse, no figures",
+  "scene_your_leader": "a field with a lone white royal horse advancing toward a vast silent crowd, longbows half-raised, sunset, no figures",
+  "scene_royal_charge": "mounted royal men-at-arms charging with lances into a peasant crowd, banners, dust, no figures"
+ },
+ "agincourt": {
+  "char_henry5": "Henry V of England: a lean clean-shaven young king with a bowl haircut, plain armour with a crowned helm, hard resolute face",
+  "char_dalbret": "Charles d'Albret, Constable of France: a magnificent French noble in full plate with a lion crest, haughty confident face",
+  "scene_stakes_a": "a line of sharpened wooden stakes driven at an angle into a muddy field before English archers' positions, no figures",
+  "scene_mud_a": "a freshly ploughed field between two woods turned to deep glue-like mud under rain, hoofprints sinking, no figures",
+  "scene_agincourt_field": "a narrow muddy field heaped with fallen French plate armour, banners and arrows, two woods either side, no figures",
+  "scene_kill_prisoners": "a rear area of a battlefield with piled French helmets and surcoats, drawn daggers, grim grey light, no figures"
+ },
+ "joan_stake": {
+  "char_joan": "Joan of Arc: a slight nineteen-year-old girl with cropped dark hair in plain plate armour, holding a white banner, luminous serious face",
+  "char_cauchon": "Bishop Pierre Cauchon: a fleshy scholarly bishop in purple with a biretta, cunning ambitious eyes",
+  "char_bedford": "John, Duke of Bedford, English regent: a heavy stern English duke in a rich robe with lions and lilies, calculating",
+  "scene_orleans_j": "the walls of Orleans with an English fort tower burning and a white banner planted on the breach, no figures",
+  "scene_rouen_trial": "a stone chamber of a Norman castle with a bishop's chair, notaries' desks and a shackled prisoner's stool, no figures",
+  "scene_rouen_stake": "a market square in Rouen with a tall stake and pyre, a placard listing crimes, smoke, a crowd's barrier, no figures",
+  "scene_ransom_joan": "a Burgundian camp table with a heavy purse of ten thousand livres and a bill of sale, no figures"
+ },
+ "kingmaker": {
+  "char_warwick": "Richard Neville, Earl of Warwick: a powerful richly-armoured magnate with a bear-and-ragged-staff badge, proud domineering face",
+  "char_edward4": "Edward IV: a very tall handsome golden-haired king in a sun-in-splendour surcoat, easy charming smile",
+  "char_margaret_anjou": "Margaret of Anjou: a fierce dark-haired Lancastrian queen in a red gown with a crown, implacable eyes",
+  "scene_towton": "a snow-covered Yorkshire plateau littered with Lancastrian banners and arrows, a sun-in-splendour standard raised, no figures",
+  "scene_angers_pact": "a French cathedral altar with a bear-and-ragged-staff badge and a Lancastrian red rose laid together on a reliquary, no figures",
+  "scene_barnet": "a foggy Hertfordshire heath with confused banners, a fallen bear-and-ragged-staff standard, no figures",
+  "scene_woodville_wed": "a small hidden chapel at dawn with two candles, a plain ring on the altar, a hunting cloak on a pew, no figures"
+ },
+ "princes": {
+  "char_edward5": "Edward V: a twelve-year-old boy in a rich blue doublet with a small circlet, solemn frightened eyes",
+  "char_buckingham": "the Duke of Buckingham: a suave scheming duke in a black velvet robe with heavy gold chain, persuasive smile",
+  "scene_bastardy_sermon": "an outdoor pulpit (Paul's Cross) in a London churchyard, a preacher's scroll on the lectern, a crowd's dropped hats, no figures",
+  "scene_baynard_castle": "a Thames-side castle courtyard with a crown offered on a cushion at the foot of steps, no figures",
+  "scene_tower_princes": "the White Tower of London seen from the green, two small windows dark and shuttered, ravens on the grass, no figures",
+  "scene_coronation_boy": "Westminster Abbey with a small crown on the coronation chair and a child-sized robe of estate laid ready, no figures"
+ },
+ "wolsey": {
+  "char_wolsey": "Cardinal Wolsey: a corpulent proud cardinal in scarlet robes and biretta with a heavy gold cross, shrewd worried face",
+  "scene_wolsey_rome": "a papal audience chamber with an empty throne, an imperial double-eagle banner hanging behind the papal keys, no figures",
+  "scene_wolsey_disgrace": "a Tudor palace hall with a cardinal's red hat and great seal laid on a table before an empty royal chair, no figures",
+  "scene_leicester_abbey": "a plain abbey guest cell with a narrow bed, a cardinal's scarlet robe folded on a chair, a candle guttering, no figures",
+  "scene_wolsey_block": "a Tower green with a block and axe, a scarlet cardinal's hat lying beside it, no figures"
+ },
+ "thomas_more": {
+  "char_more": "Thomas More: a thoughtful middle-aged scholar in a black gown and fur collar with a gold chain of office, gentle ironic eyes",
+  "char_rich": "Richard Rich: a slick young Tudor lawyer in a dark doublet, thin lips, evasive eyes, holding a document",
+  "scene_oath_refusal": "a Tudor council table with an oath document, an inkwell and an unsigned line, a chancellor's chain of office laid down beside it, no figures",
+  "scene_more_trial": "Westminster Hall interior with a judges' bench, a prisoner's bar, a single witness's stool under a shaft of light, no figures",
+  "scene_tower_hill_m": "a scaffold on a hill outside the Tower of London, block and axe, a scholar's black gown folded, no figures",
+  "scene_take_oath": "a Tudor chapel altar with a Bible open and a signed oath with fresh ink, no figures"
+ },
+ "pilgrimage": {
+  "char_aske": "Robert Aske: an earnest one-eyed Yorkshire lawyer in a plain doublet with a pilgrim's badge of the Five Wounds, resolute face",
+  "char_norfolk": "the Duke of Norfolk: a hard old Tudor nobleman in armour and ducal chain, calculating grim face",
+  "scene_pilgrim_muster": "a Yorkshire moor covered with a vast peaceful host: banners of the Five Wounds of Christ, monks' crosses, pitchforks, no figures",
+  "scene_doncaster_pardon": "a bridge over a northern river with two delegations' banners, a royal pardon document on a drum, no figures",
+  "scene_york_chains": "the medieval walls of York with an iron gibbet cage hanging from the tower, a pilgrim badge on the ground, no figures",
+  "scene_march_london": "a rebel column marching south on the Great North Road with banners and pikes, no figures"
+ },
+ "essex": {
+  "char_essex": "the Earl of Essex: a handsome dashing red-bearded Elizabethan courtier in a slashed doublet and ruff, sword, reckless proud eyes",
+  "char_tyrone": "Hugh O'Neill, Earl of Tyrone: a shrewd Irish chieftain-earl in a saffron shirt with a mantle and Irish sword, watchful",
+  "scene_ulster": "an Irish bog landscape with an English army mired, banners drooping in rain, wooded hills, no figures",
+  "scene_essex_revolt": "a London street with shuttered windows, an earl's followers' dropped swords, a royal proclamation nailed to a post, no figures",
+  "scene_essex_block": "the inner court of the Tower with a scaffold, block and a red velvet cushion, no figures",
+  "scene_essex_pleads": "a queen's privy chamber with a small ring on the floor beside a locked casket, no figures"
+ },
+ "raleigh": {
+  "char_raleigh": "Sir Walter Raleigh: an elderly grey-bearded Elizabethan adventurer in a pearl-studded doublet and cloak, weathered defiant face",
+  "char_james1": "James I: a slouching bearded Scottish king in a padded doublet and jewelled hat, watery wary eyes",
+  "char_gondomar": "Count Gondomar, Spanish ambassador: a sleek black-clad Spanish grandee with a pointed beard and ruff, cold demanding stare",
+  "scene_el_dorado": "a jungle river with a burning Spanish palisade fort on the bank, canoes, smoke over palms, no figures",
+  "scene_gondomar_demand": "a Jacobean audience chamber with a Spanish coat of arms on a letter and a signed death warrant, no figures",
+  "scene_raleigh_block": "a scaffold in a palace yard at Westminster with an axe, a pipe and a feathered hat laid on the block, no figures",
+  "scene_raleigh_pardon": "a royal desk with a pardon document sealed and a quill, no figures"
+ },
+ "gunpowder": {
+  "char_fawkes": "Guy Fawkes: a tall dark soldier of fortune in a black cloak and wide-brimmed hat, pointed beard, holding a lantern",
+  "char_catesby": "Robert Catesby: a charismatic Catholic gentleman in a dark doublet with a rosary, burning fanatical eyes",
+  "char_salisbury": "Robert Cecil, Earl of Salisbury: a small hunchbacked spymaster in black robes with a white ruff, piercing calm eyes",
+  "scene_duck_and_drake": "a dim Elizabethan tavern back room with a Bible for swearing on, wine, a rough map of Westminster, no figures",
+  "scene_monteagle_letter": "a spymaster's desk with an anonymous unsigned letter, a lit candle, a magnifying lens, no figures",
+  "scene_cellar_search": "a vaulted cellar under Parliament with thirty-six barrels under firewood, a lantern and a slow match on the floor, no figures",
+  "scene_light_fuse": "a lit fuse sparking toward gunpowder barrels in a dark vault, no figures"
+ },
+ "charles_execution": {
+  "char_charles1": "Charles I: a small elegant king with a pointed beard and long curls, lace collar, blue sash, melancholy dignified face",
+  "char_cromwell_ol": "Oliver Cromwell: a heavy plain-faced Puritan general in a buff coat and breastplate, warts, iron resolve",
+  "char_bradshaw": "John Bradshaw, judge: a stern lawyer in a scarlet gown and a bulletproof high hat, unbending",
+  "scene_new_model": "a drill field with ranks of red-coated soldiers' pikes and muskets stacked, buff coats and helmets, no figures",
+  "scene_naseby": "a rolling Northamptonshire field with a royal baggage train overturned, a captured royal standard, no figures",
+  "scene_kings_trial": "Westminster Hall arranged as a court with a red velvet chair for the accused and a raised bench, no figures",
+  "scene_whitehall_block": "a black-draped scaffold before the Banqueting House on a cold January day, a low block, no figures",
+  "scene_treaty_king": "a table on the Isle of Wight with a draft treaty, two chairs, a king's signet, no figures"
+ },
+ "restoration": {
+  "char_charles2": "Charles II: a very tall swarthy young man with black curls and a thin moustache, plain riding clothes, merry knowing eyes",
+  "char_monck": "General George Monck: a stocky weather-beaten soldier in a buff coat and sash, closed cautious face",
+  "scene_worcester": "a cathedral city under assault with Scottish banners fallen in the streets, smoke, no figures",
+  "scene_royal_oak": "a great spreading oak in a Shropshire wood with soldiers' boot prints beneath it and a hidden platform in the boughs, no figures",
+  "scene_monck_march": "the road from Scotland with a disciplined army column approaching London, a crown carried on a cushion ahead, no figures",
+  "scene_cromwell_execute_king2": "a scaffold before Whitehall with a second, smaller block beside the marks of the first, no figures"
+ },
+ "great_fire": {
+  "char_farriner": "Thomas Farriner, baker: a plump flour-dusted baker in an apron and nightcap, guilty sleepy face",
+  "char_bludworth": "Thomas Bludworth, Lord Mayor: a pompous mayor in a red robe and gold chain, nightgown underneath, dismissive yawning face",
+  "scene_pudding_lane": "a narrow timber-framed London lane at night with a bakery's oven glowing red and sparks in the eaves, no figures",
+  "scene_mayor_dithers": "a London street with a small fire in a house and the mayor's carriage turning away, no figures",
+  "scene_king_firebreak": "a London street with a house exploding into a firebreak, powder kegs, a wall of flame behind, no figures",
+  "scene_mayor_acts": "a London street with houses being pulled down with fire hooks to make a gap, no figures"
+ },
+ "monmouth": {
+  "char_monmouth": "the Duke of Monmouth: a handsome vain young duke with dark curls, lace and a blue sash, weak charming face",
+  "char_james2": "James II: a long-faced stern king in a dark periwig and armour with the Garter, cold Catholic piety",
+  "char_jeffreys": "Judge Jeffreys: a florid bullying judge in scarlet robes and full-bottomed wig, contemptuous sneer",
+  "scene_taunton": "a Somerset market cross with a proclamation nailed up and homemade banners of a schoolgirls' guild, no figures",
+  "scene_sedgemoor": "a misty Somerset marsh at night with a wide drainage ditch, scythes on poles fallen at the water's edge, no figures",
+  "scene_bloody_assizes": "a west-country assize hall draped in red with a judge's bench and rows of gallows visible through the window, no figures",
+  "scene_monmouth_pleads": "a palace chamber with a duke's hat and sword laid on the floor before an empty royal chair, no figures"
+ },
+ "glorious": {
+  "char_william3": "William of Orange: a thin hook-nosed Dutch prince in a dark periwig and armour with an orange sash, asthmatic, cold clever eyes",
+  "char_mary2": "Mary II: a tall gentle English queen in a blue silk gown with pearls, dark curls, mild anxious face",
+  "scene_torbay": "a Devon bay with a vast Dutch fleet at anchor and orange banners on the shore, no figures",
+  "scene_seal_thames": "the Thames at night from a boat with the Great Seal of England sinking beneath dark water, no figures",
+  "scene_joint_crown": "Westminster Abbey with two crowns side by side on the coronation chair and a Bill of Rights scroll, no figures",
+  "scene_james_stands": "Salisbury Plain with a royal army's tents and a general's horse riding away toward the enemy, no figures"
+ },
+ "blenheim": {
+  "char_marlborough": "the Duke of Marlborough: a handsome composed general in a red coat with a Garter star and full periwig, calm charm",
+  "char_tallard": "Marshal Tallard: a portly French marshal in white coat with gold lace and a great periwig, short-sighted worried face",
+  "char_queen_anne": "Queen Anne: a stout gouty queen in a rich brocade gown with the Garter ribbon, plain kind tired face",
+  "scene_sarah_anne": "a private closet at Kensington with two tea cups, letters signed 'Mrs Freeman' and 'Mrs Morley', no figures",
+  "scene_danube_march": "a long red-coated army column crossing the Rhine hills toward the Danube, dust, wagons, no figures",
+  "scene_blenheim_field": "a Bavarian plain by the Danube with a village burning, French white standards fallen, cavalry tracks to the river, no figures",
+  "scene_wait_flanders": "a Flemish fortress town with an army sitting idle in tents beside canals, no figures"
+ },
+ "south_sea": {
+  "char_walpole": "Robert Walpole: a stout florid Georgian statesman in a full-bottomed wig and brocade coat, shrewd genial face",
+  "char_blunt": "John Blunt: a plump sly Georgian financier in a periwig clutching share certificates, greedy eyes",
+  "char_george1": "George I: a dull heavy German-born king in a periwig and Garter robes, bored suspicious face",
+  "scene_exchange_alley": "a crowded Georgian London alley of coffee-houses with share prices chalked on boards soaring, scattered certificates, no figures",
+  "scene_bubble_bursts": "the same alley with torn share certificates blowing in the gutter, a smashed coffee-house window, no figures",
+  "scene_walpole_screen": "the House of Commons with a literal painted screen standing before the Treasury bench, no figures",
+  "scene_hang_directors": "Tyburn gallows with a periwig and a bundle of shares hanging from the beam, no figures"
+ },
+ "culloden": {
+  "char_bonnie_charlie": "Bonnie Prince Charlie: a handsome young Stuart prince in tartan with a white cockade and blue bonnet, hopeful naive face",
+  "char_cumberland": "the Duke of Cumberland: a very fat young Hanoverian general in a red coat with heavy jowls, cold cruel eyes",
+  "char_flora": "Flora MacDonald: a brave young Highland woman in a plaid shawl with a boat oar, resolute kind face",
+  "scene_glenfinnan": "a Highland glen at a loch head with a red-and-white royal standard raised on a hill, clansmen's targes on the ground, no figures",
+  "scene_culloden_moor": "a bleak boggy Scottish moor with fallen tartan plaids and broadswords in the heather, cannon smoke, sleet, no figures",
+  "scene_skye_boat": "a small rowing boat on a grey Hebridean sea, a maid's dress and bonnet on the thwart, the isle of Skye ahead, no figures",
+  "scene_derby_turn": "an English coaching road with a Highland army's council table and a map showing London 120 miles away, no figures"
+ },
+ "plassey": {
+  "char_clive": "Robert Clive: a bold heavy-browed young British officer in a red coat, sword, restless daring face",
+  "char_siraj": "Siraj ud-Daulah, Nawab of Bengal: a young richly jewelled Indian prince in silk and turban, arrogant nervous",
+  "char_mir_jafar": "Mir Jafar: an elderly bearded Bengali general in a turban and armour, calculating treacherous eyes",
+  "scene_jafar_deal": "a Bengal palace room with a secret treaty and a chest of gold rupees on a rug, no figures",
+  "scene_plassey_grove": "a mango grove in the Bengal monsoon with a small red-coated line facing a vast host, wet cannon, elephants in the distance, no figures",
+  "scene_nawab_throne": "a jewelled Mughal-style throne in a Bengal palace with a British flag hung behind it, no figures",
+  "scene_clive_retreat": "a river with East India Company boats loading soldiers to fall back downstream, no figures"
+ },
+ "quebec": {
+  "char_wolfe": "James Wolfe: a thin sickly young British general in a red coat with a pigtail, sharp receding chin, feverish resolve",
+  "char_montcalm": "the Marquis de Montcalm: a dignified French general in white coat with gold lace and a powdered wig, tired noble face",
+  "scene_heights_abraham": "a steep wooded cliff above a wide river at night with a narrow goat path climbing it, boats below, no figures",
+  "scene_plains_abraham": "a grassy plateau before a walled fortress city, two lines of musket smoke, dropped shakos, no figures",
+  "scene_two_generals_die": "a battlefield tent and a city gate: two generals' hats and swords laid on two separate stretchers, no figures",
+  "scene_bombard_quebec": "a fortress city on a cliff with mortar shells arcing at night, burning roofs, a river below, no figures"
+ },
+ "yorktown": {
+  "char_george3": "George III: a plump earnest king in a powdered wig and red coat with the Garter star, stubborn worried eyes",
+  "char_cornwallis": "Lord Cornwallis: a portly aristocratic British general in red with a heavy face and drooping eyelid, dejected",
+  "char_washington": "George Washington: a tall dignified American general in a blue and buff coat, powdered hair, calm resolve",
+  "scene_boston_tea": "a colonial harbour at night with tea chests floating and broken on the water, a ship's deck above, no figures",
+  "scene_french_fleet": "a wide bay with a line of French warships under white ensigns blocking the entrance, no figures",
+  "scene_yorktown_siege": "earthworks and siege lines around a small tobacco port, British colours lowered on a redoubt, drums, no figures",
+  "scene_king_concedes": "a royal study with an unsigned draft of abdication and a map of North America, no figures"
+ },
+ "trafalgar": {
+  "char_nelson": "Horatio Nelson: a small frail admiral in full-dress uniform with stars and medals, empty right sleeve pinned, eye patch, burning eyes",
+  "char_villeneuve": "Admiral Villeneuve: a gloomy French admiral in blue uniform with gold lace, defeated melancholy face",
+  "char_hardy": "Captain Hardy: a big solid sea captain in a blue naval coat with a bicorne, loyal grave face",
+  "scene_england_expects": "a first-rate ship of the line's masthead with a long string of signal flags in bright colours against a clear sky, no figures",
+  "scene_two_columns": "a chart table with a plan of two columns of ships driving perpendicular through a curved enemy line, dividers, no figures",
+  "scene_trafalgar_sea": "a sea battle with dismasted ships of the line wreathed in gun smoke, a fallen tricolour, no figures",
+  "scene_kiss_me_hardy": "the dim orlop deck of a wooden warship with lanterns, a folded admiral's coat and a bloodstained sail, no figures",
+  "scene_line_ahead": "two parallel lines of sailing warships firing broadsides side by side, no figures"
+ },
+ "waterloo": {
+  "char_blucher": "Field Marshal Blücher: an old white-moustached Prussian hussar general in dark uniform with the Iron Cross, fierce eager",
+  "scene_mont_saint_jean": "a low ridge in Belgian farmland with a sunken lane, squares of red-coated infantry's stacked muskets, rain puddles, no figures",
+  "scene_blucher_arrives": "a wooded slope with Prussian dark-blue columns emerging onto a battlefield's flank at sunset, no figures",
+  "scene_waterloo_field": "a trampled Belgian valley with a farm burning, cuirasses and eagles fallen in the mud, evening light, no figures",
+  "scene_attack_first": "red-coated columns advancing downhill from a ridge into open fields, no figures"
+ },
+ "reform": {
+  "char_earl_grey": "Earl Grey: a tall elegant elderly Whig statesman in a dark coat with a high white cravat, patrician calm",
+  "char_william4": "William IV: a bluff elderly sailor-king with a pineapple-shaped head and naval bearing, wary",
+  "scene_commons_reform": "the old House of Commons chamber packed with hats and papers, a bill on the table, no figures",
+  "scene_lords_reject": "the House of Lords with red benches and a rejected bill torn on the woolsack, no figures",
+  "scene_kings_promise": "a royal desk at Windsor with a signed note promising to create peers, a quill, no figures",
+  "scene_days_of_may": "a London street with a placard 'To stop the Duke, go for gold' and a bank's shuttered doors, angry crowd's dropped hats, no figures"
+ },
+ "victoria_albert": {
+  "char_victoria": "young Queen Victoria: a small plump eighteen-year-old queen in a white gown with a small crown, round earnest face",
+  "char_albert": "Prince Albert: a handsome serious young German prince in a dark uniform with a sash, side-whiskers, gentle earnest eyes",
+  "char_melbourne": "Lord Melbourne: a silver-haired urbane elderly statesman in a dark coat, kindly worldly smile",
+  "scene_melbourne_lessons": "a palace study with state papers, two chairs by a fire, a spaniel's cushion, no figures",
+  "scene_windsor_proposal": "a Windsor Castle sitting room with a small ring box open on a table, roses, no figures",
+  "scene_st_james_wed": "the Chapel Royal at St James's with white satin, orange blossom, a wedding cake, no figures",
+  "scene_bedchamber_crisis": "a queen's dressing room with ladies' shawls and a list of names crossed out, no figures"
+ },
+ "light_brigade": {
+  "char_raglan": "Lord Raglan: an old one-armed British commander in a red coat with an empty sleeve, vague weary face",
+  "char_cardigan": "Lord Cardigan: a haughty cavalry brigadier in a cherry-coloured hussar uniform, magnificent whiskers, arrogant stare",
+  "char_nightingale": "Florence Nightingale: a slim severe young woman in a dark dress and white cap holding a lamp, steady compassionate eyes",
+  "scene_raglan_order": "a hilltop above a valley with a scribbled order on a scrap of paper and a field glass, no figures",
+  "scene_valley_of_death": "a long valley with Russian guns at the end and on both heights, cavalry sabres and dead horses in the grass, no figures",
+  "scene_scutari": "a long barrack hospital ward at night with rows of beds and a single lamp casting light down the aisle, no figures",
+  "scene_query_order": "a staff officer's horse and a written order held up questioningly beside a general's tent, no figures"
+ },
+ "suez": {
+  "char_disraeli": "Benjamin Disraeli: a dandyish elderly statesman with black curls and a goatee, velvet coat, sly theatrical smile",
+  "char_gladstone": "William Gladstone: a stern eagle-faced elderly statesman with white side-whiskers and a high collar, moral fervour",
+  "scene_rothschild_loan": "a banker's office with a cheque for four million pounds and a bunch of grapes on the desk, no figures",
+  "scene_empress_india": "a throne room with an Indian imperial crown on a cushion and a proclamation, no figures",
+  "scene_gladstone_attacks": "the House of Commons with a speaker's dispatch box thumped, papers flying, no figures",
+  "scene_khedive_shares": "a Downing Street study at night with a telegram from Cairo, share certificates and a single lamp, no figures"
+ },
+ "livingstone": {
+  "char_hm_stanley": "Henry Morton Stanley: a stocky moustached Welsh-American journalist in a pith helmet and safari jacket, determined hard face",
+  "char_livingstone": "David Livingstone: a gaunt elderly Scottish missionary-explorer with a drooping moustache in a worn blue cap and coat, gentle stubborn eyes",
+  "scene_herald_assignment": "a New York newspaper editor's office with a map of Africa and a wad of banknotes on the desk, no figures",
+  "scene_ujiji": "an African lakeside village with palm huts, a large lake behind, an American flag on a pole and a pith helmet raised in greeting on a stick, no figures",
+  "scene_refuse_return": "a mud hut interior with a battered journal, medicine bottles and a walking stick — no bags packed, no figures",
+  "scene_give_up_search": "a caravan turning back on a savanna track toward the coast, no figures"
+ },
+ "bolingbroke": {
+  "char_bolingbroke": "Henry Bolingbroke: a hard-jawed bearded nobleman-king in a rich houppelande and coronet, wary determined eyes",
+  "scene_exile_bolingbroke": "a tournament field at Coventry with two knights' lists abandoned and a royal herald's proclamation of banishment, no figures",
+  "scene_ravenspur": "a windswept Yorkshire beach with three ships beached and a small band's banners, no figures",
+  "scene_pontefract": "a grim Yorkshire castle keep, a barred window, an empty food tray outside a locked door, no figures",
+  "scene_richard_pardons": "a royal chapel with a king's chair and a kneeling cushion, a pardon scroll, no figures"
+ },
+ "hotspur": {
+  "char_hotspur": "Harry Hotspur: a fiery red-haired knight in plate with a blue lion on his surcoat, restless impatient face",
+  "scene_percy_muster": "a northern English castle courtyard with Percy blue-lion banners and mustering men-at-arms' stacked bills, no figures",
+  "scene_shrewsbury": "a pea field near a Shropshire town strewn with arrows, a fallen visored helmet with an arrow through the eye slit, no figures",
+  "scene_hal_arrow": "a battlefield litter with a prince's helmet and a bloody surgeon's tongs, no figures",
+  "scene_hal_retreats": "a road away from a battle with a royal litter carried by squires, no figures"
+ },
+ "henry6": {
+  "char_henry6": "Henry VI: a mild long-faced pious king in a plain gown with a small crown, blank sad staring eyes",
+  "char_york_duke": "Richard, Duke of York: a stern proud middle-aged magnate in armour with a white rose badge, ambitious",
+  "scene_kings_stupor": "a royal bedchamber with a king's chair by a window, an untouched meal, a cradle unnoticed in the corner, no figures",
+  "scene_protector_york": "the council chamber at Westminster with a protector's staff and seal laid before an empty throne, white rose on the table, no figures",
+  "scene_st_albans": "a medieval market town street with fallen red-rose banners and arrows in the timber houses, no figures",
+  "scene_queen_regent": "a queen's council chamber with a regency petition and a red rose badge, no figures"
+ },
+ "simnel": {
+  "char_simnel": "Lambert Simnel: a bewildered ten-year-old boy in an oversized royal robe with a paper-thin crown, kitchen soot on his cheek",
+  "char_lincoln": "the Earl of Lincoln: a haughty young Yorkist nobleman in armour with a white rose, scheming",
+  "scene_dublin_crown": "Christ Church cathedral in Dublin with a child-sized throne and a borrowed golden circlet, Irish lords' cloaks, no figures",
+  "scene_stoke_field": "a Nottinghamshire field by the Trent with fallen German landsknecht pikes and Irish shields, no figures",
+  "scene_royal_kitchen": "a huge Tudor palace kitchen with a roasting spit over a fire and a small crown hung on a hook by the pots, no figures",
+  "scene_simnel_block": "a Tower green with a block far too big for a child and a small crown beside it, no figures"
+ },
+ "wyatt": {
+  "char_wyatt": "Thomas Wyatt the Younger: a hot-headed young Kentish gentleman in a leather jerkin and breastplate, sword, defiant",
+  "scene_kent_rising": "a Kentish town square with a rebel banner and gathered pikes and bows, no figures",
+  "scene_guildhall_speech": "the London Guildhall with a queen's chair on the dais and a coronation ring on a cushion, no figures",
+  "scene_ludgate": "the closed Ludgate of London's wall with barred doors and rebel weapons dropped outside, no figures",
+  "scene_wyatt_block": "Tower Hill scaffold with a rebel's sword and hat laid on the block, no figures"
+ },
+ "cranmer_hand": {
+  "char_pole": "Cardinal Reginald Pole: a gaunt scholarly cardinal in scarlet with a long grey beard, sad determined eyes",
+  "scene_recantation": "a prison cell in Oxford with signed recantation papers on a table, a quill, no figures",
+  "scene_st_marys_pulpit": "a university church pulpit with a torn recantation and a Bible open, no figures",
+  "scene_cranmer_stake": "an Oxford street with a stake and pyre before Balliol, a hand's outline in the flames, no figures",
+  "scene_cranmer_pardon": "a royal pardon scroll unsigned on a queen's desk with a rosary, no figures"
+ },
+ "babington": {
+  "char_babington": "Anthony Babington: a rich handsome young Catholic gentleman in a slashed doublet, romantic reckless face",
+  "scene_beer_barrel": "a castle brewhouse with a beer barrel opened and a leather packet of ciphered letters inside, no figures",
+  "scene_gifford_intercept": "a spymaster's cipher desk with a decoded letter, a drawn gallows in the margin, a lamp, no figures",
+  "scene_babington_gallows": "a London execution field with a gallows and disembowelling table, a crowd's barrier, no figures",
+  "scene_mary_writes": "a captive queen's writing desk with a sealed reply and a small dog on the chair, no figures"
+ },
+ "globe": {
+  "char_shakespeare": "William Shakespeare: a balding bearded Elizabethan playwright in a plain doublet with a quill and pages, amused watchful eyes",
+  "char_burbage": "Richard Burbage: a stocky expressive Elizabethan actor in a stage costume of a king, theatrical gesture",
+  "scene_theatre_timbers": "a dismantled timber playhouse frame in the snow at night with numbered beams stacked on carts, no figures",
+  "scene_globe_opens": "a round thatched Elizabethan playhouse on the Southwark bank with a flag flying and a crowd's dropped playbills, no figures",
+  "scene_richard_ii_play": "a playhouse stage set for a deposition scene with a hollow crown on the boards, no figures",
+  "scene_players_questioned": "a Privy Council table with a playbook and a purse of forty shillings as evidence, no figures"
+ },
+ "strafford": {
+  "char_strafford": "the Earl of Strafford: a dark heavy-browed statesman in black with a broad collar, iron-hard weary face",
+  "char_pym": "John Pym: a plump grim Puritan parliamentarian in a plain black gown and skullcap, relentless eyes",
+  "scene_attainder_strafford": "Westminster Hall with a bill of attainder on the clerks' table and a prisoner's bar, no figures",
+  "scene_king_signs": "a royal study with a warrant signed with a shaking hand and a broken royal promise, no figures",
+  "scene_tower_hill_s": "Tower Hill with a scaffold and an enormous crowd's sea of hats stretching to the horizon, no figures",
+  "scene_king_refuses": "Whitehall palace gates with an angry mob's dropped placards and torches outside, no figures"
+ },
+ "titus_oates": {
+  "char_oates": "Titus Oates: a grotesque man with a huge chin, tiny mouth and heavy jowls in a clerical gown, shifty lying eyes",
+  "char_coleman": "Edward Coleman: a nervous earnest Catholic secretary in a dark coat with a rosary, frightened",
+  "scene_oates_deposition": "a magistrate's chamber with a sworn deposition of dozens of pages and a Bible, no figures",
+  "scene_coleman_tyburn": "the Tyburn triple gallows with a cart beneath, a rosary on the ground, no figures",
+  "scene_oates_pillory": "a London pillory with a clerical gown torn and eggs and mud spattered on the boards, no figures",
+  "scene_oates_pension": "a Whitehall apartment with a pension warrant and silver plate, no figures"
+ },
+ "cook": {
+  "char_cook": "Captain James Cook: a tall lean sea captain in a blue naval coat with a plain face and steady eyes, holding a sextant",
+  "char_kalaniopuu": "Kalaniopuu, chief of Hawaii: a powerful elderly Hawaiian chief in a red-and-yellow feather cloak and helmet, wary",
+  "scene_endeavour_refit": "a Whitby shipyard with a stout collier being fitted out, barrels of sauerkraut on the quay, no figures",
+  "scene_botany_bay": "an Australian bay with strange trees, a Union flag on a pole above the beach, a ship at anchor, no figures",
+  "scene_kealakekua": "a Hawaiian black-rock beach with a ship's boat pulled up, a naval hat and dagger dropped in the surf, no figures",
+  "scene_hostage_chief": "a beach with a chief's feather cloak and a boat's painter, marines' muskets, no figures"
+ },
+ "wilberforce": {
+  "char_wilberforce": "William Wilberforce: a small frail earnest man in a dark coat and high collar, bright warm eyes",
+  "char_pitt": "William Pitt the Younger: a tall thin haughty young prime minister with a long nose and powdered hair, cool intelligence",
+  "char_tarleton": "Banastre Tarleton: a swaggering cavalry officer turned MP in a green dragoon jacket, missing two fingers, sneering",
+  "scene_holwood_oak": "a great oak on a Kentish estate with two chairs beneath it and papers on a rustic table, no figures",
+  "scene_commons_abolition": "the House of Commons with a diagram of a slave ship's hold displayed on the table, no figures",
+  "scene_abolition_act": "a parliamentary act with the royal assent, broken shackles laid on it, no figures",
+  "scene_liverpool_bribe": "a Liverpool merchants' office with a purse and a bill of lading for human cargo, no figures"
+ },
+ "france_a": {
+  "char_philip_augustus": "Philip II Augustus of France: a stocky one-eyed medieval French king in a blue robe with golden lilies and a crown over mail, shrewd hard face",
+  "char_philippe_bel": "Philip IV the Fair: a tall handsome cold French king with long fair hair, blue robe with lilies, marble impassive face",
+  "char_molay": "Jacques de Molay: an old grand master of the Templars in a white mantle with a red cross, long grey beard, defiant eyes",
+  "char_charles7": "the Dauphin Charles VII: a thin awkward young prince with a long nose in a rich robe, uncertain doubtful face",
+  "char_catherine_medici": "Catherine de' Medici: a stout black-clad Italian queen mother in a widow's veil, heavy-lidded calculating eyes",
+  "char_coligny": "Admiral Coligny: an elderly Huguenot nobleman in black with a white ruff and grey beard, grave upright face",
+  "char_henry_navarre": "Henry of Navarre: a hearty bearded Gascon king in a plain doublet with a white plume, laughing shrewd eyes",
+  "char_richelieu": "Cardinal Richelieu: a lean red-robed cardinal with a pointed beard and moustache, cold intelligent stare",
+  "char_louis14": "young Louis XIV: a proud young Sun King in a magnificent brocade coat with a huge dark periwig and red heels, imperious",
+  "char_fouquet": "Nicolas Fouquet: an elegant Baroque financier in a rich lace-trimmed coat and periwig, charming confident smile, a squirrel emblem",
+  "char_launay": "the Marquis de Launay: an elderly nervous royal governor in a powdered wig and blue coat holding a large key ring",
+  "char_kellermann": "General Kellermann: a stout French revolutionary general in a blue coat with tricolour sash, raising a hat on his sword point",
+  "char_alvinczi": "Field Marshal Alvinczi: an elderly Austrian field marshal in white coat with gold lace and powdered wig, stiff and tired",
+  "char_murad": "Murad Bey: a magnificent Mamluk cavalry commander in a jewelled turban and silk robe with a curved sword, fierce",
+  "char_alexander1": "Alexander I of Russia: a handsome young tsar in a dark green uniform with gold epaulettes and blue sash, dreamy proud face",
+  "char_kutuzov": "Kutuzov: a heavy old one-eyed Russian field marshal in a green uniform with orders, sleepy cunning face",
+  "scene_friday_13": "a Templar commandery courtyard at dawn with royal sergeants' torches, white mantles with red crosses thrown on the cobbles, no figures",
+  "scene_ile_cite_stake": "a small island in the Seine with a stake and pyre, Notre-Dame across the water, evening light, no figures",
+  "scene_tocsin": "a Paris church bell tower at night ringing, white armbands and crosses chalked on doors below, torches, no figures",
+  "scene_vaux_fete": "a Baroque chateau garden at night with fountains, fireworks and a stage, tables set with gold plate, no figures",
+  "scene_pignerol": "a grim Alpine fortress prison tower with one small barred window, snow peaks behind, no figures",
+  "scene_bastille_storm": "the Bastille fortress with its drawbridge falling, smoke, pikes and muskets, a crowd's dropped cockades in the courtyard, no figures",
+  "scene_valmy_mill": "a windmill on a low ridge in Champagne under grey sky with a battery of cannon and tricolour flags, no figures",
+  "scene_arcole_bridge": "a narrow wooden bridge over a marshy river with a tricolour flag planted on it, grapeshot splashes in the water, no figures",
+  "scene_pyramids": "the pyramids of Giza with infantry squares in the desert dust and Mamluk horses scattering, no figures",
+  "scene_aboukir_bay": "a night sea battle in a bay with a huge French flagship exploding, burning ships silhouetted, no figures",
+  "scene_pratzen_bait": "foggy Moravian heights at dawn with an empty plateau and a rising sun breaking through, no figures",
+  "scene_moscow_fire": "Moscow burning at night seen from the Kremlin wall, onion domes against a wall of flame, no figures",
+  "scene_berezina": "a frozen river with a broken pontoon bridge, snow, abandoned cannon and shakos in the drifts, no figures"
+ },
+ "france_b": {
+  "char_jean2": "John II the Good of France: a heavy-bearded medieval French king in blue with golden lilies and a battle-axe, brave stubborn face",
+  "char_ravaillac": "François Ravaillac: a gaunt red-haired fanatic in a shabby green coat clutching a knife, wild staring eyes",
+  "char_rohan": "Cardinal de Rohan: a plump vain rococo cardinal in scarlet with lace, powdered wig, credulous eager face",
+  "char_lamotte": "the Comtesse de La Motte: a pretty scheming rococo adventuress in a striped silk gown and plumed hat, sly smile",
+  "char_brissot": "Brissot: a lean bespectacled Girondin deputy in a plain brown coat with a tricolour cockade, earnest orator",
+  "char_cathelineau": "Cathelineau: a rugged Vendéan peasant leader in a broad hat and smock with a Sacred Heart badge, holding a rosary and musket",
+  "char_ney": "Marshal Ney: a red-haired fiery French marshal in a blue uniform with gold embroidery and a plumed bicorne, hot-tempered brave face",
+  "char_hudson_lowe": "Sir Hudson Lowe: a thin sallow British governor in a red coat with a stiff collar, petty suspicious face",
+  "scene_saint_denis_mass": "the Gothic abbey of Saint-Denis interior with an altar, a white plume left on a prie-dieu, candles, no figures",
+  "scene_versailles_grove": "a moonlit grove in the Versailles gardens with a rose dropped on the gravel and a woman's shoe, no figures",
+  "scene_petit_trianon": "a toy village with thatched cottages, a mill and a pond with swans in a palace park, sheep, no figures",
+  "scene_pamphlets": "a Paris street wall plastered with scurrilous pamphlets and caricatures of a queen, no figures",
+  "scene_vendee_rising": "a Vendée bocage lane with hedges, a chapel, pitchforks and a white banner with a red Sacred Heart, no figures",
+  "scene_infernal_columns": "a burning Vendéan farm and church, smoke over hedgerows, a republican column's tricolour, no figures",
+  "scene_notre_dame_sacre": "Notre-Dame de Paris interior draped for a coronation with a papal throne beside the altar and a crown on a cushion, no figures",
+  "scene_berlin_decree": "the Berlin royal palace desk with a decree, a map of Europe with ports crossed out, quill, no figures",
+  "scene_niemen_raft": "a white pavilion on a raft moored mid-river with two thrones, banks with two armies watching, no figures",
+  "scene_prussia_carved": "a map of Europe on a table cut in half with a sabre, two crowns weighing the halves, no figures",
+  "scene_elster_bridge": "a stone bridge over a marshy river blown apart, smoke, soldiers' packs floating, no figures",
+  "scene_saxons_desert": "a battlefield with a regiment turning its cannon around, banners changing sides in smoke, no figures",
+  "scene_elba_escape": "a small brig leaving a Mediterranean island harbour at night, a tricolour with bees, no figures",
+  "scene_grenoble_gate": "an Alpine road with a battalion's muskets thrown down and shakos in the air, a lone grey coat's silhouette absent, no figures",
+  "scene_ney_cage": "an empty iron cage on a cart beside a road, an abandoned royal white cockade, no figures",
+  "scene_tuileries_flight": "the Tuileries palace hall with a royal cloak dropped and a golden eagle standard carried in, no figures",
+  "scene_longwood": "a damp low colonial house on a windswept plateau, rats, a red-coated sentry box, no figures",
+  "scene_memorial": "a study on a remote island with dictation pages, a globe, a green coat on a chair, no figures"
+ },
+ "empire_a": {
+  "char_philip_metr": "Metropolitan Philip of Moscow: an elderly gaunt Orthodox metropolitan in a white cowl (klobuk) with a cross, dark vestments, a long grey beard, calm unbending face",
+  "char_godunov": "Boris Godunov: a heavy-set Russian regent-tsar in a brocade caftan and a fur-trimmed cap, dark beard, shrewd wary eyes",
+  "char_false_dmitry": "False Dmitry: a young beardless Russian pretender with a wart by the nose, red hair, in a Polish-cut caftan and a fur hat, sly confident face",
+  "char_marina": "Marina Mniszech: a young Polish noblewoman in a stiff Western court gown with a ruff and a small crown, proud haughty face",
+  "char_pozharsky": "Prince Pozharsky: a Russian voivode in mail and a pointed helmet with a red cloak, one arm bandaged, grave determined face",
+  "char_minin": "Kuzma Minin: a stout Russian townsman-butcher in a plain kaftan and leather apron, cropped beard, raised fist, honest fiery face",
+  "char_hetman": "Hetman Chodkiewicz: a Polish-Lithuanian hetman in a hussar cuirass with a leopard skin over the shoulder, curved sabre, drooping moustache",
+  "char_mikhail": "Mikhail Romanov: a shy sixteen-year-old Russian youth in a heavy brocade robe too big for him, tsar's cap in hands, gentle frightened face",
+  "char_aydos": "Aydozle Mehmed Pasha: an elderly Ottoman commander in a large turban and a fur-lined kaftan, white beard, stubborn haughty face",
+  "char_massena": "General Massena: a wiry dark French revolutionary general in a blue coat with tricolour sash, black hair, hawk nose, cunning face",
+  "char_paul1": "Emperor Paul I of Russia: a small snub-nosed emperor in a Prussian-style green uniform with a powdered wig and a black tricorne, nervous irritable face",
+  "char_pahlen": "Count Pahlen: a tall Baltic German general-governor in a dark green uniform with orders, powdered hair, cold composed face",
+  "char_nicholas1": "Emperor Nicholas I: a tall stiff young Russian emperor in a white uniform with epaulettes and a plumed helmet, cold marble face",
+  "char_ryleev": "Kondraty Ryleev: a young Russian poet-officer in a black civilian coat and white cravat, dark curls, burning idealistic eyes",
+  "scene_bless_refuse": "the interior of the Dormition Cathedral in the Moscow Kremlin, gold iconostasis, candles, an empty spot before the metropolitan's place, no figures",
+  "scene_uglich": "a small Russian wooden kremlin courtyard in Uglich on the Volga, a bell tower with the alarm bell, a knife on the ground, no figures",
+  "scene_boris_death": "a tsar's dining chamber in the Moscow Kremlin, an overturned goblet on a long table, a red stain on the white cloth, no figures",
+  "scene_minin_call": "a crowded market square in Nizhny Novgorod under a white kremlin wall, a wooden platform, chests of coins and furs piled up, no figures",
+  "scene_susanin_forest": "a dark snowy pine forest in winter, a narrow path vanishing into a frozen swamp, no figures",
+  "scene_bells_cannons": "a foundry yard, church bells lowered from a belfry and cracked open, molten bronze poured into cannon moulds, no figures",
+  "scene_hare_island": "a flat marshy island in a wide grey river delta with sea birds, wooden stakes marking a fortress outline, no figures",
+  "scene_izmail_storm": "the towering earth ramparts and ditch of a Turkish fortress on the Danube at night, scaling ladders against the wall, fires and smoke, no figures",
+  "scene_devil_bridge": "a narrow stone bridge with a blown gap over a roaring alpine gorge, logs bound with scarves laid across, mist, no figures",
+  "scene_mikhailovsky": "a dim imperial bedchamber in a red castle, a folding screen, a candle, an officer's scarf and a gold snuffbox on the floor, no figures",
+  "scene_fili_hut": "the inside of a Russian peasant log hut, a rough table with maps and a candle, benches, icons in the corner, no figures",
+  "scene_senate_square": "a snowy square in Petersburg with the Bronze Horseman statue and the Senate building, a frozen river, cannon smoke, no figures"
  }
 }

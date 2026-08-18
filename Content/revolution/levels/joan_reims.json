@@ -1,0 +1,88 @@
+{
+ "id": "joan_reims",
+ "order": 18,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_battle",
+ "cover": "reims_cathedral",
+ "panels": 2,
+ "scenes": [
+  "orleans_relief",
+  "reims_cathedral",
+  "paris_assault",
+  "chinon_doubt"
+ ],
+ "characters": [
+  "joan",
+  "charles7",
+  "bedford"
+ ],
+ "initialState": {
+  "flags": {
+   "joan": [
+    "strong"
+   ],
+   "bedford": []
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "joan",
+    "bedford"
+   ],
+   [
+    "enemy_of",
+    "bedford",
+    "joan"
+   ],
+   [
+    "ally_of",
+    "joan",
+    "charles7"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bedford",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles7",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "joan",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "orleans_relief",
+   "characters": [
+    "joan",
+    "bedford"
+   ]
+  },
+  {
+   "scene": "reims_cathedral",
+   "characters": [
+    "charles7",
+    "joan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

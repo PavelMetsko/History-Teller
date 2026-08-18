@@ -1,0 +1,94 @@
+{
+ "id": "la_rochelle",
+ "order": 40,
+ "epoch": "revolution",
+ "act": "Акт II · Религиозные войны и Бурбоны",
+ "music": "revolution_battle",
+ "cover": "dyke_rochelle",
+ "panels": 3,
+ "scenes": [
+  "dyke_rochelle",
+  "english_fleet_r",
+  "rochelle_starves",
+  "assault_rochelle"
+ ],
+ "characters": [
+  "richelieu",
+  "charles1"
+ ],
+ "initialState": {
+  "flags": {
+   "richelieu": [
+    "standing"
+   ],
+   "charles1": []
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "richelieu",
+    "charles1"
+   ],
+   [
+    "enemy_of",
+    "charles1",
+    "richelieu"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "richelieu",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "starved"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "charles1",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dyke_rochelle",
+   "characters": [
+    "richelieu"
+   ]
+  },
+  {
+   "scene": "english_fleet_r",
+   "characters": [
+    "charles1",
+    "richelieu"
+   ]
+  },
+  {
+   "scene": "rochelle_starves",
+   "characters": [
+    "richelieu",
+    "charles1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

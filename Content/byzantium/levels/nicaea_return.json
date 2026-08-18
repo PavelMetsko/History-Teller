@@ -1,0 +1,97 @@
+{
+ "id": "nicaea_return",
+ "order": 165,
+ "epoch": "byzantium",
+ "act": "Акт VII · Крестоносцы и падение",
+ "music": "byzantium_ceremony",
+ "cover": "empty_city",
+ "panels": 4,
+ "scenes": [
+  "daphnousia_raid",
+  "wall_passage",
+  "empty_city",
+  "golden_gate_return",
+  "venetian_fleet"
+ ],
+ "characters": [
+  "strategopoulos",
+  "michael8",
+  "baldwin2"
+ ],
+ "initialState": {
+  "flags": {
+   "baldwin2": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "strategopoulos": [
+    "standing"
+   ],
+   "michael8": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "strategopoulos",
+    "baldwin2"
+   ],
+   [
+    "enemy_of",
+    "baldwin2",
+    "strategopoulos"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "baldwin2",
+     "is": "fled"
+    }
+   },
+   {
+    "flag": {
+     "char": "michael8",
+     "is": "restored"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "daphnousia_raid",
+   "characters": [
+    "baldwin2",
+    "strategopoulos"
+   ]
+  },
+  {
+   "scene": "wall_passage",
+   "characters": [
+    "strategopoulos"
+   ]
+  },
+  {
+   "scene": "empty_city",
+   "characters": [
+    "strategopoulos",
+    "baldwin2"
+   ]
+  },
+  {
+   "scene": "golden_gate_return",
+   "characters": [
+    "michael8",
+    "strategopoulos"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "id": "tarpeia",
+ "order": 12,
+ "epoch": "rome",
+ "act": "Акт I · Цари и рождение республики",
+ "music": "tension",
+ "cover": "citadel_gate_t",
+ "panels": 3,
+ "scenes": [
+  "bracelets_t",
+  "citadel_gate_t",
+  "shields_t",
+  "father_watch_t"
+ ],
+ "characters": [
+  "tarpeia",
+  "tatius",
+  "romulus",
+  "spurius"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "tatius",
+    "romulus"
+   ],
+   [
+    "enemy_of",
+    "romulus",
+    "tatius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tatius",
+     "is": "inside"
+    }
+   },
+   {
+    "flag": {
+     "char": "tarpeia",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bracelets_t",
+   "characters": [
+    "tatius",
+    "tarpeia"
+   ]
+  },
+  {
+   "scene": "citadel_gate_t",
+   "characters": [
+    "tarpeia",
+    "tatius"
+   ]
+  },
+  {
+   "scene": "shields_t",
+   "characters": [
+    "tatius",
+    "tarpeia"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "babington",
+ "order": 218,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_court",
+ "cover": "gifford_intercept",
+ "panels": 3,
+ "scenes": [
+  "beer_barrel",
+  "gifford_intercept",
+  "babington_gallows",
+  "mary_writes"
+ ],
+ "characters": [
+  "babington",
+  "mary_stuart",
+  "walsingham"
+ ],
+ "initialState": {
+  "flags": {
+   "mary_stuart": [
+    "royal_claim"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "babington",
+     "is": "plotting"
+    }
+   },
+   {
+    "flag": {
+     "char": "babington",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "babington",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "beer_barrel",
+   "characters": [
+    "babington",
+    "mary_stuart"
+   ]
+  },
+  {
+   "scene": "gifford_intercept",
+   "characters": [
+    "walsingham",
+    "babington"
+   ]
+  },
+  {
+   "scene": "babington_gallows",
+   "characters": [
+    "walsingham",
+    "babington"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

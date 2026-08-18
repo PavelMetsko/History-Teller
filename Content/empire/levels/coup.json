@@ -2,7 +2,7 @@
  "id": "coup",
  "order": 90,
  "epoch": "empire",
- "act": "Акт III · Екатерина Великая",
+ "act": "Акт V · Екатерина Великая",
  "panels": 2,
  "scenes": [
   "guard_c",
@@ -18,8 +18,18 @@
    "peter3": [
     "reigns",
     "crowned"
+   ],
+   "orlov": [
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "ally_of",
+    "orlov",
+    "catherine"
+   ]
+  ]
  },
  "goal": {
   "all": [
@@ -41,8 +51,8 @@
   {
    "scene": "guard_c",
    "characters": [
-    "orlov",
-    "catherine"
+    "catherine",
+    "orlov"
    ]
   },
   {

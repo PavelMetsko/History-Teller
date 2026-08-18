@@ -1,0 +1,76 @@
+{
+ "id": "diane",
+ "order": 29,
+ "epoch": "revolution",
+ "act": "Акт II · Религиозные войны и Бурбоны",
+ "music": "revolution_romance",
+ "cover": "saint_antoine_lists",
+ "panels": 3,
+ "scenes": [
+  "chenonceau_deed",
+  "saint_antoine_lists",
+  "chaumont_exchange",
+  "anet_castle"
+ ],
+ "characters": [
+  "henri2",
+  "diane",
+  "catherine_medici"
+ ],
+ "initialState": {
+  "flags": {
+   "henri2": [
+    "reigns",
+    "standing"
+   ],
+   "diane": [
+    "standing"
+   ],
+   "catherine_medici": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henri2",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "diane",
+     "is": "exiled"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "chenonceau_deed",
+   "characters": [
+    "henri2",
+    "diane"
+   ]
+  },
+  {
+   "scene": "saint_antoine_lists",
+   "characters": [
+    "henri2",
+    "catherine_medici"
+   ]
+  },
+  {
+   "scene": "chaumont_exchange",
+   "characters": [
+    "catherine_medici",
+    "diane"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

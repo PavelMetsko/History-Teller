@@ -36,5 +36,6 @@
  "music": "empire_battle",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

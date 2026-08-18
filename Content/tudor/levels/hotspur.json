@@ -1,0 +1,85 @@
+{
+ "id": "hotspur",
+ "order": 41,
+ "epoch": "tudor",
+ "act": "Акт II · Ланкастеры и Йорки",
+ "music": "tudor_battle",
+ "cover": "shrewsbury",
+ "panels": 2,
+ "scenes": [
+  "percy_muster",
+  "shrewsbury",
+  "hal_retreats"
+ ],
+ "characters": [
+  "bolingbroke",
+  "hotspur",
+  "henry5"
+ ],
+ "initialState": {
+  "flags": {
+   "bolingbroke": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "bolingbroke",
+    "hotspur"
+   ],
+   [
+    "enemy_of",
+    "hotspur",
+    "bolingbroke"
+   ],
+   [
+    "enemy_of",
+    "henry5",
+    "hotspur"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hotspur",
+     "is": "rallied"
+    }
+   },
+   {
+    "flag": {
+     "char": "hotspur",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "henry5",
+     "is": "honourable"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "percy_muster",
+   "characters": [
+    "hotspur"
+   ]
+  },
+  {
+   "scene": "shrewsbury",
+   "characters": [
+    "hotspur",
+    "bolingbroke",
+    "henry5"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

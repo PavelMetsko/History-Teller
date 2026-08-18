@@ -1,8 +1,8 @@
 {
  "id": "thermidor",
- "order": 90,
+ "order": 255,
  "epoch": "revolution",
- "act": "Акт II · Террор",
+ "act": "Акт III · Революция",
  "panels": 2,
  "scenes": [
   "guillotine",
@@ -15,22 +15,33 @@
  "initialState": {
   "flags": {
    "robespierre": [
-    "tyrant"
+    "tyrant",
+    "standing"
+   ],
+   "danton": [
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "danton",
+    "robespierre"
+   ]
+  ]
  },
  "goal": {
   "all": [
    {
     "flag": {
      "char": "robespierre",
-     "is": "dead"
+     "is": "condemned"
     }
    },
    {
     "flag": {
      "char": "robespierre",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]

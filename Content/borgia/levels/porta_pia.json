@@ -1,0 +1,91 @@
+{
+ "id": "porta_pia",
+ "order": 162,
+ "epoch": "borgia",
+ "act": "Акт VII · Рисорджименто",
+ "music": "borgia_battle",
+ "cover": "breach_wall",
+ "panels": 3,
+ "scenes": [
+  "french_leave",
+  "breach_wall",
+  "plebiscite",
+  "negotiate_pope"
+ ],
+ "characters": [
+  "pius9",
+  "cadorna",
+  "victor_emmanuel"
+ ],
+ "initialState": {
+  "flags": {
+   "pius9": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "cadorna": [
+    "strong",
+    "standing"
+   ],
+   "victor_emmanuel": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cadorna",
+    "pius9"
+   ],
+   [
+    "enemy_of",
+    "pius9",
+    "cadorna"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pius9",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "victor_emmanuel",
+     "is": "capital"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "french_leave",
+   "characters": [
+    "pius9"
+   ]
+  },
+  {
+   "scene": "breach_wall",
+   "characters": [
+    "cadorna",
+    "pius9"
+   ]
+  },
+  {
+   "scene": "plebiscite",
+   "characters": [
+    "victor_emmanuel",
+    "cadorna"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,7 +1,7 @@
 {
- "order": 20,
+ "order": 112,
  "epoch": "tudor",
- "act": "Акт I · Восхождение",
+ "act": "Акт III · Восхождение Тюдоров",
  "panels": 3,
  "scenes": [
   "chapel",
@@ -17,7 +17,11 @@
   "flags": {
    "henry7": [
     "reigns",
-    "crowned"
+    "crowned",
+    "standing"
+   ],
+   "warbeck": [
+    "condemned"
    ]
   }
  },
@@ -39,7 +43,7 @@
    {
     "flag": {
      "char": "warbeck",
-     "is": "beheaded"
+     "is": "dead"
     }
    }
   ]

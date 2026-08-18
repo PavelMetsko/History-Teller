@@ -1,0 +1,68 @@
+{
+ "id": "st_helena",
+ "order": 345,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_lament",
+ "cover": "longwood",
+ "panels": 3,
+ "scenes": [
+  "northumberland_deck",
+  "longwood",
+  "memorial",
+  "escape_america"
+ ],
+ "characters": [
+  "napoleon",
+  "hudson_lowe"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "away"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "martyr"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "legend"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "northumberland_deck",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "longwood",
+   "characters": [
+    "hudson_lowe",
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "memorial",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

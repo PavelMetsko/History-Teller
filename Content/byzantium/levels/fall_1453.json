@@ -1,0 +1,95 @@
+{
+ "id": "fall_1453",
+ "order": 170,
+ "epoch": "byzantium",
+ "act": "Акт VII · Крестоносцы и падение",
+ "music": "byzantium_battle",
+ "cover": "kerkoporta",
+ "panels": 4,
+ "scenes": [
+  "urban_bombard",
+  "ships_overland",
+  "giustiniani_wounded",
+  "kerkoporta",
+  "leave_city"
+ ],
+ "characters": [
+  "constantine11",
+  "mehmed2",
+  "giustiniani"
+ ],
+ "initialState": {
+  "flags": {
+   "constantine11": [
+    "reigns",
+    "crowned",
+    "standing",
+    "strong"
+   ],
+   "mehmed2": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "constantine11",
+    "mehmed2"
+   ],
+   [
+    "enemy_of",
+    "mehmed2",
+    "constantine11"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "constantine11",
+     "is": "last_emperor"
+    }
+   },
+   {
+    "flag": {
+     "char": "mehmed2",
+     "is": "conqueror"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "urban_bombard",
+   "characters": [
+    "mehmed2"
+   ]
+  },
+  {
+   "scene": "ships_overland",
+   "characters": [
+    "mehmed2",
+    "constantine11"
+   ]
+  },
+  {
+   "scene": "giustiniani_wounded",
+   "characters": [
+    "giustiniani",
+    "constantine11"
+   ]
+  },
+  {
+   "scene": "kerkoporta",
+   "characters": [
+    "mehmed2",
+    "constantine11"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

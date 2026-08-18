@@ -1,0 +1,87 @@
+{
+ "id": "narva",
+ "order": 55,
+ "epoch": "empire",
+ "act": "Акт III · Пётр Великий",
+ "music": "empire_battle",
+ "cover": "bells_cannons",
+ "panels": 4,
+ "scenes": [
+  "narva_field",
+  "bells_cannons",
+  "charles_poland",
+  "lesnaya",
+  "retreat_moscow"
+ ],
+ "characters": [
+  "peter",
+  "charles"
+ ],
+ "initialState": {
+  "flags": {
+   "charles": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "peter",
+    "charles"
+   ],
+   [
+    "enemy_of",
+    "charles",
+    "peter"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "peter",
+     "is": "reformed"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles",
+     "is": "convoy_lost"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "narva_field",
+   "characters": [
+    "peter",
+    "charles"
+   ]
+  },
+  {
+   "scene": "bells_cannons",
+   "characters": [
+    "peter"
+   ]
+  },
+  {
+   "scene": "charles_poland",
+   "characters": [
+    "charles"
+   ]
+  },
+  {
+   "scene": "lesnaya",
+   "characters": [
+    "peter",
+    "charles"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

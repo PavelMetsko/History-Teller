@@ -1,8 +1,8 @@
 {
  "id": "oath",
- "order": 10,
+ "order": 210,
  "epoch": "revolution",
- "act": "Акт I · Революция",
+ "act": "Акт III · Революция",
  "panels": 2,
  "scenes": [
   "hall_o",
@@ -18,13 +18,14 @@
    {
     "flag": {
      "char": "robespierre",
-     "is": "patriot"
+     "is": "resolute"
     }
    },
    {
-    "flag": {
-     "char": "danton",
-     "is": "patriot"
+    "relation": {
+     "rel": "ally_of",
+     "from": "robespierre",
+     "to": "danton"
     }
    }
   ]
@@ -49,5 +50,14 @@
  "music": "revolution_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "robespierre",
+    "louis"
+   ]
+  ]
  }
 }

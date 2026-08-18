@@ -2,7 +2,7 @@
  "id": "pugachev",
  "order": 120,
  "epoch": "empire",
- "act": "Акт III · Екатерина Великая",
+ "act": "Акт V · Екатерина Великая",
  "panels": 2,
  "scenes": [
   "uprising_c",
@@ -13,10 +13,20 @@
   "suvorov"
  ],
  "goal": {
-  "flag": {
-   "char": "pugachev",
-   "is": "condemned"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "pugachev",
+     "is": "rallied"
+    }
+   },
+   {
+    "flag": {
+     "char": "pugachev",
+     "is": "condemned"
+    }
+   }
+  ]
  },
  "solution": [
   {
@@ -37,5 +47,24 @@
  "music": "empire_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "suvorov": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "suvorov",
+    "pugachev"
+   ],
+   [
+    "enemy_of",
+    "pugachev",
+    "suvorov"
+   ]
+  ]
  }
 }

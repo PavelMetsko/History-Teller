@@ -1,0 +1,80 @@
+{
+ "id": "biron",
+ "order": 88,
+ "epoch": "empire",
+ "act": "Акт IV · Дворцовые перевороты",
+ "music": "empire_tension",
+ "cover": "ice_house",
+ "panels": 3,
+ "scenes": [
+  "chamberlain_key",
+  "jester_cap",
+  "ice_house",
+  "konditsii"
+ ],
+ "characters": [
+  "anna_ioann",
+  "biron",
+  "golitsyn"
+ ],
+ "initialState": {
+  "flags": {
+   "anna_ioann": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "golitsyn": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "biron",
+     "is": "bironovshchina"
+    }
+   },
+   {
+    "flag": {
+     "char": "biron",
+     "is": "hated"
+    }
+   },
+   {
+    "flag": {
+     "char": "golitsyn",
+     "is": "ice_wedding"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "chamberlain_key",
+   "characters": [
+    "anna_ioann",
+    "biron"
+   ]
+  },
+  {
+   "scene": "jester_cap",
+   "characters": [
+    "anna_ioann",
+    "golitsyn"
+   ]
+  },
+  {
+   "scene": "ice_house",
+   "characters": [
+    "anna_ioann",
+    "golitsyn"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

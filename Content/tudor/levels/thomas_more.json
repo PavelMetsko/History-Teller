@@ -1,0 +1,97 @@
+{
+ "id": "thomas_more",
+ "order": 142,
+ "epoch": "tudor",
+ "act": "Акт IV · Шесть жён",
+ "music": "tudor_court",
+ "cover": "tower_hill_m",
+ "panels": 3,
+ "scenes": [
+  "oath_refusal",
+  "more_trial",
+  "tower_hill_m",
+  "take_oath"
+ ],
+ "characters": [
+  "more",
+  "rich",
+  "henry"
+ ],
+ "initialState": {
+  "flags": {
+   "rich": [
+    "standing"
+   ],
+   "henry": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "rich",
+    "more"
+   ],
+   [
+    "enemy_of",
+    "henry",
+    "more"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "more",
+     "is": "defiant"
+    }
+   },
+   {
+    "flag": {
+     "char": "more",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "more",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "more",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "oath_refusal",
+   "characters": [
+    "more"
+   ]
+  },
+  {
+   "scene": "more_trial",
+   "characters": [
+    "rich",
+    "more"
+   ]
+  },
+  {
+   "scene": "tower_hill_m",
+   "characters": [
+    "henry",
+    "more"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

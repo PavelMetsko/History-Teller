@@ -2,7 +2,7 @@
  "id": "emperor",
  "order": 80,
  "epoch": "empire",
- "act": "Акт II · Пётр Великий",
+ "act": "Акт III · Пётр Великий",
  "panels": 2,
  "scenes": [
   "imperator",
@@ -37,5 +37,24 @@
  "music": "empire_ceremony",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "peter": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "peter",
+    "charles"
+   ],
+   [
+    "enemy_of",
+    "charles",
+    "peter"
+   ]
+  ]
  }
 }

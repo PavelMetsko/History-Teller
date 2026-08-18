@@ -1,0 +1,109 @@
+{
+ "id": "torquatus",
+ "order": 53,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "tension",
+ "cover": "fathers_axe",
+ "panels": 3,
+ "scenes": [
+  "duel_challenge",
+  "fathers_axe",
+  "pardon_son",
+  "latin_field"
+ ],
+ "characters": [
+  "torquatus",
+  "manlius_son",
+  "geminus",
+  "latin_chief"
+ ],
+ "initialState": {
+  "flags": {
+   "manlius_son": [
+    "strong"
+   ],
+   "torquatus": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "manlius_son",
+    "geminus"
+   ],
+   [
+    "enemy_of",
+    "geminus",
+    "manlius_son"
+   ],
+   [
+    "enemy_of",
+    "torquatus",
+    "latin_chief"
+   ],
+   [
+    "enemy_of",
+    "latin_chief",
+    "torquatus"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "geminus",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "manlius_son",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "latin_chief",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "torquatus",
+      "is": "lax"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "duel_challenge",
+   "characters": [
+    "manlius_son",
+    "geminus"
+   ]
+  },
+  {
+   "scene": "fathers_axe",
+   "characters": [
+    "torquatus",
+    "manlius_son"
+   ]
+  },
+  {
+   "scene": "latin_field",
+   "characters": [
+    "torquatus",
+    "latin_chief"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

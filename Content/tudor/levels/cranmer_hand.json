@@ -1,0 +1,84 @@
+{
+ "id": "cranmer_hand",
+ "order": 203,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_lament",
+ "cover": "st_marys_pulpit",
+ "panels": 3,
+ "scenes": [
+  "recantation",
+  "st_marys_pulpit",
+  "cranmer_stake",
+  "cranmer_pardon"
+ ],
+ "characters": [
+  "cranmer",
+  "mary1",
+  "pole"
+ ],
+ "initialState": {
+  "flags": {
+   "mary1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "pole": [
+    "standing"
+   ],
+   "cranmer": [
+    "condemned"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cranmer",
+     "is": "defiant"
+    }
+   },
+   {
+    "flag": {
+     "char": "cranmer",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cranmer",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "recantation",
+   "characters": [
+    "pole",
+    "cranmer"
+   ]
+  },
+  {
+   "scene": "st_marys_pulpit",
+   "characters": [
+    "cranmer"
+   ]
+  },
+  {
+   "scene": "cranmer_stake",
+   "characters": [
+    "mary1",
+    "cranmer"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

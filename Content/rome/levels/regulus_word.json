@@ -1,0 +1,94 @@
+{
+ "id": "regulus_word",
+ "order": 62,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "tension",
+ "cover": "return_carthage",
+ "panels": 3,
+ "scenes": [
+  "bagradas",
+  "senate_regulus",
+  "return_carthage",
+  "stay_rome"
+ ],
+ "characters": [
+  "regulus",
+  "xanthippus",
+  "senator_r"
+ ],
+ "initialState": {
+  "flags": {
+   "xanthippus": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "regulus",
+    "xanthippus"
+   ],
+   [
+    "enemy_of",
+    "xanthippus",
+    "regulus"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "regulus",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "senator_r",
+     "is": "refused_peace"
+    }
+   },
+   {
+    "flag": {
+     "char": "regulus",
+     "is": "honourable"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "regulus",
+      "is": "away"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bagradas",
+   "characters": [
+    "regulus",
+    "xanthippus"
+   ]
+  },
+  {
+   "scene": "senate_regulus",
+   "characters": [
+    "regulus",
+    "senator_r"
+   ]
+  },
+  {
+   "scene": "return_carthage",
+   "characters": [
+    "regulus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

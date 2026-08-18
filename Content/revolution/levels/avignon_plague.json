@@ -1,0 +1,79 @@
+{
+ "id": "avignon_plague",
+ "order": 20,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_lament",
+ "cover": "braziers_room",
+ "panels": 3,
+ "scenes": [
+  "braziers_room",
+  "jews_bull",
+  "rhone_graves",
+  "palace_square"
+ ],
+ "characters": [
+  "clement6",
+  "chauliac",
+  "flagellant"
+ ],
+ "initialState": {
+  "flags": {
+   "clement6": [
+    "reigns",
+    "standing"
+   ],
+   "flagellant": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "flagellant",
+    "clement6"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "clement6",
+     "is": "remembered"
+    }
+   },
+   {
+    "flag": {
+     "char": "flagellant",
+     "is": "condemned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "braziers_room",
+   "characters": [
+    "chauliac",
+    "clement6"
+   ]
+  },
+  {
+   "scene": "jews_bull",
+   "characters": [
+    "clement6",
+    "flagellant"
+   ]
+  },
+  {
+   "scene": "rhone_graves",
+   "characters": [
+    "clement6"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

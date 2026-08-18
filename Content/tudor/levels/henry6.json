@@ -1,0 +1,106 @@
+{
+ "id": "henry6",
+ "order": 48,
+ "epoch": "tudor",
+ "act": "Акт II · Ланкастеры и Йорки",
+ "music": "tudor_lament",
+ "cover": "kings_stupor",
+ "panels": 3,
+ "scenes": [
+  "kings_stupor",
+  "protector_york",
+  "st_albans",
+  "queen_regent"
+ ],
+ "characters": [
+  "henry6",
+  "york_duke",
+  "margaret_anjou"
+ ],
+ "initialState": {
+  "flags": {
+   "henry6": [
+    "standing",
+    "strong"
+   ],
+   "york_duke": [
+    "strong"
+   ],
+   "margaret_anjou": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "henry6",
+    "york_duke"
+   ],
+   [
+    "enemy_of",
+    "york_duke",
+    "henry6"
+   ],
+   [
+    "enemy_of",
+    "margaret_anjou",
+    "york_duke"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry6",
+     "is": "incapable"
+    }
+   },
+   {
+    "flag": {
+     "char": "york_duke",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "henry6",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "margaret_anjou",
+      "is": "crowned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kings_stupor",
+   "characters": [
+    "henry6"
+   ]
+  },
+  {
+   "scene": "protector_york",
+   "characters": [
+    "york_duke",
+    "henry6"
+   ]
+  },
+  {
+   "scene": "st_albans",
+   "characters": [
+    "york_duke",
+    "henry6"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

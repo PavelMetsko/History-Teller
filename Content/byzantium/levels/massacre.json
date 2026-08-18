@@ -2,7 +2,7 @@
  "id": "massacre",
  "order": 70,
  "epoch": "byzantium",
- "act": "Акт II · Ника",
+ "act": "Акт III · Ника",
  "panels": 2,
  "scenes": [
   "bribe_b",
@@ -18,14 +18,42 @@
   "flags": {
    "hypatius": [
     "acclaimed"
+   ],
+   "belisarius": [
+    "strong"
+   ],
+   "mundus": [
+    "strong"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "belisarius",
+    "hypatius"
+   ],
+   [
+    "enemy_of",
+    "mundus",
+    "hypatius"
+   ]
+  ]
  },
  "goal": {
-  "flag": {
-   "char": "hypatius",
-   "is": "defeated"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "hypatius",
+     "is": "bought"
+    }
+   },
+   {
+    "flag": {
+     "char": "hypatius",
+     "is": "defeated"
+    }
+   }
+  ]
  },
  "solution": [
   {

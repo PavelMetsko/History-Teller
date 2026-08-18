@@ -1,0 +1,94 @@
+{
+ "id": "raleigh",
+ "order": 238,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_court",
+ "cover": "raleigh_block",
+ "panels": 3,
+ "scenes": [
+  "el_dorado",
+  "gondomar_demand",
+  "raleigh_block",
+  "raleigh_pardon"
+ ],
+ "characters": [
+  "raleigh",
+  "james1",
+  "gondomar"
+ ],
+ "initialState": {
+  "flags": {
+   "raleigh": [
+    "condemned"
+   ],
+   "james1": [
+    "standing"
+   ],
+   "gondomar": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "raleigh",
+    "gondomar"
+   ],
+   [
+    "enemy_of",
+    "gondomar",
+    "raleigh"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "raleigh",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "james1",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "raleigh",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "el_dorado",
+   "characters": [
+    "raleigh",
+    "gondomar"
+   ]
+  },
+  {
+   "scene": "gondomar_demand",
+   "characters": [
+    "gondomar",
+    "james1"
+   ]
+  },
+  {
+   "scene": "raleigh_block",
+   "characters": [
+    "james1",
+    "raleigh"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

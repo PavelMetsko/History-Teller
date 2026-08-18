@@ -1,8 +1,8 @@
 {
  "id": "danton",
- "order": 70,
+ "order": 250,
  "epoch": "revolution",
- "act": "Акт II · Террор",
+ "act": "Акт III · Революция",
  "panels": 3,
  "scenes": [
   "guillotine",
@@ -18,13 +18,13 @@
    {
     "flag": {
      "char": "danton",
-     "is": "dead"
+     "is": "condemned"
     }
    },
    {
     "flag": {
      "char": "danton",
-     "is": "beheaded"
+     "is": "executed"
     }
    },
    {
@@ -39,8 +39,8 @@
   {
    "scene": "tribune",
    "characters": [
-    "robespierre",
-    "danton"
+    "danton",
+    "robespierre"
    ]
   },
   {
@@ -62,5 +62,27 @@
  "music": "revolution_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "robespierre": [
+    "standing"
+   ],
+   "danton": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "robespierre",
+    "danton"
+   ],
+   [
+    "enemy_of",
+    "danton",
+    "robespierre"
+   ]
+  ]
  }
 }

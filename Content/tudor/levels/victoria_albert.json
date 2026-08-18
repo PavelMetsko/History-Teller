@@ -1,0 +1,80 @@
+{
+ "id": "victoria_albert",
+ "order": 350,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_romance",
+ "cover": "windsor_proposal",
+ "panels": 3,
+ "scenes": [
+  "melbourne_lessons",
+  "windsor_proposal",
+  "st_james_wed",
+  "bedchamber_crisis"
+ ],
+ "characters": [
+  "victoria",
+  "albert",
+  "melbourne"
+ ],
+ "initialState": {
+  "flags": {
+   "victoria": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "victoria",
+     "to": "melbourne"
+    }
+   },
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "victoria",
+     "to": "albert"
+    }
+   },
+   {
+    "relation": {
+     "rel": "wed",
+     "from": "victoria",
+     "to": "albert"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "melbourne_lessons",
+   "characters": [
+    "victoria",
+    "melbourne"
+   ]
+  },
+  {
+   "scene": "windsor_proposal",
+   "characters": [
+    "victoria",
+    "albert"
+   ]
+  },
+  {
+   "scene": "st_james_wed",
+   "characters": [
+    "victoria",
+    "albert"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

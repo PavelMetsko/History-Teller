@@ -1,0 +1,94 @@
+{
+ "id": "ermak",
+ "order": 38,
+ "epoch": "empire",
+ "act": "Акт I · Иван Грозный",
+ "music": "empire_battle",
+ "cover": "chuvash_cape",
+ "panels": 4,
+ "scenes": [
+  "stroganov_boats",
+  "chuvash_cape",
+  "siberian_hat",
+  "irtysh_night",
+  "back_to_volga"
+ ],
+ "characters": [
+  "ermak",
+  "kuchum",
+  "ivan"
+ ],
+ "initialState": {
+  "flags": {
+   "ivan": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "ermak",
+    "kuchum"
+   ],
+   [
+    "enemy_of",
+    "kuchum",
+    "ermak"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "kuchum",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "ermak",
+     "is": "pardoned"
+    }
+   },
+   {
+    "flag": {
+     "char": "ermak",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "stroganov_boats",
+   "characters": [
+    "ermak"
+   ]
+  },
+  {
+   "scene": "chuvash_cape",
+   "characters": [
+    "ermak",
+    "kuchum"
+   ]
+  },
+  {
+   "scene": "siberian_hat",
+   "characters": [
+    "ermak",
+    "ivan"
+   ]
+  },
+  {
+   "scene": "irtysh_night",
+   "characters": [
+    "ermak"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

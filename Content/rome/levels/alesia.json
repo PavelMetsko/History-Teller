@@ -1,0 +1,111 @@
+{
+ "id": "alesia",
+ "order": 175,
+ "epoch": "rome",
+ "act": "Акт III · Трещина",
+ "music": "battle",
+ "cover": "arms_at_feet",
+ "panels": 3,
+ "scenes": [
+  "gergovia",
+  "double_wall",
+  "alesia_hunger",
+  "relief_a",
+  "arms_at_feet"
+ ],
+ "characters": [
+  "caesar",
+  "vercingetorix",
+  "commius"
+ ],
+ "initialState": {
+  "flags": {
+   "vercingetorix": [
+    "strong"
+   ],
+   "caesar": [
+    "standing"
+   ],
+   "commius": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "caesar",
+    "vercingetorix"
+   ],
+   [
+    "enemy_of",
+    "vercingetorix",
+    "caesar"
+   ],
+   [
+    "enemy_of",
+    "commius",
+    "caesar"
+   ],
+   [
+    "enemy_of",
+    "caesar",
+    "commius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "caesar",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "vercingetorix",
+     "is": "starved"
+    }
+   },
+   {
+    "flag": {
+     "char": "vercingetorix",
+     "is": "captured"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "caesar",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "double_wall",
+   "characters": [
+    "caesar"
+   ]
+  },
+  {
+   "scene": "alesia_hunger",
+   "characters": [
+    "caesar",
+    "vercingetorix"
+   ]
+  },
+  {
+   "scene": "arms_at_feet",
+   "characters": [
+    "vercingetorix",
+    "caesar"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

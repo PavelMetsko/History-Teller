@@ -1,0 +1,82 @@
+{
+ "id": "south_sea",
+ "order": 300,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_court",
+ "cover": "bubble_bursts",
+ "panels": 3,
+ "scenes": [
+  "exchange_alley",
+  "bubble_bursts",
+  "walpole_screen",
+  "hang_directors"
+ ],
+ "characters": [
+  "walpole",
+  "blunt",
+  "george1"
+ ],
+ "initialState": {
+  "flags": {
+   "walpole": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "walpole",
+    "blunt"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "blunt",
+     "is": "ruined"
+    }
+   },
+   {
+    "flag": {
+     "char": "walpole",
+     "is": "beloved"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "blunt",
+      "is": "executed"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "exchange_alley",
+   "characters": [
+    "blunt"
+   ]
+  },
+  {
+   "scene": "bubble_bursts",
+   "characters": [
+    "blunt"
+   ]
+  },
+  {
+   "scene": "walpole_screen",
+   "characters": [
+    "walpole",
+    "blunt"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

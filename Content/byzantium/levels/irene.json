@@ -1,0 +1,76 @@
+{
+ "id": "irene",
+ "order": 150,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_tension",
+ "cover": "porphyra",
+ "panels": 3,
+ "scenes": [
+  "nicaea_787",
+  "porphyra",
+  "basileus_title",
+  "charlemagne_offer"
+ ],
+ "characters": [
+  "irene",
+  "constantine6"
+ ],
+ "initialState": {
+  "flags": {
+   "irene": [
+    "standing"
+   ],
+   "constantine6": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "irene",
+     "is": "orthodox"
+    }
+   },
+   {
+    "flag": {
+     "char": "constantine6",
+     "is": "blinded"
+    }
+   },
+   {
+    "flag": {
+     "char": "irene",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "nicaea_787",
+   "characters": [
+    "irene"
+   ]
+  },
+  {
+   "scene": "porphyra",
+   "characters": [
+    "irene",
+    "constantine6"
+   ]
+  },
+  {
+   "scene": "basileus_title",
+   "characters": [
+    "irene"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

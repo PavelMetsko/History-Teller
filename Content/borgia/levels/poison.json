@@ -2,7 +2,7 @@
  "id": "poison",
  "order": 80,
  "epoch": "borgia",
- "act": "Акт II · Яд и власть",
+ "act": "Акт III · Яд и власть",
  "panels": 2,
  "scenes": [
   "feast_p",
@@ -38,5 +38,6 @@
  "music": "borgia_tension",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

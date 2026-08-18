@@ -1,0 +1,96 @@
+{
+ "id": "reform_act",
+ "order": 345,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_court",
+ "cover": "days_of_may",
+ "panels": 3,
+ "scenes": [
+  "commons_reform",
+  "lords_reject",
+  "kings_promise",
+  "days_of_may"
+ ],
+ "characters": [
+  "earl_grey",
+  "wellington",
+  "william4"
+ ],
+ "initialState": {
+  "flags": {
+   "earl_grey": [
+    "standing"
+   ],
+   "wellington": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wellington",
+    "earl_grey"
+   ],
+   [
+    "enemy_of",
+    "earl_grey",
+    "wellington"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "earl_grey",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "william4",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "earl_grey",
+     "is": "reform_passed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "earl_grey",
+      "is": "condemned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "commons_reform",
+   "characters": [
+    "earl_grey"
+   ]
+  },
+  {
+   "scene": "kings_promise",
+   "characters": [
+    "earl_grey",
+    "william4"
+   ]
+  },
+  {
+   "scene": "days_of_may",
+   "characters": [
+    "earl_grey"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

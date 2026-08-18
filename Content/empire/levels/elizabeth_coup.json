@@ -1,0 +1,76 @@
+{
+ "id": "elizabeth_coup",
+ "order": 89,
+ "epoch": "empire",
+ "act": "Акт IV · Дворцовые перевороты",
+ "music": "empire_tension",
+ "cover": "preobrazhensky",
+ "panels": 3,
+ "scenes": [
+  "preobrazhensky",
+  "winter_night",
+  "promise_no_death",
+  "talk_regent"
+ ],
+ "characters": [
+  "elizabeth_ru",
+  "anna_leop"
+ ],
+ "initialState": {
+  "flags": {
+   "elizabeth_ru": [
+    "royal_claim"
+   ],
+   "anna_leop": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "anna_leop",
+     "is": "deposed"
+    }
+   },
+   {
+    "flag": {
+     "char": "elizabeth_ru",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "elizabeth_ru",
+     "is": "merciful"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "preobrazhensky",
+   "characters": [
+    "elizabeth_ru"
+   ]
+  },
+  {
+   "scene": "winter_night",
+   "characters": [
+    "elizabeth_ru",
+    "anna_leop"
+   ]
+  },
+  {
+   "scene": "promise_no_death",
+   "characters": [
+    "elizabeth_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

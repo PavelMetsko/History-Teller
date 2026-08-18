@@ -1,0 +1,86 @@
+{
+ "id": "crimea",
+ "order": 105,
+ "epoch": "empire",
+ "act": "Акт V · Екатерина Великая",
+ "music": "empire_ceremony",
+ "cover": "tauride_voyage",
+ "panels": 3,
+ "scenes": [
+  "khan_pension",
+  "manifest_crimea",
+  "tauride_voyage",
+  "war_khan"
+ ],
+ "characters": [
+  "catherine",
+  "potemkin",
+  "girey"
+ ],
+ "initialState": {
+  "flags": {
+   "catherine": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "potemkin": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "potemkin",
+    "girey"
+   ],
+   [
+    "enemy_of",
+    "girey",
+    "potemkin"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "catherine",
+     "is": "annexed"
+    }
+   },
+   {
+    "flag": {
+     "char": "catherine",
+     "is": "impressed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "khan_pension",
+   "characters": [
+    "potemkin",
+    "girey"
+   ]
+  },
+  {
+   "scene": "manifest_crimea",
+   "characters": [
+    "catherine",
+    "girey"
+   ]
+  },
+  {
+   "scene": "tauride_voyage",
+   "characters": [
+    "catherine",
+    "potemkin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

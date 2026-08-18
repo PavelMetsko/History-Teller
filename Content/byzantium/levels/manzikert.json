@@ -1,0 +1,96 @@
+{
+ "id": "manzikert",
+ "order": 156,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_battle",
+ "cover": "manzikert_field",
+ "panels": 4,
+ "scenes": [
+  "manzikert_march",
+  "rearguard_leaves",
+  "manzikert_field",
+  "sultan_boot",
+  "khliat_fort"
+ ],
+ "characters": [
+  "romanos4",
+  "alp_arslan",
+  "andronikos_doukas"
+ ],
+ "initialState": {
+  "flags": {
+   "romanos4": [
+    "reigns",
+    "standing"
+   ],
+   "alp_arslan": [
+    "strong",
+    "standing"
+   ],
+   "andronikos_doukas": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "romanos4",
+    "alp_arslan"
+   ],
+   [
+    "enemy_of",
+    "alp_arslan",
+    "romanos4"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "romanos4",
+     "is": "ransomed"
+    }
+   },
+   {
+    "flag": {
+     "char": "andronikos_doukas",
+     "is": "traitor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "manzikert_march",
+   "characters": [
+    "romanos4"
+   ]
+  },
+  {
+   "scene": "rearguard_leaves",
+   "characters": [
+    "andronikos_doukas",
+    "romanos4"
+   ]
+  },
+  {
+   "scene": "manzikert_field",
+   "characters": [
+    "romanos4",
+    "alp_arslan"
+   ]
+  },
+  {
+   "scene": "sultan_boot",
+   "characters": [
+    "alp_arslan",
+    "romanos4"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

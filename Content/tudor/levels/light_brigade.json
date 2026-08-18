@@ -1,0 +1,74 @@
+{
+ "id": "light_brigade",
+ "order": 355,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_lament",
+ "cover": "valley_of_death",
+ "panels": 3,
+ "scenes": [
+  "raglan_order",
+  "valley_of_death",
+  "scutari",
+  "query_order"
+ ],
+ "characters": [
+  "raglan",
+  "cardigan",
+  "nightingale"
+ ],
+ "initialState": {
+  "flags": {
+   "raglan": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cardigan",
+     "is": "misled"
+    }
+   },
+   {
+    "flag": {
+     "char": "cardigan",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "nightingale",
+     "is": "beloved"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "raglan_order",
+   "characters": [
+    "raglan",
+    "cardigan"
+   ]
+  },
+  {
+   "scene": "valley_of_death",
+   "characters": [
+    "cardigan"
+   ]
+  },
+  {
+   "scene": "scutari",
+   "characters": [
+    "nightingale",
+    "cardigan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

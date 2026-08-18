@@ -1,0 +1,98 @@
+{
+ "id": "joan_stake",
+ "order": 46,
+ "epoch": "tudor",
+ "act": "Акт II · Ланкастеры и Йорки",
+ "music": "tudor_lament",
+ "cover": "rouen_stake",
+ "panels": 3,
+ "scenes": [
+  "orleans_j",
+  "rouen_trial",
+  "rouen_stake",
+  "ransom_joan"
+ ],
+ "characters": [
+  "joan",
+  "cauchon",
+  "bedford"
+ ],
+ "initialState": {
+  "flags": {
+   "joan": [
+    "strong"
+   ],
+   "cauchon": [
+    "standing"
+   ],
+   "bedford": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "joan",
+    "bedford"
+   ],
+   [
+    "enemy_of",
+    "bedford",
+    "joan"
+   ],
+   [
+    "enemy_of",
+    "cauchon",
+    "joan"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bedford",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "joan",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "joan",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "orleans_j",
+   "characters": [
+    "joan",
+    "bedford"
+   ]
+  },
+  {
+   "scene": "rouen_trial",
+   "characters": [
+    "cauchon",
+    "joan"
+   ]
+  },
+  {
+   "scene": "rouen_stake",
+   "characters": [
+    "bedford",
+    "joan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

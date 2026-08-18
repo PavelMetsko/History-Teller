@@ -1,0 +1,77 @@
+{
+ "id": "paul_murder",
+ "order": 145,
+ "epoch": "empire",
+ "act": "Акт VI · От Павла до декабристов",
+ "music": "empire_tension",
+ "cover": "mikhailovsky",
+ "panels": 3,
+ "scenes": [
+  "guard_plot",
+  "mikhailovsky",
+  "accession",
+  "gatchina"
+ ],
+ "characters": [
+  "paul1",
+  "pahlen",
+  "alexander1"
+ ],
+ "initialState": {
+  "flags": {
+   "paul1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "pahlen": [
+    "standing"
+   ],
+   "alexander1": [
+    "royal_claim"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "paul1",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexander1",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "guard_plot",
+   "characters": [
+    "pahlen",
+    "alexander1"
+   ]
+  },
+  {
+   "scene": "mikhailovsky",
+   "characters": [
+    "pahlen",
+    "paul1"
+   ]
+  },
+  {
+   "scene": "accession",
+   "characters": [
+    "alexander1",
+    "pahlen"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

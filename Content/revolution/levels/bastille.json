@@ -1,0 +1,85 @@
+{
+ "id": "bastille",
+ "order": 215,
+ "epoch": "revolution",
+ "act": "Акт III · Революция",
+ "music": "revolution_battle",
+ "cover": "bastille_storm",
+ "panels": 3,
+ "scenes": [
+  "faubourg_muster",
+  "bastille_parley",
+  "bastille_storm",
+  "rien_diary"
+ ],
+ "characters": [
+  "danton",
+  "launay",
+  "louis"
+ ],
+ "initialState": {
+  "flags": {
+   "launay": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "danton",
+    "launay"
+   ],
+   [
+    "enemy_of",
+    "launay",
+    "danton"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "danton",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "launay",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis",
+     "is": "oblivious"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "faubourg_muster",
+   "characters": [
+    "danton"
+   ]
+  },
+  {
+   "scene": "bastille_storm",
+   "characters": [
+    "danton",
+    "launay"
+   ]
+  },
+  {
+   "scene": "rien_diary",
+   "characters": [
+    "louis"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

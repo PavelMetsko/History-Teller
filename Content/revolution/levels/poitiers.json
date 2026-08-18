@@ -1,0 +1,83 @@
+{
+ "id": "poitiers",
+ "order": 22,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_battle",
+ "cover": "poitiers_field",
+ "panels": 3,
+ "scenes": [
+  "maupertuis_hedge",
+  "poitiers_field",
+  "kings_supper",
+  "attack_hedge"
+ ],
+ "characters": [
+  "black_prince",
+  "jean2"
+ ],
+ "initialState": {
+  "flags": {
+   "jean2": []
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "black_prince",
+    "jean2"
+   ],
+   [
+    "enemy_of",
+    "jean2",
+    "black_prince"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jean2",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "jean2",
+     "is": "captured"
+    }
+   },
+   {
+    "flag": {
+     "char": "black_prince",
+     "is": "honourable"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "maupertuis_hedge",
+   "characters": [
+    "black_prince"
+   ]
+  },
+  {
+   "scene": "poitiers_field",
+   "characters": [
+    "jean2",
+    "black_prince"
+   ]
+  },
+  {
+   "scene": "kings_supper",
+   "characters": [
+    "black_prince",
+    "jean2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

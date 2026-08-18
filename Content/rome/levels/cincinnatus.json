@@ -1,0 +1,87 @@
+{
+ "id": "cincinnatus",
+ "order": 46,
+ "epoch": "rome",
+ "act": "Акт I · Цари и рождение республики",
+ "music": "ceremony",
+ "cover": "plough_field",
+ "panels": 3,
+ "scenes": [
+  "plough_field",
+  "algidus",
+  "return_plough",
+  "keep_power_c"
+ ],
+ "characters": [
+  "cincinnatus",
+  "cloelius",
+  "minucius_c"
+ ],
+ "initialState": {
+  "flags": {
+   "minucius_c": [
+    "defeated"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cincinnatus",
+    "cloelius"
+   ],
+   [
+    "enemy_of",
+    "cloelius",
+    "cincinnatus"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cloelius",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "cincinnatus",
+     "is": "resigned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cincinnatus",
+      "is": "tyrant_named"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "plough_field",
+   "characters": [
+    "cincinnatus"
+   ]
+  },
+  {
+   "scene": "algidus",
+   "characters": [
+    "cincinnatus",
+    "cloelius"
+   ]
+  },
+  {
+   "scene": "return_plough",
+   "characters": [
+    "cincinnatus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "id": "titus_oates",
+ "order": 272,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_court",
+ "cover": "oates_pillory",
+ "panels": 3,
+ "scenes": [
+  "oates_deposition",
+  "coleman_tyburn",
+  "oates_pillory",
+  "oates_pension"
+ ],
+ "characters": [
+  "oates",
+  "coleman",
+  "jeffreys"
+ ],
+ "initialState": {
+  "flags": {
+   "oates": [
+    "standing"
+   ],
+   "jeffreys": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "oates",
+    "coleman"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "coleman",
+     "is": "executed"
+    }
+   },
+   {
+    "flag": {
+     "char": "oates",
+     "is": "disgraced"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "oates_deposition",
+   "characters": [
+    "oates",
+    "coleman"
+   ]
+  },
+  {
+   "scene": "coleman_tyburn",
+   "characters": [
+    "oates",
+    "coleman"
+   ]
+  },
+  {
+   "scene": "oates_pillory",
+   "characters": [
+    "jeffreys",
+    "oates"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

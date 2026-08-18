@@ -1,0 +1,84 @@
+{
+ "id": "garibaldi",
+ "order": 160,
+ "epoch": "borgia",
+ "act": "Акт VII · Рисорджименто",
+ "music": "borgia_battle",
+ "cover": "teano",
+ "panels": 3,
+ "scenes": [
+  "the_thousand",
+  "calatafimi",
+  "teano",
+  "march_on_rome_g"
+ ],
+ "characters": [
+  "garibaldi",
+  "francis2",
+  "victor_emmanuel"
+ ],
+ "initialState": {
+  "flags": {
+   "francis2": [
+    "reigns",
+    "crowned"
+   ],
+   "victor_emmanuel": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "garibaldi",
+    "francis2"
+   ],
+   [
+    "enemy_of",
+    "francis2",
+    "garibaldi"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francis2",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "victor_emmanuel",
+     "is": "king_of_italy"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "the_thousand",
+   "characters": [
+    "garibaldi"
+   ]
+  },
+  {
+   "scene": "calatafimi",
+   "characters": [
+    "garibaldi",
+    "francis2"
+   ]
+  },
+  {
+   "scene": "teano",
+   "characters": [
+    "garibaldi",
+    "victor_emmanuel"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

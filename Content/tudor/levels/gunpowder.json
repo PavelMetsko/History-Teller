@@ -1,0 +1,79 @@
+{
+ "id": "gunpowder",
+ "order": 240,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_court",
+ "cover": "cellar_search",
+ "panels": 3,
+ "scenes": [
+  "duck_and_drake",
+  "monteagle_letter",
+  "cellar_search",
+  "light_fuse"
+ ],
+ "characters": [
+  "fawkes",
+  "catesby",
+  "salisbury"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "fawkes",
+     "is": "plotting"
+    }
+   },
+   {
+    "flag": {
+     "char": "fawkes",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "fawkes",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "fawkes",
+      "is": "exploded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "duck_and_drake",
+   "characters": [
+    "catesby",
+    "fawkes"
+   ]
+  },
+  {
+   "scene": "monteagle_letter",
+   "characters": [
+    "salisbury",
+    "fawkes"
+   ]
+  },
+  {
+   "scene": "cellar_search",
+   "characters": [
+    "salisbury",
+    "fawkes"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

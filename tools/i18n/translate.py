@@ -13,14 +13,15 @@ keys=sorted(ru.keys())
 def call(payload_text):
     body=json.dumps({"contents":[{"parts":[{"text":payload_text}]}],
                      "generationConfig":{"temperature":0.3,"responseMimeType":"application/json"}}).encode()
-    for a in range(4):
+    for a in range(7):
         try:
             req=urllib.request.Request(URL,data=body,headers={"Content-Type":"application/json"})
             with urllib.request.urlopen(req,timeout=180) as r: data=json.loads(r.read())
             txt=data["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(txt)
         except Exception as e:
-            print(f"      retry {a+1}: {repr(e)[:120]}"); time.sleep(2)
+            # 429 у Gemini — квота в минуту: ждём по нарастающей, иначе каталог уезжает с дырами
+            print(f"      retry {a+1}: {repr(e)[:120]}"); time.sleep([3, 10, 30, 60, 90, 120, 120][a])
     return None
 
 def translate_lang(code,name):
@@ -73,6 +74,7 @@ def translate_missing(code,name):
 
 
 targets=[a for a in sys.argv[1:] if not a.startswith("-")] or list(LANGS.keys())
+FAILED=[]
 missing_only="--missing" in sys.argv
 for code in targets:
     name=LANGS[code]
@@ -86,5 +88,6 @@ for code in targets:
                   ensure_ascii=False,indent=1,sort_keys=True)
         print(f"  ✓ {code}.json ({len(res)} keys)")
     else:
-        print(f"  ✗ {code} incomplete ({len(res) if res else 0})")
+        print(f"  ✗ {code} incomplete ({len(res) if res else 0})"); FAILED.append(code)
 print("done")
+if FAILED: sys.exit(f"не переведены: {FAILED}")

@@ -1,8 +1,8 @@
 {
  "id": "empress",
- "order": 130,
+ "order": 325,
  "epoch": "revolution",
- "act": "Акт III · Наполеон",
+ "act": "Акт IV · Наполеон",
  "panels": 2,
  "scenes": [
   "selfcrown_e",
@@ -15,15 +15,33 @@
  "initialState": {
   "flags": {
    "napoleon": [
-    "emperor"
+    "emperor",
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "ally_of",
+    "napoleon",
+    "josephine"
+   ]
+  ]
  },
  "goal": {
-  "flag": {
-   "char": "josephine",
-   "is": "empress"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "self_crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "josephine",
+     "is": "crowned"
+    }
+   }
+  ]
  },
  "solution": [
   {
@@ -35,8 +53,8 @@
   {
    "scene": "sacre_e",
    "characters": [
-    "napoleon",
-    "josephine"
+    "josephine",
+    "napoleon"
    ]
   }
  ],

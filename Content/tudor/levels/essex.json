@@ -1,0 +1,105 @@
+{
+ "id": "essex",
+ "order": 235,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_lament",
+ "cover": "essex_block",
+ "panels": 3,
+ "scenes": [
+  "ulster",
+  "essex_revolt",
+  "essex_block",
+  "essex_pleads"
+ ],
+ "characters": [
+  "essex",
+  "elizabeth",
+  "tyrone"
+ ],
+ "initialState": {
+  "flags": {
+   "elizabeth": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "tyrone": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "essex",
+    "tyrone"
+   ],
+   [
+    "enemy_of",
+    "tyrone",
+    "essex"
+   ],
+   [
+    "enemy_of",
+    "elizabeth",
+    "essex"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "essex",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "essex",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "essex",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "elizabeth",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ulster",
+   "characters": [
+    "essex",
+    "tyrone"
+   ]
+  },
+  {
+   "scene": "essex_revolt",
+   "characters": [
+    "elizabeth",
+    "essex"
+   ]
+  },
+  {
+   "scene": "essex_block",
+   "characters": [
+    "elizabeth",
+    "essex"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

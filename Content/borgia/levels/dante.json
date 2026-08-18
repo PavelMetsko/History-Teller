@@ -1,0 +1,76 @@
+{
+ "id": "dante",
+ "order": 4,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_tension",
+ "cover": "dante_sentence",
+ "panels": 3,
+ "scenes": [
+  "priorate",
+  "valois_enters",
+  "dante_sentence",
+  "ravenna_exile",
+  "beg_pardon"
+ ],
+ "characters": [
+  "dante",
+  "corso",
+  "boniface8"
+ ],
+ "initialState": {
+  "flags": {
+   "boniface8": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "corso",
+    "dante"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dante",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "dante",
+     "is": "immortal"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "valois_enters",
+   "characters": [
+    "boniface8",
+    "corso"
+   ]
+  },
+  {
+   "scene": "dante_sentence",
+   "characters": [
+    "corso",
+    "dante"
+   ]
+  },
+  {
+   "scene": "ravenna_exile",
+   "characters": [
+    "dante"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

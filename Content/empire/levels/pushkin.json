@@ -1,0 +1,65 @@
+{
+ "id": "pushkin",
+ "order": 165,
+ "epoch": "empire",
+ "act": "Акт VII · Николай I и Александр II",
+ "music": "empire_romance",
+ "cover": "black_river",
+ "panels": 3,
+ "scenes": [
+  "moscow_ball",
+  "anonymous_diploma",
+  "black_river",
+  "leave_for_village"
+ ],
+ "characters": [
+  "pushkin",
+  "dantes",
+  "natalia"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pushkin",
+     "is": "in_love"
+    }
+   },
+   {
+    "flag": {
+     "char": "pushkin",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "moscow_ball",
+   "characters": [
+    "pushkin",
+    "natalia"
+   ]
+  },
+  {
+   "scene": "anonymous_diploma",
+   "characters": [
+    "dantes",
+    "pushkin"
+   ]
+  },
+  {
+   "scene": "black_river",
+   "characters": [
+    "pushkin",
+    "dantes"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

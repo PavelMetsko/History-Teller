@@ -2,7 +2,7 @@
  "id": "john_fall",
  "order": 90,
  "epoch": "byzantium",
- "act": "Акт II · Ника",
+ "act": "Акт III · Ника",
  "panels": 2,
  "scenes": [
   "intrigue_b",
@@ -39,5 +39,6 @@
  "music": "byzantium_tension",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

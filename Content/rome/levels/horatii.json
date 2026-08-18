@@ -1,0 +1,76 @@
+{
+ "id": "horatii",
+ "order": 14,
+ "epoch": "rome",
+ "act": "Акт I · Цари и рождение республики",
+ "music": "battle",
+ "cover": "duel_h",
+ "panels": 3,
+ "scenes": [
+  "feign_flight_h",
+  "duel_h",
+  "sister_gate_h",
+  "king_trial_h"
+ ],
+ "characters": [
+  "horatius",
+  "curiatius",
+  "horatia",
+  "tullus"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "horatius",
+    "curiatius"
+   ],
+   [
+    "enemy_of",
+    "curiatius",
+    "horatius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "curiatius",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "horatia",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "feign_flight_h",
+   "characters": [
+    "horatius"
+   ]
+  },
+  {
+   "scene": "duel_h",
+   "characters": [
+    "horatius",
+    "curiatius"
+   ]
+  },
+  {
+   "scene": "sister_gate_h",
+   "characters": [
+    "horatius",
+    "horatia"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

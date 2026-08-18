@@ -1,0 +1,84 @@
+{
+ "id": "lionheart",
+ "order": 18,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_court",
+ "cover": "vienna_inn",
+ "panels": 3,
+ "scenes": [
+  "vienna_inn",
+  "ransom_silver",
+  "john_pardon",
+  "john_plot"
+ ],
+ "characters": [
+  "richard1",
+  "john_lackland",
+  "leopold",
+  "eleanor"
+ ],
+ "initialState": {
+  "flags": {
+   "eleanor": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "leopold",
+    "richard1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "richard1",
+     "is": "captured"
+    }
+   },
+   {
+    "flag": {
+     "char": "richard1",
+     "is": "freed"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_lackland",
+     "is": "conceded"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "vienna_inn",
+   "characters": [
+    "leopold",
+    "richard1"
+   ]
+  },
+  {
+   "scene": "ransom_silver",
+   "characters": [
+    "eleanor",
+    "leopold",
+    "richard1"
+   ]
+  },
+  {
+   "scene": "john_pardon",
+   "characters": [
+    "richard1",
+    "john_lackland"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

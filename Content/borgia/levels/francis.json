@@ -1,0 +1,72 @@
+{
+ "id": "francis",
+ "order": 1,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_ceremony",
+ "cover": "piazza_assisi",
+ "panels": 3,
+ "scenes": [
+  "piazza_assisi",
+  "innocent_dream",
+  "rule_approved",
+  "inherit_shop"
+ ],
+ "characters": [
+  "francis",
+  "innocent3",
+  "bernardone"
+ ],
+ "initialState": {
+  "flags": {
+   "innocent3": [
+    "reigns",
+    "standing"
+   ],
+   "bernardone": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francis",
+     "is": "renounced"
+    }
+   },
+   {
+    "flag": {
+     "char": "francis",
+     "is": "founder"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "piazza_assisi",
+   "characters": [
+    "francis",
+    "bernardone"
+   ]
+  },
+  {
+   "scene": "innocent_dream",
+   "characters": [
+    "innocent3",
+    "francis"
+   ]
+  },
+  {
+   "scene": "rule_approved",
+   "characters": [
+    "francis"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

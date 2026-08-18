@@ -1,0 +1,90 @@
+{
+ "id": "pilgrimage",
+ "order": 155,
+ "epoch": "tudor",
+ "act": "Акт IV · Шесть жён",
+ "music": "tudor_lament",
+ "cover": "pilgrim_muster",
+ "panels": 3,
+ "scenes": [
+  "pilgrim_muster",
+  "doncaster_pardon",
+  "york_chains",
+  "march_london"
+ ],
+ "characters": [
+  "aske",
+  "henry",
+  "norfolk"
+ ],
+ "initialState": {
+  "flags": {
+   "henry": [
+    "standing",
+    "strong"
+   ],
+   "aske": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry",
+    "aske"
+   ],
+   [
+    "enemy_of",
+    "aske",
+    "henry"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "aske",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "norfolk",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "aske",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pilgrim_muster",
+   "characters": [
+    "aske"
+   ]
+  },
+  {
+   "scene": "doncaster_pardon",
+   "characters": [
+    "aske",
+    "norfolk"
+   ]
+  },
+  {
+   "scene": "york_chains",
+   "characters": [
+    "henry",
+    "aske"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

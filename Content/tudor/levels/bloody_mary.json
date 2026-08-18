@@ -1,7 +1,7 @@
 {
- "order": 100,
+ "order": 200,
  "epoch": "tudor",
- "act": "Акт III · Наследники",
+ "act": "Акт V · Наследники Генриха",
  "panels": 3,
  "scenes": [
   "abbey",
@@ -17,6 +17,9 @@
   "flags": {
    "mary1": [
     "royal_claim"
+   ],
+   "cranmer": [
+    "condemned"
    ]
   }
  },
@@ -29,12 +32,6 @@
     }
    },
    {
-    "flag": {
-     "char": "mary1",
-     "is": "rome_restored"
-    }
-   },
-   {
     "relation": {
      "rel": "wed",
      "from": "philip",
@@ -44,7 +41,7 @@
    {
     "flag": {
      "char": "cranmer",
-     "is": "burned"
+     "is": "executed"
     }
    }
   ]

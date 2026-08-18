@@ -2,7 +2,7 @@
  "id": "prince",
  "order": 60,
  "epoch": "borgia",
- "act": "Акт II · Яд и власть",
+ "act": "Акт III · Яд и власть",
  "panels": 2,
  "scenes": [
   "army_p",
@@ -22,8 +22,8 @@
   {
    "scene": "army_p",
    "characters": [
-    "rodrigo",
-    "cesare"
+    "cesare",
+    "rodrigo"
    ]
   },
   {
@@ -37,5 +37,20 @@
  "music": "borgia_battle",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "rodrigo": [
+    "pope",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "rodrigo",
+    "cesare"
+   ]
+  ]
  }
 }

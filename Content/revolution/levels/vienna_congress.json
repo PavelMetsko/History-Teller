@@ -1,0 +1,74 @@
+{
+ "id": "vienna_congress",
+ "order": 340,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_ceremony",
+ "cover": "secret_treaty",
+ "panels": 3,
+ "scenes": [
+  "legitimacy_word",
+  "saxony_map",
+  "secret_treaty",
+  "hofburg_ball"
+ ],
+ "characters": [
+  "talleyrand",
+  "metternich",
+  "alexander1"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander1": [
+    "reigns",
+    "standing",
+    "victor"
+   ],
+   "metternich": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "talleyrand",
+     "is": "seated"
+    }
+   },
+   {
+    "flag": {
+     "char": "talleyrand",
+     "is": "arbiter"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "legitimacy_word",
+   "characters": [
+    "talleyrand",
+    "alexander1"
+   ]
+  },
+  {
+   "scene": "saxony_map",
+   "characters": [
+    "alexander1",
+    "metternich"
+   ]
+  },
+  {
+   "scene": "secret_treaty",
+   "characters": [
+    "talleyrand",
+    "metternich"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

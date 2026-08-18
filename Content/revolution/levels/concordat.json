@@ -1,0 +1,69 @@
+{
+ "id": "concordat",
+ "order": 317,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_ceremony",
+ "cover": "notre_dame_sacre",
+ "panels": 2,
+ "scenes": [
+  "concordat_table",
+  "notre_dame_sacre",
+  "arrest_pope",
+  "cult_reason"
+ ],
+ "characters": [
+  "napoleon",
+  "pope"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pope",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "legit"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pope",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "concordat_table",
+   "characters": [
+    "napoleon",
+    "pope"
+   ]
+  },
+  {
+   "scene": "notre_dame_sacre",
+   "characters": [
+    "pope",
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

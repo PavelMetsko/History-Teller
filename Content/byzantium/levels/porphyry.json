@@ -2,7 +2,7 @@
  "id": "porphyry",
  "order": 30,
  "epoch": "byzantium",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Юстиниана",
  "panels": 2,
  "scenes": [
   "throne_b",
@@ -16,9 +16,16 @@
  "initialState": {
   "flags": {
    "justinian": [
-    "heir"
+    "royal_claim"
    ]
-  }
+  },
+  "relations": [
+   [
+    "ally_of",
+    "justinian",
+    "theodora"
+   ]
+  ]
  },
  "goal": {
   "all": [
@@ -31,7 +38,7 @@
    {
     "flag": {
      "char": "theodora",
-     "is": "empress"
+     "is": "crowned"
     }
    }
   ]
@@ -46,8 +53,8 @@
   {
    "scene": "coronation_b",
    "characters": [
-    "justinian",
-    "theodora"
+    "theodora",
+    "justinian"
    ]
   }
  ],

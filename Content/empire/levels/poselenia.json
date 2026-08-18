@@ -1,0 +1,80 @@
+{
+ "id": "poselenia",
+ "order": 155,
+ "epoch": "empire",
+ "act": "Акт VI · От Павла до декабристов",
+ "music": "empire_tension",
+ "cover": "gruzino_drill",
+ "panels": 3,
+ "scenes": [
+  "settlement_project",
+  "gruzino_drill",
+  "chuguev_riot",
+  "resignation_plea"
+ ],
+ "characters": [
+  "alexander1",
+  "arakcheev",
+  "poselianin"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "arakcheev": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "poselianin",
+     "is": "settled"
+    }
+   },
+   {
+    "flag": {
+     "char": "poselianin",
+     "is": "flogged"
+    }
+   },
+   {
+    "flag": {
+     "char": "arakcheev",
+     "is": "feared"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "settlement_project",
+   "characters": [
+    "alexander1",
+    "arakcheev"
+   ]
+  },
+  {
+   "scene": "gruzino_drill",
+   "characters": [
+    "arakcheev",
+    "poselianin"
+   ]
+  },
+  {
+   "scene": "chuguev_riot",
+   "characters": [
+    "poselianin",
+    "arakcheev"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "id": "hypatia",
+ "order": 5,
+ "epoch": "byzantium",
+ "act": "Акт I · Новый Рим",
+ "music": "byzantium_tension",
+ "cover": "parabalani",
+ "panels": 3,
+ "scenes": [
+  "prefect_friend",
+  "cyril_sermon",
+  "parabalani",
+  "leave_alexandria"
+ ],
+ "characters": [
+  "hypatia",
+  "cyril",
+  "orestes_pref"
+ ],
+ "initialState": {
+  "flags": {
+   "cyril": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cyril",
+    "hypatia"
+   ],
+   [
+    "enemy_of",
+    "cyril",
+    "orestes_pref"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "orestes_pref",
+     "to": "hypatia"
+    }
+   },
+   {
+    "flag": {
+     "char": "hypatia",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prefect_friend",
+   "characters": [
+    "orestes_pref",
+    "hypatia"
+   ]
+  },
+  {
+   "scene": "cyril_sermon",
+   "characters": [
+    "cyril",
+    "hypatia"
+   ]
+  },
+  {
+   "scene": "parabalani",
+   "characters": [
+    "cyril",
+    "hypatia"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

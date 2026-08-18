@@ -1,8 +1,8 @@
 {
  "id": "antoinette",
- "order": 40,
+ "order": 235,
  "epoch": "revolution",
- "act": "Акт I · Революция",
+ "act": "Акт III · Революция",
  "panels": 2,
  "scenes": [
   "assembly",
@@ -18,13 +18,13 @@
    {
     "flag": {
      "char": "antoinette",
-     "is": "dead"
+     "is": "condemned"
     }
    },
    {
     "flag": {
      "char": "antoinette",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]
@@ -49,5 +49,19 @@
  "music": "revolution_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "robespierre": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "robespierre",
+    "antoinette"
+   ]
+  ]
  }
 }

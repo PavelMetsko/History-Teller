@@ -1,0 +1,100 @@
+{
+ "id": "coriolanus_v",
+ "order": 44,
+ "epoch": "rome",
+ "act": "Акт I · Цари и рождение республики",
+ "music": "tension",
+ "cover": "mother_at_walls_c",
+ "panels": 3,
+ "scenes": [
+  "tribunes_court_c",
+  "volsci_hall_c",
+  "mother_at_walls_c",
+  "assault_rome_c"
+ ],
+ "characters": [
+  "coriolanus",
+  "sicinius",
+  "aufidius",
+  "veturia"
+ ],
+ "initialState": {
+  "flags": {
+   "sicinius": [
+    "standing"
+   ],
+   "coriolanus": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "sicinius",
+    "coriolanus"
+   ],
+   [
+    "enemy_of",
+    "coriolanus",
+    "sicinius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "coriolanus",
+     "is": "condemned"
+    }
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "aufidius",
+     "to": "coriolanus"
+    }
+   },
+   {
+    "flag": {
+     "char": "coriolanus",
+     "is": "relented"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "sicinius",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tribunes_court_c",
+   "characters": [
+    "sicinius",
+    "coriolanus"
+   ]
+  },
+  {
+   "scene": "volsci_hall_c",
+   "characters": [
+    "coriolanus",
+    "aufidius"
+   ]
+  },
+  {
+   "scene": "mother_at_walls_c",
+   "characters": [
+    "veturia",
+    "coriolanus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

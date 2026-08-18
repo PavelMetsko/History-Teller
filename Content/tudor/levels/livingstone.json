@@ -1,0 +1,68 @@
+{
+ "id": "livingstone",
+ "order": 365,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_court",
+ "cover": "ujiji",
+ "panels": 2,
+ "scenes": [
+  "herald_assignment",
+  "ujiji",
+  "refuse_return",
+  "give_up_search"
+ ],
+ "characters": [
+  "hm_stanley",
+  "livingstone"
+ ],
+ "initialState": {
+  "flags": {
+   "livingstone": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "livingstone",
+     "is": "found"
+    }
+   },
+   {
+    "flag": {
+     "char": "hm_stanley",
+     "is": "beloved"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "livingstone",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "herald_assignment",
+   "characters": [
+    "hm_stanley"
+   ]
+  },
+  {
+   "scene": "ujiji",
+   "characters": [
+    "hm_stanley",
+    "livingstone"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

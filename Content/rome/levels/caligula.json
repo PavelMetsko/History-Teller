@@ -1,0 +1,69 @@
+{
+ "id": "caligula",
+ "order": 465,
+ "epoch": "rome",
+ "act": "Акт VII · Империя",
+ "music": "tension",
+ "cover": "horse_consul",
+ "panels": 3,
+ "scenes": [
+  "horse_consul",
+  "password_insult",
+  "palace_passage",
+  "bribe_chaerea"
+ ],
+ "characters": [
+  "caligula",
+  "chaerea",
+  "incitatus"
+ ],
+ "initialState": {},
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "incitatus",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "chaerea",
+     "is": "enraged"
+    }
+   },
+   {
+    "flag": {
+     "char": "caligula",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "horse_consul",
+   "characters": [
+    "caligula",
+    "incitatus"
+   ]
+  },
+  {
+   "scene": "password_insult",
+   "characters": [
+    "caligula",
+    "chaerea"
+   ]
+  },
+  {
+   "scene": "palace_passage",
+   "characters": [
+    "chaerea",
+    "caligula"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

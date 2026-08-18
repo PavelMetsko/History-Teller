@@ -26,8 +26,13 @@ public final class LevelBoardModel {
 
     /// Диагноз панели: почему заполненная панель «мертва» (ни одно правило не сработало).
     /// `wrongOrder` — сама панель верна, но доска не решается из-за порядка панелей.
-    public enum PanelDiagnosis: Equatable { case ok, wrongScene, wrongCharacters, inert, wrongOrder }
+    public enum PanelDiagnosis: Equatable { case ok, wrongScene, wrongCharacters, inert, wrongOrder, wrongSlots, sceneUnused }
     public private(set) var panelDiagnoses: [PanelDiagnosis] = []
+    /// Бампается, когда у какой-то панели ПОЯВИЛСЯ диагноз-ошибка (вью играет звук/тряску).
+    public private(set) var wrongToken: Int = 0
+    /// Постоянный символ «что происходит в кадре» — по самому сильному сработавшему правилу панели
+    /// (не только новому): игрок всегда видит сердечко/мечи/корону, пока расстановка держится.
+    public private(set) var panelSymbols: [String?] = []
 
     public init(level: LevelDef, db: ContentDb) {
         self.level = level
@@ -37,6 +42,7 @@ public final class LevelBoardModel {
         self.result = Engine.simulate(empty, db, initial: level.createInitialWorld(), collectTrace: true)
         seenEventKeys = Set(result.events.map(Self.key))
         panelDiagnoses = Array(repeating: .ok, count: empty.count)
+        panelSymbols = Array(repeating: nil, count: empty.count)
     }
 
     public var world: World { result.world }
@@ -172,26 +178,30 @@ public final class LevelBoardModel {
     /// Панели проходим слева направо: причинность идёт в ту же сторону, и порядок,
     /// выбранный для ранней панели, меняет то, что вообще может сработать в поздней.
     /// На сценах без `roles` перестановки ничего не меняют — там цикл просто ничего не найдёт.
+    /// Совместный перебор порядков во всех кадрах (≤ 6³ вариантов): подкуп срабатывает в обе
+    /// стороны, и порядки внутри одного кадра равны по счёту, а от направления зависит всё
+    /// дальше. Жадный подбор по одному кадру на ничьей оставлял порядок игрока — и «правильная»
+    /// доска не решалась. При равном счёте сохраняем расстановку игрока.
     private func autoAssignSlots() {
-        for i in panels.indices where panels[i].characters.count > 1 {
-            let current = panels[i].characters
-            var best = current
-            var bestScore = firedCount(inPanel: i)
-            for candidate in Self.permutations(of: current) where candidate != current {
-                panels[i].characters = candidate
-                let score = firedCount(inPanel: i)
-                if score > bestScore {                    // строго больше: при равенстве
-                    bestScore = score                     // сохраняем расстановку игрока
-                    best = candidate
-                }
-            }
-            panels[i].characters = best
+        let idxs = panels.indices.filter { panels[$0].characters.count > 1 }
+        guard !idxs.isEmpty else { return }
+        let original = panels.map(\.characters)
+        let options = idxs.map { Self.permutations(of: panels[$0].characters) }
+        var best = original
+        var bestScore = -1
+        func score() -> Int {
+            Engine.simulate(panels, db, initial: level.createInitialWorld(), collectTrace: true).events.count
         }
-    }
-
-    private func firedCount(inPanel index: Int) -> Int {
-        Engine.simulate(panels, db, initial: level.createInitialWorld(), collectTrace: true)
-            .events.reduce(0) { $0 + ($1.panelIndex == index ? 1 : 0) }
+        var pick = Array(repeating: 0, count: idxs.count)
+        while true {
+            for (k, i) in idxs.enumerated() { panels[i].characters = options[k][pick[k]] }
+            let sc = score()
+            if sc > bestScore { bestScore = sc; best = panels.map(\.characters) }
+            var carry = pick.count - 1
+            while carry >= 0 { pick[carry] += 1; if pick[carry] < options[carry].count { break }; pick[carry] = 0; carry -= 1 }
+            if carry < 0 { break }
+        }
+        for i in panels.indices { panels[i].characters = best[i] }
     }
 
     /// Все перестановки (в панели максимум 3 слота → не больше шести вариантов).
@@ -273,10 +283,15 @@ public final class LevelBoardModel {
         lastFiredEvents = result.events.filter { !seenEventKeys.contains(Self.key($0)) }
         lastBeats = lastFiredEvents.map { beat(from: $0) }
         seenEventKeys = Set(result.events.map(Self.key))
-        // Ошибки показываем только когда весь раунд заполнен (и не решён) — иначе не придираемся.
-        panelDiagnoses = (isSolved || !isBoardComplete)
-            ? Array(repeating: .ok, count: panels.count)
-            : computeDiagnoses()
+        // Валидация — сразу: заполненная панель сверяется с эталоном немедленно, полный набор
+        // сцен — тоже; порядок кадров судим только по полной доске (см. computeDiagnoses).
+        let before = panelDiagnoses
+        panelDiagnoses = isSolved ? Array(repeating: .ok, count: panels.count) : computeDiagnoses()
+        let newlyWrong = panelDiagnoses.indices.contains { i in
+            panelDiagnoses[i] != .ok && (i >= before.count || before[i] == .ok)
+        }
+        if newlyWrong { wrongToken &+= 1 }
+        panelSymbols = computePanelSymbols()
         changeToken &+= 1
     }
 
@@ -314,9 +329,20 @@ public final class LevelBoardModel {
                 pending.append(i)
             }
         }
+        // Доска ещё не собрана целиком: заполненные панели судим сразу (проход 2 ниже), а если
+        // расставлены уже ВСЕ сцены — сразу же краснеет и сцена, которой в решении нет вовсе.
+        if isBoardComplete && pending.isEmpty {
         // Все заполненные панели совпали по содержимому, но доска не решена → дело только в порядке.
-        if pending.isEmpty {
-            for i in panels.indices where filled(i) != nil { diag[i] = .wrongOrder }
+            // Отдельно ловим случай, когда те же люди стоят в кадре не по ролям (подкуп в
+            // обратную сторону и т.п.): «не в том порядке» игрок читает как порядок кадров
+            // и без толку двигает кадры — а беда в слотах.
+            let refPanels: [(scene: String, chars: [String])] =
+                solution.compactMap { p in p.sceneId.map { ($0, p.characters) } }
+            for i in panels.indices {
+                guard let f = filled(i) else { continue }
+                let exactOrder = refPanels.contains { $0.scene == f.scene && $0.chars == panels[i].characters }
+                diag[i] = exactOrder ? .wrongOrder : .wrongSlots
+            }
             return diag
         }
         // Проход 2: неточные — по остатку. Та же сцена → не те лица; тот же состав → не то место; иначе мимо.
@@ -330,7 +356,40 @@ public final class LevelBoardModel {
                 diag[i] = .inert
             }
         }
+        // Доска не собрана, но все сцены уже стоят: сцена, которой в остатке решения нет, —
+        // лишняя (людей в ней ещё нет, так что «не те лица» тут сказать нельзя).
+        if !isBoardComplete && panels.allSatisfy({ $0.sceneId != nil }) {
+            // Порядок кадров без людей не судим: пока роли пусты, «не тот порядок» недоказуем —
+            // ранняя проверка этого давала ложную ошибку на верно выставленных сценах.
+            var restScenes = remaining.map(\.scene)
+            for i in panels.indices where filled(i) == nil {
+                guard let sid = panels[i].sceneId else { continue }
+                if let m = restScenes.firstIndex(of: sid) { restScenes.remove(at: m) }
+                else { diag[i] = .sceneUnused }
+            }
+        }
         return diag
+    }
+
+
+    /// Постоянный символ панели: самый «сильный» бит среди всех сработавших в ней правил.
+    private func computePanelSymbols() -> [String?] {
+        func rank(_ k: Beat.Kind) -> Int {
+            switch k {
+            case .kill: return 12; case .battle: return 11; case .conquer: return 10; case .crown: return 9
+            case .condemn: return 8; case .love: return 7; case .downfall: return 6; case .conspire: return 5
+            case .ally: return 4; case .triumph: return 3; case .birth: return 2; case .march: return 1; case .spark: return 0
+            }
+        }
+        var out: [String?] = Array(repeating: nil, count: panels.count)
+        var best = Array(repeating: -1, count: panels.count)
+        for e in result.events where e.panelIndex < panels.count {
+            let b = beat(from: e)
+            guard !b.symbol.isEmpty else { continue }
+            let r = rank(b.kind)
+            if r > best[e.panelIndex] { best[e.panelIndex] = r; out[e.panelIndex] = b.symbol }
+        }
+        return out
     }
 
     /// Что «читаемо» произошло в сработавшем правиле — для анимации-взаимодействия.
@@ -382,9 +441,9 @@ public final class LevelBoardModel {
         if let accused = flagTarget(["condemned", "accused"]) {
             return mk(.condemn, b[accused], other(than: accused), "⚖️")
         }
-        // Переход/поход — объявление войны, но пока НЕ бой (никого не рубит) → без меча.
+        // Война без исхода (ничья двух сил, стояние) — всё равно бой: мечи.
         if let m = flagTarget(["at_war"]) {
-            return mk(.march, b[m], nil, "")
+            return mk(.battle, b[m], other(than: m), "⚔️")
         }
         // Единоличное завоевание.
         if let c = flagTarget(["conqueror"]) {
@@ -394,9 +453,12 @@ public final class LevelBoardModel {
         if let c = flagTarget(["crowned", "emperor", "empress", "reigns", "supreme_head", "first_consul"]) {
             return mk(.crown, b[c], nil, "👑")
         }
-        // Любовь.
+        // Любовь / свадьба.
         if let (f, t) = relationPair(["loves"]) {
             return mk(.love, b[f], b[t], "❤️")
+        }
+        if let (f, t) = relationPair(["wed"]) {
+            return mk(.love, b[f], b[t], "💍")
         }
         // Союз / поддержка.
         if let (f, t) = relationPair(["ally_of"]) {
@@ -422,6 +484,14 @@ public final class LevelBoardModel {
         if flagTarget(["has_heir"]) != nil {
             return mk(.birth, nil, nil, "👶")
         }
+        // Прочие «глаголы» грамматики — у каждого свой значок, чтобы кадр никогда не молчал.
+        if let t = flagTarget(["bought"])   { return mk(.ally, b[t], other(than: t), "💰") }
+        if let t = flagTarget(["conceded"]) { return mk(.ally, b[t], other(than: t), "🤝") }
+        if let t = flagTarget(["starved"])  { return mk(.downfall, b[t], other(than: t), "🍞") }
+        if let t = flagTarget(["away"])     { return mk(.spark, b[t], nil, "🏃") }
+        if let t = flagTarget(["strong"])   { return mk(.spark, b[t], nil, "💪") }
+        if let t = flagTarget(["rallied"])  { return mk(.spark, b[t], nil, "🚩") }
+        if let t = flagTarget(["standing"]) { return mk(.spark, b[t], nil, "⭐️") }
         return mk(.spark, nil, nil, "✨")
     }
 

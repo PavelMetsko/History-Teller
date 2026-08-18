@@ -1,0 +1,77 @@
+{
+ "id": "mirabeau",
+ "order": 212,
+ "epoch": "revolution",
+ "act": "Акт III · Революция",
+ "music": "revolution_tension",
+ "cover": "menus_plaisirs",
+ "panels": 4,
+ "scenes": [
+  "menus_plaisirs",
+  "court_purse",
+  "pantheon_first",
+  "iron_cupboard",
+  "hotel_antin"
+ ],
+ "characters": [
+  "mirabeau",
+  "louis",
+  "roland"
+ ],
+ "initialState": {
+  "flags": {
+   "louis": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mirabeau",
+     "is": "secret_notes"
+    }
+   },
+   {
+    "flag": {
+     "char": "mirabeau",
+     "is": "disgraced"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "menus_plaisirs",
+   "characters": [
+    "mirabeau",
+    "louis"
+   ]
+  },
+  {
+   "scene": "court_purse",
+   "characters": [
+    "louis",
+    "mirabeau"
+   ]
+  },
+  {
+   "scene": "pantheon_first",
+   "characters": [
+    "mirabeau"
+   ]
+  },
+  {
+   "scene": "iron_cupboard",
+   "characters": [
+    "roland",
+    "mirabeau"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

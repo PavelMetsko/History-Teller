@@ -1,0 +1,73 @@
+{
+ "id": "blois",
+ "order": 34,
+ "epoch": "revolution",
+ "act": "Акт II · Религиозные войны и Бурбоны",
+ "music": "revolution_tension",
+ "cover": "blois_cabinet",
+ "panels": 3,
+ "scenes": [
+  "paris_barricades",
+  "blois_cabinet",
+  "saint_cloud_bed",
+  "nancy_table"
+ ],
+ "characters": [
+  "henri3",
+  "guise",
+  "clement_monk"
+ ],
+ "initialState": {
+  "flags": {
+   "henri3": [
+    "reigns",
+    "standing"
+   ],
+   "guise": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "guise",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "henri3",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "paris_barricades",
+   "characters": [
+    "guise",
+    "henri3"
+   ]
+  },
+  {
+   "scene": "blois_cabinet",
+   "characters": [
+    "henri3",
+    "guise"
+   ]
+  },
+  {
+   "scene": "saint_cloud_bed",
+   "characters": [
+    "clement_monk",
+    "henri3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

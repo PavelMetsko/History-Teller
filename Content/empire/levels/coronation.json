@@ -13,10 +13,20 @@
   "shuisky"
  ],
  "goal": {
-  "flag": {
-   "char": "ivan",
-   "is": "crowned"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "shuisky",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "ivan",
+     "is": "crowned"
+    }
+   }
+  ]
  },
  "solution": [
   {
@@ -37,5 +47,20 @@
  "music": "empire_ceremony",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "ivan": [
+    "royal_claim",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "ivan",
+    "shuisky"
+   ]
+  ]
  }
 }

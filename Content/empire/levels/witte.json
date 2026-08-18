@@ -1,0 +1,86 @@
+{
+ "id": "witte",
+ "order": 190,
+ "epoch": "empire",
+ "act": "Акт VIII · Закат империи",
+ "music": "empire_tension",
+ "cover": "portsmouth_table",
+ "panels": 3,
+ "scenes": [
+  "siberian_rails",
+  "finance_portfolio",
+  "portsmouth_table",
+  "yalu_concession"
+ ],
+ "characters": [
+  "witte",
+  "nicholas2",
+  "roosevelt"
+ ],
+ "initialState": {
+  "flags": {
+   "nicholas2": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "roosevelt": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nicholas2",
+     "is": "far_east"
+    }
+   },
+   {
+    "flag": {
+     "char": "witte",
+     "is": "dismissed"
+    }
+   },
+   {
+    "flag": {
+     "char": "witte",
+     "is": "peace"
+    }
+   },
+   {
+    "flag": {
+     "char": "witte",
+     "is": "count"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "siberian_rails",
+   "characters": [
+    "witte",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "finance_portfolio",
+   "characters": [
+    "nicholas2",
+    "witte"
+   ]
+  },
+  {
+   "scene": "portsmouth_table",
+   "characters": [
+    "witte",
+    "roosevelt"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

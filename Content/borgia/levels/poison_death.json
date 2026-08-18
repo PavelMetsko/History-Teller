@@ -2,7 +2,7 @@
  "id": "poison_death",
  "order": 110,
  "epoch": "borgia",
- "act": "Акт III · Государь",
+ "act": "Акт IV · Государь",
  "panels": 2,
  "scenes": [
   "prepare_pd",
@@ -39,5 +39,6 @@
  "music": "borgia_tension",
  "factCard": {
   "accuracy": "legend"
- }
+ },
+ "initialState": {}
 }

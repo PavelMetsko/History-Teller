@@ -1,0 +1,79 @@
+{
+ "id": "heraclius",
+ "order": 140,
+ "epoch": "byzantium",
+ "act": "Акт V · Ираклий и ислам",
+ "music": "byzantium_battle",
+ "cover": "true_cross",
+ "panels": 3,
+ "scenes": [
+  "church_silver",
+  "nineveh",
+  "true_cross",
+  "move_to_carthage"
+ ],
+ "characters": [
+  "heraclius",
+  "khosrow"
+ ],
+ "initialState": {
+  "flags": {
+   "khosrow": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "heraclius",
+    "khosrow"
+   ],
+   [
+    "enemy_of",
+    "khosrow",
+    "heraclius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "khosrow",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "heraclius",
+     "is": "cross_restored"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "church_silver",
+   "characters": [
+    "heraclius"
+   ]
+  },
+  {
+   "scene": "nineveh",
+   "characters": [
+    "heraclius",
+    "khosrow"
+   ]
+  },
+  {
+   "scene": "true_cross",
+   "characters": [
+    "heraclius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

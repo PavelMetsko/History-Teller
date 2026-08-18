@@ -1,0 +1,72 @@
+{
+ "id": "verdi",
+ "order": 164,
+ "epoch": "borgia",
+ "act": "Акт VII · Рисорджименто",
+ "music": "borgia_ceremony",
+ "cover": "nabucco_chorus",
+ "panels": 3,
+ "scenes": [
+  "censor_cuts",
+  "nabucco_chorus",
+  "viva_verdi",
+  "write_for_vienna"
+ ],
+ "characters": [
+  "verdi",
+  "censor_v",
+  "victor_emmanuel"
+ ],
+ "initialState": {
+  "flags": {
+   "censor_v": [
+    "standing"
+   ],
+   "victor_emmanuel": [
+    "reigns",
+    "crowned"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "verdi",
+     "is": "beloved"
+    }
+   },
+   {
+    "flag": {
+     "char": "victor_emmanuel",
+     "is": "acclaimed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "censor_cuts",
+   "characters": [
+    "censor_v",
+    "verdi"
+   ]
+  },
+  {
+   "scene": "nabucco_chorus",
+   "characters": [
+    "verdi"
+   ]
+  },
+  {
+   "scene": "viva_verdi",
+   "characters": [
+    "verdi",
+    "victor_emmanuel"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "id": "fronde",
+ "order": 45,
+ "epoch": "revolution",
+ "act": "Акт II · Религиозные войны и Бурбоны",
+ "music": "revolution_tension",
+ "cover": "straw_bed",
+ "panels": 3,
+ "scenes": [
+  "straw_bed",
+  "bedside_parade",
+  "return_paris",
+  "mazarin_cabinet"
+ ],
+ "characters": [
+  "louis14",
+  "mazarin",
+  "conde"
+ ],
+ "initialState": {
+  "flags": {
+   "louis14": [
+    "reigns"
+   ],
+   "mazarin": [
+    "standing"
+   ],
+   "conde": [
+    "strong",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louis14",
+     "is": "absolute"
+    }
+   },
+   {
+    "flag": {
+     "char": "conde",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "straw_bed",
+   "characters": [
+    "mazarin",
+    "louis14"
+   ]
+  },
+  {
+   "scene": "bedside_parade",
+   "characters": [
+    "louis14",
+    "conde"
+   ]
+  },
+  {
+   "scene": "return_paris",
+   "characters": [
+    "louis14",
+    "conde"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

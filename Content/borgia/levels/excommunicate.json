@@ -2,7 +2,7 @@
  "id": "excommunicate",
  "order": 90,
  "epoch": "borgia",
- "act": "Акт III · Государь",
+ "act": "Акт IV · Государь",
  "panels": 2,
  "scenes": [
   "pulpit_e",
@@ -15,15 +15,26 @@
  "initialState": {
   "flags": {
    "rodrigo": [
-    "pope"
+    "pope",
+    "standing"
    ]
   }
  },
  "goal": {
-  "flag": {
-   "char": "savonarola",
-   "is": "condemned"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "savonarola",
+     "is": "defiant"
+    }
+   },
+   {
+    "flag": {
+     "char": "savonarola",
+     "is": "condemned"
+    }
+   }
+  ]
  },
  "solution": [
   {

@@ -1,0 +1,82 @@
+{
+ "id": "marie_louise",
+ "order": 336,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_romance",
+ "cover": "hundred_one_guns",
+ "panels": 4,
+ "scenes": [
+  "divorce_act",
+  "compiegne_carriage",
+  "hundred_one_guns",
+  "road_to_vienna",
+  "malmaison"
+ ],
+ "characters": [
+  "napoleon",
+  "josephine",
+  "marie_louise"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "josephine": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "heir"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "alone"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "divorce_act",
+   "characters": [
+    "napoleon",
+    "josephine"
+   ]
+  },
+  {
+   "scene": "compiegne_carriage",
+   "characters": [
+    "napoleon",
+    "marie_louise"
+   ]
+  },
+  {
+   "scene": "hundred_one_guns",
+   "characters": [
+    "napoleon",
+    "marie_louise"
+   ]
+  },
+  {
+   "scene": "road_to_vienna",
+   "characters": [
+    "marie_louise",
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,5 +1,6 @@
 package com.decima.historyteller
 
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearEasing
@@ -44,8 +45,10 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.zIndex
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
@@ -167,11 +170,12 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         flagTarget(setOf("dead"))?.let { return mk(Kind.KILL, b[it], other(it), "☠️") }
         flagTarget(setOf("fugitive", "defeated"))?.let { return mk(Kind.BATTLE, b[it], other(it), "⚔️") }
         flagTarget(setOf("condemned", "accused"))?.let { return mk(Kind.CONDEMN, b[it], other(it), "⚖️") }
-        flagTarget(setOf("at_war"))?.let { return mk(Kind.MARCH, b[it], null, "") }
+        flagTarget(setOf("at_war"))?.let { return mk(Kind.BATTLE, b[it], other(it), "⚔️") }
         flagTarget(setOf("conqueror"))?.let { return mk(Kind.CONQUER, b[it], null, "⚔️") }
         flagTarget(setOf("crowned", "emperor", "empress", "reigns", "supreme_head", "first_consul"))
             ?.let { return mk(Kind.CROWN, b[it], null, "👑") }
         relationPair(setOf("loves"))?.let { (f, t) -> return mk(Kind.LOVE, b[f], b[t], "❤️") }
+        relationPair(setOf("wed"))?.let { (f, t) -> return mk(Kind.LOVE, b[f], b[t], "💍") }
         relationPair(setOf("ally_of"))?.let { (f, t) -> return mk(Kind.ALLY, b[f], b[t], "🤝") }
         flagTarget(setOf("backed"))?.let { return mk(Kind.ALLY, b[it], other(it), "🛡") }
         flagTarget(setOf("honored", "beloved", "flaunting", "triumphant", "rome_restored", "settled", "hero", "absolute", "supreme"))
@@ -179,17 +183,28 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         flagTarget(setOf("exiled", "cast_off", "widowed", "grieving"))?.let { return mk(Kind.DOWNFALL, b[it], null, "💔") }
         flagTarget(setOf("plotting"))?.let { return mk(Kind.CONSPIRE, b[it], null, "🗡") }
         flagTarget(setOf("has_heir"))?.let { return mk(Kind.BIRTH, null, null, "👶") }
+        // Прочие «глаголы» грамматики — у каждого свой значок, чтобы кадр никогда не молчал.
+        flagTarget(setOf("bought"))?.let { return mk(Kind.ALLY, b[it], other(it), "💰") }
+        flagTarget(setOf("conceded"))?.let { return mk(Kind.ALLY, b[it], other(it), "🤝") }
+        flagTarget(setOf("starved"))?.let { return mk(Kind.DOWNFALL, b[it], other(it), "🍞") }
+        flagTarget(setOf("away"))?.let { return mk(Kind.SPARK, b[it], null, "🏃") }
+        flagTarget(setOf("strong"))?.let { return mk(Kind.SPARK, b[it], null, "💪") }
+        flagTarget(setOf("rallied"))?.let { return mk(Kind.SPARK, b[it], null, "🚩") }
+        flagTarget(setOf("standing"))?.let { return mk(Kind.SPARK, b[it], null, "⭐️") }
         return mk(Kind.SPARK, null, null, "✨")
     }
 
-    private fun sfxFor(kind: Kind): String = when (kind) {
-        Kind.KILL, Kind.BATTLE, Kind.CONQUER -> "kill"
-        Kind.CONDEMN, Kind.CONSPIRE -> "conspire"
-        Kind.CROWN, Kind.TRIUMPH, Kind.BIRTH, Kind.MARCH -> "crown"
+    private fun sfxFor(b: Beat): String = when (b.kind) {
+        Kind.KILL -> "kill"
+        Kind.BATTLE, Kind.CONQUER -> "clash"
+        Kind.CONDEMN -> "gavel"
+        Kind.CONSPIRE -> "conspire"
+        Kind.CROWN, Kind.TRIUMPH, Kind.BIRTH -> "crown"
+        Kind.MARCH -> "drum"
         Kind.LOVE -> "love"
-        Kind.ALLY -> "ally"
+        Kind.ALLY -> if (b.symbol == "💰") "coin" else "ally"
         Kind.DOWNFALL -> "error"
-        Kind.SPARK -> "select"
+        Kind.SPARK -> when (b.symbol) { "💪", "🚩" -> "drum"; "🏃" -> "flee"; else -> "select" }
     }
 
     private fun recompute() {
@@ -199,7 +214,11 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         val fresh = result.events.filter { eventKey(it) !in seenEventKeys }
         lastBeats = fresh.map(::beat)
         seenEventKeys = result.events.map(::eventKey).toSet()
-        lastBeats.map { it.kind }.distinct().forEach { onSfx?.invoke(sfxFor(it)) }
+        lastBeats.map { sfxFor(it) }.distinct().forEach { onSfx?.invoke(it) }
+        panelSymbols = computePanelSymbols()
+        val diag = computeDiagnoses()
+        if (diag.indices.any { i -> diag[i] != Diag.OK && (i >= lastDiag.size || lastDiag[i] == Diag.OK) }) wrongToken++
+        lastDiag = diag
         changeToken++
     }
     private fun update(i: Int, transform: (Panel) -> Panel) {
@@ -214,30 +233,27 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
      * а не в угадывании слота, поэтому если из тех же персонажей есть перестановка, при которой
      * в панели срабатывает больше правил, применяем её молча. Порт iOS `autoAssignSlots`.
      */
+    /** Совместный перебор порядков во всех кадрах (≤ 6³): подкуп срабатывает в обе стороны и
+     *  порядки внутри кадра равны по счёту, а от направления зависит всё дальше. При равном
+     *  счёте сохраняем расстановку игрока. (Зеркало iOS autoAssignSlots.) */
     private fun autoAssignSlots() {
-        for (i in panels.indices) {
-            val chars = panels[i].characters
-            if (chars.size < 2) continue
-            fun score(order: List<String>): Int {
-                val trial = panels.toMutableList()
-                trial[i] = Panel(trial[i].sceneId, order.toMutableList())
-                return Engine.run(trial, db, level.createInitialWorld())
-                    .events.count { it.panelIndex == i }
-            }
-            var best = chars.toList()
-            var bestScore = score(best)
-            for (cand in permutations(chars.toList())) {
-                if (cand == best) continue
-                val s = score(cand)
-                if (s > bestScore) { bestScore = s; best = cand }   // при равенстве — расстановка игрока
-            }
-            if (best != chars.toList()) {
-                panels = panels.toMutableList().also { it[i] = Panel(it[i].sceneId, best.toMutableList()) }
-            }
+        val idxs = panels.indices.filter { panels[it].characters.size > 1 }
+        if (idxs.isEmpty()) return
+        val options = idxs.map { permutations(panels[it].characters.toList()) }
+        var best = panels.map { it.characters.toList() }
+        var bestScore = -1
+        val pick = IntArray(idxs.size)
+        while (true) {
+            val trial = panels.toMutableList()
+            idxs.forEachIndexed { k, i -> trial[i] = Panel(trial[i].sceneId, options[k][pick[k]].toMutableList()) }
+            val sc = Engine.run(trial, db, level.createInitialWorld()).events.size
+            if (sc > bestScore) { bestScore = sc; best = trial.map { it.characters.toList() } }
+            var carry = pick.size - 1
+            while (carry >= 0) { pick[carry]++; if (pick[carry] < options[carry].size) break; pick[carry] = 0; carry-- }
+            if (carry < 0) break
         }
+        panels = panels.mapIndexed { i, p -> Panel(p.sceneId, best[i].toMutableList()) }
     }
-
-    /** Все перестановки (в панели максимум 3 слота → не больше шести вариантов). */
     private fun permutations(items: List<String>): List<List<String>> =
         if (items.size < 2) listOf(items)
         else items.flatMapIndexed { i, item ->
@@ -303,7 +319,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         selected = null
     }
 
-    enum class Diag { OK, WRONG_SCENE, WRONG_CHARS, INERT, WRONG_ORDER }
+    enum class Diag { OK, WRONG_SCENE, WRONG_CHARS, INERT, WRONG_ORDER, WRONG_SLOTS, SCENE_UNUSED }
     fun diagnose(i: Int): Diag = computeDiagnoses().getOrElse(i) { Diag.OK }
 
     /** Диагноз ВСЕХ панелей разом и БЕЗ привязки к позиции: панель сверяется с эталоном как с
@@ -313,7 +329,7 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
      *  → WRONG_ORDER. (Зеркало iOS LevelBoardModel.computeDiagnoses.) */
     private fun computeDiagnoses(): List<Diag> {
         val n = panels.size
-        if (isSolved || !isBoardComplete) return List(n) { Diag.OK }
+        if (isSolved) return List(n) { Diag.OK }
         val solution = level.solution ?: return List(n) { Diag.OK }
         val remaining = solution.map { it.sceneId to it.characters.toSet() }.toMutableList()
 
@@ -332,9 +348,17 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
             val m = remaining.indexOfFirst { it.first == f.first && it.second == f.second }
             if (m >= 0) remaining.removeAt(m) else pending.add(i)
         }
-        // Все заполненные панели совпали по содержимому, но доска не решена → дело только в порядке.
-        if (pending.isEmpty()) {
-            for (i in 0 until n) if (filled(i) != null) diag[i] = Diag.WRONG_ORDER
+        // Валидация мгновенная: заполненные панели судим сразу (проход 2), а порядок кадров — только
+        // по полной доске. Все панели совпали по содержимому, но доска не решена → дело в порядке.
+        if (isBoardComplete && pending.isEmpty()) {
+            // Те же люди, но не по ролям в кадре (подкуп в обратную сторону) — отдельный вердикт,
+            // иначе игрок читает «не в том порядке» как порядок кадров и зря двигает кадры.
+            val refPanels = solution.mapNotNull { p -> p.sceneId?.let { it to p.characters } }
+            for (i in 0 until n) {
+                filled(i) ?: continue
+                val exact = refPanels.any { it.first == panels[i].sceneId && it.second == panels[i].characters }
+                diag[i] = if (exact) Diag.WRONG_ORDER else Diag.WRONG_SLOTS
+            }
             return diag
         }
         // Проход 2: неточные — по остатку. Та же сцена → не те лица; тот же состав → не то место; иначе мимо.
@@ -348,7 +372,46 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
                 else -> diag[i] = Diag.INERT
             }
         }
+        // Доска не собрана, но все сцены уже стоят: сцена, которой в остатке решения нет, —
+        // не та сцена, ещё до расстановки людей.
+        if (!isBoardComplete && panels.all { it.sceneId != null }) {
+            // Порядок кадров без людей не судим: пока роли пусты, «не тот порядок» недоказуем —
+            // ранняя проверка этого давала ложную ошибку на верно выставленных сценах.
+            val restScenes = remaining.map { it.first }.toMutableList()
+            for (i in 0 until n) {
+                if (filled(i) != null) continue
+                val sid = panels[i].sceneId ?: continue
+                val m = restScenes.indexOf(sid)
+                if (m >= 0) restScenes.removeAt(m) else diag[i] = Diag.SCENE_UNUSED
+            }
+        }
         return diag
+    }
+
+
+    /** Бампается, когда у какой-то панели ПОЯВИЛСЯ диагноз-ошибка (экран играет звук/тряску). */
+    var wrongToken by mutableStateOf(0)
+        private set
+    private var lastDiag: List<Diag> = emptyList()
+
+    /** Постоянный символ «что происходит в кадре» — по самому сильному сработавшему правилу панели. */
+    var panelSymbols by mutableStateOf<List<String?>>(emptyList())
+        private set
+    private fun computePanelSymbols(): List<String?> {
+        fun rank(k: Kind) = when (k) {
+            Kind.KILL -> 12; Kind.BATTLE -> 11; Kind.CONQUER -> 10; Kind.CROWN -> 9; Kind.CONDEMN -> 8
+            Kind.LOVE -> 7; Kind.DOWNFALL -> 6; Kind.CONSPIRE -> 5; Kind.ALLY -> 4; Kind.TRIUMPH -> 3
+            Kind.BIRTH -> 2; Kind.MARCH -> 1; Kind.SPARK -> 0
+        }
+        val out = MutableList<String?>(panels.size) { null }
+        val best = MutableList(panels.size) { -1 }
+        for (e in result.events) {
+            if (e.panelIndex >= panels.size) continue
+            val b = beat(e); if (b.symbol.isEmpty()) continue
+            val r = rank(b.kind)
+            if (r > best[e.panelIndex]) { best[e.panelIndex] = r; out[e.panelIndex] = b.symbol }
+        }
+        return out
     }
     fun microState(charId: String, i: Int): String? {
         val snap = snapshot(i)
@@ -430,8 +493,16 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
     }
     // неверный ход: доска заполнена, но цель не достигнута — тряска (+ звук, если панели «мертвы»)
     LaunchedEffect(model.changeToken) {
-        if (!model.isSolved && model.isBoardComplete) {
+        // Полная, но нерешённая доска без единого диагноза (уровень без эталона) — общая тряска.
+        if (!model.isSolved && model.isBoardComplete && (0 until model.panels.size).all { model.diagnose(it) == BoardModel.Diag.OK }) {
             if (model.lastBeats.isEmpty()) Audio.sfx("error")
+            boardShake.snapTo(0f); boardShake.animateTo(1f, tween(450, easing = LinearEasing))
+        }
+    }
+    // Валидация мгновенная: как только у панели появился диагноз — звук и тряска.
+    LaunchedEffect(model.wrongToken) {
+        if (model.wrongToken > 0) {
+            Audio.sfx("error")
             boardShake.snapTo(0f); boardShake.animateTo(1f, tween(450, easing = LinearEasing))
         }
     }
@@ -460,8 +531,12 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                                 if (model.isSolved) Icon(Icons.Filled.Check, null, tint = Color.White, modifier = Modifier.size(15.dp))
                             }
                             Spacer(Modifier.width(10.dp))
-                            Text(level.goalText ?: "", color = Palette.ink, fontSize = 18.sp, fontWeight = FontWeight.Bold,
-                                fontFamily = Fonts.serif, textAlign = TextAlign.Center, maxLines = 2)
+                            // Цель — условие задачи, её нельзя обрезать многоточием: три строки и
+                            // шрифт по длине текста.
+                            val goal = level.goalText ?: ""
+                            Text(goal, color = Palette.ink, fontSize = (if (goal.length > 110) 13 else if (goal.length > 75) 15 else 18).sp,
+                                fontWeight = FontWeight.Bold, lineHeight = (if (goal.length > 110) 15 else if (goal.length > 75) 17 else 20).sp,
+                                fontFamily = Fonts.serif, textAlign = TextAlign.Center, maxLines = 3)
                         }
                         Row(Modifier.align(Alignment.CenterEnd), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             IconMini(Icons.Filled.Info) { showHint = true }
@@ -475,12 +550,57 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                     // 34dp — высота реплики, +12dp зазор, иначе она упирается в нижнюю кромку кадров
                     val coachPad = if (model.coachStep != null && !showFact && !awaitingReveal) 46.dp else 0.dp
                     BoxWithConstraints(Modifier.fillMaxWidth().weight(1f).padding(bottom = coachPad)) {
+                        // Подсказка «кадры можно менять местами»: стоят ≥2 сцен, первые три раза, на 6 с.
+                        var showSwapHint by remember { mutableStateOf(false) }
+                        val ctx = LocalContext.current
+                        LaunchedEffect(model.changeToken) {
+                            val prefs = ctx.getSharedPreferences("ht", android.content.Context.MODE_PRIVATE)
+                            val shown = prefs.getInt("swap_hint_shown", 0)
+                            // На туториальных уровнях плашку не показываем: там про перетаскивание
+                            // говорит гид, и две подсказки разом только загромождают доску.
+                            if (shown < 3 && !showSwapHint && !model.isSolved && model.level.coach.isEmpty() &&
+                                model.panels.count { it.sceneId != null } >= 2) {
+                                prefs.edit().putInt("swap_hint_shown", shown + 1).apply()
+                                showSwapHint = true; delay(6000); showSwapHint = false
+                            }
+                        }
+                        // Формат плашки — как на iOS: золотая «пилюля» с тенью, стрелка отдельным
+                        // знаком слева от текста, мягкий выезд сверху. Иконка и подпись разнесены,
+                        // иначе ⇄ прилипает к первому слову и читается как часть фразы.
+                        val hintAlpha by animateFloatAsState(if (showSwapHint) 1f else 0f,
+                            tween(220), label = "swapHintAlpha")
+                        val hintShift by animateFloatAsState(if (showSwapHint) 0f else -24f,
+                            tween(220), label = "swapHintShift")
+                        if (hintAlpha > 0.01f) Row(
+                            Modifier.align(Alignment.TopCenter).zIndex(20f)
+                                .graphicsLayer { alpha = hintAlpha; translationY = hintShift }
+                                .padding(top = 6.dp)
+                                .shadow(3.dp, RoundedCornerShape(50), clip = false)
+                                .clip(RoundedCornerShape(50))
+                                .background(Palette.gold.copy(0.95f))
+                                .padding(horizontal = 12.dp, vertical = 6.dp),
+                            horizontalArrangement = Arrangement.spacedBy(6.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text("⇄", color = Palette.ink, fontSize = 12.sp,
+                                 fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded)
+                            Text(L10n.s("ui.swap_hint"), color = Palette.ink,
+                                 fontSize = 12.sp, fontFamily = Fonts.rounded)
+                        }
                         val n = max(1, model.panels.size)
                         val gap = 14.dp
                         val cellH = min(maxHeight.value, 430f).dp
                         val cellW = min(((maxWidth - gap * (n - 1)).value / n), cellH.value * 1.2f).dp
                         var draggingPanel by remember { mutableStateOf(-1) }
                         var dragDX by remember { mutableStateOf(0f) }
+                        val stepPx = with(LocalDensity.current) { (cellW + gap).toPx() }
+                        // Кадр, на который сейчас нацелен палец: его подсвечиваем, как на iOS,
+                        // чтобы обмен местами был виден до того, как игрок отпустит палец.
+                        val hoverPanel = if (draggingPanel >= 0)
+                            (draggingPanel + Math.round(dragDX / stepPx))
+                                .coerceIn(0, model.panels.size - 1)
+                                .takeIf { it != draggingPanel }
+                        else null
                         Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(gap, Alignment.CenterHorizontally),
                             verticalAlignment = Alignment.CenterVertically) {
                             for (i in model.panels.indices) {
@@ -489,15 +609,19 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                                 Box(Modifier
                                     .zIndex(if (draggingPanel == i) 10f else 0f)
                                     .graphicsLayer {
-                                        if (draggingPanel == i) { translationX = dragDX; scaleX = 1.05f; scaleY = 1.05f }
+                                        if (draggingPanel == i) {
+                                            translationX = dragDX; scaleX = 1.05f; scaleY = 1.05f
+                                            shadowElevation = 18f; shape = RoundedCornerShape(10.dp); clip = false
+                                        }
                                     }
+                                    // Долгое нажатие, а не сразу тяга: короткий свайп по доске должен
+                                    // оставаться прокруткой, да и подсказка обещает именно «зажми».
                                     .then(if (placed) Modifier.pointerInput(i, model.panels.size) {
-                                        val step = (cellW + gap).toPx()
-                                        detectDragGestures(
+                                        detectDragGesturesAfterLongPress(
                                             onDragStart = { draggingPanel = i; dragDX = 0f },
                                             onDrag = { ch, d -> ch.consume(); dragDX += d.x },
                                             onDragEnd = {
-                                                val to = (i + Math.round(dragDX / step)).coerceIn(0, model.panels.size - 1)
+                                                val to = (i + Math.round(dragDX / stepPx)).coerceIn(0, model.panels.size - 1)
                                                 if (to != i) model.movePanel(i, to)
                                                 draggingPanel = -1; dragDX = 0f
                                             },
@@ -505,6 +629,13 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                                     } else Modifier)
                                 ) {
                                     PanelCell(model, i, cellW, cellH, beats, model.changeToken, drag)
+                                    if (hoverPanel == i) Box(
+                                        Modifier.matchParentSize().clip(RoundedCornerShape(10.dp))
+                                            .background(Palette.gold.copy(0.22f)),
+                                        contentAlignment = Alignment.Center) {
+                                        Text("⇄", color = Palette.gold, fontSize = 26.sp,
+                                             fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded)
+                                    }
                                 }
                             }
                         }
@@ -589,7 +720,7 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
     val diag = model.diagnose(i)
     val highlighted = model.selected != null
     val hovered = drag.hover == i          // панель под перетаскиваемым токеном
-    val isOrderHint = diag == BoardModel.Diag.WRONG_ORDER
+    val isOrderHint = diag == BoardModel.Diag.WRONG_ORDER || diag == BoardModel.Diag.WRONG_SLOTS
     val border = when {
         hovered -> Palette.gold
         highlighted -> Palette.gold
@@ -636,6 +767,21 @@ private fun PanelCell(model: BoardModel, i: Int, cellW: androidx.compose.ui.unit
                     Text(action, color = Palette.ink, fontSize = 9.sp, fontWeight = FontWeight.Bold,
                         fontFamily = Fonts.rounded, maxLines = 1, softWrap = false)
                 }
+            }
+            // Постоянный значок «что тут происходит» — сердце, мечи, корона… (см. panelSymbols).
+            model.panelSymbols.getOrNull(i)?.let { sym ->
+                Box(Modifier.align(Alignment.TopCenter).padding(top = 34.dp).clip(CircleShape)
+                    .background(Palette.paper.copy(0.9f)).border(1.dp, Palette.ink.copy(0.35f), CircleShape)
+                    .padding(5.dp), contentAlignment = Alignment.Center) {
+                    Text(sym, fontSize = 18.sp)
+                }
+            }
+            // Постоянная «ручка»: кадр со сценой берётся долгим нажатием и меняется местами.
+            // Иконка без текста — не зависит от каталога переводов.
+            if (model.panels.size > 1) Box(Modifier.align(Alignment.BottomStart).padding(6.dp)
+                .clip(CircleShape).background(Palette.paper.copy(0.8f)).padding(5.dp),
+                contentAlignment = Alignment.Center) {
+                Text("⇄", color = Palette.ink.copy(0.75f), fontSize = 11.sp, fontWeight = FontWeight.Bold)
             }
             // X убрать сцену
             Box(Modifier.align(Alignment.TopEnd).padding(6.dp).size(24.dp).clip(CircleShape)
@@ -998,6 +1144,8 @@ private fun wrongHint(d: BoardModel.Diag): String? = when (d) {
     BoardModel.Diag.WRONG_SCENE -> L10n.s("ui.wrong_scene")
     BoardModel.Diag.INERT -> L10n.s("ui.wrong_inert")
     BoardModel.Diag.WRONG_ORDER -> L10n.s("ui.wrong_order")
+    BoardModel.Diag.WRONG_SLOTS -> L10n.s("ui.wrong_slots")
+    BoardModel.Diag.SCENE_UNUSED -> L10n.s("ui.wrong_unused")
 }
 
 @Composable

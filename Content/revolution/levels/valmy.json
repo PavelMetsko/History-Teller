@@ -1,0 +1,79 @@
+{
+ "id": "valmy",
+ "order": 225,
+ "epoch": "revolution",
+ "act": "Акт III · Революция",
+ "music": "revolution_battle",
+ "cover": "valmy_mill",
+ "panels": 2,
+ "scenes": [
+  "valmy_mill",
+  "cannonade",
+  "vive_la_nation",
+  "retreat_argonne"
+ ],
+ "characters": [
+  "kellermann",
+  "blucher"
+ ],
+ "initialState": {
+  "flags": {
+   "blucher": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "kellermann",
+    "blucher"
+   ],
+   [
+    "enemy_of",
+    "blucher",
+    "kellermann"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "kellermann",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "kellermann",
+     "is": "beloved"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "kellermann",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "valmy_mill",
+   "characters": [
+    "kellermann"
+   ]
+  },
+  {
+   "scene": "vive_la_nation",
+   "characters": [
+    "kellermann"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

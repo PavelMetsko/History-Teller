@@ -1,0 +1,94 @@
+{
+ "id": "suez",
+ "order": 360,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_court",
+ "cover": "khedive_shares",
+ "panels": 2,
+ "scenes": [
+  "khedive_shares",
+  "empress_india",
+  "gladstone_attacks",
+  "rothschild_loan"
+ ],
+ "characters": [
+  "disraeli",
+  "gladstone",
+  "victoria"
+ ],
+ "initialState": {
+  "flags": {
+   "disraeli": [
+    "standing"
+   ],
+   "gladstone": [
+    "standing"
+   ],
+   "victoria": [
+    "reigns"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "disraeli",
+    "victoria"
+   ],
+   [
+    "enemy_of",
+    "gladstone",
+    "disraeli"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "disraeli",
+     "is": "canal_bought"
+    }
+   },
+   {
+    "flag": {
+     "char": "victoria",
+     "is": "crowned"
+    }
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "disraeli",
+     "to": "victoria"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "disraeli",
+      "is": "condemned"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "khedive_shares",
+   "characters": [
+    "disraeli"
+   ]
+  },
+  {
+   "scene": "empress_india",
+   "characters": [
+    "victoria",
+    "disraeli"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

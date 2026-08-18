@@ -1,0 +1,103 @@
+{
+ "id": "wolsey",
+ "order": 135,
+ "epoch": "tudor",
+ "act": "Акт IV · Шесть жён",
+ "music": "tudor_court",
+ "cover": "leicester_abbey",
+ "panels": 3,
+ "scenes": [
+  "wolsey_rome",
+  "wolsey_disgrace",
+  "leicester_abbey",
+  "wolsey_block"
+ ],
+ "characters": [
+  "wolsey",
+  "henry",
+  "pope"
+ ],
+ "initialState": {
+  "flags": {
+   "wolsey": [
+    "standing"
+   ],
+   "henry": [
+    "standing"
+   ],
+   "pope": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry",
+    "wolsey"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wolsey",
+     "is": "refused"
+    }
+   },
+   {
+    "flag": {
+     "char": "wolsey",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "wolsey",
+     "is": "dead"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pope",
+      "is": "conceded"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wolsey",
+      "is": "executed"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "wolsey_rome",
+   "characters": [
+    "wolsey",
+    "pope"
+   ]
+  },
+  {
+   "scene": "wolsey_disgrace",
+   "characters": [
+    "henry",
+    "wolsey"
+   ]
+  },
+  {
+   "scene": "leicester_abbey",
+   "characters": [
+    "wolsey"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

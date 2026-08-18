@@ -1,0 +1,95 @@
+{
+ "id": "shuisky_tsar",
+ "order": 43,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_tension",
+ "cover": "nabat",
+ "panels": 4,
+ "scenes": [
+  "scaffold_pardon",
+  "polish_wedding",
+  "nabat",
+  "sobor_c",
+  "shuisky_block"
+ ],
+ "characters": [
+  "false_dmitry",
+  "marina",
+  "shuisky"
+ ],
+ "initialState": {
+  "flags": {
+   "false_dmitry": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "shuisky": [
+    "standing",
+    "condemned"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "shuisky",
+    "false_dmitry"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "false_dmitry",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "marina",
+     "is": "married"
+    }
+   },
+   {
+    "flag": {
+     "char": "shuisky",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "scaffold_pardon",
+   "characters": [
+    "false_dmitry",
+    "shuisky"
+   ]
+  },
+  {
+   "scene": "polish_wedding",
+   "characters": [
+    "false_dmitry",
+    "marina"
+   ]
+  },
+  {
+   "scene": "nabat",
+   "characters": [
+    "shuisky",
+    "false_dmitry"
+   ]
+  },
+  {
+   "scene": "sobor_c",
+   "characters": [
+    "shuisky"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

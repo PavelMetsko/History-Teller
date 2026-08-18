@@ -32,7 +32,7 @@ CONTENT = ROOT / "Content"
 # Позы персонажей: докладываются к базовому спрайту, если файл есть (движок сам решает, рисовать ли).
 POSES = ["dead", "defeated", "plot", "triumph"]
 # SFX — имена из Audio.SFX (iOS) / Audio.SFX (Android). Нужны всегда, не привязаны к главе.
-SFX = ["place", "remove", "select", "ally", "conspire", "love", "kill", "crown", "envy", "win", "error"]
+SFX = ["place", "remove", "select", "ally", "conspire", "love", "kill", "crown", "envy", "win", "error", "clash", "coin", "gavel", "drum", "flee"]
 # Персонажи на главном экране (MenuView.swift / MenuScreen в Root.kt).
 MENU_CHARACTERS = ["caesar", "cleopatra"]
 
@@ -238,8 +238,23 @@ if __name__ == "__main__":
     ap.add_argument("--out", default="dist/content")
     ap.add_argument("--version", type=int, default=1)
     ap.add_argument("--serve", nargs="?", type=int, const=8787)
+    ap.add_argument("--allow-holes", action="store_true")
     a = ap.parse_args()
     out = (ROOT / a.out) if not Path(a.out).is_absolute() else Path(a.out)
+    # Страховка: каталог с дырами уезжать не должен — приложение подставляет русский вместо
+    # недостающего ключа, и игрок видит смесь языков. Сначала tools/i18n/translate.py --missing.
+    ru_keys = set(json.loads((CONTENT / "i18n" / "ru.json").read_text(encoding="utf-8")))
+    holes = {}
+    for f in sorted((CONTENT / "i18n").glob("*.json")):
+        if f.stem == "ru":
+            continue
+        miss = ru_keys - set(json.loads(f.read_text(encoding="utf-8")))
+        if miss:
+            holes[f.stem] = sorted(miss)
+    if holes and "--allow-holes" not in sys.argv:
+        for lang, miss in holes.items():
+            print(f"!! {lang}: нет {len(miss)} ключей, напр. {miss[:5]}")
+        sys.exit("публикация остановлена: сначала python3 tools/i18n/translate.py --missing")
     report(build(out, a.version), out)
     if a.serve:
         serve(out, a.serve)

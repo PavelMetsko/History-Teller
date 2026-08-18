@@ -1,0 +1,96 @@
+{
+ "id": "gaius_gracchus",
+ "order": 112,
+ "epoch": "rome",
+ "act": "Акт III · Трещина",
+ "music": "tension",
+ "cover": "grove_furrina",
+ "panels": 3,
+ "scenes": [
+  "scu",
+  "aventine_battle",
+  "grove_furrina",
+  "flee_gaius"
+ ],
+ "characters": [
+  "gaius_gracchus",
+  "opimius",
+  "philocrates"
+ ],
+ "initialState": {
+  "flags": {
+   "opimius": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "opimius",
+    "gaius_gracchus"
+   ],
+   [
+    "enemy_of",
+    "gaius_gracchus",
+    "opimius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "gaius_gracchus",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "gaius_gracchus",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "gaius_gracchus",
+     "is": "dead"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "gaius_gracchus",
+      "is": "away"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "scu",
+   "characters": [
+    "opimius",
+    "gaius_gracchus"
+   ]
+  },
+  {
+   "scene": "aventine_battle",
+   "characters": [
+    "opimius",
+    "gaius_gracchus"
+   ]
+  },
+  {
+   "scene": "grove_furrina",
+   "characters": [
+    "philocrates",
+    "gaius_gracchus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -30,7 +30,8 @@ import kotlin.random.Random
  */
 object Audio {
     private val SFX = listOf(
-        "place", "remove", "select", "ally", "conspire", "love", "kill", "crown", "envy", "win", "error")
+        "place", "remove", "select", "ally", "conspire", "love", "kill", "crown", "envy", "win", "error",
+        "clash", "coin", "gavel", "drum", "flee")
 
     /** Громкие удары: под них музыка приседает, чтобы не спорить с ними. */
     private val DUCKING = setOf("kill", "win", "crown")

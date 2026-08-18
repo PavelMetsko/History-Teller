@@ -2,7 +2,7 @@
  "id": "nepotism",
  "order": 20,
  "epoch": "borgia",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Борджиа",
  "panels": 2,
  "scenes": [
   "curia",
@@ -15,7 +15,7 @@
  "goal": {
   "flag": {
    "char": "cesare",
-   "is": "elevated"
+   "is": "crowned"
   }
  },
  "solution": [
@@ -28,8 +28,8 @@
   {
    "scene": "curia",
    "characters": [
-    "rodrigo",
-    "cesare"
+    "cesare",
+    "rodrigo"
    ]
   }
  ],
@@ -37,5 +37,14 @@
  "music": "borgia_ceremony",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "ally_of",
+    "rodrigo",
+    "cesare"
+   ]
+  ]
  }
 }

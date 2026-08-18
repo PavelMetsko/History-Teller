@@ -1,0 +1,70 @@
+{
+ "id": "tullia",
+ "order": 18,
+ "epoch": "rome",
+ "act": "Акт I · Цари и рождение республики",
+ "music": "tension",
+ "cover": "chariot_street",
+ "panels": 3,
+ "scenes": [
+  "plot_tullia",
+  "curia_steps",
+  "chariot_street",
+  "mourn_father"
+ ],
+ "characters": [
+  "tullia",
+  "tarquin",
+  "servius"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "tarquin",
+    "servius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "servius",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "tullia",
+     "is": "impious"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "plot_tullia",
+   "characters": [
+    "tullia",
+    "tarquin"
+   ]
+  },
+  {
+   "scene": "curia_steps",
+   "characters": [
+    "tarquin",
+    "servius"
+   ]
+  },
+  {
+   "scene": "chariot_street",
+   "characters": [
+    "tullia"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

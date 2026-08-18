@@ -1,0 +1,80 @@
+{
+ "id": "aquae_sextiae",
+ "order": 122,
+ "epoch": "rome",
+ "act": "Акт III · Трещина",
+ "music": "battle",
+ "cover": "aquae_sextiae",
+ "panels": 3,
+ "scenes": [
+  "camp_walls_m",
+  "hidden_cohorts",
+  "aquae_sextiae",
+  "open_a"
+ ],
+ "characters": [
+  "marius",
+  "teutobod",
+  "marcellus_leg"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "marius",
+    "teutobod"
+   ],
+   [
+    "enemy_of",
+    "teutobod",
+    "marius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "marcellus_leg",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "teutobod",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "marius",
+     "is": "victor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "camp_walls_m",
+   "characters": [
+    "marius"
+   ]
+  },
+  {
+   "scene": "hidden_cohorts",
+   "characters": [
+    "marcellus_leg"
+   ]
+  },
+  {
+   "scene": "aquae_sextiae",
+   "characters": [
+    "marius",
+    "teutobod"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

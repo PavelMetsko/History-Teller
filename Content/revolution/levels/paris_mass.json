@@ -1,0 +1,81 @@
+{
+ "id": "paris_mass",
+ "order": 36,
+ "epoch": "revolution",
+ "act": "Акт II · Религиозные войны и Бурбоны",
+ "music": "revolution_ceremony",
+ "cover": "saint_denis_mass",
+ "panels": 3,
+ "scenes": [
+  "siege_paris_h",
+  "saint_denis_mass",
+  "nantes_edict",
+  "rue_ferronnerie"
+ ],
+ "characters": [
+  "henry_navarre",
+  "pope",
+  "ravaillac"
+ ],
+ "initialState": {
+  "flags": {
+   "pope": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "ravaillac",
+    "henry_navarre"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry_navarre",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "pope",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "henry_navarre",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "saint_denis_mass",
+   "characters": [
+    "henry_navarre"
+   ]
+  },
+  {
+   "scene": "nantes_edict",
+   "characters": [
+    "henry_navarre",
+    "pope"
+   ]
+  },
+  {
+   "scene": "rue_ferronnerie",
+   "characters": [
+    "ravaillac",
+    "henry_navarre"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

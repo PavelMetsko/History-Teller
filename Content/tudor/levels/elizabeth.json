@@ -1,11 +1,11 @@
 {
- "order": 110,
+ "order": 210,
  "epoch": "tudor",
- "act": "Акт III · Наследники",
+ "act": "Акт V · Наследники Генриха",
  "panels": 2,
  "scenes": [
   "abbey",
-  "court",
+  "court_favour",
   "chapel"
  ],
  "characters": [
@@ -29,24 +29,10 @@
     }
    },
    {
-    "flag": {
-     "char": "elizabeth",
-     "is": "settled"
-    }
-   },
-   {
-    "flag": {
-     "char": "dudley",
-     "is": "favoured"
-    }
-   },
-   {
-    "not": {
-     "relation": {
-      "rel": "wed",
-      "from": "philip",
-      "to": "elizabeth"
-     }
+    "relation": {
+     "rel": "ally_of",
+     "from": "elizabeth",
+     "to": "dudley"
     }
    },
    {
@@ -54,7 +40,7 @@
      "relation": {
       "rel": "wed",
       "from": "elizabeth",
-      "to": "dudley"
+      "to": "philip"
      }
     }
    }
@@ -68,7 +54,7 @@
    ]
   },
   {
-   "scene": "court",
+   "scene": "court_favour",
    "characters": [
     "elizabeth",
     "dudley"

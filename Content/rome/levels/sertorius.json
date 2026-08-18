@@ -1,0 +1,80 @@
+{
+ "id": "sertorius",
+ "order": 145,
+ "epoch": "rome",
+ "act": "Акт III · Трещина",
+ "music": "tension",
+ "cover": "white_fawn",
+ "panels": 3,
+ "scenes": [
+  "white_fawn",
+  "sucro",
+  "banquet_osca",
+  "plot_perperna"
+ ],
+ "characters": [
+  "sertorius",
+  "pompey",
+  "perperna"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "sertorius",
+    "pompey"
+   ],
+   [
+    "enemy_of",
+    "pompey",
+    "sertorius"
+   ],
+   [
+    "enemy_of",
+    "perperna",
+    "sertorius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pompey",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "sertorius",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "white_fawn",
+   "characters": [
+    "sertorius"
+   ]
+  },
+  {
+   "scene": "sucro",
+   "characters": [
+    "sertorius",
+    "pompey"
+   ]
+  },
+  {
+   "scene": "banquet_osca",
+   "characters": [
+    "perperna",
+    "sertorius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

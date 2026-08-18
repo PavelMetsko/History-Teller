@@ -1,0 +1,98 @@
+{
+ "id": "dudley_courtship",
+ "order": 215,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_romance",
+ "cover": "kenilworth",
+ "panels": 3,
+ "scenes": [
+  "kenilworth",
+  "chapel",
+  "court_refuse",
+  "court_favour"
+ ],
+ "characters": [
+  "elizabeth",
+  "dudley",
+  "philip"
+ ],
+ "initialState": {
+  "flags": {
+   "elizabeth": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "philip": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "elizabeth",
+     "to": "dudley"
+    }
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "elizabeth",
+     "to": "dudley"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "elizabeth",
+      "is": "married"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "elizabeth",
+      "is": "conceded"
+     }
+    }
+   },
+   {
+    "flag": {
+     "char": "philip",
+     "is": "refused"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kenilworth",
+   "characters": [
+    "elizabeth",
+    "dudley"
+   ]
+  },
+  {
+   "scene": "court_favour",
+   "characters": [
+    "elizabeth",
+    "dudley"
+   ]
+  },
+  {
+   "scene": "court_refuse",
+   "characters": [
+    "elizabeth",
+    "philip"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,93 @@
+{
+ "id": "moscow",
+ "order": 335,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_lament",
+ "cover": "moscow_fire",
+ "panels": 3,
+ "scenes": [
+  "borodino",
+  "moscow_fire",
+  "berezina",
+  "peace_offer"
+ ],
+ "characters": [
+  "napoleon",
+  "kutuzov",
+  "alexander1"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "strong"
+   ],
+   "kutuzov": [
+    "strong"
+   ],
+   "alexander1": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "napoleon",
+    "kutuzov"
+   ],
+   [
+    "enemy_of",
+    "kutuzov",
+    "napoleon"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "at_war"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "starved"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "broken"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "borodino",
+   "characters": [
+    "napoleon",
+    "kutuzov"
+   ]
+  },
+  {
+   "scene": "moscow_fire",
+   "characters": [
+    "kutuzov",
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "berezina",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

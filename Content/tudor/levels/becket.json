@@ -1,0 +1,76 @@
+{
+ "id": "becket",
+ "order": 14,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_court",
+ "cover": "cathedral_altar",
+ "panels": 3,
+ "scenes": [
+  "canterbury_see",
+  "rid_me",
+  "cathedral_altar",
+  "reconcile_becket"
+ ],
+ "characters": [
+  "henry2",
+  "becket",
+  "fitzurse"
+ ],
+ "initialState": {
+  "flags": {
+   "henry2": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "henry2",
+    "becket"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "becket",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "becket",
+     "is": "martyr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "canterbury_see",
+   "characters": [
+    "becket",
+    "henry2"
+   ]
+  },
+  {
+   "scene": "rid_me",
+   "characters": [
+    "henry2",
+    "becket"
+   ]
+  },
+  {
+   "scene": "cathedral_altar",
+   "characters": [
+    "fitzurse",
+    "becket"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

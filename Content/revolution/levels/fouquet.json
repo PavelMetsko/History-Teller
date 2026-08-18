@@ -1,0 +1,78 @@
+{
+ "id": "fouquet",
+ "order": 50,
+ "epoch": "revolution",
+ "act": "Акт II · Религиозные войны и Бурбоны",
+ "music": "revolution_tension",
+ "cover": "vaux_fete",
+ "panels": 3,
+ "scenes": [
+  "vaux_fete",
+  "nantes_arrest",
+  "pignerol",
+  "fouquet_pardon"
+ ],
+ "characters": [
+  "louis14",
+  "fouquet"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "fouquet",
+     "is": "flaunting"
+    }
+   },
+   {
+    "flag": {
+     "char": "fouquet",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "fouquet",
+     "is": "imprisoned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "louis14",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "vaux_fete",
+   "characters": [
+    "fouquet",
+    "louis14"
+   ]
+  },
+  {
+   "scene": "nantes_arrest",
+   "characters": [
+    "louis14",
+    "fouquet"
+   ]
+  },
+  {
+   "scene": "pignerol",
+   "characters": [
+    "louis14",
+    "fouquet"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

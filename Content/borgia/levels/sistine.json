@@ -1,0 +1,59 @@
+{
+ "id": "sistine",
+ "order": 135,
+ "epoch": "borgia",
+ "act": "Акт V · Медичи и Макиавелли",
+ "music": "borgia_ceremony",
+ "cover": "ceiling",
+ "panels": 3,
+ "scenes": [
+  "julius_summons",
+  "scaffold_sistine",
+  "ceiling",
+  "flee_florence"
+ ],
+ "characters": [
+  "rovere",
+  "michelangelo"
+ ],
+ "initialState": {
+  "flags": {
+   "rovere": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "flag": {
+   "char": "michelangelo",
+   "is": "masterpiece"
+  }
+ },
+ "solution": [
+  {
+   "scene": "julius_summons",
+   "characters": [
+    "rovere",
+    "michelangelo"
+   ]
+  },
+  {
+   "scene": "scaffold_sistine",
+   "characters": [
+    "michelangelo"
+   ]
+  },
+  {
+   "scene": "ceiling",
+   "characters": [
+    "michelangelo",
+    "rovere"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

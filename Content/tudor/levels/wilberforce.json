@@ -1,0 +1,98 @@
+{
+ "id": "wilberforce",
+ "order": 326,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_court",
+ "cover": "abolition_act",
+ "panels": 3,
+ "scenes": [
+  "holwood_oak",
+  "commons_abolition",
+  "abolition_act",
+  "liverpool_bribe"
+ ],
+ "characters": [
+  "wilberforce",
+  "pitt",
+  "tarleton"
+ ],
+ "initialState": {
+  "flags": {
+   "wilberforce": [
+    "standing"
+   ],
+   "pitt": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wilberforce",
+    "tarleton"
+   ],
+   [
+    "enemy_of",
+    "tarleton",
+    "wilberforce"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "pitt",
+     "to": "wilberforce"
+    }
+   },
+   {
+    "flag": {
+     "char": "tarleton",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "wilberforce",
+     "is": "abolition_passed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wilberforce",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "holwood_oak",
+   "characters": [
+    "wilberforce",
+    "pitt"
+   ]
+  },
+  {
+   "scene": "commons_abolition",
+   "characters": [
+    "wilberforce",
+    "tarleton"
+   ]
+  },
+  {
+   "scene": "abolition_act",
+   "characters": [
+    "wilberforce"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

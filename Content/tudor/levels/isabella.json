@@ -1,0 +1,98 @@
+{
+ "id": "isabella",
+ "order": 30,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_court",
+ "cover": "berkeley",
+ "panels": 3,
+ "scenes": [
+  "paris_exile",
+  "invasion_i",
+  "berkeley",
+  "despenser_gallows"
+ ],
+ "characters": [
+  "isabella",
+  "mortimer",
+  "edward2",
+  "despenser"
+ ],
+ "initialState": {
+  "flags": {
+   "mortimer": [
+    "strong",
+    "standing"
+   ],
+   "despenser": [
+    "condemned"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "mortimer",
+    "edward2"
+   ],
+   [
+    "enemy_of",
+    "edward2",
+    "mortimer"
+   ],
+   [
+    "enemy_of",
+    "isabella",
+    "edward2"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "isabella",
+     "to": "mortimer"
+    }
+   },
+   {
+    "flag": {
+     "char": "edward2",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "edward2",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "paris_exile",
+   "characters": [
+    "isabella",
+    "mortimer"
+   ]
+  },
+  {
+   "scene": "invasion_i",
+   "characters": [
+    "mortimer",
+    "edward2"
+   ]
+  },
+  {
+   "scene": "berkeley",
+   "characters": [
+    "mortimer",
+    "edward2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

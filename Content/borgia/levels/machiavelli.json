@@ -1,0 +1,73 @@
+{
+ "id": "machiavelli",
+ "order": 140,
+ "epoch": "borgia",
+ "act": "Акт V · Медичи и Макиавелли",
+ "music": "borgia_tension",
+ "cover": "albergaccio",
+ "panels": 3,
+ "scenes": [
+  "medici_return_1512",
+  "bargello_torture",
+  "albergaccio",
+  "ask_post"
+ ],
+ "characters": [
+  "machiavelli",
+  "leo10"
+ ],
+ "initialState": {
+  "flags": {
+   "machiavelli": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "leo10",
+    "machiavelli"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "machiavelli",
+     "is": "tortured"
+    }
+   },
+   {
+    "flag": {
+     "char": "machiavelli",
+     "is": "immortal"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "medici_return_1512",
+   "characters": [
+    "leo10"
+   ]
+  },
+  {
+   "scene": "bargello_torture",
+   "characters": [
+    "leo10",
+    "machiavelli"
+   ]
+  },
+  {
+   "scene": "albergaccio",
+   "characters": [
+    "machiavelli"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "id": "marco_polo",
+ "order": 5,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_ceremony",
+ "cover": "khan_court",
+ "panels": 3,
+ "scenes": [
+  "silk_road",
+  "khan_court",
+  "genoa_prison",
+  "return_rich"
+ ],
+ "characters": [
+  "marco",
+  "kublai",
+  "rustichello"
+ ],
+ "initialState": {
+  "flags": {
+   "kublai": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "marco",
+     "is": "envoy"
+    }
+   },
+   {
+    "flag": {
+     "char": "marco",
+     "is": "immortal"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "silk_road",
+   "characters": [
+    "marco"
+   ]
+  },
+  {
+   "scene": "khan_court",
+   "characters": [
+    "kublai",
+    "marco"
+   ]
+  },
+  {
+   "scene": "genoa_prison",
+   "characters": [
+    "rustichello",
+    "marco"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

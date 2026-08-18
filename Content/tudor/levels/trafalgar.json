@@ -1,0 +1,91 @@
+{
+ "id": "trafalgar",
+ "order": 330,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_battle",
+ "cover": "trafalgar_sea",
+ "panels": 4,
+ "scenes": [
+  "england_expects",
+  "two_columns",
+  "trafalgar_sea",
+  "kiss_me_hardy",
+  "line_ahead"
+ ],
+ "characters": [
+  "nelson",
+  "villeneuve",
+  "hardy"
+ ],
+ "initialState": {
+  "flags": {
+   "villeneuve": []
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "nelson",
+    "villeneuve"
+   ],
+   [
+    "enemy_of",
+    "villeneuve",
+    "nelson"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nelson",
+     "is": "beloved"
+    }
+   },
+   {
+    "flag": {
+     "char": "villeneuve",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "nelson",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "england_expects",
+   "characters": [
+    "nelson"
+   ]
+  },
+  {
+   "scene": "two_columns",
+   "characters": [
+    "nelson"
+   ]
+  },
+  {
+   "scene": "trafalgar_sea",
+   "characters": [
+    "nelson",
+    "villeneuve"
+   ]
+  },
+  {
+   "scene": "kiss_me_hardy",
+   "characters": [
+    "hardy",
+    "nelson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

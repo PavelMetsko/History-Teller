@@ -1,0 +1,66 @@
+{
+ "id": "globe",
+ "order": 228,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_court",
+ "cover": "globe_opens",
+ "panels": 2,
+ "scenes": [
+  "theatre_timbers",
+  "globe_opens",
+  "richard_ii_play",
+  "players_questioned"
+ ],
+ "characters": [
+  "shakespeare",
+  "burbage",
+  "essex"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "burbage",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "shakespeare",
+     "is": "beloved"
+    }
+   },
+   {
+    "not": {
+     "relation": {
+      "rel": "ally_of",
+      "from": "shakespeare",
+      "to": "essex"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "theatre_timbers",
+   "characters": [
+    "burbage"
+   ]
+  },
+  {
+   "scene": "globe_opens",
+   "characters": [
+    "shakespeare",
+    "burbage"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

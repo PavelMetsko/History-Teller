@@ -1,0 +1,89 @@
+{
+ "id": "girondins",
+ "order": 238,
+ "epoch": "revolution",
+ "act": "Акт III · Революция",
+ "music": "revolution_tension",
+ "cover": "convention_purge",
+ "panels": 3,
+ "scenes": [
+  "sansculottes_ring",
+  "convention_purge",
+  "girondin_cart",
+  "girondin_debate"
+ ],
+ "characters": [
+  "robespierre",
+  "brissot",
+  "danton"
+ ],
+ "initialState": {
+  "flags": {
+   "robespierre": [
+    "standing"
+   ],
+   "brissot": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "robespierre",
+    "brissot"
+   ],
+   [
+    "enemy_of",
+    "brissot",
+    "robespierre"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "robespierre",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "brissot",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "brissot",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sansculottes_ring",
+   "characters": [
+    "robespierre"
+   ]
+  },
+  {
+   "scene": "convention_purge",
+   "characters": [
+    "robespierre",
+    "brissot"
+   ]
+  },
+  {
+   "scene": "girondin_cart",
+   "characters": [
+    "robespierre",
+    "brissot"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "id": "rasputin",
+ "order": 195,
+ "epoch": "empire",
+ "act": "Акт VIII · Закат империи",
+ "music": "empire_tension",
+ "cover": "moika_palace",
+ "panels": 3,
+ "scenes": [
+  "heir_bleeds",
+  "moika_palace",
+  "neva_ice",
+  "send_home"
+ ],
+ "characters": [
+  "rasputin",
+  "alexandra",
+  "yusupov"
+ ],
+ "initialState": {
+  "flags": {
+   "alexandra": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rasputin",
+     "is": "holy"
+    }
+   },
+   {
+    "flag": {
+     "char": "rasputin",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "heir_bleeds",
+   "characters": [
+    "rasputin",
+    "alexandra"
+   ]
+  },
+  {
+   "scene": "moika_palace",
+   "characters": [
+    "yusupov",
+    "rasputin"
+   ]
+  },
+  {
+   "scene": "neva_ice",
+   "characters": [
+    "yusupov",
+    "rasputin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

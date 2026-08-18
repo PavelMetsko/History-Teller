@@ -1,0 +1,83 @@
+{
+ "id": "censor",
+ "order": 158,
+ "epoch": "empire",
+ "act": "Акт VI · От Павла до декабристов",
+ "music": "empire_tension",
+ "cover": "chudov_hall",
+ "panels": 3,
+ "scenes": [
+  "feldjager_troika",
+  "chudov_hall",
+  "third_section",
+  "foreign_passport"
+ ],
+ "characters": [
+  "pushkin",
+  "nicholas1",
+  "benkendorf"
+ ],
+ "initialState": {
+  "flags": {
+   "nicholas1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "benkendorf": [
+    "standing"
+   ],
+   "pushkin": [
+    "away"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pushkin",
+     "is": "pardoned"
+    }
+   },
+   {
+    "flag": {
+     "char": "pushkin",
+     "is": "watched"
+    }
+   },
+   {
+    "flag": {
+     "char": "benkendorf",
+     "is": "strong"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "feldjager_troika",
+   "characters": [
+    "nicholas1",
+    "pushkin"
+   ]
+  },
+  {
+   "scene": "chudov_hall",
+   "characters": [
+    "nicholas1",
+    "pushkin"
+   ]
+  },
+  {
+   "scene": "third_section",
+   "characters": [
+    "benkendorf",
+    "pushkin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

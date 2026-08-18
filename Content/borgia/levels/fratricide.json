@@ -2,7 +2,7 @@
  "id": "fratricide",
  "order": 50,
  "epoch": "borgia",
- "act": "Акт II · Яд и власть",
+ "act": "Акт III · Яд и власть",
  "panels": 2,
  "scenes": [
   "feast_f",
@@ -23,7 +23,7 @@
    {
     "flag": {
      "char": "cesare",
-     "is": "ruthless"
+     "is": "killer"
     }
    }
   ]
@@ -48,5 +48,6 @@
  "music": "borgia_tension",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

@@ -1,0 +1,95 @@
+{
+ "id": "kingmaker",
+ "order": 50,
+ "epoch": "tudor",
+ "act": "Акт II · Ланкастеры и Йорки",
+ "music": "tudor_battle",
+ "cover": "barnet",
+ "panels": 3,
+ "scenes": [
+  "towton",
+  "angers_pact",
+  "barnet",
+  "woodville_wed"
+ ],
+ "characters": [
+  "warwick",
+  "edward4",
+  "margaret_anjou"
+ ],
+ "initialState": {
+  "flags": {
+   "warwick": [
+    "standing"
+   ],
+   "edward4": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "warwick",
+    "edward4"
+   ],
+   [
+    "enemy_of",
+    "edward4",
+    "warwick"
+   ],
+   [
+    "enemy_of",
+    "warwick",
+    "edward4"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "edward4",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "warwick",
+     "is": "plotting"
+    }
+   },
+   {
+    "flag": {
+     "char": "warwick",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "towton",
+   "characters": [
+    "edward4",
+    "warwick"
+   ]
+  },
+  {
+   "scene": "angers_pact",
+   "characters": [
+    "warwick",
+    "margaret_anjou"
+   ]
+  },
+  {
+   "scene": "barnet",
+   "characters": [
+    "edward4",
+    "warwick"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

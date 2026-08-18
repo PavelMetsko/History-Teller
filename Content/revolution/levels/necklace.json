@@ -1,0 +1,90 @@
+{
+ "id": "necklace",
+ "order": 206,
+ "epoch": "revolution",
+ "act": "Акт III · Революция",
+ "music": "revolution_tension",
+ "cover": "versailles_grove",
+ "panels": 3,
+ "scenes": [
+  "versailles_grove",
+  "jewellers_bill",
+  "bastille_rohan",
+  "queen_denies"
+ ],
+ "characters": [
+  "rohan",
+  "lamotte",
+  "antoinette"
+ ],
+ "initialState": {
+  "flags": {
+   "antoinette": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "antoinette",
+    "rohan"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rohan",
+     "is": "duped"
+    }
+   },
+   {
+    "flag": {
+     "char": "lamotte",
+     "is": "bought"
+    }
+   },
+   {
+    "flag": {
+     "char": "rohan",
+     "is": "condemned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "antoinette",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "versailles_grove",
+   "characters": [
+    "lamotte",
+    "rohan"
+   ]
+  },
+  {
+   "scene": "jewellers_bill",
+   "characters": [
+    "rohan",
+    "lamotte"
+   ]
+  },
+  {
+   "scene": "bastille_rohan",
+   "characters": [
+    "antoinette",
+    "rohan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -2,11 +2,11 @@
  "id": "bonfire",
  "order": 100,
  "epoch": "borgia",
- "act": "Акт III · Государь",
+ "act": "Акт IV · Государь",
  "panels": 2,
  "scenes": [
-  "piazza",
-  "curia"
+  "curia_e",
+  "piazza"
  ],
  "characters": [
   "rodrigo",
@@ -15,29 +15,37 @@
  "initialState": {
   "flags": {
    "rodrigo": [
-    "pope"
+    "pope",
+    "standing"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "rodrigo",
+    "savonarola"
+   ]
+  ]
  },
  "goal": {
   "all": [
    {
     "flag": {
      "char": "savonarola",
-     "is": "dead"
+     "is": "condemned"
     }
    },
    {
     "flag": {
      "char": "savonarola",
-     "is": "burned"
+     "is": "executed"
     }
    }
   ]
  },
  "solution": [
   {
-   "scene": "curia",
+   "scene": "curia_e",
    "characters": [
     "rodrigo",
     "savonarola"

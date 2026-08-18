@@ -1,0 +1,76 @@
+{
+ "id": "jena",
+ "order": 332,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_battle",
+ "cover": "jena_field",
+ "panels": 3,
+ "scenes": [
+  "grande_armee",
+  "jena_field",
+  "berlin_decree",
+  "wait_rhine"
+ ],
+ "characters": [
+  "napoleon",
+  "blucher"
+ ],
+ "initialState": {
+  "flags": {
+   "blucher": []
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "napoleon",
+    "blucher"
+   ],
+   [
+    "enemy_of",
+    "blucher",
+    "napoleon"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "blucher",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "blockading"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "grande_armee",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "jena_field",
+   "characters": [
+    "napoleon",
+    "blucher"
+   ]
+  },
+  {
+   "scene": "berlin_decree",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

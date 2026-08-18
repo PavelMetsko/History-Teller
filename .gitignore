@@ -44,3 +44,5 @@ dist/
 
 # Движок редактора — собирается из :engine-js
 editor/engine.js
+
+.claude/settings.local.json

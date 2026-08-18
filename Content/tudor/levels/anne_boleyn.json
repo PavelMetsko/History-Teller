@@ -1,6 +1,6 @@
 {
  "id": "anne_boleyn",
- "order": 40,
+ "order": 140,
  "epoch": "tudor",
  "panels": 3,
  "scenes": [
@@ -16,9 +16,16 @@
  "goal": {
   "all": [
    {
+    "relation": {
+     "rel": "wed",
+     "from": "henry",
+     "to": "boleyn"
+    }
+   },
+   {
     "flag": {
      "char": "boleyn",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]
@@ -51,5 +58,22 @@
  "factCard": {
   "accuracy": "fact"
  },
- "act": "Акт II · Шесть жён"
+ "act": "Акт IV · Шесть жён",
+ "initialState": {
+  "flags": {
+   "cromwell": [
+    "standing"
+   ],
+   "henry": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cromwell",
+    "boleyn"
+   ]
+  ]
+ }
 }

@@ -1,0 +1,99 @@
+{
+ "id": "wyatt",
+ "order": 195,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_battle",
+ "cover": "guildhall_speech",
+ "panels": 4,
+ "scenes": [
+  "kent_rising",
+  "guildhall_speech",
+  "ludgate",
+  "wyatt_block"
+ ],
+ "characters": [
+  "wyatt",
+  "mary1"
+ ],
+ "initialState": {
+  "flags": {
+   "mary1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wyatt",
+    "mary1"
+   ],
+   [
+    "enemy_of",
+    "mary1",
+    "wyatt"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wyatt",
+     "is": "rallied"
+    }
+   },
+   {
+    "flag": {
+     "char": "mary1",
+     "is": "beloved"
+    }
+   },
+   {
+    "flag": {
+     "char": "wyatt",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "wyatt",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kent_rising",
+   "characters": [
+    "wyatt"
+   ]
+  },
+  {
+   "scene": "guildhall_speech",
+   "characters": [
+    "mary1"
+   ]
+  },
+  {
+   "scene": "ludgate",
+   "characters": [
+    "wyatt",
+    "mary1"
+   ]
+  },
+  {
+   "scene": "wyatt_block",
+   "characters": [
+    "mary1",
+    "wyatt"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

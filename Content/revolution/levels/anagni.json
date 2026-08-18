@@ -1,0 +1,73 @@
+{
+ "id": "anagni",
+ "order": 12,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_tension",
+ "cover": "anagni_slap",
+ "panels": 3,
+ "scenes": [
+  "louvre_estates",
+  "anagni_slap",
+  "rhone_curia",
+  "paris_mint"
+ ],
+ "characters": [
+  "philippe_bel",
+  "boniface8",
+  "nogaret"
+ ],
+ "initialState": {
+  "flags": {
+   "boniface8": [
+    "reigns",
+    "standing"
+   ],
+   "philippe_bel": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "boniface8",
+     "is": "humiliated"
+    }
+   },
+   {
+    "flag": {
+     "char": "philippe_bel",
+     "is": "papacy_bowed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "louvre_estates",
+   "characters": [
+    "nogaret",
+    "boniface8"
+   ]
+  },
+  {
+   "scene": "anagni_slap",
+   "characters": [
+    "nogaret",
+    "boniface8"
+   ]
+  },
+  {
+   "scene": "rhone_curia",
+   "characters": [
+    "philippe_bel",
+    "nogaret"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

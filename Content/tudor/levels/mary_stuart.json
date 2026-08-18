@@ -1,7 +1,7 @@
 {
- "order": 120,
+ "order": 220,
  "epoch": "tudor",
- "act": "Акт III · Наследники",
+ "act": "Акт V · Наследники Генриха",
  "panels": 2,
  "scenes": [
   "spy_room",
@@ -16,7 +16,8 @@
   "flags": {
    "elizabeth": [
     "reigns",
-    "crowned"
+    "crowned",
+    "standing"
    ],
    "mary_stuart": [
     "royal_claim"
@@ -28,7 +29,7 @@
    {
     "flag": {
      "char": "mary_stuart",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]

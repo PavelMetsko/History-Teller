@@ -2,7 +2,7 @@
  "id": "downfall",
  "order": 130,
  "epoch": "borgia",
- "act": "Акт III · Государь",
+ "act": "Акт IV · Государь",
  "panels": 2,
  "scenes": [
   "arrest_d",
@@ -15,18 +15,42 @@
  "initialState": {
   "flags": {
    "rovere": [
-    "pope"
+    "pope",
+    "strong",
+    "standing"
    ],
    "cesare": [
     "warlord"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "rovere",
+    "cesare"
+   ],
+   [
+    "enemy_of",
+    "cesare",
+    "rovere"
+   ]
+  ]
  },
  "goal": {
-  "flag": {
-   "char": "cesare",
-   "is": "fallen"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "cesare",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "cesare",
+     "is": "condemned"
+    }
+   }
+  ]
  },
  "solution": [
   {

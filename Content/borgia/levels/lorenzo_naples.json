@@ -1,0 +1,83 @@
+{
+ "id": "lorenzo_naples",
+ "order": 10,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_tension",
+ "cover": "ferrante_deal",
+ "panels": 3,
+ "scenes": [
+  "papal_war",
+  "sail_naples",
+  "ferrante_deal",
+  "hire_condottieri"
+ ],
+ "characters": [
+  "lorenzo",
+  "ferrante",
+  "sixtus4"
+ ],
+ "initialState": {
+  "flags": {
+   "lorenzo": [
+    "standing"
+   ],
+   "sixtus4": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "sixtus4",
+    "lorenzo"
+   ],
+   [
+    "enemy_of",
+    "lorenzo",
+    "sixtus4"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lorenzo",
+     "is": "hero"
+    }
+   },
+   {
+    "flag": {
+     "char": "ferrante",
+     "is": "conceded"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "papal_war",
+   "characters": [
+    "sixtus4",
+    "lorenzo"
+   ]
+  },
+  {
+   "scene": "sail_naples",
+   "characters": [
+    "lorenzo"
+   ]
+  },
+  {
+   "scene": "ferrante_deal",
+   "characters": [
+    "ferrante",
+    "lorenzo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

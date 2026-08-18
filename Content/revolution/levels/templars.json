@@ -1,0 +1,79 @@
+{
+ "id": "templars",
+ "order": 14,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_tension",
+ "cover": "friday_13",
+ "panels": 3,
+ "scenes": [
+  "friday_13",
+  "avignon_pope",
+  "ile_cite_stake",
+  "templar_gold"
+ ],
+ "characters": [
+  "philippe_bel",
+  "molay",
+  "pope"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "molay",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "pope",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "molay",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "philippe_bel",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "friday_13",
+   "characters": [
+    "philippe_bel",
+    "molay"
+   ]
+  },
+  {
+   "scene": "avignon_pope",
+   "characters": [
+    "philippe_bel",
+    "pope"
+   ]
+  },
+  {
+   "scene": "ile_cite_stake",
+   "characters": [
+    "philippe_bel",
+    "molay"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

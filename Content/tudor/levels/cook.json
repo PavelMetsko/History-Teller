@@ -1,0 +1,73 @@
+{
+ "id": "cook",
+ "order": 322,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_court",
+ "cover": "botany_bay",
+ "panels": 3,
+ "scenes": [
+  "endeavour_refit",
+  "botany_bay",
+  "kealakekua",
+  "hostage_chief"
+ ],
+ "characters": [
+  "cook",
+  "kalaniopuu"
+ ],
+ "initialState": {
+  "flags": {
+   "kalaniopuu": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "kalaniopuu",
+    "cook"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cook",
+     "is": "beloved"
+    }
+   },
+   {
+    "flag": {
+     "char": "cook",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "endeavour_refit",
+   "characters": [
+    "cook"
+   ]
+  },
+  {
+   "scene": "botany_bay",
+   "characters": [
+    "cook"
+   ]
+  },
+  {
+   "scene": "kealakekua",
+   "characters": [
+    "kalaniopuu",
+    "cook"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

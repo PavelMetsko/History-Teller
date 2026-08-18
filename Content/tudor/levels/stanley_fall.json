@@ -1,0 +1,90 @@
+{
+ "id": "stanley_fall",
+ "order": 118,
+ "epoch": "tudor",
+ "act": "Акт III · Восхождение Тюдоров",
+ "music": "tudor_court",
+ "cover": "stanley_letter",
+ "panels": 3,
+ "scenes": [
+  "stanley_letter",
+  "tribunal",
+  "tower_cell",
+  "bosworth_turn"
+ ],
+ "characters": [
+  "henry7",
+  "stanley",
+  "warbeck"
+ ],
+ "initialState": {
+  "flags": {
+   "henry7": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry7",
+    "stanley"
+   ],
+   [
+    "enemy_of",
+    "henry7",
+    "warbeck"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "stanley",
+     "to": "warbeck"
+    }
+   },
+   {
+    "flag": {
+     "char": "stanley",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "stanley",
+     "is": "executed"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "stanley_letter",
+   "characters": [
+    "stanley",
+    "warbeck"
+   ]
+  },
+  {
+   "scene": "tribunal",
+   "characters": [
+    "henry7",
+    "stanley"
+   ]
+  },
+  {
+   "scene": "tower_cell",
+   "characters": [
+    "henry7",
+    "stanley"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

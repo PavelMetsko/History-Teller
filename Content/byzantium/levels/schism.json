@@ -1,0 +1,68 @@
+{
+ "id": "schism",
+ "order": 157,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_tension",
+ "cover": "bull_on_altar",
+ "panels": 3,
+ "scenes": [
+  "latin_churches_closed",
+  "bull_on_altar",
+  "anathema",
+  "emperor_mediates"
+ ],
+ "characters": [
+  "humbert",
+  "cerularius"
+ ],
+ "initialState": {
+  "flags": {
+   "humbert": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cerularius",
+     "is": "excommunicated"
+    }
+   },
+   {
+    "flag": {
+     "char": "humbert",
+     "is": "excommunicated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "latin_churches_closed",
+   "characters": [
+    "cerularius",
+    "humbert"
+   ]
+  },
+  {
+   "scene": "bull_on_altar",
+   "characters": [
+    "humbert",
+    "cerularius"
+   ]
+  },
+  {
+   "scene": "anathema",
+   "characters": [
+    "cerularius",
+    "humbert"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

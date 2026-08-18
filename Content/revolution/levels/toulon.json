@@ -1,8 +1,8 @@
 {
  "id": "toulon",
- "order": 100,
+ "order": 300,
  "epoch": "revolution",
- "act": "Акт III · Наполеон",
+ "act": "Акт IV · Наполеон",
  "panels": 2,
  "scenes": [
   "plan_t",
@@ -36,5 +36,6 @@
  "music": "revolution_battle",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

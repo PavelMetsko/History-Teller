@@ -1,0 +1,95 @@
+{
+ "id": "pyrrhus",
+ "order": 56,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "battle",
+ "cover": "heraclea",
+ "panels": 3,
+ "scenes": [
+  "heraclea",
+  "one_more_victory",
+  "doctor_letter",
+  "gold_for_fabricius"
+ ],
+ "characters": [
+  "pyrrhus",
+  "laevinus",
+  "fabricius",
+  "pyrrhus_doctor"
+ ],
+ "initialState": {
+  "flags": {
+   "pyrrhus": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "pyrrhus",
+    "laevinus"
+   ],
+   [
+    "enemy_of",
+    "laevinus",
+    "pyrrhus"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "laevinus",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "pyrrhus",
+     "is": "exhausted"
+    }
+   },
+   {
+    "flag": {
+     "char": "fabricius",
+     "is": "incorruptible"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "fabricius",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "heraclea",
+   "characters": [
+    "pyrrhus",
+    "laevinus"
+   ]
+  },
+  {
+   "scene": "one_more_victory",
+   "characters": [
+    "pyrrhus"
+   ]
+  },
+  {
+   "scene": "doctor_letter",
+   "characters": [
+    "fabricius",
+    "pyrrhus_doctor"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

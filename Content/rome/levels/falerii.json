@@ -1,0 +1,92 @@
+{
+ "id": "falerii",
+ "order": 49,
+ "epoch": "rome",
+ "act": "Акт I · Цари и рождение республики",
+ "music": "ceremony",
+ "cover": "children_camp_f",
+ "panels": 3,
+ "scenes": [
+  "siege_falerii",
+  "children_camp_f",
+  "gates_open_f",
+  "take_hostages_f"
+ ],
+ "characters": [
+  "camillus",
+  "schoolmaster",
+  "falisci_chief"
+ ],
+ "initialState": {
+  "flags": {
+   "camillus": [
+    "standing"
+   ],
+   "falisci_chief": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "camillus",
+    "falisci_chief"
+   ],
+   [
+    "enemy_of",
+    "falisci_chief",
+    "camillus"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "schoolmaster",
+     "is": "flogged"
+    }
+   },
+   {
+    "flag": {
+     "char": "falisci_chief",
+     "is": "conceded"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "camillus",
+      "is": "dishonest"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "siege_falerii",
+   "characters": [
+    "camillus",
+    "falisci_chief"
+   ]
+  },
+  {
+   "scene": "children_camp_f",
+   "characters": [
+    "schoolmaster",
+    "camillus"
+   ]
+  },
+  {
+   "scene": "gates_open_f",
+   "characters": [
+    "camillus",
+    "falisci_chief"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

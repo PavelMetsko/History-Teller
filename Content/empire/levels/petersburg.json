@@ -1,0 +1,73 @@
+{
+ "id": "petersburg",
+ "order": 58,
+ "epoch": "empire",
+ "act": "Акт III · Пётр Великий",
+ "music": "empire_ceremony",
+ "cover": "hare_island",
+ "panels": 3,
+ "scenes": [
+  "nyenschantz",
+  "hare_island",
+  "city_on_bones",
+  "back_to_moscow"
+ ],
+ "characters": [
+  "peter",
+  "charles"
+ ],
+ "initialState": {
+  "flags": {
+   "peter": [
+    "strong",
+    "reformed"
+   ],
+   "charles": [
+    "away",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "peter",
+    "charles"
+   ],
+   [
+    "enemy_of",
+    "charles",
+    "peter"
+   ]
+  ]
+ },
+ "goal": {
+  "flag": {
+   "char": "peter",
+   "is": "capital"
+  }
+ },
+ "solution": [
+  {
+   "scene": "nyenschantz",
+   "characters": [
+    "peter",
+    "charles"
+   ]
+  },
+  {
+   "scene": "hare_island",
+   "characters": [
+    "peter"
+   ]
+  },
+  {
+   "scene": "city_on_bones",
+   "characters": [
+    "peter"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

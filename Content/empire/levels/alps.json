@@ -1,0 +1,83 @@
+{
+ "id": "alps",
+ "order": 140,
+ "epoch": "empire",
+ "act": "Акт VI · От Павла до декабристов",
+ "music": "empire_battle",
+ "cover": "devil_bridge",
+ "panels": 4,
+ "scenes": [
+  "trebbia",
+  "austrians_leave",
+  "devil_bridge",
+  "generalissimo",
+  "lay_arms"
+ ],
+ "characters": [
+  "suvorov",
+  "massena",
+  "paul1"
+ ],
+ "initialState": {
+  "flags": {
+   "suvorov": [
+    "strong",
+    "standing"
+   ],
+   "paul1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "suvorov",
+    "massena"
+   ],
+   [
+    "enemy_of",
+    "massena",
+    "suvorov"
+   ]
+  ]
+ },
+ "goal": {
+  "flag": {
+   "char": "suvorov",
+   "is": "generalissimo"
+  }
+ },
+ "solution": [
+  {
+   "scene": "trebbia",
+   "characters": [
+    "suvorov",
+    "massena"
+   ]
+  },
+  {
+   "scene": "austrians_leave",
+   "characters": [
+    "suvorov"
+   ]
+  },
+  {
+   "scene": "devil_bridge",
+   "characters": [
+    "suvorov"
+   ]
+  },
+  {
+   "scene": "generalissimo",
+   "characters": [
+    "paul1",
+    "suvorov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

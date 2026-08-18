@@ -1,21 +1,28 @@
 {
  "id": "parr",
- "order": 80,
+ "order": 180,
  "epoch": "tudor",
  "panels": 3,
  "scenes": [
   "chapel",
   "tribunal",
-  "court",
+  "court_pardon",
   "tower"
  ],
  "characters": [
   "henry",
   "parr",
-  "cromwell"
+  "norfolk"
  ],
  "goal": {
   "all": [
+   {
+    "relation": {
+     "rel": "wed",
+     "from": "henry",
+     "to": "parr"
+    }
+   },
    {
     "flag": {
      "char": "parr",
@@ -43,15 +50,15 @@
   {
    "scene": "tribunal",
    "characters": [
-    "cromwell",
+    "norfolk",
     "parr"
    ]
   },
   {
-   "scene": "court",
+   "scene": "court_pardon",
    "characters": [
-    "henry",
-    "parr"
+    "parr",
+    "henry"
    ]
   }
  ],
@@ -60,5 +67,22 @@
  "factCard": {
   "accuracy": "fact"
  },
- "act": "Акт II · Шесть жён"
+ "act": "Акт IV · Шесть жён",
+ "initialState": {
+  "flags": {
+   "norfolk": [
+    "standing"
+   ],
+   "henry": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "norfolk",
+    "parr"
+   ]
+  ]
+ }
 }

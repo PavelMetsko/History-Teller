@@ -1,0 +1,79 @@
+{
+ "id": "embassy",
+ "order": 49,
+ "epoch": "empire",
+ "act": "Акт III · Пётр Великий",
+ "music": "empire_ceremony",
+ "cover": "saardam_yard",
+ "panels": 3,
+ "scenes": [
+  "volunteer_list",
+  "saardam_yard",
+  "carpenter_diploma",
+  "royal_regalia"
+ ],
+ "characters": [
+  "peter",
+  "menshikov",
+  "witsen"
+ ],
+ "initialState": {
+  "flags": {
+   "peter": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "witsen": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "menshikov",
+     "is": "volunteer"
+    }
+   },
+   {
+    "flag": {
+     "char": "peter",
+     "is": "incognito"
+    }
+   },
+   {
+    "flag": {
+     "char": "peter",
+     "is": "master"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "volunteer_list",
+   "characters": [
+    "peter",
+    "menshikov"
+   ]
+  },
+  {
+   "scene": "saardam_yard",
+   "characters": [
+    "witsen",
+    "peter"
+   ]
+  },
+  {
+   "scene": "carpenter_diploma",
+   "characters": [
+    "peter"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

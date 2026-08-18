@@ -1,0 +1,96 @@
+{
+ "id": "scipio_spain",
+ "order": 88,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "ceremony",
+ "cover": "captive_bride",
+ "panels": 3,
+ "scenes": [
+  "new_carthage",
+  "captive_bride",
+  "horsemen_a",
+  "victor_love"
+ ],
+ "characters": [
+  "scipio",
+  "mago_nc",
+  "allucius",
+  "iberian_bride"
+ ],
+ "initialState": {
+  "flags": {
+   "scipio": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "scipio",
+    "mago_nc"
+   ],
+   [
+    "enemy_of",
+    "mago_nc",
+    "scipio"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mago_nc",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "allucius",
+     "is": "grateful"
+    }
+   },
+   {
+    "flag": {
+     "char": "scipio",
+     "is": "crowned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "scipio",
+      "is": "in_love"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "new_carthage",
+   "characters": [
+    "scipio",
+    "mago_nc"
+   ]
+  },
+  {
+   "scene": "captive_bride",
+   "characters": [
+    "scipio",
+    "allucius"
+   ]
+  },
+  {
+   "scene": "horsemen_a",
+   "characters": [
+    "scipio",
+    "allucius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

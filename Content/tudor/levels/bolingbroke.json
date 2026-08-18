@@ -1,0 +1,89 @@
+{
+ "id": "bolingbroke",
+ "order": 40,
+ "epoch": "tudor",
+ "act": "Акт II · Ланкастеры и Йорки",
+ "music": "tudor_court",
+ "cover": "pontefract",
+ "panels": 3,
+ "scenes": [
+  "exile_bolingbroke",
+  "ravenspur",
+  "pontefract",
+  "richard_pardons"
+ ],
+ "characters": [
+  "richard2",
+  "bolingbroke"
+ ],
+ "initialState": {
+  "flags": {
+   "richard2": [
+    "standing"
+   ],
+   "bolingbroke": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "richard2",
+    "bolingbroke"
+   ],
+   [
+    "enemy_of",
+    "bolingbroke",
+    "richard2"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bolingbroke",
+     "is": "exiled"
+    }
+   },
+   {
+    "flag": {
+     "char": "richard2",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "richard2",
+     "is": "starved"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "exile_bolingbroke",
+   "characters": [
+    "richard2",
+    "bolingbroke"
+   ]
+  },
+  {
+   "scene": "ravenspur",
+   "characters": [
+    "bolingbroke",
+    "richard2"
+   ]
+  },
+  {
+   "scene": "pontefract",
+   "characters": [
+    "bolingbroke",
+    "richard2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

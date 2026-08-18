@@ -1,0 +1,76 @@
+{
+ "id": "plague_justinian",
+ "order": 105,
+ "epoch": "byzantium",
+ "act": "Акт IV · Слава и закат",
+ "music": "byzantium_tension",
+ "cover": "emperor_bubo",
+ "panels": 3,
+ "scenes": [
+  "pelusium_grain",
+  "emperor_bubo",
+  "empress_holds",
+  "country_palace"
+ ],
+ "characters": [
+  "justinian",
+  "theodora",
+  "procopius"
+ ],
+ "initialState": {
+  "flags": {
+   "justinian": [
+    "reigns",
+    "standing"
+   ],
+   "theodora": [
+    "queen",
+    "standing"
+   ],
+   "procopius": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "justinian",
+     "is": "survived"
+    }
+   },
+   {
+    "flag": {
+     "char": "theodora",
+     "is": "ruling"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pelusium_grain",
+   "characters": [
+    "procopius",
+    "justinian"
+   ]
+  },
+  {
+   "scene": "emperor_bubo",
+   "characters": [
+    "justinian"
+   ]
+  },
+  {
+   "scene": "empress_holds",
+   "characters": [
+    "theodora",
+    "justinian"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

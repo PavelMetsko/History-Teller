@@ -1,0 +1,95 @@
+{
+ "id": "fontainebleau",
+ "order": 339,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_lament",
+ "cover": "white_horse_yard",
+ "panels": 4,
+ "scenes": [
+  "six_days",
+  "marshals_room",
+  "abdication_table",
+  "white_horse_yard",
+  "poison_vial"
+ ],
+ "characters": [
+  "napoleon",
+  "ney",
+  "alexander1"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "reigns",
+    "crowned"
+   ],
+   "ney": [
+    "standing"
+   ],
+   "alexander1": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "alexander1",
+    "napoleon"
+   ],
+   [
+    "enemy_of",
+    "napoleon",
+    "alexander1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "abdicated"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "legend"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "six_days",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "marshals_room",
+   "characters": [
+    "ney",
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "abdication_table",
+   "characters": [
+    "alexander1",
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "white_horse_yard",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

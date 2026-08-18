@@ -1,0 +1,79 @@
+{
+ "id": "yarmouk",
+ "order": 145,
+ "epoch": "byzantium",
+ "act": "Акт V · Ираклий и ислам",
+ "music": "byzantium_battle",
+ "cover": "yarmouk_field",
+ "panels": 3,
+ "scenes": [
+  "desert_march_k",
+  "yarmouk_field",
+  "farewell_syria",
+  "pay_arabs"
+ ],
+ "characters": [
+  "heraclius",
+  "khalid"
+ ],
+ "initialState": {
+  "flags": {
+   "heraclius": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "heraclius",
+    "khalid"
+   ],
+   [
+    "enemy_of",
+    "khalid",
+    "heraclius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "heraclius",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "heraclius",
+     "is": "lost_syria"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "desert_march_k",
+   "characters": [
+    "khalid"
+   ]
+  },
+  {
+   "scene": "yarmouk_field",
+   "characters": [
+    "khalid",
+    "heraclius"
+   ]
+  },
+  {
+   "scene": "farewell_syria",
+   "characters": [
+    "heraclius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

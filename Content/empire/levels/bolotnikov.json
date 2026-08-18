@@ -1,0 +1,100 @@
+{
+ "id": "bolotnikov",
+ "order": 44,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_battle",
+ "cover": "kolomenskoye",
+ "panels": 4,
+ "scenes": [
+  "prelestnye_letters",
+  "kolomenskoye",
+  "kotly_field",
+  "upa_dam",
+  "pomestny_prikaz"
+ ],
+ "characters": [
+  "bolotnikov",
+  "shuisky",
+  "lyapunov"
+ ],
+ "initialState": {
+  "flags": {
+   "shuisky": [
+    "reigns",
+    "crowned",
+    "standing",
+    "strong"
+   ],
+   "lyapunov": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "shuisky",
+    "bolotnikov"
+   ],
+   [
+    "enemy_of",
+    "bolotnikov",
+    "shuisky"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lyapunov",
+     "is": "defected"
+    }
+   },
+   {
+    "flag": {
+     "char": "bolotnikov",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "bolotnikov",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prelestnye_letters",
+   "characters": [
+    "bolotnikov"
+   ]
+  },
+  {
+   "scene": "kolomenskoye",
+   "characters": [
+    "lyapunov",
+    "bolotnikov"
+   ]
+  },
+  {
+   "scene": "kotly_field",
+   "characters": [
+    "shuisky",
+    "bolotnikov"
+   ]
+  },
+  {
+   "scene": "upa_dam",
+   "characters": [
+    "shuisky",
+    "bolotnikov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

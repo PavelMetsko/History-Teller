@@ -1,0 +1,100 @@
+{
+ "id": "speransky",
+ "order": 147,
+ "epoch": "empire",
+ "act": "Акт VI · От Павла до декабристов",
+ "music": "empire_tension",
+ "cover": "court_whisper",
+ "panels": 4,
+ "scenes": [
+  "popovich",
+  "reform_plan",
+  "court_whisper",
+  "nizhny_exile",
+  "duel_arakcheev"
+ ],
+ "characters": [
+  "alexander1",
+  "speransky",
+  "arakcheev"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "arakcheev": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "arakcheev",
+    "speransky"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "alexander1",
+     "to": "speransky"
+    }
+   },
+   {
+    "flag": {
+     "char": "speransky",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "speransky",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "speransky",
+     "is": "away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "popovich",
+   "characters": [
+    "alexander1",
+    "speransky"
+   ]
+  },
+  {
+   "scene": "reform_plan",
+   "characters": [
+    "speransky"
+   ]
+  },
+  {
+   "scene": "court_whisper",
+   "characters": [
+    "arakcheev",
+    "speransky"
+   ]
+  },
+  {
+   "scene": "nizhny_exile",
+   "characters": [
+    "speransky"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

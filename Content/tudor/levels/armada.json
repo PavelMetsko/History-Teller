@@ -1,7 +1,7 @@
 {
- "order": 130,
+ "order": 230,
  "epoch": "tudor",
- "act": "Акт III · Наследники",
+ "act": "Акт V · Наследники Генриха",
  "panels": 2,
  "scenes": [
   "fireships",
@@ -17,8 +17,26 @@
    "elizabeth": [
     "reigns",
     "crowned"
+   ],
+   "drake": [
+    "strong"
+   ],
+   "philip": [
+    "strong"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "drake",
+    "philip"
+   ],
+   [
+    "enemy_of",
+    "philip",
+    "drake"
+   ]
+  ]
  },
  "goal": {
   "all": [
@@ -30,8 +48,8 @@
    },
    {
     "flag": {
-     "char": "elizabeth",
-     "is": "triumphant"
+     "char": "drake",
+     "is": "victor"
     }
    }
   ]
@@ -47,7 +65,7 @@
   {
    "scene": "sea_battle",
    "characters": [
-    "elizabeth",
+    "drake",
     "philip"
    ]
   }

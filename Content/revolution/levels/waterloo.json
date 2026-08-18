@@ -1,8 +1,8 @@
 {
  "id": "waterloo",
- "order": 140,
+ "order": 342,
  "epoch": "revolution",
- "act": "Акт III · Наполеон",
+ "act": "Акт IV · Наполеон",
  "panels": 2,
  "scenes": [
   "rout_w",
@@ -16,14 +16,39 @@
   "flags": {
    "napoleon": [
     "emperor"
+   ],
+   "wellington": [
+    "strong"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wellington",
+    "napoleon"
+   ],
+   [
+    "enemy_of",
+    "napoleon",
+    "wellington"
+   ]
+  ]
  },
  "goal": {
-  "flag": {
-   "char": "napoleon",
-   "is": "exiled"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "exiled"
+    }
+   }
+  ]
  },
  "solution": [
   {

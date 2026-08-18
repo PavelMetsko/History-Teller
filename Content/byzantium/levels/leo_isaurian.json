@@ -1,0 +1,74 @@
+{
+ "id": "leo_isaurian",
+ "order": 149,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_tension",
+ "cover": "chalke_ladder",
+ "panels": 3,
+ "scenes": [
+  "chalke_edict",
+  "chalke_ladder",
+  "patriarch_resign",
+  "chora_monastery"
+ ],
+ "characters": [
+  "leo3",
+  "germanos_patr",
+  "spatharios"
+ ],
+ "initialState": {
+  "flags": {
+   "leo3": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "germanos_patr": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "leo3",
+     "is": "iconoclast"
+    }
+   },
+   {
+    "flag": {
+     "char": "germanos_patr",
+     "is": "resigned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "chalke_edict",
+   "characters": [
+    "leo3",
+    "germanos_patr"
+   ]
+  },
+  {
+   "scene": "chalke_ladder",
+   "characters": [
+    "spatharios",
+    "leo3"
+   ]
+  },
+  {
+   "scene": "patriarch_resign",
+   "characters": [
+    "germanos_patr",
+    "leo3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

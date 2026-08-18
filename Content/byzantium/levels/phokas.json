@@ -1,0 +1,85 @@
+{
+ "id": "phokas",
+ "order": 154,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_tension",
+ "cover": "murder_phokas",
+ "panels": 4,
+ "scenes": [
+  "theophano_lover",
+  "open_window",
+  "murder_phokas",
+  "polyeuctus",
+  "warn_emperor"
+ ],
+ "characters": [
+  "nikephoros",
+  "tzimiskes",
+  "theophano"
+ ],
+ "initialState": {
+  "flags": {
+   "nikephoros": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nikephoros",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "tzimiskes",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "theophano",
+     "is": "away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "theophano_lover",
+   "characters": [
+    "theophano",
+    "tzimiskes"
+   ]
+  },
+  {
+   "scene": "open_window",
+   "characters": [
+    "theophano",
+    "tzimiskes"
+   ]
+  },
+  {
+   "scene": "murder_phokas",
+   "characters": [
+    "tzimiskes",
+    "nikephoros"
+   ]
+  },
+  {
+   "scene": "polyeuctus",
+   "characters": [
+    "tzimiskes",
+    "theophano"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

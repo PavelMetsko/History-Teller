@@ -1,0 +1,84 @@
+{
+ "id": "greek_fire",
+ "order": 148,
+ "epoch": "byzantium",
+ "act": "Акт V · Ираклий и ислам",
+ "music": "byzantium_battle",
+ "cover": "golden_horn_battle",
+ "panels": 3,
+ "scenes": [
+  "kallinikos_arrives",
+  "golden_horn_battle",
+  "state_secret",
+  "sell_recipe"
+ ],
+ "characters": [
+  "constantine4",
+  "kallinikos",
+  "muawiya"
+ ],
+ "initialState": {
+  "flags": {
+   "constantine4": [
+    "reigns",
+    "standing"
+   ],
+   "muawiya": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "constantine4",
+    "muawiya"
+   ],
+   [
+    "enemy_of",
+    "muawiya",
+    "constantine4"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "muawiya",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "constantine4",
+     "is": "keeps_secret"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kallinikos_arrives",
+   "characters": [
+    "kallinikos",
+    "constantine4"
+   ]
+  },
+  {
+   "scene": "golden_horn_battle",
+   "characters": [
+    "constantine4",
+    "muawiya"
+   ]
+  },
+  {
+   "scene": "state_secret",
+   "characters": [
+    "constantine4"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

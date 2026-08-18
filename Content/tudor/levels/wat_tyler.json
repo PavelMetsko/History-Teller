@@ -1,0 +1,90 @@
+{
+ "id": "wat_tyler",
+ "order": 38,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_court",
+ "cover": "your_leader",
+ "panels": 3,
+ "scenes": [
+  "blackheath",
+  "smithfield_meet",
+  "your_leader",
+  "royal_charge"
+ ],
+ "characters": [
+  "tyler",
+  "richard2",
+  "walworth"
+ ],
+ "initialState": {
+  "flags": {
+   "richard2": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "walworth",
+    "tyler"
+   ],
+   [
+    "enemy_of",
+    "tyler",
+    "richard2"
+   ],
+   [
+    "enemy_of",
+    "richard2",
+    "tyler"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tyler",
+     "is": "strong"
+    }
+   },
+   {
+    "flag": {
+     "char": "tyler",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "richard2",
+     "is": "beloved"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "blackheath",
+   "characters": [
+    "tyler"
+   ]
+  },
+  {
+   "scene": "smithfield_meet",
+   "characters": [
+    "walworth",
+    "tyler"
+   ]
+  },
+  {
+   "scene": "your_leader",
+   "characters": [
+    "richard2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

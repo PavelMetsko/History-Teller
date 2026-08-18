@@ -2,7 +2,7 @@
  "id": "hypatius",
  "order": 80,
  "epoch": "byzantium",
- "act": "Акт II · Ника",
+ "act": "Акт III · Ника",
  "panels": 2,
  "scenes": [
   "council_b",
@@ -19,7 +19,8 @@
     "reigns"
    ],
    "hypatius": [
-    "defeated"
+    "defeated",
+    "condemned"
    ],
    "theodora": [
     "empress"
@@ -29,7 +30,7 @@
  "goal": {
   "flag": {
    "char": "hypatius",
-   "is": "dead"
+   "is": "executed"
   }
  },
  "solution": [

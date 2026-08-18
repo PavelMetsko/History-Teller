@@ -1,0 +1,76 @@
+{
+ "id": "court_reform",
+ "order": 178,
+ "epoch": "empire",
+ "act": "Акт VII · Николай I и Александр II",
+ "music": "empire_tension",
+ "cover": "jury_bench",
+ "panels": 3,
+ "scenes": [
+  "judicial_statutes",
+  "mayor_reception",
+  "jury_bench",
+  "senate_presence"
+ ],
+ "characters": [
+  "alexander2",
+  "koni",
+  "zasulich"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander2": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "koni",
+     "is": "jury_court"
+    }
+   },
+   {
+    "flag": {
+     "char": "zasulich",
+     "is": "acquitted"
+    }
+   },
+   {
+    "flag": {
+     "char": "koni",
+     "is": "disgraced"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "judicial_statutes",
+   "characters": [
+    "alexander2",
+    "koni"
+   ]
+  },
+  {
+   "scene": "mayor_reception",
+   "characters": [
+    "zasulich"
+   ]
+  },
+  {
+   "scene": "jury_bench",
+   "characters": [
+    "koni",
+    "zasulich"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

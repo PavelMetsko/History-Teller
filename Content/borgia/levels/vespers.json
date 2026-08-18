@@ -1,0 +1,81 @@
+{
+ "id": "vespers",
+ "order": 3,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_battle",
+ "cover": "palermo_vespers",
+ "panels": 3,
+ "scenes": [
+  "aragon_pact",
+  "palermo_vespers",
+  "sicilian_crown",
+  "appeal_pope"
+ ],
+ "characters": [
+  "charles_anjou",
+  "procida",
+  "peter_aragon"
+ ],
+ "initialState": {
+  "flags": {
+   "charles_anjou": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "peter_aragon": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "procida",
+    "charles_anjou"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles_anjou",
+     "is": "expelled"
+    }
+   },
+   {
+    "flag": {
+     "char": "peter_aragon",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "aragon_pact",
+   "characters": [
+    "procida",
+    "peter_aragon"
+   ]
+  },
+  {
+   "scene": "palermo_vespers",
+   "characters": [
+    "procida",
+    "charles_anjou"
+   ]
+  },
+  {
+   "scene": "sicilian_crown",
+   "characters": [
+    "peter_aragon",
+    "procida"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

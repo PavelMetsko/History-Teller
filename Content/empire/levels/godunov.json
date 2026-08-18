@@ -1,0 +1,70 @@
+{
+ "id": "godunov",
+ "order": 41,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_ceremony",
+ "cover": "novodevichy",
+ "panels": 3,
+ "scenes": [
+  "uglich",
+  "novodevichy",
+  "sobor_c",
+  "boris_refuses"
+ ],
+ "characters": [
+  "godunov",
+  "shuisky"
+ ],
+ "initialState": {
+  "flags": {
+   "godunov": [
+    "standing"
+   ],
+   "shuisky": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "godunov",
+     "is": "crowned"
+    }
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "shuisky",
+     "to": "godunov"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "uglich",
+   "characters": [
+    "shuisky",
+    "godunov"
+   ]
+  },
+  {
+   "scene": "novodevichy",
+   "characters": [
+    "godunov"
+   ]
+  },
+  {
+   "scene": "sobor_c",
+   "characters": [
+    "godunov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

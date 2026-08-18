@@ -1,0 +1,82 @@
+{
+ "id": "sloboda",
+ "order": 28,
+ "epoch": "empire",
+ "act": "Акт I · Иван Грозный",
+ "music": "empire_tension",
+ "cover": "sloboda_petition",
+ "panels": 3,
+ "scenes": [
+  "kremlin_train",
+  "two_letters",
+  "sloboda_petition",
+  "lithuanian_border"
+ ],
+ "characters": [
+  "ivan",
+  "dolgoruky",
+  "pimen"
+ ],
+ "initialState": {
+  "flags": {
+   "ivan": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "dolgoruky": [
+    "standing"
+   ],
+   "pimen": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dolgoruky",
+     "is": "disgraced"
+    }
+   },
+   {
+    "flag": {
+     "char": "ivan",
+     "is": "restored"
+    }
+   },
+   {
+    "flag": {
+     "char": "ivan",
+     "is": "strong"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kremlin_train",
+   "characters": [
+    "ivan"
+   ]
+  },
+  {
+   "scene": "two_letters",
+   "characters": [
+    "ivan",
+    "dolgoruky"
+   ]
+  },
+  {
+   "scene": "sloboda_petition",
+   "characters": [
+    "pimen",
+    "ivan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "id": "elizabeth_tower",
+ "order": 205,
+ "epoch": "tudor",
+ "act": "Акт V · Наследники Генриха",
+ "music": "tudor_court",
+ "cover": "tower_cell",
+ "panels": 2,
+ "scenes": [
+  "tribunal",
+  "court_pardon",
+  "tower_cell",
+  "chapel"
+ ],
+ "characters": [
+  "mary1",
+  "elizabeth",
+  "philip"
+ ],
+ "initialState": {
+  "flags": {
+   "mary1": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "philip": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "mary1",
+    "elizabeth"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "elizabeth",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "mary1",
+     "is": "conceded"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "elizabeth",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tribunal",
+   "characters": [
+    "mary1",
+    "elizabeth"
+   ]
+  },
+  {
+   "scene": "court_pardon",
+   "characters": [
+    "philip",
+    "mary1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

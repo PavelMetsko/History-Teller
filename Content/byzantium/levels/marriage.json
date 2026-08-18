@@ -2,7 +2,7 @@
  "id": "marriage",
  "order": 20,
  "epoch": "byzantium",
- "act": "Акт I · Восхождение",
+ "act": "Акт II · Восхождение Юстиниана",
  "panels": 2,
  "scenes": [
   "decree_b",
@@ -14,9 +14,10 @@
   "antonina"
  ],
  "goal": {
-  "flag": {
-   "char": "theodora",
-   "is": "augusta"
+  "relation": {
+   "rel": "wed",
+   "from": "justinian",
+   "to": "theodora"
   }
  },
  "solution": [
@@ -39,5 +40,12 @@
  "music": "byzantium_romance",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "theodora": [
+    "locked_out"
+   ]
+  }
  }
 }

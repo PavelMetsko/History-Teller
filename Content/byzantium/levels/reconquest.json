@@ -2,7 +2,7 @@
  "id": "reconquest",
  "order": 100,
  "epoch": "byzantium",
- "act": "Акт III · Слава и закат",
+ "act": "Акт IV · Слава и закат",
  "panels": 2,
  "scenes": [
   "africa_b",
@@ -37,5 +37,6 @@
  "music": "byzantium_battle",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

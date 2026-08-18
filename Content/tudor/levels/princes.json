@@ -1,0 +1,93 @@
+{
+ "id": "princes",
+ "order": 54,
+ "epoch": "tudor",
+ "act": "Акт II · Ланкастеры и Йорки",
+ "music": "tudor_lament",
+ "cover": "tower_princes",
+ "panels": 3,
+ "scenes": [
+  "bastardy_sermon",
+  "baynard_castle",
+  "tower_princes",
+  "coronation_boy"
+ ],
+ "characters": [
+  "richard3",
+  "edward5",
+  "buckingham"
+ ],
+ "initialState": {
+  "flags": {
+   "richard3": [
+    "standing"
+   ],
+   "buckingham": [
+    "standing"
+   ],
+   "edward5": [
+    "royal_claim"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "richard3",
+    "edward5"
+   ],
+   [
+    "ally_of",
+    "buckingham",
+    "richard3"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "edward5",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "richard3",
+     "is": "crowned"
+    }
+   },
+   {
+    "flag": {
+     "char": "edward5",
+     "is": "vanished"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bastardy_sermon",
+   "characters": [
+    "richard3",
+    "edward5"
+   ]
+  },
+  {
+   "scene": "baynard_castle",
+   "characters": [
+    "richard3",
+    "buckingham"
+   ]
+  },
+  {
+   "scene": "tower_princes",
+   "characters": [
+    "richard3",
+    "edward5"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

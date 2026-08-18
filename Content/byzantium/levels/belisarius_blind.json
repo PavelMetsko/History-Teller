@@ -1,0 +1,87 @@
+{
+ "id": "belisarius_blind",
+ "order": 135,
+ "epoch": "byzantium",
+ "act": "Акт IV · Слава и закат",
+ "music": "byzantium_tension",
+ "cover": "beggar_bowl",
+ "panels": 3,
+ "scenes": [
+  "court_denounce",
+  "disgrace_b",
+  "beggar_bowl",
+  "hippodrome_honour"
+ ],
+ "characters": [
+  "belisarius",
+  "justinian",
+  "antonina"
+ ],
+ "initialState": {
+  "flags": {
+   "justinian": [
+    "reigns",
+    "standing"
+   ],
+   "belisarius": [
+    "standing"
+   ],
+   "antonina": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "justinian",
+    "belisarius"
+   ],
+   [
+    "ally_of",
+    "belisarius",
+    "justinian"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "belisarius",
+     "is": "disgraced"
+    }
+   },
+   {
+    "flag": {
+     "char": "belisarius",
+     "is": "legend"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "court_denounce",
+   "characters": [
+    "justinian",
+    "belisarius"
+   ]
+  },
+  {
+   "scene": "disgrace_b",
+   "characters": [
+    "belisarius"
+   ]
+  },
+  {
+   "scene": "beggar_bowl",
+   "characters": [
+    "belisarius",
+    "antonina"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

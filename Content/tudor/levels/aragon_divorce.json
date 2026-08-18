@@ -1,11 +1,11 @@
 {
  "id": "aragon_divorce",
- "order": 30,
+ "order": 130,
  "epoch": "tudor",
  "panels": 2,
  "scenes": [
   "vatican",
-  "court",
+  "court_rome",
   "tribunal"
  ],
  "characters": [
@@ -18,20 +18,15 @@
    "aragon": [
     "queen"
    ],
-   "henry": [
-    "defiant"
+   "pope": [
+    "strong"
    ]
   },
   "relations": [
    [
-    "wed",
+    "enemy_of",
     "henry",
     "aragon"
-   ],
-   [
-    "wed",
-    "aragon",
-    "henry"
    ]
   ]
  },
@@ -39,21 +34,29 @@
   "all": [
    {
     "flag": {
-     "char": "aragon",
-     "is": "cast_off"
+     "char": "henry",
+     "is": "supreme_head"
     }
    },
    {
     "flag": {
-     "char": "henry",
-     "is": "supreme_head"
+     "char": "aragon",
+     "is": "condemned"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pope",
+      "is": "conceded"
+     }
     }
    }
   ]
  },
  "solution": [
   {
-   "scene": "court",
+   "scene": "court_rome",
    "characters": [
     "henry"
    ]
@@ -71,5 +74,5 @@
  "factCard": {
   "accuracy": "fact"
  },
- "act": "Акт II · Шесть жён"
+ "act": "Акт IV · Шесть жён"
 }

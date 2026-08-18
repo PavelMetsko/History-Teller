@@ -1,25 +1,32 @@
 {
  "id": "howard",
- "order": 70,
+ "order": 170,
  "epoch": "tudor",
  "panels": 3,
  "scenes": [
   "chapel",
-  "court",
   "tribunal",
-  "tower"
+  "tower",
+  "court_pardon"
  ],
  "characters": [
   "henry",
   "howard",
-  "cromwell"
+  "cranmer"
  ],
  "goal": {
   "all": [
    {
+    "relation": {
+     "rel": "wed",
+     "from": "henry",
+     "to": "howard"
+    }
+   },
+   {
     "flag": {
      "char": "howard",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]
@@ -35,7 +42,7 @@
   {
    "scene": "tribunal",
    "characters": [
-    "cromwell",
+    "cranmer",
     "howard"
    ]
   },
@@ -52,5 +59,22 @@
  "factCard": {
   "accuracy": "fact"
  },
- "act": "Акт II · Шесть жён"
+ "act": "Акт IV · Шесть жён",
+ "initialState": {
+  "flags": {
+   "cranmer": [
+    "standing"
+   ],
+   "henry": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cranmer",
+    "howard"
+   ]
+  ]
+ }
 }

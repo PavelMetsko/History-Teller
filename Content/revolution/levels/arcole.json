@@ -1,0 +1,79 @@
+{
+ "id": "arcole",
+ "order": 305,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_battle",
+ "cover": "arcole_bridge",
+ "panels": 3,
+ "scenes": [
+  "arcole_bridge",
+  "arcole_field",
+  "letters_josephine",
+  "wait_reinforcements"
+ ],
+ "characters": [
+  "napoleon",
+  "alvinczi",
+  "josephine"
+ ],
+ "initialState": {
+  "flags": {
+   "alvinczi": []
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "napoleon",
+    "alvinczi"
+   ],
+   [
+    "enemy_of",
+    "alvinczi",
+    "napoleon"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "loves",
+     "from": "napoleon",
+     "to": "josephine"
+    }
+   },
+   {
+    "flag": {
+     "char": "alvinczi",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "letters_josephine",
+   "characters": [
+    "napoleon",
+    "josephine"
+   ]
+  },
+  {
+   "scene": "arcole_bridge",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "arcole_field",
+   "characters": [
+    "napoleon",
+    "alvinczi"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

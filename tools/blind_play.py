@@ -10,7 +10,7 @@
 и так же — только когда доска заполнена целиком. Порядок персонажей внутри панели
 подбирается за игрока, как в приложении (LevelBoardModel.autoAssignSlots).
 
-    python3 tools/blind_play.py brief <level_id>
+    python3 tools/blind_play.py brief <level_id> [--hint]   без --hint подсказка скрыта
     python3 tools/blind_play.py try <level_id> "сцена: перс, перс | сцена: перс"
     python3 tools/blind_play.py score [--reset]      сводка попыток по всем уровням
 
@@ -44,6 +44,7 @@ VERDICT = {
     "wrong_scene": "Верные герои — да не то место",
     "inert": "Совсем не то — ни место, ни лица",
     "wrong_order": "Всё то — да не в том порядке",
+    "wrong_slots": "Люди те — да не по ролям: поменяй их местами в кадре",
 }
 
 
@@ -63,7 +64,7 @@ def db():
     return load_content(CONTENT / "rome")
 
 
-def brief(level_id: str) -> None:
+def brief(level_id: str, show_hint: bool = False) -> None:
     """Всё, что видно игроку на экране уровня, и ничего сверх того."""
     lv = find_level(level_id)
     cat = catalog()
@@ -76,7 +77,10 @@ def brief(level_id: str) -> None:
     if t("intro"):
         print(f"ЗАВЯЗКА: {t('intro')}")
     print(f"ЦЕЛЬ: {t('goal')}")
-    print(f"ПОДСКАЗКА: {t('hint', '— подсказки нет —')}")
+    # Подсказка в этой игре почти равна решению, поэтому «слепой» прогон должен идти без неё:
+    # иначе замеряется качество подсказки, а не сложность уровня. Показываем только по флагу.
+    if show_hint:
+        print(f"ПОДСКАЗКА: {t('hint', '— подсказки нет —')}")
     print(f"ПАНЕЛЕЙ: {lv['panels']}")
     print("\nСЦЕНЫ (их больше, чем панелей — лишние ставить некуда):")
     for sid in lv["scenes"]:
@@ -106,25 +110,38 @@ def _resolve(name: str, mapping: dict[str, str], kind: str) -> str:
 
 
 def _auto_slots(panels, lv, scenes, rules, chars):
-    """Подбор порядка внутри панели — как в приложении."""
+    """Подбор порядка внутри кадров — как в приложении: совместный перебор по всем кадрам,
+    максимум сработавших правил, при равенстве — порядок игрока (первый вариант = исходный)."""
     panels = [(s, list(c)) for s, c in panels]
-    for i, (sid, cs) in enumerate(panels):
-        if len(cs) < 2:
-            continue
+    idxs = [i for i, (_, cs) in enumerate(panels) if len(cs) > 1]
+    if not idxs:
+        return panels
+    def perms(cs):
+        first = list(cs)
+        return [first] + [list(p) for p in itertools.permutations(cs) if list(p) != first]
+    options = [perms(panels[i][1]) for i in idxs]
+    best, best_score = panels, -1
+    for combo in itertools.product(*options):
+        trial = list(panels)
+        for k, i in enumerate(idxs):
+            trial[i] = (panels[i][0], combo[k])
+        log: list[str] = []
+        simulate([(s, list(c)) for s, c in trial if s], initial_world(lv), scenes, rules, chars, log)
+        if len(log) > best_score:
+            best_score, best = len(log), trial
+    return best
 
-        def fired(order):
-            trial = list(panels)
-            trial[i] = (sid, order)
-            log: list[str] = []
-            simulate([(s, list(c)) for s, c in trial], initial_world(lv), scenes, rules, chars, log)
-            return len(log)
 
-        best, score = cs, fired(cs)
-        for cand in map(list, itertools.permutations(cs)):
-            if cand != cs and fired(cand) > score:
-                score, best = fired(cand), cand
-        panels[i] = (sid, best)
-    return panels
+def _try_resolve(text: str, names: dict) -> str | None:
+    """Тот же поиск, что и _resolve, но без выхода: нужен, чтобы разобрать двоеточия в именах."""
+    t = text.strip().lower()
+    if not t:
+        return None
+    for k, v in names.items():
+        if t == v.lower() or t == k:
+            return k
+    hits = [k for k, v in names.items() if t in v.lower()]
+    return hits[0] if len(hits) == 1 else None
 
 
 def attempt(level_id: str, spec: str) -> None:
@@ -140,7 +157,14 @@ def attempt(level_id: str, spec: str) -> None:
         if not chunk:
             panels.append((None, []))
             continue
-        sname, _, rest = chunk.partition(":")
+        # Двоеточие есть и в названиях сцен («Обет: никого не казнить»), поэтому режем по
+        # ПОСЛЕДНЕМУ — оно отделяет список персонажей. Если справа от него не персонажи,
+        # значит двоеточий в имени больше, чем разделителей: пробуем всю строку как имя сцены.
+        sname, _, rest = chunk.rpartition(":")
+        if not sname:
+            sname, rest = chunk, ""
+        elif not _try_resolve(sname, scene_names) and _try_resolve(chunk, scene_names):
+            sname, rest = chunk, ""
         sid = _resolve(sname, scene_names, "сцену")
         cs = [_resolve(x, char_names, "персонажа") for x in rest.split(",") if x.strip()]
         panels.append((sid, cs))
@@ -200,7 +224,13 @@ def _diagnose(panels, lv, scenes) -> list[str]:
         else:
             pending.append(i)
     if not pending:
-        return ["wrong_order" if filled(i) else "ok" for i in range(len(panels))]
+        ref = [(p["scene"], list(p["characters"])) for p in lv["solution"]]
+        out = []
+        for i, (sid, cs) in enumerate(panels):
+            if not filled(i): out.append("ok"); continue
+            exact = any(r[0] == sid and r[1] == list(cs) for r in ref)
+            out.append("wrong_order" if exact else "wrong_slots")
+        return out
     for i in pending:
         sid, cs = filled(i)
         m = next((r for r in remaining if r[0] == sid), None)
@@ -237,7 +267,7 @@ if __name__ == "__main__":
         sys.exit(__doc__)
     cmd = sys.argv[1]
     if cmd == "brief":
-        brief(sys.argv[2])
+        brief(sys.argv[2], "--hint" in sys.argv)
     elif cmd == "try":
         attempt(sys.argv[2], sys.argv[3])
     elif cmd == "score":

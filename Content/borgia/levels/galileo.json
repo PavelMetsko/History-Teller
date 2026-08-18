@@ -1,0 +1,82 @@
+{
+ "id": "galileo",
+ "order": 155,
+ "epoch": "borgia",
+ "act": "Акт VI · Инквизиция",
+ "music": "borgia_tension",
+ "cover": "abjuration",
+ "panels": 4,
+ "scenes": [
+  "old_friends",
+  "dialogue",
+  "holy_office",
+  "abjuration",
+  "flee_venice"
+ ],
+ "characters": [
+  "galileo",
+  "urban8"
+ ],
+ "initialState": {
+  "flags": {
+   "urban8": [
+    "reigns",
+    "crowned"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "galileo",
+     "is": "published"
+    }
+   },
+   {
+    "flag": {
+     "char": "galileo",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "galileo",
+     "is": "house_arrest"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "old_friends",
+   "characters": [
+    "galileo",
+    "urban8"
+   ]
+  },
+  {
+   "scene": "dialogue",
+   "characters": [
+    "galileo",
+    "urban8"
+   ]
+  },
+  {
+   "scene": "holy_office",
+   "characters": [
+    "urban8",
+    "galileo"
+   ]
+  },
+  {
+   "scene": "abjuration",
+   "characters": [
+    "galileo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

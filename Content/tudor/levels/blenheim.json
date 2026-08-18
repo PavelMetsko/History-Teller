@@ -1,0 +1,82 @@
+{
+ "id": "blenheim",
+ "order": 285,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_battle",
+ "cover": "blenheim_field",
+ "panels": 3,
+ "scenes": [
+  "sarah_anne",
+  "danube_march",
+  "blenheim_field",
+  "wait_flanders"
+ ],
+ "characters": [
+  "marlborough",
+  "tallard",
+  "queen_anne"
+ ],
+ "initialState": {
+  "flags": {
+   "tallard": [],
+   "queen_anne": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "marlborough",
+    "tallard"
+   ],
+   [
+    "enemy_of",
+    "tallard",
+    "marlborough"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "queen_anne",
+     "to": "marlborough"
+    }
+   },
+   {
+    "flag": {
+     "char": "tallard",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sarah_anne",
+   "characters": [
+    "marlborough",
+    "queen_anne"
+   ]
+  },
+  {
+   "scene": "danube_march",
+   "characters": [
+    "marlborough"
+   ]
+  },
+  {
+   "scene": "blenheim_field",
+   "characters": [
+    "marlborough",
+    "tallard"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "id": "elba",
+ "order": 341,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_ceremony",
+ "cover": "grenoble_gate",
+ "panels": 4,
+ "scenes": [
+  "elba_escape",
+  "grenoble_gate",
+  "ney_cage",
+  "tuileries_flight"
+ ],
+ "characters": [
+  "napoleon",
+  "ney"
+ ],
+ "initialState": {
+  "flags": {}
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "away"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "beloved"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "rallied"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "elba_escape",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "grenoble_gate",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "ney_cage",
+   "characters": [
+    "napoleon",
+    "ney"
+   ]
+  },
+  {
+   "scene": "tuileries_flight",
+   "characters": [
+    "napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

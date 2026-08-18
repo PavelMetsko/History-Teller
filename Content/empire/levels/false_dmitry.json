@@ -1,0 +1,81 @@
+{
+ "id": "false_dmitry",
+ "order": 42,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_battle",
+ "cover": "boris_death",
+ "panels": 3,
+ "scenes": [
+  "standard_fd",
+  "boris_death",
+  "sobor_c",
+  "dobrynichi"
+ ],
+ "characters": [
+  "false_dmitry",
+  "godunov"
+ ],
+ "initialState": {
+  "flags": {
+   "godunov": [
+    "reigns",
+    "crowned",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "false_dmitry",
+    "godunov"
+   ],
+   [
+    "enemy_of",
+    "godunov",
+    "false_dmitry"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "godunov",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "false_dmitry",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "standard_fd",
+   "characters": [
+    "false_dmitry"
+   ]
+  },
+  {
+   "scene": "boris_death",
+   "characters": [
+    "false_dmitry",
+    "godunov"
+   ]
+  },
+  {
+   "scene": "sobor_c",
+   "characters": [
+    "false_dmitry"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

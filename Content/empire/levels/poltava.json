@@ -2,7 +2,7 @@
  "id": "poltava",
  "order": 60,
  "epoch": "empire",
- "act": "Акт II · Пётр Великий",
+ "act": "Акт III · Пётр Великий",
  "panels": 2,
  "scenes": [
   "muster_p",
@@ -38,5 +38,19 @@
  "music": "empire_battle",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "peter",
+    "charles"
+   ],
+   [
+    "enemy_of",
+    "charles",
+    "peter"
+   ]
+  ]
  }
 }

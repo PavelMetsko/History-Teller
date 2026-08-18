@@ -2,7 +2,7 @@
  "id": "execution",
  "order": 130,
  "epoch": "empire",
- "act": "Акт III · Екатерина Великая",
+ "act": "Акт V · Екатерина Великая",
  "panels": 2,
  "scenes": [
   "plakha",
@@ -17,22 +17,38 @@
   "flags": {
    "catherine": [
     "reigns",
-    "crowned"
+    "crowned",
+    "standing"
+   ],
+   "suvorov": [
+    "strong"
    ]
-  }
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "suvorov",
+    "pugachev"
+   ],
+   [
+    "enemy_of",
+    "pugachev",
+    "suvorov"
+   ]
+  ]
  },
  "goal": {
   "all": [
    {
     "flag": {
      "char": "pugachev",
-     "is": "dead"
+     "is": "defeated"
     }
    },
    {
     "flag": {
      "char": "pugachev",
-     "is": "beheaded"
+     "is": "executed"
     }
    }
   ]

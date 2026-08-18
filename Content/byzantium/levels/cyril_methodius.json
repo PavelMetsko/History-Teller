@@ -1,0 +1,74 @@
+{
+ "id": "cyril_methodius",
+ "order": 153,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_ceremony",
+ "cover": "slav_alphabet",
+ "panels": 3,
+ "scenes": [
+  "moravian_letter",
+  "slav_alphabet",
+  "three_tongues",
+  "sophia_library"
+ ],
+ "characters": [
+  "cyril_phil",
+  "methodius_b",
+  "latin_bishop"
+ ],
+ "initialState": {
+  "flags": {
+   "cyril_phil": [
+    "standing"
+   ],
+   "methodius_b": [
+    "standing"
+   ],
+   "latin_bishop": [
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cyril_phil",
+     "is": "alphabet"
+    }
+   },
+   {
+    "flag": {
+     "char": "latin_bishop",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "moravian_letter",
+   "characters": [
+    "cyril_phil",
+    "methodius_b"
+   ]
+  },
+  {
+   "scene": "slav_alphabet",
+   "characters": [
+    "cyril_phil"
+   ]
+  },
+  {
+   "scene": "three_tongues",
+   "characters": [
+    "cyril_phil",
+    "latin_bishop"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

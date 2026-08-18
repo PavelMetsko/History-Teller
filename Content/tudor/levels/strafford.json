@@ -1,0 +1,93 @@
+{
+ "id": "strafford",
+ "order": 245,
+ "epoch": "tudor",
+ "act": "Акт VI · Стюарты",
+ "music": "tudor_court",
+ "cover": "tower_hill_s",
+ "panels": 3,
+ "scenes": [
+  "attainder_strafford",
+  "king_signs",
+  "tower_hill_s",
+  "king_refuses"
+ ],
+ "characters": [
+  "strafford",
+  "pym",
+  "charles1"
+ ],
+ "initialState": {
+  "flags": {
+   "pym": [
+    "standing"
+   ],
+   "charles1": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "pym",
+    "strafford"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "strafford",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "conceded"
+    }
+   },
+   {
+    "flag": {
+     "char": "strafford",
+     "is": "executed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "charles1",
+      "is": "besieged"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "attainder_strafford",
+   "characters": [
+    "pym",
+    "strafford"
+   ]
+  },
+  {
+   "scene": "king_signs",
+   "characters": [
+    "pym",
+    "charles1"
+   ]
+  },
+  {
+   "scene": "tower_hill_s",
+   "characters": [
+    "pym",
+    "strafford"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

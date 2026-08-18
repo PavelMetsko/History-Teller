@@ -1,0 +1,83 @@
+{
+ "id": "menshikov",
+ "order": 85,
+ "epoch": "empire",
+ "act": "Акт IV · Дворцовые перевороты",
+ "music": "empire_romance",
+ "cover": "peter_cudgel",
+ "panels": 4,
+ "scenes": [
+  "pie_seller",
+  "serene_prince",
+  "embezzle",
+  "peter_cudgel",
+  "menshikov_block"
+ ],
+ "characters": [
+  "peter",
+  "menshikov"
+ ],
+ "initialState": {
+  "flags": {
+   "peter": [
+    "reigns",
+    "crowned",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "menshikov",
+     "is": "titled"
+    }
+   },
+   {
+    "flag": {
+     "char": "menshikov",
+     "is": "beaten"
+    }
+   },
+   {
+    "flag": {
+     "char": "menshikov",
+     "is": "forgiven"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pie_seller",
+   "characters": [
+    "peter",
+    "menshikov"
+   ]
+  },
+  {
+   "scene": "serene_prince",
+   "characters": [
+    "peter",
+    "menshikov"
+   ]
+  },
+  {
+   "scene": "embezzle",
+   "characters": [
+    "menshikov"
+   ]
+  },
+  {
+   "scene": "peter_cudgel",
+   "characters": [
+    "peter",
+    "menshikov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

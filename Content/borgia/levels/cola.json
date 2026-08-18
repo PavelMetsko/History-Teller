@@ -1,0 +1,85 @@
+{
+ "id": "cola",
+ "order": 6,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_tension",
+ "cover": "capitol_tribune",
+ "panels": 4,
+ "scenes": [
+  "capitol_tribune",
+  "porta_san_lorenzo",
+  "cola_bath",
+  "capitol_mob_i",
+  "bribe_barons"
+ ],
+ "characters": [
+  "cola",
+  "colonna"
+ ],
+ "initialState": {
+  "flags": {
+   "colonna": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cola",
+    "colonna"
+   ],
+   [
+    "enemy_of",
+    "colonna",
+    "cola"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "colonna",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "cola",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "capitol_tribune",
+   "characters": [
+    "cola"
+   ]
+  },
+  {
+   "scene": "porta_san_lorenzo",
+   "characters": [
+    "cola",
+    "colonna"
+   ]
+  },
+  {
+   "scene": "cola_bath",
+   "characters": [
+    "cola"
+   ]
+  },
+  {
+   "scene": "capitol_mob_i",
+   "characters": [
+    "cola"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

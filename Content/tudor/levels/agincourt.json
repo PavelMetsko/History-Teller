@@ -1,0 +1,87 @@
+{
+ "id": "agincourt",
+ "order": 42,
+ "epoch": "tudor",
+ "act": "Акт II · Ланкастеры и Йорки",
+ "music": "tudor_battle",
+ "cover": "agincourt_field",
+ "panels": 3,
+ "scenes": [
+  "stakes_a",
+  "mud_a",
+  "agincourt_field",
+  "kill_prisoners"
+ ],
+ "characters": [
+  "henry5",
+  "dalbret"
+ ],
+ "initialState": {
+  "flags": {
+   "dalbret": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry5",
+    "dalbret"
+   ],
+   [
+    "enemy_of",
+    "dalbret",
+    "henry5"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dalbret",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "henry5",
+     "is": "victor"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "dalbret",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "stakes_a",
+   "characters": [
+    "henry5"
+   ]
+  },
+  {
+   "scene": "mud_a",
+   "characters": [
+    "henry5",
+    "dalbret"
+   ]
+  },
+  {
+   "scene": "agincourt_field",
+   "characters": [
+    "henry5",
+    "dalbret"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

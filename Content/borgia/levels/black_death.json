@@ -1,0 +1,75 @@
+{
+ "id": "black_death",
+ "order": 7,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "borgia_tension",
+ "cover": "caffa_galley",
+ "panels": 4,
+ "scenes": [
+  "caffa_galley",
+  "lazzaretto",
+  "florence_1348",
+  "fiesole_villa",
+  "cathedral_procession"
+ ],
+ "characters": [
+  "boccaccio",
+  "venice_doge",
+  "galley_master"
+ ],
+ "initialState": {
+  "flags": {
+   "venice_doge": [
+    "reigns",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "galley_master",
+     "is": "contained"
+    }
+   },
+   {
+    "flag": {
+     "char": "boccaccio",
+     "is": "decameron"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "caffa_galley",
+   "characters": [
+    "galley_master"
+   ]
+  },
+  {
+   "scene": "lazzaretto",
+   "characters": [
+    "venice_doge",
+    "galley_master"
+   ]
+  },
+  {
+   "scene": "florence_1348",
+   "characters": [
+    "boccaccio"
+   ]
+  },
+  {
+   "scene": "fiesole_villa",
+   "characters": [
+    "boccaccio"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

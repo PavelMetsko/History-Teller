@@ -1,0 +1,86 @@
+{
+ "id": "quebec",
+ "order": 315,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_battle",
+ "cover": "heights_abraham",
+ "panels": 3,
+ "scenes": [
+  "heights_abraham",
+  "plains_abraham",
+  "two_generals_die",
+  "bombard_quebec"
+ ],
+ "characters": [
+  "wolfe",
+  "montcalm"
+ ],
+ "initialState": {
+  "flags": {
+   "montcalm": [],
+   "wolfe": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wolfe",
+    "montcalm"
+   ],
+   [
+    "enemy_of",
+    "montcalm",
+    "wolfe"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "montcalm",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "wolfe",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "montcalm",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "heights_abraham",
+   "characters": [
+    "wolfe"
+   ]
+  },
+  {
+   "scene": "plains_abraham",
+   "characters": [
+    "wolfe",
+    "montcalm"
+   ]
+  },
+  {
+   "scene": "two_generals_die",
+   "characters": [
+    "wolfe",
+    "montcalm"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

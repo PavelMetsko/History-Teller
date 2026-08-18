@@ -1,0 +1,87 @@
+{
+ "id": "tilsit",
+ "order": 334,
+ "epoch": "revolution",
+ "act": "Акт IV · Наполеон",
+ "music": "revolution_ceremony",
+ "cover": "niemen_raft",
+ "panels": 3,
+ "scenes": [
+  "friedland",
+  "niemen_raft",
+  "prussia_carved",
+  "fight_on"
+ ],
+ "characters": [
+  "napoleon",
+  "alexander1"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "napoleon",
+    "alexander1"
+   ],
+   [
+    "enemy_of",
+    "alexander1",
+    "napoleon"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander1",
+     "is": "at_war"
+    }
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "alexander1",
+     "to": "napoleon"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "master_of_europe"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "friedland",
+   "characters": [
+    "napoleon",
+    "alexander1"
+   ]
+  },
+  {
+   "scene": "niemen_raft",
+   "characters": [
+    "napoleon",
+    "alexander1"
+   ]
+  },
+  {
+   "scene": "prussia_carved",
+   "characters": [
+    "napoleon",
+    "alexander1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

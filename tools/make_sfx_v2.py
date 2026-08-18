@@ -196,10 +196,60 @@ def s_win() -> np.ndarray:
     return finish(b, room=0.32, rt60=2.0, peak=0.78)
 
 
+def s_clash() -> np.ndarray:
+    """Битва/стояние: два удара стали друг о друга — металл без низкого «тела» смерти."""
+    b = buf(0.7)
+    for i, (t0, seed) in enumerate(((0.0, 60), (0.13, 61))):
+        metal = noise_hit(0.22, 2200, 9500, 30, seed=seed)
+        metal += 0.45 * bell(note("E6") * (1.0 + i * 0.03), 0.22, decay=0.22, strike=0.7, seed=seed + 5)[:len(metal)]
+        add(b, metal / (np.max(np.abs(metal)) + 1e-9), t0, 0.5 - i * 0.1, pan=0.4 + i * 0.2)
+    add(b, drum(0.25, freq=95.0, tight=18.0, snap=0.2, seed=62), 0.13, 0.28)
+    return finish(b, room=0.2, rt60=1.0, peak=0.66)
+
+
+def s_coin() -> np.ndarray:
+    """Подкуп: две монеты звякнули о стол — короткие яркие колокольчики."""
+    b = buf(0.6)
+    add(b, bell(note("E6"), 0.4, decay=0.35, strike=0.8, seed=70), 0.0, 0.42, pan=0.42)
+    add(b, bell(note("B6"), 0.35, decay=0.3, strike=0.8, seed=71), 0.07, 0.34, pan=0.58)
+    add(b, bell(note("G6"), 0.3, decay=0.28, strike=0.7, seed=72), 0.15, 0.22, pan=0.5)
+    add(b, noise_hit(0.03, 3000, 9000, 120, seed=73), 0.0, 0.16)
+    return finish(b, room=0.14, rt60=0.7, peak=0.5)
+
+
+def s_gavel() -> np.ndarray:
+    """Суд/обвинение: два сухих удара дерева о дерево + низкая струна приговора."""
+    b = buf(0.7)
+    for i, t0 in enumerate((0.0, 0.16)):
+        add(b, noise_hit(0.05, 250, 2000, 60, seed=80 + i), t0, 0.5)
+        add(b, drum(0.14, freq=180.0, tight=30.0, snap=0.15, seed=82 + i), t0, 0.4)
+    add(b, pluck(note("A2"), 0.5, damp=0.9915, bright=0.16, body=0.5, seed=84), 0.2, 0.36)
+    return finish(b, room=0.18, rt60=0.9, peak=0.58)
+
+
+def s_drum() -> np.ndarray:
+    """Поход/сила/знамя: два удара войскового барабана с трещоткой."""
+    b = buf(0.8)
+    add(b, drum(0.35, freq=70.0, tight=9.0, snap=0.35, seed=90), 0.0, 0.62)
+    add(b, drum(0.35, freq=70.0, tight=9.0, snap=0.35, seed=91), 0.21, 0.5)
+    add(b, noise_hit(0.12, 500, 4000, 40, seed=92), 0.21, 0.22)
+    add(b, noise_hit(0.08, 500, 4000, 60, seed=93), 0.42, 0.14)
+    return finish(b, room=0.22, rt60=1.1, peak=0.62)
+
+
+def s_flee() -> np.ndarray:
+    """Уход/бегство: длинный шорох вниз, будто ушли за дверь."""
+    b = buf(0.5)
+    add(b, swish(0.36, 2600, 500, seed=95), 0.0, 0.46, pan=0.6)
+    add(b, noise_hit(0.05, 200, 1200, 70, seed=96), 0.3, 0.16, pan=0.4)
+    return finish(b, room=0.16, rt60=0.8, peak=0.46)
+
+
 SFX = {
     "select": s_select, "place": s_place, "remove": s_remove, "error": s_error,
     "ally": s_ally, "conspire": s_conspire, "love": s_love, "envy": s_envy,
     "crown": s_crown, "kill": s_kill, "win": s_win,
+    "clash": s_clash, "coin": s_coin, "gavel": s_gavel, "drum": s_drum, "flee": s_flee,
 }
 
 

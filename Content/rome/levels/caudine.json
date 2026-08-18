@@ -1,0 +1,79 @@
+{
+ "id": "caudine",
+ "order": 52,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "battle",
+ "cover": "yoke",
+ "panels": 3,
+ "scenes": [
+  "caudine_pass",
+  "elder_advice",
+  "yoke",
+  "massacre_pass"
+ ],
+ "characters": [
+  "pontius",
+  "herennius",
+  "postumius"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "pontius",
+    "postumius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "postumius",
+     "is": "humiliated"
+    }
+   },
+   {
+    "flag": {
+     "char": "pontius",
+     "is": "half_measure"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "postumius",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "caudine_pass",
+   "characters": [
+    "pontius",
+    "postumius"
+   ]
+  },
+  {
+   "scene": "elder_advice",
+   "characters": [
+    "herennius",
+    "pontius"
+   ]
+  },
+  {
+   "scene": "yoke",
+   "characters": [
+    "pontius",
+    "postumius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

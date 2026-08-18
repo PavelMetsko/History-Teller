@@ -1,0 +1,99 @@
+{
+ "id": "hastings",
+ "order": 10,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_battle",
+ "cover": "hastings_field",
+ "panels": 3,
+ "scenes": [
+  "stamford_bridge",
+  "forced_march",
+  "hastings_field",
+  "wait_london"
+ ],
+ "characters": [
+  "harold",
+  "hardrada",
+  "william"
+ ],
+ "initialState": {
+  "flags": {
+   "harold": [
+    "strong"
+   ],
+   "william": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "harold",
+    "hardrada"
+   ],
+   [
+    "enemy_of",
+    "hardrada",
+    "harold"
+   ],
+   [
+    "enemy_of",
+    "william",
+    "harold"
+   ],
+   [
+    "enemy_of",
+    "harold",
+    "william"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hardrada",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "harold",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "william",
+     "is": "victor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "stamford_bridge",
+   "characters": [
+    "harold",
+    "hardrada"
+   ]
+  },
+  {
+   "scene": "forced_march",
+   "characters": [
+    "harold"
+   ]
+  },
+  {
+   "scene": "hastings_field",
+   "characters": [
+    "william",
+    "harold"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,84 @@
+{
+ "id": "basil_bulgar",
+ "order": 155,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "byzantium_battle",
+ "cover": "blind_15000",
+ "panels": 3,
+ "scenes": [
+  "kleidion_pass",
+  "kleidion_battle",
+  "blind_15000",
+  "bulgar_tribute"
+ ],
+ "characters": [
+  "basil2",
+  "samuel"
+ ],
+ "initialState": {
+  "flags": {
+   "basil2": [
+    "reigns",
+    "standing"
+   ],
+   "samuel": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "basil2",
+    "samuel"
+   ],
+   [
+    "enemy_of",
+    "samuel",
+    "basil2"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "samuel",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "basil2",
+     "is": "bulgar_slayer"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kleidion_pass",
+   "characters": [
+    "basil2"
+   ]
+  },
+  {
+   "scene": "kleidion_battle",
+   "characters": [
+    "basil2",
+    "samuel"
+   ]
+  },
+  {
+   "scene": "blind_15000",
+   "characters": [
+    "basil2",
+    "samuel"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

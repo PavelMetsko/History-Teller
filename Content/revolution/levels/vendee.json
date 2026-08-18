@@ -1,0 +1,85 @@
+{
+ "id": "vendee",
+ "order": 242,
+ "epoch": "revolution",
+ "act": "Акт III · Революция",
+ "music": "revolution_lament",
+ "cover": "vendee_rising",
+ "panels": 3,
+ "scenes": [
+  "vendee_rising",
+  "saumur",
+  "nantes_walls",
+  "infernal_columns"
+ ],
+ "characters": [
+  "cathelineau",
+  "carteaux"
+ ],
+ "initialState": {
+  "flags": {
+   "carteaux": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cathelineau",
+    "carteaux"
+   ],
+   [
+    "enemy_of",
+    "carteaux",
+    "cathelineau"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cathelineau",
+     "is": "rallied"
+    }
+   },
+   {
+    "flag": {
+     "char": "cathelineau",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "cathelineau",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "vendee_rising",
+   "characters": [
+    "cathelineau"
+   ]
+  },
+  {
+   "scene": "nantes_walls",
+   "characters": [
+    "cathelineau",
+    "carteaux"
+   ]
+  },
+  {
+   "scene": "infernal_columns",
+   "characters": [
+    "carteaux",
+    "cathelineau"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

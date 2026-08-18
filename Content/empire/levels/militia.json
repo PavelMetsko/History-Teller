@@ -1,0 +1,81 @@
+{
+ "id": "militia",
+ "order": 46,
+ "epoch": "empire",
+ "act": "Акт II · Смута",
+ "music": "empire_battle",
+ "cover": "moscow_1612",
+ "panels": 3,
+ "scenes": [
+  "minin_call",
+  "militia_muster",
+  "moscow_1612",
+  "wait_yaroslavl"
+ ],
+ "characters": [
+  "minin",
+  "pozharsky",
+  "hetman"
+ ],
+ "initialState": {
+  "flags": {
+   "hetman": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "pozharsky",
+    "hetman"
+   ],
+   [
+    "enemy_of",
+    "hetman",
+    "pozharsky"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hetman",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "pozharsky",
+     "is": "victor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "minin_call",
+   "characters": [
+    "minin"
+   ]
+  },
+  {
+   "scene": "militia_muster",
+   "characters": [
+    "minin",
+    "pozharsky"
+   ]
+  },
+  {
+   "scene": "moscow_1612",
+   "characters": [
+    "pozharsky",
+    "hetman"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

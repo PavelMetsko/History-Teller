@@ -1,0 +1,96 @@
+{
+ "id": "duguesclin",
+ "order": 23,
+ "epoch": "revolution",
+ "act": "Акт I · Капетинги и Валуа",
+ "music": "revolution_battle",
+ "cover": "town_by_town",
+ "panels": 3,
+ "scenes": [
+  "constable_sword",
+  "burnt_fields",
+  "town_by_town",
+  "open_field_calais"
+ ],
+ "characters": [
+  "charles5",
+  "duguesclin",
+  "black_prince"
+ ],
+ "initialState": {
+  "flags": {
+   "charles5": [
+    "reigns",
+    "standing"
+   ],
+   "black_prince": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "charles5",
+    "duguesclin"
+   ],
+   [
+    "ally_of",
+    "duguesclin",
+    "charles5"
+   ],
+   [
+    "enemy_of",
+    "duguesclin",
+    "black_prince"
+   ],
+   [
+    "enemy_of",
+    "black_prince",
+    "duguesclin"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "duguesclin",
+     "is": "reconquered"
+    }
+   },
+   {
+    "flag": {
+     "char": "black_prince",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "constable_sword",
+   "characters": [
+    "duguesclin",
+    "charles5"
+   ]
+  },
+  {
+   "scene": "burnt_fields",
+   "characters": [
+    "duguesclin",
+    "black_prince"
+   ]
+  },
+  {
+   "scene": "town_by_town",
+   "characters": [
+    "duguesclin",
+    "black_prince"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

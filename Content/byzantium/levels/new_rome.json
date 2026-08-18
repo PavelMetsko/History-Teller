@@ -1,0 +1,79 @@
+{
+ "id": "new_rome",
+ "order": 2,
+ "epoch": "byzantium",
+ "act": "Акт I · Новый Рим",
+ "music": "byzantium_ceremony",
+ "cover": "dedication_330",
+ "panels": 3,
+ "scenes": [
+  "chrysopolis",
+  "byzantion_site",
+  "dedication_330",
+  "spare_licinius"
+ ],
+ "characters": [
+  "constantine",
+  "licinius"
+ ],
+ "initialState": {
+  "flags": {
+   "constantine": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "constantine",
+    "licinius"
+   ],
+   [
+    "enemy_of",
+    "licinius",
+    "constantine"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "licinius",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "constantine",
+     "is": "capital"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "chrysopolis",
+   "characters": [
+    "constantine",
+    "licinius"
+   ]
+  },
+  {
+   "scene": "byzantion_site",
+   "characters": [
+    "constantine"
+   ]
+  },
+  {
+   "scene": "dedication_330",
+   "characters": [
+    "constantine"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,8 +1,8 @@
 {
  "id": "sacre",
- "order": 120,
+ "order": 320,
  "epoch": "revolution",
- "act": "Акт III · Наполеон",
+ "act": "Акт IV · Наполеон",
  "panels": 3,
  "scenes": [
   "sacre",
@@ -17,13 +17,13 @@
    {
     "flag": {
      "char": "napoleon",
-     "is": "emperor"
+     "is": "first_consul"
     }
    },
    {
     "flag": {
      "char": "napoleon",
-     "is": "crowned"
+     "is": "emperor"
     }
    }
   ]
@@ -52,5 +52,6 @@
  "music": "revolution_ceremony",
  "factCard": {
   "accuracy": "fact"
- }
+ },
+ "initialState": {}
 }

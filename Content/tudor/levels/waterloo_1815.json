@@ -1,0 +1,85 @@
+{
+ "id": "waterloo_1815",
+ "order": 335,
+ "epoch": "tudor",
+ "act": "Акт VII · Империя",
+ "music": "tudor_battle",
+ "cover": "waterloo_field",
+ "panels": 3,
+ "scenes": [
+  "mont_saint_jean",
+  "blucher_arrives",
+  "waterloo_field",
+  "attack_first"
+ ],
+ "characters": [
+  "wellington",
+  "napoleon",
+  "blucher"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "strong"
+   ],
+   "wellington": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wellington",
+    "napoleon"
+   ],
+   [
+    "enemy_of",
+    "napoleon",
+    "wellington"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "blucher",
+     "to": "wellington"
+    }
+   },
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "defeated"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mont_saint_jean",
+   "characters": [
+    "wellington"
+   ]
+  },
+  {
+   "scene": "blucher_arrives",
+   "characters": [
+    "wellington",
+    "blucher"
+   ]
+  },
+  {
+   "scene": "waterloo_field",
+   "characters": [
+    "wellington",
+    "napoleon",
+    "blucher"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

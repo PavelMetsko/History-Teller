@@ -1,0 +1,73 @@
+{
+ "id": "decius",
+ "order": 51,
+ "epoch": "rome",
+ "act": "Акт II · Республика и Карфаген",
+ "music": "battle",
+ "cover": "devotio",
+ "panels": 3,
+ "scenes": [
+  "devotio",
+  "veseris",
+  "death_in_line",
+  "consul_flees"
+ ],
+ "characters": [
+  "decius",
+  "latin_chief"
+ ],
+ "initialState": {
+  "relations": [
+   [
+    "enemy_of",
+    "decius",
+    "latin_chief"
+   ],
+   [
+    "enemy_of",
+    "latin_chief",
+    "decius"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "latin_chief",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "decius",
+     "is": "honourable"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "devotio",
+   "characters": [
+    "decius"
+   ]
+  },
+  {
+   "scene": "veseris",
+   "characters": [
+    "decius",
+    "latin_chief"
+   ]
+  },
+  {
+   "scene": "death_in_line",
+   "characters": [
+    "decius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

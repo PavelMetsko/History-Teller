@@ -1,0 +1,69 @@
+{
+ "id": "crecy",
+ "order": 34,
+ "epoch": "tudor",
+ "act": "Акт I · Нормандцы и Плантагенеты",
+ "music": "tudor_battle",
+ "cover": "crecy_field",
+ "panels": 2,
+ "scenes": [
+  "longbows_c",
+  "crecy_field",
+  "send_help"
+ ],
+ "characters": [
+  "edward3",
+  "black_prince",
+  "philip6"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": [
+   [
+    "enemy_of",
+    "edward3",
+    "philip6"
+   ],
+   [
+    "enemy_of",
+    "philip6",
+    "edward3"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "philip6",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "black_prince",
+     "is": "honourable"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "longbows_c",
+   "characters": [
+    "edward3"
+   ]
+  },
+  {
+   "scene": "crecy_field",
+   "characters": [
+    "edward3",
+    "philip6",
+    "black_prince"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

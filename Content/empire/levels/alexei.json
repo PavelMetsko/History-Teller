@@ -2,8 +2,8 @@
  "id": "alexei",
  "order": 70,
  "epoch": "empire",
- "act": "Акт II · Пётр Великий",
- "panels": 1,
+ "act": "Акт III · Пётр Великий",
+ "panels": 2,
  "scenes": [
   "sud",
   "streletsky"
@@ -13,14 +13,31 @@
   "alexei"
  ],
  "goal": {
-  "flag": {
-   "char": "alexei",
-   "is": "dead"
-  }
+  "all": [
+   {
+    "flag": {
+     "char": "alexei",
+     "is": "condemned"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexei",
+     "is": "dead"
+    }
+   }
+  ]
  },
  "solution": [
   {
    "scene": "sud",
+   "characters": [
+    "peter",
+    "alexei"
+   ]
+  },
+  {
+   "scene": "streletsky",
    "characters": [
     "peter",
     "alexei"
@@ -31,5 +48,19 @@
  "music": "empire_tension",
  "factCard": {
   "accuracy": "fact"
+ },
+ "initialState": {
+  "flags": {
+   "peter": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "peter",
+    "alexei"
+   ]
+  ]
  }
 }

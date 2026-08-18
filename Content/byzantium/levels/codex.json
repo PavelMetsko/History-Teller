@@ -1,0 +1,76 @@
+{
+ "id": "codex",
+ "order": 35,
+ "epoch": "byzantium",
+ "act": "Акт II · Восхождение Юстиниана",
+ "music": "byzantium_ceremony",
+ "cover": "codex_book",
+ "panels": 3,
+ "scenes": [
+  "three_million",
+  "codex_book",
+  "digest_years",
+  "prefect_purse"
+ ],
+ "characters": [
+  "justinian",
+  "tribonian",
+  "john"
+ ],
+ "initialState": {
+  "flags": {
+   "justinian": [
+    "reigns",
+    "standing"
+   ],
+   "tribonian": [
+    "jurist"
+   ],
+   "john": [
+    "prefect",
+    "standing"
+   ]
+  }
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tribonian",
+     "is": "immortal"
+    }
+   },
+   {
+    "flag": {
+     "char": "justinian",
+     "is": "lawgiver"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "three_million",
+   "characters": [
+    "justinian",
+    "tribonian"
+   ]
+  },
+  {
+   "scene": "codex_book",
+   "characters": [
+    "tribonian"
+   ]
+  },
+  {
+   "scene": "digest_years",
+   "characters": [
+    "tribonian",
+    "justinian"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}
