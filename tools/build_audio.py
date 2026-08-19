@@ -27,8 +27,7 @@ MUSIC_TP = -1.5
 MUSIC_BITRATE = "80k"     # стерео LC-AAC; материал тональный, артефактов не слышно
 SFX_BITRATE = "96k"
 
-SFX_NAMES = {"place", "remove", "select", "ally", "conspire", "love", "kill", "crown", "envy",
-             "win", "error", "clash", "coin", "gavel", "drum", "flee"}
+SFX_NAMES = {"place", "select", "accent", "win", "error"}
 
 
 def measure(path: Path) -> dict:

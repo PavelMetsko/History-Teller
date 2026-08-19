@@ -13,23 +13,10 @@ private struct PanelFramesKey: PreferenceKey {
 
 /// Звук по типу события (сами события выводятся из эффектов правила — см. LevelBoardModel.beat).
 private func sfx(for beat: LevelBoardModel.Beat) -> Audio.SFX {
-    switch beat.kind {
-    case .kill:                    return .kill
-    case .battle, .conquer:        return .clash
-    case .condemn:                 return .gavel
-    case .crown, .triumph, .birth: return .crown
-    case .march:                   return .drum
-    case .love:                    return .love
-    case .ally:                    return beat.symbol == "💰" ? .coin : .ally
-    case .downfall:                return .error
-    case .conspire:                return .conspire
-    case .spark:
-        switch beat.symbol {
-        case "💪", "🚩": return .drum
-        case "🏃":       return .flee
-        default:         return .select
-        }
-    }
+    // Один акцент на все события доски. Раньше их было двенадцать (удар меча, приговор, корона,
+    // барабан…), но за игру большинство звучало по два-три раза и только пестрило; общий акцент
+    // читается как «на доске что-то произошло» и не спорит с музыкой.
+    beat.kind == .downfall ? .error : .accent
 }
 
 private extension Font {
@@ -479,7 +466,7 @@ public struct LevelBoardView: View {
             iconButton("info.circle", tint: DS.Palette.ink) {
                 withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { showInfo = true }
             }
-            iconButton("arrow.counterclockwise", tint: DS.Palette.maroon) { Audio.shared.play(.remove); model.reset() }
+            iconButton("arrow.counterclockwise", tint: DS.Palette.maroon) { Audio.shared.play(.place); model.reset() }
         }
     }
 
@@ -805,7 +792,7 @@ private struct PanelCell: View {
         .overlay(alignment: .topTrailing) {
             if panel.sceneId != nil {
                 Button {
-                    Audio.shared.play(.remove); Haptics.light()
+                    Audio.shared.play(.place); Haptics.light()
                     withAnimation(.spring(response: 0.35, dampingFraction: 0.7)) {
                         model.setScene(nil, at: index)
                     }
@@ -908,7 +895,7 @@ private struct PanelCell: View {
                             if model.selected != nil {
                                 applyTap()
                             } else {
-                                Audio.shared.play(.remove); Haptics.light()
+                                Audio.shared.play(.place); Haptics.light()
                                 model.removeCharacter(charId, at: index)
                             }
                         } label: {

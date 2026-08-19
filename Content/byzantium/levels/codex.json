@@ -3,7 +3,7 @@
  "order": 35,
  "epoch": "byzantium",
  "act": "Акт II · Восхождение Юстиниана",
- "music": "byzantium_ceremony",
+ "music": "theme",
  "cover": "codex_book",
  "panels": 3,
  "scenes": [

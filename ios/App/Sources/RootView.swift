@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 import Simulation
 import GameContent
 import GameProgress
@@ -186,7 +187,7 @@ struct RootView: View {
                         level: level,
                         db: pack.db,
                         onSolved: { progress.markCompleted(id) },
-                        onExit: { go(.map) }
+                        onExit: { go(.map); maybeAskForReview(pack) }
                     )
                     .id(id)
                 } else {
@@ -197,6 +198,20 @@ struct RootView: View {
             errorView(loadError)
         } else {
             bootView.task { await boot() }
+        }
+    }
+
+    /// Просьба оценить игру в магазине. Зовём после выхода с уровня — игрок только что выиграл
+    /// и закрыл факт-карточку; правила («втянулся», «не чаще раза в сутки») живут в ReviewPrompt.
+    private func maybeAskForReview(_ pack: RomeContent.Pack) {
+        let epochs = Set(pack.levels.filter { progress.isCompleted($0.id) }.map(\.epoch))
+        guard ReviewPrompt.shouldAsk(solvedCount: progress.solvedCount, chaptersTouched: epochs.count) else { return }
+        ReviewPrompt.recordAsked()
+        // Небольшая пауза: окно магазина поверх анимации возврата на карту выглядит рвано.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            guard let scene = UIApplication.shared.connectedScenes
+                .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+            AppStore.requestReview(in: scene)
         }
     }
 

@@ -16,10 +16,10 @@ public final class Audio {
     public var sfxOn: Bool   { (UserDefaults.standard.object(forKey: "ht.sfx")   as? Bool) ?? true }
 
     public enum SFX: String, CaseIterable {
-        case place, remove, select, ally, conspire, love, kill, crown, envy, win, error, clash, coin, gavel, drum, flee
+        case place, select, accent, win, error
 
         /// Громкие сюжетные удары — под них музыка приседает, чтобы не спорить с ними.
-        var ducks: Bool { self == .kill || self == .win || self == .crown }
+        var ducks: Bool { self == .win || self == .accent }
     }
 
     // MARK: - Музыка

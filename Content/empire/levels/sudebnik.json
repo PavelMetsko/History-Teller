@@ -3,7 +3,7 @@
  "order": 15,
  "epoch": "empire",
  "act": "Акт I · Иван Грозный",
- "music": "empire_ceremony",
+ "music": "theme",
  "cover": "rada_circle",
  "panels": 3,
  "scenes": [

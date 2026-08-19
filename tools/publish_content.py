@@ -32,7 +32,7 @@ CONTENT = ROOT / "Content"
 # Позы персонажей: докладываются к базовому спрайту, если файл есть (движок сам решает, рисовать ли).
 POSES = ["dead", "defeated", "plot", "triumph"]
 # SFX — имена из Audio.SFX (iOS) / Audio.SFX (Android). Нужны всегда, не привязаны к главе.
-SFX = ["place", "remove", "select", "ally", "conspire", "love", "kill", "crown", "envy", "win", "error", "clash", "coin", "gavel", "drum", "flee"]
+SFX = ["place", "select", "accent", "win", "error"]
 # Персонажи на главном экране (MenuView.swift / MenuScreen в Root.kt).
 MENU_CHARACTERS = ["caesar", "cleopatra"]
 

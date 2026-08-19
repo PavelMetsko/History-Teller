@@ -137,7 +137,14 @@ fun Root(startLevel: String? = null) {
                         is Screen.Level -> BoardScreen(
                             levelId = s.id,
                             onSolved = { progress.markCompleted(s.id) },
-                            onExit = { screen = Screen.Map(GameContent.level(s.id)?.epoch ?: "rome") })
+                            onExit = {
+                                screen = Screen.Map(GameContent.level(s.id)?.epoch ?: "rome")
+                                // Просьба оценить игру — после выхода с уровня, когда награда уже прочитана.
+                                val done = GameContent.levels.filter { progress.isCompleted(it.id) }
+                                if (ReviewPrompt.shouldAsk(ctx, done.size, done.map { it.epoch }.distinct().size)) {
+                                    (ctx as? android.app.Activity)?.let { ReviewPrompt.ask(it) }
+                                }
+                            })
                     }
                 }
             }

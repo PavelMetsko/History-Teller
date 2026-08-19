@@ -194,18 +194,8 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         return mk(Kind.SPARK, null, null, "✨")
     }
 
-    private fun sfxFor(b: Beat): String = when (b.kind) {
-        Kind.KILL -> "kill"
-        Kind.BATTLE, Kind.CONQUER -> "clash"
-        Kind.CONDEMN -> "gavel"
-        Kind.CONSPIRE -> "conspire"
-        Kind.CROWN, Kind.TRIUMPH, Kind.BIRTH -> "crown"
-        Kind.MARCH -> "drum"
-        Kind.LOVE -> "love"
-        Kind.ALLY -> if (b.symbol == "💰") "coin" else "ally"
-        Kind.DOWNFALL -> "error"
-        Kind.SPARK -> when (b.symbol) { "💪", "🚩" -> "drum"; "🏃" -> "flee"; else -> "select" }
-    }
+    // Один акцент на все события доски: порт iOS, см. комментарий там.
+    private fun sfxFor(b: Beat): String = if (b.kind == Kind.DOWNFALL) "error" else "accent"
 
     private fun recompute() {
         autoAssignSlots()   // до симуляции: порядок внутри панели подбираем за игрока

@@ -29,12 +29,10 @@ import kotlin.random.Random
  * под сюжетные удары. Порт iOS Audio (AVAudioEngine).
  */
 object Audio {
-    private val SFX = listOf(
-        "place", "remove", "select", "ally", "conspire", "love", "kill", "crown", "envy", "win", "error",
-        "clash", "coin", "gavel", "drum", "flee")
+    private val SFX = listOf("place", "select", "accent", "win", "error")
 
     /** Громкие удары: под них музыка приседает, чтобы не спорить с ними. */
-    private val DUCKING = setOf("kill", "win", "crown")
+    private val DUCKING = setOf("win", "accent")
 
     private var pool: SoundPool? = null
     private val ids = HashMap<String, Int>()

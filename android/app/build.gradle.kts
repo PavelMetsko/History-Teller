@@ -24,8 +24,8 @@ android {
         applicationId = "com.decima.historyteller"
         minSdk = 26
         targetSdk = 36
-        versionCode = 5
-        versionName = "1.0.2"
+        versionCode = 6
+        versionName = "1.1.0"
     }
     buildFeatures { compose = true; buildConfig = true }
     compileOptions {
@@ -68,6 +68,7 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core")
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("com.google.android.play:review-ktx:2.0.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     // Play Billing 8.x required by Google Play (deadline 2026-08-31). Plain (non-ktx)
     // Java artifact: code uses callback APIs only, and billing-ktx 8.x needs Kotlin 2.1

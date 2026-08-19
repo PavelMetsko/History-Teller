@@ -3,7 +3,7 @@
  "order": 1,
  "epoch": "borgia",
  "act": "Акт I · Гвельфы и гибеллины",
- "music": "borgia_ceremony",
+ "music": "theme",
  "cover": "piazza_assisi",
  "panels": 3,
  "scenes": [
