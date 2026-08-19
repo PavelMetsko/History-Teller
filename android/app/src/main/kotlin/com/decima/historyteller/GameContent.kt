@@ -36,6 +36,28 @@ object L10n {
      * ключ показывался игроку голым. Правило: добавил ключ в код — продублируй его здесь.
      */
     private val builtin: Map<String, Map<String, String>> = mapOf(
+        "ui.terms" to mapOf(
+            "ru" to "Условия использования",
+            "en" to "Terms of Use",
+            "es" to "Términos de uso",
+            "de" to "Nutzungsbedingungen",
+            "fr" to "Conditions d'utilisation",
+            "it" to "Termini d'uso",
+            "pt" to "Termos de uso",
+            "pl" to "Warunki korzystania",
+            "nl" to "Gebruiksvoorwaarden",
+        ),
+        "ui.privacy" to mapOf(
+            "ru" to "Политика конфиденциальности",
+            "en" to "Privacy Policy",
+            "es" to "Política de privacidad",
+            "de" to "Datenschutzerklärung",
+            "fr" to "Politique de confidentialité",
+            "it" to "Informativa sulla privacy",
+            "pt" to "Política de Privacidade",
+            "pl" to "Polityka prywatności",
+            "nl" to "Privacybeleid",
+        ),
         "ui.swap_hint" to mapOf(
             "ru" to "Зажми кадр и перетащи на другой — кадры можно менять местами",
             "en" to "Press and hold a panel, then drag it onto another — panels swap places",

@@ -42,6 +42,19 @@ public enum L10n {
     /// между сборкой и публикацией такой ключ показывался игроку голым (`ui.swap_hint`).
     /// Правило: добавил ключ в код — продублируй его здесь.
     private static let builtin: [String: [String: String]] = [
+        "ui.terms": [
+            "ru": "Условия использования", "en": "Terms of Use", "es": "Términos de uso",
+            "de": "Nutzungsbedingungen", "fr": "Conditions d'utilisation",
+            "it": "Termini d'uso", "pt": "Termos de uso",
+            "pl": "Warunki korzystania", "nl": "Gebruiksvoorwaarden",
+        ],
+        "ui.privacy": [
+            "ru": "Политика конфиденциальности", "en": "Privacy Policy",
+            "es": "Política de privacidad", "de": "Datenschutzerklärung",
+            "fr": "Politique de confidentialité", "it": "Informativa sulla privacy",
+            "pt": "Política de Privacidade", "pl": "Polityka prywatności",
+            "nl": "Privacybeleid",
+        ],
         "ui.downloading_content": [
             "ru": "Загрузка контента…", "en": "Downloading content…", "es": "Descargando contenido…",
             "de": "Inhalte werden geladen…", "fr": "Téléchargement du contenu…",
