@@ -50,7 +50,12 @@ def device(shot, target_w, radius=58, bezel=26):
     return body
 
 
-def compose(shot_path, caption, out_path, size=(2778, 1284)):
+def compose(shot_path, caption, out_path, size=(2778, 1284), dev_frac=0.695):
+    """dev_frac — доля ширины кадра под «устройство».
+
+    У айпадного снимка 4:3 при той же доле остаётся пустой низ, поэтому для
+    планшета долю поднимаем — тогда устройство так же уходит под нижний край.
+    """
     W, H = size
     bg = gradient(size).convert("RGBA")
     d = ImageDraw.Draw(bg)
@@ -69,7 +74,7 @@ def compose(shot_path, caption, out_path, size=(2778, 1284)):
     uy = ty + round(H * 0.075)
     d.line([(W / 2 - W * 0.028, uy), (W / 2 + W * 0.028, uy)], fill=GOLD, width=4)
 
-    dev_w = round(W * 0.695)
+    dev_w = round(W * dev_frac)
     dev = device(Image.open(shot_path), dev_w)
     dev_x = (W - dev_w) // 2
     dev_y = round(H * 0.135)
@@ -83,8 +88,9 @@ def compose(shot_path, caption, out_path, size=(2778, 1284)):
 
     # внутренняя золотая рамка: шире устройства, уходит за нижний край кадра
     d = ImageDraw.Draw(bg)
+    pad = round(W * 0.019)
     d.rounded_rectangle(
-        [round(W * 0.058), round(H * 0.128), round(W * 0.942), H + 40],
+        [max(14, dev_x - pad), round(H * 0.128), min(W - 15, dev_x + dev_w + pad), H + 40],
         22, outline=GOLD + (150,), width=2,
     )
     bg.convert("RGB").save(out_path, "PNG")
