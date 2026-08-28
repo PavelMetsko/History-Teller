@@ -3,24 +3,32 @@ import Simulation
 import DesignSystem
 import GameContent
 
-/// Экран загрузки главы (landscape). Пока качается арт главы, на глазах «собирается»
-/// реальный демо-уровень из встроенного Рима: настоящие сцены и персонажи запрыгивают
-/// в свои слоты. Снизу — прогресс-бар и сменяющиеся подсказки «как играть» (онбординг).
+/// Экран загрузки (landscape). Пока едет контент, на глазах «собирается» реальный демо-уровень:
+/// настоящие сцены и персонажи запрыгивают в свои слоты. Снизу — прогресс-бар и сменяющиеся
+/// подсказки «как играть» (онбординг).
+///
+/// Показывается в двух местах и обычно очень недолго:
+/// - перед картой главы — качаются только описания уровней, десятки килобайт;
+/// - перед уровнем — его сцены и персонажи, ~1 МБ, и то лишь если фоновая докачка не успела.
 public struct ChapterLoadingView: View {
-    private let chapterNumber: Int
+    /// Что именно грузим. От этого зависит и гейт, и заголовок экрана.
+    public enum Job: Equatable {
+        case chapterIndex(String)
+        case level(String)
+    }
+
+    private let job: Job
     private let chapterTitle: String
-    private let epoch: String
     private let demoLevel: LevelDef?
     private let db: ContentDb
     private let onReady: () -> Void
     private var sync = ContentSync.shared
 
-    public init(chapterNumber: Int, chapterTitle: String, epoch: String,
+    public init(job: Job, chapterTitle: String,
                 demoLevel: LevelDef?, db: ContentDb,
                 onReady: @escaping () -> Void) {
-        self.chapterNumber = chapterNumber
+        self.job = job
         self.chapterTitle = chapterTitle
-        self.epoch = epoch
         self.demoLevel = demoLevel
         self.db = db
         self.onReady = onReady
@@ -33,6 +41,14 @@ public struct ChapterLoadingView: View {
     @State private var pulse = false
     @State private var tipIndex = 0
     private static let tipCount = 8
+
+    /// Надпись над заголовком: главу и эпизод игрок ждёт в разных местах и по разным поводам.
+    private var caption: String {
+        switch job {
+        case .chapterIndex: return L10n.s("ui.downloading_chapter")
+        case .level:        return L10n.s("ui.downloading_level")
+        }
+    }
 
     /// Панели демо-уровня из эталонного решения (только со сценой). Пусто на первом запуске —
     /// уровней Рима ещё нет на диске, тогда экран показывает только прогресс и подсказку.
@@ -69,7 +85,10 @@ public struct ChapterLoadingView: View {
             }
         }
         .task(id: retryToken) {
-            await sync.ensureChapter(epoch)
+            switch job {
+            case .chapterIndex(let id): await sync.ensureChapterIndex(id)
+            case .level(let id):        await sync.ensureLevel(id)
+            }
             guard sync.failure == nil else { return }
             try? await Task.sleep(nanoseconds: 400_000_000)  // короткий показ «100% · Готово!» перед скрытием
             onReady()
@@ -111,7 +130,7 @@ public struct ChapterLoadingView: View {
 
     private var header: some View {
         VStack(spacing: 3) {
-            Text(L10n.s("ui.downloading_chapter").uppercased())
+            Text(caption.uppercased())
                 .font(.dsCaption(11)).tracking(2)
                 .foregroundStyle(DS.Palette.gold)
             Text(chapterTitle)
@@ -192,7 +211,7 @@ public struct ChapterLoadingView: View {
             VStack(alignment: .trailing, spacing: 6) {
                 progressBar
                 HStack {
-                    Text(sync.progressValue >= 1 ? L10n.s("ui.ready") : L10n.s("ui.downloading_chapter"))
+                    Text(sync.progressValue >= 1 ? L10n.s("ui.ready") : caption)
                         .font(.dsCaption(10)).foregroundStyle(DS.Palette.paper.opacity(0.5))
                     Spacer()
                     Text("\(Int((sync.progressValue * 100).rounded()))%")

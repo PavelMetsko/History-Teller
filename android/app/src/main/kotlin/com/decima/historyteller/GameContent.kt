@@ -86,12 +86,25 @@ object L10n {
             "it" to "Download dei contenuti…", "pt" to "Baixando conteúdo…",
             "pl" to "Pobieranie zawartości…", "nl" to "Inhoud downloaden…",
         ),
+        "ui.downloading_level" to mapOf(
+            "ru" to "Загрузка эпизода…", "en" to "Loading episode…", "es" to "Cargando episodio…",
+            "de" to "Episode wird geladen…", "fr" to "Chargement de l'épisode…",
+            "it" to "Caricamento dell'episodio…", "pt" to "Carregando episódio…",
+            "pl" to "Wczytywanie epizodu…", "nl" to "Aflevering laden…",
+        ),
         "ui.load_fail" to mapOf(
             "ru" to "Не удалось загрузить контент", "en" to "Failed to load content",
             "es" to "No se pudo cargar el contenido", "de" to "Inhalte konnten nicht geladen werden",
             "fr" to "Échec du chargement du contenu", "it" to "Impossibile caricare i contenuti",
             "pt" to "Falha ao carregar o conteúdo", "pl" to "Nie udało się pobrać zawartości",
             "nl" to "Laden van inhoud mislukt",
+        ),
+        // Рядом с «Повторить» на экране первого запуска: там каталог ещё не скачан, и без
+        // дубля игрок видел голый ключ `ui.cancel`.
+        "ui.cancel" to mapOf(
+            "ru" to "Отмена", "en" to "Cancel", "es" to "Cancelar", "de" to "Abbrechen",
+            "fr" to "Annuler", "it" to "Annulla", "pt" to "Cancelar",
+            "pl" to "Anuluj", "nl" to "Annuleren",
         ),
         "ui.retry" to mapOf(
             "ru" to "Повторить", "en" to "Retry", "es" to "Reintentar", "de" to "Erneut versuchen",

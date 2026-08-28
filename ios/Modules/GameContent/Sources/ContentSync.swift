@@ -24,6 +24,13 @@ public struct ContentManifest: Codable, Sendable {
     /// Показательный уровень: на нём построены онбординг и экран загрузки главы. Лежит в core.
     public let demo: String?
     public let core: [String]
+    /// Описания уровней главы — всё, что нужно, чтобы открыть её карту. Килобайты.
+    public let chapterIndex: [String: [String]]?
+    /// Обложки карточек в порядке прохождения — качаются фоном, уже на открытой карте.
+    public let chapterCovers: [String: [String]]?
+    /// Файлы одного уровня: гейт при входе в него и единица фоновой докачки.
+    public let levelFiles: [String: [String]]?
+    /// Глава целиком. Осталось ради манифестов, сохранённых до поуровневой загрузки.
     public let chapterFiles: [String: [String]]
     public let files: [String: FileRef]
 }
@@ -49,6 +56,10 @@ public final class ContentSync {
 
     public private(set) var phase: Phase = .idle
     public private(set) var manifest: ContentManifest?
+
+    /// Растёт после каждого приехавшего файла. Экраны, которые читают его в `body`, сами
+    /// перерисовываются, когда фоновая докачка приносит обложку или спрайт.
+    public private(set) var generation = 0
 
     /// Базовый URL раздачи. Переопределяется переменной окружения `HT_CONTENT_URL` (локальный стенд
     /// `tools/publish_content.py --serve`) или ключом `HTContentBaseURL` в Info.plist.
@@ -105,6 +116,27 @@ public final class ContentSync {
         return files.allSatisfy { fileURL($0) != nil }
     }
 
+    /// Описания уровней главы: без них не собрать карту. Старый манифест поуровневых списков
+    /// не знает — там гейтом остаётся глава целиком.
+    private func indexFiles(_ id: String) -> [String]? {
+        guard let m = manifest else { return nil }
+        return m.chapterIndex?[id] ?? m.chapterFiles[id]
+    }
+
+    /// Файлы одного уровня. Пусто — манифест старый, значит глава уже скачана целиком.
+    private func levelFiles(_ id: String) -> [String] { manifest?.levelFiles?[id] ?? [] }
+
+    /// Можно ли открывать карту главы.
+    public func isChapterIndexReady(_ id: String) -> Bool {
+        guard let files = indexFiles(id) else { return false }
+        return files.allSatisfy { fileURL($0) != nil }
+    }
+
+    /// Можно ли входить в уровень, не показывая загрузку.
+    public func isLevelReady(_ id: String) -> Bool {
+        levelFiles(id).allSatisfy { fileURL($0) != nil }
+    }
+
     /// Главы, доступные этой сборке: манифест может нести контент, требующий более новой версии.
     public var availableChapters: [ContentManifest.Chapter] {
         (manifest?.chapters ?? []).filter { Self.supports($0.minAppVersion) }
@@ -139,6 +171,7 @@ public final class ContentSync {
 
     /// Обновить манифест и докачать core — после этого работают меню, список глав и локализация.
     public func syncCore() async {
+        cancelPrefetch()     // манифест меняется под ногами, а в конце ещё и чистятся сироты
         phase = .syncing(0)
         do {
             guard let fresh = try await fetchManifest() else {
@@ -151,17 +184,16 @@ public final class ContentSync {
                 phase = manifest == nil ? .failed("Требуется обновление приложения") : .ready
                 return
             }
-            // Какие главы были собраны — считаем по ПРЕЖНЕМУ манифесту, пока он ещё актуален.
-            // По новому это не определить: правка, задевшая все файлы главы разом, обнулила бы
-            // все хеши, и глава выглядела бы никогда не скачанной.
-            let installed = chaptersReady(in: manifest)
+            // Что уже лежало на диске — считаем по ПРЕЖНЕМУ манифесту, пока он ещё актуален.
+            // По новому это не определить: правка, задевшая файл, меняет его хеш, и он
+            // выглядел бы никогда не скачанным.
+            let installed = downloadedPaths(in: manifest)
             manifest = fresh
             try await download(fresh.core, of: fresh)
-            // Догружаем изменившееся в собранных главах: иначе правка уровня выкинула бы его
-            // с карты — файл сменил хеш, а в кеше лежит прежний.
-            for id in installed where fresh.chapterFiles[id] != nil {
-                try await download(fresh.chapterFiles[id]!, of: fresh)
-            }
+            // Догружаем изменившееся среди уже скачанного: иначе правка уровня выкинула бы его
+            // с карты — файл сменил хеш, а в кеше лежит прежний. Обновляем ровно то, что было,
+            // а не главу целиком: с поуровневой загрузкой глава почти всегда скачана частично.
+            try await download(installed.filter { fresh.files[$0] != nil }, of: fresh)
             saveManifest(fresh)      // манифест фиксируем только когда всё реально на диске
             pruneOrphans(fresh)
             ArtStore.invalidate()
@@ -173,16 +205,34 @@ public final class ContentSync {
         }
     }
 
-    /// Докачать главу. Если всё на месте — возвращается сразу.
-    public func ensureChapter(_ id: String) async {
-        guard let m = manifest, let files = m.chapterFiles[id] else {
+    /// Гейт перед картой главы: одни описания уровней, десятки килобайт. Всё остальное едет
+    /// потом — обложки фоном на уже открытой карте, файлы уровня при входе в него.
+    public func ensureChapterIndex(_ id: String) async {
+        cancelPrefetch()
+        guard let m = manifest, let files = indexFiles(id) else {
             phase = .failed("Глава \(id) не найдена в манифесте")
             return
         }
-        if isChapterReady(id) { phase = .ready; return }
+        if isChapterIndexReady(id) { phase = .ready; return }
         phase = .syncing(0)
         do {
             try await download(files, of: m)
+            ArtStore.invalidate()
+            phase = .ready
+        } catch {
+            phase = .failed(Self.describe(error))
+        }
+    }
+
+    /// Гейт перед уровнем: его сцены, персонажи и музыка, ~1 МБ. Обычно к этому моменту всё уже
+    /// принесла фоновая докачка, и экран загрузки не показывается вовсе.
+    public func ensureLevel(_ id: String) async {
+        cancelPrefetch()
+        guard let m = manifest else { phase = .failed("Манифест не загружен"); return }
+        if isLevelReady(id) { phase = .ready; return }
+        phase = .syncing(0)
+        do {
+            try await download(levelFiles(id), of: m)
             ArtStore.invalidate()
             Audio.shared.reset()
             phase = .ready
@@ -191,18 +241,54 @@ public final class ContentSync {
         }
     }
 
+    /// Фоновая докачка главы, с которой игрок сейчас работает: сперва обложки карточек
+    /// в порядке прохождения, потом уровни целиком — начиная с того, куда игрок пойдёт дальше.
+    /// Ничего не блокирует и не трогает `phase`: экраны на нём не завязаны.
+    public func prefetchChapter(_ id: String, startingAt levelId: String? = nil) {
+        cancelPrefetch()
+        guard let m = manifest else { return }
+        let ids = m.chapters.first { $0.id == id }?.levels ?? []
+        let start = levelId.flatMap { ids.firstIndex(of: $0) } ?? 0
+        // От текущего эпизода вперёд, потом по кругу к началу: чем ближе уровень к игроку,
+        // тем раньше он приезжает. Сам текущий идёт первым, до обложек, — по нему кликнут
+        // с наибольшей вероятностью, и кликнут скорее, чем долистают карту.
+        let order = Array(ids[start...]) + Array(ids[..<start])
+        let queue = (order.first.map { levelFiles($0) } ?? []) + (m.chapterCovers?[id] ?? [])
+            + order.flatMap { levelFiles($0) }
+
+        prefetch = Task.detached(priority: .utility) { [weak self] in
+            guard let self else { return }
+            for path in queue {
+                if Task.isCancelled { return }
+                guard let ref = m.files[path] else { continue }
+                if FileManager.default.fileExists(atPath: self.objects.appendingPathComponent(ref.h).path) { continue }
+                guard (try? await self.fetchObject(ref, describing: path)) != nil else { continue }
+                await MainActor.run {
+                    // Только присутствие: уже разобранные картинки в кеше остаются, а карта
+                    // перерисовывается и подхватывает приехавшую обложку.
+                    ArtStore.invalidateMissing()
+                    self.generation += 1
+                }
+            }
+        }
+    }
+
+    public func cancelPrefetch() {
+        prefetch?.cancel()
+        prefetch = nil
+    }
+
     // MARK: - Внутреннее
 
-    /// Главы, полностью собранные по данному манифесту. Вызывается до подмены манифеста —
-    /// по прежним хешам, потому что только они описывают то, что реально лежит на диске.
-    private func chaptersReady(in m: ContentManifest?) -> [String] {
+    private var prefetch: Task<Void, Never>?
+
+    /// Логические пути, файлы которых лежат на диске. Считается до подмены манифеста — по
+    /// прежним хешам, потому что только они описывают то, что реально скачано.
+    private func downloadedPaths(in m: ContentManifest?) -> [String] {
         guard let m else { return [] }
         let fm = FileManager.default
-        return m.chapterFiles.compactMap { id, files in
-            files.allSatisfy { path in
-                guard let ref = m.files[path] else { return false }
-                return fm.fileExists(atPath: objects.appendingPathComponent(ref.h).path)
-            } ? id : nil
+        return m.files.compactMap { path, ref in
+            fm.fileExists(atPath: objects.appendingPathComponent(ref.h).path) ? path : nil
         }
     }
 
@@ -272,8 +358,9 @@ public final class ContentSync {
             throw SyncError.corrupted(path)
         }
         // Пишем во временный файл и переименовываем: оборванная закачка не оставит битый объект,
-        // который потом будет считаться готовым.
-        let tmp = objects.appendingPathComponent("\(ref.h).part")
+        // который потом будет считаться готовым. Имя уникальное — фоновая докачка и загрузка
+        // уровня могут одновременно тянуть один объект, и общий `.part` они бы затёрли друг другу.
+        let tmp = objects.appendingPathComponent("\(ref.h).\(UUID().uuidString).part")
         try data.write(to: tmp, options: .atomic)
         try? FileManager.default.removeItem(at: objects.appendingPathComponent(ref.h))
         try FileManager.default.moveItem(at: tmp, to: objects.appendingPathComponent(ref.h))

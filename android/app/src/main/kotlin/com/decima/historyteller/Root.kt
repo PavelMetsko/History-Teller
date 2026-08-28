@@ -79,6 +79,7 @@ fun Root(startLevel: String? = null) {
     var showLangPicker by remember { mutableStateOf(false) }
     var showOnboarding by remember { mutableStateOf(false) }
     var loadingEpoch by remember { mutableStateOf<String?>(null) }
+    var loadingLevel by remember { mutableStateOf<String?>(null) }
 
     // Системная кнопка «назад» повторяет навигацию лент; на Меню — выход из app (не перехватываем).
     BackHandler(enabled = screen != Screen.Menu) {
@@ -127,13 +128,26 @@ fun Root(startLevel: String? = null) {
                             onReset = { progress.reset(); tick++ })
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
-                            onSelect = { if (ContentSync.isChapterReady(it)) screen = Screen.Map(it) else loadingEpoch = it },
+                            onSelect = { if (ContentSync.isChapterIndexReady(it)) screen = Screen.Map(it) else loadingEpoch = it },
                             onLocked = { pendingEpoch = it; showPaywall = true },
                             onBack = { screen = Screen.Menu })
-                        is Screen.Map -> MapScreen(
-                            epoch = s.epoch, progress = progress,
-                            onSelect = { screen = Screen.Level(it) },
-                            onBack = { screen = Screen.Chapters })
+                        is Screen.Map -> {
+                            // Фоновая докачка открытой главы — с того эпизода, куда игрок пойдёт
+                            // дальше. Карта уже на экране, картинки наливаются на глазах.
+                            LaunchedEffect(s.epoch) {
+                                val ids = GameContent.levels(s.epoch).map { it.id }
+                                ContentSync.prefetchChapter(ctx, s.epoch,
+                                    ids.firstOrNull { progress.isUnlocked(it, ids) && !progress.isCompleted(it) })
+                            }
+                            MapScreen(
+                                epoch = s.epoch, progress = progress,
+                                onSelect = {
+                                    // Обычно фон успевает раньше игрока и экран загрузки не нужен;
+                                    // если нет — ждём здесь, а не перед входом в главу.
+                                    if (ContentSync.isLevelReady(it)) screen = Screen.Level(it) else loadingLevel = it
+                                },
+                                onBack = { ContentSync.cancelPrefetch(); screen = Screen.Chapters })
+                        }
                         is Screen.Level -> BoardScreen(
                             levelId = s.id,
                             onSolved = { progress.markCompleted(s.id) },
@@ -172,13 +186,24 @@ fun Root(startLevel: String? = null) {
         // Экран загрузки главы (порт iOS ChapterLoadingView).
         loadingEpoch?.let { ep ->
             ChapterLoadingScreen(
-                epoch = ep,
-                chapterTitle = L10n.s("map.$ep"),
+                job = LoadJob.ChapterIndex(ep),
+                title = L10n.s("map.$ep"),
                 onReady = {
-                    // Уровни главы приезжают вместе с ней — контент надо пересобрать,
+                    // Описания уровней приезжают вместе с главой — контент надо пересобрать,
                     // иначе глава откроется пустой.
                     runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
                     loadingEpoch = null; screen = Screen.Map(ep); tick++
+                })
+        }
+
+        loadingLevel?.let { id ->
+            ChapterLoadingScreen(
+                job = LoadJob.Level(id),
+                title = GameContent.level(id)?.title ?: "",
+                onReady = {
+                    loadingLevel = null
+                    // Не доехало (офлайн, «Отмена») — остаёмся на карте, а не открываем пустую доску.
+                    if (ContentSync.isLevelReady(id)) { screen = Screen.Level(id); tick++ }
                 })
         }
 

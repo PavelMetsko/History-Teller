@@ -12,6 +12,7 @@ public struct EpochMapView: View {
     private let progress: ProgressStore
     private let onSelect: (String) -> Void
     private let onBack: () -> Void
+    private var sync = ContentSync.shared
 
     public init(title: String = "Древний Рим",
                 levels: [LevelDef],
@@ -99,6 +100,11 @@ public struct EpochMapView: View {
                                         sceneId: entry.level.cover ?? entry.level.scenes.first,
                                         completed: progress.isCompleted(entry.level.id),
                                         unlocked: progress.isUnlocked(levelId: entry.level.id, orderedIds: orderedIds),
+                                        // Обложки едут фоном уже на открытой карте. Счётчик докачки —
+                                        // вход карточки, а не только тела экрана: без него параметры
+                                        // LevelCard не менялись, SwiftUI не пересобирал её тело,
+                                        // и приехавшая картинка проступала лишь после ухода и возврата.
+                                        artGen: sync.generation,
                                         onTap: { onSelect(entry.level.id) }
                                     )
                                     .id(entry.level.id)
@@ -146,6 +152,7 @@ private struct LevelCard: View {
     let sceneId: String?
     let completed: Bool
     let unlocked: Bool
+    let artGen: Int
     let onTap: () -> Void
 
     var body: some View {
@@ -174,7 +181,9 @@ private struct LevelCard: View {
         Color.clear
             .aspectRatio(16.0 / 9.0, contentMode: .fit)
             .overlay {
-                if let sceneId {
+                // Обложка может ещё ехать: карта открывается по описаниям уровней, картинки
+                // догоняют фоном. До приезда — пустой тайл, а не растянутая пустая картинка.
+                if let sceneId, GameAssets.hasSceneArt(sceneId) {
                     Image.scene(sceneId)
                         .resizable().scaledToFill()
                         .saturation(unlocked ? 1 : 0)

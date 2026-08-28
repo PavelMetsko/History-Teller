@@ -4711,6 +4711,7 @@
  "ui.choose_epoch": "Выбери эпоху",
  "ui.done": "Готово",
  "ui.downloading_chapter": "Загрузка главы…",
+ "ui.downloading_level": "Загрузка эпизода…",
  "ui.downloading_content": "Загрузка контента…",
  "ui.haptics": "Вибрация",
  "ui.hint": "Подсказка",

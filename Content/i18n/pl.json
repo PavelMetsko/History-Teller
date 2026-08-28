@@ -4711,6 +4711,7 @@
  "ui.choose_epoch": "Wybierz epokę",
  "ui.done": "Gotowe",
  "ui.downloading_chapter": "Pobieranie rozdziału…",
+ "ui.downloading_level": "Wczytywanie epizodu…",
  "ui.downloading_content": "Pobieranie zawartości…",
  "ui.haptics": "Wibracje",
  "ui.hint": "Podpowiedź",

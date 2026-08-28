@@ -61,7 +61,10 @@ fun artPainter(name: String): Painter? {
     // Ключ по поколению: после докачки главы кадр должен перечитать файл, а не отдать промах.
     val file = remember(name, ContentSync.generation) { artFile(name) }
     if (file != null) {
-        val key = remember(file, ContentSync.generation) { "${file.absolutePath}|${ContentSync.generation}" }
+        // Ключ — путь к объекту, а он и есть хеш содержимого: одно имя двух картинок не назовёт.
+        // Поколение сюда не входит намеренно — фоновая докачка дёргает его на каждый файл,
+        // и кеш обнулялся бы по десятку раз за проход по карте.
+        val key = remember(file) { file.absolutePath }
         // Из кеша — сразу, без мигания; впервые — в фоне, кадр дорисуется следующим проходом.
         //
         // Присваиваем value ВСЕГДА, а не только когда оно пустое: при смене ключа produceState

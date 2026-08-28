@@ -4711,6 +4711,7 @@
  "ui.choose_epoch": "Choose Epoch",
  "ui.done": "Done",
  "ui.downloading_chapter": "Downloading chapter…",
+ "ui.downloading_level": "Loading episode…",
  "ui.downloading_content": "Downloading content…",
  "ui.haptics": "Haptics",
  "ui.hint": "Hint",

@@ -4711,6 +4711,7 @@
  "ui.choose_epoch": "Choisissez une époque",
  "ui.done": "Terminé",
  "ui.downloading_chapter": "Téléchargement du chapitre…",
+ "ui.downloading_level": "Chargement de l'épisode…",
  "ui.downloading_content": "Téléchargement du contenu…",
  "ui.haptics": "Vibrations",
  "ui.hint": "Indice",

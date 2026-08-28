@@ -4711,6 +4711,7 @@
  "ui.choose_epoch": "Wähle eine Epoche",
  "ui.done": "Fertig",
  "ui.downloading_chapter": "Kapitel wird heruntergeladen…",
+ "ui.downloading_level": "Episode wird geladen…",
  "ui.downloading_content": "Inhalte werden geladen…",
  "ui.haptics": "Vibration",
  "ui.hint": "Hinweis",

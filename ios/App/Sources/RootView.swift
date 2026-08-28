@@ -19,6 +19,7 @@ struct RootView: View {
     @State private var pendingEpoch: String?
     @State private var sync = ContentSync.shared
     @State private var loadingEpoch: String?
+    @State private var loadingLevel: String?
     @AppStorage("ht.onboarded") private var onboarded = false
     @State private var showOnboarding = false
     /// Первый запуск уже предложен в этой сессии. Выбор языка пишет `langOverride`, на его
@@ -74,18 +75,34 @@ struct RootView: View {
 
             if let ep = loadingEpoch, let pack {
                 ChapterLoadingView(
-                    chapterNumber: chapterNumber(ep),
+                    job: .chapterIndex(ep),
                     chapterTitle: chapterTitle(ep),
-                    epoch: ep,
                     demoLevel: demoLevel(pack),
                     db: pack.db,
                     onReady: {
-                        // Уровни главы приезжают вместе с ней — пак надо пересобрать,
+                        // Описания уровней приезжают вместе с главой — пак надо пересобрать,
                         // иначе глава откроется пустой.
                         load()
                         selectedEpoch = ep
                         loadingEpoch = nil
                         go(.map)
+                    }
+                )
+                .transition(.opacity)
+                .zIndex(40)
+            }
+
+            if let id = loadingLevel, let pack {
+                ChapterLoadingView(
+                    job: .level(id),
+                    chapterTitle: pack.levels.first { $0.id == id }?.title ?? chapterTitle(selectedEpoch),
+                    demoLevel: demoLevel(pack),
+                    db: pack.db,
+                    onReady: {
+                        let target = id
+                        loadingLevel = nil
+                        // Не доехало (офлайн, «Отмена») — остаёмся на карте, а не открываем пустую доску.
+                        if sync.isLevelReady(target) { go(.level(target)) } else { startPrefetch() }
                     }
                 )
                 .transition(.opacity)
@@ -178,9 +195,10 @@ struct RootView: View {
                     levels: pack.levels(epoch: selectedEpoch),
                     db: pack.db,
                     progress: progress,
-                    onSelect: { go(.level($0)) },
-                    onBack: { go(.chapters) }
+                    onSelect: { openLevel($0) },
+                    onBack: { sync.cancelPrefetch(); go(.chapters) }
                 )
+                .onAppear { startPrefetch() }
             case .level(let id):
                 if let level = pack.levels.first(where: { $0.id == id }) {
                     LevelBoardView(
@@ -248,17 +266,32 @@ struct RootView: View {
         L10n.s("map.\(epoch)")
     }
 
-    /// Открыть главу: встроенная (Rome) — сразу; остальные — через экран загрузки арта.
+    /// Открыть главу. Ждать нечего, кроме описаний уровней: арт главы едет фоном уже на карте,
+    /// а до появления поуровневой загрузки здесь стояла вся глава целиком — под сорок мегабайт.
     private func openChapter(_ id: String) {
-        if sync.isChapterReady(id) {
+        if sync.isChapterIndexReady(id) {
             selectedEpoch = id; go(.map)
         } else {
             withAnimation(.easeIn(duration: 0.2)) { loadingEpoch = id }
         }
     }
 
-    private func chapterNumber(_ epoch: String) -> Int {
-        sync.availableChapters.first { $0.id == epoch }?.number ?? 1
+    /// Открыть уровень. Фоновая докачка обычно успевает раньше игрока, и экран загрузки
+    /// не показывается вовсе; если нет — ждать приходится здесь, а не перед входом в главу.
+    private func openLevel(_ id: String) {
+        if sync.isLevelReady(id) {
+            go(.level(id))
+        } else {
+            withAnimation(.easeIn(duration: 0.2)) { loadingLevel = id }
+        }
+    }
+
+    /// Фоновая докачка открытой главы — с того эпизода, куда игрок пойдёт дальше.
+    private func startPrefetch() {
+        guard let pack else { return }
+        let ids = pack.levels(epoch: selectedEpoch).map(\.id)
+        let next = ids.first { progress.isUnlocked(levelId: $0, orderedIds: ids) && !progress.isCompleted($0) }
+        sync.prefetchChapter(selectedEpoch, startingAt: next)
     }
 
     /// Показательный уровень для онбординга и экрана загрузки. Задан в `Content/demo.json`,

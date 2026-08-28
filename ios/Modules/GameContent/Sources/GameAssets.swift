@@ -25,6 +25,12 @@ public enum ArtStore {
         presence.removeAllObjects()
     }
 
+    /// Забыть только «этого арта нет». Зовётся, когда фоновая докачка принесла новый файл:
+    /// имена уже разобранных картинок при этом не меняются, и сбрасывать их декод незачем.
+    public static func invalidateMissing() {
+        presence.removeAllObjects()
+    }
+
     public static func url(_ name: String) -> URL? {
         if let downloaded = resolve?("art/\(name).webp") { return downloaded }
         return Bundle.gameContent.url(forResource: name, withExtension: "webp")

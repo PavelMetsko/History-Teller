@@ -50,7 +50,7 @@ def device(shot, target_w, radius=58, bezel=26):
     return body
 
 
-def compose(shot_path, caption, out_path, size=(2778, 1284), dev_frac=0.695):
+def compose(shot_path, caption, out_path, size=(2778, 1284), dev_frac=0.695, center=False):
     """dev_frac — доля ширины кадра под «устройство».
 
     У айпадного снимка 4:3 при той же доле остаётся пустой низ, поэтому для
@@ -78,6 +78,9 @@ def compose(shot_path, caption, out_path, size=(2778, 1284), dev_frac=0.695):
     dev = device(Image.open(shot_path), dev_w)
     dev_x = (W - dev_w) // 2
     dev_y = round(H * 0.135)
+    if center:
+        # широкий кадр в 16:9 оставляет пустой низ — разносим зазор поровну
+        dev_y += max(0, (H - dev_y - dev.height) // 2)
 
     # мягкая тень под устройством
     sh = Image.new("RGBA", bg.size, (0, 0, 0, 0))
@@ -89,8 +92,9 @@ def compose(shot_path, caption, out_path, size=(2778, 1284), dev_frac=0.695):
     # внутренняя золотая рамка: шире устройства, уходит за нижний край кадра
     d = ImageDraw.Draw(bg)
     pad = round(W * 0.019)
+    frame_bottom = min(H - 15, dev_y + dev.height + pad) if center else H + 40
     d.rounded_rectangle(
-        [max(14, dev_x - pad), round(H * 0.128), min(W - 15, dev_x + dev_w + pad), H + 40],
+        [max(14, dev_x - pad), round(H * 0.128), min(W - 15, dev_x + dev_w + pad), frame_bottom],
         22, outline=GOLD + (150,), width=2,
     )
     bg.convert("RGB").save(out_path, "PNG")

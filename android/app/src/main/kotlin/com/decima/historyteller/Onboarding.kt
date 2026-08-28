@@ -282,22 +282,37 @@ private fun demoLevel(): LevelDef? {
         ?: GameContent.levels("rome").firstOrNull()
 }
 
-// ============================ Экран загрузки главы ============================
+// ============================ Экран загрузки ============================
+
+/** Что грузим. От этого зависит и гейт, и надпись над заголовком. */
+sealed interface LoadJob {
+    /** Описания уровней главы — всё, чего игрок ждёт перед её картой. Десятки килобайт. */
+    data class ChapterIndex(val epoch: String) : LoadJob
+    /** Сцены, персонажи и музыка одного уровня, ~1 МБ — и то лишь если фон не успел. */
+    data class Level(val id: String) : LoadJob
+}
 
 @Composable
-fun ChapterLoadingScreen(epoch: String, chapterTitle: String, onReady: () -> Unit) {
+fun ChapterLoadingScreen(job: LoadJob, title: String, onReady: () -> Unit) {
     val ctx = androidx.compose.ui.platform.LocalContext.current
     val demo = remember { demoLevel() }
     val panels = remember(demo) { demo?.solution?.filter { it.sceneId != null } ?: emptyList() }
     val tip = remember { L10n.s("ui.tip.${Random.nextInt(8) + 1}") }
     var retry by remember { mutableIntStateOf(0) }
     // Прогресс настоящий — искусственную задержку показа убрали вместе с Play Asset Delivery:
-    // экран и так появляется только когда главы действительно нет на диске.
+    // экран и так появляется только когда контента действительно нет на диске.
     val progress = (ContentSync.phase as? ContentSync.Phase.Syncing)?.progress ?: 0f
     val failure = (ContentSync.phase as? ContentSync.Phase.Failed)?.message
+    val caption = when (job) {
+        is LoadJob.ChapterIndex -> L10n.s("ui.downloading_chapter")
+        is LoadJob.Level -> L10n.s("ui.downloading_level")
+    }
 
     LaunchedEffect(retry) {
-        ContentSync.ensureChapter(ctx, epoch)
+        when (job) {
+            is LoadJob.ChapterIndex -> ContentSync.ensureChapterIndex(ctx, job.epoch)
+            is LoadJob.Level -> ContentSync.ensureLevel(ctx, job.id)
+        }
         if (ContentSync.phase is ContentSync.Phase.Ready) { delay(400); onReady() }
     }
 
@@ -312,9 +327,9 @@ fun ChapterLoadingScreen(epoch: String, chapterTitle: String, onReady: () -> Uni
             verticalArrangement = Arrangement.spacedBy(22.dp), horizontalAlignment = Alignment.CenterHorizontally) {
 
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(L10n.s("ui.downloading_chapter").uppercase(), color = Palette.gold, fontSize = 11.sp,
+                Text(caption.uppercase(), color = Palette.gold, fontSize = 11.sp,
                     fontWeight = FontWeight.Bold, letterSpacing = 2.sp, fontFamily = Fonts.rounded)
-                Text(chapterTitle, color = Palette.paper, fontSize = 20.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+                Text(title, color = Palette.paper, fontSize = 20.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
             }
 
             Row(Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.spacedBy(20.dp)) {
@@ -346,7 +361,7 @@ fun ChapterLoadingScreen(epoch: String, chapterTitle: String, onReady: () -> Uni
                 Column(Modifier.width(230.dp)) {
                     ProgressBar(progress)
                     Row(Modifier.fillMaxWidth().padding(top = 6.dp)) {
-                        Text(if (progress >= 1f) L10n.s("ui.ready") else L10n.s("ui.downloading_chapter"),
+                        Text(if (progress >= 1f) L10n.s("ui.ready") else caption,
                             color = Palette.paper.copy(alpha = 0.5f), fontSize = 10.sp, fontFamily = Fonts.rounded)
                         Spacer(Modifier.weight(1f))
                         Text("${(progress * 100).toInt()}%", color = Palette.gold, fontSize = 10.sp,

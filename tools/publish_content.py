@@ -80,6 +80,12 @@ def chapter_files(level: dict) -> set[str]:
     return files
 
 
+def cover_file(level: dict) -> str | None:
+    """Обложка уровня — единственный арт, нужный карте главы. Всё прочее ждёт открытия уровня."""
+    sid = level.get("cover") or next(iter(level.get("scenes", [])), None)
+    return art(f"scene_{sid}") if sid else None
+
+
 def load_demo() -> str | None:
     """Показательный уровень — `Content/demo.json`. На нём построены онбординг и экран
     загрузки главы, поэтому он и его арт лежат в core: оба экрана показываются ДО того,
@@ -145,10 +151,12 @@ def build(out: Path, version: int) -> dict:
 
     per_chapter: dict[str, set[str]] = {}
     level_ids: dict[str, list[str]] = {}
+    per_level: dict[str, list[str]] = {}
     for lv in levels:
         epoch = lv["epoch"]
         per_chapter.setdefault(epoch, set()).update(chapter_files(lv))
         level_ids.setdefault(epoch, []).append(lv["id"])
+        per_level[lv["id"]] = sorted(chapter_files(lv))
 
     core = core_files(chapters_meta, levels)
     known = {c["id"] for c in chapters_meta}
@@ -172,19 +180,30 @@ def build(out: Path, version: int) -> dict:
         if not dst.exists():
             shutil.copy(src, dst)
 
+    by_id = {l["id"]: l for l in levels}
+    ordered = {ch: sorted(ids, key=lambda i: by_id[i]["order"]) for ch, ids in level_ids.items()}
+
     manifest = {
         "version": version,
         "minAppVersion": "1.0",
         "chapters": [
-            {**c,
-             "levels": sorted(level_ids.get(c["id"], []),
-                              key=lambda i: next(l["order"] for l in levels if l["id"] == i))}
+            {**c, "levels": ordered[c["id"]]}
             for c in sorted(chapters_meta, key=lambda c: c["number"])
             if c["id"] in per_chapter
         ],
         "disabled": disabled,
         "demo": load_demo(),
         "core": sorted(core),
+        # Что нужно, чтобы ОТКРЫТЬ карту главы: одни описания уровней (килобайты). Это единственное,
+        # чего игрок ждёт перед входом в главу.
+        "chapterIndex": {ch: [f"content/levels/{i}.json" for i in ids] for ch, ids in sorted(ordered.items())},
+        # Обложки карточек — качаются фоном, в порядке прохождения: карта открывается сразу,
+        # а картинки наливаются на глазах.
+        "chapterCovers": {ch: [c for i in ids if (c := cover_file(by_id[i]))]
+                          for ch, ids in sorted(ordered.items())},
+        # Всё для одного уровня. Гейт при входе в уровень и единица фоновой докачки.
+        "levelFiles": {k: v for k, v in sorted(per_level.items())},
+        # Глава целиком. Осталось для клиентов, выпущенных до поуровневой загрузки.
         "chapterFiles": {k: sorted(v) for k, v in sorted(per_chapter.items())},
         "files": files,
     }
@@ -206,9 +225,16 @@ def report(manifest: dict, out: Path):
     print(f"core (первый запуск): {core/1e6:.2f} МБ")
     if manifest["disabled"]:
         print(f"выключено: {', '.join(manifest['disabled'])}")
+    print("глава: [вход на карту] + [обложки фоном] / глава целиком; в скобках — вес уровня")
     for c in manifest["chapters"]:
-        s = sum(files[f]["s"] for f in manifest["chapterFiles"][c["id"]])
-        print(f"  {c['number']}. {c['id']:11s} {len(c['levels']):2d} уровней  {s/1e6:5.2f} МБ")
+        cid = c["id"]
+        total_ch = sum(files[f]["s"] for f in manifest["chapterFiles"][cid])
+        idx = sum(files[f]["s"] for f in manifest["chapterIndex"][cid])
+        cov = sum(files[f]["s"] for f in manifest["chapterCovers"][cid])
+        per = [sum(files[f]["s"] for f in manifest["levelFiles"][i]) for i in c["levels"]]
+        print(f"  {c['number']}. {cid:11s} {len(c['levels']):2d} уровней  "
+              f"[{idx/1e3:5.0f} КБ] + [{cov/1e6:5.2f} МБ] / {total_ch/1e6:5.2f} МБ  "
+              f"(уровень ~{sum(per)/len(per)/1e6:.2f}, макс {max(per)/1e6:.2f} МБ)")
 
 
 def serve(out: Path, port: int):
