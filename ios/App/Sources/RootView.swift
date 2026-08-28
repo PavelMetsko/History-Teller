@@ -204,7 +204,10 @@ struct RootView: View {
                     LevelBoardView(
                         level: level,
                         db: pack.db,
-                        onSolved: { progress.markCompleted(id) },
+                        onSolved: {
+                            progress.markCompleted(id)
+                            Stats.levelSolved(chapter: level.epoch, level: id)
+                        },
                         onExit: { go(.map); maybeAskForReview(pack) }
                     )
                     .id(id)
@@ -269,6 +272,7 @@ struct RootView: View {
     /// Открыть главу. Ждать нечего, кроме описаний уровней: арт главы едет фоном уже на карте,
     /// а до появления поуровневой загрузки здесь стояла вся глава целиком — под сорок мегабайт.
     private func openChapter(_ id: String) {
+        Stats.chapterOpened(id)
         if sync.isChapterIndexReady(id) {
             selectedEpoch = id; go(.map)
         } else {
@@ -330,6 +334,7 @@ struct RootView: View {
         L10n.configure()
         await sync.syncCore()
         load()
+        Stats.flushPending()   // эпизод могли пройти офлайн — ключ ждал в очереди
     }
 
     private func load() {

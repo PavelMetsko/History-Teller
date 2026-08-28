@@ -103,6 +103,7 @@ fun Root(startLevel: String? = null) {
         runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
             .onSuccess {
                 booted = true; tick++
+                Stats.flushPending(ctx)   // эпизод могли пройти офлайн — ключ ждал в очереди
                 if (!settings.onboarded && startLevel == null) showLangPicker = true
             }
             .onFailure { bootError = it.message ?: L10n.s("ui.load_fail") }
@@ -128,7 +129,10 @@ fun Root(startLevel: String? = null) {
                             onReset = { progress.reset(); tick++ })
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
-                            onSelect = { if (ContentSync.isChapterIndexReady(it)) screen = Screen.Map(it) else loadingEpoch = it },
+                            onSelect = {
+                                Stats.chapterOpened(ctx, it)
+                                if (ContentSync.isChapterIndexReady(it)) screen = Screen.Map(it) else loadingEpoch = it
+                            },
                             onLocked = { pendingEpoch = it; showPaywall = true },
                             onBack = { screen = Screen.Menu })
                         is Screen.Map -> {
@@ -150,7 +154,10 @@ fun Root(startLevel: String? = null) {
                         }
                         is Screen.Level -> BoardScreen(
                             levelId = s.id,
-                            onSolved = { progress.markCompleted(s.id) },
+                            onSolved = {
+                                progress.markCompleted(s.id)
+                                Stats.levelSolved(ctx, GameContent.level(s.id)?.epoch ?: "rome", s.id)
+                            },
                             onExit = {
                                 screen = Screen.Map(GameContent.level(s.id)?.epoch ?: "rome")
                                 // Просьба оценить игру — после выхода с уровня, когда награда уже прочитана.

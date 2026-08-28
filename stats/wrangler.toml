@@ -1,0 +1,21 @@
+name = "history-teller-stats"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Свой домен вместо *.workers.dev: адрес зашит в приложение, а сменить его у уже
+# установленной игры нельзя — на своей зоне он останется нашим навсегда.
+workers_dev = false
+routes = [
+  { pattern = "stats.historyteller.app", custom_domain = true },
+]
+
+# Одна таблица «ключ → число». Создать и накатить схему:
+#   npx wrangler d1 create history-teller-stats     (id из вывода — сюда)
+#   npx wrangler d1 execute history-teller-stats --remote --file schema.sql
+[[d1_databases]]
+binding = "DB"
+database_name = "history-teller-stats"
+database_id = "<подставить id из `wrangler d1 create`>"
+
+# Токен чтения задаётся отдельно и в файл не пишется:
+#   npx wrangler secret put READ_TOKEN
