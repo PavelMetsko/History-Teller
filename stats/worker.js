@@ -22,10 +22,11 @@ const KEY = /^(open:[a-z_]{1,24}|done:[a-z_]{1,24}:[a-z0-9_]{1,48})$/;
 const MAX_KEYS = 16;
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     try {
       if (request.method === 'POST' && url.pathname === '/c') return await count(request, env);
+      if (request.method === 'GET' && url.pathname === '/p') return await rates(request, env, ctx);
       if (request.method === 'GET' && url.pathname === '/') return await report(url, env);
       return new Response('нет такого маршрута\n', { status: 404 });
     } catch (e) {
@@ -57,6 +58,64 @@ async function count(request, env) {
   );
   // 204 без тела: приложению ответ не нужен, а лишние байты оно шлёт по мобильной сети.
   return new Response(null, { status: 204 });
+}
+
+/**
+ * Доли прохождения для игры: `{"rome":{"lucretia":71}}` — «эпизод прошли 71% из тех,
+ * кто до него добрался».
+ *
+ * Наружу уходят ТОЛЬКО проценты. Абсолютные числа не отдаём ни в каком виде: пока игроков
+ * мало, «прошли 3» на карточке читается как «игра мёртвая», и это ровно то, чего быть
+ * не должно на витрине. По той же причине эпизод молчит, пока в знаменателе меньше
+ * MIN_SAMPLE: «100%» с одного игрока — не факт, а шум.
+ *
+ * Знаменатель локальный — предыдущий эпизод главы, а для первого — открытия главы. Тогда
+ * число читается как сложность («здесь спотыкаются»), а не как «докуда вообще доходят»:
+ * от общего знаменателя доля падала бы монотонно просто потому, что эпизод дальше по списку.
+ */
+async function rates(request, env, ctx) {
+  // Считаем по всей таблице и ходим в манифест — незачем делать это на каждый запуск игры.
+  // Ключ кеша нормализуем: иначе `/p?что-угодно` — это промах мимо кеша, и любой желающий
+  // гоняет D1 столько раз, сколько придумает разных строк.
+  const cache = caches.default;
+  const key = `${new URL(request.url).origin}/p`;
+  const hit = await cache.match(key);
+  if (hit) return hit;
+
+  const [{ results }, manifest] = await Promise.all([
+    env.DB.prepare('SELECT k, n FROM counters').all(),
+    fetch(`${env.CDN_BASE}/manifest.json`, { cf: { cacheTtl: 600 } }).then((r) => r.json()),
+  ]);
+  const n = Object.fromEntries(results.map((r) => [r.k, r.n]));
+  const min = Number(env.MIN_SAMPLE) || 20;
+
+  const out = {};
+  for (const chapter of manifest.chapters || []) {
+    const levels = chapter.levels || [];
+    const chapterRates = {};
+    for (let i = 0; i < levels.length; i++) {
+      // Порядок эпизодов берём из манифеста — он же задаёт порядок прохождения в игре.
+      const denom = i === 0 ? n[`open:${chapter.id}`] : n[`done:${chapter.id}:${levels[i - 1]}`];
+      if (!denom || denom < min) continue;
+      const num = n[`done:${chapter.id}:${levels[i]}`] || 0;
+      // Ноль означает «сюда ещё никто не дошёл», а не «эпизод непроходим», — но на карточке
+      // читается именно вторым. Молчим, пока не пройдёт хоть кто-то.
+      if (!num) continue;
+      // Сверху обрезаем: у тех, кто обновился с версии без счётчиков, `done` есть, а `open` нет,
+      // и числитель бывает больше знаменателя.
+      chapterRates[levels[i]] = Math.min(100, Math.round((num / denom) * 100));
+    }
+    if (Object.keys(chapterRates).length) out[chapter.id] = chapterRates;
+  }
+
+  const response = new Response(JSON.stringify({ v: 1, p: out }), {
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'public, max-age=600',
+    },
+  });
+  ctx.waitUntil(cache.put(key, response.clone()));
+  return response;
 }
 
 async function report(url, env) {

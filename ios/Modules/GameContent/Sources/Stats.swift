@@ -10,6 +10,15 @@ import Foundation
 /// Каждый ключ отправляется максимум один раз за установку, поэтому счётчик читается как
 /// «столько установок сюда дошло», а не «столько раз запускали».
 public enum Stats {
+    /// Базовый адрес счётчиков. Переопределяется `HTStatsBaseURL` в Info.plist (Debug там
+    /// указывает на локальный `wrangler dev`) — тем же способом, что и адрес контента.
+    static var baseURL: URL {
+        if let s = ProcessInfo.processInfo.environment["HT_STATS_URL"], let u = URL(string: s) { return u }
+        if let s = Bundle.main.object(forInfoDictionaryKey: "HTStatsBaseURL") as? String,
+           let u = URL(string: s), !s.isEmpty { return u }
+        return URL(string: "https://stats.historyteller.app")!
+    }
+
     /// Debug-сборки в счётчики не пишут: иначе своя же отладка выглядит как игроки.
     #if DEBUG
     private static let enabled = false
@@ -17,7 +26,6 @@ public enum Stats {
     private static let enabled = true
     #endif
 
-    private static let endpoint = URL(string: "https://stats.historyteller.app/c")!
     private static let sentKey = "ht.stats.sent"
     private static let pendingKey = "ht.stats.pending"
 
@@ -48,7 +56,7 @@ public enum Stats {
         guard !pending.isEmpty else { return }
 
         let batch = Array(pending.prefix(16))     // столько же принимает Worker за раз
-        var request = URLRequest(url: endpoint)
+        var request = URLRequest(url: Stats.baseURL.appendingPathComponent("c"))
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 10
@@ -62,6 +70,49 @@ public enum Stats {
             pending.subtract(batch)
             defaults.set(Array(sent), forKey: sentKey)
             defaults.set(Array(pending), forKey: pendingKey)
+        }.resume()
+    }
+}
+
+/// Доли прохождения эпизодов: «этот прошли 68% из тех, кто до него добрался».
+///
+/// Считает их сервер, сюда приезжают только проценты — абсолютных чисел клиент не видит
+/// и показать не может. Эпизоды, по которым выборки мало, сервер просто не присылает,
+/// поэтому на пустой статистике карточки молчат сами, без порогов в UI.
+@Observable
+public final class SolveRates {
+    public static let shared = SolveRates()
+
+    private struct Payload: Codable { let v: Int; let p: [String: [String: Int]] }
+
+    private var table: [String: [String: Int]] = [:]
+    private let cacheFile: URL
+
+    private init() {
+        let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        cacheFile = base.appendingPathComponent("solve-rates.json")
+        // С диска — чтобы карта не «доливала» проценты через секунду после открытия
+        // и чтобы они были видны офлайн.
+        if let data = try? Data(contentsOf: cacheFile),
+           let cached = try? JSONDecoder().decode(Payload.self, from: data) {
+            table = cached.p
+        }
+    }
+
+    /// Процент для карточки. `nil` — сервер по этому эпизоду промолчал, показывать нечего.
+    public func percent(chapter: String, level: String) -> Int? { table[chapter]?[level] }
+
+    /// Обновить в фоне. Ответ кешируется на краю на десять минут, так что зовём просто на старте.
+    public func refresh() {
+        URLSession.shared.dataTask(with: Stats.baseURL.appendingPathComponent("p")) { [weak self] data, response, error in
+            guard let self, error == nil,
+                  let code = (response as? HTTPURLResponse)?.statusCode, (200..<300).contains(code),
+                  let data, let fresh = try? JSONDecoder().decode(Payload.self, from: data)
+            else { return }
+            DispatchQueue.main.async {
+                self.table = fresh.p
+                try? data.write(to: self.cacheFile, options: .atomic)
+            }
         }.resume()
     }
 }

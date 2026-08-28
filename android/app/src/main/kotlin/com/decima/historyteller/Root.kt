@@ -104,6 +104,7 @@ fun Root(startLevel: String? = null) {
             .onSuccess {
                 booted = true; tick++
                 Stats.flushPending(ctx)   // эпизод могли пройти офлайн — ключ ждал в очереди
+                SolveRates.refresh(ctx)   // доли прохождения для карточек на карте
                 if (!settings.onboarded && startLevel == null) showLangPicker = true
             }
             .onFailure { bootError = it.message ?: L10n.s("ui.load_fail") }
@@ -411,10 +412,14 @@ private fun MapScreen(epoch: String, progress: Progress, onSelect: (String) -> U
                                 verticalArrangement = Arrangement.spacedBy(16.dp)
                             ) {
                                 for ((idx, lv) in entries) {
+                                    val unlocked = progress.isUnlocked(lv.id, orderedIds)
                                     LevelCard(
                                         number = idx + 1, level = lv,
                                         completed = progress.isCompleted(lv.id),
-                                        unlocked = progress.isUnlocked(lv.id, orderedIds),
+                                        unlocked = unlocked,
+                                        // Доля прошедших — только на открытых карточках: на
+                                        // закрытом хвосте главы это шум, а не подсказка.
+                                        solvedPct = if (unlocked) SolveRates.percent(lv.epoch, lv.id) else null,
                                         onTap = { onSelect(lv.id) })
                                 }
                             }
@@ -438,7 +443,8 @@ private fun ActHeader(title: String) {
 }
 
 @Composable
-private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boolean, unlocked: Boolean, onTap: () -> Unit) {
+private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boolean, unlocked: Boolean,
+                      solvedPct: Int?, onTap: () -> Unit) {
     Column(
         Modifier.width(230.dp).clip(RoundedCornerShape(14.dp)).background(Palette.paper)
             .border(2.dp, Palette.ink.copy(alpha = if (unlocked) 0.6f else 0.35f), RoundedCornerShape(14.dp))
@@ -465,6 +471,11 @@ private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boo
             fontSize = 12.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif,
             textAlign = TextAlign.Center, maxLines = 2,
             modifier = Modifier.fillMaxWidth().padding(top = 6.dp))
+        // Место под строку держим всегда: иначе карточки с процентом и без него разной
+        // высоты, и сетка едет.
+        Text(solvedPct?.let { L10n.s("ui.solved_pct", it) } ?: " ",
+            color = Palette.inkSoft.copy(alpha = 0.75f), fontSize = 9.sp, fontFamily = Fonts.rounded,
+            textAlign = TextAlign.Center, maxLines = 1, modifier = Modifier.fillMaxWidth())
     }
 }
 

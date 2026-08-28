@@ -334,7 +334,8 @@ struct RootView: View {
         L10n.configure()
         await sync.syncCore()
         load()
-        Stats.flushPending()   // эпизод могли пройти офлайн — ключ ждал в очереди
+        Stats.flushPending()          // эпизод могли пройти офлайн — ключ ждал в очереди
+        SolveRates.shared.refresh()   // доли прохождения для карточек на карте
     }
 
     private func load() {

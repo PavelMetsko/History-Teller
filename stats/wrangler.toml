@@ -9,6 +9,13 @@ routes = [
   { pattern = "stats.historyteller.app", custom_domain = true },
 ]
 
+[vars]
+# Откуда берётся порядок эпизодов в главе — из того же манифеста, что читает игра.
+CDN_BASE = "https://cdn.historyteller.app"
+# Сколько человек должно дойти до эпизода, чтобы показывать по нему долю. Ниже —
+# это не факт, а шум: «100%» с одного игрока хуже, чем молчание.
+MIN_SAMPLE = "20"
+
 # Одна таблица «ключ → число». Создать и накатить схему:
 #   npx wrangler d1 create history-teller-stats     (id из вывода — сюда)
 #   npx wrangler d1 execute history-teller-stats --remote --file schema.sql

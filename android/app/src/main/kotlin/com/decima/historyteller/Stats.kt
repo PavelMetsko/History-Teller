@@ -1,12 +1,16 @@
 package com.decima.historyteller
 
 import android.content.Context
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
+import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -84,4 +88,49 @@ object Stats {
     } catch (e: Exception) {
         false      // счётчики — побочная штука, сломать игру они не должны
     }
+}
+
+/**
+ * Доли прохождения эпизодов: «этот прошли 68% из тех, кто до него добрался». Порт iOS SolveRates.
+ *
+ * Считает их сервер, сюда приезжают только проценты — абсолютных чисел клиент не видит и
+ * показать не может. Эпизоды, по которым выборки мало, сервер просто не присылает, поэтому
+ * на пустой статистике карточки молчат сами, без порогов в UI.
+ */
+object SolveRates {
+    private const val ENDPOINT = "https://stats.historyteller.app/p"
+    private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+    private var table by mutableStateOf<Map<String, Map<String, Int>>>(emptyMap())
+    private var cache: File? = null
+
+    /** Процент для карточки. `null` — сервер по этому эпизоду промолчал, показывать нечего. */
+    fun percent(chapter: String, level: String): Int? = table[chapter]?.get(level)
+
+    /** Обновить в фоне. Ответ кешируется на краю на десять минут, так что зовём просто на старте. */
+    fun refresh(ctx: Context) {
+        val file = cache ?: File(ctx.applicationContext.filesDir, "solve-rates.json").also { cache = it }
+        scope.launch {
+            // Сперва с диска: карта не должна «доливать» проценты через секунду после открытия,
+            // и офлайн они тоже нужны.
+            if (table.isEmpty() && file.exists()) parse(file.readText())?.let { table = it }
+            val body = runCatching {
+                val conn = (URL(ENDPOINT).openConnection() as HttpURLConnection).apply {
+                    connectTimeout = 10_000; readTimeout = 10_000
+                }
+                try {
+                    if (conn.responseCode !in 200..299) null
+                    else conn.inputStream.use { it.readBytes().decodeToString() }
+                } finally { conn.disconnect() }
+            }.getOrNull() ?: return@launch
+            parse(body)?.let { table = it; runCatching { file.writeText(body) } }
+        }
+    }
+
+    private fun parse(text: String): Map<String, Map<String, Int>>? = runCatching {
+        val p = JSONObject(text).getJSONObject("p")
+        p.keys().asSequence().associateWith { chapter ->
+            val levels = p.getJSONObject(chapter)
+            levels.keys().asSequence().associateWith { levels.getInt(it) }
+        }
+    }.getOrNull()
 }

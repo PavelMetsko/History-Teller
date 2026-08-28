@@ -4752,6 +4752,7 @@
  "ui.settings": "Ustawienia",
  "ui.skip": "Pomiń",
  "ui.solved": "Rozwiązano!",
+ "ui.solved_pct": "rozwiązało %d%%",
  "ui.soon": "Wkrótce",
  "ui.sound": "Dźwięki",
  "ui.start": "Zacznij",

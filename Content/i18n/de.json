@@ -4752,6 +4752,7 @@
  "ui.settings": "Einstellungen",
  "ui.skip": "Überspringen",
  "ui.solved": "Gelöst!",
+ "ui.solved_pct": "von %d%% gelöst",
  "ui.soon": "Demnächst",
  "ui.sound": "Töne",
  "ui.start": "Starten",

@@ -4752,6 +4752,7 @@
  "ui.settings": "Настройки",
  "ui.skip": "Пропустить",
  "ui.solved": "Разгадано!",
+ "ui.solved_pct": "прошли %d%%",
  "ui.soon": "Скоро",
  "ui.sound": "Звуки",
  "ui.start": "Начать",
