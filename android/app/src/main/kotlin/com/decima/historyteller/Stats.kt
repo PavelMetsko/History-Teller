@@ -106,7 +106,10 @@ object SolveRates {
     /** Процент для карточки. `null` — сервер по этому эпизоду промолчал, показывать нечего. */
     fun percent(chapter: String, level: String): Int? = table[chapter]?.get(level)
 
-    /** Обновить в фоне. Ответ кешируется на краю на десять минут, так что зовём просто на старте. */
+    /**
+     * Обновить в фоне. Зовём просто на старте: ответ едет с `max-age=600` и его придерживает
+     * край, так что частые запуски в базу не бьют.
+     */
     fun refresh(ctx: Context) {
         val file = cache ?: File(ctx.applicationContext.filesDir, "solve-rates.json").also { cache = it }
         scope.launch {

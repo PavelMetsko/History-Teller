@@ -102,7 +102,10 @@ public final class SolveRates {
     /// Процент для карточки. `nil` — сервер по этому эпизоду промолчал, показывать нечего.
     public func percent(chapter: String, level: String) -> Int? { table[chapter]?[level] }
 
-    /// Обновить в фоне. Ответ кешируется на краю на десять минут, так что зовём просто на старте.
+    /// Обновить в фоне. Зовём просто на старте: ответ едет с `max-age=600`, поэтому запуски
+    /// чаще раза в десять минут разбирает `URLCache` и до сети дело не доходит вовсе.
+    /// (Отсюда же и грабли при отладке: пока не истёк кеш, приложение показывает прежние
+    /// числа и запроса в логе стенда не видно — надо переставить приложение.)
     public func refresh() {
         URLSession.shared.dataTask(with: Stats.baseURL.appendingPathComponent("p")) { [weak self] data, response, error in
             guard let self, error == nil,
