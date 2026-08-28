@@ -161,13 +161,6 @@ private struct LevelCard: View {
     let solvedPct: Int?
     let onTap: () -> Void
 
-    /// Ниже этого — эпизод-стена: цифру показываем бордовым, чтобы она работала крючком,
-    /// а не сноской. Порог именно такой, потому что обычный эпизод держится в районе 85–95%,
-    /// и всё, что заметно ниже, — уже про «здесь спотыкаются», а не про шум выборки.
-    private static let wallBelow = 71
-
-    private var isWall: Bool { (solvedPct ?? 100) < Self.wallBelow }
-
     var body: some View {
         Button(action: { if unlocked { onTap() } }) {
             VStack(spacing: 6) {
@@ -181,10 +174,11 @@ private struct LevelCard: View {
                     .padding(.horizontal, 4)
                 // Место под строку держим всегда: иначе карточки с процентом и без него
                 // разной высоты, и сетка едет.
+                // Бордовым и без приглушения: цифра — часть предложения игроку, а не сноска.
+                // Вес не задаём, `dsCaption` и так bold.
                 Text(solvedPct.map { L10n.s("ui.solved_pct", $0) } ?? " ")
-                    .font(.dsCaption(9))
-                    .fontWeight(isWall ? .bold : .regular)
-                    .foregroundStyle(isWall ? DS.Palette.maroon : DS.Palette.inkSoft.opacity(0.75))
+                    .font(.dsCaption(10))
+                    .foregroundStyle(DS.Palette.maroon)
                     .lineLimit(1)
             }
             .padding(8)

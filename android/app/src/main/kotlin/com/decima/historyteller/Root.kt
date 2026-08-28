@@ -442,8 +442,6 @@ private fun ActHeader(title: String) {
     }
 }
 
-private const val WALL_BELOW = 71
-
 @Composable
 private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boolean, unlocked: Boolean,
                       solvedPct: Int?, onTap: () -> Unit) {
@@ -476,14 +474,10 @@ private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boo
         // Место под строку держим всегда: иначе карточки с процентом и без него разной
         // высоты, и сетка едет.
         //
-        // Ниже WALL_BELOW — эпизод-стена: цифру показываем бордовым, чтобы она работала
-        // крючком, а не сноской. Порог именно такой, потому что обычный эпизод держится
-        // в районе 85–95%, и всё, что заметно ниже, — уже про «здесь спотыкаются».
-        val wall = (solvedPct ?: 100) < WALL_BELOW
+        // Бордовым и жирным: цифра — часть предложения игроку, а не сноска.
         Text(solvedPct?.let { L10n.s("ui.solved_pct", it) } ?: " ",
-            color = if (wall) Palette.maroon else Palette.inkSoft.copy(alpha = 0.75f),
-            fontSize = 9.sp, fontFamily = Fonts.rounded,
-            fontWeight = if (wall) FontWeight.Bold else FontWeight.Normal,
+            color = Palette.maroon, fontSize = 10.sp, fontFamily = Fonts.rounded,
+            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center, maxLines = 1, modifier = Modifier.fillMaxWidth())
     }
 }

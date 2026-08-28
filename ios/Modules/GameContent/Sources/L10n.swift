@@ -95,6 +95,23 @@ public enum L10n {
             "fr": "Réessayer", "it": "Riprova", "pt": "Tentar novamente",
             "pl": "Ponów", "nl": "Opnieuw",
         ],
+        // Рядом с «Повторить» на экране загрузки: там каталог может быть ещё не скачан.
+        "ui.cancel": [
+            "ru": "Отмена", "en": "Cancel", "es": "Cancelar", "de": "Abbrechen",
+            "fr": "Annuler", "it": "Annulla", "pt": "Cancelar",
+            "pl": "Anuluj", "nl": "Annuleren",
+        ],
+        "ui.downloading_level": [
+            "ru": "Загрузка эпизода…", "en": "Loading episode…", "es": "Cargando episodio…",
+            "de": "Episode wird geladen…", "fr": "Chargement de l'épisode…",
+            "it": "Caricamento dell'episodio…", "pt": "Carregando episódio…",
+            "pl": "Wczytywanie epizodu…", "nl": "Aflevering laden…",
+        ],
+        "ui.solved_pct": [
+            "ru": "прошли %d%%", "en": "solved by %d%%", "es": "resuelto por el %d%%",
+            "de": "von %d%% gelöst", "fr": "résolu par %d%%", "it": "risolto dal %d%%",
+            "pt": "resolvido por %d%%", "pl": "rozwiązało %d%%", "nl": "door %d%% opgelost",
+        ],
     ]
 
     /// Строка по ключу. Фолбэк: язык → английский → русская база → встроенная → сам ключ.

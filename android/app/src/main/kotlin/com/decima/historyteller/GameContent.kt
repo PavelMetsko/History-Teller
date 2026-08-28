@@ -86,6 +86,11 @@ object L10n {
             "it" to "Download dei contenuti…", "pt" to "Baixando conteúdo…",
             "pl" to "Pobieranie zawartości…", "nl" to "Inhoud downloaden…",
         ),
+        "ui.solved_pct" to mapOf(
+            "ru" to "прошли %d%%", "en" to "solved by %d%%", "es" to "resuelto por el %d%%",
+            "de" to "von %d%% gelöst", "fr" to "résolu par %d%%", "it" to "risolto dal %d%%",
+            "pt" to "resolvido por %d%%", "pl" to "rozwiązało %d%%", "nl" to "door %d%% opgelost",
+        ),
         "ui.downloading_level" to mapOf(
             "ru" to "Загрузка эпизода…", "en" to "Loading episode…", "es" to "Cargando episodio…",
             "de" to "Episode wird geladen…", "fr" to "Chargement de l'épisode…",
