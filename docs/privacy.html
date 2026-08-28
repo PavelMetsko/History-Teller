@@ -33,12 +33,13 @@
 <body>
 <div class="wrap">
   <h1>Privacy Policy</h1>
-  <p class="meta">History Teller &middot; Last updated: July 24, 2026</p>
+  <p class="meta">History Teller &middot; Last updated: August 28, 2026</p>
 
   <p>This Privacy Policy explains how the mobile application <strong>History Teller</strong> (the &ldquo;App&rdquo;), developed by <strong>Decima</strong> (the &ldquo;Developer&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;), handles information. We designed the App to work without collecting any personal information about you.</p>
 
   <h2>Information we collect</h2>
-  <p>We do <strong>not</strong> collect, store, transmit, or share any personal data. The App has no user accounts, no sign-in, no analytics, no advertising, and no third-party tracking. The App does not access your contacts, location, camera, microphone, photos, or device identifiers.</p>
+  <p>We do <strong>not</strong> collect, store, transmit, or share any personal data. The App has no user accounts, no sign-in, no advertising, and no third-party tracking. The App does not access your contacts, location, camera, microphone, photos, or device identifiers.</p>
+  <p>The only information the App sends to us is a set of anonymous counters that record how far players get in the game. They contain nothing about you. See <a href="#counters">Anonymous progress counters</a> below.</p>
 
   <h2>Data stored on your device</h2>
   <p>The App saves the following data locally on your device only, so the game can function. This data never leaves your device and is not accessible to us:</p>
@@ -48,14 +49,23 @@
   </ul>
   <p>Deleting the App removes this data.</p>
 
+  <h2 id="counters">Anonymous progress counters</h2>
+  <p>So that we can tell whether the chapters we write are being played and where players stop, the App sends us a short message the first time you open a chapter and the first time you complete an episode. The message is a plain label such as <code>done:rome:sabines</code>, meaning &ldquo;someone finished the episode <em>The Sabine Women</em> in the chapter <em>Ancient Rome</em>&rdquo;. Each label is sent at most once per installation.</p>
+  <p>On our server we keep only a running total for each label &mdash; a single number saying how many times it has arrived. We do not store an identifier for you or your device, a date or time, or your IP address, and the message itself carries none of those. Because nothing is kept alongside the number, these messages cannot be linked to you, cannot be linked to one another, and cannot be linked to a purchase. They cannot be used to build a profile or to track you across apps or websites.</p>
+  <p>The App also asks our server for these totals, as percentages, to show how many players solved each episode.</p>
+
   <h2>Purchases and subscriptions</h2>
-  <p>The App offers optional one-time chapter purchases and auto-renewable subscriptions. All payments and subscriptions are processed by <strong>Apple</strong> through the App Store. We do not receive or store your payment details. Apple&rsquo;s handling of that information is governed by Apple&rsquo;s privacy policy, available at <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>. To restore previous purchases, the App asks Apple to verify your existing entitlements; this is handled entirely by Apple.</p>
+  <p>The App offers optional one-time chapter purchases and auto-renewable subscriptions. All payments and subscriptions are processed by the store you installed the App from &mdash; <strong>Apple</strong> through the App Store, or <strong>Google</strong> through Google Play. We do not receive or store your payment details. Their handling of that information is governed by their own privacy policies, available at <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a> and <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. To restore previous purchases, the App asks the store to verify your existing entitlements; this is handled entirely by that store.</p>
 
   <h2>Children</h2>
-  <p>The App does not knowingly collect any personal information from anyone, including children. Because we collect no data at all, the App is suitable for a general audience.</p>
+  <p>The App does not knowingly collect any personal information from anyone, including children. The anonymous counters described above contain no personal information and cannot identify anyone, so the App is suitable for a general audience.</p>
 
   <h2>Third parties</h2>
-  <p>We do not share any information with third parties, because we do not collect any. The only third party involved is Apple, solely for processing App Store purchases as described above.</p>
+  <p>We do not share personal information with third parties, because we do not collect any. Two third parties are involved in running the App:</p>
+  <ul>
+    <li><strong>Apple</strong> or <strong>Google</strong>, solely for processing purchases made through their stores, as described above.</li>
+    <li><strong>Cloudflare</strong>, which hosts the game&rsquo;s chapters, artwork and the anonymous counters, and therefore handles the network requests the App makes to us.</li>
+  </ul>
 
   <h2>Changes to this policy</h2>
   <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated &ldquo;Last updated&rdquo; date.</p>
