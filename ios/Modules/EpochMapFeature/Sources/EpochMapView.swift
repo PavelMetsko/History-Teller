@@ -13,7 +13,6 @@ public struct EpochMapView: View {
     private let onSelect: (String) -> Void
     private let onBack: () -> Void
     private var sync = ContentSync.shared
-    private var rates = SolveRates.shared
 
     public init(title: String = "Древний Рим",
                 levels: [LevelDef],
@@ -106,10 +105,6 @@ public struct EpochMapView: View {
                                         // LevelCard не менялись, SwiftUI не пересобирал её тело,
                                         // и приехавшая картинка проступала лишь после ухода и возврата.
                                         artGen: sync.generation,
-                                        // Доля прошедших — только на открытых карточках: на
-                                        // закрытом хвосте главы это шум, а не подсказка.
-                                        solvedPct: progress.isUnlocked(levelId: entry.level.id, orderedIds: orderedIds)
-                                            ? rates.percent(chapter: entry.level.epoch, level: entry.level.id) : nil,
                                         onTap: { onSelect(entry.level.id) }
                                     )
                                     .id(entry.level.id)
@@ -158,7 +153,6 @@ private struct LevelCard: View {
     let completed: Bool
     let unlocked: Bool
     let artGen: Int
-    let solvedPct: Int?
     let onTap: () -> Void
 
     var body: some View {
@@ -172,14 +166,6 @@ private struct LevelCard: View {
                     .multilineTextAlignment(.center)
                     .frame(height: 30)
                     .padding(.horizontal, 4)
-                // Место под строку держим всегда: иначе карточки с процентом и без него
-                // разной высоты, и сетка едет.
-                // Бордовым и без приглушения: цифра — часть предложения игроку, а не сноска.
-                // Вес не задаём, `dsCaption` и так bold.
-                Text(solvedPct.map { L10n.s("ui.solved_pct", $0) } ?? " ")
-                    .font(.dsCaption(10))
-                    .foregroundStyle(DS.Palette.maroon)
-                    .lineLimit(1)
             }
             .padding(8)
             .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(DS.Palette.paper))

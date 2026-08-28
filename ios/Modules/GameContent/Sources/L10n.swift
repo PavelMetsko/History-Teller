@@ -107,11 +107,6 @@ public enum L10n {
             "it": "Caricamento dell'episodio…", "pt": "Carregando episódio…",
             "pl": "Wczytywanie epizodu…", "nl": "Aflevering laden…",
         ],
-        "ui.solved_pct": [
-            "ru": "прошли %d%%", "en": "solved by %d%%", "es": "resuelto por el %d%%",
-            "de": "von %d%% gelöst", "fr": "résolu par %d%%", "it": "risolto dal %d%%",
-            "pt": "resolvido por %d%%", "pl": "rozwiązało %d%%", "nl": "door %d%% opgelost",
-        ],
     ]
 
     /// Строка по ключу. Фолбэк: язык → английский → русская база → встроенная → сам ключ.

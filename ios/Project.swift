@@ -18,11 +18,6 @@ let baseSettings: SettingsDictionary = [
 let debugContentURL = "http://192.168.1.68:8787"
 let releaseContentURL = "https://cdn.historyteller.app"
 
-/// Счётчики прохождения. В Debug — локальный `wrangler dev --ip 0.0.0.0 --port 8799` из `stats/`,
-/// иначе доли прохождения не увидеть до того, как их накопит прод.
-let debugStatsURL = "http://192.168.1.68:8799"
-let releaseStatsURL = "https://stats.historyteller.app"
-
 func framework(_ name: String,
                sources: SourceFilesList? = nil,
                resources: Bool = false,
@@ -85,7 +80,6 @@ let project = Project(
             infoPlist: .extendingDefault(with: [
                 // MARK: - Источник контента (см. debugContentURL выше)
                 "HTContentBaseURL": "$(HT_CONTENT_BASE_URL)",
-                "HTStatsBaseURL": "$(HT_STATS_BASE_URL)",
                 // Стенд раздаётся по http на серый адрес — для Debug это надо разрешить явно,
                 // и iOS отдельно спросит разрешение на локальную сеть.
                 "NSAppTransportSecurity": ["NSAllowsLocalNetworking": true],
@@ -127,10 +121,8 @@ let project = Project(
                 .target(name: "Simulation"),
             ],
             settings: .settings(configurations: [
-                .debug(name: "Debug", settings: ["HT_CONTENT_BASE_URL": .string(debugContentURL),
-                                                 "HT_STATS_BASE_URL": .string(debugStatsURL)]),
-                .release(name: "Release", settings: ["HT_CONTENT_BASE_URL": .string(releaseContentURL),
-                                                     "HT_STATS_BASE_URL": .string(releaseStatsURL)]),
+                .debug(name: "Debug", settings: ["HT_CONTENT_BASE_URL": .string(debugContentURL)]),
+                .release(name: "Release", settings: ["HT_CONTENT_BASE_URL": .string(releaseContentURL)]),
             ])
         ),
     ],

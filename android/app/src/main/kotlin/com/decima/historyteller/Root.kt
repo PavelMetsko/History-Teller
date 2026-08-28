@@ -103,8 +103,6 @@ fun Root(startLevel: String? = null) {
         runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
             .onSuccess {
                 booted = true; tick++
-                Stats.flushPending(ctx)   // эпизод могли пройти офлайн — ключ ждал в очереди
-                SolveRates.refresh(ctx)   // доли прохождения для карточек на карте
                 if (!settings.onboarded && startLevel == null) showLangPicker = true
             }
             .onFailure { bootError = it.message ?: L10n.s("ui.load_fail") }
@@ -130,10 +128,7 @@ fun Root(startLevel: String? = null) {
                             onReset = { progress.reset(); tick++ })
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
-                            onSelect = {
-                                Stats.chapterOpened(ctx, it)
-                                if (ContentSync.isChapterIndexReady(it)) screen = Screen.Map(it) else loadingEpoch = it
-                            },
+                            onSelect = { if (ContentSync.isChapterIndexReady(it)) screen = Screen.Map(it) else loadingEpoch = it },
                             onLocked = { pendingEpoch = it; showPaywall = true },
                             onBack = { screen = Screen.Menu })
                         is Screen.Map -> {
@@ -155,10 +150,7 @@ fun Root(startLevel: String? = null) {
                         }
                         is Screen.Level -> BoardScreen(
                             levelId = s.id,
-                            onSolved = {
-                                progress.markCompleted(s.id)
-                                Stats.levelSolved(ctx, GameContent.level(s.id)?.epoch ?: "rome", s.id)
-                            },
+                            onSolved = { progress.markCompleted(s.id) },
                             onExit = {
                                 screen = Screen.Map(GameContent.level(s.id)?.epoch ?: "rome")
                                 // Просьба оценить игру — после выхода с уровня, когда награда уже прочитана.
@@ -412,14 +404,10 @@ private fun MapScreen(epoch: String, progress: Progress, onSelect: (String) -> U
                                 verticalArrangement = Arrangement.spacedBy(16.dp)
                             ) {
                                 for ((idx, lv) in entries) {
-                                    val unlocked = progress.isUnlocked(lv.id, orderedIds)
                                     LevelCard(
                                         number = idx + 1, level = lv,
                                         completed = progress.isCompleted(lv.id),
-                                        unlocked = unlocked,
-                                        // Доля прошедших — только на открытых карточках: на
-                                        // закрытом хвосте главы это шум, а не подсказка.
-                                        solvedPct = if (unlocked) SolveRates.percent(lv.epoch, lv.id) else null,
+                                        unlocked = progress.isUnlocked(lv.id, orderedIds),
                                         onTap = { onSelect(lv.id) })
                                 }
                             }
@@ -443,8 +431,7 @@ private fun ActHeader(title: String) {
 }
 
 @Composable
-private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boolean, unlocked: Boolean,
-                      solvedPct: Int?, onTap: () -> Unit) {
+private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boolean, unlocked: Boolean, onTap: () -> Unit) {
     Column(
         Modifier.width(230.dp).clip(RoundedCornerShape(14.dp)).background(Palette.paper)
             .border(2.dp, Palette.ink.copy(alpha = if (unlocked) 0.6f else 0.35f), RoundedCornerShape(14.dp))
@@ -471,14 +458,6 @@ private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boo
             fontSize = 12.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif,
             textAlign = TextAlign.Center, maxLines = 2,
             modifier = Modifier.fillMaxWidth().padding(top = 6.dp))
-        // Место под строку держим всегда: иначе карточки с процентом и без него разной
-        // высоты, и сетка едет.
-        //
-        // Бордовым и жирным: цифра — часть предложения игроку, а не сноска.
-        Text(solvedPct?.let { L10n.s("ui.solved_pct", it) } ?: " ",
-            color = Palette.maroon, fontSize = 10.sp, fontFamily = Fonts.rounded,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center, maxLines = 1, modifier = Modifier.fillMaxWidth())
     }
 }
 
