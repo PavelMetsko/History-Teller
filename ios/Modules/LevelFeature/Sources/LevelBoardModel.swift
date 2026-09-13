@@ -465,7 +465,7 @@ public final class LevelBoardModel {
             return mk(.ally, b[f], b[t], "🤝")
         }
         if let backed = flagTarget(["backed"]) {
-            return mk(.ally, b[backed], other(than: backed), "🛡")
+            return mk(.ally, b[backed], other(than: backed), "🛡️")
         }
         // Триумф/слава.
         if let t = flagTarget(["honored", "beloved", "flaunting", "triumphant", "rome_restored",
@@ -478,7 +478,7 @@ public final class LevelBoardModel {
         }
         // Заговор.
         if let plot = flagTarget(["plotting"]) {
-            return mk(.conspire, b[plot], nil, "🗡")
+            return mk(.conspire, b[plot], nil, "🗡️")
         }
         // Рождение наследника.
         if flagTarget(["has_heir"]) != nil {
@@ -506,14 +506,14 @@ public enum StateBadges {
     public static func emojis(for charId: String, in world: World) -> [String] {
         var out: [String] = []
         if world.hasFlag(charId, "dead")       { out.append("☠️") }
-        if world.hasFlag(charId, "plotting")   { out.append("🗡") }
+        if world.hasFlag(charId, "plotting")   { out.append("🗡️") }
         if world.hasFlag(charId, "traitor")    { out.append("🎭") }
         if world.hasFlag(charId, "crowned")    { out.append("👑") }
-        if world.hasFlag(charId, "backed")     { out.append("🛡") }
+        if world.hasFlag(charId, "backed")     { out.append("🛡️") }
         if world.hasFlag(charId, "conqueror")  { out.append("⚔️") }
         if world.hasFlag(charId, "locked_out") { out.append("🔒") }
         if world.hasFlag(charId, "inside")     { out.append("🚪") }
-        if world.hasFlag(charId, "in_rome")    { out.append("🏛") }
+        if world.hasFlag(charId, "in_rome")    { out.append("🏛️") }
         if world.hasFlag(charId, "has_heir")   { out.append("👶") }
         return out
     }
