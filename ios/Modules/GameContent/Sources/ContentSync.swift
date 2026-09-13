@@ -263,12 +263,30 @@ public final class ContentSync {
                 guard let ref = m.files[path] else { continue }
                 if FileManager.default.fileExists(atPath: self.objects.appendingPathComponent(ref.h).path) { continue }
                 guard (try? await self.fetchObject(ref, describing: path)) != nil else { continue }
-                await MainActor.run {
-                    // Только присутствие: уже разобранные картинки в кеше остаются, а карта
-                    // перерисовывается и подхватывает приехавшую обложку.
-                    ArtStore.invalidateMissing()
-                    self.generation += 1
-                }
+                await self.noteArrived(path)
+            }
+        }
+    }
+
+    /// Приехавший файл докачки. Карта перерисовывается не на каждый файл, а пачкой и только
+    /// когда среди приехавшего есть фон сцены — единственное, что она показывает. Раньше
+    /// `generation` рос на каждый спрайт и трек, по десятку раз в секунду, и карта всё это
+    /// время пересобирала сетку под пальцем — скролл дёргался и зиял пустыми ячейками.
+    @MainActor
+    private func noteArrived(_ path: String) {
+        if path.hasPrefix("art/scene_") { arrivedScene = true }
+        guard !bumpScheduled else { return }
+        bumpScheduled = true
+        Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .milliseconds(500))
+            guard let self else { return }
+            self.bumpScheduled = false
+            // Только присутствие: уже разобранные картинки в кеше остаются, а карта
+            // перерисовывается и подхватывает приехавшую обложку.
+            ArtStore.invalidateMissing()
+            if self.arrivedScene {
+                self.arrivedScene = false
+                self.generation += 1
             }
         }
     }
@@ -281,6 +299,8 @@ public final class ContentSync {
     // MARK: - Внутреннее
 
     private var prefetch: Task<Void, Never>?
+    @ObservationIgnored private var bumpScheduled = false
+    @ObservationIgnored private var arrivedScene = false
 
     /// Логические пути, файлы которых лежат на диске. Считается до подмены манифеста — по
     /// прежним хешам, потому что только они описывают то, что реально скачано.

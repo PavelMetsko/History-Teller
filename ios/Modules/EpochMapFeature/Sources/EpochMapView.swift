@@ -155,6 +155,21 @@ private struct LevelCard: View {
     let artGen: Int
     let onTap: () -> Void
 
+    /// Обложка, разобранная фоном. Раньше `Image.scene` декодировал полный кадр 1024² прямо
+    /// в `body` на главном потоке — по 3–4 таких на каждый ряд, въезжающий под палец, и
+    /// скролл замирал. Здесь тело только читает кеш, а диск и декод — в `.task`.
+    @State private var cover: UIImage?
+
+    /// Сторона миниатюры: карточка ~190–260 pt шириной, 3x — хватает 640 px с запасом.
+    private static let coverPixels = 640
+
+    private var coverName: String? { sceneId.map(GameAssets.sceneImageName) }
+
+    /// Ключ перезапуска загрузки: пока обложки нет — каждый тик докачки (она могла приехать),
+    /// когда есть — больше не трогаем, чтобы не перечитывать по любому чиху.
+    private struct CoverKey: Hashable { let name: String?; let gen: Int }
+    private var coverKey: CoverKey { CoverKey(name: coverName, gen: cover == nil ? artGen : -1) }
+
     var body: some View {
         Button(action: { if unlocked { onTap() } }) {
             VStack(spacing: 6) {
@@ -174,6 +189,17 @@ private struct LevelCard: View {
         }
         .buttonStyle(.plain)
         .disabled(!unlocked)
+        .task(id: coverKey) { await loadCover() }
+    }
+
+    private func loadCover() async {
+        guard cover == nil, let coverName else { return }
+        let pixels = Self.coverPixels
+        let img = await Task.detached(priority: .userInitiated) {
+            ArtStore.thumbnail(coverName, maxPixel: pixels)
+        }.value
+        guard !Task.isCancelled, let img else { return }
+        cover = img
     }
 
     private var thumbnail: some View {
@@ -183,8 +209,9 @@ private struct LevelCard: View {
             .overlay {
                 // Обложка может ещё ехать: карта открывается по описаниям уровней, картинки
                 // догоняют фоном. До приезда — пустой тайл, а не растянутая пустая картинка.
-                if let sceneId, GameAssets.hasSceneArt(sceneId) {
-                    Image.scene(sceneId)
+                // Ячейка, вернувшаяся на экран, берёт уже разобранную миниатюру из кеша сразу.
+                if let img = cover ?? coverName.flatMap({ ArtStore.cachedThumbnail($0, maxPixel: Self.coverPixels) }) {
+                    Image(uiImage: img)
                         .resizable().scaledToFill()
                         .saturation(unlocked ? 1 : 0)
                 } else {

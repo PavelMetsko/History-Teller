@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import ImageIO
 
 /// Хранилище арта: файлы WebP, а не каталог ассетов.
 ///
@@ -16,12 +17,20 @@ public enum ArtStore {
 
     private static let images = NSCache<NSString, UIImage>()
     private static let presence = NSCache<NSString, NSNumber>()   // NSCache потокобезопасен, в отличие от Dictionary
+    /// Уменьшенные копии для карточек карты. Стоимость — байты битмапа, чтобы под сотню
+    /// обложек не съедали память: прежде каждая жила полноразмерной (1024², 4 МБ).
+    private static let thumbnails: NSCache<NSString, UIImage> = {
+        let c = NSCache<NSString, UIImage>()
+        c.totalCostLimit = 96 * 1024 * 1024
+        return c
+    }()
 
     /// Заглушка для мест, где вью требует непустой `Image`, а арта нет.
     static let blank = UIImage()
 
     public static func invalidate() {
         images.removeAllObjects()
+        thumbnails.removeAllObjects()
         presence.removeAllObjects()
     }
 
@@ -52,6 +61,37 @@ public enum ArtStore {
         guard let url = url(name), let img = UIImage(contentsOfFile: url.path) else { return nil }
         images.setObject(img, forKey: key)
         return img
+    }
+
+    /// Уже разобранная миниатюра, без обращения к диску. Для тела вью: ячейка сетки, вернувшаяся
+    /// на экран, рисует обложку сразу, не мигая пустым тайлом до конца фоновой загрузки.
+    public static func cachedThumbnail(_ name: String, maxPixel: Int) -> UIImage? {
+        thumbnails.object(forKey: thumbnailKey(name, maxPixel))
+    }
+
+    /// Миниатюра арта, не больше `maxPixel` по большей стороне. Декод через ImageIO сразу в
+    /// уменьшенный битмап — и дешевле, и в памяти в разы меньше полного кадра. Читает диск и
+    /// декодирует, поэтому зовётся с фонового потока; `nil` — файла (пока) нет, промах не
+    /// запоминается: обложка может приехать фоновой докачкой позже.
+    public static func thumbnail(_ name: String, maxPixel: Int) -> UIImage? {
+        let key = thumbnailKey(name, maxPixel)
+        if let hit = thumbnails.object(forKey: key) { return hit }
+        guard let url = url(name),
+              let source = CGImageSourceCreateWithURL(url as CFURL, nil) else { return nil }
+        let options: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxPixel,
+        ]
+        guard let cg = CGImageSourceCreateThumbnailAtIndex(source, 0, options as CFDictionary) else { return nil }
+        let img = UIImage(cgImage: cg)
+        thumbnails.setObject(img, forKey: key, cost: cg.bytesPerRow * cg.height)
+        return img
+    }
+
+    private static func thumbnailKey(_ name: String, _ maxPixel: Int) -> NSString {
+        "\(name)@\(maxPixel)" as NSString
     }
 }
 
