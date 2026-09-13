@@ -1,0 +1,87 @@
+{
+ "id": "romanos_blinded",
+ "order": 158,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "tension",
+ "cover": "kotyaion_road",
+ "panels": 3,
+ "scenes": [
+  "adana_field",
+  "bishops_oath",
+  "kotyaion_road",
+  "sultan_rescue",
+  "sultan_refuge"
+ ],
+ "characters": [
+  "romanos4",
+  "andronikos_doukas",
+  "alp_arslan"
+ ],
+ "initialState": {
+  "flags": {
+   "romanos4": [
+    "ransomed",
+    "standing"
+   ],
+   "andronikos_doukas": [
+    "strong",
+    "standing",
+    "traitor"
+   ],
+   "alp_arslan": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "andronikos_doukas",
+    "romanos4"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "romanos4",
+     "is": "blinded"
+    }
+   },
+   {
+    "flag": {
+     "char": "andronikos_doukas",
+     "is": "oathbreaker"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "adana_field",
+   "characters": [
+    "andronikos_doukas",
+    "romanos4"
+   ]
+  },
+  {
+   "scene": "bishops_oath",
+   "characters": [
+    "andronikos_doukas",
+    "romanos4"
+   ]
+  },
+  {
+   "scene": "kotyaion_road",
+   "characters": [
+    "andronikos_doukas",
+    "romanos4"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "id": "heraclius_coup",
+ "order": 138,
+ "epoch": "byzantium",
+ "act": "Акт V · Ираклий и ислам",
+ "music": "tension",
+ "cover": "so_you_ruled",
+ "panels": 4,
+ "scenes": [
+  "africa_grain",
+  "fleet_610",
+  "persian_front",
+  "so_you_ruled",
+  "khosrow_envoys"
+ ],
+ "characters": [
+  "heraclius",
+  "phocas_c",
+  "khosrow"
+ ],
+ "initialState": {
+  "flags": {
+   "heraclius": [
+    "standing"
+   ],
+   "phocas_c": [
+    "reigns",
+    "crowned",
+    "strong",
+    "standing"
+   ],
+   "khosrow": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "khosrow",
+    "phocas_c"
+   ],
+   [
+    "enemy_of",
+    "khosrow",
+    "heraclius"
+   ],
+   [
+    "enemy_of",
+    "heraclius",
+    "khosrow"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "phocas_c",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "heraclius",
+     "is": "crowned"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "africa_grain",
+   "characters": [
+    "heraclius",
+    "phocas_c"
+   ]
+  },
+  {
+   "scene": "fleet_610",
+   "characters": [
+    "heraclius"
+   ]
+  },
+  {
+   "scene": "persian_front",
+   "characters": [
+    "khosrow",
+    "phocas_c"
+   ]
+  },
+  {
+   "scene": "so_you_ruled",
+   "characters": [
+    "heraclius",
+    "phocas_c"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

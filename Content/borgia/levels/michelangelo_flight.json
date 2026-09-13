@@ -1,0 +1,95 @@
+{
+ "id": "michelangelo_flight",
+ "order": 134,
+ "epoch": "borgia",
+ "act": "Акт V · Медичи и Макиавелли",
+ "music": "tension",
+ "cover": "bologna_pardon",
+ "panels": 3,
+ "scenes": [
+  "night_flight",
+  "signoria_pressure",
+  "bologna_pardon",
+  "rome_summons",
+  "golden_horn"
+ ],
+ "characters": [
+  "michelangelo",
+  "rovere",
+  "machiavelli"
+ ],
+ "initialState": {
+  "flags": {
+   "rovere": [
+    "reigns",
+    "crowned",
+    "standing",
+    "strong"
+   ],
+   "michelangelo": [
+    "standing"
+   ],
+   "machiavelli": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "michelangelo",
+     "is": "pardoned"
+    }
+   },
+   {
+    "flag": {
+     "char": "michelangelo",
+     "is": "bronze_commission"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "michelangelo",
+      "is": "conceded"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "michelangelo",
+      "is": "in_turkey"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "night_flight",
+   "characters": [
+    "michelangelo"
+   ]
+  },
+  {
+   "scene": "signoria_pressure",
+   "characters": [
+    "machiavelli",
+    "michelangelo"
+   ]
+  },
+  {
+   "scene": "bologna_pardon",
+   "characters": [
+    "rovere",
+    "michelangelo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

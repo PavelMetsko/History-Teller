@@ -1,0 +1,103 @@
+{
+ "id": "zara",
+ "order": 162,
+ "epoch": "byzantium",
+ "act": "Акт VII · Крестоносцы и падение",
+ "music": "tension",
+ "cover": "zara_walls",
+ "panels": 4,
+ "scenes": [
+  "san_marco_cross",
+  "zara_walls",
+  "papal_anathema",
+  "promise_marks",
+  "papal_legate"
+ ],
+ "characters": [
+  "dandolo",
+  "alexios4",
+  "innocent3"
+ ],
+ "initialState": {
+  "flags": {
+   "dandolo": [
+    "standing"
+   ],
+   "alexios4": [
+    "standing"
+   ],
+   "innocent3": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dandolo",
+     "is": "zara_taken"
+    }
+   },
+   {
+    "flag": {
+     "char": "dandolo",
+     "is": "excommunicated"
+    }
+   },
+   {
+    "flag": {
+     "char": "dandolo",
+     "is": "bought"
+    }
+   },
+   {
+    "relation": {
+     "rel": "ally_of",
+     "from": "alexios4",
+     "to": "dandolo"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "dandolo",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "san_marco_cross",
+   "characters": [
+    "dandolo"
+   ]
+  },
+  {
+   "scene": "zara_walls",
+   "characters": [
+    "dandolo"
+   ]
+  },
+  {
+   "scene": "papal_anathema",
+   "characters": [
+    "innocent3",
+    "dandolo"
+   ]
+  },
+  {
+   "scene": "promise_marks",
+   "characters": [
+    "alexios4",
+    "dandolo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

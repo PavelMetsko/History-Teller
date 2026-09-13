@@ -1,0 +1,106 @@
+{
+ "id": "bordeaux_duel",
+ "order": 5,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "tension",
+ "cover": "lists_bordeaux",
+ "panels": 3,
+ "scenes": [
+  "challenge_bordeaux",
+  "lists_bordeaux",
+  "duel_field_b",
+  "ask_edward",
+  "messina_council"
+ ],
+ "characters": [
+  "charles_anjou",
+  "peter_aragon",
+  "edward1",
+  "procida"
+ ],
+ "initialState": {
+  "flags": {
+   "charles_anjou": [
+    "crowned",
+    "standing"
+   ],
+   "peter_aragon": [
+    "crowned",
+    "standing"
+   ],
+   "edward1": [
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "charles_anjou",
+    "peter_aragon"
+   ],
+   [
+    "enemy_of",
+    "peter_aragon",
+    "charles_anjou"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles_anjou",
+     "is": "appeared"
+    }
+   },
+   {
+    "flag": {
+     "char": "peter_aragon",
+     "is": "appeared"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "charles_anjou",
+      "is": "at_war"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "edward1",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "challenge_bordeaux",
+   "characters": [
+    "charles_anjou",
+    "peter_aragon"
+   ]
+  },
+  {
+   "scene": "lists_bordeaux",
+   "characters": [
+    "peter_aragon"
+   ]
+  },
+  {
+   "scene": "lists_bordeaux",
+   "characters": [
+    "charles_anjou"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

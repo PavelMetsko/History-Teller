@@ -21268,5 +21268,2079 @@
     "flag": "crowned"
    }
   ]
+ },
+ {
+  "id": "cross_lines_sig",
+  "comment": "Нищий без оружия идёт через линию под Дамиеттой; дозорные бьют его и ведут к султану",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cross_lines"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "friar_i"
+     ],
+     "notFlags": [
+      "strong",
+      "at_war",
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "unarmed"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "sultan_tent_sig",
+  "comment": "Султан несколько дней слушает проповедь, отказывается от предложенного золота и отпускает с охранной грамотой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sultan_tent"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "friar_i"
+     ],
+     "flags": [
+      "unarmed"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sultan_i"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "heard"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "safe_conduct"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "merciful"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "challenge_b_sig",
+  "comment": "Анжуец вызывает врага на суд Божий: сто рыцарей против ста, в Бордо, 1 июня — оба клянутся приехать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_challenge_b"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "angevin"
+     ],
+     "notFlags": [
+      "at_war"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "king"
+     ],
+     "relations": [
+      {
+       "rel": "enemy_of",
+       "to": "A"
+      }
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "duel_set"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "duel_set"
+   }
+  ]
+ },
+ {
+  "id": "lists_b_sig",
+  "comment": "Король выезжает на ристалище один, в свой час, требует от сенешаля запись о явке — и объявляет противника трусом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lists_b"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "king"
+     ],
+     "flags": [
+      "duel_set"
+     ],
+     "notFlags": [
+      "at_war",
+      "appeared",
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "appeared"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "pardon_c_sig",
+  "comment": "Папе нужен свой человек в Риме: с еретика снимают отлучение и посылают его сенатором вместе с легатом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pardon_c"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tribune_i"
+     ],
+     "flags": [
+      "condemned"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "senator"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "standing"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "condemned"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "wine_tax_sig",
+  "comment": "Наёмникам надо платить: сенатор вводит налог на вино и соль — город, носивший его на руках, теперь его ненавидит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wine_tax"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tribune_i"
+     ],
+     "flags": [
+      "senator"
+     ],
+     "notFlags": [
+      "rallied"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hated"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "capitol_fire_sig",
+  "comment": "Бароны подстрекают толпу; Капитолий горит, сенатор мажет лицо сажей — его выдают золотые браслеты",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_capitol_fire"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "baron"
+     ],
+     "notFlags": [
+      "bought",
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tribune_i"
+     ],
+     "flags": [
+      "hated"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "avenged"
+   }
+  ]
+ },
+ {
+  "id": "prior_sm_sig",
+  "comment": "Избранный приор отказывается, по обычаю, явиться к Лоренцо: «Меня избрал Бог, а не он»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prior_sm"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "friar"
+     ],
+     "notFlags": [
+      "bought"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "prior"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "bedside_c_sig",
+  "comment": "Умирающий зовёт единственного, кто ему не кланялся; тот ставит три условия — на два первых Лоренцо говорит «да»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bedside_c"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "medici"
+     ],
+     "flags": [
+      "dying"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "friar"
+     ],
+     "flags": [
+      "prior"
+     ],
+     "notFlags": [
+      "bought"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "confessed"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "unbending"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "at_bedside"
+   }
+  ]
+ },
+ {
+  "id": "wall_c_sig",
+  "comment": "Третье условие — вернуть Флоренции свободу; Лоренцо отворачивается к стене, монах уходит без отпущения",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wall_c"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "medici"
+     ],
+     "flags": [
+      "confessed"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "refused_liberty"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "unabsolved"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "pearls_c_sig",
+  "comment": "Врач Пьер Леони поит больного толчёным жемчугом с самоцветами; наутро самого врача найдут в колодце",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pearls_c"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "medici"
+     ],
+     "flags": [
+      "dying"
+     ],
+     "notFlags": [
+      "confessed"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "poisoned"
+   }
+  ]
+ },
+ {
+  "id": "map_i_sig",
+  "comment": "Нанятый инженер вымеряет Имолу шагами и одометром и чертит первый в Европе план города «сверху»; крепости герцога в порядке",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_map_i"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "artist"
+     ],
+     "flags": [
+      "bought"
+     ],
+     "relations": [
+      {
+       "rel": "ally_of",
+       "to": "B"
+      }
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "borgia"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "cartographer"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fortified"
+   }
+  ]
+ },
+ {
+  "id": "envoy_i_sig",
+  "comment": "Посол без полномочий три месяца смотрит на укреплённого герцога и почти ежедневно пишет в Синьорию — из этих депеш вырастет «Государь»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_envoy_i"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "secretary"
+     ],
+     "notFlags": [
+      "bought"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "borgia"
+     ],
+     "flags": [
+      "fortified"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "observing"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "feign_s_sig",
+  "comment": "Герцог, у которого меньше солдат, вдруг ласков: прощает, обещает, подписывает — кондотьеры верят и разводят войска по деревням",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_feign_s"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "borgia"
+     ],
+     "notFlags": [
+      "defeated",
+      "at_war"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cardinal_b"
+     ],
+     "flags": [
+      "plotting"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "trusting"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "plotting"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "senigallia_sig",
+  "comment": "В вечер Нового года герцог обнимает каждого, вводит в дом и велит схватить; ночью их душат на одной скамье",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_senigallia"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "borgia"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cardinal_b"
+     ],
+     "flags": [
+      "trusting"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "strangled"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ruthless"
+   }
+  ]
+ },
+ {
+  "id": "dispatch_s_sig",
+  "comment": "Посол, ждавший в передней, той же ночью пишет в Синьорию — потом из этого выйдет «Описание того, как герцог Валентино убил...»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dispatch_s"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "secretary"
+     ],
+     "notFlags": [
+      "plotting",
+      "bought"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "borgia"
+     ],
+     "flags": [
+      "ruthless"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "witness"
+   }
+  ]
+ },
+ {
+  "id": "signoria_m_sig",
+  "comment": "Гонфалоньер беглецу: «Ты поступил с папой так, как не посмел бы король Франции; мы не хотим из-за тебя войны»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_signoria_m"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "secretary"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "artist"
+     ],
+     "flags": [
+      "away"
+     ],
+     "notFlags": [
+      "in_turkey"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pressed"
+   }
+  ]
+ },
+ {
+  "id": "bologna_m_sig",
+  "comment": "Папа только что взял Болонью; кающийся получает прощение и заказ на бронзовую статую — её потом перельют в пушку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bologna_m"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ],
+     "flags": [
+      "standing"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "artist"
+     ],
+     "flags": [
+      "pressed"
+     ],
+     "notFlags": [
+      "in_turkey",
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pardoned"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bronze_commission"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "away"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "golden_horn_sig",
+  "comment": "Султан Баязид зовёт строить мост от Константинополя до Перы — беглец всерьёз собирается ехать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_golden_horn"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "artist"
+     ],
+     "flags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_turkey"
+   }
+  ]
+ },
+ {
+  "id": "rope_c_sig",
+  "comment": "Узник режет простыни на полосы, выламывает скобы, спускается с башни и стены — и, прыгая с последней высоты, ломает ногу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rope_c"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "artist"
+     ],
+     "flags": [
+      "condemned"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "escaped_once"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "broken_leg"
+   }
+  ]
+ },
+ {
+  "id": "intercede_c_sig",
+  "comment": "Кардинал д'Эсте от имени Франциска I просит папу отпустить ювелира — тот выходит и уезжает в Париж",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_intercede_c"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "king",
+      "french"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "artist"
+     ],
+     "flags": [
+      "broken_leg",
+      "condemned"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "freed"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "to_france"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "condemned"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "verdict_1616_sig",
+  "comment": "Одиннадцать богословов за два дня: «Солнце неподвижно» — формальная ересь, «Земля движется» — ошибка в вере; папа поручает кардиналу увещевать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_verdict_1616"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "inquisitor"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "decree"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "admonish_1616_sig",
+  "comment": "Кардинал по-дружески велит оставить это мнение; астроном подчиняется — и молчит семь лет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_admonish_1616"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "inquisitor"
+     ],
+     "flags": [
+      "decree"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "astronomer"
+     ],
+     "notFlags": [
+      "away",
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "admonished"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "silenced"
+   }
+  ]
+ },
+ {
+  "id": "certificate_1616_sig",
+  "comment": "Слухи об отречении; астроном просит справку — кардинал пишет, что отречения не было. Через семнадцать лет бумага станет уликой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_certificate_1616"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "astronomer"
+     ],
+     "flags": [
+      "admonished"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "inquisitor"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "certificate"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "paper_trail"
+   }
+  ]
+ },
+ {
+  "id": "roma_o_morte_sig",
+  "comment": "В Палермо генерал собирает добровольцев с криком «Рим или смерть!» и переправляется в Калабрию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_roma_o_morte"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rebel"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rallied"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strong"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "marching"
+   }
+  ]
+ },
+ {
+  "id": "proclamation_a_sig",
+  "comment": "Король, которому генерал подарил полстраны, объявляет его поход мятежом — теперь они по разные стороны",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_proclamation_a"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "savoy"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rebel"
+     ],
+     "flags": [
+      "marching"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "disowns"
+   },
+   {
+    "type": "addRelation",
+    "rel": "enemy_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "enemy_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "aspromonte_sig",
+  "comment": "Берсальеры открывают огонь; генерал запрещает своим отвечать — «не стрелять в итальянских солдат» — и падает с пулей в ноге",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_aspromonte"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "savoy"
+     ],
+     "flags": [
+      "disowns"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rebel"
+     ],
+     "flags": [
+      "marching"
+     ],
+     "notFlags": [
+      "at_war"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "wounded"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "prisoner"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "marching"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "b2_wars_sig",
+  "comment": "Секретарь Велизария записывает его походы — так рождается историк «Войн»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_wars"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "writer_b"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "strategos"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "historian"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "b2_anekdota_sig",
+  "comment": "Историк, вхожий ко двору, пишет в стол о бывшей актрисе — «Тайную историю»; разоблачённый уже ничего не пишет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_anekdota"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "writer_b"
+     ],
+     "flags": [
+      "historian"
+     ],
+     "notFlags": [
+      "exposed"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "actress"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "anekdota"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "slandered"
+   }
+  ]
+ },
+ {
+  "id": "b2_buildings_sig",
+  "comment": "С пасквилем в ящике стола он пишет императору панегирик «О постройках»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_buildings"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "writer_b"
+     ],
+     "flags": [
+      "anekdota"
+     ],
+     "notFlags": [
+      "exposed"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "augustus"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "praised"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "court_favour"
+   }
+  ]
+ },
+ {
+  "id": "b2_publish_sig",
+  "comment": "Отдать «Тайную историю» переписчикам при живом императоре — смерть автора",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_publish"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "flags": [
+      "anekdota"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "exposed"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "b2_confide_sig",
+  "comment": "Наперсница императрицы доносит — автор разоблачён",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_confide"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "flags": [
+      "anekdota"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "confidante"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "exposed"
+   }
+  ]
+ },
+ {
+  "id": "b2_grain_sig",
+  "comment": "Экзарх Африки перекрывает столице хлеб — тиран без зерна теряет войско и голодает; разбитый или воюющий с персами этого не сделает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_grain"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "basileus"
+     ],
+     "notFlags": [
+      "defeated",
+      "at_war",
+      "away"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "usurper_b"
+     ],
+     "flags": [
+      "reigns"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "starved"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "b2_ruled_sig",
+  "comment": "«Так ли ты правил империей?» — «А ты будешь править лучше?» Сильный сын экзарха казнит разбитого и голодного тирана и коронуется в тот же день",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_ruled"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "basileus"
+     ],
+     "flags": [
+      "strong",
+      "standing"
+     ],
+     "notFlags": [
+      "at_war",
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "usurper_b"
+     ],
+     "flags": [
+      "starved",
+      "defeated"
+     ],
+     "notFlags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "executed"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reigns"
+   }
+  ]
+ },
+ {
+  "id": "b2_bishops_sig",
+  "comment": "Разбитому императору три епископа клянутся, что его не тронут, — он сдаётся и принимает постриг; выручённый или ушедший не сдаётся",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_bishops"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "doukas"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "basileus_m"
+     ],
+     "flags": [
+      "defeated"
+     ],
+     "notFlags": [
+      "away",
+      "grateful"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "surrendered"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "tonsured"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sworn_safety"
+   }
+  ]
+ },
+ {
+  "id": "b2_kotyaion_sig",
+  "comment": "Клятву трёх епископов нарушают: сдавшегося монаха ослепляют на дороге в Котиэе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_kotyaion"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "doukas"
+     ],
+     "flags": [
+      "sworn_safety"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "flags": [
+      "surrendered"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "blinded"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "standing"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "oathbreaker"
+   }
+  ]
+ },
+ {
+  "id": "b2_firouz_sig",
+  "comment": "Норманн подкупает начальника Башни Двух Сестёр и входит в Антиохию; купленный, уступивший, ушедший или разбитый башен не покупает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_firouz"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "crusader"
+     ],
+     "notFlags": [
+      "bought",
+      "conceded",
+      "away",
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "inside_antioch"
+   }
+  ]
+ },
+ {
+  "id": "b2_claim_sig",
+  "comment": "Император повернул назад — клятва Влахерн ничтожна: вошедший в город норманн зовёт себя князем Антиохии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_claim"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "crusader"
+     ],
+     "flags": [
+      "inside_antioch"
+     ],
+     "notFlags": [
+      "bought",
+      "conceded",
+      "away"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "basileus_k"
+     ],
+     "flags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "prince"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "oathbreaker"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "cheated"
+   },
+   {
+    "type": "removeRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "removeRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "b2_cross_doge_sig",
+  "comment": "Слепой дож сам берёт крест в Сан-Марко — теперь он крестоносец и сила похода; уступивший папе никуда не плывёт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_cross_doge"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "doge"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "cross_taken"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strong"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "b2_zara_sig",
+  "comment": "Дож-крестоносец ведёт войско на христианскую Зару — за долг; купленный царевичем пошёл бы прямо на Царьград",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_zara"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "doge"
+     ],
+     "flags": [
+      "cross_taken"
+     ],
+     "notFlags": [
+      "conceded",
+      "bought"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "zara_taken"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "b2_anathema_sig",
+  "comment": "Папа отлучает того, кто поднял меч на христианский город",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_anathema"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "flags": [
+      "zara_taken"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "excommunicated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "b2_shield_sig",
+  "comment": "Племянник уговаривает — и войско под Кесарией поднимает сильного полководца на щит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_shield"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "basileus"
+     ],
+     "flags": [
+      "strong"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "general"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "acclaimed"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "kingmaker"
+   }
+  ]
+ },
+ {
+  "id": "b2_godfather_sig",
+  "comment": "Патриарх против: он крёстный её детей. Священник клянётся, что нет, — препятствие снято",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_godfather"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "basileus"
+     ],
+     "flags": [
+      "acclaimed"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "basilissa"
+     ],
+     "flags": [
+      "locked_out"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "locked_out"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dispensed"
+   }
+  ]
+ },
+ {
+  "id": "b2_urban_sig",
+  "comment": "Император не может заплатить литейщику — мастер уходит к султану, и пушка теперь у султана",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_urban"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "basileus"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sultan"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "cannon"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "strong"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "no_gold"
+   }
+  ]
+ },
+ {
+  "id": "b2_gate_sig",
+  "comment": "Кондотьер, которому обещан остров, встаёт во главе обороны у ворот святого Романа — и город снова сила",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_gate"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "genoese"
+     ],
+     "flags": [
+      "bought"
+     ],
+     "relations": [
+      {
+       "rel": "ally_of",
+       "to": "B"
+      }
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "basileus"
+     ],
+     "notFlags": [
+      "away",
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "commander"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "b2_defy_sig",
+  "comment": "Султан с пушкой предлагает жизнь и Морею за город; сильный император отвечает: город не в его власти отдать",
+  "priority": 12,
+  "trigger": {
+   "sceneTags": [
+    "sig_b2_defy"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sultan"
+     ],
+     "flags": [
+      "cannon"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "basileus"
+     ],
+     "flags": [
+      "strong"
+     ],
+     "notFlags": [
+      "away",
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defiant"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "resolved"
+   }
+  ]
  }
 ]

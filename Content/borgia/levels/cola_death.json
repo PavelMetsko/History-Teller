@@ -1,0 +1,105 @@
+{
+ "id": "cola_death",
+ "order": 10,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "tension",
+ "cover": "capitol_fire_1354",
+ "panels": 3,
+ "scenes": [
+  "avignon_pardon",
+  "wine_tax",
+  "capitol_fire_1354",
+  "capitol_tribune",
+  "bribe_barons",
+  "beggar_disguise"
+ ],
+ "characters": [
+  "cola",
+  "colonna",
+  "pope"
+ ],
+ "initialState": {
+  "flags": {
+   "cola": [
+    "condemned",
+    "away"
+   ],
+   "colonna": [
+    "standing",
+    "strong"
+   ],
+   "pope": [
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cola",
+    "colonna"
+   ],
+   [
+    "enemy_of",
+    "colonna",
+    "cola"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cola",
+     "is": "senator"
+    }
+   },
+   {
+    "flag": {
+     "char": "cola",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "colonna",
+     "is": "avenged"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cola",
+      "is": "rallied"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "avignon_pardon",
+   "characters": [
+    "pope",
+    "cola"
+   ]
+  },
+  {
+   "scene": "wine_tax",
+   "characters": [
+    "cola"
+   ]
+  },
+  {
+   "scene": "capitol_fire_1354",
+   "characters": [
+    "colonna",
+    "cola"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,91 @@
+{
+ "id": "imola_1502",
+ "order": 62,
+ "epoch": "borgia",
+ "act": "Акт III · Яд и власть",
+ "music": "theme",
+ "cover": "map_of_imola",
+ "panels": 3,
+ "scenes": [
+  "engineer_patent",
+  "map_of_imola",
+  "envoy_watches",
+  "imola_meeting"
+ ],
+ "characters": [
+  "leonardo",
+  "cesare",
+  "machiavelli"
+ ],
+ "initialState": {
+  "flags": {
+   "cesare": [
+    "standing",
+    "strong"
+   ],
+   "leonardo": [
+    "standing"
+   ],
+   "machiavelli": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "leonardo",
+     "is": "cartographer"
+    }
+   },
+   {
+    "flag": {
+     "char": "cesare",
+     "is": "fortified"
+    }
+   },
+   {
+    "flag": {
+     "char": "machiavelli",
+     "is": "observing"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "machiavelli",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "engineer_patent",
+   "characters": [
+    "cesare",
+    "leonardo"
+   ]
+  },
+  {
+   "scene": "map_of_imola",
+   "characters": [
+    "leonardo",
+    "cesare"
+   ]
+  },
+  {
+   "scene": "envoy_watches",
+   "characters": [
+    "machiavelli",
+    "cesare"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

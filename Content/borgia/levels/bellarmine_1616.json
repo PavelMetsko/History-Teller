@@ -1,0 +1,85 @@
+{
+ "id": "bellarmine_1616",
+ "order": 154,
+ "epoch": "borgia",
+ "act": "Акт VI · Инквизиция",
+ "music": "tension",
+ "cover": "admonition_1616",
+ "panels": 3,
+ "scenes": [
+  "holy_office_1616",
+  "admonition_1616",
+  "certificate_1616",
+  "formal_abjuration",
+  "barberini_ode",
+  "flee_venice"
+ ],
+ "characters": [
+  "galileo",
+  "bellarmine",
+  "urban8"
+ ],
+ "initialState": {
+  "flags": {
+   "galileo": [
+    "standing"
+   ],
+   "bellarmine": [
+    "standing"
+   ],
+   "urban8": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "galileo",
+     "is": "admonished"
+    }
+   },
+   {
+    "flag": {
+     "char": "galileo",
+     "is": "certificate"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "galileo",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "holy_office_1616",
+   "characters": [
+    "bellarmine"
+   ]
+  },
+  {
+   "scene": "admonition_1616",
+   "characters": [
+    "bellarmine",
+    "galileo"
+   ]
+  },
+  {
+   "scene": "certificate_1616",
+   "characters": [
+    "galileo",
+    "bellarmine"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

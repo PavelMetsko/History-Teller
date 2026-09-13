@@ -1,0 +1,121 @@
+{
+ "id": "mehmed_ultimatum",
+ "order": 168,
+ "epoch": "byzantium",
+ "act": "Акт VII · Крестоносцы и падение",
+ "music": "tension",
+ "cover": "morea_offer",
+ "panels": 4,
+ "scenes": [
+  "urban_foundry",
+  "lemnos_promise",
+  "st_romanus_gate",
+  "morea_offer",
+  "rumeli_hisar",
+  "leave_city"
+ ],
+ "characters": [
+  "constantine11",
+  "mehmed2",
+  "giustiniani"
+ ],
+ "initialState": {
+  "flags": {
+   "constantine11": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "mehmed2": [
+    "reigns",
+    "standing"
+   ],
+   "giustiniani": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "constantine11",
+    "mehmed2"
+   ],
+   [
+    "enemy_of",
+    "mehmed2",
+    "constantine11"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "constantine11",
+     "is": "defiant"
+    }
+   },
+   {
+    "flag": {
+     "char": "mehmed2",
+     "is": "cannon"
+    }
+   },
+   {
+    "flag": {
+     "char": "giustiniani",
+     "is": "commander"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "constantine11",
+      "is": "conceded"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "mehmed2",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "urban_foundry",
+   "characters": [
+    "constantine11",
+    "mehmed2"
+   ]
+  },
+  {
+   "scene": "lemnos_promise",
+   "characters": [
+    "constantine11",
+    "giustiniani"
+   ]
+  },
+  {
+   "scene": "st_romanus_gate",
+   "characters": [
+    "giustiniani",
+    "constantine11"
+   ]
+  },
+  {
+   "scene": "morea_offer",
+   "characters": [
+    "mehmed2",
+    "constantine11"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

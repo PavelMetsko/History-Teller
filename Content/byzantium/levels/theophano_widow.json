@@ -1,0 +1,95 @@
+{
+ "id": "theophano_widow",
+ "order": 154,
+ "epoch": "byzantium",
+ "act": "Акт VI · Иконы и Македонцы",
+ "music": "theme",
+ "cover": "caesarea_shield",
+ "panels": 3,
+ "scenes": [
+  "caesarea_shield",
+  "godfather_oath",
+  "nea_wedding",
+  "theophano_lover",
+  "hippodrome_honour"
+ ],
+ "characters": [
+  "nikephoros",
+  "theophano",
+  "tzimiskes"
+ ],
+ "initialState": {
+  "flags": {
+   "nikephoros": [
+    "strong",
+    "standing"
+   ],
+   "theophano": [
+    "locked_out",
+    "standing"
+   ],
+   "tzimiskes": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nikephoros",
+     "is": "acclaimed"
+    }
+   },
+   {
+    "relation": {
+     "rel": "wed",
+     "from": "nikephoros",
+     "to": "theophano"
+    }
+   },
+   {
+    "flag": {
+     "char": "theophano",
+     "is": "queen"
+    }
+   },
+   {
+    "not": {
+     "relation": {
+      "rel": "loves",
+      "from": "theophano",
+      "to": "tzimiskes"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "caesarea_shield",
+   "characters": [
+    "nikephoros",
+    "tzimiskes"
+   ]
+  },
+  {
+   "scene": "godfather_oath",
+   "characters": [
+    "nikephoros",
+    "theophano"
+   ]
+  },
+  {
+   "scene": "nea_wedding",
+   "characters": [
+    "nikephoros",
+    "theophano"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

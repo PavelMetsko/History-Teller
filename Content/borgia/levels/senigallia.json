@@ -1,0 +1,107 @@
+{
+ "id": "senigallia",
+ "order": 65,
+ "epoch": "borgia",
+ "act": "Акт III · Яд и власть",
+ "music": "tension",
+ "cover": "senigallia_gate",
+ "panels": 3,
+ "scenes": [
+  "feigned_peace",
+  "senigallia_gate",
+  "dispatch_florence",
+  "magione_castle",
+  "french_lances",
+  "open_battle_s"
+ ],
+ "characters": [
+  "cesare",
+  "orsini",
+  "machiavelli"
+ ],
+ "initialState": {
+  "flags": {
+   "cesare": [
+    "standing"
+   ],
+   "orsini": [
+    "standing",
+    "strong",
+    "plotting"
+   ],
+   "machiavelli": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "cesare",
+    "orsini"
+   ],
+   [
+    "enemy_of",
+    "orsini",
+    "cesare"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "orsini",
+     "is": "strangled"
+    }
+   },
+   {
+    "flag": {
+     "char": "machiavelli",
+     "is": "witness"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "machiavelli",
+      "is": "plotting"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cesare",
+      "is": "at_war"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "feigned_peace",
+   "characters": [
+    "cesare",
+    "orsini"
+   ]
+  },
+  {
+   "scene": "senigallia_gate",
+   "characters": [
+    "cesare",
+    "orsini"
+   ]
+  },
+  {
+   "scene": "dispatch_florence",
+   "characters": [
+    "machiavelli",
+    "cesare"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

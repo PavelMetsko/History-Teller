@@ -1,0 +1,107 @@
+{
+ "id": "bohemond_antioch",
+ "order": 161,
+ "epoch": "byzantium",
+ "act": "Акт VII · Крестоносцы и падение",
+ "music": "tension",
+ "cover": "prince_of_antioch",
+ "panels": 3,
+ "scenes": [
+  "two_sisters_tower",
+  "philomelion",
+  "prince_of_antioch",
+  "hand_over_antioch",
+  "dorylaeum"
+ ],
+ "characters": [
+  "alexios1",
+  "bohemond",
+  "kilij"
+ ],
+ "initialState": {
+  "flags": {
+   "alexios1": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "bohemond": [
+    "sworn",
+    "standing"
+   ],
+   "kilij": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "ally_of",
+    "alexios1",
+    "bohemond"
+   ],
+   [
+    "ally_of",
+    "bohemond",
+    "alexios1"
+   ],
+   [
+    "enemy_of",
+    "bohemond",
+    "kilij"
+   ],
+   [
+    "enemy_of",
+    "kilij",
+    "bohemond"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bohemond",
+     "is": "prince"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexios1",
+     "is": "cheated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "bohemond",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "two_sisters_tower",
+   "characters": [
+    "bohemond"
+   ]
+  },
+  {
+   "scene": "philomelion",
+   "characters": [
+    "alexios1"
+   ]
+  },
+  {
+   "scene": "prince_of_antioch",
+   "characters": [
+    "bohemond",
+    "alexios1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

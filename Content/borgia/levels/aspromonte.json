@@ -1,0 +1,101 @@
+{
+ "id": "aspromonte",
+ "order": 161,
+ "epoch": "borgia",
+ "act": "Акт VII · Рисорджименто",
+ "music": "tension",
+ "cover": "aspromonte_1862",
+ "panels": 3,
+ "scenes": [
+  "roma_o_morte",
+  "royal_proclamation",
+  "aspromonte_1862",
+  "march_on_rome_g",
+  "french_rome",
+  "rattazzi_wink"
+ ],
+ "characters": [
+  "garibaldi",
+  "victor_emmanuel",
+  "napoleon3"
+ ],
+ "initialState": {
+  "flags": {
+   "victor_emmanuel": [
+    "crowned",
+    "king_of_italy",
+    "standing",
+    "strong"
+   ],
+   "napoleon3": [
+    "crowned",
+    "standing",
+    "strong"
+   ],
+   "garibaldi": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "garibaldi",
+    "napoleon3"
+   ],
+   [
+    "enemy_of",
+    "napoleon3",
+    "garibaldi"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "garibaldi",
+     "is": "wounded"
+    }
+   },
+   {
+    "flag": {
+     "char": "garibaldi",
+     "is": "prisoner"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "garibaldi",
+      "is": "at_war"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "roma_o_morte",
+   "characters": [
+    "garibaldi"
+   ]
+  },
+  {
+   "scene": "royal_proclamation",
+   "characters": [
+    "victor_emmanuel",
+    "garibaldi"
+   ]
+  },
+  {
+   "scene": "aspromonte_1862",
+   "characters": [
+    "victor_emmanuel",
+    "garibaldi"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

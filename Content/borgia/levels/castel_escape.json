@@ -1,0 +1,93 @@
+{
+ "id": "castel_escape",
+ "order": 146,
+ "epoch": "borgia",
+ "act": "Акт V · Медичи и Макиавелли",
+ "music": "tension",
+ "cover": "bedsheet_rope",
+ "panels": 3,
+ "scenes": [
+  "jewel_accusation",
+  "bedsheet_rope",
+  "french_intercession",
+  "farnese_gallows",
+  "flee_to_france"
+ ],
+ "characters": [
+  "cellini",
+  "pope",
+  "francis1"
+ ],
+ "initialState": {
+  "flags": {
+   "pope": [
+    "reigns",
+    "crowned",
+    "standing"
+   ],
+   "cellini": [
+    "standing"
+   ],
+   "francis1": [
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "pope",
+    "cellini"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cellini",
+     "is": "escaped_once"
+    }
+   },
+   {
+    "flag": {
+     "char": "cellini",
+     "is": "freed"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cellini",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jewel_accusation",
+   "characters": [
+    "pope",
+    "cellini"
+   ]
+  },
+  {
+   "scene": "bedsheet_rope",
+   "characters": [
+    "cellini"
+   ]
+  },
+  {
+   "scene": "french_intercession",
+   "characters": [
+    "francis1",
+    "cellini"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

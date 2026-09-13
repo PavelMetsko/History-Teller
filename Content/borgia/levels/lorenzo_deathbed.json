@@ -1,0 +1,90 @@
+{
+ "id": "lorenzo_deathbed",
+ "order": 14,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "theme",
+ "cover": "careggi_bedside",
+ "panels": 3,
+ "scenes": [
+  "prior_san_marco",
+  "careggi_bedside",
+  "face_to_wall",
+  "gold_for_san_marco",
+  "pearl_potion"
+ ],
+ "characters": [
+  "lorenzo",
+  "savonarola",
+  "rodrigo"
+ ],
+ "initialState": {
+  "flags": {
+   "lorenzo": [
+    "dying",
+    "standing"
+   ],
+   "savonarola": [
+    "standing"
+   ],
+   "rodrigo": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lorenzo",
+     "is": "unabsolved"
+    }
+   },
+   {
+    "flag": {
+     "char": "lorenzo",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "savonarola",
+     "is": "unbending"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "savonarola",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prior_san_marco",
+   "characters": [
+    "savonarola"
+   ]
+  },
+  {
+   "scene": "careggi_bedside",
+   "characters": [
+    "lorenzo",
+    "savonarola"
+   ]
+  },
+  {
+   "scene": "face_to_wall",
+   "characters": [
+    "lorenzo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

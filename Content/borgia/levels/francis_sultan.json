@@ -1,0 +1,87 @@
+{
+ "id": "francis_sultan",
+ "order": 2,
+ "epoch": "borgia",
+ "act": "Акт I · Гвельфы и гибеллины",
+ "music": "theme",
+ "cover": "sultan_tent",
+ "panels": 2,
+ "scenes": [
+  "take_the_cross",
+  "cross_the_lines",
+  "sultan_tent",
+  "damietta_siege"
+ ],
+ "characters": [
+  "francis",
+  "al_kamil",
+  "frederick2"
+ ],
+ "initialState": {
+  "flags": {
+   "al_kamil": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "frederick2": [
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "al_kamil",
+    "frederick2"
+   ],
+   [
+    "enemy_of",
+    "frederick2",
+    "al_kamil"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francis",
+     "is": "heard"
+    }
+   },
+   {
+    "flag": {
+     "char": "al_kamil",
+     "is": "merciful"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "frederick2",
+      "is": "at_war"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cross_the_lines",
+   "characters": [
+    "francis"
+   ]
+  },
+  {
+   "scene": "sultan_tent",
+   "characters": [
+    "francis",
+    "al_kamil"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}
