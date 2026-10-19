@@ -32,6 +32,10 @@ public final class Store {
 
     private var updatesTask: Task<Void, Never>?
 
+    /// Новая подтверждённая покупка (не восстановление) — для атрибуции (Tenjin). Ставит приложение.
+    /// Третий параметр — подписанный JWS транзакции (чек StoreKit 2 для серверной проверки).
+    public static var onPurchase: ((Transaction, Product, String) -> Void)?
+
     private init() {
         updatesTask = observeTransactionUpdates()
         Task { await loadProducts(); await refreshEntitlements() }
@@ -86,6 +90,7 @@ public final class Store {
             switch try await product.purchase() {
             case .success(let verification):
                 if case .verified(let t) = verification {
+                    Self.onPurchase?(t, product, verification.jwsRepresentation)
                     await t.finish()
                     await refreshEntitlements()
                     return true

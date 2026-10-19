@@ -45,9 +45,12 @@ let project = Project(
         framework("Simulation", sources: ["Modules/Simulation/Sources/Simulation/**"]),
         framework("DesignSystem"),
         framework("GameProgress"),
-        // Согласие на данные + ATT, позже — атрибуция и реклама (AppLovin MAX).
+        // Согласие на данные + ATT, атрибуция (Tenjin), позже — реклама (AppLovin MAX).
         // Отдельно от фич: сторонние SDK тянутся только сюда.
-        framework("Ads"),
+        framework("Ads", dependencies: [
+            .external(name: "TenjinSDK"),
+            .target(name: "GameContent"),   // покупки Store → Tenjin
+        ]),
         // Арт — файлами WebP (Resources/Art), не каталогом ассетов: actool перекодирует каталог
         // без потерь и съедает весь выигрыш. ODR отсюда убран — Apple его в фреймворках не
         // поддерживает, теги проставлялись, но не работали; доставку глав берёт на себя ContentSync.
@@ -98,6 +101,8 @@ let project = Project(
                 "LSApplicationCategoryType": "public.app-category.puzzle-games",
                 "ITSAppUsesNonExemptEncryption": false, // своего шифрования нет → без вопроса об экспортном соответствии
                 // MARK: - Реклама / согласие
+                // Копии SKAdNetwork-постбэков уходят в Tenjin (атрибуция закупки на iOS).
+                "NSAdvertisingAttributionReportEndpoint": "https://tenjin-skan.com",
                 "NSUserTrackingUsageDescription":
                     "Your data will be used to show you more relevant ads and to measure where players come from.",
                 "LSRequiresIPhoneOS": true,

@@ -57,6 +57,9 @@ object Billing {
     private val details = HashMap<String, ProductDetails>()    // productId -> details
     private var settings: Settings? = null
 
+    /** Новая покупка, подтверждённая в Play (не восстановление) — для атрибуции (Tenjin). Ставит приложение. */
+    var onPurchase: ((Purchase, ProductDetails?) -> Unit)? = null
+
     fun isUnlocked(epoch: String): Boolean = epoch == "rome" || subscribed || epoch in unlockedEpochs
     fun chapterPrice(epoch: String): String = prices[chapterProduct(epoch)] ?: ""
     fun subPrice(productId: String): String = prices[productId] ?: ""
@@ -148,7 +151,11 @@ object Billing {
                 }
             }
             if (!p.isAcknowledged) client?.acknowledgePurchase(
-                AcknowledgePurchaseParams.newBuilder().setPurchaseToken(p.purchaseToken).build()) {}
+                AcknowledgePurchaseParams.newBuilder().setPurchaseToken(p.purchaseToken).build()) { r ->
+                // Неподтверждённая = ещё не учтённая: так каждая покупка уходит в атрибуцию ровно один раз.
+                if (r.responseCode == BillingClient.BillingResponseCode.OK)
+                    onPurchase?.invoke(p, p.products.firstOrNull()?.let { details[it] })
+            }
         }
         if (changed) {
             unlockedEpochs = epochs; subscribed = sub

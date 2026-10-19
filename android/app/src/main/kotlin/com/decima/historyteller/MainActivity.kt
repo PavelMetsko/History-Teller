@@ -12,6 +12,7 @@ class MainActivity : ComponentActivity() {
         // Отладочные сборки умеют ходить на локальный стенд вместо облака (см. build.gradle.kts).
         if (BuildConfig.CONTENT_URL.isNotEmpty()) ContentSync.baseUrl = BuildConfig.CONTENT_URL
         Billing.init(this)
+        Attribution.start(this)   // SDK стартует после окна согласия
         Audio.init(this)
         // Контент грузится в Root после ContentSync.syncCore — здесь его ещё нет.
         val startLevel = intent.getStringExtra("level")
@@ -20,5 +21,5 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onPause() { super.onPause(); Audio.pause() }
-    override fun onResume() { super.onResume(); Audio.resume() }
+    override fun onResume() { super.onResume(); Audio.resume(); Attribution.onResume() }
 }

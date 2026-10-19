@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "tenjin-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tenjin/tenjin-ios-sdk.git",
+      "state" : {
+        "revision" : "758acb7e547bdc483a713a22b2fb7ef6e1899944",
+        "version" : "1.20.1"
+      }
+    }
+  ],
+  "version" : 2
+}
