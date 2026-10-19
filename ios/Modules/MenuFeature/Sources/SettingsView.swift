@@ -1,6 +1,7 @@
 import SwiftUI
 import DesignSystem
 import GameContent
+import Ads
 
 /// Экран настроек — книжная карточка поверх меню: музыка, звуки, вибрация, язык.
 /// Значения в UserDefaults (`ht.music` / `ht.sfx` / `ht.haptics` / `ht.lang`),
@@ -10,6 +11,7 @@ public struct SettingsView: View {
     @AppStorage("ht.sfx")     private var sfx     = true
     @AppStorage("ht.haptics") private var haptics = true
     @AppStorage("ht.lang")    private var lang    = ""
+    private let consent = ConsentService.shared
 
     private let onClose: () -> Void
     public init(onClose: @escaping () -> Void) { self.onClose = onClose }
@@ -44,6 +46,8 @@ public struct SettingsView: View {
                         }
                         divider
                         languageRow
+                        divider
+                        privacyRow
                     }
                     .padding(.vertical, 2)
 
@@ -97,6 +101,22 @@ public struct SettingsView: View {
             }
         }
         .padding(.horizontal, 8).padding(.vertical, 9)
+    }
+
+    /// Окно согласия заново: в Европе — отозвать/дать согласие, в США — «не продавать данные».
+    private var privacyRow: some View {
+        Button { consent.showPrompt() } label: {
+            HStack(spacing: 14) {
+                rowIcon("hand.raised.fill")
+                Text(L10n.s("ui.privacy_choices")).font(.dsBody(17)).foregroundStyle(DS.Palette.ink)
+                Spacer(minLength: 20)
+                Image(systemName: "chevron.right").font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(DS.Palette.maroon)
+            }
+            .padding(.horizontal, 8).padding(.vertical, 9)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 
     private func rowIcon(_ name: String) -> some View {

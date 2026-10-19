@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -110,6 +111,15 @@ fun SettingsScreen(settings: Settings, onLangChange: (String) -> Unit, onClose: 
                 Divider()
                 LanguageRow(lang) { code ->
                     lang = code; settings.lang = code; onLangChange(code)
+                }
+                // Окно согласия заново: в Европе — отозвать/дать согласие, в США — «не продавать данные».
+                Divider()
+                Row(Modifier.fillMaxWidth().clickable { ConsentService.showPrompt() }
+                        .padding(horizontal = 8.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically) {
+                    Text(L10n.s("ui.privacy_choices"), color = Palette.ink, fontSize = 17.sp, fontFamily = Fonts.rounded)
+                    Spacer(Modifier.weight(1f))
+                    Icon(Icons.Filled.KeyboardArrowRight, null, tint = Palette.maroon, modifier = Modifier.size(20.dp))
                 }
 
                 Spacer(Modifier.height(14.dp))

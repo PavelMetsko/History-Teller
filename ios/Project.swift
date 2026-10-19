@@ -45,6 +45,9 @@ let project = Project(
         framework("Simulation", sources: ["Modules/Simulation/Sources/Simulation/**"]),
         framework("DesignSystem"),
         framework("GameProgress"),
+        // Согласие на данные + ATT, позже — атрибуция и реклама (AppLovin MAX).
+        // Отдельно от фич: сторонние SDK тянутся только сюда.
+        framework("Ads"),
         // Арт — файлами WebP (Resources/Art), не каталогом ассетов: actool перекодирует каталог
         // без потерь и съедает весь выигрыш. ODR отсюда убран — Apple его в фреймворках не
         // поддерживает, теги проставлялись, но не работали; доставку глав берёт на себя ContentSync.
@@ -59,6 +62,7 @@ let project = Project(
                   ]),
         framework("MenuFeature",
                   dependencies: [
+                    .target(name: "Ads"),          // строка «Конфиденциальность» в настройках
                     .target(name: "DesignSystem"),
                     .target(name: "GameContent"),
                     .target(name: "Simulation"),   // онбординг разбирает реальный уровень
@@ -93,6 +97,9 @@ let project = Project(
                 // MARK: - Категория / соответствие
                 "LSApplicationCategoryType": "public.app-category.puzzle-games",
                 "ITSAppUsesNonExemptEncryption": false, // своего шифрования нет → без вопроса об экспортном соответствии
+                // MARK: - Реклама / согласие
+                "NSUserTrackingUsageDescription":
+                    "Your data will be used to show you more relevant ads and to measure where players come from.",
                 "LSRequiresIPhoneOS": true,
                 // MARK: - Устройства (iPhone + iPad)
                 "UIDeviceFamily": [1, 2],
@@ -119,6 +126,7 @@ let project = Project(
                 .target(name: "DesignSystem"),
                 .target(name: "GameContent"),
                 .target(name: "Simulation"),
+                .target(name: "Ads"),
             ],
             settings: .settings(configurations: [
                 .debug(name: "Debug", settings: ["HT_CONTENT_BASE_URL": .string(debugContentURL)]),

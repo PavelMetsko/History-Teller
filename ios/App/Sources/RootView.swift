@@ -7,6 +7,7 @@ import MenuFeature
 import EpochMapFeature
 import LevelFeature
 import DesignSystem
+import Ads
 
 /// Координатор экранов: меню → выбор эпохи → карта уровней → уровень. Прогресс в UserDefaults.
 struct RootView: View {
@@ -26,6 +27,7 @@ struct RootView: View {
     /// изменение пак сбрасывается и boot идёт заново — без флага выбор языка всплывал дважды.
     @State private var firstRunOffered = false
     @State private var showLanguagePicker = false
+    @State private var consent = ConsentService.shared
     @AppStorage("ht.lang") private var langOverride = ""
     @State private var screen: Screen = {
         let env = ProcessInfo.processInfo.environment
@@ -113,6 +115,7 @@ struct RootView: View {
                 OnboardingView(level: pack.flatMap { demoLevel($0) }, db: pack?.db, onFinish: {
                     onboarded = true
                     withAnimation(.easeOut(duration: 0.25)) { showOnboarding = false }
+                    ConsentService.shared.start()
                 })
                 .transition(.opacity)
                 .zIndex(50)
@@ -130,8 +133,16 @@ struct RootView: View {
                 .transition(.opacity)
                 .zIndex(60)
             }
+
+            if consent.promptVisible {
+                ConsentView()
+                    .transition(.opacity)
+                    .zIndex(70)
+            }
         }
         .onAppear {
+            // Согласие спрашиваем после онбординга; кто его уже прошёл — сразу на старте.
+            if onboarded { ConsentService.shared.start() }
             if ProcessInfo.processInfo.environment["HT_PAYWALL"] == "1" {
                 pendingEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "tudor"
                 showPaywall = true
