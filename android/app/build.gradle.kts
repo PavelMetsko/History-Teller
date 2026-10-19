@@ -24,8 +24,8 @@ android {
         applicationId = "com.decima.historyteller"
         minSdk = 26
         targetSdk = 36
-        versionCode = 9
-        versionName = "2.1.0"
+        versionCode = 11
+        versionName = "3.0.0"
     }
     buildFeatures { compose = true; buildConfig = true }
     compileOptions {
