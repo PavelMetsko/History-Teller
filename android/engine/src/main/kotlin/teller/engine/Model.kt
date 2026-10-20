@@ -11,6 +11,8 @@ class World {
     private val relations = HashSet<Relation>()
 
     fun hasFlag(charId: String, flag: String): Boolean = flags[charId]?.contains(flag) == true
+    /** Все флаги персонажа — для отрисовки состояния вне движка (playable, редактор). */
+    fun flagsOf(charId: String): Set<String> = flags[charId] ?: emptySet()
     fun setFlag(charId: String, flag: String) { flags.getOrPut(charId) { HashSet() }.add(flag) }
     fun removeFlag(charId: String, flag: String) { flags[charId]?.remove(flag) }
     fun hasRelation(rel: String, from: String, to: String) = relations.contains(Relation(rel, from, to))
