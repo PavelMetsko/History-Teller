@@ -72,6 +72,8 @@ fun Root(startLevel: String? = null) {
     var showSettings by remember { mutableStateOf(false) }
     var showPaywall by remember { mutableStateOf(false) }
     var pendingEpoch by remember { mutableStateOf<String?>(null) }
+    /** Уровень платной главы, на который нажали без доступа — окно «глава / подписка / ролик». */
+    var pendingLevel by remember { mutableStateOf<String?>(null) }
     var screen by remember { mutableStateOf<Screen>(if (startLevel != null) Screen.Level(startLevel) else Screen.Menu) }
     // Первый запуск: выбор языка → онбординг (пропускаем при deep-link на уровень).
     // Поднимаем ТОЛЬКО после загрузки контента: раньше эти экраны всплывали поверх загрузки,
@@ -131,7 +133,6 @@ fun Root(startLevel: String? = null) {
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
                             onSelect = { if (ContentSync.isChapterIndexReady(it)) screen = Screen.Map(it) else loadingEpoch = it },
-                            onLocked = { pendingEpoch = it; showPaywall = true },
                             onBack = { screen = Screen.Menu })
                         is Screen.Map -> {
                             // Фоновая докачка открытой главы — с того эпизода, куда игрок пойдёт
@@ -143,16 +144,24 @@ fun Root(startLevel: String? = null) {
                             }
                             MapScreen(
                                 epoch = s.epoch, progress = progress,
-                                onSelect = {
+                                onSelect = { id ->
+                                    // Платная глава без покупки: пройденные и открытые за ролик эпизоды
+                                    // играются, на остальные — окно «купить главу / подписка / ролик».
+                                    val canPlay = Billing.isUnlocked(s.epoch) || BuildConfig.DEBUG ||
+                                        progress.isCompleted(id) || RewardedUnlocks.contains(ctx, id)
+                                    if (!canPlay) { pendingEpoch = s.epoch; pendingLevel = id; showPaywall = true }
                                     // Обычно фон успевает раньше игрока и экран загрузки не нужен;
                                     // если нет — ждём здесь, а не перед входом в главу.
-                                    if (ContentSync.isLevelReady(it)) screen = Screen.Level(it) else loadingLevel = it
+                                    else if (ContentSync.isLevelReady(id)) screen = Screen.Level(id) else loadingLevel = id
                                 },
                                 onBack = { ContentSync.cancelPrefetch(); screen = Screen.Chapters })
                         }
                         is Screen.Level -> BoardScreen(
                             levelId = s.id,
-                            onSolved = { progress.markCompleted(s.id) },
+                            onSolved = {
+                                progress.markCompleted(s.id)
+                                RewardedUnlocks.consume(ctx, s.id)   // пройден — дальше открыт прогрессом
+                            },
                             onExit = {
                                 screen = Screen.Map(GameContent.level(s.id)?.epoch ?: "rome")
                                 // Просьба оценить игру — после выхода с уровня, когда награда уже прочитана.
@@ -174,16 +183,31 @@ fun Root(startLevel: String? = null) {
             },
             onClose = { showSettings = false })
 
-        if (showPaywall) PaywallScreen(
-            epoch = pendingEpoch ?: "",
-            chapterTitle = L10n.s("chapter.${pendingEpoch ?: ""}.title"),
-            onClose = { showPaywall = false },
-            onUnlocked = {
-                showPaywall = false
-                val e = pendingEpoch; pendingEpoch = null
-                if (e != null) loadingEpoch = e   // куплено → грузим и открываем главу
-                tick++
-            })
+        if (showPaywall) {
+            fun openPendingLevel() {
+                val id = pendingLevel ?: return
+                if (ContentSync.isLevelReady(id)) screen = Screen.Level(id) else loadingLevel = id
+            }
+            PaywallScreen(
+                epoch = pendingEpoch ?: "",
+                chapterTitle = L10n.s("chapter.${pendingEpoch ?: ""}.title"),
+                levelId = pendingLevel,
+                onClose = { showPaywall = false; pendingLevel = null },
+                onUnlocked = {
+                    showPaywall = false
+                    val e = pendingEpoch; pendingEpoch = null
+                    // куплено: из окна уровня — сразу в уровень, иначе грузим и открываем главу
+                    if (pendingLevel != null) openPendingLevel() else if (e != null) loadingEpoch = e
+                    pendingLevel = null
+                    tick++
+                },
+                onRewarded = {
+                    showPaywall = false
+                    openPendingLevel()
+                    pendingLevel = null; pendingEpoch = null
+                    tick++
+                })
+        }
 
         // Экран загрузки главы (порт iOS ChapterLoadingView).
         loadingEpoch?.let { ep ->
@@ -285,7 +309,7 @@ private fun IconButtonCircle(icon: androidx.compose.ui.graphics.vector.ImageVect
 private data class Chapter(val id: String, val number: Int, val cover: String?, val available: Boolean, val free: Boolean)
 
 @Composable
-private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLocked: (String) -> Unit, onBack: () -> Unit) {
+private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onBack: () -> Unit) {
     // Список глав задаёт манифест — иначе глава, выложенная в облако, не появилась бы в меню.
     // Без манифеста (первый запуск офлайн) показываем то, что лежит в бандле.
     val fromManifest = ContentSync.availableChapters()
@@ -306,10 +330,10 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onLoc
                     verticalAlignment = Alignment.CenterVertically) {
                     for (ch in chapters) {
                         // premium-заблокированная (не «скоро») — открывает пейволл
+                        // Главы открыты все: платность проверяется на уровне. Замок на карточке — подсказка.
                         val premiumLocked = ch.available && !Billing.isUnlocked(ch.id) && !BuildConfig.DEBUG
                         ChapterCard(ch, progress, premiumLocked) {
-                            if (!ch.available) return@ChapterCard
-                            if (premiumLocked) onLocked(ch.id) else onSelect(ch.id)
+                            if (ch.available) onSelect(ch.id)
                         }
                     }
                 }

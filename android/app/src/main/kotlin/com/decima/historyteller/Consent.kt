@@ -51,6 +51,10 @@ object ConsentService {
     private var started = false
     private var settled = false
     private val readyHandlers = mutableListOf<() -> Unit>()
+    private val changeHandlers = mutableListOf<() -> Unit>()
+
+    /** Игрок поменял ответ (окно из настроек) — SDK обновляют свои флаги. */
+    fun onChange(handler: () -> Unit) { changeHandlers += handler }
     private lateinit var appContext: Context
 
     /** Вызвать, когда согласие отработало (сразу, если уже). */
@@ -77,7 +81,7 @@ object ConsentService {
         context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .edit().putString(KEY, c.name).apply()
         _promptVisible.value = false
-        finish()
+        if (settled) changeHandlers.forEach { it() } else finish()
     }
 
     private fun finish() {

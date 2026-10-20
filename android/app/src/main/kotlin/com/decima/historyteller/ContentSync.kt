@@ -38,7 +38,10 @@ data class ContentManifest(
     /** Глава целиком. Осталось ради манифестов, сохранённых до поуровневой загрузки. */
     val chapterFiles: Map<String, List<String>>,
     val files: Map<String, FileRef>,
+    /** Реклама за уровень — выключатель без релиза. Нет блока — реклама включена, без кулдауна. */
+    val ads: Ads? = null,
 ) {
+    @Serializable data class Ads(val rewarded: Boolean? = null, val cooldownSec: Int? = null)
     @Serializable data class FileRef(val h: String, val s: Int)
     @Serializable data class Chapter(
         val id: String,
@@ -152,6 +155,11 @@ object ContentSync {
     /** Главы, доступные этой сборке: манифест может нести контент, требующий более новой версии. */
     fun availableChapters(): List<ContentManifest.Chapter> =
         manifest?.chapters.orEmpty().filter { supports(it.minAppVersion) }
+
+    /** Можно ли открыть уровень платной главы за ролик (флаг в манифесте, по умолчанию да). */
+    fun rewardedEnabled(): Boolean = manifest?.ads?.rewarded ?: true
+    /** Минимальная пауза между роликами, секунды (по умолчанию нет). */
+    fun rewardedCooldown(): Int = manifest?.ads?.cooldownSec ?: 0
 
     fun isLevelDisabled(id: String): Boolean = manifest?.disabled?.contains(id) == true
 

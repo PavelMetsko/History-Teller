@@ -33,6 +33,12 @@ public struct ContentManifest: Codable, Sendable {
     /// Глава целиком. Осталось ради манифестов, сохранённых до поуровневой загрузки.
     public let chapterFiles: [String: [String]]
     public let files: [String: FileRef]
+    /// Реклама за уровень — выключатель без релиза. Нет блока — реклама включена, без кулдауна.
+    public struct Ads: Codable, Sendable {
+        public let rewarded: Bool?
+        public let cooldownSec: Int?
+    }
+    public let ads: Ads?
 }
 
 /// Доставка контента из облака.
@@ -141,6 +147,11 @@ public final class ContentSync {
     public var availableChapters: [ContentManifest.Chapter] {
         (manifest?.chapters ?? []).filter { Self.supports($0.minAppVersion) }
     }
+
+    /// Можно ли открыть уровень платной главы за ролик (флаг в манифесте, по умолчанию да).
+    public var rewardedEnabled: Bool { manifest?.ads?.rewarded ?? true }
+    /// Минимальная пауза между роликами, секунды (по умолчанию нет).
+    public var rewardedCooldown: Int { manifest?.ads?.cooldownSec ?? 0 }
 
     public func isLevelDisabled(_ id: String) -> Bool {
         manifest?.disabled.contains(id) ?? false

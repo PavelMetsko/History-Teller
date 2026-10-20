@@ -164,9 +164,13 @@ object Billing {
     }
 }
 
-/** Пейволл главы: открыть эту главу (разовая) или подписка на всё. Порт iOS PaywallView. */
+/**
+ * Пейволл главы: открыть эту главу (разовая) или подписка на всё. Порт iOS PaywallView.
+ * С [levelId] это окно уровня: третий вариант — открыть один этот уровень за ролик.
+ */
 @Composable
-fun PaywallScreen(epoch: String, chapterTitle: String, onClose: () -> Unit, onUnlocked: () -> Unit) {
+fun PaywallScreen(epoch: String, chapterTitle: String, levelId: String? = null,
+                  onClose: () -> Unit, onUnlocked: () -> Unit, onRewarded: () -> Unit = {}) {
     val ctx = LocalContext.current
     val activity = ctx as? Activity
 
@@ -187,7 +191,7 @@ fun PaywallScreen(epoch: String, chapterTitle: String, onClose: () -> Unit, onUn
                         fontFamily = Fonts.serif, textAlign = TextAlign.Center)
                     Box(Modifier.padding(top = 6.dp).width(70.dp).height(3.dp).clip(RoundedCornerShape(2.dp)).background(Palette.gold))
                     Spacer(Modifier.height(10.dp))
-                    Text(L10n.s("ui.paywall_sub"), color = Palette.inkSoft, fontSize = 14.sp,
+                    Text(L10n.s(if (levelId == null) "ui.paywall_sub" else "ui.level_gate_sub"), color = Palette.inkSoft, fontSize = 14.sp,
                         fontFamily = Fonts.rounded, textAlign = TextAlign.Center)
                     Spacer(Modifier.height(14.dp))
 
@@ -217,6 +221,16 @@ fun PaywallScreen(epoch: String, chapterTitle: String, onClose: () -> Unit, onUn
                         if (y.isNotEmpty()) SubButton(L10n.s("ui.sub_year", y)) { activity?.let { Billing.purchaseSubscription(it, Billing.SUB_YEARLY) } }
                     }
 
+                    // 3) Один этот уровень — за ролик (только окно уровня, реклама включена).
+                    if (levelId != null && AdService.isEnabled) {
+                        Spacer(Modifier.height(12.dp))
+                        Text(L10n.s("ui.or").uppercase(), color = Palette.inkSoft, fontSize = 11.sp, fontFamily = Fonts.rounded)
+                        Spacer(Modifier.height(8.dp))
+                        AdButton { activity?.let { a -> AdService.show(a) { ok ->
+                            if (ok) { RewardedUnlocks.add(ctx, levelId); onRewarded() }
+                        } } }
+                    }
+
                     // Обязательно для подписок (Google Play): рабочие ссылки на условия и приватность.
                     // Restore на Android не нужен — Play восстанавливает покупки автоматически (refreshEntitlements при старте).
                     Spacer(Modifier.height(16.dp))
@@ -241,6 +255,22 @@ fun PaywallScreen(epoch: String, chapterTitle: String, onClose: () -> Unit, onUn
                 }
             }
         }
+    }
+}
+
+/** Ролик не загрузился (нет сети/показа) или идёт кулдаун — кнопка неактивна с пояснением. */
+@Composable
+private fun AdButton(onClick: () -> Unit) {
+    val available = AdService.isReady && AdService.cooldownLeft == 0 && !AdService.isShowing
+    val title = when {
+        AdService.cooldownLeft > 0 -> L10n.s("ui.ad_cooldown", AdService.cooldownLeft)
+        available -> L10n.s("ui.watch_ad")
+        else -> L10n.s("ui.ad_unavailable")
+    }
+    Box(Modifier.clip(RoundedCornerShape(24.dp)).background(Palette.panel)
+        .border(2.dp, Palette.ink.copy(alpha = if (available) 0.5f else 0.2f), RoundedCornerShape(24.dp))
+        .clickable(enabled = available) { onClick() }.padding(horizontal = 22.dp, vertical = 10.dp)) {
+        Text("▶  $title", color = if (available) Palette.ink else Palette.inkSoft, fontSize = 15.sp, fontFamily = Fonts.rounded)
     }
 }
 

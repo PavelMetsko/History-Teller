@@ -4,6 +4,7 @@ import android.content.Context
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
+import com.applovin.mediation.MaxAd
 import com.tenjin.android.TenjinSDK
 
 /**
@@ -22,6 +23,7 @@ object Attribution {
         started = true
         val app = context.applicationContext
         Billing.onPurchase = { p, details -> trackPurchase(p, details) }
+        ConsentService.onChange { tenjin?.let { applyConsent(it) } }
         ConsentService.onReady {
             tenjin = TenjinSDK.getInstance(app, SDK_KEY).also {
                 it.setAppStore(TenjinSDK.AppStoreType.googleplay)
@@ -33,6 +35,11 @@ object Attribution {
 
     fun onResume() {
         tenjin?.let { applyConsent(it); it.connect() }
+    }
+
+    /** Доход с показа ролика (ILRD) — Tenjin считает по нему ROAS закупки. */
+    fun trackAdRevenue(ad: MaxAd) {
+        tenjin?.eventAdImpressionAppLovin(ad)
     }
 
     private fun applyConsent(t: TenjinSDK) {

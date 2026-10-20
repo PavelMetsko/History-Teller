@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "applovin-max-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppLovin/AppLovin-MAX-Swift-Package.git",
+      "state" : {
+        "revision" : "02544c3400d228cce5718e22f71f8d02787ba91e",
+        "version" : "13.6.4"
+      }
+    },
+    {
       "identity" : "tenjin-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tenjin/tenjin-ios-sdk.git",

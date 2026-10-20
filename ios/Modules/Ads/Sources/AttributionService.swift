@@ -1,6 +1,7 @@
 import UIKit
 import StoreKit
 import TenjinSDK
+import AppLovinSDK
 import GameContent
 
 /// Атрибуция установок и покупок через Tenjin (MMP для закупки в AppLovin).
@@ -21,6 +22,10 @@ public final class AttributionService {
         started = true
         Store.onPurchase = { [weak self] transaction, product, jws in self?.trackPurchase(transaction, product, jws) }
         ConsentService.shared.onReady { [weak self] in self?.connect() }
+        ConsentService.shared.onChange { [weak self] in
+            guard let self, self.connected else { return }
+            self.applyConsent()
+        }
         // Сессии считаются по connect(): повторяем при каждом возвращении в приложение.
         NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification,
                                                object: nil, queue: .main) { [weak self] _ in
@@ -57,5 +62,25 @@ public final class AttributionService {
                 andBase64Receipt: jws
             )
         }
+    }
+
+    /// Доход с показа ролика (ILRD) — Tenjin считает по нему ROAS закупки.
+    func trackAdRevenue(_ ad: MAAd) {
+        guard connected else { return }
+        let data: [String: Any] = [
+            "creative_id": ad.creativeIdentifier ?? "",
+            "placement": ad.placement ?? "",
+            "format": ad.format.label,
+            "country": ALSdk.shared().configuration.countryCode,
+            "ad_revenue_currency": "USD",
+            "network_placement": ad.networkPlacement,
+            "revenue_precision": ad.revenuePrecision,
+            "ad_unit_id": ad.adUnitIdentifier,
+            "revenue": ad.revenue,                 // double, не строка — требование Tenjin
+            "network_name": ad.networkName,
+        ]
+        guard let json = try? JSONSerialization.data(withJSONObject: data),
+              let string = String(data: json, encoding: .utf8) else { return }
+        TenjinSDK.appLovinImpression(fromJSON: string)
     }
 }

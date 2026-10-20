@@ -27,6 +27,7 @@ public final class ConsentService {
     private var started = false
     private var settled = false
     private var readyHandlers: [() -> Void] = []
+    private var changeHandlers: [() -> Void] = []
 
     private init() {
         choice = UserDefaults.standard.string(forKey: Self.key).flatMap(Choice.init)
@@ -36,6 +37,9 @@ public final class ConsentService {
     public func onReady(_ handler: @escaping () -> Void) {
         if settled { handler() } else { readyHandlers.append(handler) }
     }
+
+    /// Игрок поменял ответ (окно из настроек) — SDK обновляют свои флаги.
+    public func onChange(_ handler: @escaping () -> Void) { changeHandlers.append(handler) }
 
     /// Раз за сессию, после онбординга.
     public func start() {
@@ -54,7 +58,7 @@ public final class ConsentService {
     public func answer(_ granted: Bool) {
         choice = granted ? .granted : .denied
         promptVisible = false
-        if !settled { requestTrackingAndFinish() }
+        if settled { changeHandlers.forEach { $0() } } else { requestTrackingAndFinish() }
     }
 
     private func requestTrackingAndFinish() {

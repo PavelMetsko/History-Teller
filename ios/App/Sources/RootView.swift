@@ -18,6 +18,8 @@ struct RootView: View {
     @State private var store = Store.shared
     @State private var showPaywall = false
     @State private var pendingEpoch: String?
+    /// Уровень платной главы, на который нажали без доступа — окно «глава / подписка / ролик».
+    @State private var pendingLevel: String?
     @State private var sync = ContentSync.shared
     @State private var loadingEpoch: String?
     @State private var loadingLevel: String?
@@ -65,10 +67,17 @@ struct RootView: View {
                 PaywallView(
                     epoch: pendingEpoch ?? "",
                     chapterTitle: L10n.s("chapter.\(pendingEpoch ?? "").title"),
-                    onClose: { withAnimation(.easeOut(duration: 0.2)) { showPaywall = false } },
+                    levelId: pendingLevel,
+                    onClose: { closePaywall() },
                     onUnlocked: {
-                        withAnimation(.easeOut(duration: 0.2)) { showPaywall = false }
-                        if let e = pendingEpoch { openChapter(e) }
+                        let level = pendingLevel
+                        closePaywall()
+                        if let level { openLevel(level) } else if let e = pendingEpoch { openChapter(e) }
+                    },
+                    onRewarded: {
+                        let level = pendingLevel
+                        closePaywall()
+                        if let level { openLevel(level) }
                     }
                 )
                 .transition(.opacity)
@@ -189,14 +198,10 @@ struct RootView: View {
                     chapters: chapters(pack),
                     isUnlocked: { store.isUnlocked($0.id) || ProgressStore.unlockAll },
                     priceText: { store.chapterPrice($0.id) },
+                    // Главы открыты все: платность проверяется на уровне (см. requestLevel).
                     onSelect: { ch in
                         guard ch.available else { return }
-                        if store.isUnlocked(ch.id) || ProgressStore.unlockAll {
-                            openChapter(ch.id)
-                        } else {
-                            pendingEpoch = ch.id
-                            withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
-                        }
+                        openChapter(ch.id)
                     },
                     onBack: { go(.menu) }
                 )
@@ -206,7 +211,7 @@ struct RootView: View {
                     levels: pack.levels(epoch: selectedEpoch),
                     db: pack.db,
                     progress: progress,
-                    onSelect: { openLevel($0) },
+                    onSelect: { requestLevel($0) },
                     onBack: { sync.cancelPrefetch(); go(.chapters) }
                 )
                 .onAppear { startPrefetch() }
@@ -215,7 +220,10 @@ struct RootView: View {
                     LevelBoardView(
                         level: level,
                         db: pack.db,
-                        onSolved: { progress.markCompleted(id) },
+                        onSolved: {
+                            progress.markCompleted(id)
+                            RewardedUnlocks.consume(id)   // пройден — дальше открыт прогрессом
+                        },
                         onExit: { go(.map); maybeAskForReview(pack) }
                     )
                     .id(id)
@@ -285,6 +293,25 @@ struct RootView: View {
         } else {
             withAnimation(.easeIn(duration: 0.2)) { loadingEpoch = id }
         }
+    }
+
+    /// Нажатие на уровень карты. Платная глава без покупки: пройденные эпизоды и открытые
+    /// за ролик играются, на остальные — окно «купить главу / подписка / ролик».
+    private func requestLevel(_ id: String) {
+        if canPlay(id) { openLevel(id); return }
+        pendingEpoch = selectedEpoch
+        pendingLevel = id
+        withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
+    }
+
+    private func canPlay(_ id: String) -> Bool {
+        store.isUnlocked(selectedEpoch) || ProgressStore.unlockAll
+            || progress.isCompleted(id) || RewardedUnlocks.contains(id)
+    }
+
+    private func closePaywall() {
+        withAnimation(.easeOut(duration: 0.2)) { showPaywall = false }
+        pendingLevel = nil
     }
 
     /// Открыть уровень. Фоновая докачка обычно успевает раньше игрока, и экран загрузки

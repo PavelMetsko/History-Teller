@@ -45,10 +45,11 @@ let project = Project(
         framework("Simulation", sources: ["Modules/Simulation/Sources/Simulation/**"]),
         framework("DesignSystem"),
         framework("GameProgress"),
-        // Согласие на данные + ATT, атрибуция (Tenjin), позже — реклама (AppLovin MAX).
+        // Согласие на данные + ATT, атрибуция (Tenjin), rewarded-реклама (AppLovin MAX).
         // Отдельно от фич: сторонние SDK тянутся только сюда.
         framework("Ads", dependencies: [
             .external(name: "TenjinSDK"),
+            .external(name: "AppLovinSDK"),
             .target(name: "GameContent"),   // покупки Store → Tenjin
         ]),
         // Арт — файлами WebP (Resources/Art), не каталогом ассетов: actool перекодирует каталог
@@ -72,6 +73,7 @@ let project = Project(
                   ]),
         framework("EpochMapFeature",
                   dependencies: [
+                    .target(name: "Ads"),          // окно уровня: «открыть за ролик»
                     .target(name: "DesignSystem"),
                     .target(name: "GameContent"),
                     .target(name: "Simulation"),
@@ -103,6 +105,8 @@ let project = Project(
                 // MARK: - Реклама / согласие
                 // Копии SKAdNetwork-постбэков уходят в Tenjin (атрибуция закупки на iOS).
                 "NSAdvertisingAttributionReportEndpoint": "https://tenjin-skan.com",
+                // SKAdNetwork: AppLovin (атрибуция показов рекламы на iOS 14+). Сети медиации — по мере подключения.
+                "SKAdNetworkItems": [["SKAdNetworkIdentifier": "ludvb6z3bs.skadnetwork"]],
                 "NSUserTrackingUsageDescription":
                     "Your data will be used to show you more relevant ads and to measure where players come from.",
                 "LSRequiresIPhoneOS": true,

@@ -76,8 +76,10 @@ dependencies {
     implementation("com.android.billingclient:billing:8.0.0")
     // Атрибуция установок и покупок (Tenjin, MMP для закупки в AppLovin) + то, что SDK читает:
     // рекламный ID, App Set ID и Install Referrer (источник установки из Google Play).
-    implementation("com.tenjin:android-sdk:1.16.7")
+    implementation("com.tenjin:android-sdk:1.24.0")
     implementation("com.google.android.gms:play-services-ads-identifier:18.2.0")
     implementation("com.google.android.gms:play-services-appset:16.1.0")
     implementation("com.android.installreferrer:installreferrer:2.2")
+    // Rewarded-реклама (AppLovin MAX). Сети медиации добавляются отдельными адаптерами.
+    implementation("com.applovin:applovin-sdk:13.6.4")
 }
