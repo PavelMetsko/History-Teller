@@ -8,27 +8,24 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.applovin.mediation.MaxAd
-import com.applovin.mediation.MaxError
-import com.applovin.mediation.MaxReward
-import com.applovin.mediation.MaxRewardedAdListener
-import com.applovin.mediation.ads.MaxRewardedAd
-import com.applovin.sdk.AppLovinMediationProvider
-import com.applovin.sdk.AppLovinPrivacySettings
-import com.applovin.sdk.AppLovinSdk
-import com.applovin.sdk.AppLovinSdkInitializationConfiguration
-import kotlin.math.min
-import kotlin.math.pow
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 
 /**
- * Rewarded-реклама через AppLovin MAX (порт iOS AdService): «посмотри ролик — открой один уровень
- * платной главы». Интерстишелов нет. SDK стартует после окна согласия (флаги согласия — до
- * старта), выключается флагом `ads.rewarded` в облачном манифесте. Доход с показов — в Tenjin.
+ * Rewarded-реклама через Google AdMob (порт iOS AdService): «посмотри ролик — открой один уровень
+ * платной главы». Интерстишелов нет. SDK стартует после формы согласия UMP, выключается флагом
+ * `ads.rewarded` в облачном манифесте. Доход с показов уходит в Tenjin.
  */
-object AdService : MaxRewardedAdListener {
-    // TODO: ключи из кабинета AppLovin MAX (Account → Keys, MAX → Ad Units). Пока пусто — рекламы нет.
-    private const val SDK_KEY = ""
-    private const val REWARDED_UNIT_ID = ""
+object AdService {
+    /** Rewarded-блок History Teller; в отладке — тестовый блок Google (свои показы = недействительный трафик). */
+    private val REWARDED_UNIT_ID =
+        if (BuildConfig.DEBUG) "ca-app-pub-3940256099942544/5224354917"
+        else "ca-app-pub-6335946344432887/7885293016"
 
     /** Ролик загружен и его можно показать прямо сейчас. */
     var isReady by mutableStateOf(false); private set
@@ -36,12 +33,14 @@ object AdService : MaxRewardedAdListener {
     /** Секунд до следующего ролика (кулдаун из манифеста). 0 — можно смотреть. */
     var cooldownLeft by mutableIntStateOf(0); private set
 
-    /** Показывать ли кнопку «за ролик» вообще: ключи заданы и реклама не выключена в манифесте. */
-    val isEnabled: Boolean get() = SDK_KEY.isNotEmpty() && ContentSync.rewardedEnabled()
+    /** Показывать ли кнопку «за ролик» вообще (реклама не выключена в манифесте). */
+    val isEnabled: Boolean get() = ContentSync.rewardedEnabled()
 
     private var started = false
-    private var rewardedAd: MaxRewardedAd? = null
-    private var retryAttempt = 0.0
+    private var sdkStarted = false
+    private var loading = false
+    private var rewardedAd: RewardedAd? = null
+    private var retryAttempt = 0
     private var rewarded = false
     private var completion: ((Boolean) -> Unit)? = null
     private lateinit var appContext: Context
@@ -52,51 +51,67 @@ object AdService : MaxRewardedAdListener {
         if (started) return
         started = true
         appContext = context.applicationContext
-        ConsentService.onReady { initializeSdk() }
-        ConsentService.onChange { applyConsent() }
-    }
-
-    /** Флаг согласия — только когда игрок отвечал (GDPR-регион): вне ЕЭЗ «нет ответа» ≠ отказ. */
-    private fun applyConsent() {
-        if (ConsentService.choice.value != null)
-            AppLovinPrivacySettings.setHasUserConsent(ConsentService.hasUserConsent)
-        AppLovinPrivacySettings.setDoNotSell(ConsentService.doNotSell)
+        ConsentService.onReady { startSdk() }
+        // Согласие дали позже, в форме из настроек, — теперь можно грузить.
+        ConsentService.onChange { startSdk() }
     }
 
     /** Показать ролик. `completion(true)` — досмотрел и заслужил награду. */
     fun show(activity: Activity, completion: (Boolean) -> Unit) {
         val ad = rewardedAd
-        if (!isEnabled || cooldownLeft > 0 || ad == null || !ad.isReady) return completion(false)
+        if (!isEnabled || cooldownLeft > 0 || ad == null) return completion(false)
         rewarded = false
         this.completion = completion
         isShowing = true
-        ad.showAd(activity)
+        ad.show(activity) { rewarded = true }
     }
 
-    private fun initializeSdk() {
-        if (SDK_KEY.isEmpty()) return
-        applyConsent()
-        val config = AppLovinSdkInitializationConfiguration.builder(SDK_KEY)
-            .setMediationProvider(AppLovinMediationProvider.MAX)
-            .build()
-        AppLovinSdk.getInstance(appContext).initialize(config) {
-            if (REWARDED_UNIT_ID.isEmpty()) return@initialize
-            rewardedAd = MaxRewardedAd.getInstance(REWARDED_UNIT_ID).also {
-                it.setListener(this)
-                it.setRevenueListener { ad -> Attribution.trackAdRevenue(ad) }
-                it.loadAd()
-            }
-        }
+    private fun startSdk() {
+        if (!ConsentService.canRequestAds.value) return
+        if (sdkStarted) return load()
+        sdkStarted = true
+        // initialize() — до любых запросов; грузим только после его завершения.
+        MobileAds.initialize(appContext) { load() }
+    }
+
+    private fun load() {
+        if (!sdkStarted || loading || rewardedAd != null) return
+        loading = true
+        RewardedAd.load(appContext, REWARDED_UNIT_ID, AdRequest.Builder().build(),
+            object : RewardedAdLoadCallback() {
+                override fun onAdLoaded(ad: RewardedAd) {
+                    loading = false
+                    retryAttempt = 0
+                    ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+                        override fun onAdDismissedFullScreenContent() = finishShow()
+                        override fun onAdFailedToShowFullScreenContent(error: AdError) {
+                            rewarded = false; finishShow()
+                        }
+                    }
+                    ad.setOnPaidEventListener { value -> Attribution.trackAdRevenue(value, ad) }
+                    rewardedAd = ad
+                    isReady = true
+                }
+
+                override fun onAdFailedToLoad(error: LoadAdError) {
+                    loading = false
+                    isReady = false
+                    // Экспоненциальная пауза до 64 с: no-fill не должен оставить игрока без роликов.
+                    retryAttempt++
+                    main.postDelayed({ load() }, 1000L shl minOf(retryAttempt, 6))
+                }
+            })
     }
 
     private fun finishShow() {
         isShowing = false
         isReady = false
+        rewardedAd = null
         val done = completion
         completion = null
         if (rewarded) startCooldown()
         done?.invoke(rewarded)
-        rewardedAd?.loadAd()
+        load()
     }
 
     private fun startCooldown() {
@@ -111,22 +126,6 @@ object AdService : MaxRewardedAdListener {
             }
         })
     }
-
-    override fun onAdLoaded(ad: MaxAd) { retryAttempt = 0.0; isReady = true }
-
-    override fun onAdLoadFailed(adUnitId: String, error: MaxError) {
-        isReady = false
-        // Экспоненциальная пауза до 64 с — как советует AppLovin.
-        retryAttempt += 1
-        val delayMs = (2.0.pow(min(6.0, retryAttempt)) * 1000).toLong()
-        main.postDelayed({ rewardedAd?.loadAd() }, delayMs)
-    }
-
-    override fun onAdDisplayed(ad: MaxAd) {}
-    override fun onAdClicked(ad: MaxAd) {}
-    override fun onAdHidden(ad: MaxAd) = finishShow()
-    override fun onAdDisplayFailed(ad: MaxAd, error: MaxError) { rewarded = false; finishShow() }
-    override fun onUserRewarded(ad: MaxAd, reward: MaxReward) { rewarded = true }
 }
 
 /**

@@ -1,67 +1,77 @@
-import Foundation
+import UIKit
 import Observation
+import UserMessagingPlatform
 
-/// Согласие на рекламные данные — без стороннего CMP. AppLovin MAX и Tenjin принимают простой
-/// флаг согласия, который нужно выставить до старта их SDK, поэтому спрашиваем сами:
-/// в GDPR-регионе (ЕЭЗ, UK, Швейцария) — своё окно, затем ATT; в остальных — только ATT.
-/// Окно рисует приложение (`promptVisible`), сервис хранит ответ и сообщает `onReady`.
+/// Согласие на данные: GDPR-форма Google UMP (сертифицированный CMP — без него AdMob в ЕЭЗ
+/// рекламу не показывает), затем системный запрос ATT. Как в Decima. Запускается раз за сессию —
+/// после онбординга, чтобы новичок сначала увидел игру. Форма и языки настраиваются в AdMob →
+/// Privacy & messaging («History Teller GDPR consent»). Реклама и Tenjin ждут `onReady`.
 @Observable
 public final class ConsentService {
     public static let shared = ConsentService()
 
-    public enum Choice: String { case granted, denied }
+    /// Можно запрашивать рекламу (согласие получено или не требуется).
+    public private(set) var canRequestAds = false
+    /// Строка «Конфиденциальность» в настройках — только там, где форма обязательна (ЕЭЗ/UK/CH).
+    public private(set) var privacyOptionsRequired = false
+    /// Форма в этом регионе не нужна (вне ЕЭЗ) — Tenjin тогда не ждёт TCF-строку.
+    public var isConsentNotRequired: Bool { ConsentInformation.shared.consentStatus == .notRequired }
 
-    /// Сохранённый ответ. nil — ещё не спрашивали.
-    public private(set) var choice: Choice? {
-        didSet { UserDefaults.standard.set(choice?.rawValue, forKey: Self.key) }
-    }
-    /// Показывать окно согласия (первый запуск в GDPR-регионе или строка в настройках).
-    public private(set) var promptVisible = false
-
-    /// В GDPR-регионе — явное согласие; в остальных реклама персональная, пока игрок не отказался
-    /// в настройках (для AppLovin это «do not sell», CCPA).
-    public var hasUserConsent: Bool { choice == .granted }
-    public var doNotSell: Bool { choice == .denied }
-
-    private static let key = "ht.adsConsent"
     private var started = false
     private var settled = false
     private var readyHandlers: [() -> Void] = []
     private var changeHandlers: [() -> Void] = []
 
-    private init() {
-        choice = UserDefaults.standard.string(forKey: Self.key).flatMap(Choice.init)
-    }
+    private init() {}
 
     /// Вызвать, когда согласие и ATT отработали (сразу, если уже).
     public func onReady(_ handler: @escaping () -> Void) {
         if settled { handler() } else { readyHandlers.append(handler) }
     }
 
-    /// Игрок поменял ответ (окно из настроек) — SDK обновляют свои флаги.
+    /// Игрок поменял выбор в форме из настроек — SDK обновляют свои флаги.
     public func onChange(_ handler: @escaping () -> Void) { changeHandlers.append(handler) }
 
     /// Раз за сессию, после онбординга.
     public func start() {
         guard !started else { return }
         started = true
-        if choice == nil && Self.isGDPRRegion {
-            promptVisible = true          // продолжим в answer(_:)
-        } else {
-            requestTrackingAndFinish()
+
+        let parameters = RequestParameters()
+        #if DEBUG
+        // Форма показывается как в ЕЭЗ — иначе вне Европы её не проверить.
+        let debug = DebugSettings()
+        debug.geography = .EEA
+        parameters.debugSettings = debug
+        #endif
+
+        ConsentInformation.shared.requestConsentInfoUpdate(with: parameters) { [weak self] error in
+            guard let self else { return }
+            if let error { print("Consent info update error: \(error.localizedDescription)") }
+            DispatchQueue.main.async {
+                // Не обновилось (офлайн) — работаем на сохранённом согласии.
+                guard error == nil, let vc = Self.topViewController() else { return self.finish() }
+                ConsentForm.loadAndPresentIfRequired(from: vc) { formError in
+                    if let formError { print("Consent form error: \(formError.localizedDescription)") }
+                    self.finish()
+                }
+            }
         }
     }
 
-    /// Строка «Конфиденциальность» в настройках: передумать в любую сторону.
-    public func showPrompt() { promptVisible = true }
-
-    public func answer(_ granted: Bool) {
-        choice = granted ? .granted : .denied
-        promptVisible = false
-        if settled { changeHandlers.forEach { $0() } } else { requestTrackingAndFinish() }
+    /// Строка «Конфиденциальность» в настройках: форма Google с выбором заново.
+    public func presentPrivacyOptionsForm() {
+        ConsentForm.presentPrivacyOptionsForm(from: Self.topViewController()) { [weak self] error in
+            if let error { print("Privacy options form error: \(error.localizedDescription)") }
+            guard let self else { return }
+            self.refresh()
+            self.changeHandlers.forEach { $0() }
+        }
     }
 
-    private func requestTrackingAndFinish() {
+    private func finish() {
+        refresh()
+        // ATT после GDPR-формы, как рекомендует Google: два окна не наслаиваются.
         TrackingService.shared.requestIfNeeded { [weak self] in
             guard let self, !self.settled else { return }
             self.settled = true
@@ -71,17 +81,17 @@ public final class ConsentService {
         }
     }
 
-    /// ЕЭЗ + Великобритания + Швейцария. Регион устройства; если его нет — европейский часовой пояс.
-    /// Лишний раз спросить безопасно, не спросить где надо — нет.
-    static var isGDPRRegion: Bool {
-        if let region = Locale.current.region?.identifier { return gdprRegions.contains(region) }
-        return TimeZone.current.identifier.hasPrefix("Europe/")
+    private func refresh() {
+        canRequestAds = ConsentInformation.shared.canRequestAds
+        privacyOptionsRequired = ConsentInformation.shared.privacyOptionsRequirementStatus == .required
     }
 
-    static let gdprRegions: Set<String> = [
-        "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT",
-        "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE",   // ЕС
-        "IS", "LI", "NO",                                                         // ЕЭЗ
-        "GB", "CH",
-    ]
+    static func topViewController() -> UIViewController? {
+        let scene = UIApplication.shared.connectedScenes.first { $0.activationState == .foregroundActive } as? UIWindowScene
+            ?? UIApplication.shared.connectedScenes.first as? UIWindowScene
+        guard let window = scene?.windows.first(where: \.isKeyWindow) ?? scene?.windows.first,
+              var top = window.rootViewController else { return nil }
+        while let presented = top.presentedViewController { top = presented }
+        return top
+    }
 }

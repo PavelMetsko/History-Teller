@@ -45,11 +45,12 @@ let project = Project(
         framework("Simulation", sources: ["Modules/Simulation/Sources/Simulation/**"]),
         framework("DesignSystem"),
         framework("GameProgress"),
-        // Согласие на данные + ATT, атрибуция (Tenjin), rewarded-реклама (AppLovin MAX).
+        // Согласие (Google UMP) + ATT, атрибуция (Tenjin), rewarded-реклама (Google AdMob).
         // Отдельно от фич: сторонние SDK тянутся только сюда.
         framework("Ads", dependencies: [
             .external(name: "TenjinSDK"),
-            .external(name: "AppLovinSDK"),
+            .external(name: "GoogleMobileAds"),
+            .external(name: "GoogleUserMessagingPlatform"),
             .target(name: "GameContent"),   // покупки Store → Tenjin
         ]),
         // Арт — файлами WebP (Resources/Art), не каталогом ассетов: actool перекодирует каталог
@@ -105,8 +106,10 @@ let project = Project(
                 // MARK: - Реклама / согласие
                 // Копии SKAdNetwork-постбэков уходят в Tenjin (атрибуция закупки на iOS).
                 "NSAdvertisingAttributionReportEndpoint": "https://tenjin-skan.com",
-                // SKAdNetwork: AppLovin (атрибуция показов рекламы на iOS 14+). Сети медиации — по мере подключения.
-                "SKAdNetworkItems": [["SKAdNetworkIdentifier": "ludvb6z3bs.skadnetwork"]],
+                // App ID History Teller в AdMob — без него SDK Google падает на старте.
+                "GADApplicationIdentifier": "ca-app-pub-6335946344432887~7440324473",
+                // SKAdNetwork: Google (атрибуция показов рекламы на iOS 14+). Сети медиации — по мере подключения.
+                "SKAdNetworkItems": [["SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork"]],
                 "NSUserTrackingUsageDescription":
                     "Your data will be used to show you more relevant ads and to measure where players come from.",
                 "LSRequiresIPhoneOS": true,

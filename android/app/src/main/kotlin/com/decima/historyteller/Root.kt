@@ -107,7 +107,7 @@ fun Root(startLevel: String? = null) {
                 booted = true; tick++
                 if (!settings.onboarded && startLevel == null) showLangPicker = true
                 // Согласие спрашиваем после онбординга; кто его уже прошёл — сразу на старте.
-                if (settings.onboarded) ConsentService.start(ctx)
+                if (settings.onboarded) (ctx as? android.app.Activity)?.let { ConsentService.start(it) }
             }
             .onFailure { bootError = it.message ?: L10n.s("ui.load_fail") }
     }
@@ -242,11 +242,8 @@ fun Root(startLevel: String? = null) {
         })
         if (showOnboarding) OnboardingScreen(onFinish = {
             settings.onboarded = true; showOnboarding = false
-            ConsentService.start(ctx)
+            (ctx as? android.app.Activity)?.let { ConsentService.start(it) }
         })
-
-        val consentPrompt by ConsentService.promptVisible.collectAsState()
-        if (consentPrompt) ConsentDialog(ctx)
     }
 }
 

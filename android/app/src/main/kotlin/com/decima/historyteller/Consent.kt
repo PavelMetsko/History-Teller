@@ -1,90 +1,70 @@
 package com.decima.historyteller
 
+import android.app.Activity
 import android.content.Context
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import android.content.pm.ApplicationInfo
+import com.google.android.ump.ConsentDebugSettings
+import com.google.android.ump.ConsentInformation
+import com.google.android.ump.ConsentRequestParameters
+import com.google.android.ump.UserMessagingPlatform
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import java.util.Locale
-import java.util.TimeZone
 
 /**
- * Согласие на рекламные данные — без стороннего CMP (порт ConsentService с iOS). AppLovin MAX
- * и Tenjin принимают простой флаг согласия, выставляемый до старта их SDK, поэтому спрашиваем
- * сами: в GDPR-регионе (ЕЭЗ, UK, Швейцария) — своё окно [ConsentDialog], в остальных — ничего.
- * ATT на Android нет — рекламный ID регулируется настройками системы.
+ * Согласие на данные через Google UMP (сертифицированный CMP — без него AdMob в ЕЭЗ рекламу не
+ * показывает), как в Decima. Порт iOS ConsentService. Запускается раз за сессию — после
+ * онбординга. Форма и языки — в AdMob → Privacy & messaging («History Teller GDPR consent»).
+ * Реклама и Tenjin ждут [onReady]. ATT на Android нет — рекламный ID регулирует система.
  */
 object ConsentService {
-    enum class Choice { GRANTED, DENIED }
 
-    private const val PREFS = "ht.ads"
-    private const val KEY = "consent"
+    private val _canRequestAds = MutableStateFlow(false)
+    val canRequestAds: StateFlow<Boolean> = _canRequestAds.asStateFlow()
 
-    private val _choice = MutableStateFlow<Choice?>(null)
-    val choice: StateFlow<Choice?> = _choice.asStateFlow()
+    /** Строка «Конфиденциальность» в настройках — только там, где форма обязательна (ЕЭЗ/UK/CH). */
+    private val _privacyOptionsRequired = MutableStateFlow(false)
+    val privacyOptionsRequired: StateFlow<Boolean> = _privacyOptionsRequired.asStateFlow()
 
-    /** Показывать окно согласия (первый запуск в GDPR-регионе или строка в настройках). */
-    private val _promptVisible = MutableStateFlow(false)
-    val promptVisible: StateFlow<Boolean> = _promptVisible.asStateFlow()
-
-    /** В GDPR-регионе — явное согласие; в остальных реклама персональная, пока не отказался (CCPA). */
-    val hasUserConsent get() = _choice.value == Choice.GRANTED
-    val doNotSell get() = _choice.value == Choice.DENIED
+    /** Форма в этом регионе не нужна (вне ЕЭЗ) — Tenjin тогда не ждёт TCF-строку. */
+    var isConsentNotRequired = false; private set
 
     private var started = false
     private var settled = false
     private val readyHandlers = mutableListOf<() -> Unit>()
     private val changeHandlers = mutableListOf<() -> Unit>()
 
-    /** Игрок поменял ответ (окно из настроек) — SDK обновляют свои флаги. */
-    fun onChange(handler: () -> Unit) { changeHandlers += handler }
-    private lateinit var appContext: Context
-
     /** Вызвать, когда согласие отработало (сразу, если уже). */
     fun onReady(handler: () -> Unit) {
         if (settled) handler() else readyHandlers += handler
     }
 
+    /** Игрок поменял выбор в форме из настроек — SDK обновляют свои флаги. */
+    fun onChange(handler: () -> Unit) { changeHandlers += handler }
+
     /** Раз за сессию, после онбординга. */
-    fun start(context: Context) {
+    fun start(activity: Activity) {
         if (started) return
         started = true
-        appContext = context.applicationContext
-        _choice.value = appContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            .getString(KEY, null)?.let { runCatching { Choice.valueOf(it) }.getOrNull() }
-        if (_choice.value == null && isGdprRegion()) _promptVisible.value = true else finish()
+        val info = UserMessagingPlatform.getConsentInformation(activity)
+        val params = ConsentRequestParameters.Builder()
+            .apply { debugSettings(activity)?.let { setConsentDebugSettings(it) } }
+            .build()
+        info.requestConsentInfoUpdate(activity, params,
+            { UserMessagingPlatform.loadAndShowConsentFormIfRequired(activity) { finish(activity) } },
+            { finish(activity) })   // не обновилось (офлайн) — работаем на сохранённом согласии
     }
 
-    /** Строка «Конфиденциальность» в настройках: передумать в любую сторону. */
-    fun showPrompt() { _promptVisible.value = true }
-
-    fun answer(context: Context, granted: Boolean) {
-        val c = if (granted) Choice.GRANTED else Choice.DENIED
-        _choice.value = c
-        context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            .edit().putString(KEY, c.name).apply()
-        _promptVisible.value = false
-        if (settled) changeHandlers.forEach { it() } else finish()
+    /** Строка «Конфиденциальность» в настройках: форма Google с выбором заново. */
+    fun presentPrivacyOptionsForm(activity: Activity) {
+        UserMessagingPlatform.showPrivacyOptionsForm(activity) {
+            refresh(activity)
+            changeHandlers.forEach { it() }
+        }
     }
 
-    private fun finish() {
+    private fun finish(context: Context) {
+        refresh(context)
         if (settled) return
         settled = true
         val handlers = readyHandlers.toList()
@@ -92,63 +72,20 @@ object ConsentService {
         handlers.forEach { it() }
     }
 
-    /** Регион устройства; если его нет — европейский часовой пояс. Лишний раз спросить безопасно. */
-    private fun isGdprRegion(): Boolean {
-        val region = Locale.getDefault().country
-        if (region.isNotEmpty()) return region in GDPR_REGIONS
-        return TimeZone.getDefault().id.startsWith("Europe/")
+    private fun refresh(context: Context) {
+        val info = UserMessagingPlatform.getConsentInformation(context)
+        _canRequestAds.value = info.canRequestAds()
+        _privacyOptionsRequired.value = info.privacyOptionsRequirementStatus ==
+            ConsentInformation.PrivacyOptionsRequirementStatus.REQUIRED
+        isConsentNotRequired = info.consentStatus == ConsentInformation.ConsentStatus.NOT_REQUIRED
     }
 
-    private val GDPR_REGIONS = setOf(
-        "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT",
-        "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE",   // ЕС
-        "IS", "LI", "NO",                                                         // ЕЭЗ
-        "GB", "CH",
-    )
-}
-
-/** Окно согласия в стиле книги. Кнопки равнозначны (требование GDPR), закрыть мимо выбора нельзя. */
-@Composable
-fun ConsentDialog(context: Context) {
-    val uri = LocalUriHandler.current
-    Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.5f)).clickable(enabled = false) {},
-        contentAlignment = Alignment.Center) {
-        BookPage(Modifier.widthIn(max = 480.dp)) {
-            Column(Modifier.padding(horizontal = 32.dp, vertical = 18.dp),
-                horizontalAlignment = Alignment.CenterHorizontally) {
-                Box(Modifier.size(48.dp).clip(CircleShape).background(Palette.maroon)
-                    .border(2.dp, Palette.gold, CircleShape), contentAlignment = Alignment.Center) {
-                    Text("✋", fontSize = 22.sp)
-                }
-                Spacer(Modifier.height(8.dp))
-                Text(L10n.s("ui.consent_title"), color = Palette.ink, fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
-                Box(Modifier.padding(top = 6.dp).width(70.dp).height(3.dp)
-                    .clip(RoundedCornerShape(2.dp)).background(Palette.gold))
-                Spacer(Modifier.height(10.dp))
-                Text(L10n.s("ui.consent_body"), color = Palette.inkSoft, fontSize = 14.sp,
-                    fontFamily = Fonts.rounded, textAlign = TextAlign.Center)
-                Spacer(Modifier.height(14.dp))
-                Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-                    ConsentButton(L10n.s("ui.consent_decline")) { ConsentService.answer(context, false) }
-                    ConsentButton(L10n.s("ui.consent_accept")) { ConsentService.answer(context, true) }
-                }
-                Spacer(Modifier.height(10.dp))
-                Text(L10n.s("ui.privacy"), color = Palette.inkSoft, fontSize = 12.sp,
-                    fontFamily = Fonts.rounded, textDecoration = TextDecoration.Underline,
-                    modifier = Modifier.clickable { uri.openUri(Legal.PRIVACY_URL) })
-            }
-        }
-    }
-}
-
-@Composable
-private fun ConsentButton(title: String, onClick: () -> Unit) {
-    Box(Modifier.width(170.dp).clip(RoundedCornerShape(28.dp)).background(Palette.maroon)
-        .border(2.5.dp, Palette.ink, RoundedCornerShape(28.dp))
-        .clickable(onClick = onClick).padding(vertical = 11.dp),
-        contentAlignment = Alignment.Center) {
-        Text(title, color = Palette.paper, fontSize = 17.sp,
-            fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+    /** В отладочной сборке форма показывается как в ЕЭЗ — иначе вне Европы её не проверить. */
+    private fun debugSettings(context: Context): ConsentDebugSettings? {
+        val debuggable = (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+        if (!debuggable) return null
+        return ConsentDebugSettings.Builder(context)
+            .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+            .build()
     }
 }

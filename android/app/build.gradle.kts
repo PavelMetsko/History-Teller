@@ -32,7 +32,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "17" }
+    kotlinOptions {
+        jvmTarget = "17"
+        // play-services-ads 24+ собран Kotlin 2.2+, проект на 2.0.21: зовём только Java-API SDK,
+        // поэтому проверку версии метаданных пропускаем. Уйдёт с переходом проекта на Kotlin 2.2+.
+        freeCompilerArgs += "-Xskip-metadata-version-check"
+    }
 
     signingConfigs {
         if (hasKeystore) create("release") {
@@ -80,6 +85,8 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads-identifier:18.2.0")
     implementation("com.google.android.gms:play-services-appset:16.1.0")
     implementation("com.android.installreferrer:installreferrer:2.2")
-    // Rewarded-реклама (AppLovin MAX). Сети медиации добавляются отдельными адаптерами.
-    implementation("com.applovin:applovin-sdk:13.6.4")
+    // Rewarded-реклама (Google AdMob) и согласие GDPR (Google UMP — сертифицированный CMP,
+    // без него AdMob в ЕЭЗ рекламу не показывает). Форма — в AdMob → Privacy & messaging.
+    implementation("com.google.android.gms:play-services-ads:24.9.0")
+    implementation("com.google.android.ump:user-messaging-platform:4.0.0")
 }

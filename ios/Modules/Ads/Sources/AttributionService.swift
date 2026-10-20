@@ -1,12 +1,12 @@
 import UIKit
 import StoreKit
 import TenjinSDK
-import AppLovinSDK
+import GoogleMobileAds
 import GameContent
 
 /// Атрибуция установок и покупок через Tenjin (MMP для закупки в AppLovin).
-/// Стартует только после окна согласия и ATT: в `connect()` уходит IDFA, если игрок разрешил.
-/// Отказ от рекламных данных (окно согласия/настройки) → `optOut`: Tenjin ничего не отправляет.
+/// Стартует только после формы согласия и ATT: в `connect()` уходит IDFA, если игрок разрешил.
+/// В ЕЭЗ решение берётся из согласия UMP (TCF, цель 1): отказ → `optOut`, Tenjin ничего не шлёт.
 public final class AttributionService {
     public static let shared = AttributionService()
 
@@ -43,7 +43,8 @@ public final class AttributionService {
     }
 
     private func applyConsent() {
-        if ConsentService.shared.doNotSell { TenjinSDK.optOut() } else { TenjinSDK.optIn() }
+        // Вне ЕЭЗ формы нет и TCF-строки тоже — там Tenjin работает по умолчанию.
+        if ConsentService.shared.isConsentNotRequired { TenjinSDK.optIn() } else { TenjinSDK.optInOutUsingCMP() }
     }
 
     /// Глава — разовая покупка (`transaction`), подписка — первое оформление (`purchasesManager`).
@@ -65,22 +66,20 @@ public final class AttributionService {
     }
 
     /// Доход с показа ролика (ILRD) — Tenjin считает по нему ROAS закупки.
-    func trackAdRevenue(_ ad: MAAd) {
+    func trackAdRevenue(_ value: AdValue, ad: RewardedAd) {
         guard connected else { return }
+        let info = ad.responseInfo
         let data: [String: Any] = [
-            "creative_id": ad.creativeIdentifier ?? "",
-            "placement": ad.placement ?? "",
-            "format": ad.format.label,
-            "country": ALSdk.shared().configuration.countryCode,
-            "ad_revenue_currency": "USD",
-            "network_placement": ad.networkPlacement,
-            "revenue_precision": ad.revenuePrecision,
-            "ad_unit_id": ad.adUnitIdentifier,
-            "revenue": ad.revenue,                 // double, не строка — требование Tenjin
-            "network_name": ad.networkName,
+            "ad_unit_id": ad.adUnitID,
+            // На iOS AdValue — в валюте, Tenjin ждёт микроединицы (как valueMicros на Android).
+            "value_micros": value.value.multiplying(byPowerOf10: 6).int64Value,
+            "currency_code": value.currencyCode,
+            "response_id": info.responseIdentifier ?? "",
+            "mediation_adapter_class_name": info.loadedAdNetworkResponseInfo?.adNetworkClassName ?? "",
+            "precision_type": value.precision.rawValue,
         ]
         guard let json = try? JSONSerialization.data(withJSONObject: data),
               let string = String(data: json, encoding: .utf8) else { return }
-        TenjinSDK.appLovinImpression(fromJSON: string)
+        TenjinSDK.adMobImpression(fromJSON: string)
     }
 }

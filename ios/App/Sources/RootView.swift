@@ -29,7 +29,6 @@ struct RootView: View {
     /// изменение пак сбрасывается и boot идёт заново — без флага выбор языка всплывал дважды.
     @State private var firstRunOffered = false
     @State private var showLanguagePicker = false
-    @State private var consent = ConsentService.shared
     @AppStorage("ht.lang") private var langOverride = ""
     @State private var screen: Screen = {
         let env = ProcessInfo.processInfo.environment
@@ -141,12 +140,6 @@ struct RootView: View {
                 })
                 .transition(.opacity)
                 .zIndex(60)
-            }
-
-            if consent.promptVisible {
-                ConsentView()
-                    .transition(.opacity)
-                    .zIndex(70)
             }
         }
         .onAppear {

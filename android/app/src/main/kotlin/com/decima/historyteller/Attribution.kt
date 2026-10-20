@@ -4,13 +4,15 @@ import android.content.Context
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
-import com.applovin.mediation.MaxAd
+import com.google.android.gms.ads.AdValue
+import com.google.android.gms.ads.rewarded.RewardedAd
 import com.tenjin.android.TenjinSDK
+import org.json.JSONObject
 
 /**
  * Атрибуция установок и покупок через Tenjin (MMP для закупки в AppLovin). Порт iOS
- * AttributionService. Стартует только после окна согласия; отказ от рекламных данных → optOut:
- * Tenjin ничего не отправляет. Сессии считаются по connect() — повторяем на каждом onResume.
+ * AttributionService. Стартует только после формы согласия; в ЕЭЗ решение берётся из согласия
+ * UMP (TCF, цель 1): отказ → optOut, Tenjin ничего не отправляет. Сессии считаются по connect() — повторяем на каждом onResume.
  */
 object Attribution {
     private const val SDK_KEY = "Q7XO1BESYOXRFBHMQDBMSHMBC1CUCQRQ"
@@ -38,12 +40,22 @@ object Attribution {
     }
 
     /** Доход с показа ролика (ILRD) — Tenjin считает по нему ROAS закупки. */
-    fun trackAdRevenue(ad: MaxAd) {
-        tenjin?.eventAdImpressionAppLovin(ad)
+    fun trackAdRevenue(value: AdValue, ad: RewardedAd) {
+        val t = tenjin ?: return
+        val info = ad.responseInfo
+        t.eventAdImpressionAdMob(JSONObject().apply {
+            put("ad_unit_id", ad.adUnitId)
+            put("value_micros", value.valueMicros)
+            put("currency_code", value.currencyCode)
+            put("response_id", info.responseId)
+            put("mediation_adapter_class_name", info.loadedAdapterResponseInfo?.adapterClassName)
+            put("precision_type", value.precisionType)
+        })
     }
 
     private fun applyConsent(t: TenjinSDK) {
-        if (ConsentService.doNotSell) t.optOut() else t.optIn()
+        // Вне ЕЭЗ формы нет и TCF-строки тоже — там Tenjin работает по умолчанию.
+        if (ConsentService.isConsentNotRequired) t.optIn() else t.optInOutUsingCMP()
     }
 
     /** Глава — разовая цена, подписка — полная цена периода (последняя фаза, после пробных). */

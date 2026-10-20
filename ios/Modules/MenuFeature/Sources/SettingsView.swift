@@ -11,7 +11,7 @@ public struct SettingsView: View {
     @AppStorage("ht.sfx")     private var sfx     = true
     @AppStorage("ht.haptics") private var haptics = true
     @AppStorage("ht.lang")    private var lang    = ""
-    private let consent = ConsentService.shared
+    @State private var consent = ConsentService.shared
 
     private let onClose: () -> Void
     public init(onClose: @escaping () -> Void) { self.onClose = onClose }
@@ -46,8 +46,10 @@ public struct SettingsView: View {
                         }
                         divider
                         languageRow
-                        divider
-                        privacyRow
+                        if consent.privacyOptionsRequired {
+                            divider
+                            privacyRow
+                        }
                     }
                     .padding(.vertical, 2)
 
@@ -103,9 +105,9 @@ public struct SettingsView: View {
         .padding(.horizontal, 8).padding(.vertical, 9)
     }
 
-    /// Окно согласия заново: в Европе — отозвать/дать согласие, в США — «не продавать данные».
+    /// Форма согласия Google заново — обязательна там, где она показывалась (ЕЭЗ/UK/CH).
     private var privacyRow: some View {
-        Button { consent.showPrompt() } label: {
+        Button { consent.presentPrivacyOptionsForm() } label: {
             HStack(spacing: 14) {
                 rowIcon("hand.raised.fill")
                 Text(L10n.s("ui.privacy_choices")).font(.dsBody(17)).foregroundStyle(DS.Palette.ink)

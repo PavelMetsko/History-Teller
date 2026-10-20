@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.HistoryTeller"
         android:supportsRtl="true">
+        <!-- App ID History Teller в AdMob — без него SDK Google падает на старте. -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6335946344432887~6865609400" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

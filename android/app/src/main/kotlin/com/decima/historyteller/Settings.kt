@@ -112,14 +112,18 @@ fun SettingsScreen(settings: Settings, onLangChange: (String) -> Unit, onClose: 
                 LanguageRow(lang) { code ->
                     lang = code; settings.lang = code; onLangChange(code)
                 }
-                // Окно согласия заново: в Европе — отозвать/дать согласие, в США — «не продавать данные».
-                Divider()
-                Row(Modifier.fillMaxWidth().clickable { ConsentService.showPrompt() }
-                        .padding(horizontal = 8.dp, vertical = 10.dp),
-                    verticalAlignment = Alignment.CenterVertically) {
-                    Text(L10n.s("ui.privacy_choices"), color = Palette.ink, fontSize = 17.sp, fontFamily = Fonts.rounded)
-                    Spacer(Modifier.weight(1f))
-                    Icon(Icons.Filled.KeyboardArrowRight, null, tint = Palette.maroon, modifier = Modifier.size(20.dp))
+                // Форма согласия Google заново — обязательна там, где она показывалась (ЕЭЗ/UK/CH).
+                val privacyRequired by ConsentService.privacyOptionsRequired.collectAsState()
+                if (privacyRequired) {
+                    Divider()
+                    Row(Modifier.fillMaxWidth().clickable {
+                            (ctx as? android.app.Activity)?.let { ConsentService.presentPrivacyOptionsForm(it) }
+                        }.padding(horizontal = 8.dp, vertical = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically) {
+                        Text(L10n.s("ui.privacy_choices"), color = Palette.ink, fontSize = 17.sp, fontFamily = Fonts.rounded)
+                        Spacer(Modifier.weight(1f))
+                        Icon(Icons.Filled.KeyboardArrowRight, null, tint = Palette.maroon, modifier = Modifier.size(20.dp))
+                    }
                 }
 
                 Spacer(Modifier.height(14.dp))
