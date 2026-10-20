@@ -12,6 +12,7 @@ class MainActivity : ComponentActivity() {
         // Отладочные сборки умеют ходить на локальный стенд вместо облака (см. build.gradle.kts).
         if (BuildConfig.CONTENT_URL.isNotEmpty()) ContentSync.baseUrl = BuildConfig.CONTENT_URL
         Billing.init(this)
+        Telemetry.init(this)
         Attribution.start(this)   // SDK стартуют после окна согласия
         AdService.start(this)
         Audio.init(this)

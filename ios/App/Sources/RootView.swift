@@ -75,6 +75,7 @@ struct RootView: View {
                     },
                     onRewarded: {
                         let level = pendingLevel
+                        if let level { Telemetry.shared.track("ad_unlock", level: level, chapter: pendingEpoch) }
                         closePaywall()
                         if let level { openLevel(level) }
                     }
@@ -216,9 +217,11 @@ struct RootView: View {
                         onSolved: {
                             progress.markCompleted(id)
                             RewardedUnlocks.consume(id)   // пройден — дальше открыт прогрессом
+                            Telemetry.shared.track("level_complete", level: id, chapter: level.epoch)
                         },
                         onExit: { go(.map); maybeAskForReview(pack) }
                     )
+                    .onAppear { Telemetry.shared.track("level_start", level: id, chapter: level.epoch) }
                     .id(id)
                 } else {
                     Color.clear.onAppear { go(.map) }
@@ -359,6 +362,7 @@ struct RootView: View {
         // Язык — до сети: иначе строки экрана ошибки идут на дефолтном русском,
         // независимо от того, на каком говорит игрок.
         L10n.configure()
+        Telemetry.shared.track("session")
         await sync.syncCore()
         load()
     }

@@ -99,6 +99,7 @@ fun Root(startLevel: String? = null) {
     var bootAttempt by remember { mutableIntStateOf(0) }
     var bootError by remember { mutableStateOf<String?>(null) }
     LaunchedEffect(bootAttempt) {
+        Telemetry.track("session")
         ContentSync.syncCore(ctx)
         // Вшитого контента больше нет: если core не приехал, собирать нечего — остаёмся
         // на экране загрузки с кнопкой «Повторить», а не падаем на первом же чтении.
@@ -156,11 +157,16 @@ fun Root(startLevel: String? = null) {
                                 },
                                 onBack = { ContentSync.cancelPrefetch(); screen = Screen.Chapters })
                         }
-                        is Screen.Level -> BoardScreen(
+                        is Screen.Level -> {
+                          LaunchedEffect(s.id) {
+                              Telemetry.track("level_start", s.id, GameContent.level(s.id)?.epoch)
+                          }
+                          BoardScreen(
                             levelId = s.id,
                             onSolved = {
                                 progress.markCompleted(s.id)
                                 RewardedUnlocks.consume(ctx, s.id)   // пройден — дальше открыт прогрессом
+                                Telemetry.track("level_complete", s.id, GameContent.level(s.id)?.epoch)
                             },
                             onExit = {
                                 screen = Screen.Map(GameContent.level(s.id)?.epoch ?: "rome")
@@ -170,6 +176,7 @@ fun Root(startLevel: String? = null) {
                                     (ctx as? android.app.Activity)?.let { ReviewPrompt.ask(it) }
                                 }
                             })
+                        }
                     }
                 }
             }
@@ -202,6 +209,7 @@ fun Root(startLevel: String? = null) {
                     tick++
                 },
                 onRewarded = {
+                    pendingLevel?.let { Telemetry.track("ad_unlock", it, pendingEpoch) }
                     showPaywall = false
                     openPendingLevel()
                     pendingLevel = null; pendingEpoch = null

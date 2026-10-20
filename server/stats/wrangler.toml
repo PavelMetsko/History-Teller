@@ -1,0 +1,17 @@
+name = "history-teller-stats"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Приём событий из игры (iOS и Android) и сводка для скрытого админ-экрана в iOS.
+workers_dev = false
+routes = [
+  { pattern = "stats.historyteller.app", custom_domain = true },
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ht-stats"
+database_id = "613c9d06-6a44-4eaa-902c-4c561747e760"   # выдаёт `npx wrangler d1 create ht-stats`
+
+# Пароль админ-экрана — только секретом, в репо его нет:
+#   npx wrangler secret put ADMIN_PASSWORD

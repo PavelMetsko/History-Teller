@@ -13,6 +13,12 @@ public struct SettingsView: View {
     @AppStorage("ht.lang")    private var lang    = ""
     @State private var consent = ConsentService.shared
 
+    @State private var versionTaps = 0
+    @State private var askPassword = false
+    @State private var passwordInput = ""
+    @State private var passwordError: String?
+    @State private var adminPassword: AdminPassword?
+
     private let onClose: () -> Void
     public init(onClose: @escaping () -> Void) { self.onClose = onClose }
 
@@ -61,12 +67,61 @@ public struct SettingsView: View {
                             .overlay(Capsule().strokeBorder(DS.Palette.ink, lineWidth: 2.5))
                     }
                     .buttonStyle(.plain).padding(.top, 2)
+
+                    // Версия. 5 нажатий — скрытый экран статистики (как в Decima и Line Kick).
+                    Text(versionText)
+                        .font(.dsCaption(11)).foregroundStyle(DS.Palette.inkSoft)
+                        .padding(.top, 2)
+                        .contentShape(Rectangle())
+                        .onTapGesture { versionTapped() }
                 }
                 .padding(EdgeInsets(top: 18, leading: 32, bottom: 20, trailing: 32))
                 .frame(width: 440)
             }
             .fixedSize()
             .shadow(color: .black.opacity(0.4), radius: 18, y: 10)
+        }
+        .alert("Admin", isPresented: $askPassword) {
+            SecureField("Password", text: $passwordInput)
+            Button("OK") { Task { await unlock() } }
+            Button("Cancel", role: .cancel) { passwordInput = "" }
+        } message: {
+            Text(passwordError ?? "Enter password")
+        }
+        .fullScreenCover(item: $adminPassword) { pw in
+            AdminStatsView(password: pw.value, onClose: { adminPassword = nil })
+        }
+    }
+
+    // MARK: - Скрытый экран статистики
+
+    private var versionText: String {
+        let info = Bundle.main.infoDictionary
+        let v = info?["CFBundleShortVersionString"] as? String ?? "?"
+        let b = info?["CFBundleVersion"] as? String ?? "?"
+        return "v\(v) (\(b))"
+    }
+
+    private func versionTapped() {
+        versionTaps += 1
+        guard versionTaps >= 5 else { return }
+        versionTaps = 0
+        if let saved = AdminAccess.savedPassword { adminPassword = AdminPassword(value: saved) }
+        else { passwordError = nil; askPassword = true }
+    }
+
+    /// Пароль проверяет сервер; верный запоминается — второй раз вводить не нужно.
+    private func unlock() async {
+        let pw = passwordInput
+        passwordInput = ""
+        switch await AdminStatsAPI.fetch(password: pw) {
+        case .success:
+            AdminAccess.save(pw)
+            adminPassword = AdminPassword(value: pw)
+        case .failure(.unauthorized):
+            passwordError = "Wrong password"; askPassword = true
+        case .failure(.network(let m)):
+            passwordError = m; askPassword = true
         }
     }
 
@@ -130,4 +185,9 @@ public struct SettingsView: View {
     private var divider: some View {
         Rectangle().fill(DS.Palette.ink.opacity(0.12)).frame(height: 1)
     }
+}
+
+private struct AdminPassword: Identifiable {
+    let value: String
+    var id: String { value }
 }
