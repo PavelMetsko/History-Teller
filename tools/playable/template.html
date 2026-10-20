@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>History Teller</title>
-<!-- MRAID: рекламный SDK подменяет этот файл своим; в браузере просто 404, игра работает и без него. -->
-<script src="mraid.js"></script>
+<!-- MRAID подставляет рекламный SDK; внешних запросов (даже mraid.js) AppLovin не допускает. -->
 <style>
   :root {
     --backdrop:#34222E; --paper:#F1E4C7; --panel:#F7EFDC; --edge:#DECBA3; --ink:#2B2419;
@@ -17,6 +16,14 @@
   html, body { margin:0; height:100%; background:var(--backdrop); overflow:hidden; touch-action:none;
     font-family:Georgia, "Times New Roman", serif; color:var(--ink); }
   #stage { position:absolute; left:50%; top:50%; width:360px; height:640px; transform-origin:0 0; }
+  /* Ландшафт (AppLovin требует обе ориентации): кадры в ряд, как в самой игре. */
+  body.land #stage { width:640px; height:360px; }
+  body.land #head { top:6px; height:52px; }
+  body.land #tray { top:236px; }
+  body.land #scenes { left:6px; right:326px; top:22px; }
+  body.land #chars { left:322px; right:6px; top:18px; height:84px; }
+  body.land .scene .pic { width:94px; height:50px; }
+  body.land .char .pic { width:58px; height:58px; }
   .page { position:absolute; inset:0; background:var(--paper); border-radius:18px; overflow:hidden;
     box-shadow:inset 0 0 0 3px var(--edge), inset 0 0 40px rgba(120,90,40,.18); }
 
@@ -31,7 +38,7 @@
     padding:9px 12px; border-radius:20px; border:2px solid var(--ink); cursor:pointer; }
 
   /* Кадры */
-  .frame { position:absolute; left:12px; width:336px; height:116px; border-radius:12px; overflow:hidden;
+  .frame { position:absolute; border-radius:12px; overflow:hidden;
     background:var(--panel); border:2.5px solid var(--ink); transition:transform .15s, box-shadow .15s; }
   .frame.hover { box-shadow:0 0 0 4px var(--gold); transform:scale(1.015); }
   .frame.shake { animation:shake .45s; }
@@ -49,7 +56,10 @@
     background:rgba(255,255,255,.85); color:var(--ink); font:bold 14px sans-serif; display:flex; align-items:center; justify-content:center; }
   .frame .empty { position:absolute; inset:10px 10px 10px 40px; border:2px dashed rgba(43,36,25,.35); border-radius:10px;
     display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:14px; font-style:italic; }
-  .slot { position:absolute; bottom:4px; width:92px; height:96px; display:flex; align-items:flex-end; justify-content:center; z-index:2; }
+  .slot { position:absolute; bottom:4px; width:92px; height:96px; display:flex; align-items:flex-end; justify-content:center; z-index:2;
+    transform:translateX(-50%); }
+  body.land .slot { height:118px; }
+  body.land .slot img { max-height:118px; }
   .slot img { max-height:96px; max-width:92px; filter:drop-shadow(0 3px 3px rgba(0,0,0,.45)); transition:transform .25s; }
   .slot img.gray { filter:grayscale(1) drop-shadow(0 3px 3px rgba(0,0,0,.45)); transform:rotate(-8deg); }
   .slot .plus { width:46px; height:46px; margin-bottom:22px; border-radius:50%; border:2.5px dashed rgba(255,255,255,.85);
@@ -137,7 +147,12 @@
   // ---- Звук: только после первого касания (браузеры иначе блокируют) ----
   var audio = {}, soundOn = false;
   Object.keys(D.sounds).forEach(function (k) { var a = new Audio(D.sounds[k]); a.volume = 0.55; audio[k] = a; });
-  function sfx(name) { if (!soundOn || !audio[name]) return; try { audio[name].currentTime = 0; audio[name].play(); } catch (e) {} }
+  // Реклама скрыта/закрыта — звук замолкает (требование AppLovin).
+  var visible = true;
+  function setVisible(v) { visible = v; if (!v) Object.keys(audio).forEach(function (k) { try { audio[k].pause(); } catch (e) {} }); }
+  document.addEventListener("visibilitychange", function () { setVisible(!document.hidden); });
+  function sfx(name) {
+    if (!visible) return; if (!soundOn || !audio[name]) return; try { audio[name].currentTime = 0; audio[name].play(); } catch (e) {} }
 
   // ---- Установка: MRAID в рекламе, обычная ссылка в браузере ----
   function install() {
@@ -147,12 +162,22 @@
   }
 
   // ---- Масштаб сцены 360×640 под любой экран ----
-  var stage = document.getElementById("stage");
+  var stage = document.getElementById("stage"), land = false, W = 360, H = 640;
   function fit() {
-    var s = Math.min(window.innerWidth / 360, window.innerHeight / 640);
+    land = window.innerWidth > window.innerHeight;
+    document.body.classList.toggle("land", land);
+    W = land ? 640 : 360; H = land ? 360 : 640;
+    var s = Math.min(window.innerWidth / W, window.innerHeight / H);
     stage.style.transform = "scale(" + s + ") translate(-50%,-50%)";
+    layoutFrames();
   }
-  window.addEventListener("resize", fit);
+  function layoutFrames() {
+    frameEls.forEach(function (el, i) {
+      var r = land ? { l: 12 + i * 206, t: 62, w: 200, h: 168 } : { l: 12, t: 82 + i * 122, w: 336, h: 116 };
+      el.style.left = r.l + "px"; el.style.top = r.t + "px"; el.style.width = r.w + "px"; el.style.height = r.h + "px";
+    });
+  }
+  window.addEventListener("resize", function () { fit(); if (started) render(); });
 
   // ---- Состояние доски ----
   var panels = []; for (var i = 0; i < N; i++) panels.push({ scene: null, characters: [] });
@@ -195,7 +220,7 @@
   var frameEls = [];
   for (var f = 0; f < N; f++) {
     var el = document.createElement("div");
-    el.className = "frame"; el.style.top = (82 + f * 122) + "px"; el.dataset.frame = f;
+    el.className = "frame"; el.dataset.frame = f;
     framesEl.appendChild(el); frameEls.push(el);
   }
 
@@ -212,9 +237,9 @@
           '<div class="clear" data-clear="' + i + '">×</div>';
         var n = slotsOf(p.scene), flags = result && result.panels[i] ? result.panels[i].flags : {};
         for (var s = 0; s < n; s++) {
-          var left = n === 1 ? 122 : (s === 0 ? 70 : 186);
+          var left = n === 1 ? "50%" : (s === 0 ? "28%" : "72%");
           var cid = p.characters[s];
-          html += '<div class="slot" style="left:' + left + 'px">';
+          html += '<div class="slot" style="left:' + left + '">';
           if (cid) {
             var fl = flags[cid] || [], sp = spriteFor(cid, fl);
             html += '<img data-remove="' + i + ":" + cid + '" class="' + (sp.gray ? "gray" : "") + '" src="' + sp.src + '">';
@@ -297,7 +322,7 @@
   // ---- Перетаскивание и нажатия ----
   var ghost = document.getElementById("ghost"), drag = null;
   function stagePoint(ev) {
-    var r = stage.getBoundingClientRect(), s = r.width / 360;
+    var r = stage.getBoundingClientRect(), s = r.width / W;
     return { x: (ev.clientX - r.left) / s, y: (ev.clientY - r.top) / s };
   }
   function frameAt(ev) {
@@ -308,11 +333,13 @@
   function apply(kind, id, i) { if (kind === "scene") placeScene(i, id); else placeChar(i, id); }
 
   document.addEventListener("pointerdown", function (ev) {
+    var firstTap = !firstTouchAt;
     if (!soundOn) { soundOn = true; Object.keys(audio).forEach(function (k) { audio[k].load(); }); }
     touched();
     if (document.getElementById("end").style.display === "flex") return;
     var t = ev.target;
-    if (t.id === "cta-top") { install(); return; }
+    // AppLovin: первое касание не должно уводить в стор.
+    if (t.id === "cta-top") { if (!firstTap) install(); return; }
     if (t.dataset.clear !== undefined) { clearFrame(+t.dataset.clear); return; }
     if (t.dataset.remove) { var parts = t.dataset.remove.split(":"); removeChar(+parts[0], parts[1]); return; }
     var tok = t.closest(".tok");
@@ -368,7 +395,7 @@
     return null;
   }
   function center(el) {
-    var r = el.getBoundingClientRect(), sr = stage.getBoundingClientRect(), s = sr.width / 360;
+    var r = el.getBoundingClientRect(), sr = stage.getBoundingClientRect(), s = sr.width / W;
     return { x: (r.left + r.width / 2 - sr.left) / s, y: (r.top + r.height / 2 - sr.top) / s };
   }
   function showHint() {
@@ -407,14 +434,12 @@
     setTimeout(function () { showEnd(true); }, 1500);
   }
   endEl.addEventListener("pointerdown", function () { install(); });
-  // Финал без победы: не трогал экран 15 с с начала — не заинтересован; играет — даём 60 с
-  // с первого касания. Пока игрок в процессе, окно стора не выскакивает.
+  // Финал без победы — через 60 с с первого касания (AppLovin: таймер стартует только после
+  // взаимодействия). Пока игрок в процессе, окно стора не выскакивает.
   var firstTouchAt = 0;
   function forceEnd() { if (!done) { done = true; hideHint(); showEnd(false); } }
   setInterval(function () {
-    if (done || !started) return;
-    if (!firstTouchAt && Date.now() - startedAt > 15000) forceEnd();
-    else if (firstTouchAt && Date.now() - firstTouchAt > 60000) forceEnd();
+    if (!done && firstTouchAt && Date.now() - firstTouchAt > 60000) forceEnd();
   }, 1000);
 
   // ---- Старт ----
@@ -433,8 +458,8 @@
   var started = false, startedAt = 0;
   function boot() { if (!started) { started = true; start(); } }
   function mraidReady() {
+    mraid.addEventListener("viewableChange", function (v) { setVisible(v); if (v) boot(); });
     if (mraid.isViewable()) boot();
-    else mraid.addEventListener("viewableChange", function (v) { if (v) boot(); });
   }
   if (window.mraid) {
     if (mraid.getState() === "loading") mraid.addEventListener("ready", mraidReady); else mraidReady();
