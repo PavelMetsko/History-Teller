@@ -157,6 +157,18 @@ public enum L10n {
             "pl": "Następny film za %d s",
             "nl": "Volgende video over %d s",
         ],
+        // Карточка платной главы, пока реклама включена: вместо замка с ценой.
+        "ui.free_with_video": [
+            "ru": "Бесплатно с роликом",
+            "en": "Free with video",
+            "es": "Gratis con vídeo",
+            "de": "Gratis mit Video",
+            "fr": "Gratuit avec vidéo",
+            "it": "Gratis con video",
+            "pt": "Grátis com vídeo",
+            "pl": "Za darmo z filmem",
+            "nl": "Gratis met video",
+        ],
     ]
 
     /// Строка по ключу. Фолбэк: язык → английский → русская база → встроенная → сам ключ.

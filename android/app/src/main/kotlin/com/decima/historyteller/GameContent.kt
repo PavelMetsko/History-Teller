@@ -142,6 +142,18 @@ object L10n {
             "pl" to "Następny film za %d s",
             "nl" to "Volgende video over %d s",
         ),
+        // Карточка платной главы, пока реклама включена: вместо замка с ценой.
+        "ui.free_with_video" to mapOf(
+            "ru" to "Бесплатно с роликом",
+            "en" to "Free with video",
+            "es" to "Gratis con vídeo",
+            "de" to "Gratis mit Video",
+            "fr" to "Gratuit avec vidéo",
+            "it" to "Gratis con video",
+            "pt" to "Grátis com vídeo",
+            "pl" to "Za darmo z filmem",
+            "nl" to "Gratis met video",
+        ),
         "ui.load_fail" to mapOf(
             "ru" to "Не удалось загрузить контент", "en" to "Failed to load content",
             "es" to "No se pudo cargar el contenido", "de" to "Inhalte konnten nicht geladen werden",

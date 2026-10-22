@@ -192,6 +192,7 @@ struct RootView: View {
                     chapters: chapters(pack),
                     isUnlocked: { store.isUnlocked($0.id) || ProgressStore.unlockAll },
                     priceText: { store.chapterPrice($0.id) },
+                    freeWithVideo: AdService.shared.isEnabled,
                     // Главы открыты все: платность проверяется на уровне (см. requestLevel).
                     onSelect: { ch in
                         guard ch.available else { return }
@@ -205,6 +206,12 @@ struct RootView: View {
                     levels: pack.levels(epoch: selectedEpoch),
                     db: pack.db,
                     progress: progress,
+                    unlockTitle: chapterOwned(selectedEpoch) ? nil : unlockTitle(selectedEpoch),
+                    onUnlock: {
+                        pendingEpoch = selectedEpoch
+                        pendingLevel = nil
+                        withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
+                    },
                     onSelect: { requestLevel($0) },
                     onBack: { sync.cancelPrefetch(); go(.chapters) }
                 )
@@ -300,9 +307,21 @@ struct RootView: View {
         withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
     }
 
+    /// Первый эпизод платной главы — знакомство без ролика, пока реклама включена
+    /// (выключили рекламу удалённо — глава снова целиком за покупкой).
     private func canPlay(_ id: String) -> Bool {
-        store.isUnlocked(selectedEpoch) || ProgressStore.unlockAll
-            || progress.isCompleted(id) || RewardedUnlocks.contains(id)
+        chapterOwned(selectedEpoch) || progress.isCompleted(id) || RewardedUnlocks.contains(id)
+            || (AdService.shared.isEnabled && pack?.levels(epoch: selectedEpoch).first?.id == id)
+    }
+
+    private func chapterOwned(_ epoch: String) -> Bool {
+        store.isUnlocked(epoch) || ProgressStore.unlockAll
+            || sync.availableChapters.first { $0.id == epoch }?.free == true
+    }
+
+    private func unlockTitle(_ epoch: String) -> String {
+        let price = store.chapterPrice(epoch)
+        return price.isEmpty ? L10n.s("ui.buy_chapter_cta") : "\(L10n.s("ui.buy_chapter_cta")) — \(price)"
     }
 
     private func closePaywall() {

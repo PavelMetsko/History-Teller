@@ -145,11 +145,16 @@ fun Root(startLevel: String? = null) {
                             }
                             MapScreen(
                                 epoch = s.epoch, progress = progress,
+                                unlockTitle = if (chapterOwned(s.epoch) || BuildConfig.DEBUG) null else unlockTitle(s.epoch),
+                                onUnlock = { pendingEpoch = s.epoch; pendingLevel = null; showPaywall = true },
                                 onSelect = { id ->
                                     // Платная глава без покупки: пройденные и открытые за ролик эпизоды
                                     // играются, на остальные — окно «купить главу / подписка / ролик».
-                                    val canPlay = Billing.isUnlocked(s.epoch) || BuildConfig.DEBUG ||
-                                        progress.isCompleted(id) || RewardedUnlocks.contains(ctx, id)
+                                    // Первый эпизод — знакомство без ролика, пока реклама включена
+                                    // (выключили рекламу удалённо — глава снова целиком за покупкой).
+                                    val canPlay = chapterOwned(s.epoch) || BuildConfig.DEBUG ||
+                                        progress.isCompleted(id) || RewardedUnlocks.contains(ctx, id) ||
+                                        (AdService.isEnabled && GameContent.levels(s.epoch).firstOrNull()?.id == id)
                                     if (!canPlay) { pendingEpoch = s.epoch; pendingLevel = id; showPaywall = true }
                                     // Обычно фон успевает раньше игрока и экран загрузки не нужен;
                                     // если нет — ждём здесь, а не перед входом в главу.
@@ -310,6 +315,14 @@ private fun IconButtonCircle(icon: androidx.compose.ui.graphics.vector.ImageVect
     }
 }
 
+private fun chapterOwned(epoch: String): Boolean =
+    Billing.isUnlocked(epoch) || ContentSync.availableChapters().firstOrNull { it.id == epoch }?.free == true
+
+private fun unlockTitle(epoch: String): String {
+    val price = Billing.chapterPrice(epoch)
+    return if (price.isEmpty()) L10n.s("ui.buy_chapter_cta") else "${L10n.s("ui.buy_chapter_cta")} — $price"
+}
+
 // ---- Выбор главы ----
 private data class Chapter(val id: String, val number: Int, val cover: String?, val available: Boolean, val free: Boolean)
 
@@ -337,7 +350,7 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onBac
                         // premium-заблокированная (не «скоро») — открывает пейволл
                         // Главы открыты все: платность проверяется на уровне. Замок на карточке — подсказка.
                         val premiumLocked = ch.available && !Billing.isUnlocked(ch.id) && !BuildConfig.DEBUG
-                        ChapterCard(ch, progress, premiumLocked) {
+                        ChapterCard(ch, progress, premiumLocked, freeWithVideo = AdService.isEnabled) {
                             if (ch.available) onSelect(ch.id)
                         }
                     }
@@ -349,7 +362,7 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onBac
 }
 
 @Composable
-private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean, onTap: () -> Unit) {
+private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean, freeWithVideo: Boolean, onTap: () -> Unit) {
     // Всего уровней берём из манифеста: файлы уровней приезжают вместе с главой,
     // и до входа в неё пак пуст — на карточке было «0 из 0».
     val ls = ContentSync.availableChapters().firstOrNull { it.id == ch.id }?.levels
@@ -369,6 +382,15 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
             }
             if (!ch.available)
                 Icon(Icons.Filled.Lock, null, tint = Palette.ink.copy(alpha = 0.5f), modifier = Modifier.size(26.dp))
+            else if (premiumLocked && freeWithVideo) {
+                // Реклама включена: глава играется по ролику — вместо затемнения и замка «плей» в углу.
+                Box(Modifier.fillMaxSize().padding(8.dp), contentAlignment = Alignment.BottomEnd) {
+                    Box(Modifier.size(30.dp).clip(CircleShape).background(Palette.maroon)
+                        .border(1.5.dp, Palette.gold, CircleShape), contentAlignment = Alignment.Center) {
+                        Icon(Icons.Filled.PlayArrow, null, tint = Color.White, modifier = Modifier.size(18.dp))
+                    }
+                }
+            }
             else if (premiumLocked) {
                 Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.4f)), contentAlignment = Alignment.Center) {
                     Box(Modifier.size(46.dp).clip(CircleShape).background(Palette.maroon)
@@ -391,6 +413,8 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
                 overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center)
             when {
                 !ch.available -> Text(L10n.s("ui.soon"), color = Palette.maroon, fontSize = 11.sp, fontFamily = Fonts.rounded)
+                premiumLocked && freeWithVideo -> Text("▶ " + L10n.s("ui.free_with_video"),
+                    color = Palette.success, fontSize = 11.sp, fontFamily = Fonts.rounded)
                 premiumLocked -> Text(L10n.s("ui.locked_hint"), color = Palette.maroon, fontSize = 11.sp, fontFamily = Fonts.rounded)
                 else -> Text(L10n.s("ui.progress", progress.solvedCount(ls), ls.size),
                     color = Palette.success, fontSize = 10.sp, fontFamily = Fonts.rounded)
@@ -402,7 +426,8 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
 // ---- Карта уровней (акты + адаптивная сетка) ----
 @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
-private fun MapScreen(epoch: String, progress: Progress, onSelect: (String) -> Unit, onBack: () -> Unit) {
+private fun MapScreen(epoch: String, progress: Progress, unlockTitle: String?, onUnlock: () -> Unit,
+                      onSelect: (String) -> Unit, onBack: () -> Unit) {
     val levels = GameContent.levels(epoch)
     val orderedIds = levels.map { it.id }
     val sections = remember(levels) {
@@ -421,6 +446,17 @@ private fun MapScreen(epoch: String, progress: Progress, onSelect: (String) -> U
                 Text(L10n.s("ui.progress", progress.solvedCount(orderedIds), levels.size),
                     color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded,
                     modifier = Modifier.align(Alignment.CenterHorizontally))
+                // Платная глава без покупки: покупка — здесь, раз на карточке главы цены больше нет.
+                if (unlockTitle != null) {
+                    Row(Modifier.align(Alignment.CenterHorizontally).padding(top = 4.dp)
+                            .clip(RoundedCornerShape(50)).background(Palette.maroon)
+                            .border(1.5.dp, Palette.gold, RoundedCornerShape(50))
+                            .clickable { onUnlock() }.padding(horizontal = 14.dp, vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically) {
+                        Text("♛ ", color = Palette.gold, fontSize = 12.sp)
+                        Text(unlockTitle, color = Palette.paper, fontSize = 12.sp, fontFamily = Fonts.rounded)
+                    }
+                }
                 Spacer(Modifier.height(10.dp))
                 // автоскролл к секции с текущим (открытым, но не пройденным) эпизодом — в т.ч. после «Дальше»
                 val listState = rememberLazyListState()

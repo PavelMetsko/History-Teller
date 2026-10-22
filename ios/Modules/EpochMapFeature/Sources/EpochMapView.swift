@@ -12,17 +12,24 @@ public struct EpochMapView: View {
     private let progress: ProgressStore
     private let onSelect: (String) -> Void
     private let onBack: () -> Void
+    private let unlockTitle: String?
+    private let onUnlock: () -> Void
 
+    /// `unlockTitle` — платная глава без покупки: в шапке кнопка «Открыть главу — цена».
     public init(title: String = "Древний Рим",
                 levels: [LevelDef],
                 db: ContentDb,
                 progress: ProgressStore,
+                unlockTitle: String? = nil,
+                onUnlock: @escaping () -> Void = {},
                 onSelect: @escaping (String) -> Void,
                 onBack: @escaping () -> Void) {
         self.title = title
         self.levels = levels
         self.db = db
         self.progress = progress
+        self.unlockTitle = unlockTitle
+        self.onUnlock = onUnlock
         self.onSelect = onSelect
         self.onBack = onBack
     }
@@ -55,6 +62,21 @@ public struct EpochMapView: View {
             Text(L10n.s("ui.progress", levels.filter { progress.isCompleted($0.id) }.count, levels.count))
                 .font(.dsCaption(12))
                 .foregroundStyle(DS.Palette.inkSoft)
+            if let unlockTitle {
+                Button(action: onUnlock) {
+                    HStack(spacing: 5) {
+                        Image(systemName: "crown.fill").font(.system(size: 10, weight: .bold))
+                            .foregroundStyle(DS.Palette.gold)
+                        Text(unlockTitle).font(.dsCaption(12))
+                    }
+                    .foregroundStyle(DS.Palette.paper)
+                    .padding(.horizontal, 14).padding(.vertical, 6)
+                    .background(Capsule().fill(DS.Palette.maroon))
+                    .overlay(Capsule().strokeBorder(DS.Palette.gold, lineWidth: 1.5))
+                }
+                .buttonStyle(.plain)
+                .padding(.top, 4)
+            }
         }
         .frame(maxWidth: .infinity)
         .padding(.top, 2)

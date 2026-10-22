@@ -30,17 +30,20 @@ public struct ChapterSelectView: View {
     private let chapters: [Chapter]
     private let isUnlocked: (Chapter) -> Bool
     private let priceText: (Chapter) -> String
+    private let freeWithVideo: Bool
     private let onSelect: (Chapter) -> Void
     private let onBack: () -> Void
 
     public init(chapters: [Chapter],
                 isUnlocked: @escaping (Chapter) -> Bool = { _ in true },
                 priceText: @escaping (Chapter) -> String = { _ in "" },
+                freeWithVideo: Bool = false,
                 onSelect: @escaping (Chapter) -> Void,
                 onBack: @escaping () -> Void) {
         self.chapters = chapters
         self.isUnlocked = isUnlocked
         self.priceText = priceText
+        self.freeWithVideo = freeWithVideo
         self.onSelect = onSelect
         self.onBack = onBack
     }
@@ -63,7 +66,8 @@ public struct ChapterSelectView: View {
                             ForEach(chapters) { ch in
                                 ChapterCard(chapter: ch,
                                             locked: ch.locked(unlocked: isUnlocked(ch)),
-                                            priceText: priceText(ch)) {
+                                            priceText: priceText(ch),
+                                            freeWithVideo: freeWithVideo) {
                                     if ch.available { onSelect(ch) }
                                 }
                             }
@@ -88,6 +92,8 @@ private struct ChapterCard: View {
     let chapter: Chapter
     var locked: Bool = false
     var priceText: String = ""
+    /// Реклама включена: платная глава играется по ролику — вместо замка с ценой честная плашка.
+    var freeWithVideo: Bool = false
     let onTap: () -> Void
 
     var body: some View {
@@ -141,12 +147,12 @@ private struct ChapterCard: View {
                         .foregroundStyle(DS.Palette.ink.opacity(0.5))
                 }
             } else if locked {
-                // платная глава: золотой замок в углу поверх обложки
+                // платная глава: золотой замок (или «плей», если открыта за ролик) в углу обложки
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
-                        Image(systemName: "lock.fill")
+                        Image(systemName: freeWithVideo ? "play.fill" : "lock.fill")
                             .font(.system(size: 14, weight: .bold))
                             .foregroundStyle(.white)
                             .padding(7)
@@ -171,7 +177,13 @@ private struct ChapterCard: View {
                 .font(.dsCaption(10))
                 .foregroundStyle(DS.Palette.inkSoft)
                 .lineLimit(1)
-            if locked {
+            if locked && freeWithVideo {
+                HStack(spacing: 4) {
+                    Image(systemName: "play.rectangle.fill").font(.system(size: 10, weight: .bold))
+                    Text(L10n.s("ui.free_with_video")).font(.dsCaption(11))
+                }
+                .foregroundStyle(DS.Palette.success)
+            } else if locked {
                 HStack(spacing: 4) {
                     Image(systemName: "lock.fill").font(.system(size: 9, weight: .bold))
                     Text(priceText.isEmpty ? L10n.s("ui.locked_hint") : priceText).font(.dsCaption(11))

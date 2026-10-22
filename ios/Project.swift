@@ -98,7 +98,7 @@ let project = Project(
                 // MARK: - Название / версия (версию правь здесь)
                 "CFBundleName": "History Teller",
                 "CFBundleDisplayName": "History Teller",
-                "CFBundleShortVersionString": "3.0.0",  // маркетинговая версия (видна в App Store)
+                "CFBundleShortVersionString": "3.0.1",  // маркетинговая версия (видна в App Store)
                 "CFBundleVersion": "1",                 // номер сборки — уникален для каждой загрузки в TestFlight
                 // MARK: - Категория / соответствие
                 "LSApplicationCategoryType": "public.app-category.puzzle-games",
