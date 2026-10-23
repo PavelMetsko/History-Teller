@@ -1,0 +1,104 @@
+{
+ "id": "mieszko_baptism",
+ "order": 30,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "baptism_966_pl",
+ "panels": 3,
+ "scenes": [
+  "dobrawa_match_pl",
+  "baptism_966_pl",
+  "poznan_see_pl",
+  "bow_margrave_pl"
+ ],
+ "characters": [
+  "mieszko1",
+  "dobrawa",
+  "hodo",
+  "jordan_bp"
+ ],
+ "initialState": {
+  "flags": {
+   "mieszko1": [
+    "pagan",
+    "reigns",
+    "standing"
+   ],
+   "hodo": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "hodo",
+    "mieszko1"
+   ],
+   [
+    "enemy_of",
+    "mieszko1",
+    "hodo"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mieszko1",
+     "is": "baptized"
+    }
+   },
+   {
+    "flag": {
+     "char": "jordan_bp",
+     "is": "bishop_poznan"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "mieszko1",
+      "is": "vassal_de"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "mieszko1",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dobrawa_match_pl",
+   "characters": [
+    "mieszko1",
+    "dobrawa"
+   ]
+  },
+  {
+   "scene": "baptism_966_pl",
+   "characters": [
+    "mieszko1",
+    "dobrawa"
+   ]
+  },
+  {
+   "scene": "poznan_see_pl",
+   "characters": [
+    "mieszko1",
+    "jordan_bp"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

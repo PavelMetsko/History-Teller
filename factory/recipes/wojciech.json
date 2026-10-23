@@ -1,0 +1,55 @@
+{
+  "id": "wojciech",
+  "name": "Святой Войцех",
+  "old_ref": "hetman",
+  "skin": "#f0c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "cross",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "sandals",
+      "strap": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#2e2a30",
+      "rope": "#d8c7a0"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2e2a30",
+      "cuff": "#2e2a30"
+    }
+  }
+}

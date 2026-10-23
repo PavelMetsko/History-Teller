@@ -54,7 +54,7 @@ def render_sheet(recipes):
                         f"--user-data-dir={td}/profile",
                         f"--force-device-scale-factor={SCALE}", f"--window-size={cols * W},{rows * H}",
                         "--default-background-color=00000000", f"--screenshot={png}", src.as_uri()],
-                       check=True, capture_output=True, timeout=180)
+                       check=True, capture_output=True, timeout=900)
         sheet = Image.open(png).convert("RGBA")
     tiles = {}
     for r, rec in enumerate(recipes):
@@ -122,7 +122,10 @@ def main():
     recipes = catalog.load_all()
     if len(sys.argv) > 1:
         recipes = [r for r in recipes if r["id"] in sys.argv[1:]]
-    tiles = render_sheet([catalog.build(r) for r in recipes])
+    tiles = {}
+    built = [catalog.build(r) for r in recipes]
+    for i in range(0, len(built), 2):            # Chrome тяжело снимает большие листы — рендерим по 2 персонажа
+        tiles.update(render_sheet(built[i:i + 2]))
     final = {}
     for rec in recipes:
         rid = rec["id"]

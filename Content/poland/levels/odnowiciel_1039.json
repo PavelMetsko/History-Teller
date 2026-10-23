@@ -1,0 +1,84 @@
+{
+ "id": "odnowiciel_1039",
+ "order": 60,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_tension",
+ "cover": "krakow_capital_pl",
+ "panels": 2,
+ "scenes": [
+  "exile_mother_pl",
+  "krakow_capital_pl",
+  "gniezno_raid_pl",
+  "silesia_war_pl"
+ ],
+ "characters": [
+  "casimir1",
+  "rycheza",
+  "bretislav"
+ ],
+ "initialState": {
+  "flags": {
+   "casimir1": [
+    "exiled",
+    "away"
+   ],
+   "rycheza": [
+    "crowned",
+    "standing"
+   ],
+   "bretislav": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "casimir1",
+    "bretislav"
+   ],
+   [
+    "enemy_of",
+    "bretislav",
+    "casimir1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "casimir1",
+     "is": "restorer_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "casimir1",
+      "is": "at_war"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "exile_mother_pl",
+   "characters": [
+    "casimir1",
+    "rycheza"
+   ]
+  },
+  {
+   "scene": "krakow_capital_pl",
+   "characters": [
+    "casimir1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

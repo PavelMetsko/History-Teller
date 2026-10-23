@@ -1,0 +1,57 @@
+{
+  "id": "piast",
+  "name": "Пяст-колесник",
+  "old_ref": "hetman",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#8a5a34"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#a07a4a",
+      "fur": "#e2d2b0",
+      "rope": "#7a5232"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a07a4a",
+      "cuff": "#a07a4a"
+    }
+  }
+}

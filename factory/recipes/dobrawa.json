@@ -1,0 +1,55 @@
+{
+  "id": "dobrawa",
+  "name": "Добрава",
+  "old_ref": "victoria",
+  "skin": "#f9d2b8",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#e0b86a"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#4b6a9a",
+      "trim": "#d4a63c",
+      "mantle": "#e9e0cc",
+      "shoes": "#4b6a9a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4b6a9a",
+      "cuff": "#d4a63c"
+    }
+  }
+}

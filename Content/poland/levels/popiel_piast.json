@@ -1,0 +1,80 @@
+{
+ "id": "popiel_piast",
+ "order": 20,
+ "epoch": "poland",
+ "act": "Акт I · Легенды",
+ "music": "poland_tension",
+ "cover": "piast_hut_pl",
+ "panels": 3,
+ "scenes": [
+  "popiel_feast_pl",
+  "piast_hut_pl",
+  "mice_tower_pl",
+  "secret_council_pl"
+ ],
+ "characters": [
+  "popiel",
+  "piast",
+  "siemowit",
+  "wanderers_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "popiel": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "popiel",
+     "is": "eaten_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "siemowit",
+     "is": "chosen_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "piast",
+      "is": "plotting"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "popiel_feast_pl",
+   "characters": [
+    "popiel",
+    "wanderers_pl"
+   ]
+  },
+  {
+   "scene": "piast_hut_pl",
+   "characters": [
+    "piast",
+    "wanderers_pl",
+    "siemowit"
+   ]
+  },
+  {
+   "scene": "mice_tower_pl",
+   "characters": [
+    "popiel"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

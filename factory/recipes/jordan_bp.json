@@ -1,0 +1,52 @@
+{
+  "id": "jordan_bp",
+  "name": "Епископ Иордан",
+  "old_ref": "hetman",
+  "skin": "#f0c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#c9c4c8"
+    },
+    "hat": {
+      "type": "mitre"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "cross",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "sandals",
+      "strap": "#7a5232"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b5b0b8",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#e9e0cc",
+      "rope": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#d4a63c"
+    }
+  }
+}

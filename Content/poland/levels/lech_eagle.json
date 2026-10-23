@@ -1,0 +1,64 @@
+{
+ "id": "lech_eagle",
+ "order": 10,
+ "epoch": "poland",
+ "act": "Акт I · Легенды",
+ "music": "poland_ceremony",
+ "cover": "eagle_nest_pl",
+ "panels": 2,
+ "scenes": [
+  "crossroads_pl",
+  "eagle_nest_pl",
+  "rich_valley_pl"
+ ],
+ "characters": [
+  "lech",
+  "czech",
+  "rus"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lech",
+     "is": "founder_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "czech",
+     "is": "went_south"
+    }
+   },
+   {
+    "flag": {
+     "char": "rus",
+     "is": "went_east"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "crossroads_pl",
+   "characters": [
+    "czech",
+    "rus",
+    "lech"
+   ]
+  },
+  {
+   "scene": "eagle_nest_pl",
+   "characters": [
+    "lech"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

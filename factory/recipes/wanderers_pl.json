@@ -1,0 +1,52 @@
+{
+  "id": "wanderers_pl",
+  "name": "Странники",
+  "old_ref": "hetman",
+  "skin": "#efc2a4",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#e6e0d6"
+    },
+    "hat": {
+      "type": "hood",
+      "col": "#7a6a52"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "sandals",
+      "strap": "#7a5232"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8d2c8",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#7a6a52",
+      "rope": "#d8c7a0"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a6a52",
+      "cuff": "#7a6a52"
+    }
+  }
+}

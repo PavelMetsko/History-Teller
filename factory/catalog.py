@@ -39,6 +39,8 @@ SLOTS = {
         "short_sides": ("Бритые, виски", lambda p: P.hair_short_sides(p["col"]), {"col": C("#4a2e1c", "Цвет")}),
         "curly": ("Кудрявые", lambda p: P.hair_curly(p["col"]), {"col": C("#5a3a22", "Цвет")}),
         "long": ("Длинные", lambda p: P.hair_long(p["col"]), {"col": C("#b97a45", "Цвет")}),
+        "bowl": ("Под горшок", lambda p: P.hair_bowl(p["col"]), {"col": C("#6b4426", "Цвет")}),
+        "shoulder": ("До плеч", lambda p: P.hair_shoulder(p["col"]), {"col": C("#8a5a34", "Цвет")}),
         "receding": ("Залысины", lambda p: P.hair_receding(p["col"]), {"col": C("#b8b4c0", "Цвет")}),
     }),
     "beard": ("Борода / усы", {
@@ -46,6 +48,7 @@ SLOTS = {
         "handlebar": ("Усы подкрученные", lambda p: P.moustache_handlebar(p["col"]), {"col": C("#4a2e1c", "Цвет")}),
         "walrus": ("Усы моржовые", lambda p: P.moustache_walrus(p["col"]), {"col": C("#a7a199", "Цвет")}),
         "full": ("Борода", lambda p: P.beard_full(p["col"]), {"col": C("#5a3a22", "Цвет")}),
+        "long": ("Длинная борода", lambda p: P.beard_long(p["col"]), {"col": C("#8a5a34", "Цвет")}),
         "goatee": ("Бородка", lambda p: P.beard_goatee(p["col"]), {"col": C("#5a3a22", "Цвет")}),
     }),
     "hat": ("Головной убор", {
@@ -58,6 +61,10 @@ SLOTS = {
                          {"col": C("#a8262e", "Верх"), "fur": C("#3b2a20", "Мех")}),
         "helmet": ("Шлем", lambda p: P.hat_helmet(p["col"], p["trim"]),
                    {"col": C("#b9bfc6", "Сталь"), "trim": C("#8a6a2a", "Обод")}),
+        "circlet": ("Княжеский обруч", lambda p: P.hat_circlet(p["gold"]), {"gold": C("#d8ad3c", "Золото")}),
+        "nasal": ("Шлем с наносником", lambda p: P.hat_nasal(p["col"], p["trim"]),
+                  {"col": C("#a9b0b8", "Сталь"), "trim": C("#8a6a2a", "Обод")}),
+        "hood": ("Капюшон", lambda p: P.hat_hood(p["col"]), {"col": C("#6b5a4a", "Ткань")}),
         "laurel": ("Лавровый венок", lambda p: P.hat_laurel(p["col"]), {"col": C("#72b552", "Листья")}),
         "mitre": ("Митра", lambda p: P.hat_mitre(p["col"], p["trim"]),
                   {"col": C("#f1ece2", "Ткань"), "trim": C("#d4a63c", "Золото")}),
@@ -71,6 +78,14 @@ SLOTS = {
         "legion_tunic": ("Мундир", lambda p: P.legion_tunic(p["col"], p["belt"], p["button"]),
                          {"col": C("#7f8c99", "Сукно"), "belt": C("#6b4426", "Ремни"), "button": C("#4b5560", "Пуговицы")}),
         "robe": ("Ряса", lambda p: P.robe(p["col"], p["rope"]), {"col": C("#5b4636", "Ткань"), "rope": C("#d8c7a0", "Пояс")}),
+        "tunic": ("Туника", lambda p: P.tunic_medieval(p["col"], p["trim"], p["belt"]),
+                  {"col": C("#4f6b8a", "Ткань"), "trim": C("#d4a63c", "Кайма"), "belt": C("#6b4426", "Пояс")}),
+        "fur_tunic": ("Рубаха с мехом", lambda p: P.fur_tunic(p["col"], p["fur"], p["rope"]),
+                      {"col": C("#8a6b4a", "Ткань"), "fur": C("#c9b08a", "Мех"), "rope": C("#a88a5a", "Верёвка")}),
+        "chainmail": ("Кольчуга", lambda p: P.chainmail(p["steel"], p["surcoat"], p["belt"]),
+                      {"steel": C("#a9b0b8", "Кольчуга"), "surcoat": C("#9e2a2b", "Сюрко"), "belt": C("#5b3a22", "Пояс")}),
+        "emperor": ("Императорская далматика", lambda p: P.emperor_robe(p["col"], p["gold"], p["mantle"]),
+                    {"col": C("#5a2a6b", "Ткань"), "gold": C("#d8ad3c", "Золото"), "mantle": C("#a8262e", "Мантия")}),
         "toga": ("Тога", lambda p: P.toga(p["cloth"], p["band"], p["gold"]),
                  {"cloth": C("#f7ede2", "Ткань"), "band": C("#6b2f7a", "Полоса"), "gold": C("#d8ad3c", "Фибула")}),
         "gown": ("Платье с мантией", lambda p: P.gown(p["dress"], p["trim"], p["mantle"], p["shoes"]),
@@ -99,6 +114,9 @@ SLOTS = {
         "none": NONE,
         "bulawa": ("Булава", lambda p: P.bulawa(p["hand"]), {"hand": HAND}),
         "sword": ("Меч", lambda p: P.sword(p["hand"]), {"hand": HAND}),
+        "spear": ("Копьё", lambda p: P.spear(p["hand"]), {"hand": HAND}),
+        "staff": ("Посох", lambda p: P.staff(p["hand"]), {"hand": HAND}),
+        "cross": ("Крест", lambda p: P.cross_held(p["hand"]), {"hand": HAND}),
         "scroll": ("Свиток", lambda p: P.scroll(p["hand"]), {"hand": HAND}),
     }),
 }
@@ -132,7 +150,11 @@ def build(recipe: dict) -> dict:
         part = make(p)
         if part:
             plist.append(part)
-    return {"id": recipe["id"], "colors": {"skin": recipe.get("skin", "#f7c9aa")}, "parts": plist}
+    sl = recipe.get("slots", {})
+    colors = {"skin": recipe.get("skin", "#f7c9aa"),
+              "beard": sl.get("beard", {}).get("type", "none") not in ("none", "handlebar", "walrus"),
+              "male": sl.get("body", {}).get("type", "male") == "male"}
+    return {"id": recipe["id"], "colors": colors, "parts": plist}
 
 
 def load_all() -> list[dict]:

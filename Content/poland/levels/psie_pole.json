@@ -1,0 +1,103 @@
+{
+ "id": "psie_pole",
+ "order": 70,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_battle",
+ "cover": "glogow_engines_pl",
+ "panels": 3,
+ "scenes": [
+  "glogow_messenger_pl",
+  "glogow_engines_pl",
+  "psie_pole_pl",
+  "truce_talks_pl"
+ ],
+ "characters": [
+  "krzywousty",
+  "henry5_hre",
+  "glogow_burgher"
+ ],
+ "initialState": {
+  "flags": {
+   "krzywousty": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "henry5_hre": [
+    "crowned",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "krzywousty",
+    "henry5_hre"
+   ],
+   [
+    "enemy_of",
+    "henry5_hre",
+    "krzywousty"
+   ],
+   [
+    "enemy_of",
+    "henry5_hre",
+    "glogow_burgher"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry5_hre",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "glogow_burgher",
+      "is": "surrendered_pl"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "henry5_hre",
+      "is": "conceded"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "glogow_messenger_pl",
+   "characters": [
+    "glogow_burgher",
+    "krzywousty"
+   ]
+  },
+  {
+   "scene": "glogow_engines_pl",
+   "characters": [
+    "henry5_hre",
+    "glogow_burgher"
+   ]
+  },
+  {
+   "scene": "psie_pole_pl",
+   "characters": [
+    "krzywousty",
+    "henry5_hre"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

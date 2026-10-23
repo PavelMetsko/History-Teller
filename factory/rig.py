@@ -59,7 +59,7 @@ POSE_ORDER = ["base", "triumph", "defeated", "plot", "dead"]
 # руки под туловищем: верх рукава прячется под плечо, как у нарисованных спрайтов;
 # руку перед телом (жесты) выносит поза через "front"
 Z = ["cape_back", "hair_back", "leg", "held_back", "arm", "hand", "skirt", "torso", "torso_over", "held",
-     "neck", "ear", "face", "features", "beard", "hair_front", "hat"]
+     "neck", "ear", "face", "beard", "features", "hair_front", "hat"]   # рот поверх бороды, как у нарисованных
 
 
 def chains(p: dict) -> dict[str, str]:
@@ -133,7 +133,7 @@ def render(recipe, pose_name: str, defs_id: str = "f") -> str:
 
 # Объём «как у Nano Banana»: каждая деталь получает вертикальный градиент заливки (светлее сверху)
 # и мягкое затемнение по краю снизу-справа + блик по краю сверху-слева. Лицо (глаза, рот) — без.
-FLAT = {"features", "ear", "face"}   # мелкие детали: общий фильтр объёма их «залил» бы тенью
+FLAT = {"features", "ear", "face", "beard"}   # у бород своя светотень   # мелкие детали: общий фильтр объёма их «залил» бы тенью
 _FILL = re.compile(r'fill="#([0-9a-fA-F]{6})"')
 
 

@@ -1,0 +1,57 @@
+{
+  "id": "boleslaw4",
+  "name": "Болеслав Кудрявый",
+  "old_ref": "hetman",
+  "skin": "#f5cbb0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#c99a5a"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "curly",
+      "col": "#d4a85a"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#4f7a4a",
+      "trim": "#e9e0cc",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4f7a4a",
+      "cuff": "#e9e0cc"
+    }
+  }
+}

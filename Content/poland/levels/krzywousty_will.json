@@ -1,0 +1,84 @@
+{
+ "id": "krzywousty_will",
+ "order": 80,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_tension",
+ "cover": "will_senior_pl",
+ "panels": 3,
+ "scenes": [
+  "will_senior_pl",
+  "will_provinces_pl",
+  "all_to_one_pl",
+  "krzywousty_death_pl"
+ ],
+ "characters": [
+  "krzywousty",
+  "wladyslaw2",
+  "boleslaw4",
+  "mieszko3"
+ ],
+ "initialState": {
+  "flags": {
+   "krzywousty": [
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wladyslaw2",
+     "is": "senior_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "boleslaw4",
+     "is": "duke_province"
+    }
+   },
+   {
+    "flag": {
+     "char": "mieszko3",
+     "is": "duke_province"
+    }
+   },
+   {
+    "flag": {
+     "char": "krzywousty",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "will_senior_pl",
+   "characters": [
+    "krzywousty",
+    "wladyslaw2"
+   ]
+  },
+  {
+   "scene": "will_provinces_pl",
+   "characters": [
+    "krzywousty",
+    "boleslaw4",
+    "mieszko3"
+   ]
+  },
+  {
+   "scene": "krzywousty_death_pl",
+   "characters": [
+    "krzywousty"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

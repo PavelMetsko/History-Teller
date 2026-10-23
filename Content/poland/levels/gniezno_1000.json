@@ -1,0 +1,88 @@
+{
+ "id": "gniezno_1000",
+ "order": 50,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "gniezno_congress_pl",
+ "panels": 3,
+ "scenes": [
+  "prussia_mission_pl",
+  "relic_ransom_pl",
+  "gniezno_congress_pl",
+  "punitive_raid_pl"
+ ],
+ "characters": [
+  "chrobry",
+  "otto3",
+  "wojciech",
+  "prussian_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "chrobry": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "otto3": [
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "chrobry",
+    "prussian_pl"
+   ],
+   [
+    "enemy_of",
+    "prussian_pl",
+    "chrobry"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "chrobry",
+     "is": "recognized_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "wojciech",
+     "is": "martyr_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prussia_mission_pl",
+   "characters": [
+    "wojciech",
+    "prussian_pl"
+   ]
+  },
+  {
+   "scene": "relic_ransom_pl",
+   "characters": [
+    "chrobry",
+    "prussian_pl"
+   ]
+  },
+  {
+   "scene": "gniezno_congress_pl",
+   "characters": [
+    "chrobry",
+    "otto3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

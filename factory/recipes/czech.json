@@ -1,0 +1,58 @@
+{
+  "id": "czech",
+  "name": "Чех",
+  "old_ref": "hetman",
+  "skin": "#f5cbb0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#c99a5a"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#d4a85a"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#4f7a4a",
+      "fur": "#b89a74",
+      "rope": "#a88a5a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4f7a4a",
+      "cuff": "#4f7a4a"
+    }
+  }
+}

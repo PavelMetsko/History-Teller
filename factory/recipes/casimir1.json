@@ -1,0 +1,59 @@
+{
+  "id": "casimir1",
+  "name": "Казимир Восстановитель",
+  "old_ref": "hetman",
+  "skin": "#f5cbb0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "circlet"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#5a3a22"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#b9bfc6",
+      "surcoat": "#e9e0cc",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#b9bfc6",
+      "cuff": "#b9bfc6"
+    }
+  }
+}

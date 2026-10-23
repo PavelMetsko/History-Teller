@@ -1,0 +1,55 @@
+{
+  "id": "otto3",
+  "name": "Оттон III",
+  "old_ref": "hetman",
+  "skin": "#f7d4bc",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8262e",
+      "top": "#d8ad3c"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d4a85a",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#e0b86a"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#5a2a6b",
+      "gold": "#d8ad3c",
+      "mantle": "#a8262e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a6b",
+      "cuff": "#d8ad3c"
+    }
+  }
+}

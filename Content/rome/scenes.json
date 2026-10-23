@@ -17242,5 +17242,466 @@
   "roles": [
    "кто готовится"
   ]
+ },
+ {
+  "id": "crossroads_pl",
+  "name": "Три брата на распутье",
+  "tags": [
+   "sig_crossroads_pl"
+  ],
+  "slots": 3,
+  "emoji": "🛤️",
+  "action": "разойтись по свету",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "на юг, к горе Ржип",
+   "на восток",
+   "остаётся"
+  ]
+ },
+ {
+  "id": "eagle_nest_pl",
+  "name": "Гнездо белого орла",
+  "tags": [
+   "sig_eagle_nest_pl"
+  ],
+  "slots": 1,
+  "emoji": "🦅",
+  "action": "основать град",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кто увидел орла"
+  ]
+ },
+ {
+  "id": "rich_valley_pl",
+  "name": "Тучная долина",
+  "tags": [
+   "sig_rich_valley_pl"
+  ],
+  "slots": 1,
+  "emoji": "🌾",
+  "action": "осесть на богатой земле",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто садится"
+  ]
+ },
+ {
+  "id": "popiel_feast_pl",
+  "name": "Пир князя Попеля",
+  "tags": [
+   "sig_popiel_feast_pl"
+  ],
+  "slots": 2,
+  "emoji": "🍖",
+  "action": "прогнать гостей",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь",
+   "гости"
+  ]
+ },
+ {
+  "id": "piast_hut_pl",
+  "name": "Хата колесника",
+  "tags": [
+   "sig_piast_hut_pl"
+  ],
+  "slots": 3,
+  "emoji": "🛖",
+  "action": "принять гостей",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "хозяин",
+   "гости",
+   "сын"
+  ]
+ },
+ {
+  "id": "mice_tower_pl",
+  "name": "Башня над Гопло",
+  "tags": [
+   "sig_mice_tower_pl"
+  ],
+  "slots": 1,
+  "emoji": "🐭",
+  "action": "запереться в башне",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "кто в башне"
+  ]
+ },
+ {
+  "id": "secret_council_pl",
+  "name": "Тайная сходка",
+  "tags": [
+   "v_plot"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "заговор",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "заговорщик",
+   "заговорщик"
+  ]
+ },
+ {
+  "id": "dobrawa_match_pl",
+  "name": "Сватовство в Праге",
+  "tags": [
+   "sig_dobrawa_match_pl"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "взять в жёны чешскую княжну",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "невеста"
+  ]
+ },
+ {
+  "id": "baptism_966_pl",
+  "name": "Крещение",
+  "tags": [
+   "sig_baptism_966_pl"
+  ],
+  "slots": 2,
+  "emoji": "💧",
+  "action": "креститься",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "крещаемый",
+   "через кого"
+  ]
+ },
+ {
+  "id": "poznan_see_pl",
+  "name": "Епископство в Познани",
+  "tags": [
+   "sig_poznan_see_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "основать епископство",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "епископ"
+  ]
+ },
+ {
+  "id": "bow_margrave_pl",
+  "name": "Поклон маркграфу",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "oder_feint_pl",
+  "name": "Отступление за Одру",
+  "tags": [
+   "sig_oder_feint_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏃",
+  "action": "заманить врага",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "кто отступает",
+   "кто гонится"
+  ]
+ },
+ {
+  "id": "cedynia_ambush_pl",
+  "name": "Удар с тыла под Цедыней",
+  "tags": [
+   "sig_cedynia_ambush_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "ударить из засады",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "засада",
+   "враг"
+  ]
+ },
+ {
+  "id": "cedynia_front_pl",
+  "name": "Лобовая атака",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "cedynia_muster_pl",
+  "name": "Собрать дружину",
+  "tags": [
+   "v_prepare"
+  ],
+  "slots": 1,
+  "emoji": "🛡️",
+  "action": "подготовка",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто вооружается"
+  ]
+ },
+ {
+  "id": "prussia_mission_pl",
+  "name": "Миссия к пруссам",
+  "tags": [
+   "sig_prussia_mission_pl"
+  ],
+  "slots": 2,
+  "emoji": "✝️",
+  "action": "проповедовать язычникам",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "миссионер",
+   "язычник"
+  ]
+ },
+ {
+  "id": "relic_ransom_pl",
+  "name": "Мощи на вес золота",
+  "tags": [
+   "sig_relic_ransom_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "выкупить тело святого",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "язычник"
+  ]
+ },
+ {
+  "id": "gniezno_congress_pl",
+  "name": "Съезд в Гнезно",
+  "tags": [
+   "sig_gniezno_congress_pl"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "принять императора",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "император"
+  ]
+ },
+ {
+  "id": "punitive_raid_pl",
+  "name": "Карательный поход",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "exile_mother_pl",
+  "name": "У матери в изгнании",
+  "tags": [
+   "sig_exile_mother_pl"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "просить помощи",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "изгнанник",
+   "мать"
+  ]
+ },
+ {
+  "id": "krakow_capital_pl",
+  "name": "Новая столица — Краков",
+  "tags": [
+   "sig_krakow_capital_pl"
+  ],
+  "slots": 1,
+  "emoji": "🏰",
+  "action": "вернуться и править",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кто возвращается"
+  ]
+ },
+ {
+  "id": "gniezno_raid_pl",
+  "name": "Набег на Гнезно",
+  "tags": [
+   "sig_gniezno_raid_pl"
+  ],
+  "slots": 1,
+  "emoji": "🔥",
+  "action": "разорить столицу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "захватчик"
+  ]
+ },
+ {
+  "id": "silesia_war_pl",
+  "name": "Отбить Силезию",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "glogow_messenger_pl",
+  "name": "Гонец из Глогова",
+  "tags": [
+   "sig_glogow_messenger_pl"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "спросить приказа",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "гонец",
+   "князь"
+  ]
+ },
+ {
+  "id": "glogow_engines_pl",
+  "name": "Заложники на осадных машинах",
+  "tags": [
+   "sig_glogow_engines_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "штурм стен",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "осаждающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "psie_pole_pl",
+  "name": "Пёсье поле",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "🐕",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "truce_talks_pl",
+  "name": "Мирные переговоры",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "will_senior_pl",
+  "name": "Завещание: Краков старшему",
+  "tags": [
+   "sig_will_senior_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "назначить сеньора",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "отец",
+   "старший сын"
+  ]
+ },
+ {
+  "id": "will_provinces_pl",
+  "name": "Уделы младшим сыновьям",
+  "tags": [
+   "sig_will_provinces_pl"
+  ],
+  "slots": 3,
+  "emoji": "🗺️",
+  "action": "разделить земли",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "отец",
+   "сын",
+   "сын"
+  ]
+ },
+ {
+  "id": "all_to_one_pl",
+  "name": "Всё — одному",
+  "tags": [
+   "sig_all_to_one_pl"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "оставить страну одному",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "отец",
+   "наследник"
+  ]
+ },
+ {
+  "id": "krzywousty_death_pl",
+  "name": "Смерть князя",
+  "tags": [
+   "sig_krzywousty_death_pl"
+  ],
+  "slots": 1,
+  "emoji": "🕯️",
+  "action": "умереть",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь"
+  ]
  }
 ]

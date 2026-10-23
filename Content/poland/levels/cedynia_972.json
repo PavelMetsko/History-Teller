@@ -1,0 +1,100 @@
+{
+ "id": "cedynia_972",
+ "order": 40,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_battle",
+ "cover": "cedynia_ambush_pl",
+ "panels": 2,
+ "scenes": [
+  "oder_feint_pl",
+  "cedynia_ambush_pl",
+  "cedynia_front_pl",
+  "cedynia_muster_pl"
+ ],
+ "characters": [
+  "mieszko1",
+  "czcibor",
+  "hodo"
+ ],
+ "initialState": {
+  "flags": {
+   "mieszko1": [
+    "reigns",
+    "standing"
+   ],
+   "czcibor": [
+    "standing"
+   ],
+   "hodo": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "hodo",
+    "mieszko1"
+   ],
+   [
+    "enemy_of",
+    "mieszko1",
+    "hodo"
+   ],
+   [
+    "enemy_of",
+    "hodo",
+    "czcibor"
+   ],
+   [
+    "enemy_of",
+    "czcibor",
+    "hodo"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hodo",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "czcibor",
+     "is": "hero_cedynia"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "mieszko1",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "oder_feint_pl",
+   "characters": [
+    "mieszko1",
+    "hodo"
+   ]
+  },
+  {
+   "scene": "cedynia_ambush_pl",
+   "characters": [
+    "czcibor",
+    "hodo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "popiel",
+  "name": "Попель",
+  "old_ref": "hetman",
+  "skin": "#f0c8b0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#c9a24a"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#2a1a2e"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#2a1a12"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#5a2a6b",
+      "trim": "#c9a24a",
+      "belt": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a6b",
+      "cuff": "#c9a24a"
+    }
+  }
+}

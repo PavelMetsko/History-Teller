@@ -1,0 +1,56 @@
+{
+  "id": "siemowit",
+  "name": "Земовит",
+  "old_ref": "hetman",
+  "skin": "#f7cfb4",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d4a85a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#e0b86a"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#e9e0cc",
+      "trim": "#a8312f",
+      "belt": "#7a5232"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#a8312f"
+    }
+  }
+}

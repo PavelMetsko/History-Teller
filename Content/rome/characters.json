@@ -5247,5 +5247,223 @@
    "emperor_l"
   ],
   "emoji": "👑"
+ },
+ {
+  "id": "lech",
+  "name": "Лех",
+  "tags": [
+   "brother_pl",
+   "legend_pl"
+  ],
+  "emoji": "🦅"
+ },
+ {
+  "id": "czech",
+  "name": "Чех",
+  "tags": [
+   "brother_pl",
+   "legend_pl"
+  ],
+  "emoji": "⛰️"
+ },
+ {
+  "id": "rus",
+  "name": "Рус",
+  "tags": [
+   "brother_pl",
+   "legend_pl"
+  ],
+  "emoji": "🌅"
+ },
+ {
+  "id": "popiel",
+  "name": "Князь Попель",
+  "tags": [
+   "cruel_pl",
+   "prince_pl"
+  ],
+  "emoji": "🐭"
+ },
+ {
+  "id": "piast",
+  "name": "Пяст-колесник",
+  "tags": [
+   "peasant_pl"
+  ],
+  "emoji": "🛞"
+ },
+ {
+  "id": "siemowit",
+  "name": "Земовит",
+  "tags": [
+   "child_pl"
+  ],
+  "emoji": "👦"
+ },
+ {
+  "id": "wanderers_pl",
+  "name": "Странники",
+  "tags": [
+   "wanderer_pl"
+  ],
+  "emoji": "🧙"
+ },
+ {
+  "id": "mieszko1",
+  "name": "Мешко I",
+  "tags": [
+   "piast_pl",
+   "prince_pl"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "dobrawa",
+  "name": "Добрава",
+  "tags": [
+   "czech_pl",
+   "christian_pl"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "hodo",
+  "name": "Маркграф Ходон",
+  "tags": [
+   "margrave_pl",
+   "german_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "jordan_bp",
+  "name": "Епископ Иордан",
+  "tags": [
+   "bishop_pl",
+   "christian_pl"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "czcibor",
+  "name": "Чцибор",
+  "tags": [
+   "piast_pl"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "chrobry",
+  "name": "Болеслав Храбрый",
+  "tags": [
+   "piast_pl",
+   "prince_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "otto3",
+  "name": "Оттон III",
+  "tags": [
+   "emperor_pl",
+   "german_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "wojciech",
+  "name": "Святой Войцех",
+  "tags": [
+   "missionary_pl",
+   "christian_pl"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "prussian_pl",
+  "name": "Вождь пруссов",
+  "tags": [
+   "prussian_pl",
+   "pagan_pl"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "casimir1",
+  "name": "Казимир Восстановитель",
+  "tags": [
+   "piast_pl",
+   "prince_pl"
+  ],
+  "emoji": "🏰"
+ },
+ {
+  "id": "rycheza",
+  "name": "Королева Рыкса",
+  "tags": [
+   "queen_pl",
+   "german_pl"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "bretislav",
+  "name": "Бржетислав Чешский",
+  "tags": [
+   "czech_duke_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "krzywousty",
+  "name": "Болеслав Кривоустый",
+  "tags": [
+   "piast_pl",
+   "prince_pl",
+   "father_pl"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "henry5_hre",
+  "name": "Император Генрих V",
+  "tags": [
+   "emperor_pl",
+   "german_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "glogow_burgher",
+  "name": "Горожанин Глогова",
+  "tags": [
+   "burgher_pl"
+  ],
+  "emoji": "🏘️"
+ },
+ {
+  "id": "wladyslaw2",
+  "name": "Владислав Изгнанник",
+  "tags": [
+   "son_pl",
+   "eldest_pl"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "boleslaw4",
+  "name": "Болеслав Кудрявый",
+  "tags": [
+   "son_pl"
+  ],
+  "emoji": "🌀"
+ },
+ {
+  "id": "mieszko3",
+  "name": "Мешко Старый",
+  "tags": [
+   "son_pl"
+  ],
+  "emoji": "🌾"
  }
 ]

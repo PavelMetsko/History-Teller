@@ -79,7 +79,7 @@ def body(kind="male"):
 EYE = "M-36,6 C-34,-24 -6,-34 18,-30 C34,-26 40,-8 36,8 C30,30 -26,32 -36,6 Z"
 
 
-def _eye(expr, skin, iris, side=-1, look=0):
+def _eye(expr, skin, iris, side=-1, look=0, male=False):
     """Левый глаз (внешний уголок слева); правый — зеркально. side — сторона в мире (-1/1),
     чтобы блик у обоих глаз был с одной стороны (свет справа сверху), look — взгляд вбок."""
     if expr == "dead":
@@ -104,8 +104,9 @@ def _eye(expr, skin, iris, side=-1, look=0):
         e += (f'<path d="M-44,-40 L44,-40 L44,{y - t} Q0,{y + 5} -44,{y + t} Z" fill="{skin}"/>'
               f'<path d="M-40,{y + t} Q0,{y + 5} 40,{y - t}" fill="none" {st(6, "#2a1208")}/>')
     else:
-        e += (f'<path d="M-40,4 C-36,-26 -6,-37 18,-33 C32,-29 40,-14 40,0" fill="none" {st(6, "#2a1208")}/>'
-              f'<path d="M-38,-4 L-46,-10" fill="none" {st(4, "#2a1208")}/>')
+        e += f'<path d="M-40,4 C-36,-26 -6,-37 18,-33 C32,-29 40,-14 40,0" fill="none" {st(6, "#2a1208")}/>'
+        if not male:
+            e += f'<path d="M-38,-4 L-46,-10" fill="none" {st(4, "#2a1208")}/>'
     return e
 
 
@@ -122,17 +123,20 @@ def face(eyes_iris="#6b3a1f", brow="#6b4a2b", brow_w=6, bushy=False, nose=None):
              f'<stop offset="1" stop-color="#f6857a" stop-opacity="0"/></radialGradient>'
              f'<radialGradient id="nose" cx=".45" cy=".4"><stop offset="0" stop-color="{nz}" stop-opacity=".9"/>'
              f'<stop offset=".7" stop-color="{nz}" stop-opacity=".6"/><stop offset="1" stop-color="{nz}" stop-opacity="0"/></radialGradient></defs>')
-        f += both('<ellipse cx="-100" cy="-86" rx="62" ry="42" fill="url(#blush)"/>')
+        blush = (f'<defs><radialGradient id="blush"><stop offset="0" stop-color="#f6857a" stop-opacity=".55"/>'
+                 f'<stop offset=".6" stop-color="#f6857a" stop-opacity=".25"/>'
+                 f'<stop offset="1" stop-color="#f6857a" stop-opacity="0"/></radialGradient></defs>'
+                 + both('<ellipse cx="-100" cy="-86" rx="62" ry="42" fill="url(#blush)"/>'))
         for s in (-1, 1):
-            f += f'<g transform="translate({s * 78},-127) scale({-s * 0.86},1.04)">{_eye(expr, skin, eyes_iris, s, look)}</g>'
+            f += f'<g transform="translate({s * 78},-127) scale({-s * 0.86},1.04)">{_eye(expr, skin, eyes_iris, s, look, ctx["c"].get("male", False))}</g>'
         # брови: наклон по выражению (внутренний конец вверх — грусть, вниз — хитрость)
         tilt = {"sad": 16, "sly": -22, "happy": 5, "dead": 10}.get(expr, 0)
         bdy = {"sad": 8, "sly": 14}.get(expr, 0)      # грусть и хитрость прижимают брови к глазам
         for s in (-1, 1):
             b = f'<path d="{BROW}" fill="{brow}" {st(2.5, shade(brow, .72))}/>'
             if bushy:
-                b = (f'<path d="M-38,12 C-28,-14 10,-18 34,-4 C30,6 14,4 0,6 C-14,8 -28,12 -38,18 Z" fill="{brow}" {st(2.5, shade(brow, .7))}/>'
-                     f'<path d="M-28,8 l6,-10 M-14,4 l6,-12 M0,2 l6,-12 M14,0 l6,-10" fill="none" {st(2.5, shade(brow, 1.3))}/>')
+                b = (f'<path d="M-40,14 C-30,-16 12,-20 38,-4 C36,8 18,6 2,8 C-14,10 -28,14 -40,22 Z" fill="{brow}" {st(2.5, shade(brow, .7))}/>'
+                     f'<path d="M-28,4 C-14,-6 6,-8 24,-2" fill="none" stroke="{shade(brow, 1.35)}" stroke-width="3" stroke-linecap="round" opacity=".6"/>')
             f += f'<g transform="translate({s * 74},{-186 + bdy}) scale({-s * 1.1},1.05) rotate({-tilt})">{b}</g>'
         f += (f'<ellipse cx="0" cy="-102" rx="15" ry="13" fill="url(#nose)"/>'
               f'<ellipse cx="-3" cy="-106" rx="4" ry="3" fill="#fff" opacity=".4"/>')
@@ -146,31 +150,13 @@ def face(eyes_iris="#6b3a1f", brow="#6b4a2b", brow_w=6, bushy=False, nose=None):
             "sly": f'<path d="M-22,-78 Q6,-68 26,-90" fill="none" {st(4, lip)}/>',
             "dead": f'<path d="M-16,-72 Q0,-80 16,-72" fill="none" {st(4, lip)}/>',
         }[expr]
-        return [("features", "head", f'<g transform="translate(0,{FDY})">{f + mouth}</g>')]
+        mdy = 12 if ctx["c"].get("beard") else 0      # под усами рот опускается, как у нарисованных
+        return [("face", "head", f'<g transform="translate(0,{FDY})">{blush}</g>'),
+                ("features", "head", f'<g transform="translate(0,{FDY})">{f}<g transform="translate(0,{mdy})">{mouth}</g></g>')]
     return part
 
 
 # ───────────────────────── волосы, бороды, уборы ─────────────────────────
-
-def moustache_handlebar(col):
-    half = ('M2,-102 C-14,-116 -42,-116 -60,-100 C-70,-91 -82,-93 -86,-104 C-88,-114 -82,-120 -75,-117 '
-            'C-79,-109 -73,-103 -65,-107 C-50,-88 -22,-82 2,-90 Z')
-    def part(ctx):
-        s = f'<path d="{half}" fill="{col}" {st()}/>'
-        s += f'<path d="M-10,-98 C-26,-104 -42,-102 -54,-96" fill="none" {st(3, shade(col, 1.45))}/>'
-        s += f'<path d="M-8,-94 C-26,-90 -44,-94 -58,-100" fill="none" {st(2, shade(col, .7))}/>'
-        return [("beard", "head", f'<g transform="translate(0,{FDY - 84}) scale(1.22) translate(0,96)">{both(s)}</g>')]
-    return part
-
-
-def moustache_walrus(col):
-    half = 'M2,-104 C-30,-116 -70,-108 -88,-82 C-94,-70 -84,-62 -74,-70 C-60,-84 -30,-84 2,-86 Z'
-    def part(ctx):
-        s = f'<path d="{half}" fill="{col}" {st()}/>'
-        s += f'<path d="M-14,-100 C-36,-102 -56,-94 -70,-80 M-20,-92 C-40,-92 -54,-86 -62,-78" fill="none" {st(2.5, shade(col, .78))}/>'
-        return [("beard", "head", f'<g transform="translate(0,{FDY})">{both(s)}</g>')]
-    return part
-
 
 def hair_short_sides(col):
     def part(ctx):
@@ -370,23 +356,6 @@ def hair_curly(col):
     return part
 
 
-def beard_full(col):
-    def part(ctx):
-        s = (f'<path d="M-150,-150 C-150,-60 -90,10 0,16 C90,10 150,-60 150,-150 C132,-110 100,-96 62,-96 '
-             f'C40,-56 -40,-56 -62,-96 C-100,-96 -132,-110 -150,-150 Z" fill="{col}" {st()}/>'
-             f'<path d="M-90,-60 C-60,-30 -30,-16 0,-14 M90,-60 C60,-30 30,-16 0,-14 M-120,-110 C-110,-80 -100,-60 -80,-40 '
-             f'M120,-110 C110,-80 100,-60 80,-40" fill="none" {st(2.5, shade(col, .72))}/>')
-        return [("beard", "head", s)]
-    return part
-
-
-def beard_goatee(col):
-    def part(ctx):
-        s = f'<path d="M-30,-40 C-30,-10 -14,8 0,12 C14,8 30,-10 30,-40 C16,-32 -16,-32 -30,-40 Z" fill="{col}" {st()}/>'
-        return [("beard", "head", s)]
-    return part
-
-
 def hat_helmet(col="#b9bfc6", trim="#8a6a2a"):
     def part(ctx):
         s = (f'<path d="M-158,-212 C-160,-296 -90,-346 0,-346 C90,-346 160,-296 158,-212 C100,-228 -100,-228 -158,-212 Z" '
@@ -573,4 +542,287 @@ def sandals(strap="#8a5a2a"):
         return [("leg", f"leg_l_{n}", f'<ellipse cx="{s * 5}" cy="44" rx="28" ry="12" fill="{skin}" {st()}/>'
                                       f'<path d="M{s * 5 - 22},42 L{s * 5 + 22},42 M{s * 5 - 10},34 L{s * 5 - 10},50 M{s * 5 + 10},34 L{s * 5 + 10},50" '
                                       f'fill="none" {st(4, strap)}/>') for n, s in SIDES]
+    return part
+
+
+# ───────────────────────── Польша: раннее средневековье ─────────────────────────
+
+def _hem_skirt(cloth, hem, trim=None, wide=1.0, folds=True):
+    """Юбка-подол от пояса до hem (корень = таз), чуть расширяется книзу."""
+    w = int(112 * wide)
+    s = (f'<path d="M-92,-44 C-98,-6 -{w - 6},{hem - 22} -{w},{hem} C-60,{hem + 10} 60,{hem + 10} {w},{hem} '
+         f'C{w - 6},{hem - 22} 98,-6 92,-44 Z" fill="{cloth}" {st()}/>')
+    if trim:
+        s += f'<path d="M-{w - 6},{hem - 10} C-60,{hem} 60,{hem} {w - 6},{hem - 10}" fill="none" {st(10, trim)}/>'
+    if folds:
+        s += (f'<path d="M-40,-24 C-46,10 -52,{hem - 30} -56,{hem - 16} M36,-24 C42,10 48,{hem - 30} 52,{hem - 16}" '
+              f'fill="none" {st(2.5, shade(cloth, .78))}/>')
+    return s
+
+
+def tunic_medieval(col="#4f6b8a", trim="#d4a63c", belt="#6b4426"):
+    """Туника до колен с каймой у ворота и подола, кожаный пояс с пряжкой."""
+    def part(ctx):
+        hem = 40 if ctx["pose"].get("sit") else 64
+        t = (f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+             f'<path d="M-40,-176 Q0,-150 40,-176" fill="none" {st(9, trim)}/>')
+        over = (f'<path d="M-106,-30 C-40,-18 40,-18 106,-30 L106,-8 C40,4 -40,4 -106,-8 Z" fill="{belt}" {st(3)}/>'
+                f'<rect x="-13" y="-30" width="26" height="24" rx="5" fill="#c9a24a" {st(3)}/>'
+                f'<path d="M-8,-6 L-12,30" fill="none" {st(6, belt)}/>')
+        return [("torso", "torso", t), ("torso_over", "torso", over), ("skirt", "root", _hem_skirt(col, hem, trim))]
+    return part
+
+
+def fur_tunic(col="#8a6b4a", fur="#c9b08a", rope="#a88a5a"):
+    """Грубая рубаха, меховая накидка на плечах, верёвка вместо пояса — легенды, пруссы, крестьяне."""
+    def part(ctx):
+        hem = 40 if ctx["pose"].get("sit") else 56
+        t = f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+        tufts = "".join(f'<path d="M{x},-128 l6,14 l6,-14" fill="none" {st(2.5, shade(fur, .7))}/>' for x in range(-96, 90, 24))
+        over = (f'<path d="M-104,-150 C-80,-186 80,-186 104,-150 C108,-130 100,-112 96,-104 C40,-122 -40,-122 -96,-104 '
+                f'C-100,-112 -108,-130 -104,-150 Z" fill="{fur}" {st()}/>' + tufts
+                + f'<path d="M-106,-22 C-40,-12 40,-12 106,-22" fill="none" {st(8, rope)}/>'
+                f'<path d="M-24,-16 L-30,26 M-14,-16 L-12,22" fill="none" {st(5, rope)}/>')
+        return [("torso", "torso", t), ("torso_over", "torso", over), ("skirt", "root", _hem_skirt(col, hem, folds=True))]
+    return part
+
+
+def chainmail(steel="#a9b0b8", surcoat="#9e2a2b", belt="#5b3a22"):
+    """Кольчуга до колен; поверх — сюрко без рукавов с поясом (surcoat="none" — без него)."""
+    def part(ctx):
+        hem = 40 if ctx["pose"].get("sit") else 60
+        rings = "".join(f'<path d="M{x - 7},{y} q7,8 14,0" fill="none" stroke="{shade(steel, .66)}" stroke-width="2"/>'
+                        for y in range(-160, 20, 16) for x in range(-96 + (8 if (y // 16) % 2 else 0), 100, 16))
+        t = (f'<path d="{TORSO_M}" fill="{steel}" {st()}/>'
+             f'<g clip-path="url(#tm)">{rings}</g><defs><clipPath id="tm"><path d="{TORSO_M}"/></clipPath></defs>')
+        skirt = _hem_skirt(steel, hem, folds=False)
+        skirt += "".join(f'<path d="M{x - 7},{y} q7,8 14,0" fill="none" stroke="{shade(steel, .66)}" stroke-width="2"/>'
+                         for y in range(-30, hem - 6, 16) for x in range(-100, 104, 16))
+        out = [("torso", "torso", t), ("skirt", "root", skirt)]
+        if surcoat != "none":
+            over = (f'<path d="M-60,-172 L60,-172 L84,20 L-84,20 Z" fill="{surcoat}" {st()}/>'
+                    f'<path d="M-104,-30 C-40,-18 40,-18 104,-30 L104,-10 C40,2 -40,2 -104,-10 Z" fill="{belt}" {st(3)}/>'
+                    f'<rect x="-12" y="-30" width="24" height="22" rx="5" fill="#c9a24a" {st(3)}/>')
+            out.append(("torso_over", "torso", over))
+            out.append(("skirt", "root", f'<path d="M-70,-44 L-80,{hem - 6} L80,{hem - 6} L70,-44 Z" fill="{surcoat}" {st()}/>'
+                                         f'<path d="M0,-40 L0,{hem - 8}" fill="none" {st(2.5, shade(surcoat, .72))}/>'))
+        return out
+    return part
+
+
+def emperor_robe(col="#5a2a6b", gold="#d8ad3c", mantle="#a8262e"):
+    """Долгая далматика до пола с золотой полосой, мантия за спиной, фибула на плече — император."""
+    def part(ctx):
+        hem = 50 if ctx["pose"].get("sit") else 96
+        t = (f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+             f'<path d="M-40,-176 Q0,-150 40,-176" fill="none" {st(10, gold)}/>'
+             f'<path d="M0,-150 L0,20" fill="none" {st(16, gold)}/>'
+             + "".join(f'<circle cx="0" cy="{y}" r="5" fill="#b3263a"/>' for y in (-120, -80, -40)))
+        cape_ = (f'<path d="M-96,-170 C-150,-120 -166,0 -160,{hem + 20} L160,{hem + 20} C166,0 150,-120 96,-170 Z" '
+                 f'fill="{mantle}" {st()}/>')
+        over = f'<circle cx="74" cy="-160" r="16" fill="{gold}" {st(3)}/><circle cx="74" cy="-160" r="7" fill="#2f9a8a"/>'
+        skirt = _hem_skirt(col, hem, gold, wide=1.1) + f'<path d="M0,-40 L0,{hem}" fill="none" {st(16, gold)}/>'
+        return [("cape_back", "torso", cape_), ("torso", "torso", t), ("torso_over", "torso", over), ("skirt", "root", skirt)]
+    return part
+
+
+def hat_nasal(col="#a9b0b8", trim="#8a6a2a"):
+    """Конический шлем с наносником (X–XI вв.)."""
+    def part(ctx):
+        s = (f'<path d="M-150,-206 C-154,-270 -80,-360 0,-372 C80,-360 154,-270 150,-206 C90,-222 -90,-222 -150,-206 Z" '
+             f'fill="{col}" {st()}/>'
+             f'<path d="M-152,-222 C-90,-238 90,-238 152,-222 L152,-200 C90,-216 -90,-216 -152,-200 Z" fill="{trim}" {st(3)}/>'
+             f'<rect x="-10" y="-216" width="20" height="86" rx="6" fill="{col}" {st(3)}/>'
+             f'<path d="M0,-368 L0,-226" fill="none" {st(3, shade(col, .7))}/>'
+             f'<ellipse cx="-56" cy="-300" rx="22" ry="40" fill="#fff" opacity=".3" transform="rotate(20 -56 -300)"/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_hood(col="#6b5a4a"):
+    """Капюшон странника: покрывает макушку и виски, лицо открыто."""
+    def part(ctx):
+        s = (f'<path d="M-170,-60 C-190,-200 -130,-336 0,-340 C130,-336 190,-200 170,-60 C150,-40 130,-50 124,-70 '
+             f'C138,-150 110,-250 0,-252 C-110,-250 -138,-150 -124,-70 C-130,-50 -150,-40 -170,-60 Z" fill="{col}" {st()}/>'
+             f'<path d="M-120,-80 C-130,-170 -96,-240 0,-246 C96,-240 130,-170 120,-80" fill="none" {st(4, shade(col, .7))}/>'
+             f'<path d="M-60,-320 C-20,-330 20,-330 60,-320" fill="none" {st(3, shade(col, 1.25))}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_circlet(gold="#d8ad3c"):
+    """Княжеский обруч с зубцами-лилиями — ниже короны, для князей до коронации."""
+    def part(ctx):
+        s = (f'<path d="M-132,-250 C-60,-266 60,-266 132,-250 L132,-228 C60,-244 -60,-244 -132,-228 Z" fill="{gold}" {st(3)}/>'
+             + "".join(f'<path d="M{x},-256 l-10,-26 l10,8 l10,-8 Z" fill="{gold}" {st(2.5)}/>' for x in (-90, -30, 30, 90))
+             + "".join(f'<circle cx="{x}" cy="-240" r="5" fill="{c}"/>' for x, c in ((-60, "#b3263a"), (0, "#2f9a8a"), (60, "#b3263a"))))
+        return [("hat", "head", s)]
+    return part
+
+
+def hair_bowl(col):
+    """Стрижка «под горшок» с чёлкой — молодые князья и рыцари."""
+    def part(ctx):
+        s = (f'<path d="M-156,-130 C-170,-250 -110,-318 0,-320 C110,-318 170,-250 156,-130 C146,-140 138,-160 134,-190 '
+             f'C100,-206 50,-212 0,-212 C-50,-212 -100,-206 -134,-190 C-138,-160 -146,-140 -156,-130 Z" fill="{col}" {st()}/>'
+             f'<path d="M-100,-206 l4,-30 M-50,-212 l2,-36 M0,-213 l0,-38 M50,-212 l-2,-36 M100,-206 l-4,-30" fill="none" '
+             f'{st(2.5, shade(col, .72))}/>'
+             f'<path d="M-70,-300 C-30,-310 30,-310 70,-300" fill="none" {st(3, shade(col, 1.35))}/>')
+        return [("hair_front", "head", s)]
+    return part
+
+
+def hair_shoulder(col):
+    """Прямые волосы до плеч — князья, легендарные братья."""
+    def part(ctx):
+        back = (f'<path d="M-170,-200 C-186,-120 -180,-40 -160,10 L160,10 C180,-40 186,-120 170,-200 '
+                f'C150,-300 -150,-300 -170,-200 Z" fill="{shade(col, .88)}" {st()}/>')
+        front = (f'<path d="M-160,-120 C-172,-250 -100,-312 0,-314 C100,-312 172,-250 160,-120 C150,-170 130,-210 90,-232 '
+                 f'C50,-246 20,-244 0,-236 C-20,-244 -50,-246 -90,-232 C-130,-210 -150,-170 -160,-120 Z" fill="{col}" {st()}/>'
+                 f'<path d="M-8,-240 C-50,-262 -110,-250 -140,-200 M8,-240 C50,-262 110,-250 140,-200" fill="none" {st(2.5, shade(col, .72))}/>'
+                 + both(f'<path d="M-158,-150 C-166,-100 -164,-50 -156,-4" fill="none" {st(2.5, shade(col, .72))}/>'))
+        return [("hair_back", "head", back), ("hair_front", "head", front)]
+    return part
+
+
+def spear(hand="hand_r"):
+    def part(ctx):
+        s = (f'<rect x="-6" y="-190" width="12" height="250" rx="5" fill="#8a5a2a" {st(3)}/>'
+             f'<path d="M0,-250 L16,-200 L0,-188 L-16,-200 Z" fill="#d9dde2" {st(3)}/>')
+        return [("held", hand, s)]
+    return part
+
+
+def staff(hand="hand_r"):
+    def part(ctx):
+        s = (f'<rect x="-7" y="-170" width="14" height="230" rx="6" fill="#7a5232" {st(3)}/>'
+             f'<path d="M0,-170 C-30,-176 -34,-210 -10,-214" fill="none" {st(10, "#7a5232")}/>')
+        return [("held", hand, s)]
+    return part
+
+
+def cross_held(hand="hand_r", gold="#d8ad3c"):
+    def part(ctx):
+        s = (f'<rect x="-6" y="-150" width="12" height="190" rx="5" fill="{gold}" {st(3)}/>'
+             f'<rect x="-34" y="-128" width="68" height="12" rx="5" fill="{gold}" {st(3)}/>'
+             f'<circle cx="0" cy="-122" r="7" fill="#b3263a"/>')
+        return [("held", hand, s)]
+    return part
+
+
+# ───────────────────────── бороды и усы (v3, по эталонам Nano Banana) ─────────────────────────
+# Приёмы эталона: чистая форма с толстым тёмным контуром, почти плоский цвет с тенью снизу,
+# окно кожи вокруг рта и подбородок двумя дольками с клинышком бороды по центру;
+# усы — плотная лента от носа к уголкам рта, светлый блик по верхнему краю.
+# Координаты головы: нос ~-76, рот (у бородатых) -44…-34, подбородок ~0, уши ±150 на -100.
+
+BEARD_INK = "#3a170c"
+
+
+def _ink(w=4):
+    return f'stroke="{BEARD_INK}" stroke-width="{w}" stroke-linejoin="round" stroke-linecap="round"'
+
+
+def _zig(x0, y0, x1, y1, n, amp, side):
+    """Мех по краю: n зубчиков от (x0,y0) к (x1,y1), наружу на amp (side=-1 влево, 1 вправо)."""
+    d = ""
+    for k in range(1, n + 1):
+        t0, t1 = (k - .5) / n, k / n
+        xm, ym = x0 + (x1 - x0) * t0 + side * amp, y0 + (y1 - y0) * t0
+        xe, ye = x0 + (x1 - x0) * t1, y0 + (y1 - y0) * t1
+        d += f" L{xm:.0f},{ym:.0f} L{xe:.0f},{ye:.0f}"
+    return d
+
+
+def _moustache(col, kind):
+    hi = shade(col, 1.35)
+    if kind == "handlebar":
+        half = ("M0,-62 C-22,-72 -52,-66 -72,-52 C-84,-44 -92,-46 -98,-54 "
+                "C-96,-44 -86,-36 -72,-38 C-54,-40 -28,-48 0,-50 Z")
+        curl = "M-98,-54 C-108,-60 -108,-76 -96,-78 C-88,-79 -84,-70 -91,-67"
+        s = (f'<path d="{curl}" fill="none" {_ink(13)}/><path d="{curl}" fill="none" stroke="{col}" stroke-width="6" stroke-linecap="round"/>'
+             f'<path d="{half}" fill="{col}" {_ink()}/>'
+             f'<path d="M-6,-58 C-26,-64 -50,-60 -68,-50" fill="none" stroke="{hi}" stroke-width="5" stroke-linecap="round" opacity=".8"/>')
+    elif kind == "walrus":
+        half = "M0,-64 C-24,-72 -58,-66 -70,-46 C-76,-34 -74,-22 -64,-18 C-58,-32 -40,-44 0,-48 Z"
+        s = (f'<path d="{half}" fill="{col}" {_ink()}/>'
+             f'<path d="M-6,-60 C-28,-64 -52,-58 -64,-44" fill="none" stroke="{hi}" stroke-width="5" stroke-linecap="round" opacity=".8"/>'
+             f'<path d="M-24,-50 l-4,10 M-40,-46 l-5,10 M-54,-40 l-5,9" fill="none" stroke="{shade(col, .7)}" stroke-width="2.5" stroke-linecap="round"/>')
+    else:  # std — лента к уголкам рта, где она сливается с бородой
+        half = "M0,-62 C-20,-70 -46,-66 -60,-52 C-66,-46 -66,-38 -62,-34 C-54,-42 -32,-48 0,-50 Z"
+        s = (f'<path d="{half}" fill="{col}" {_ink()}/>'
+             f'<path d="M-6,-58 C-24,-62 -44,-58 -56,-48" fill="none" stroke="{hi}" stroke-width="5" stroke-linecap="round" opacity=".8"/>')
+    # проборчик под носом — маленькая ямка по центру; лента крупнее, как у эталона
+    s = both(s) + f'<path d="M-6,-62 Q0,-56 6,-62" fill="none" {_ink(3)}/>'
+    return f'<g transform="translate(0,-58) scale(1.35,1.55) translate(0,58)">{s}</g>'
+
+
+def moustache_handlebar(col):
+    def part(ctx):
+        return [("beard", "head", _moustache(col, "handlebar"))]
+    return part
+
+
+def moustache_walrus(col):
+    def part(ctx):
+        return [("beard", "head", _moustache(col, "walrus"))]
+    return part
+
+
+def _chin_window(skin, deep=0):
+    """Окно кожи вокруг рта: верх — под усами, низ — две дольки подбородка с клинышком бороды по центру."""
+    d = (f"M-58,-40 C-60,-18 -50,{0 + deep} -30,{2 + deep} C-16,{2 + deep} -8,{-8 + deep} 0,{-12 + deep} "
+         f"C8,{-8 + deep} 16,{2 + deep} 30,{2 + deep} C50,{0 + deep} 60,-18 58,-40 C34,-50 -34,-50 -58,-40 Z")
+    return f'<path d="{d}" fill="{skin}" {_ink(3.5)}/>'
+
+
+def _beard(col, skin, bottom, point=0, fur=True):
+    """Борода от висков по челюсти; bottom — нижний край, point — клин книзу (длинная борода)."""
+    sh = shade(col, .8)
+    left_side = _zig(-146, -70, -128, 0, 4, 8, -1) if fur else " L-128,0"
+    right_side = _zig(128, 0, 146, -70, 4, 8, 1) if fur else " L146,-70"
+    outer = (f"M-140,-170 C-148,-130 -150,-100 -146,-70{left_side} "
+             f"C-110,{bottom - 20} -60,{bottom + point * .6} 0,{bottom + point} "
+             f"C60,{bottom + point * .6} 110,{bottom - 20} 128,0{right_side} "
+             "C150,-100 148,-130 140,-170 C134,-120 122,-84 96,-56 C82,-44 70,-40 58,-40 "
+             "L-58,-40 C-70,-40 -82,-44 -96,-56 C-122,-84 -134,-120 -140,-170 Z")
+    shadow = (f'<path d="M-120,{bottom - 40} C-60,{bottom - 6 + point * .5} 60,{bottom - 6 + point * .5} 120,{bottom - 40} '
+              f'L120,{bottom + point + 10} L-120,{bottom + point + 10} Z" fill="{sh}"/>')
+    cid = f"bd{col[1:]}{bottom}{point}"
+    return (f'<defs><clipPath id="{cid}"><path d="{outer}"/></clipPath></defs>'
+            f'<path d="{outer}" fill="{col}"/><g clip-path="url(#{cid})">{shadow}'
+            f'<path d="M-132,-150 C-136,-110 -132,-76 -118,-50" fill="none" stroke="{shade(col, 1.3)}" stroke-width="6" '
+            f'stroke-linecap="round" opacity=".55"/></g>'
+            f'<path d="{outer}" fill="none" {_ink()}/>')
+
+
+def beard_full(col):
+    """Окладистая борода как у эталона: виски — челюсть — подбородок, окно кожи под ртом, усы."""
+    def part(ctx):
+        skin = ctx["c"]["skin"]
+        s = _beard(col, skin, 46) + _chin_window(skin) + _moustache(col, "std")
+        return [("beard", "head", s)]
+    return part
+
+
+def beard_goatee(col):
+    """Бородка: усы + клинышек на подбородке, щёки бритые."""
+    def part(ctx):
+        b = "M-32,-26 C-36,-4 -20,22 0,32 C20,22 36,-4 32,-26 C18,-18 8,-22 0,-16 C-8,-22 -18,-18 -32,-26 Z"
+        s = (f'<path d="{b}" fill="{col}" {_ink(3.5)}/>'
+             f'<path d="M-14,-12 C-14,6 -8,18 0,24" fill="none" stroke="{shade(col, 1.3)}" stroke-width="4" '
+             f'stroke-linecap="round" opacity=".6"/>' + _moustache(col, "std"))
+        return [("beard", "head", s)]
+    return part
+
+
+def beard_long(col):
+    """Длинная борода клином до груди, с моржовыми усами."""
+    def part(ctx):
+        skin = ctx["c"]["skin"]
+        s = (_beard(col, skin, 60, point=56)
+             + f'<path d="M-40,20 C-36,50 -24,80 -10,104 M40,20 C36,50 24,80 10,104" fill="none" '
+               f'stroke="{shade(col, .7)}" stroke-width="3" stroke-linecap="round"/>'
+             + _chin_window(skin) + _moustache(col, "walrus"))
+        return [("beard", "head", s)]
     return part

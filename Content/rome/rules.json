@@ -23342,5 +23342,1125 @@
     "flag": "resolved"
    }
   ]
+ },
+ {
+  "id": "crossroads_pl_sig",
+  "comment": "Братья расходятся: первый уходит на юг, к горе Ржип, второй — на восток, третий остаётся",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_crossroads_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "brother_pl"
+     ],
+     "notFlags": [
+      "settled",
+      "away"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "brother_pl"
+     ],
+     "notFlags": [
+      "settled",
+      "away"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "brother_pl"
+     ],
+     "notFlags": [
+      "settled",
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "went_south"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "went_east"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "away"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "stays"
+   }
+  ]
+ },
+ {
+  "id": "eagle_nest_pl_sig",
+  "comment": "Оставшийся брат видит на дубе белого орла над гнездом в лучах заката — и ставит здесь град Гнезно",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_eagle_nest_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "brother_pl"
+     ],
+     "flags": [
+      "stays"
+     ],
+     "notFlags": [
+      "settled"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "founder_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "settled"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "rich_valley_pl_sig",
+  "comment": "Брат оседает там, где земля жирнее, — и уже не ищет знака",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rich_valley_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "brother_pl"
+     ],
+     "notFlags": [
+      "settled",
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "settled"
+   }
+  ]
+ },
+ {
+  "id": "popiel_feast_pl_sig",
+  "comment": "На пиру по случаю постригов княжича Попель гонит со двора двух нищих странников",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_popiel_feast_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cruel_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wanderer_pl"
+     ],
+     "notFlags": [
+      "driven_away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "driven_away"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "inhospitable"
+   }
+  ]
+ },
+ {
+  "id": "piast_hut_pl_sig",
+  "comment": "Прогнанных странников зовёт к себе бедный колесник; угощения становится всё больше — и странники стригут его сына, предрекая ему княжество",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_piast_hut_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "peasant_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wanderer_pl"
+     ],
+     "flags": [
+      "driven_away"
+     ],
+     "notFlags": [
+      "welcomed"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "child_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "welcomed"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "blessed"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "chosen_pl"
+   }
+  ]
+ },
+ {
+  "id": "mice_tower_pl_sig",
+  "comment": "Негостеприимного князя настигает кара: из тел отравленных им родичей выходят мыши и съедают его в башне",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mice_tower_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cruel_pl"
+     ],
+     "flags": [
+      "inhospitable"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "eaten_pl"
+   }
+  ]
+ },
+ {
+  "id": "dobrawa_match_pl_sig",
+  "comment": "Князь-язычник берёт в жёны дочь чешского князя — союз с христианской Прагой против маркграфов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dobrawa_match_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "flags": [
+      "pagan"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "czech_pl"
+     ],
+     "notFlags": [
+      "married"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "B",
+    "to": "A"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "allied_cz"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "married"
+   }
+  ]
+ },
+ {
+  "id": "baptism_966_cz_pl",
+  "comment": "Крещение через чешскую жену и чешских священников: христианство без немецкого господина",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_baptism_966_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "flags": [
+      "pagan",
+      "allied_cz"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "czech_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "baptized"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "pagan"
+   }
+  ]
+ },
+ {
+  "id": "baptism_966_de_pl",
+  "comment": "Крещение из рук маркграфа: вместе с верой князь получает и немецкого сюзерена",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_baptism_966_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "flags": [
+      "pagan"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "margrave_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "baptized"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "pagan"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "vassal_de"
+   }
+  ]
+ },
+ {
+  "id": "poznan_see_pl_sig",
+  "comment": "Крещёный князь, никому не подвластный, получает своего епископа — миссионерское епископство в Познани",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_poznan_see_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "flags": [
+      "baptized"
+     ],
+     "notFlags": [
+      "vassal_de"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bishop_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bishop_poznan"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "own_church"
+   }
+  ]
+ },
+ {
+  "id": "oder_feint_pl_sig",
+  "comment": "Князь отходит от переправы, и маркграф в азарте бросается следом, растянув строй",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oder_feint_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "margrave_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "lured"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "feigned"
+   }
+  ]
+ },
+ {
+  "id": "cedynia_ambush_pl_sig",
+  "comment": "Другой отряд, не отступавший, бьёт растянутое войско маркграфа с тыла",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cedynia_ambush_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "notFlags": [
+      "feigned",
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "margrave_pl"
+     ],
+     "flags": [
+      "lured"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hero_cedynia"
+   }
+  ]
+ },
+ {
+  "id": "prussia_mission_pl_sig",
+  "comment": "Миссионер приходит к пруссам в священную рощу — и гибнет от их копий; тело остаётся у язычников",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prussia_mission_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "missionary_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prussian_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "martyr_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "holds_relics"
+   }
+  ]
+ },
+ {
+  "id": "relic_ransom_pl_sig",
+  "comment": "Князь выкупает тело мученика за столько золота, сколько оно весит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_relic_ransom_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prussian_pl"
+     ],
+     "flags": [
+      "holds_relics"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "relics"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "holds_relics"
+   }
+  ]
+ },
+ {
+  "id": "gniezno_congress_pl_sig",
+  "comment": "К гробнице святого приходит паломником император — надевает свою диадему на голову князя и зовёт его братом и союзником",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gniezno_congress_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "flags": [
+      "relics"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emperor_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "recognized_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pilgrim_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "exile_mother_pl_sig",
+  "comment": "Изгнанный князь у матери-королевы при немецком дворе: она добывает ему у императора пятьсот рыцарей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_exile_mother_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "flags": [
+      "exiled"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "queen_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "backed"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strong"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "krakow_capital_pl_sig",
+  "comment": "С отрядом рыцарей князь возвращается в разорённую страну — и правит уже не из сожжённого Гнезно, а из Кракова",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krakow_capital_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ],
+     "flags": [
+      "backed"
+     ],
+     "notFlags": [
+      "at_war",
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "restorer_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "exiled"
+   }
+  ]
+ },
+ {
+  "id": "gniezno_raid_pl_sig",
+  "comment": "Чешский князь грабит беззащитное Гнезно и увозит в Прагу мощи святого Войцеха",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gniezno_raid_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "czech_duke_pl"
+     ],
+     "notFlags": [
+      "raided"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "raided"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "relics"
+   }
+  ]
+ },
+ {
+  "id": "glogow_messenger_pl_sig",
+  "comment": "Горожане за пять дней перемирия посылают к князю — и князь запрещает сдаваться, что бы ни случилось",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_glogow_messenger_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "burgher_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "piast_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "steadfast_pl"
+   }
+  ]
+ },
+ {
+  "id": "glogow_engines_hold_pl",
+  "comment": "Император привязывает заложников к осадным машинам, но стойкий город не сдаётся — осада проваливается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_glogow_engines_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emperor_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "burgher_pl"
+     ],
+     "flags": [
+      "steadfast_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "siege_failed"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "glogow_engines_yield_pl",
+  "comment": "Без княжеского слова горожане не выдерживают вида детей на машинах — и открывают ворота",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_glogow_engines_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emperor_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "burgher_pl"
+     ],
+     "notFlags": [
+      "steadfast_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "surrendered_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "will_senior_pl_sig",
+  "comment": "Князь завещает Краков и верховную власть старшему сыну — сеньору над братьями",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_will_senior_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "father_pl"
+     ],
+     "notFlags": [
+      "will_made"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "son_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "senior_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "will_made"
+   }
+  ]
+ },
+ {
+  "id": "will_provinces_pl_sig",
+  "comment": "Младшим сыновьям — по уделу в вечное владение",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_will_provinces_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "father_pl"
+     ],
+     "flags": [
+      "will_made"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "son_pl"
+     ],
+     "notFlags": [
+      "senior_pl",
+      "sole_heir"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "son_pl"
+     ],
+     "notFlags": [
+      "senior_pl",
+      "sole_heir"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "duke_province"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "duke_province"
+   }
+  ]
+ },
+ {
+  "id": "all_to_one_pl_sig",
+  "comment": "Отец оставляет всё одному сыну — братья ополчаются на него ещё у отцовского гроба",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_all_to_one_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "father_pl"
+     ],
+     "notFlags": [
+      "will_made"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "son_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sole_heir"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "will_made"
+   }
+  ]
+ },
+ {
+  "id": "krzywousty_death_pl_sig",
+  "comment": "Князь умирает, и завещание вступает в силу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krzywousty_death_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "father_pl"
+     ],
+     "flags": [
+      "will_made"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
  }
 ]
