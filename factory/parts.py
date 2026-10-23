@@ -116,12 +116,12 @@ def face(eyes_iris="#6b3a1f", brow="#6b4a2b", brow_w=6, bushy=False, nose=None):
     def part(ctx):
         expr, skin = ctx["expr"], ctx["c"]["skin"]
         look = ctx["pose"].get("look", 0)
-        nz = nose or shade(skin, .88)
+        nz = nose or "#f3b49c"
         f = (f'<defs><radialGradient id="blush"><stop offset="0" stop-color="#f6857a" stop-opacity=".55"/>'
              f'<stop offset=".6" stop-color="#f6857a" stop-opacity=".25"/>'
              f'<stop offset="1" stop-color="#f6857a" stop-opacity="0"/></radialGradient>'
-             f'<radialGradient id="nose" cx=".45" cy=".4"><stop offset="0" stop-color="{shade(nz, 1.05)}"/>'
-             f'<stop offset="1" stop-color="{shade(nz, .93)}"/></radialGradient></defs>')
+             f'<radialGradient id="nose" cx=".45" cy=".4"><stop offset="0" stop-color="{nz}" stop-opacity=".9"/>'
+             f'<stop offset=".7" stop-color="{nz}" stop-opacity=".6"/><stop offset="1" stop-color="{nz}" stop-opacity="0"/></radialGradient></defs>')
         f += both('<ellipse cx="-100" cy="-86" rx="62" ry="42" fill="url(#blush)"/>')
         for s in (-1, 1):
             f += f'<g transform="translate({s * 78},-127) scale({-s * 0.86},1.04)">{_eye(expr, skin, eyes_iris, s, look)}</g>'
@@ -134,7 +134,8 @@ def face(eyes_iris="#6b3a1f", brow="#6b4a2b", brow_w=6, bushy=False, nose=None):
                 b = (f'<path d="M-38,12 C-28,-14 10,-18 34,-4 C30,6 14,4 0,6 C-14,8 -28,12 -38,18 Z" fill="{brow}" {st(2.5, shade(brow, .7))}/>'
                      f'<path d="M-28,8 l6,-10 M-14,4 l6,-12 M0,2 l6,-12 M14,0 l6,-10" fill="none" {st(2.5, shade(brow, 1.3))}/>')
             f += f'<g transform="translate({s * 74},{-186 + bdy}) scale({-s * 1.1},1.05) rotate({-tilt})">{b}</g>'
-        f += f'<ellipse cx="0" cy="-102" rx="12" ry="10" fill="url(#nose)"/>'
+        f += (f'<ellipse cx="0" cy="-102" rx="15" ry="13" fill="url(#nose)"/>'
+              f'<ellipse cx="-3" cy="-106" rx="4" ry="3" fill="#fff" opacity=".4"/>')
         lip = "#a0503e"
         mouth = {
             "neutral": f'<path d="M-30,-82 Q0,-62 30,-82" fill="none" {st(4, lip)}/>'
@@ -470,14 +471,20 @@ def scroll(hand="hand_r"):
 # ───────────────────────── Рим: Цезарь ─────────────────────────
 
 def hair_receding(col):
-    """Редкие волосы с высокими залысинами: шапочка сверху и виски."""
+    """Седина как у эталона: плотная шапочка на макушке с мягкой дугой линии волос
+    и прямые пряди на висках до верха ушей. Тень у линии волос — чтобы шапка лежала на голове."""
     def part(ctx):
-        s = (f'<path d="M-140,-124 C-152,-222 -112,-312 0,-314 C112,-312 152,-222 140,-124 '
-             f'C126,-146 114,-170 108,-192 C94,-214 66,-226 30,-230 C10,-232 -10,-232 -30,-230 C-66,-226 -94,-214 -108,-192 '
-             f'C-114,-170 -126,-146 -140,-124 Z" fill="{col}" {st()}/>'
-             + both(f'<path d="M-140,-150 C-144,-190 -132,-226 -106,-250 M-126,-140 C-130,-170 -124,-196 -110,-214 '
-                    f'M-60,-282 C-80,-276 -100,-266 -114,-252" fill="none" {st(2.5, shade(col, .78))}/>')
-             + f'<path d="M-60,-300 C-20,-306 20,-306 60,-300" fill="none" {st(3, shade(col, 1.25))}/>')
+        cap = ("M-144,-166 C-152,-244 -110,-312 0,-314 C110,-312 152,-244 144,-166 "
+               "C134,-160 120,-164 112,-172 C110,-214 96,-246 72,-250 C48,-254 26,-240 0,-240 "
+               "C-26,-240 -48,-254 -72,-250 C-96,-246 -110,-214 -112,-172 "
+               "C-120,-164 -134,-160 -144,-166 Z")
+        s = (f'<path d="{cap}" fill="{col}" {st()}/>'
+             f'<path d="M-108,-176 C-106,-212 -94,-242 -72,-246 C-48,-250 -26,-236 0,-236 C26,-236 48,-250 72,-246 C94,-242 106,-212 108,-176" fill="none" '
+             f'stroke="{shade(col, .85)}" stroke-width="7" stroke-linecap="round" opacity=".45"/>'
+             + both(f'<path d="M-146,-170 C-148,-150 -146,-132 -140,-122 C-128,-126 -120,-140 -118,-162 Z" '
+                    f'fill="{col}" {st(3)}/>'
+                    f'<path d="M-140,-180 C-142,-160 -140,-140 -136,-122" fill="none" {st(2, shade(col, .8))}/>')
+             + f'<path d="M-50,-300 C-20,-306 20,-306 50,-300" fill="none" {st(3, shade(col, 1.2))}/>')
         return [("hair_front", "head", s)]
     return part
 
@@ -495,18 +502,19 @@ def wrinkles(skin_line="#c98f74"):
     return part
 
 
-def hat_laurel(col="#7cb85a"):
+def hat_laurel(col="#72b552"):
     def part(ctx):
         ink = shade(col, .5)
         def leaf(x, y, a):
-            return (f'<g transform="translate({x},{y}) rotate({a}) scale(0.84)">'
+            return (f'<g transform="translate({x},{y}) rotate({a}) scale(1.06)">'
                     f'<path d="M0,0 C12,-15 42,-16 60,0 C42,16 12,15 0,0 Z" fill="{col}" {st(3, ink)}/>'
                     f'<path d="M6,0 C20,-3 36,-3 50,0" fill="none" {st(2.5, shade(col, 1.45))}/></g>')
         # ветка от виска к темени поверх волос; листья парами, смотрят вверх-наружу
-        stem = (-140, -150), (-142, -192), (-128, -232), (-100, -264)
-        s = f'<path d="M-138,-130 C-152,-200 -130,-258 -84,-284" fill="none" {st(4, ink)}/>'
+        stem = (-142, -168), (-140, -204), (-128, -238), (-106, -264)
+        s = f'<path d="M-144,-150 C-148,-212 -128,-260 -90,-284" fill="none" {st(4, ink)}/>'
         for i, (x, y) in enumerate(stem):
-            s += leaf(x, y, -100 + i * 14) + leaf(x, y, -48 + i * 14)
+            s += leaf(x, y, -128 + i * 18) + leaf(x, y, -70 + i * 18)
+        s += leaf(-96, -272, -36)
         return [("hat", "head", both(s))]
     return part
 

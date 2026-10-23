@@ -58,7 +58,7 @@ SLOTS = {
                          {"col": C("#a8262e", "Верх"), "fur": C("#3b2a20", "Мех")}),
         "helmet": ("Шлем", lambda p: P.hat_helmet(p["col"], p["trim"]),
                    {"col": C("#b9bfc6", "Сталь"), "trim": C("#8a6a2a", "Обод")}),
-        "laurel": ("Лавровый венок", lambda p: P.hat_laurel(p["col"]), {"col": C("#7cb85a", "Листья")}),
+        "laurel": ("Лавровый венок", lambda p: P.hat_laurel(p["col"]), {"col": C("#72b552", "Листья")}),
         "mitre": ("Митра", lambda p: P.hat_mitre(p["col"], p["trim"]),
                   {"col": C("#f1ece2", "Ткань"), "trim": C("#d4a63c", "Золото")}),
     }),
