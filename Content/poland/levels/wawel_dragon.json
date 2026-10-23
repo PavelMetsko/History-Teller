@@ -1,0 +1,86 @@
+{
+ "id": "wawel_dragon",
+ "order": 11,
+ "epoch": "poland",
+ "act": "Акт I · Легенды",
+ "music": "poland_tension",
+ "cover": "vistula_drink_pl",
+ "panels": 3,
+ "scenes": [
+  "dragon_cave_pl",
+  "sulfur_ram_pl",
+  "vistula_drink_pl",
+  "krak_reward_pl"
+ ],
+ "characters": [
+  "krak",
+  "skuba",
+  "wawel_knight",
+  "wawel_dragon"
+ ],
+ "initialState": {
+  "flags": {
+   "krak": [
+    "reigns",
+    "standing"
+   ],
+   "wawel_dragon": [
+    "strong"
+   ],
+   "wawel_knight": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wawel_dragon",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "skuba",
+     "is": "rewarded_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wawel_knight",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sulfur_ram_pl",
+   "characters": [
+    "skuba"
+   ]
+  },
+  {
+   "scene": "vistula_drink_pl",
+   "characters": [
+    "skuba",
+    "wawel_dragon"
+   ]
+  },
+  {
+   "scene": "krak_reward_pl",
+   "characters": [
+    "krak",
+    "skuba"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "id": "byczyna_1588",
+ "order": 250,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_battle",
+ "cover": "byczyna_field_pl",
+ "panels": 3,
+ "scenes": [
+  "double_election_pl",
+  "byczyna_field_pl",
+  "renounce_crown_pl",
+  "vasa_sweden_pl"
+ ],
+ "characters": [
+  "zamoyski",
+  "maximilian3",
+  "sigismund3"
+ ],
+ "initialState": {
+  "flags": {
+   "zamoyski": [
+    "standing",
+    "strong"
+   ],
+   "maximilian3": [
+    "standing"
+   ],
+   "sigismund3": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sigismund3",
+     "is": "crowned_vasa_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "maximilian3",
+     "is": "captured_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "double_election_pl",
+   "characters": [
+    "sigismund3",
+    "maximilian3"
+   ]
+  },
+  {
+   "scene": "byczyna_field_pl",
+   "characters": [
+    "zamoyski",
+    "maximilian3"
+   ]
+  },
+  {
+   "scene": "renounce_crown_pl",
+   "characters": [
+    "maximilian3",
+    "sigismund3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

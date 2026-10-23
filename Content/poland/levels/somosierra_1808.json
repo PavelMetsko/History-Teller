@@ -1,0 +1,68 @@
+{
+ "id": "somosierra_1808",
+ "order": 410,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_battle",
+ "cover": "somosierra_charge_pl",
+ "panels": 2,
+ "scenes": [
+  "emperor_order_pl",
+  "somosierra_charge_pl",
+  "mountain_detour_pl"
+ ],
+ "characters": [
+  "napoleon_pl",
+  "kozietulski",
+  "spanish_gunner"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon_pl": [
+    "crowned",
+    "standing",
+    "strong"
+   ],
+   "spanish_gunner": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "spanish_gunner",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "kozietulski",
+     "is": "hero_s_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "emperor_order_pl",
+   "characters": [
+    "napoleon_pl",
+    "kozietulski"
+   ]
+  },
+  {
+   "scene": "somosierra_charge_pl",
+   "characters": [
+    "kozietulski",
+    "spanish_gunner"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

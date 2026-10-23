@@ -1,0 +1,119 @@
+{
+ "id": "grunwald_1410",
+ "order": 150,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_battle",
+ "cover": "grunwald_charge_pl",
+ "panels": 3,
+ "scenes": [
+  "two_swords_pl",
+  "lithuanian_retreat_pl",
+  "grunwald_charge_pl",
+  "knight_duel_pl"
+ ],
+ "characters": [
+  "jagiello",
+  "vytautas",
+  "jungingen",
+  "zawisza"
+ ],
+ "initialState": {
+  "flags": {
+   "jagiello": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "vytautas": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "jungingen": [
+    "standing",
+    "strong"
+   ],
+   "zawisza": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "jungingen",
+    "jagiello"
+   ],
+   [
+    "enemy_of",
+    "jagiello",
+    "jungingen"
+   ],
+   [
+    "enemy_of",
+    "jungingen",
+    "vytautas"
+   ],
+   [
+    "enemy_of",
+    "vytautas",
+    "jungingen"
+   ],
+   [
+    "enemy_of",
+    "zawisza",
+    "jungingen"
+   ],
+   [
+    "enemy_of",
+    "jungingen",
+    "zawisza"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jungingen",
+     "is": "dead"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "zawisza",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "two_swords_pl",
+   "characters": [
+    "jungingen",
+    "jagiello"
+   ]
+  },
+  {
+   "scene": "lithuanian_retreat_pl",
+   "characters": [
+    "vytautas",
+    "jungingen"
+   ]
+  },
+  {
+   "scene": "grunwald_charge_pl",
+   "characters": [
+    "jagiello",
+    "jungingen"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

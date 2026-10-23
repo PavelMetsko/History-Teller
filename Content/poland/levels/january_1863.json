@@ -1,0 +1,84 @@
+{
+ "id": "january_1863",
+ "order": 450,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "secret_seal_pl",
+ "panels": 3,
+ "scenes": [
+  "secret_seal_pl",
+  "secret_state_pl",
+  "peasant_ukaz_pl",
+  "open_battle_1863_pl"
+ ],
+ "characters": [
+  "traugutt",
+  "alexander2_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "traugutt": [
+    "standing"
+   ],
+   "alexander2_pl": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "traugutt",
+    "alexander2_pl"
+   ],
+   [
+    "enemy_of",
+    "alexander2_pl",
+    "traugutt"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "traugutt",
+     "is": "state_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexander2_pl",
+     "is": "emancipation_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "secret_seal_pl",
+   "characters": [
+    "traugutt"
+   ]
+  },
+  {
+   "scene": "secret_state_pl",
+   "characters": [
+    "traugutt"
+   ]
+  },
+  {
+   "scene": "peasant_ukaz_pl",
+   "characters": [
+    "alexander2_pl",
+    "traugutt"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

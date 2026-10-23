@@ -1,0 +1,80 @@
+{
+ "id": "kircholm_1605",
+ "order": 260,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_battle",
+ "cover": "hussar_charge_pl",
+ "panels": 2,
+ "scenes": [
+  "kircholm_feint_pl",
+  "hussar_charge_pl",
+  "kircholm_hill_pl",
+  "kircholm_muster_pl"
+ ],
+ "characters": [
+  "chodkiewicz",
+  "charles9_sw"
+ ],
+ "initialState": {
+  "flags": {
+   "chodkiewicz": [
+    "standing"
+   ],
+   "charles9_sw": [
+    "crowned",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "chodkiewicz",
+    "charles9_sw"
+   ],
+   [
+    "enemy_of",
+    "charles9_sw",
+    "chodkiewicz"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles9_sw",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "chodkiewicz",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kircholm_feint_pl",
+   "characters": [
+    "chodkiewicz",
+    "charles9_sw"
+   ]
+  },
+  {
+   "scene": "hussar_charge_pl",
+   "characters": [
+    "chodkiewicz",
+    "charles9_sw"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

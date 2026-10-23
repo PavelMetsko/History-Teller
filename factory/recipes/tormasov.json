@@ -1,0 +1,66 @@
+{
+  "id": "tormasov",
+  "name": "Генерал Александр Тормасов",
+  "old_ref": "hetman",
+  "skin": "#f1c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig",
+      "col": "#ece8e2"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "tricorne",
+      "col": "#1e1e22",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#2f6a4a",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#e9d8a8"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    }
+  }
+}

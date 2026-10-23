@@ -1,0 +1,89 @@
+{
+ "id": "leszczynski_1734",
+ "order": 330,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_tension",
+ "cover": "peasant_escape_pl",
+ "panels": 3,
+ "scenes": [
+  "minority_election_pl",
+  "gdansk_siege_pl",
+  "peasant_escape_pl",
+  "hold_gdansk_pl"
+ ],
+ "characters": [
+  "leszczynski",
+  "august3",
+  "munnich"
+ ],
+ "initialState": {
+  "flags": {
+   "leszczynski": [
+    "elected_pl",
+    "crowned",
+    "standing"
+   ],
+   "munnich": [
+    "standing",
+    "strong"
+   ],
+   "august3": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "munnich",
+    "leszczynski"
+   ],
+   [
+    "enemy_of",
+    "leszczynski",
+    "munnich"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "leszczynski",
+     "is": "escaped_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "august3",
+     "is": "crowned_saxon_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "minority_election_pl",
+   "characters": [
+    "munnich",
+    "august3"
+   ]
+  },
+  {
+   "scene": "gdansk_siege_pl",
+   "characters": [
+    "munnich",
+    "leszczynski"
+   ]
+  },
+  {
+   "scene": "peasant_escape_pl",
+   "characters": [
+    "leszczynski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

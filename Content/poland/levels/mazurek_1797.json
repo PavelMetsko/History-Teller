@@ -1,0 +1,60 @@
+{
+ "id": "mazurek_1797",
+ "order": 390,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_ceremony",
+ "cover": "reggio_song_pl",
+ "panels": 2,
+ "scenes": [
+  "legions_italy_pl",
+  "reggio_song_pl",
+  "go_home_pl"
+ ],
+ "characters": [
+  "dabrowski",
+  "wybicki",
+  "napoleon_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "dabrowski": [
+    "standing"
+   ],
+   "napoleon_pl": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wybicki",
+     "is": "mazurek_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "legions_italy_pl",
+   "characters": [
+    "dabrowski",
+    "napoleon_pl"
+   ]
+  },
+  {
+   "scene": "reggio_song_pl",
+   "characters": [
+    "wybicki",
+    "dabrowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1227,3 +1227,47 @@ def flask(hand="hand_r"):
              f'<rect x="-14" y="-68" width="28" height="10" rx="3" fill="#c9c4b8" {st(2.5)}/>')
         return [("held", hand, s)]
     return part
+
+
+# ───────────────────────── существа: Вавельский дракон ─────────────────────────
+
+def dragon(col="#5f9a4a", belly="#e9d8a0", wing="#a8312f"):
+    """Чиби-дракон целиком на кости корня: голова с мордой и рожками, брюшко, крылышки, хвост.
+    Выражение глаз — по позе (злой, довольный, лопнувший)."""
+    def part(ctx):
+        expr = ctx["expr"]
+        dark = shade(col, .7)
+        wings = both(f'<path d="M-90,-200 C-170,-300 -260,-280 -280,-220 C-240,-230 -220,-200 -200,-170 '
+                     f'C-180,-200 -150,-200 -130,-160 Z" fill="{wing}" {st()}/>'
+                     f'<path d="M-110,-190 L-250,-230 M-130,-170 L-200,-180" fill="none" {st(3, shade(wing, .7))}/>')
+        tail = (f'<path d="M80,-20 C200,0 250,-80 220,-150 C210,-170 236,-176 250,-160 C290,-90 240,60 70,40 Z" '
+                f'fill="{col}" {st()}/>'
+                f'<path d="M244,-164 L268,-196 L276,-150 Z" fill="{wing}" {st(3)}/>')
+        legs = both(f'<path d="M-80,10 C-90,60 -100,80 -70,90 L-30,90 C-20,70 -30,40 -40,10 Z" fill="{col}" {st()}/>'
+                    f'<path d="M-90,88 l-8,10 M-74,90 l-4,12 M-58,90 l0,12" fill="none" {st(4, "#f4f1ea")}/>')
+        body = (f'<ellipse cx="0" cy="-90" rx="150" ry="130" fill="{col}" {st()}/>'
+                f'<ellipse cx="0" cy="-60" rx="90" ry="90" fill="{belly}" {st(3)}/>'
+                + "".join(f'<path d="M-70,{y} Q0,{y + 14} 70,{y}" fill="none" {st(3, shade(belly, .78))}/>' for y in (-110, -80, -50, -20)))
+        spikes = "".join(f'<path d="M{x},{y} l14,-28 l14,28 Z" fill="{wing}" {st(3)}/>'
+                         for x, y in ((-40, -470), (-14, -478), (12, -474)))
+        horns = both(f'<path d="M-80,-430 C-100,-480 -110,-500 -126,-510 C-96,-500 -70,-470 -56,-440 Z" fill="#f1ece2" {st()}/>')
+        head = (f'<ellipse cx="0" cy="-330" rx="150" ry="130" fill="{col}" {st()}/>'
+                f'<ellipse cx="0" cy="-260" rx="110" ry="70" fill="{shade(col, 1.15)}" {st(3)}/>'
+                + both('<ellipse cx="-34" cy="-268" rx="10" ry="14" fill="#2a3a20"/>'))
+        if expr == "dead":
+            eyes = both(f'<g transform="translate(-60,-360)"><path d="M-18,-18 L18,18 M18,-18 L-18,18" {st(8, "#2a1208")}/></g>')
+            mouth = f'<path d="M-40,-222 Q0,-236 40,-222" fill="none" {st(5)}/>'
+        else:
+            lid = {"happy": "M-30,-4 Q0,-30 30,-4", "sad": "M-30,-14 Q0,-2 30,-14", "sly": "M-30,-6 L30,-16"}.get(expr, "M-30,-12 L30,-2")
+            eyes = both(f'<g transform="translate(-62,-366)"><ellipse rx="34" ry="38" fill="#fbf4c0" {st(4)}/>'
+                        f'<ellipse cx="6" cy="6" rx="12" ry="24" fill="#2a1208"/><circle cx="0" cy="-8" r="6" fill="#fff"/>'
+                        f'<path d="{lid}" fill="none" {st(8, dark)}/></g>')
+            mouth = (f'<path d="M-70,-224 Q0,-180 70,-224" fill="#7a1a12" {st(4)}/>'
+                     + both('<path d="M-50,-222 l8,16 l8,-16 Z" fill="#f4f1ea" stroke="#3a170c" stroke-width="2"/>'))
+        smoke = ""
+        if expr in ("neutral", "sly"):
+            smoke = (f'<circle cx="140" cy="-280" r="18" fill="#c9c4b8" opacity=".8"/>'
+                     f'<circle cx="170" cy="-310" r="24" fill="#c9c4b8" opacity=".6"/>')
+        s = wings + tail + legs + body + spikes + horns + head + eyes + mouth + smoke
+        return [("torso", "root", s)]
+    return part

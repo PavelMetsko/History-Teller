@@ -1,0 +1,68 @@
+{
+ "id": "may3_1791",
+ "order": 360,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_ceremony",
+ "cover": "vote_may3_pl",
+ "panels": 3,
+ "scenes": [
+  "secret_draft_pl",
+  "easter_recess_pl",
+  "vote_may3_pl",
+  "full_house_pl"
+ ],
+ "characters": [
+  "poniatowski",
+  "kollataj",
+  "malachowski"
+ ],
+ "initialState": {
+  "flags": {
+   "poniatowski": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "malachowski": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "poniatowski",
+     "is": "constitution_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "secret_draft_pl",
+   "characters": [
+    "poniatowski",
+    "kollataj"
+   ]
+  },
+  {
+   "scene": "easter_recess_pl",
+   "characters": [
+    "malachowski"
+   ]
+  },
+  {
+   "scene": "vote_may3_pl",
+   "characters": [
+    "malachowski",
+    "poniatowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

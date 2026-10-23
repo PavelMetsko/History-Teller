@@ -1,0 +1,77 @@
+{
+ "id": "olszynka_1831",
+ "order": 430,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_battle",
+ "cover": "alder_grove_pl",
+ "panels": 2,
+ "scenes": [
+  "alder_grove_pl",
+  "ordon_redoubt_pl",
+  "open_field_1831_pl"
+ ],
+ "characters": [
+  "chlopicki",
+  "ordon",
+  "diebitsch"
+ ],
+ "initialState": {
+  "flags": {
+   "chlopicki": [
+    "standing"
+   ],
+   "diebitsch": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "chlopicki",
+    "diebitsch"
+   ],
+   [
+    "enemy_of",
+    "diebitsch",
+    "chlopicki"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "diebitsch",
+     "is": "stalled_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "ordon",
+     "is": "legend_ordon_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "alder_grove_pl",
+   "characters": [
+    "chlopicki",
+    "diebitsch"
+   ]
+  },
+  {
+   "scene": "ordon_redoubt_pl",
+   "characters": [
+    "ordon",
+    "diebitsch"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

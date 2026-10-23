@@ -1,0 +1,77 @@
+{
+ "id": "chocim_1673",
+ "order": 310,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_battle",
+ "cover": "dawn_storm_pl",
+ "panels": 3,
+ "scenes": [
+  "frost_night_pl",
+  "dawn_storm_pl",
+  "election_1674_pl",
+  "chocim_headon_pl"
+ ],
+ "characters": [
+  "sobieski",
+  "husein_pasha"
+ ],
+ "initialState": {
+  "flags": {
+   "sobieski": [
+    "standing"
+   ],
+   "husein_pasha": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "sobieski",
+    "husein_pasha"
+   ],
+   [
+    "enemy_of",
+    "husein_pasha",
+    "sobieski"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sobieski",
+     "is": "king_sob_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "frost_night_pl",
+   "characters": [
+    "sobieski",
+    "husein_pasha"
+   ]
+  },
+  {
+   "scene": "dawn_storm_pl",
+   "characters": [
+    "sobieski",
+    "husein_pasha"
+   ]
+  },
+  {
+   "scene": "election_1674_pl",
+   "characters": [
+    "sobieski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

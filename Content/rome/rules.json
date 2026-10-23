@@ -25618,5 +25618,4632 @@
     "to": "B"
    }
   ]
+ },
+ {
+  "id": "wilhelm_sent_pl_sig",
+  "comment": "Паны выставляют жениха из Вавеля; по преданию, королева рвётся к нему с топором — и отступает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wilhelm_sent_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jadwiga_pl"
+     ],
+     "notFlags": [
+      "married"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "habsburg_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "renounced_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "krewo_union_pl_sig",
+  "comment": "Великий князь литовский обещает креститься сам, крестить Литву и навечно соединить её с Короной",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krewo_union_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jagiello_pl"
+     ],
+     "flags": [
+      "pagan"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jadwiga_pl"
+     ],
+     "flags": [
+      "renounced_pl"
+     ],
+     "notFlags": [
+      "married"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "union_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "krakow_1386_pl_sig",
+  "comment": "Язычник крестится Владиславом, венчается с королевой и коронуется королём Польши",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krakow_1386_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jagiello_pl"
+     ],
+     "flags": [
+      "union_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jadwiga_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "baptized"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "pagan"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "king_jag_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "two_swords_pl_sig",
+  "comment": "Герольды магистра привозят королю два обнажённых меча — «в помощь», чтобы тот наконец вышел из леса",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_two_swords_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "grandmaster_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jagiello_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "challenge_sent_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "challenged_pl"
+   }
+  ]
+ },
+ {
+  "id": "lithuanian_retreat_pl_sig",
+  "comment": "Литовские хоругви отходят, и рыцари ордена, решив, что бой выигран, бросаются в погоню",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lithuanian_retreat_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "vytautas_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "grandmaster_pl"
+     ],
+     "flags": [
+      "challenge_sent_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pursuing_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "grunwald_charge_pl_sig",
+  "comment": "Король бросает в бой резерв — смешавшееся войско ордена окружено, магистр гибнет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_grunwald_charge_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jagiello_pl"
+     ],
+     "flags": [
+      "challenged_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "grandmaster_pl"
+     ],
+     "flags": [
+      "pursuing_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "szeged_peace_pl_sig",
+  "comment": "Король и султан клянутся на десять лет мира",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_szeged_peace_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "varna_king_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sultan_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sworn_peace_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sworn_peace_pl"
+   }
+  ]
+ },
+ {
+  "id": "broken_oath_pl_sig",
+  "comment": "Папский легат освобождает короля от клятвы неверным — и крестовый поход продолжается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_broken_oath_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "varna_king_pl"
+     ],
+     "flags": [
+      "sworn_peace_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "oathbreaker_pl"
+   }
+  ]
+ },
+ {
+  "id": "varna_charge_pl_sig",
+  "comment": "Двадцатилетний король с гвардией бросается на шатёр султана — и гибнет среди янычар",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_varna_charge_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "varna_king_pl"
+     ],
+     "flags": [
+      "oathbreaker_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sultan_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "unpaid_wages_pl_sig",
+  "comment": "Орден не может заплатить наёмникам и отдаёт им в залог свои замки — вместе с Мальборком",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_unpaid_wages_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "grandmaster_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "merc_pl"
+     ],
+     "notFlags": [
+      "bought"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "holds_castle_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "buy_malbork_pl_sig",
+  "comment": "Король платит наёмникам 190 тысяч флоринов — и получает столицу ордена без штурма",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_buy_malbork_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jag_king_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "merc_pl"
+     ],
+     "flags": [
+      "holds_castle_pl"
+     ],
+     "notFlags": [
+      "bought"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "malbork_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "paid_pl"
+   }
+  ]
+ },
+ {
+  "id": "olsztyn_walls_pl_sig",
+  "comment": "Каноник-администратор готовит замок к осаде, пишет королю за подмогой — и орден отступает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_olsztyn_walls_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "canon_pl"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "order_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "defended_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "repelled_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "revolutions_pl_sig",
+  "comment": "Когда войны позади, каноник дописывает книгу о том, что Земля вращается вокруг Солнца",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_revolutions_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "canon_pl"
+     ],
+     "flags": [
+      "defended_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "heliocentric_pl"
+   }
+  ]
+ },
+ {
+  "id": "white_mantle_pl_sig",
+  "comment": "Последний магистр по совету Лютера распускает орден и становится светским князем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_white_mantle_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "albrecht_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "secular_pl"
+   }
+  ]
+ },
+ {
+  "id": "homage_square_pl_sig",
+  "comment": "На коленях перед королём на краковской площади бывший магистр получает Пруссию в лен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_homage_square_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "old_king_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "albrecht_pl"
+     ],
+     "flags": [
+      "secular_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "vassal_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "suzerain_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "vilnius_vows_pl_sig",
+  "comment": "Молодой король тайно венчается со вдовой литовского магната",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vilnius_vows_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "august_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "barbara_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "B",
+    "to": "A"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "secretly_wed_pl"
+   }
+  ]
+ },
+ {
+  "id": "sejm_divorce_pl_sig",
+  "comment": "Королева-мать и сейм требуют расторгнуть брак — шляхтянка не пара королю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sejm_divorce_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bona_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "august_pl"
+     ],
+     "flags": [
+      "secretly_wed_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pressed_pl"
+   }
+  ]
+ },
+ {
+  "id": "barbara_crown_pl_sig",
+  "comment": "Король отвечает: «лучше потерять корону» — и коронует жену вопреки всем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_barbara_crown_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "august_pl"
+     ],
+     "flags": [
+      "pressed_pl"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "barbara_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned_queen_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned"
+   }
+  ]
+ },
+ {
+  "id": "leave_bari_pl_sig",
+  "comment": "Старая королева уезжает на родину, в Бари, увозя на двадцати четырёх возах свою казну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_leave_bari_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bona_pl"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "treasure_pl"
+   }
+  ]
+ },
+ {
+  "id": "loan_philip_pl_sig",
+  "comment": "Королева даёт испанскому королю в долг 430 тысяч дукатов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_loan_philip_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bona_pl"
+     ],
+     "flags": [
+      "treasure_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "spain_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lender_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "debtor_pl"
+   }
+  ]
+ },
+ {
+  "id": "forged_will_pl_sig",
+  "comment": "Доверенный придворный травит королеву и предъявляет завещание в пользу Филиппа",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_forged_will_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "courtier_pl"
+     ],
+     "notFlags": [
+      "bought"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bona_pl"
+     ],
+     "flags": [
+      "lender_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "forger_pl"
+   }
+  ]
+ },
+ {
+  "id": "magnates_leave_pl_sig",
+  "comment": "Литовские магнаты, не желая растворяться в Короне, ночью уезжают с сейма",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_magnates_leave_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lith_magnate_pl"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "august_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "left_sejm_pl"
+   }
+  ]
+ },
+ {
+  "id": "incorporation_pl_sig",
+  "comment": "Король переводит в Корону Подляшье, Волынь и Киевщину — и шляхта этих земель присягает Короне",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_incorporation_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "august_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "volhynia_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crown_land_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pressure_pl"
+   }
+  ]
+ },
+ {
+  "id": "union_act_pl_sig",
+  "comment": "Ослабленные паны возвращаются: общий король, сейм и монета — Речь Посполитая Обоих Народов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_union_act_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "august_pl"
+     ],
+     "flags": [
+      "pressure_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lith_magnate_pl"
+     ],
+     "flags": [
+      "left_sejm_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "union_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "union_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "confederation_pl_sig",
+  "comment": "Шляхта клянётся: мы, различные в вере, сохраним мир между собой и не прольём крови за веру",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_confederation_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "calvinist_pl"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "confederation_pl"
+   }
+  ]
+ },
+ {
+  "id": "election_1573_pl_sig",
+  "comment": "На поле под Варшавой шляхта избирает королём французского принца",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_election_1573_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "calvinist_pl"
+     ],
+     "flags": [
+      "confederation_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "valois_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "elected_pl"
+   }
+  ]
+ },
+ {
+  "id": "si_non_iurabis_pl_sig",
+  "comment": "Избранник медлит с присягой на мир вер — и слышит: «Не присягнёшь — не будешь царствовать»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_si_non_iurabis_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "calvinist_pl"
+     ],
+     "flags": [
+      "confederation_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "valois_pl"
+     ],
+     "flags": [
+      "elected_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sworn_articles_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned"
+   }
+  ]
+ },
+ {
+  "id": "news_paris_pl_sig",
+  "comment": "Гонец привозит весть: французский король умер, корона Франции ждёт брата",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_news_paris_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "valois_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "heir_france_pl"
+   }
+  ]
+ },
+ {
+  "id": "night_escape_pl_sig",
+  "comment": "Ночью, после пира, король тайком выходит из Вавеля и скачет к границе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_night_escape_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "valois_pl"
+     ],
+     "flags": [
+      "heir_france_pl"
+     ],
+     "notFlags": [
+      "married"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fled_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "chase_pszczyna_pl_sig",
+  "comment": "Подкоморий догоняет беглеца у границы — тот дарит перстень и обещает вернуться",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_chase_pszczyna_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "chamberlain_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "valois_pl"
+     ],
+     "flags": [
+      "fled_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "caught_up_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "promised_return_pl"
+   }
+  ]
+ },
+ {
+  "id": "double_election_pl_sig",
+  "comment": "Шляхта раскалывается: одни кричат шведского королевича, другие — австрийского эрцгерцога",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_double_election_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "vasa_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "claimant_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "elected_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "elected_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "enemy_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "enemy_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "byczyna_field_pl_sig",
+  "comment": "Гетман бьёт войско претендента и берёт его самого в плен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_byczyna_field_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "zamoyski_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "claimant_pl"
+     ],
+     "flags": [
+      "elected_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "renounce_crown_pl_sig",
+  "comment": "Пленный эрцгерцог отказывается от притязаний — и трон остаётся за Вазой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_renounce_crown_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "claimant_pl"
+     ],
+     "flags": [
+      "captured_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasa_pl"
+     ],
+     "flags": [
+      "elected_pl"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned_vasa_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "reigns"
+   }
+  ]
+ },
+ {
+  "id": "kircholm_feint_pl_sig",
+  "comment": "Гетман делает вид, что отходит, — шведы спускаются с холмов в погоню и рвут строй",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kircholm_feint_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hussar_hetman_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "swede_king_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "descended_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "hussar_charge_pl_sig",
+  "comment": "Крылатые гусары бьют по растянутому войску — за двадцать минут армия втрое больше разбита",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hussar_charge_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hussar_hetman_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "swede_king_pl"
+     ],
+     "flags": [
+      "descended_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "klushino_field_pl_sig",
+  "comment": "Гусария гетмана разбивает войско вчетверо больше; наёмники противника переходят на его сторону",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_klushino_field_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hetman_z_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "army_lost_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "tsar_tonsured_pl_sig",
+  "comment": "Оставшегося без войска царя сводят с престола и насильно постригают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tsar_tonsured_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar_pl"
+     ],
+     "flags": [
+      "army_lost_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "deposed_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "boyars_invite_pl_sig",
+  "comment": "Победитель заключает с боярами договор: царём станет королевич — если примет православие",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_boyars_invite_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hetman_z_pl"
+     ],
+     "flags": [
+      "victor"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prince_w_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "tsar_elect_pl"
+   }
+  ]
+ },
+ {
+  "id": "king_claims_pl_sig",
+  "comment": "Король не отпускает сына в православие и требует трон для себя — договор рушится",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_king_claims_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hetman_z_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasa_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "claims_throne_pl"
+   }
+  ]
+ },
+ {
+  "id": "cossacks_join_pl_sig",
+  "comment": "К укреплённому лагерю под Хотином подходят запорожские казаки — войско почти удваивается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cossacks_join_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hussar_hetman_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cossack_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fortified_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "allied_kh_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "hetman_deathbed_pl_sig",
+  "comment": "Старый гетман умирает в лагере посреди осады, передав булаву",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hetman_deathbed_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hussar_hetman_pl"
+     ],
+     "flags": [
+      "fortified_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lubomirski_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "command_pl"
+   }
+  ]
+ },
+ {
+  "id": "camp_holds_pl_sig",
+  "comment": "Месяц штурмов — лагерь стоит, и султан уводит армию, согласившись на мир",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_camp_holds_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lubomirski_pl"
+     ],
+     "flags": [
+      "command_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sultan2_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "withdrew_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "magnate_money_pl_sig",
+  "comment": "Посол из глухого повета получает деньги от могущественного магната",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_magnate_money_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "envoy_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "bribed_pl"
+   }
+  ]
+ },
+ {
+  "id": "sejm_time_pl_sig",
+  "comment": "Шесть недель сейма истекают; чтобы продлить работу, нужно согласие всех",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sejm_time_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "marshal_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "time_up_pl"
+   }
+  ]
+ },
+ {
+  "id": "nie_pozwalam_pl_sig",
+  "comment": "Один посол кричит «не позволяю» и уходит — маршалок признаёт сейм сорванным",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_nie_pozwalam_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "envoy_pl"
+     ],
+     "flags": [
+      "bribed_pl"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "marshal_pl"
+     ],
+     "flags": [
+      "time_up_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sejm_broken_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "jasna_siege_pl_sig",
+  "comment": "Монахи и горстка шляхты отбивают штурмы шведов — генерал снимает осаду",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_jasna_siege_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prior_pl"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "swede_gen_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "held_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "lifted_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "king_returns_pl_sig",
+  "comment": "Король, бежавший от шведов в Силезию, возвращается в страну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_king_returns_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jk_king_pl"
+     ],
+     "flags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "returned_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "lwow_vows_pl_sig",
+  "comment": "Во Львове король провозглашает Богородицу королевой Польши и клянётся облегчить долю крестьян",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lwow_vows_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jk_king_pl"
+     ],
+     "flags": [
+      "returned_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prior_pl"
+     ],
+     "flags": [
+      "held_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "vows_pl"
+   }
+  ]
+ },
+ {
+  "id": "pact_krzemionki_pl_sig",
+  "comment": "Шляхтич подписывает кровью договор: чёрт служит ему, а душу заберёт — но только в Риме",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pact_krzemionki_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sorcerer_pl"
+     ],
+     "notFlags": [
+      "pact_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "devil_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pact_pl"
+   }
+  ]
+ },
+ {
+  "id": "inn_rome_pl_sig",
+  "comment": "Чёрт ловит его в корчме, которая называется «Рим», — и уносит в небо",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_inn_rome_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sorcerer_pl"
+     ],
+     "flags": [
+      "pact_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "devil_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "seized_pl"
+   }
+  ]
+ },
+ {
+  "id": "marian_hymn_pl_sig",
+  "comment": "Летя над землёй, пленник запевает песнь Богородице — чёрт роняет его, и он повисает на Луне",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_marian_hymn_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sorcerer_pl"
+     ],
+     "flags": [
+      "seized_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "on_moon_pl"
+   }
+  ]
+ },
+ {
+  "id": "real_rome_pl_sig",
+  "comment": "Шляхтич, помня договор, за версту обходит настоящий Рим — и думает, что спасён",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_real_rome_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sorcerer_pl"
+     ],
+     "flags": [
+      "pact_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "avoids_rome_pl"
+   }
+  ]
+ },
+ {
+  "id": "frost_night_pl_sig",
+  "comment": "Всю ледяную ночь гетман держит турок в ожидании атаки — к утру они окоченели в доспехах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_frost_night_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sobieski_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pasha_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "frozen_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "dawn_storm_pl_sig",
+  "comment": "На рассвете пехота взламывает вал, гусария врывается в лагерь — армия паши разбита",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dawn_storm_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sobieski_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pasha_pl"
+     ],
+     "flags": [
+      "frozen_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "election_1674_pl_sig",
+  "comment": "Слава победителя приводит его на трон — шляхта выбирает гетмана королём",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_election_1674_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sobieski_pl"
+     ],
+     "flags": [
+      "victor"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "king_sob_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reigns"
+   }
+  ]
+ },
+ {
+  "id": "spy_lines_pl_sig",
+  "comment": "Переодетый турком лазутчик проходит через лагерь осаждающих с письмом о помощи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_spy_lines_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "spy_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emperor_l_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "delivered_pl"
+   }
+  ]
+ },
+ {
+  "id": "relief_march_pl_sig",
+  "comment": "Получив весть, король ведёт войско на выручку осаждённой столицы империи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_relief_march_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sobieski_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "spy_pl"
+     ],
+     "flags": [
+      "delivered_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "relief_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "kahlenberg_charge_pl_sig",
+  "comment": "С холмов Каленберга король ведёт крупнейшую кавалерийскую атаку в истории — лагерь визиря бежит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kahlenberg_charge_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sobieski_pl"
+     ],
+     "flags": [
+      "relief_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vizier_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "savior_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "minority_election_pl_sig",
+  "comment": "Под охраной иностранных войск горстка выборщиков избирает саксонского курфюрста",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_minority_election_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "field_marshal_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "saxon_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned_saxon_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "gdansk_siege_pl_sig",
+  "comment": "Избранного большинством короля осаждают в Гданьске",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gdansk_siege_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "field_marshal_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "leszczynski_pl"
+     ],
+     "flags": [
+      "elected_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "besieged_pl"
+   }
+  ]
+ },
+ {
+  "id": "peasant_escape_pl_sig",
+  "comment": "Король переодевается крестьянином и уходит из осаждённого города через болота",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_peasant_escape_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "leszczynski_pl"
+     ],
+     "flags": [
+      "besieged_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "escaped_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "petersburg_love_pl_sig",
+  "comment": "Молодой польский дипломат становится возлюбленным будущей императрицы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_petersburg_love_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "empress_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sa_king_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "favourite_pl"
+   }
+  ]
+ },
+ {
+  "id": "election_1764_pl_sig",
+  "comment": "Её бывшего возлюбленного избирают королём — под охраной русских войск",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_election_1764_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ambassador_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sa_king_pl"
+     ],
+     "flags": [
+      "favourite_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "protege_pl"
+   }
+  ]
+ },
+ {
+  "id": "repnin_dictates_pl_sig",
+  "comment": "Посол императрицы арестует несогласных сенаторов и диктует законы — король лишь подписывает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_repnin_dictates_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ambassador_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sa_king_pl"
+     ],
+     "flags": [
+      "protege_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dictated_pl"
+   }
+  ]
+ },
+ {
+  "id": "partition_pact_pl_sig",
+  "comment": "Россия, Пруссия и Австрия договариваются отрезать от Речи Посполитой по куску",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_partition_pact_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "empress_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prussia_king_pl"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "austria_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "partitioner_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "partitioner_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "partitioner_pl"
+   }
+  ]
+ },
+ {
+  "id": "rejtan_door_pl_sig",
+  "comment": "Посол ложится на пороге зала, не давая депутатам выйти и утвердить раздел",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rejtan_door_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rejtan_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "protest_pl"
+   }
+  ]
+ },
+ {
+  "id": "ratify_partition_pl_sig",
+  "comment": "Перешагнув через протестующего, сейм под охраной войск утверждает раздел",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ratify_partition_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rejtan_pl"
+     ],
+     "flags": [
+      "protest_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "empress_pl"
+     ],
+     "flags": [
+      "partitioner_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "ratified_pl"
+   }
+  ]
+ },
+ {
+  "id": "secret_draft_pl_sig",
+  "comment": "Король с реформаторами тайком пишет новую конституцию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_secret_draft_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sa_king_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "reformer_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "drafted_pl"
+   }
+  ]
+ },
+ {
+  "id": "easter_recess_pl_sig",
+  "comment": "Голосование назначают на день, когда противники ещё не вернулись с пасхальных каникул",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_easter_recess_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "marshal_g_pl"
+     ],
+     "notFlags": [
+      "full_house_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "few_present_pl"
+   }
+  ]
+ },
+ {
+  "id": "full_house_pl_sig",
+  "comment": "Маршалок ждёт, пока соберутся все, — и оппозиция успевает приготовиться",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_full_house_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "marshal_g_pl"
+     ],
+     "notFlags": [
+      "few_present_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "full_house_pl"
+   }
+  ]
+ },
+ {
+  "id": "vote_may3_pl_sig",
+  "comment": "Под крики «Виват король, виват конституция!» закон принят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vote_may3_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "marshal_g_pl"
+     ],
+     "flags": [
+      "few_present_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sa_king_pl"
+     ],
+     "flags": [
+      "drafted_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "constitution_pl"
+   }
+  ]
+ },
+ {
+  "id": "krakow_oath_1794_pl_sig",
+  "comment": "На краковском Рынке генерал клянётся народу — и становится Начальником восстания",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krakow_oath_1794_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kosciuszko_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "naczelnik_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "scythemen_pl_sig",
+  "comment": "Начальник зовёт крестьян; косы, перекованные торчком, становятся пиками",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_scythemen_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kosciuszko_pl"
+     ],
+     "flags": [
+      "naczelnik_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "scytheman_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "kosynier_pl"
+   }
+  ]
+ },
+ {
+  "id": "raclawice_guns_pl_sig",
+  "comment": "Косиньеры бегом бросаются на батарею и берут пушки",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_raclawice_guns_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "scytheman_pl"
+     ],
+     "flags": [
+      "kosynier_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rus_gen_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hero_pl"
+   }
+  ]
+ },
+ {
+  "id": "maciejowice_field_pl_sig",
+  "comment": "Войско Начальника разбито, сам он ранен и взят в плен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_maciejowice_field_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus_gen_f_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kosciuszko_pl"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   }
+  ]
+ },
+ {
+  "id": "praga_storm_pl_sig",
+  "comment": "Армия штурмует Прагу, предместье Варшавы; через несколько дней столица капитулирует",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_praga_storm_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "suvorov_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "praga_pl"
+   }
+  ]
+ },
+ {
+  "id": "finis_poloniae_pl_sig",
+  "comment": "Падая с коня, раненый будто бы кричит «Конец Польши!»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_finis_poloniae_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kosciuszko_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "finis_said_pl"
+   }
+  ]
+ },
+ {
+  "id": "legions_italy_pl_sig",
+  "comment": "С позволения Бонапарта польский генерал собирает в Италии легионы из пленных и эмигрантов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_legions_italy_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "legion_gen_pl"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bonaparte_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "legions_pl"
+   }
+  ]
+ },
+ {
+  "id": "reggio_song_pl_sig",
+  "comment": "Для легионеров поэт пишет песню: «Ещё Польша не погибла, пока мы живы»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_reggio_song_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "poet_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "legion_gen_pl"
+     ],
+     "flags": [
+      "legions_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "mazurek_pl"
+   }
+  ]
+ },
+ {
+  "id": "patriots_plea_pl_sig",
+  "comment": "Патриоты уговаривают молодую графиню принять ухаживания императора — ради Польши",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_patriots_plea_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prince_j_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "countess_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "for_poland_pl"
+   }
+  ]
+ },
+ {
+  "id": "emperor_romance_pl_sig",
+  "comment": "Император влюблён — и готов слушать о польских делах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emperor_romance_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "countess_pl"
+     ],
+     "flags": [
+      "for_poland_pl"
+     ],
+     "notFlags": [
+      "married"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bonaparte_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "beloved_pl"
+   }
+  ]
+ },
+ {
+  "id": "duchy_warsaw_pl_sig",
+  "comment": "Император создаёт Варшавское герцогство — не королевство, о котором мечтали",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_duchy_warsaw_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bonaparte_pl"
+     ],
+     "flags": [
+      "beloved_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prince_j_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "duchy_pl"
+   }
+  ]
+ },
+ {
+  "id": "emperor_order_pl_sig",
+  "comment": "Император, раздражённый задержкой, бросает на батареи польских шеволежеров",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emperor_order_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bonaparte_pl"
+     ],
+     "notFlags": [
+      "delayed_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "chevau_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "ordered_pl"
+   }
+  ]
+ },
+ {
+  "id": "somosierra_charge_pl_sig",
+  "comment": "За восемь минут эскадрон проносится через четыре батареи в узком ущелье",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_somosierra_charge_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "chevau_pl"
+     ],
+     "flags": [
+      "ordered_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gunner_es_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hero_s_pl"
+   }
+  ]
+ },
+ {
+  "id": "mountain_detour_pl_sig",
+  "comment": "Пехота лезет в обход по горам — и армия теряет день",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mountain_detour_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bonaparte_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "delayed_pl"
+   }
+  ]
+ },
+ {
+  "id": "solec_fire_pl_sig",
+  "comment": "Горит пивоварня на Сольце — условный сигнал: подхорунжие школы берут оружие",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_solec_fire_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cadet_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rising_pl"
+   }
+  ]
+ },
+ {
+  "id": "belweder_raid_pl_sig",
+  "comment": "Повстанцы врываются в Бельведер — великий князь прячется и бежит из Варшавы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_belweder_raid_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cadet_pl"
+     ],
+     "flags": [
+      "rising_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "grand_duke_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_b_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "dethronement_pl_sig",
+  "comment": "Сейм объявляет императора низложенным с польского трона",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dethronement_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cadet_pl"
+     ],
+     "flags": [
+      "rising_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar_n_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dethroned_pl"
+   }
+  ]
+ },
+ {
+  "id": "alder_grove_pl_sig",
+  "comment": "Целый день польские полки держат ольховую рощу — фельдмаршал не может взять Варшаву с ходу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_alder_grove_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gen_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "marshal_r_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "stalled_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "ordon_redoubt_pl_sig",
+  "comment": "Редут стоит до последнего — и в легенде взлетает на воздух вместе с защитниками",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ordon_redoubt_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gunner_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "marshal_r_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "legend_ordon_pl"
+   }
+  ]
+ },
+ {
+  "id": "last_wish_pl_sig",
+  "comment": "Умирающий композитор просит сестру отвезти его сердце на родину",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_last_wish_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "composer_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sister_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "carries_heart_pl"
+   }
+  ]
+ },
+ {
+  "id": "cognac_jar_pl_sig",
+  "comment": "Сестра прячет сердце в сосуд с коньяком и укрывает его под платьем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cognac_jar_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sister_pl"
+     ],
+     "flags": [
+      "carries_heart_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hidden_pl"
+   }
+  ]
+ },
+ {
+  "id": "customs_border_hidden_pl",
+  "comment": "Таможня ничего не находит — сердце едет в Варшаву",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_customs_border_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sister_pl"
+     ],
+     "flags": [
+      "carries_heart_pl",
+      "hidden_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "customs_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "home_heart_pl"
+   }
+  ]
+ },
+ {
+  "id": "customs_border_open_pl",
+  "comment": "Сосуд везут открыто — таможня его забирает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_customs_border_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sister_pl"
+     ],
+     "flags": [
+      "carries_heart_pl"
+     ],
+     "notFlags": [
+      "hidden_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "customs_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "confiscated_pl"
+   }
+  ]
+ },
+ {
+  "id": "secret_seal_pl_sig",
+  "comment": "Повстанцы создают Национальное правительство: печать есть, имён членов не знает никто",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_secret_seal_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dictator_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "underground_gov_pl"
+   }
+  ]
+ },
+ {
+  "id": "secret_state_pl_sig",
+  "comment": "Тайное государство собирает налоги, держит почту и свою полицию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_secret_state_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dictator_pl"
+     ],
+     "flags": [
+      "underground_gov_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "state_pl"
+   }
+  ]
+ },
+ {
+  "id": "peasant_ukaz_pl_sig",
+  "comment": "Чтобы оторвать крестьян от восстания, император наделяет их землёй",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_peasant_ukaz_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar_a_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dictator_pl"
+     ],
+     "flags": [
+      "state_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "emancipation_pl"
+   }
+  ]
+ },
+ {
+  "id": "flying_univ_pl_sig",
+  "comment": "Женщин в Варшавский университет не берут — она учится в подпольном «летучем университете»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_flying_univ_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "scientist_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "educated_pl"
+   }
+  ]
+ },
+ {
+  "id": "shed_lab_pl_sig",
+  "comment": "В холодном сарае муж и жена перерабатывают тонны руды и находят новый элемент",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_shed_lab_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "scientist_pl"
+     ],
+     "flags": [
+      "educated_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "scientist_fr_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "new_element_pl"
+   }
+  ]
+ },
+ {
+  "id": "name_polonium_pl_sig",
+  "comment": "Первый открытый элемент она называет в честь страны, которой нет на карте",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_name_polonium_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "scientist_pl"
+     ],
+     "flags": [
+      "new_element_pl"
+     ],
+     "notFlags": [
+      "named_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "polonium_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "named_pl"
+   }
+  ]
+ },
+ {
+  "id": "name_radium_pl_sig",
+  "comment": "Первым объявлен радий — и газеты пишут о французской науке",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_name_radium_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "scientist_pl"
+     ],
+     "flags": [
+      "new_element_pl"
+     ],
+     "notFlags": [
+      "named_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "radium_first_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "named_pl"
+   }
+  ]
+ },
+ {
+  "id": "german_prayer_pl_sig",
+  "comment": "Дети отказываются отвечать на уроке закона Божьего по-немецки",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_german_prayer_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "teacher_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pupil_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "refused_pl"
+   }
+  ]
+ },
+ {
+  "id": "rods_pl_sig",
+  "comment": "Упрямых детей секут розгами",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rods_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "teacher_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pupil_pl"
+     ],
+     "flags": [
+      "refused_pl"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "flogged_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "flogger_pl"
+   }
+  ]
+ },
+ {
+  "id": "mothers_school_pl_sig",
+  "comment": "Родители врываются в школу; суд над ними слышит вся Европа",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mothers_school_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mother_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "teacher_pl"
+     ],
+     "flags": [
+      "flogger_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "protest_w_pl"
+   }
+  ]
+ },
+ {
+  "id": "land_purchase_pl_sig",
+  "comment": "Крестьянин-поляк покупает клочок земли",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_land_purchase_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "peasant_d_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "landowner_pl"
+   }
+  ]
+ },
+ {
+  "id": "permit_denied_pl_sig",
+  "comment": "По новому закону поляку отказывают в разрешении построить дом на своей земле",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_permit_denied_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "official_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "peasant_d_pl"
+     ],
+     "flags": [
+      "landowner_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "no_permit_pl"
+   }
+  ]
+ },
+ {
+  "id": "circus_wagon_pl_sig",
+  "comment": "Фургон не дом — если каждый день его передвигать; крестьянин живёт в цирковом фургоне",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_circus_wagon_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "peasant_d_pl"
+     ],
+     "flags": [
+      "no_permit_pl"
+     ],
+     "notFlags": [
+      "house_demolished_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "wagon_pl"
+   }
+  ]
+ },
+ {
+  "id": "build_house_pl_sig",
+  "comment": "Дом без разрешения сносят, а хозяина штрафуют",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_build_house_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "peasant_d_pl"
+     ],
+     "flags": [
+      "no_permit_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "house_demolished_pl"
+   }
+  ]
+ },
+ {
+  "id": "cadre_company_pl_sig",
+  "comment": "Из Кракова выходит Первая кадровая рота — начало польских легионов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cadre_company_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pilsudski_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "legions_cmd_pl"
+   }
+  ]
+ },
+ {
+  "id": "oath_demand_pl_sig",
+  "comment": "Легионеры должны присягнуть на верность германскому императору — комендант отказывается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oath_demand_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gov_gen_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pilsudski_pl"
+     ],
+     "flags": [
+      "legions_cmd_pl"
+     ],
+     "notFlags": [
+      "sworn_k_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "refused_oath_pl"
+   }
+  ]
+ },
+ {
+  "id": "swear_kaiser_pl_sig",
+  "comment": "Комендант присягает — и становится офицером чужой армии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_swear_kaiser_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gov_gen_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pilsudski_pl"
+     ],
+     "notFlags": [
+      "refused_oath_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sworn_k_pl"
+   }
+  ]
+ },
+ {
+  "id": "magdeburg_pl_sig",
+  "comment": "Отказавшегося коменданта арестовывают и увозят в крепость Магдебург",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_magdeburg_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gov_gen_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pilsudski_pl"
+     ],
+     "flags": [
+      "refused_oath_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "prisoner_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "concerts_us_pl_sig",
+  "comment": "Знаменитый пианист даёт концерты по всей Америке и собирает деньги для голодающей Польши",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_concerts_us_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pianist_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "famous_pl"
+   }
+  ]
+ },
+ {
+  "id": "house_friend_pl_sig",
+  "comment": "Пианист становится другом ближайшего советника президента",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_house_friend_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pianist_pl"
+     ],
+     "flags": [
+      "famous_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "adviser_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "convinced_pl"
+   }
+  ]
+ },
+ {
+  "id": "point13_pl_sig",
+  "comment": "В программу мира включают пункт о независимой Польше с выходом к морю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_point13_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "adviser_pl"
+     ],
+     "flags": [
+      "convinced_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "president_pl"
+     ],
+     "notFlags": [
+      "annoyed_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "point13_pl"
+   }
+  ]
+ },
+ {
+  "id": "demand_borders_pl_sig",
+  "comment": "Требовать у президента конкретных границ — значит раздражить его",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_demand_borders_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pianist_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "president_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "annoyed_pl"
+   }
+  ]
+ },
+ {
+  "id": "train_magdeburg_pl_sig",
+  "comment": "Освобождённый узник поездом возвращается в Варшаву",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_train_magdeburg_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pilsudski_pl"
+     ],
+     "flags": [
+      "prisoner_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "returned_w_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "away"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "regency_hands_pl_sig",
+  "comment": "Регентский совет передаёт вернувшемуся коменданту командование армией",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_regency_hands_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "regent_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pilsudski_pl"
+     ],
+     "flags": [
+      "returned_w_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "commander_pl"
+   }
+  ]
+ },
+ {
+  "id": "disarm_garrison_pl_sig",
+  "comment": "Немецкие солдаты сдают оружие и уезжают домой — почти без выстрелов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_disarm_garrison_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pilsudski_pl"
+     ],
+     "flags": [
+      "commander_pl"
+     ],
+     "notFlags": [
+      "at_war"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "garrison_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "disarmed_pl"
+   }
+  ]
+ },
+ {
+  "id": "dragon_cave_pl_sig",
+  "comment": "Рыцарь в латах идёт в пещеру под Вавелем — и дракон его сжирает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dragon_cave_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "knight_wawel_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dragon_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "sulfur_ram_pl_sig",
+  "comment": "Сапожник набивает баранью шкуру серой и смолой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sulfur_ram_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "shoemaker_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "bait_ready_pl"
+   }
+  ]
+ },
+ {
+  "id": "vistula_drink_pl_sig",
+  "comment": "Дракон глотает барана, в брюхе загорается сера — он пьёт Вислу, пока не лопается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vistula_drink_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "shoemaker_pl"
+     ],
+     "flags": [
+      "bait_ready_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dragon_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hero_dragon_pl"
+   }
+  ]
+ },
+ {
+  "id": "krak_reward_pl_sig",
+  "comment": "Князь отдаёт сапожнику обещанную награду",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krak_reward_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "krak_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "shoemaker_pl"
+     ],
+     "flags": [
+      "hero_dragon_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rewarded_pl"
+   }
+  ]
  }
 ]

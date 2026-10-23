@@ -24,8 +24,10 @@ SLOTS = {
     "body": ("Тело", {
         "male": ("Мужское", lambda p: P.body("male"), {}),
         "female": ("Женское", lambda p: P.body("female"), {}),
+        "none": ("— нет (существо) —", lambda p: None, {}),
     }),
     "face": ("Лицо", {
+        "none": ("— нет —", lambda p: None, {}),
         "std": ("Обычное", lambda p: P.face(eyes_iris=p["iris"], brow=p["brow"], bushy=p["bushy"]),
                 {"iris": C("#6b3a1f", "Глаза"), "brow": C("#4a2e1c", "Брови"), "bushy": B(False, "Густые брови")}),
     }),
@@ -118,6 +120,8 @@ SLOTS = {
                       {"steel": C("#a9b0b8", "Кольчуга"), "surcoat": C("#9e2a2b", "Сюрко"), "belt": C("#5b3a22", "Пояс")}),
         "emperor": ("Императорская далматика", lambda p: P.emperor_robe(p["col"], p["gold"], p["mantle"]),
                     {"col": C("#5a2a6b", "Ткань"), "gold": C("#d8ad3c", "Золото"), "mantle": C("#a8262e", "Мантия")}),
+        "dragon": ("Дракон (целиком)", lambda p: P.dragon(p["col"], p["belly"], p["wing"]),
+                   {"col": C("#5f9a4a", "Чешуя"), "belly": C("#e9d8a0", "Брюхо"), "wing": C("#a8312f", "Крылья")}),
         "mermaid": ("Хвост сирены", lambda p: P.mermaid_tail(p["col"], p["fin"], p["top"]),
                     {"col": C("#3f8a8a", "Хвост"), "fin": C("#6fb5a8", "Плавник"), "top": C("#e9e0cc", "Лиф")}),
         "teutonic": ("Тевтонский рыцарь", lambda p: P.teutonic(p["steel"], p["belt"]),
@@ -152,6 +156,7 @@ SLOTS = {
     "sleeves": ("Рукава", {
         "std": ("Рукава", lambda p: P.sleeves(p["col"], cuff=p["cuff"]), {"col": C("#5a6b4a", "Ткань"), "cuff": C("#d4a63c", "Манжета")}),
         "bare": ("Голые руки", lambda p: P.bare_arms(), {}),
+        "none": ("— нет —", lambda p: None, {}),
     }),
     "legs": ("Штаны", {
         "none": NONE,

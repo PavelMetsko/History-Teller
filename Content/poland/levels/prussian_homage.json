@@ -1,0 +1,79 @@
+{
+ "id": "prussian_homage",
+ "order": 190,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_ceremony",
+ "cover": "homage_square_pl",
+ "panels": 2,
+ "scenes": [
+  "white_mantle_pl",
+  "homage_square_pl",
+  "finish_order_pl"
+ ],
+ "characters": [
+  "sigismund1",
+  "albrecht_hz"
+ ],
+ "initialState": {
+  "flags": {
+   "sigismund1": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "albrecht_hz": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "sigismund1",
+    "albrecht_hz"
+   ],
+   [
+    "enemy_of",
+    "albrecht_hz",
+    "sigismund1"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "albrecht_hz",
+     "is": "vassal_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "sigismund1",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "white_mantle_pl",
+   "characters": [
+    "albrecht_hz"
+   ]
+  },
+  {
+   "scene": "homage_square_pl",
+   "characters": [
+    "sigismund1",
+    "albrecht_hz"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

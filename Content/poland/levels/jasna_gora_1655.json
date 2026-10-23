@@ -1,0 +1,88 @@
+{
+ "id": "jasna_gora_1655",
+ "order": 300,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_ceremony",
+ "cover": "jasna_siege_pl",
+ "panels": 3,
+ "scenes": [
+  "jasna_siege_pl",
+  "king_returns_pl",
+  "lwow_vows_pl",
+  "honourable_surrender_pl"
+ ],
+ "characters": [
+  "kordecki",
+  "muller_sw",
+  "jan_kazimierz"
+ ],
+ "initialState": {
+  "flags": {
+   "kordecki": [
+    "standing"
+   ],
+   "muller_sw": [
+    "standing",
+    "strong"
+   ],
+   "jan_kazimierz": [
+    "crowned",
+    "away"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "muller_sw",
+    "kordecki"
+   ],
+   [
+    "enemy_of",
+    "kordecki",
+    "muller_sw"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jan_kazimierz",
+     "is": "vows_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "muller_sw",
+     "is": "lifted_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jasna_siege_pl",
+   "characters": [
+    "kordecki",
+    "muller_sw"
+   ]
+  },
+  {
+   "scene": "king_returns_pl",
+   "characters": [
+    "jan_kazimierz"
+   ]
+  },
+  {
+   "scene": "lwow_vows_pl",
+   "characters": [
+    "jan_kazimierz",
+    "kordecki"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

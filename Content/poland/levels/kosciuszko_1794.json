@@ -1,0 +1,92 @@
+{
+ "id": "kosciuszko_1794",
+ "order": 370,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_battle",
+ "cover": "raclawice_guns_pl",
+ "panels": 3,
+ "scenes": [
+  "krakow_oath_1794_pl",
+  "scythemen_pl",
+  "raclawice_guns_pl",
+  "regular_attack_pl"
+ ],
+ "characters": [
+  "kosciuszko",
+  "glowacki",
+  "tormasov"
+ ],
+ "initialState": {
+  "flags": {
+   "kosciuszko": [
+    "standing"
+   ],
+   "tormasov": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "kosciuszko",
+    "tormasov"
+   ],
+   [
+    "enemy_of",
+    "tormasov",
+    "kosciuszko"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tormasov",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "glowacki",
+     "is": "hero_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "kosciuszko",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "krakow_oath_1794_pl",
+   "characters": [
+    "kosciuszko"
+   ]
+  },
+  {
+   "scene": "scythemen_pl",
+   "characters": [
+    "kosciuszko",
+    "glowacki"
+   ]
+  },
+  {
+   "scene": "raclawice_guns_pl",
+   "characters": [
+    "glowacki",
+    "tormasov"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

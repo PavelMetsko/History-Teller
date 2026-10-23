@@ -1,0 +1,78 @@
+{
+ "id": "poniatowski_1764",
+ "order": 340,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_tension",
+ "cover": "election_1764_pl",
+ "panels": 3,
+ "scenes": [
+  "petersburg_love_pl",
+  "election_1764_pl",
+  "repnin_dictates_pl",
+  "marry_empress_pl"
+ ],
+ "characters": [
+  "catherine2_pl",
+  "poniatowski",
+  "repnin"
+ ],
+ "initialState": {
+  "flags": {
+   "catherine2_pl": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "repnin": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "poniatowski",
+     "is": "dictated_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "poniatowski",
+      "is": "married"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "petersburg_love_pl",
+   "characters": [
+    "catherine2_pl",
+    "poniatowski"
+   ]
+  },
+  {
+   "scene": "election_1764_pl",
+   "characters": [
+    "repnin",
+    "poniatowski"
+   ]
+  },
+  {
+   "scene": "repnin_dictates_pl",
+   "characters": [
+    "repnin",
+    "poniatowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

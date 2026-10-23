@@ -1,0 +1,80 @@
+{
+ "id": "jadwiga_axe",
+ "order": 140,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_romance",
+ "cover": "krakow_1386_pl",
+ "panels": 3,
+ "scenes": [
+  "wilhelm_sent_pl",
+  "krewo_union_pl",
+  "krakow_1386_pl",
+  "secret_vows_pl"
+ ],
+ "characters": [
+  "jadwiga",
+  "jagiello",
+  "wilhelm_hab"
+ ],
+ "initialState": {
+  "flags": {
+   "jadwiga": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "jagiello": [
+    "pagan",
+    "reigns",
+    "standing"
+   ],
+   "wilhelm_hab": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jagiello",
+     "is": "king_jag_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "jagiello",
+     "is": "baptized"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "wilhelm_sent_pl",
+   "characters": [
+    "jadwiga",
+    "wilhelm_hab"
+   ]
+  },
+  {
+   "scene": "krewo_union_pl",
+   "characters": [
+    "jagiello",
+    "jadwiga"
+   ]
+  },
+  {
+   "scene": "krakow_1386_pl",
+   "characters": [
+    "jagiello",
+    "jadwiga"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

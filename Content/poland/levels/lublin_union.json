@@ -1,0 +1,75 @@
+{
+ "id": "lublin_union",
+ "order": 220,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_ceremony",
+ "cover": "union_act_pl",
+ "panels": 3,
+ "scenes": [
+  "magnates_leave_pl",
+  "incorporation_pl",
+  "union_act_pl",
+  "persuade_pl"
+ ],
+ "characters": [
+  "sigismund2",
+  "radziwill_rudy",
+  "volhynian_noble"
+ ],
+ "initialState": {
+  "flags": {
+   "sigismund2": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "radziwill_rudy": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "radziwill_rudy",
+     "is": "union_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "volhynian_noble",
+     "is": "crown_land_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "magnates_leave_pl",
+   "characters": [
+    "radziwill_rudy",
+    "sigismund2"
+   ]
+  },
+  {
+   "scene": "incorporation_pl",
+   "characters": [
+    "sigismund2",
+    "volhynian_noble"
+   ]
+  },
+  {
+   "scene": "union_act_pl",
+   "characters": [
+    "sigismund2",
+    "radziwill_rudy"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "copernicus_olsztyn",
+ "order": 180,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_ceremony",
+ "cover": "revolutions_pl",
+ "panels": 2,
+ "scenes": [
+  "olsztyn_walls_pl",
+  "revolutions_pl",
+  "leave_frombork_pl"
+ ],
+ "characters": [
+  "copernicus",
+  "komtur"
+ ],
+ "initialState": {
+  "flags": {
+   "copernicus": [
+    "standing"
+   ],
+   "komtur": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "komtur",
+    "copernicus"
+   ],
+   [
+    "enemy_of",
+    "copernicus",
+    "komtur"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "copernicus",
+     "is": "heliocentric_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "komtur",
+     "is": "repelled_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "olsztyn_walls_pl",
+   "characters": [
+    "copernicus",
+    "komtur"
+   ]
+  },
+  {
+   "scene": "revolutions_pl",
+   "characters": [
+    "copernicus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

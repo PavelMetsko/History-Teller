@@ -1,0 +1,103 @@
+{
+ "id": "varna_1444",
+ "order": 160,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_battle",
+ "cover": "varna_charge_pl",
+ "panels": 3,
+ "scenes": [
+  "szeged_peace_pl",
+  "broken_oath_pl",
+  "varna_charge_pl",
+  "hunyadi_line_pl"
+ ],
+ "characters": [
+  "wladyslaw3",
+  "hunyadi",
+  "murad2"
+ ],
+ "initialState": {
+  "flags": {
+   "wladyslaw3": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "hunyadi": [
+    "standing",
+    "strong"
+   ],
+   "murad2": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "murad2",
+    "wladyslaw3"
+   ],
+   [
+    "enemy_of",
+    "wladyslaw3",
+    "murad2"
+   ],
+   [
+    "enemy_of",
+    "murad2",
+    "hunyadi"
+   ],
+   [
+    "enemy_of",
+    "hunyadi",
+    "murad2"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wladyslaw3",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "wladyslaw3",
+     "is": "oathbreaker_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "szeged_peace_pl",
+   "characters": [
+    "wladyslaw3",
+    "murad2"
+   ]
+  },
+  {
+   "scene": "broken_oath_pl",
+   "characters": [
+    "wladyslaw3"
+   ]
+  },
+  {
+   "scene": "varna_charge_pl",
+   "characters": [
+    "wladyslaw3",
+    "murad2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

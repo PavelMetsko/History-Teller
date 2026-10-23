@@ -1,0 +1,50 @@
+{
+  "id": "wawel_dragon",
+  "name": "Вавельский дракон",
+  "old_ref": "hetman",
+  "skin": "#5f9a4a",
+  "slots": {
+    "body": {
+      "type": "none"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "none"
+    },
+    "hair": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "dragon"
+    },
+    "sleeves": {
+      "type": "none"
+    }
+  }
+}

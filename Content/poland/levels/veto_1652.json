@@ -1,0 +1,70 @@
+{
+ "id": "veto_1652",
+ "order": 290,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_tension",
+ "cover": "nie_pozwalam_pl",
+ "panels": 3,
+ "scenes": [
+  "magnate_money_pl",
+  "sejm_time_pl",
+  "nie_pozwalam_pl",
+  "king_persuades_pl"
+ ],
+ "characters": [
+  "sicinski",
+  "fredro_marshal",
+  "jan_kazimierz"
+ ],
+ "initialState": {
+  "flags": {
+   "jan_kazimierz": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "fredro_marshal": [
+    "standing"
+   ],
+   "sicinski": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "fredro_marshal",
+     "is": "sejm_broken_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "magnate_money_pl",
+   "characters": [
+    "sicinski"
+   ]
+  },
+  {
+   "scene": "sejm_time_pl",
+   "characters": [
+    "fredro_marshal"
+   ]
+  },
+  {
+   "scene": "nie_pozwalam_pl",
+   "characters": [
+    "sicinski",
+    "fredro_marshal"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "id": "warsaw_confederation",
+ "order": 230,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_ceremony",
+ "cover": "confederation_pl",
+ "panels": 3,
+ "scenes": [
+  "confederation_pl",
+  "election_1573_pl",
+  "si_non_iurabis_pl",
+  "primate_talks_pl"
+ ],
+ "characters": [
+  "firlej",
+  "primate_uchanski",
+  "henri_valois"
+ ],
+ "initialState": {
+  "flags": {
+   "primate_uchanski": [
+    "standing"
+   ],
+   "firlej": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henri_valois",
+     "is": "sworn_articles_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "firlej",
+     "is": "confederation_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "confederation_pl",
+   "characters": [
+    "firlej"
+   ]
+  },
+  {
+   "scene": "election_1573_pl",
+   "characters": [
+    "firlej",
+    "henri_valois"
+   ]
+  },
+  {
+   "scene": "si_non_iurabis_pl",
+   "characters": [
+    "firlej",
+    "henri_valois"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

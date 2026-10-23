@@ -1,0 +1,104 @@
+{
+ "id": "klushino_1610",
+ "order": 270,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_battle",
+ "cover": "klushino_field_pl",
+ "panels": 3,
+ "scenes": [
+  "klushino_field_pl",
+  "tsar_tonsured_pl",
+  "boyars_invite_pl",
+  "king_claims_pl"
+ ],
+ "characters": [
+  "zolkiewski",
+  "shuisky_pl",
+  "wladyslaw4",
+  "sigismund3"
+ ],
+ "initialState": {
+  "flags": {
+   "zolkiewski": [
+    "standing",
+    "strong"
+   ],
+   "shuisky_pl": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "wladyslaw4": [
+    "standing"
+   ],
+   "sigismund3": [
+    "crowned",
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "zolkiewski",
+    "shuisky_pl"
+   ],
+   [
+    "enemy_of",
+    "shuisky_pl",
+    "zolkiewski"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wladyslaw4",
+     "is": "tsar_elect_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "shuisky_pl",
+     "is": "deposed_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "sigismund3",
+      "is": "claims_throne_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "klushino_field_pl",
+   "characters": [
+    "zolkiewski",
+    "shuisky_pl"
+   ]
+  },
+  {
+   "scene": "tsar_tonsured_pl",
+   "characters": [
+    "shuisky_pl"
+   ]
+  },
+  {
+   "scene": "boyars_invite_pl",
+   "characters": [
+    "zolkiewski",
+    "wladyslaw4"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

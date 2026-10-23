@@ -1,0 +1,78 @@
+{
+ "id": "maciejowice_1794",
+ "order": 380,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_tension",
+ "cover": "maciejowice_field_pl",
+ "panels": 2,
+ "scenes": [
+  "maciejowice_field_pl",
+  "praga_storm_pl",
+  "finis_poloniae_pl",
+  "kosciuszko_flee_pl"
+ ],
+ "characters": [
+  "kosciuszko",
+  "fersen_gen",
+  "suvorov_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "kosciuszko": [
+    "standing"
+   ],
+   "fersen_gen": [
+    "standing",
+    "strong"
+   ],
+   "suvorov_pl": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "kosciuszko",
+     "is": "captured_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "suvorov_pl",
+     "is": "praga_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "kosciuszko",
+      "is": "finis_said_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "maciejowice_field_pl",
+   "characters": [
+    "fersen_gen",
+    "kosciuszko"
+   ]
+  },
+  {
+   "scene": "praga_storm_pl",
+   "characters": [
+    "suvorov_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

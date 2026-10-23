@@ -1,0 +1,85 @@
+{
+ "id": "malbork_1457",
+ "order": 170,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_tension",
+ "cover": "buy_malbork_pl",
+ "panels": 2,
+ "scenes": [
+  "unpaid_wages_pl",
+  "buy_malbork_pl",
+  "storm_malbork_pl",
+  "early_bribe_pl"
+ ],
+ "characters": [
+  "casimir4",
+  "grandmaster_lv",
+  "czerwonka"
+ ],
+ "initialState": {
+  "flags": {
+   "casimir4": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "grandmaster_lv": [
+    "standing",
+    "strong"
+   ],
+   "czerwonka": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "casimir4",
+    "grandmaster_lv"
+   ],
+   [
+    "enemy_of",
+    "grandmaster_lv",
+    "casimir4"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "casimir4",
+     "is": "malbork_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "casimir4",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "unpaid_wages_pl",
+   "characters": [
+    "grandmaster_lv",
+    "czerwonka"
+   ]
+  },
+  {
+   "scene": "buy_malbork_pl",
+   "characters": [
+    "casimir4",
+    "czerwonka"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

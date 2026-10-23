@@ -1,0 +1,70 @@
+{
+ "id": "chopin_heart_1849",
+ "order": 440,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_romance",
+ "cover": "cognac_jar_pl",
+ "panels": 3,
+ "scenes": [
+  "last_wish_pl",
+  "cognac_jar_pl",
+  "customs_border_pl"
+ ],
+ "characters": [
+  "chopin",
+  "ludwika",
+  "customs_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "customs_ru": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ludwika",
+     "is": "home_heart_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "ludwika",
+      "is": "confiscated_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "last_wish_pl",
+   "characters": [
+    "chopin",
+    "ludwika"
+   ]
+  },
+  {
+   "scene": "cognac_jar_pl",
+   "characters": [
+    "ludwika"
+   ]
+  },
+  {
+   "scene": "customs_border_pl",
+   "characters": [
+    "ludwika",
+    "customs_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

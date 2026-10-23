@@ -1,0 +1,58 @@
+{
+ "id": "twardowski",
+ "order": 305,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_romance",
+ "cover": "inn_rome_pl",
+ "panels": 3,
+ "scenes": [
+  "pact_krzemionki_pl",
+  "inn_rome_pl",
+  "marian_hymn_pl",
+  "real_rome_pl"
+ ],
+ "characters": [
+  "twardowski",
+  "devil_pl"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "twardowski",
+     "is": "on_moon_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pact_krzemionki_pl",
+   "characters": [
+    "twardowski",
+    "devil_pl"
+   ]
+  },
+  {
+   "scene": "inn_rome_pl",
+   "characters": [
+    "twardowski",
+    "devil_pl"
+   ]
+  },
+  {
+   "scene": "marian_hymn_pl",
+   "characters": [
+    "twardowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

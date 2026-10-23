@@ -1,0 +1,75 @@
+{
+ "id": "bona_sums",
+ "order": 210,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_tension",
+ "cover": "forged_will_pl",
+ "panels": 3,
+ "scenes": [
+  "leave_bari_pl",
+  "loan_philip_pl",
+  "forged_will_pl",
+  "buy_courtier_pl"
+ ],
+ "characters": [
+  "bona",
+  "philip2_es",
+  "pappacoda"
+ ],
+ "initialState": {
+  "flags": {
+   "bona": [
+    "crowned",
+    "standing"
+   ],
+   "philip2_es": [
+    "crowned",
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "philip2_es",
+     "is": "debtor_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "bona",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "leave_bari_pl",
+   "characters": [
+    "bona"
+   ]
+  },
+  {
+   "scene": "loan_philip_pl",
+   "characters": [
+    "bona",
+    "philip2_es"
+   ]
+  },
+  {
+   "scene": "forged_will_pl",
+   "characters": [
+    "pappacoda",
+    "bona"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "skuba",
+  "name": "Сапожник Скуба",
+  "old_ref": "hetman",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#2f6a4a",
+      "fur": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#8a5a34"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#a07a4a",
+      "trim": "#5a3a22",
+      "belt": "#5a3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a07a4a",
+      "cuff": "#a07a4a"
+    }
+  }
+}

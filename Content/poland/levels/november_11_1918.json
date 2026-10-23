@@ -1,0 +1,90 @@
+{
+ "id": "november_11_1918",
+ "order": 510,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_ceremony",
+ "cover": "disarm_garrison_pl",
+ "panels": 3,
+ "scenes": [
+  "train_magdeburg_pl",
+  "regency_hands_pl",
+  "disarm_garrison_pl",
+  "storm_barracks_pl"
+ ],
+ "characters": [
+  "pilsudski",
+  "regent_kakowski",
+  "german_officer"
+ ],
+ "initialState": {
+  "flags": {
+   "pilsudski": [
+    "prisoner_pl",
+    "away"
+   ],
+   "regent_kakowski": [
+    "standing"
+   ],
+   "german_officer": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "pilsudski",
+    "german_officer"
+   ],
+   [
+    "enemy_of",
+    "german_officer",
+    "pilsudski"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "german_officer",
+     "is": "disarmed_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pilsudski",
+      "is": "at_war"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "train_magdeburg_pl",
+   "characters": [
+    "pilsudski"
+   ]
+  },
+  {
+   "scene": "regency_hands_pl",
+   "characters": [
+    "regent_kakowski",
+    "pilsudski"
+   ]
+  },
+  {
+   "scene": "disarm_garrison_pl",
+   "characters": [
+    "pilsudski",
+    "german_officer"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "id": "first_partition_1772",
+ "order": 350,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_tension",
+ "cover": "rejtan_door_pl",
+ "panels": 3,
+ "scenes": [
+  "partition_pact_pl",
+  "rejtan_door_pl",
+  "ratify_partition_pl",
+  "stop_by_force_pl"
+ ],
+ "characters": [
+  "catherine2_pl",
+  "frederick_great",
+  "maria_theresa",
+  "rejtan"
+ ],
+ "initialState": {
+  "flags": {
+   "catherine2_pl": [
+    "crowned",
+    "standing"
+   ],
+   "frederick_great": [
+    "crowned",
+    "standing",
+    "strong"
+   ],
+   "maria_theresa": [
+    "crowned",
+    "standing"
+   ],
+   "rejtan": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "rejtan",
+    "frederick_great"
+   ],
+   [
+    "enemy_of",
+    "frederick_great",
+    "rejtan"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "catherine2_pl",
+     "is": "ratified_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "maria_theresa",
+     "is": "partitioner_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "rejtan",
+     "is": "protest_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "partition_pact_pl",
+   "characters": [
+    "catherine2_pl",
+    "frederick_great",
+    "maria_theresa"
+   ]
+  },
+  {
+   "scene": "rejtan_door_pl",
+   "characters": [
+    "rejtan"
+   ]
+  },
+  {
+   "scene": "ratify_partition_pl",
+   "characters": [
+    "rejtan",
+    "catherine2_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "id": "henri_flight",
+ "order": 240,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_tension",
+ "cover": "night_escape_pl",
+ "panels": 3,
+ "scenes": [
+  "news_paris_pl",
+  "night_escape_pl",
+  "chase_pszczyna_pl",
+  "anna_wedding_pl"
+ ],
+ "characters": [
+  "henri_valois",
+  "anna_jag",
+  "tenczynski"
+ ],
+ "initialState": {
+  "flags": {
+   "henri_valois": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "anna_jag": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henri_valois",
+     "is": "fled_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "tenczynski",
+     "is": "caught_up_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "anna_jag",
+      "is": "married"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "news_paris_pl",
+   "characters": [
+    "henri_valois"
+   ]
+  },
+  {
+   "scene": "night_escape_pl",
+   "characters": [
+    "henri_valois"
+   ]
+  },
+  {
+   "scene": "chase_pszczyna_pl",
+   "characters": [
+    "tenczynski",
+    "henri_valois"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

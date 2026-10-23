@@ -1,0 +1,57 @@
+{
+ "id": "polonium_1898",
+ "order": 460,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_ceremony",
+ "cover": "shed_lab_pl",
+ "panels": 3,
+ "scenes": [
+  "flying_univ_pl",
+  "shed_lab_pl",
+  "name_polonium_pl",
+  "name_radium_pl"
+ ],
+ "characters": [
+  "sklodowska",
+  "pierre_curie"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sklodowska",
+     "is": "polonium_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "flying_univ_pl",
+   "characters": [
+    "sklodowska"
+   ]
+  },
+  {
+   "scene": "shed_lab_pl",
+   "characters": [
+    "sklodowska",
+    "pierre_curie"
+   ]
+  },
+  {
+   "scene": "name_polonium_pl",
+   "characters": [
+    "sklodowska"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

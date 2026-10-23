@@ -1,0 +1,61 @@
+{
+ "id": "drzymala_1904",
+ "order": 480,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_romance",
+ "cover": "circus_wagon_pl",
+ "panels": 3,
+ "scenes": [
+  "land_purchase_pl",
+  "permit_denied_pl",
+  "circus_wagon_pl",
+  "build_house_pl"
+ ],
+ "characters": [
+  "drzymala",
+  "prussian_official"
+ ],
+ "initialState": {
+  "flags": {
+   "prussian_official": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "drzymala",
+     "is": "wagon_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "land_purchase_pl",
+   "characters": [
+    "drzymala"
+   ]
+  },
+  {
+   "scene": "permit_denied_pl",
+   "characters": [
+    "prussian_official",
+    "drzymala"
+   ]
+  },
+  {
+   "scene": "circus_wagon_pl",
+   "characters": [
+    "drzymala"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

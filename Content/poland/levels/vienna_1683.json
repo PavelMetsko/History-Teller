@@ -1,0 +1,113 @@
+{
+ "id": "vienna_1683",
+ "order": 320,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_battle",
+ "cover": "kahlenberg_charge_pl",
+ "panels": 3,
+ "scenes": [
+  "spy_lines_pl",
+  "relief_march_pl",
+  "kahlenberg_charge_pl",
+  "emperor_sortie_pl"
+ ],
+ "characters": [
+  "sobieski",
+  "kara_mustafa",
+  "leopold1",
+  "kulczycki"
+ ],
+ "initialState": {
+  "flags": {
+   "sobieski": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "kara_mustafa": [
+    "standing",
+    "strong"
+   ],
+   "leopold1": [
+    "crowned",
+    "standing"
+   ],
+   "kulczycki": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "kara_mustafa",
+    "leopold1"
+   ],
+   [
+    "enemy_of",
+    "leopold1",
+    "kara_mustafa"
+   ],
+   [
+    "enemy_of",
+    "kara_mustafa",
+    "sobieski"
+   ],
+   [
+    "enemy_of",
+    "sobieski",
+    "kara_mustafa"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sobieski",
+     "is": "savior_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "kara_mustafa",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "leopold1",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "spy_lines_pl",
+   "characters": [
+    "kulczycki",
+    "leopold1"
+   ]
+  },
+  {
+   "scene": "relief_march_pl",
+   "characters": [
+    "sobieski",
+    "kulczycki"
+   ]
+  },
+  {
+   "scene": "kahlenberg_charge_pl",
+   "characters": [
+    "sobieski",
+    "kara_mustafa"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

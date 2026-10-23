@@ -1,0 +1,94 @@
+{
+ "id": "chocim_1621",
+ "order": 280,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_battle",
+ "cover": "camp_holds_pl",
+ "panels": 3,
+ "scenes": [
+  "cossacks_join_pl",
+  "hetman_deathbed_pl",
+  "camp_holds_pl",
+  "chocim_field_pl"
+ ],
+ "characters": [
+  "chodkiewicz",
+  "lubomirski",
+  "sahaidachny",
+  "osman2"
+ ],
+ "initialState": {
+  "flags": {
+   "chodkiewicz": [
+    "standing"
+   ],
+   "lubomirski": [
+    "standing"
+   ],
+   "sahaidachny": [
+    "standing"
+   ],
+   "osman2": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "chodkiewicz",
+    "osman2"
+   ],
+   [
+    "enemy_of",
+    "osman2",
+    "chodkiewicz"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "osman2",
+     "is": "withdrew_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "sahaidachny",
+     "is": "allied_kh_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cossacks_join_pl",
+   "characters": [
+    "chodkiewicz",
+    "sahaidachny"
+   ]
+  },
+  {
+   "scene": "hetman_deathbed_pl",
+   "characters": [
+    "chodkiewicz",
+    "lubomirski"
+   ]
+  },
+  {
+   "scene": "camp_holds_pl",
+   "characters": [
+    "lubomirski",
+    "osman2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

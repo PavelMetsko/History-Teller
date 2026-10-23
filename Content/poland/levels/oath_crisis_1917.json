@@ -1,0 +1,63 @@
+{
+ "id": "oath_crisis_1917",
+ "order": 490,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "magdeburg_pl",
+ "panels": 3,
+ "scenes": [
+  "cadre_company_pl",
+  "oath_demand_pl",
+  "magdeburg_pl",
+  "swear_kaiser_pl"
+ ],
+ "characters": [
+  "pilsudski",
+  "beseler"
+ ],
+ "initialState": {
+  "flags": {
+   "beseler": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pilsudski",
+     "is": "prisoner_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cadre_company_pl",
+   "characters": [
+    "pilsudski"
+   ]
+  },
+  {
+   "scene": "oath_demand_pl",
+   "characters": [
+    "beseler",
+    "pilsudski"
+   ]
+  },
+  {
+   "scene": "magdeburg_pl",
+   "characters": [
+    "beseler",
+    "pilsudski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

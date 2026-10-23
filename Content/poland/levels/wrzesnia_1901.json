@@ -1,0 +1,73 @@
+{
+ "id": "wrzesnia_1901",
+ "order": 470,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "mothers_school_pl",
+ "panels": 3,
+ "scenes": [
+  "german_prayer_pl",
+  "rods_pl",
+  "mothers_school_pl",
+  "persuade_child_pl"
+ ],
+ "characters": [
+  "pupil_wrzesnia",
+  "teacher_de",
+  "mother_wrzesnia"
+ ],
+ "initialState": {
+  "flags": {
+   "teacher_de": [
+    "standing"
+   ],
+   "mother_wrzesnia": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mother_wrzesnia",
+     "is": "protest_w_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "pupil_wrzesnia",
+     "is": "refused_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "german_prayer_pl",
+   "characters": [
+    "teacher_de",
+    "pupil_wrzesnia"
+   ]
+  },
+  {
+   "scene": "rods_pl",
+   "characters": [
+    "teacher_de",
+    "pupil_wrzesnia"
+   ]
+  },
+  {
+   "scene": "mothers_school_pl",
+   "characters": [
+    "mother_wrzesnia",
+    "teacher_de"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,94 @@
+{
+ "id": "belweder_1830",
+ "order": 420,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "belweder_raid_pl",
+ "panels": 3,
+ "scenes": [
+  "solec_fire_pl",
+  "belweder_raid_pl",
+  "dethronement_pl",
+  "kill_duke_pl"
+ ],
+ "characters": [
+  "wysocki",
+  "konstantin_pl",
+  "nicholas1_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "konstantin_pl": [
+    "standing"
+   ],
+   "nicholas1_pl": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "wysocki",
+    "konstantin_pl"
+   ],
+   [
+    "enemy_of",
+    "konstantin_pl",
+    "wysocki"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "konstantin_pl",
+     "is": "fled_b_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "nicholas1_pl",
+     "is": "dethroned_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "konstantin_pl",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "solec_fire_pl",
+   "characters": [
+    "wysocki"
+   ]
+  },
+  {
+   "scene": "belweder_raid_pl",
+   "characters": [
+    "wysocki",
+    "konstantin_pl"
+   ]
+  },
+  {
+   "scene": "dethronement_pl",
+   "characters": [
+    "wysocki",
+    "nicholas1_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

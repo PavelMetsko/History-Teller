@@ -1,0 +1,77 @@
+{
+ "id": "walewska_1807",
+ "order": 400,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_romance",
+ "cover": "emperor_romance_pl",
+ "panels": 3,
+ "scenes": [
+  "patriots_plea_pl",
+  "emperor_romance_pl",
+  "duchy_warsaw_pl",
+  "emperor_wedding_pl"
+ ],
+ "characters": [
+  "napoleon_pl",
+  "walewska",
+  "jozef_poniatowski"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon_pl": [
+    "crowned",
+    "standing",
+    "strong"
+   ],
+   "jozef_poniatowski": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jozef_poniatowski",
+     "is": "duchy_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "walewska",
+      "is": "married"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "patriots_plea_pl",
+   "characters": [
+    "jozef_poniatowski",
+    "walewska"
+   ]
+  },
+  {
+   "scene": "emperor_romance_pl",
+   "characters": [
+    "walewska",
+    "napoleon_pl"
+   ]
+  },
+  {
+   "scene": "duchy_warsaw_pl",
+   "characters": [
+    "napoleon_pl",
+    "jozef_poniatowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

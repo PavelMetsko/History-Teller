@@ -1,0 +1,63 @@
+{
+ "id": "paderewski_1918",
+ "order": 500,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_ceremony",
+ "cover": "point13_pl",
+ "panels": 3,
+ "scenes": [
+  "concerts_us_pl",
+  "house_friend_pl",
+  "point13_pl",
+  "demand_borders_pl"
+ ],
+ "characters": [
+  "paderewski",
+  "wilson",
+  "house_col"
+ ],
+ "initialState": {
+  "flags": {
+   "wilson": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wilson",
+     "is": "point13_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "concerts_us_pl",
+   "characters": [
+    "paderewski"
+   ]
+  },
+  {
+   "scene": "house_friend_pl",
+   "characters": [
+    "paderewski",
+    "house_col"
+   ]
+  },
+  {
+   "scene": "point13_pl",
+   "characters": [
+    "house_col",
+    "wilson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}
