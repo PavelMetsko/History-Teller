@@ -1,0 +1,87 @@
+{
+ "id": "legnica_1241",
+ "order": 100,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_battle",
+ "cover": "hejnal_tower_pl",
+ "panels": 3,
+ "scenes": [
+  "mongol_feint_pl",
+  "legnica_field_pl",
+  "hejnal_tower_pl",
+  "legnica_front_pl"
+ ],
+ "characters": [
+  "henry_pious",
+  "mongol_pl",
+  "trumpeter_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "henry_pious": [
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "mongol_pl": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry_pious",
+    "mongol_pl"
+   ],
+   [
+    "enemy_of",
+    "mongol_pl",
+    "henry_pious"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry_pious",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "trumpeter_pl",
+     "is": "hejnal_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mongol_feint_pl",
+   "characters": [
+    "mongol_pl",
+    "henry_pious"
+   ]
+  },
+  {
+   "scene": "legnica_field_pl",
+   "characters": [
+    "mongol_pl",
+    "henry_pious"
+   ]
+  },
+  {
+   "scene": "hejnal_tower_pl",
+   "characters": [
+    "trumpeter_pl",
+    "mongol_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

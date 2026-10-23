@@ -1,0 +1,60 @@
+{
+  "id": "walewska",
+  "name": "Мария Валевская",
+  "old_ref": "victoria",
+  "skin": "#f9d6c0",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#e0b86a"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#f4f1ea",
+      "trim": "#4b6a9a",
+      "mantle": "#4b6a9a",
+      "shoes": "#f4f1ea"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#4b6a9a"
+    }
+  }
+}

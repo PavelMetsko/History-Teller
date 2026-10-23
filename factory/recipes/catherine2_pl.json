@@ -1,0 +1,60 @@
+{
+  "id": "catherine2_pl",
+  "name": "Императрица Екатерина II",
+  "old_ref": "victoria",
+  "skin": "#f9d6c0",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig",
+      "col": "#ece8e2"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#e9e0cc",
+      "trim": "#d4a63c",
+      "mantle": "#a8312f",
+      "shoes": "#e9e0cc"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#d4a63c"
+    }
+  }
+}

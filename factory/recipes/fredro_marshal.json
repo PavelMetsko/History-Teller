@@ -1,0 +1,62 @@
+{
+  "id": "fredro_marshal",
+  "name": "Маршалок сейма",
+  "old_ref": "hetman",
+  "skin": "#f1c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#a39d95"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#a39d95"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9e0cc",
+      "kontusz": "#2f6a4a",
+      "sash": "#d4a63c",
+      "sash2": "#2f6a4a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#e9e0cc"
+    }
+  }
+}

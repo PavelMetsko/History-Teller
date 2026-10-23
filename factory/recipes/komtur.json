@@ -1,0 +1,54 @@
+{
+  "id": "komtur",
+  "name": "Комтур ордена",
+  "old_ref": "hetman",
+  "skin": "#efc2a4",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#6b4426"
+    },
+    "hat": {
+      "type": "nasal"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "teutonic"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    }
+  }
+}

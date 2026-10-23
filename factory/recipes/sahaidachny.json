@@ -1,0 +1,64 @@
+{
+  "id": "sahaidachny",
+  "name": "Гетман Сагайдачный",
+  "old_ref": "hetman",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#3b2a20",
+      "top": "#2f6a4a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#4b6a9a",
+      "kontusz": "#2f6a4a",
+      "sash": "#a8312f",
+      "sash2": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4b6a9a",
+      "cuff": "#4b6a9a"
+    }
+  }
+}

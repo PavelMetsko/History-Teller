@@ -1,0 +1,62 @@
+{
+  "id": "mother_wrzesnia",
+  "name": "Мать школьника",
+  "old_ref": "victoria",
+  "skin": "#f9d2b8",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#a8312f",
+      "band": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#4f6b8a",
+      "trim": "#e9e0cc",
+      "mantle": "#5a4434",
+      "shoes": "#4f6b8a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4f6b8a",
+      "cuff": "#e9e0cc"
+    }
+  }
+}

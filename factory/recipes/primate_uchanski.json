@@ -1,0 +1,56 @@
+{
+  "id": "primate_uchanski",
+  "name": "Примас Уханский",
+  "old_ref": "hetman",
+  "skin": "#f0c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "mitre"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "cross",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#a39d95"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#a8312f",
+      "rope": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#d4a63c"
+    }
+  }
+}

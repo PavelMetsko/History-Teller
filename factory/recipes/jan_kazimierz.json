@@ -1,0 +1,62 @@
+{
+  "id": "jan_kazimierz",
+  "name": "Ян Казимир Ваза",
+  "old_ref": "hetman",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#e9e0cc"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9e0cc",
+      "kontusz": "#a8312f",
+      "sash": "#d4a63c",
+      "sash2": "#2f6a4a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#e9e0cc"
+    }
+  }
+}

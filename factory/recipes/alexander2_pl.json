@@ -1,0 +1,64 @@
+{
+  "id": "alexander2_pl",
+  "name": "Император Александр II",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#6b4426"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#4b6a9a",
+      "bushy": true
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#2f4a7a",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "#e9e0cc",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#a8312f"
+    }
+  }
+}

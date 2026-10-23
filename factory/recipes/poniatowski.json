@@ -1,0 +1,62 @@
+{
+  "id": "poniatowski",
+  "name": "Король Станислав Август",
+  "old_ref": "hetman",
+  "skin": "#f5cbb0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig"
+    },
+    "outfit": {
+      "type": "frock",
+      "col": "#4b6a9a",
+      "vest": "#f4f1ea",
+      "trim": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4b6a9a",
+      "cuff": "#f4f1ea"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "zawisza",
+  "name": "Завиша Чёрный",
+  "old_ref": "hetman",
+  "skin": "#f1c0a0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#1e1a1a"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#5a3a22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a1a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#1e1a1a"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#5a5e66",
+      "surcoat": "#1e1e22",
+      "belt": "#c9a24a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a5e66",
+      "cuff": "#5a5e66"
+    }
+  }
+}

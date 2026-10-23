@@ -1,0 +1,68 @@
+{
+ "id": "warsaw_mermaid",
+ "order": 16,
+ "epoch": "poland",
+ "act": "Акт I · Легенды",
+ "music": "poland_romance",
+ "cover": "mermaid_oath_pl",
+ "panels": 3,
+ "scenes": [
+  "merchant_net_pl",
+  "night_rescue_pl",
+  "mermaid_oath_pl",
+  "merchant_deal_pl"
+ ],
+ "characters": [
+  "syrenka",
+  "wars_fisher",
+  "merchant_pl"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "syrenka",
+     "is": "protector_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wars_fisher",
+      "is": "bought"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "merchant_net_pl",
+   "characters": [
+    "merchant_pl",
+    "syrenka"
+   ]
+  },
+  {
+   "scene": "night_rescue_pl",
+   "characters": [
+    "wars_fisher",
+    "syrenka"
+   ]
+  },
+  {
+   "scene": "mermaid_oath_pl",
+   "characters": [
+    "syrenka",
+    "wars_fisher"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "jagiello",
+  "name": "Владислав Ягайло",
+  "old_ref": "hetman",
+  "skin": "#f1c0a0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#d8ad3c"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#a8312f",
+      "gold": "#d8ad3c",
+      "mantle": "#e9e0cc"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#d8ad3c"
+    }
+  }
+}

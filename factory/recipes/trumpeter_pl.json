@@ -1,0 +1,58 @@
+{
+  "id": "trumpeter_pl",
+  "name": "Трубач с Мариацкой башни",
+  "old_ref": "hetman",
+  "skin": "#f7cfb4",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#2f4a7a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "trumpet",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#8a5a34"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#2f4a7a",
+      "trim": "#e9e0cc",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#2f4a7a"
+    }
+  }
+}

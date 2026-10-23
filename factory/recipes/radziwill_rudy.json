@@ -1,0 +1,59 @@
+{
+  "id": "radziwill_rudy",
+  "name": "Николай Радзивилл Рыжий",
+  "old_ref": "hetman",
+  "skin": "#f1c0a0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#b05a2a"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#3b2a20",
+      "top": "#2f4a7a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#5a3a22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a5530",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#b05a2a"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#2f4a7a",
+      "trim": "#d4a63c",
+      "chain": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#d4a63c"
+    }
+  }
+}

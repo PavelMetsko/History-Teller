@@ -1,0 +1,65 @@
+{
+  "id": "teacher_de",
+  "name": "Прусский учитель",
+  "old_ref": "hetman",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#c99a5a"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "pince"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b3b44"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#c99a5a"
+    },
+    "outfit": {
+      "type": "suit",
+      "col": "#3b3b44",
+      "shirt": "#f4f1ea",
+      "tie": "#1e1e22",
+      "long": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#3b3b44",
+      "cuff": "#f4f1ea"
+    }
+  }
+}

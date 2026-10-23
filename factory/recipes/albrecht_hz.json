@@ -1,0 +1,59 @@
+{
+  "id": "albrecht_hz",
+  "name": "Альбрехт Гогенцоллерн",
+  "old_ref": "hetman",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#9a5530"
+    },
+    "hat": {
+      "type": "beret",
+      "col": "#2a2a2e",
+      "feather": "#f4f1ea"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#5a3a22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a5530",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#9a5530"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#2a2a2e",
+      "trim": "#d4a63c",
+      "chain": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#f4f1ea"
+    }
+  }
+}

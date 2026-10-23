@@ -1,0 +1,59 @@
+{
+  "id": "magnate_pl",
+  "name": "Можновладец",
+  "old_ref": "hetman",
+  "skin": "#f1c0a0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#6b4426"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#2f4a7a",
+      "fur": "#3b2a20"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#2f4a7a",
+      "trim": "#c9a24a",
+      "belt": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#c9a24a"
+    }
+  }
+}

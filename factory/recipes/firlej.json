@@ -1,0 +1,63 @@
+{
+  "id": "firlej",
+  "name": "Ян Фирлей",
+  "old_ref": "hetman",
+  "skin": "#f1c0a0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#3b2a20",
+      "top": "#1e1e22"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9e0cc",
+      "kontusz": "#1e1e22",
+      "sash": "#c9a24a",
+      "sash2": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#e9e0cc"
+    }
+  }
+}

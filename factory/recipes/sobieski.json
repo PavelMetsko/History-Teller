@@ -41,6 +41,9 @@
     "held": {
       "type": "bulawa",
       "hand": "hand_r"
+    },
+    "cape": {
+      "type": "wings"
     }
   }
 }

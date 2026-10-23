@@ -1,0 +1,60 @@
+{
+  "id": "ludwika",
+  "name": "Людвика Шопен",
+  "old_ref": "victoria",
+  "skin": "#f9d6c0",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#5a2a3b",
+      "trim": "#e9e0cc",
+      "mantle": "#2a2a2e",
+      "shoes": "#5a2a3b"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a3b",
+      "cuff": "#e9e0cc"
+    }
+  }
+}

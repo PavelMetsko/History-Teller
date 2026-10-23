@@ -1,0 +1,57 @@
+{
+  "id": "kara_mustafa",
+  "name": "Великий визирь Кара-Мустафа",
+  "old_ref": "hetman",
+  "skin": "#e8b48a",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#1e1a1a"
+    },
+    "hat": {
+      "type": "turban",
+      "col": "#f4f1ea",
+      "jewel": "#a8312f"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#c99a2e"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a1a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#2f6a4a",
+      "gold": "#d8ad3c",
+      "mantle": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#d8ad3c"
+    }
+  }
+}

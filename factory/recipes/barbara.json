@@ -1,0 +1,55 @@
+{
+  "id": "barbara",
+  "name": "Барбара Радзивилл",
+  "old_ref": "victoria",
+  "skin": "#f9d6c0",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#e9e0cc"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#b97a45"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#e9e0cc",
+      "trim": "#4b6a9a",
+      "mantle": "#4b6a9a",
+      "shoes": "#4b6a9a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#4b6a9a"
+    }
+  }
+}

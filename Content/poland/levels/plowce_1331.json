@@ -1,0 +1,94 @@
+{
+ "id": "plowce_1331",
+ "order": 120,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_battle",
+ "cover": "plowce_strike_pl",
+ "panels": 2,
+ "scenes": [
+  "order_split_pl",
+  "plowce_strike_pl",
+  "heir_charge_pl"
+ ],
+ "characters": [
+  "lokietek",
+  "young_casimir",
+  "komtur"
+ ],
+ "initialState": {
+  "flags": {
+   "lokietek": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "young_casimir": [
+    "standing"
+   ],
+   "komtur": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "lokietek",
+    "komtur"
+   ],
+   [
+    "enemy_of",
+    "komtur",
+    "lokietek"
+   ],
+   [
+    "enemy_of",
+    "young_casimir",
+    "komtur"
+   ],
+   [
+    "enemy_of",
+    "komtur",
+    "young_casimir"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "komtur",
+     "is": "defeated"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "young_casimir",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "order_split_pl",
+   "characters": [
+    "lokietek",
+    "komtur"
+   ]
+  },
+  {
+   "scene": "plowce_strike_pl",
+   "characters": [
+    "lokietek",
+    "komtur"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

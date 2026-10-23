@@ -1,0 +1,59 @@
+{
+  "id": "anna_jag",
+  "name": "Анна Ягеллонка",
+  "old_ref": "victoria",
+  "skin": "#f7d0b8",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#f4f1ea",
+      "band": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#2a2a2e",
+      "trim": "#d4a63c",
+      "mantle": "#a8312f",
+      "shoes": "#2a2a2e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#d4a63c"
+    }
+  }
+}

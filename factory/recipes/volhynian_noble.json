@@ -1,0 +1,59 @@
+{
+  "id": "volhynian_noble",
+  "name": "Волынский шляхтич",
+  "old_ref": "hetman",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#6b4426"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#8a6a4a",
+      "top": "#2f6a4a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#5a3a22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#2f6a4a",
+      "trim": "#d4a63c",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#d4a63c"
+    }
+  }
+}

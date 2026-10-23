@@ -1,0 +1,107 @@
+{
+ "id": "teutonic_call",
+ "order": 90,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_tension",
+ "cover": "call_order_pl",
+ "panels": 3,
+ "scenes": [
+  "prussian_raids_pl",
+  "call_order_pl",
+  "order_crusade_pl",
+  "konrad_alone_pl"
+ ],
+ "characters": [
+  "konrad_maz",
+  "salza",
+  "prussian_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "konrad_maz": [
+    "reigns",
+    "standing"
+   ],
+   "salza": [
+    "standing"
+   ],
+   "prussian_pl": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "konrad_maz",
+    "prussian_pl"
+   ],
+   [
+    "enemy_of",
+    "prussian_pl",
+    "konrad_maz"
+   ],
+   [
+    "enemy_of",
+    "salza",
+    "prussian_pl"
+   ],
+   [
+    "enemy_of",
+    "prussian_pl",
+    "salza"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "prussian_pl",
+     "is": "defeated"
+    }
+   },
+   {
+    "flag": {
+     "char": "salza",
+     "is": "order_state_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "konrad_maz",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prussian_raids_pl",
+   "characters": [
+    "prussian_pl",
+    "konrad_maz"
+   ]
+  },
+  {
+   "scene": "call_order_pl",
+   "characters": [
+    "konrad_maz",
+    "salza"
+   ]
+  },
+  {
+   "scene": "order_crusade_pl",
+   "characters": [
+    "salza",
+    "prussian_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

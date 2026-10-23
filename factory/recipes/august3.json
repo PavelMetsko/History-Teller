@@ -1,0 +1,60 @@
+{
+  "id": "august3",
+  "name": "Август III Саксонский",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#2f4a7a"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#e9e0cc"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#a8312f",
+      "trim": "#d4a63c",
+      "belt": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#d4a63c"
+    }
+  }
+}

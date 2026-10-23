@@ -1,0 +1,60 @@
+{
+  "id": "devil_pl",
+  "name": "Чёрт",
+  "old_ref": "hetman",
+  "skin": "#d8524a",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#1e1e22"
+    },
+    "hat": {
+      "type": "horns"
+    },
+    "cape": {
+      "type": "tail"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1e22",
+      "iris": "#f4d84a",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#1e1e22"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#1e1e22",
+      "trim": "#a8312f",
+      "chain": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e1e22",
+      "cuff": "#a8312f"
+    }
+  }
+}

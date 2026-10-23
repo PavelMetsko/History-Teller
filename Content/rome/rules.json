@@ -24462,5 +24462,1161 @@
     "flag": "dead"
    }
   ]
+ },
+ {
+  "id": "wanda_refusal_pl_sig",
+  "comment": "Немецкий князь сватается к королевне — она отказывает: «Не за немца»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wanda_refusal_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "german_prince_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "princess_pl"
+     ],
+     "notFlags": [
+      "married"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "refused_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rejected_pl"
+   }
+  ]
+ },
+ {
+  "id": "wanda_armies_pl_sig",
+  "comment": "Королевна выходит к войскам — и воины отвергнутого жениха, увидев её, отказываются поднять на неё оружие",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wanda_armies_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "princess_pl"
+     ],
+     "flags": [
+      "refused_pl"
+     ],
+     "notFlags": [
+      "defeated",
+      "married"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "german_prince_pl"
+     ],
+     "flags": [
+      "rejected_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "deserted_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "rytygier_sword_pl_sig",
+  "comment": "Покинутый своим войском князь бросается на собственный меч",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rytygier_sword_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "german_prince_pl"
+     ],
+     "flags": [
+      "deserted_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "merchant_net_pl_sig",
+  "comment": "Купец слышит, как поёт сирена, и ловит её в сети — показывать на ярмарках за деньги",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_merchant_net_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "merchant_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mermaid_pl"
+     ],
+     "notFlags": [
+      "freed_pl",
+      "captured_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_pl"
+   }
+  ]
+ },
+ {
+  "id": "night_rescue_pl_sig",
+  "comment": "Рыбак, не взявший купеческих денег, ночью освобождает сирену и отпускает в Вислу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_night_rescue_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "fisher_pl"
+     ],
+     "notFlags": [
+      "bought"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mermaid_pl"
+     ],
+     "flags": [
+      "captured_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "freed_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "captured_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "mermaid_oath_pl_sig",
+  "comment": "Освобождённая сирена берёт меч и щит и клянётся защищать рыбацкий посёлок — будущую Варшаву",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mermaid_oath_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mermaid_pl"
+     ],
+     "flags": [
+      "freed_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "fisher_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "protector_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "skalka_pl_sig",
+  "comment": "Король обвиняет епископа в измене и велит казнить — по преданию, рубит его сам, у алтаря на Скалке",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_skalka_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "king_pl"
+     ],
+     "notFlags": [
+      "exiled_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bishop_kr_pl"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "martyr_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "bishop_slayer_pl"
+   }
+  ]
+ },
+ {
+  "id": "magnates_revolt_pl_sig",
+  "comment": "Убийство епископа поднимает знать — король бежит в Венгрию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_magnates_revolt_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "magnate_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "king_pl"
+     ],
+     "flags": [
+      "bishop_slayer_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exiled_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "away"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rebel_pl"
+   }
+  ]
+ },
+ {
+  "id": "herman_power_pl_sig",
+  "comment": "Знать сажает на престол младшего брата — без короны, князем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_herman_power_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "magnate_pl"
+     ],
+     "flags": [
+      "rebel_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "herman_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "prussian_raids_pl_sig",
+  "comment": "Пруссы раз за разом жгут мазовецкое пограничье — князь не может его удержать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prussian_raids_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prussian_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mazovia_pl"
+     ],
+     "notFlags": [
+      "raided_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "raided_pl"
+   }
+  ]
+ },
+ {
+  "id": "call_order_pl_sig",
+  "comment": "Разорённый князь зовёт немецких рыцарей и даёт им Хелминскую землю на войну с пруссами",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_call_order_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mazovia_pl"
+     ],
+     "flags": [
+      "raided_pl"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "order_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "order_land_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "order_crusade_pl_sig",
+  "comment": "За полвека орден покоряет пруссов — и строит на их земле своё государство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_order_crusade_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "order_pl"
+     ],
+     "flags": [
+      "order_land_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prussian_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "order_state_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "mongol_feint_pl_sig",
+  "comment": "Монголы будто бы бегут — рыцарская конница бросается в погоню и ломает строй",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mongol_feint_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mongol_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "silesia_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pursuing_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "legnica_field_pl_sig",
+  "comment": "Растянутых рыцарей окружают и расстреливают из луков; князь гибнет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_legnica_field_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mongol_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "silesia_pl"
+     ],
+     "flags": [
+      "pursuing_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "hejnal_tower_pl_sig",
+  "comment": "Трубач с башни видит врага и трубит тревогу — стрела обрывает мелодию, но город успевает закрыть ворота",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hejnal_tower_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "trumpeter_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mongol_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hejnal_pl"
+   }
+  ]
+ },
+ {
+  "id": "dowry_salt_pl_sig",
+  "comment": "Королевна просит у отца в приданое не золото, а соль — то, чего нет в её новой земле",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dowry_salt_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "king_hu_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "princess_hu_pl"
+     ],
+     "notFlags": [
+      "dowry_salt_pl",
+      "dowry_gold_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dowry_salt_pl"
+   }
+  ]
+ },
+ {
+  "id": "dowry_gold_pl_sig",
+  "comment": "Королевна берёт в приданое золото — как все",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dowry_gold_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "king_hu_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "princess_hu_pl"
+     ],
+     "notFlags": [
+      "dowry_salt_pl",
+      "dowry_gold_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dowry_gold_pl"
+   }
+  ]
+ },
+ {
+  "id": "ring_mine_pl_sig",
+  "comment": "В венгерской соляной шахте королевна бросает в ствол свой обручальный перстень",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ring_mine_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "princess_hu_pl"
+     ],
+     "flags": [
+      "dowry_salt_pl"
+     ],
+     "notFlags": [
+      "ring_thrown_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ring_thrown_pl"
+   }
+  ]
+ },
+ {
+  "id": "wieliczka_pl_sig",
+  "comment": "В Польше она велит копать в Величке — и в первой глыбе соли рудокопы находят её перстень",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wieliczka_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "miner_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "princess_hu_pl"
+     ],
+     "flags": [
+      "ring_thrown_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "found_salt_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "salt_queen_pl"
+   }
+  ]
+ },
+ {
+  "id": "ojcow_cave_pl_sig",
+  "comment": "Беглый князь прячется в пещере; паук затягивает вход паутиной, и погоня проходит мимо",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ojcow_cave_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lokietek_pl"
+     ],
+     "flags": [
+      "hunted_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "czech_knight_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "survived_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "hunted_pl"
+   }
+  ]
+ },
+ {
+  "id": "wawel_1320_pl_sig",
+  "comment": "Объединивший земли князь коронуется в Краковском соборе — первым из польских королей на Вавеле",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wawel_1320_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lokietek_pl"
+     ],
+     "flags": [
+      "survived_pl",
+      "strong"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "archbishop_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned_1320"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reigns"
+   }
+  ]
+ },
+ {
+  "id": "order_split_pl_sig",
+  "comment": "Разъезд видит: орден разделил войско на колонны, и одна отстала",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_order_split_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lokietek_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "order_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "split_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "order_split_heir_pl",
+  "comment": "Разведку ведёт сам королевич — и видит отставшую колонну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_order_split_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "heir_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "order_pl"
+     ],
+     "flags": [
+      "strong"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "split_pl"
+   },
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "strong"
+   }
+  ]
+ },
+ {
+  "id": "plowce_strike_pl_sig",
+  "comment": "Король бьёт отставшую колонну раньше, чем подойдут остальные",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_plowce_strike_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lokietek_pl"
+     ],
+     "flags": [
+      "crowned"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "order_pl"
+     ],
+     "flags": [
+      "split_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "krakow_academy_pl_sig",
+  "comment": "Король основывает в Кракове университет — второй в Центральной Европе после Праги",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krakow_academy_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "casimir_great_pl"
+     ],
+     "notFlags": [
+      "university_pl",
+      "feast_given_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "university_pl"
+   }
+  ]
+ },
+ {
+  "id": "wierzynek_feast_pl_sig",
+  "comment": "Краковский купец Вежинек даёт пир, на котором король угощает монархов Европы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wierzynek_feast_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "host_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "casimir_great_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "feast_given_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "standing"
+   }
+  ]
+ },
+ {
+  "id": "krakow_congress_pl_sig",
+  "comment": "За столом король мирит императора с венгерским королём",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_krakow_congress_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "casimir_great_pl"
+     ],
+     "flags": [
+      "feast_given_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "guest_king_pl"
+     ],
+     "notFlags": [
+      "at_war"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "guest_king_pl"
+     ],
+     "notFlags": [
+      "at_war"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeRelation",
+    "rel": "enemy_of",
+    "from": "B",
+    "to": "C"
+   },
+   {
+    "type": "removeRelation",
+    "rel": "enemy_of",
+    "from": "C",
+    "to": "B"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "reconciled_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "reconciled_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "C"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "C",
+    "to": "B"
+   }
+  ]
  }
 ]

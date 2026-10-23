@@ -1,0 +1,60 @@
+{
+  "id": "chodkiewicz",
+  "name": "Гетман Ян Кароль Ходкевич",
+  "old_ref": "hetman",
+  "skin": "#efbea0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#3b2a20",
+      "top": "#a8312f"
+    },
+    "cape": {
+      "type": "wings"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "zupan_hussar"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#9e2a2b",
+      "cuff": "#d4a63c"
+    }
+  }
+}

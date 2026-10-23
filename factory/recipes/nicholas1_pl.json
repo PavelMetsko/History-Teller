@@ -1,0 +1,64 @@
+{
+  "id": "nicholas1_pl",
+  "name": "Император Николай I",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#6b4426"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#4b6a9a",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#e9e0cc",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "#2f4a7a",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#a8312f"
+    }
+  }
+}

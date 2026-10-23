@@ -1,0 +1,81 @@
+{
+ "id": "lokietek_cave",
+ "order": 110,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "wawel_1320_pl",
+ "panels": 3,
+ "scenes": [
+  "ojcow_cave_pl",
+  "lokietek_muster_pl",
+  "wawel_1320_pl",
+  "lokietek_fight_pl"
+ ],
+ "characters": [
+  "lokietek",
+  "czech_knight",
+  "janislaw"
+ ],
+ "initialState": {
+  "flags": {
+   "lokietek": [
+    "hunted_pl"
+   ],
+   "czech_knight": [
+    "strong",
+    "standing"
+   ],
+   "janislaw": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "lokietek",
+    "czech_knight"
+   ],
+   [
+    "enemy_of",
+    "czech_knight",
+    "lokietek"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lokietek",
+     "is": "crowned_1320"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ojcow_cave_pl",
+   "characters": [
+    "lokietek",
+    "czech_knight"
+   ]
+  },
+  {
+   "scene": "lokietek_muster_pl",
+   "characters": [
+    "lokietek"
+   ]
+  },
+  {
+   "scene": "wawel_1320_pl",
+   "characters": [
+    "lokietek",
+    "janislaw"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

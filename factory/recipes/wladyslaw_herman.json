@@ -1,0 +1,58 @@
+{
+  "id": "wladyslaw_herman",
+  "name": "Владислав Герман",
+  "old_ref": "hetman",
+  "skin": "#f5cbb0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#c99a5a"
+    },
+    "hat": {
+      "type": "circlet"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#c99a5a"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#4f7a4a",
+      "trim": "#d4a63c",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4f7a4a",
+      "cuff": "#d4a63c"
+    }
+  }
+}

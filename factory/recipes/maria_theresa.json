@@ -1,0 +1,62 @@
+{
+  "id": "maria_theresa",
+  "name": "Императрица Мария Терезия",
+  "old_ref": "victoria",
+  "skin": "#f9d6c0",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#2a2a2e",
+      "band": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#c9b08a"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#2a2a2e",
+      "trim": "#d4a63c",
+      "mantle": "#2a2a2e",
+      "shoes": "#2a2a2e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#d4a63c"
+    }
+  }
+}

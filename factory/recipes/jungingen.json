@@ -1,0 +1,55 @@
+{
+  "id": "jungingen",
+  "name": "Магистр Ульрих фон Юнгинген",
+  "old_ref": "hetman",
+  "skin": "#efc2a4",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#7a5232"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#5a3a22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "teutonic"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+ "id": "stanislaus_1079",
+ "order": 65,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_tension",
+ "cover": "skalka_pl",
+ "panels": 3,
+ "scenes": [
+  "skalka_pl",
+  "magnates_revolt_pl",
+  "herman_power_pl",
+  "bishop_peace_pl",
+  "crush_revolt_pl"
+ ],
+ "characters": [
+  "boleslaw2",
+  "stanislaw_bp",
+  "magnate_pl",
+  "wladyslaw_herman"
+ ],
+ "initialState": {
+  "flags": {
+   "boleslaw2": [
+    "crowned",
+    "reigns",
+    "standing",
+    "strong"
+   ],
+   "stanislaw_bp": [
+    "standing"
+   ],
+   "magnate_pl": [
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "boleslaw2",
+    "magnate_pl"
+   ],
+   [
+    "enemy_of",
+    "magnate_pl",
+    "boleslaw2"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "stanislaw_bp",
+     "is": "martyr_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "boleslaw2",
+     "is": "exiled_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "wladyslaw_herman",
+     "is": "reigns"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "skalka_pl",
+   "characters": [
+    "boleslaw2",
+    "stanislaw_bp"
+   ]
+  },
+  {
+   "scene": "magnates_revolt_pl",
+   "characters": [
+    "magnate_pl",
+    "boleslaw2"
+   ]
+  },
+  {
+   "scene": "herman_power_pl",
+   "characters": [
+    "magnate_pl",
+    "wladyslaw_herman"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

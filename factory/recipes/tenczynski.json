@@ -1,0 +1,64 @@
+{
+  "id": "tenczynski",
+  "name": "Подкоморий Тенчинский",
+  "old_ref": "hetman",
+  "skin": "#f1c0a0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#9a5530"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#6b4a2a",
+      "top": "#2f6a4a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a5530",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#9a5530"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9d8a8",
+      "kontusz": "#2f6a4a",
+      "sash": "#d4a63c",
+      "sash2": "#2f6a4a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9d8a8",
+      "cuff": "#e9d8a8"
+    }
+  }
+}

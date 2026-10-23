@@ -1,0 +1,62 @@
+{
+  "id": "muller_sw",
+  "name": "Генерал Бурхард Мюллер",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#c99a5a"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#3b2a20",
+      "feather": "#2f4a7a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#d4a85a"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#c99a5a",
+      "trim": "#2f4a7a",
+      "belt": "#2f4a7a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#c99a5a",
+      "cuff": "#2f4a7a"
+    }
+  }
+}

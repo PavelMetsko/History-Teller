@@ -1,0 +1,61 @@
+{
+  "id": "zolkiewski",
+  "name": "Гетман Станислав Жолкевский",
+  "old_ref": "hetman",
+  "skin": "#efc2a4",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#b5b0b8"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#6b4a2a",
+      "top": "#2f4a7a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#a39d95"
+    },
+    "outfit": {
+      "type": "zupan_hussar",
+      "cloth": "#2f4a7a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#d4a63c"
+    }
+  }
+}

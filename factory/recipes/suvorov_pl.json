@@ -1,0 +1,64 @@
+{
+  "id": "suvorov_pl",
+  "name": "Генерал Александр Суворов",
+  "old_ref": "hetman",
+  "skin": "#f1c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#e9e0cc",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#ece8e2"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#2f6a4a",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#a8312f"
+    }
+  }
+}

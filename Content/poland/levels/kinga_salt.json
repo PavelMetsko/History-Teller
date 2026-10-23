@@ -1,0 +1,73 @@
+{
+ "id": "kinga_salt",
+ "order": 105,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_romance",
+ "cover": "wieliczka_pl",
+ "panels": 3,
+ "scenes": [
+  "dowry_salt_pl",
+  "dowry_gold_pl",
+  "ring_mine_pl",
+  "wieliczka_pl"
+ ],
+ "characters": [
+  "kinga",
+  "bela4",
+  "miner_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "bela4": [
+    "crowned",
+    "reigns",
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "miner_pl",
+     "is": "found_salt_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "kinga",
+      "is": "dowry_gold_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dowry_salt_pl",
+   "characters": [
+    "bela4",
+    "kinga"
+   ]
+  },
+  {
+   "scene": "ring_mine_pl",
+   "characters": [
+    "kinga"
+   ]
+  },
+  {
+   "scene": "wieliczka_pl",
+   "characters": [
+    "miner_pl",
+    "kinga"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

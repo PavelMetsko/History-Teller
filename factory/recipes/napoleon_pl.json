@@ -1,0 +1,63 @@
+{
+  "id": "napoleon_pl",
+  "name": "Наполеон Бонапарт",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "bicorne"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#2f4a7a",
+      "facing": "#f4f1ea",
+      "trim": "#d4a63c",
+      "sash": "",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#f4f1ea"
+    }
+  }
+}

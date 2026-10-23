@@ -1,0 +1,59 @@
+{
+  "id": "miner_pl",
+  "name": "Рудокоп из Велички",
+  "old_ref": "hetman",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "hood",
+      "col": "#5b4a3a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "pickaxe",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#5b4a3a",
+      "fur": "#8a6a4a",
+      "rope": "#a88a5a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5b4a3a",
+      "cuff": "#5b4a3a"
+    }
+  }
+}

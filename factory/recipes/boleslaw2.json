@@ -1,0 +1,59 @@
+{
+  "id": "boleslaw2",
+  "name": "Болеслав Смелый",
+  "old_ref": "hetman",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#e9e0cc"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#b9bfc6",
+      "surcoat": "#a8312f",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#b9bfc6",
+      "cuff": "#b9bfc6"
+    }
+  }
+}

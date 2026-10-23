@@ -1,0 +1,54 @@
+{
+  "id": "grandmaster_lv",
+  "name": "Магистр Людвиг фон Эрлихсхаузен",
+  "old_ref": "hetman",
+  "skin": "#efc2a4",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#b5b0b8"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#5a3a22"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#a39d95"
+    },
+    "outfit": {
+      "type": "teutonic"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    }
+  }
+}

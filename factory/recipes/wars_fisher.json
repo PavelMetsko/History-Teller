@@ -1,0 +1,57 @@
+{
+  "id": "wars_fisher",
+  "name": "Рыбак Варс",
+  "old_ref": "hetman",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#6b4426"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#4f6b8a",
+      "fur": "#c9b08a",
+      "rope": "#a88a5a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4f6b8a",
+      "cuff": "#4f6b8a"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "henri_valois",
+  "name": "Генрих Валуа",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "beret",
+      "col": "#1e1e22",
+      "feather": "#f4f1ea"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "ruff"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#2a1a12"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#2f4a7a",
+      "trim": "#d4a63c",
+      "chain": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#f4f1ea"
+    }
+  }
+}

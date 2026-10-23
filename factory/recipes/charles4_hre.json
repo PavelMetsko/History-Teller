@@ -1,0 +1,56 @@
+{
+  "id": "charles4_hre",
+  "name": "Император Карл IV",
+  "old_ref": "hetman",
+  "skin": "#f1c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#a39d95"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#2a2a2e",
+      "top": "#d8ad3c"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#8a7a6a"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#2a2a2e",
+      "gold": "#d8ad3c",
+      "mantle": "#c9a24a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#d8ad3c"
+    }
+  }
+}

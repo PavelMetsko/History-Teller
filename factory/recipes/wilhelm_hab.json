@@ -1,0 +1,57 @@
+{
+  "id": "wilhelm_hab",
+  "name": "Вильгельм Габсбург",
+  "old_ref": "hetman",
+  "skin": "#f7d4bc",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#5a3a22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d4a85a",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#e0b86a"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#e9e0cc",
+      "trim": "#a8312f",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#a8312f"
+    }
+  }
+}

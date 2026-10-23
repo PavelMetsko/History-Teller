@@ -1,0 +1,95 @@
+{
+ "id": "wanda",
+ "order": 13,
+ "epoch": "poland",
+ "act": "Акт I · Легенды",
+ "music": "poland_romance",
+ "cover": "wanda_armies_pl",
+ "panels": 3,
+ "scenes": [
+  "wanda_refusal_pl",
+  "wanda_armies_pl",
+  "rytygier_sword_pl",
+  "wanda_wedding_pl",
+  "wanda_battle_pl"
+ ],
+ "characters": [
+  "wanda",
+  "rytygier"
+ ],
+ "initialState": {
+  "flags": {
+   "wanda": [
+    "reigns",
+    "standing"
+   ],
+   "rytygier": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "rytygier",
+    "wanda"
+   ],
+   [
+    "enemy_of",
+    "wanda",
+    "rytygier"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rytygier",
+     "is": "dead"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wanda",
+      "is": "married"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wanda",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "wanda_refusal_pl",
+   "characters": [
+    "rytygier",
+    "wanda"
+   ]
+  },
+  {
+   "scene": "wanda_armies_pl",
+   "characters": [
+    "wanda",
+    "rytygier"
+   ]
+  },
+  {
+   "scene": "rytygier_sword_pl",
+   "characters": [
+    "rytygier"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

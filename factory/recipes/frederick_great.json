@@ -1,0 +1,64 @@
+{
+  "id": "frederick_great",
+  "name": "Король Фридрих II Прусский",
+  "old_ref": "hetman",
+  "skin": "#f1c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "tricorne"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig",
+      "col": "#d8d4ce"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#2f3f6a",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f3f6a",
+      "cuff": "#a8312f"
+    }
+  }
+}

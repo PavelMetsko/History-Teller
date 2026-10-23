@@ -1,0 +1,62 @@
+{
+  "id": "munnich",
+  "name": "Фельдмаршал Миних",
+  "old_ref": "hetman",
+  "skin": "#f1c4a8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#1e1e22",
+      "feather": "#f4f1ea"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#e9e0cc"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#2f6a4a",
+      "trim": "#a8312f",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#a8312f"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+ "id": "wierzynek_1364",
+ "order": 130,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "wierzynek_feast_pl",
+ "panels": 3,
+ "scenes": [
+  "krakow_academy_pl",
+  "wierzynek_feast_pl",
+  "krakow_congress_pl",
+  "silesia_quarrel_pl"
+ ],
+ "characters": [
+  "casimir3",
+  "charles4_hre",
+  "louis_hu",
+  "wierzynek"
+ ],
+ "initialState": {
+  "flags": {
+   "casimir3": [
+    "crowned",
+    "reigns",
+    "standing"
+   ],
+   "charles4_hre": [
+    "crowned",
+    "standing"
+   ],
+   "louis_hu": [
+    "crowned",
+    "standing"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "charles4_hre",
+    "louis_hu"
+   ],
+   [
+    "enemy_of",
+    "louis_hu",
+    "charles4_hre"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles4_hre",
+     "is": "reconciled_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis_hu",
+     "is": "reconciled_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "casimir3",
+     "is": "university_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "krakow_academy_pl",
+   "characters": [
+    "casimir3"
+   ]
+  },
+  {
+   "scene": "wierzynek_feast_pl",
+   "characters": [
+    "wierzynek",
+    "casimir3"
+   ]
+  },
+  {
+   "scene": "krakow_congress_pl",
+   "characters": [
+    "casimir3",
+    "charles4_hre",
+    "louis_hu"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

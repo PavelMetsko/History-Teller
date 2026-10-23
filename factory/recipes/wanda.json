@@ -1,0 +1,54 @@
+{
+  "id": "wanda",
+  "name": "Королевна Ванда",
+  "old_ref": "victoria",
+  "skin": "#f9d2b8",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#4b6a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#c98a4a"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#e9e0cc",
+      "trim": "#a8312f",
+      "mantle": "#a8312f",
+      "shoes": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#a8312f"
+    }
+  }
+}

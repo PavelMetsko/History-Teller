@@ -1,0 +1,66 @@
+{
+  "id": "german_officer",
+  "name": "Немецкий офицер",
+  "old_ref": "hetman",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#c99a5a"
+    },
+    "hat": {
+      "type": "pickelhaube",
+      "col": "#6b7066",
+      "metal": "#9aa0a8"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#c99a5a"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#6b7066",
+      "facing": "#a8312f",
+      "trim": "#9aa0a8",
+      "sash": "",
+      "epaulettes": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#6b7066",
+      "cuff": "#a8312f"
+    }
+  }
+}

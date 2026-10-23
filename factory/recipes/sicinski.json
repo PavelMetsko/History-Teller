@@ -1,0 +1,63 @@
+{
+  "id": "sicinski",
+  "name": "Посол Сицинский",
+  "old_ref": "hetman",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#3b2a20",
+      "top": "#5a2a6b"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9d8a8",
+      "kontusz": "#5a2a6b",
+      "sash": "#d4a63c",
+      "sash2": "#2f6a4a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9d8a8",
+      "cuff": "#e9d8a8"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "czech_knight",
+  "name": "Рыцарь Вацлава",
+  "old_ref": "hetman",
+  "skin": "#efbea0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "nasal",
+      "col": "#8a9098",
+      "trim": "#c9a24a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#7a5232"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#8a9098",
+      "surcoat": "#c9a24a",
+      "belt": "#2a1a12"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#8a9098",
+      "cuff": "#8a9098"
+    }
+  }
+}

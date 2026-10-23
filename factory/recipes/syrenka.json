@@ -1,0 +1,52 @@
+{
+  "id": "syrenka",
+  "name": "Варшавская Сирена",
+  "old_ref": "victoria",
+  "skin": "#f7d4bc",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b8a8a",
+      "iris": "#3f8a8a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#7a5232"
+    },
+    "outfit": {
+      "type": "mermaid",
+      "col": "#3f8a8a",
+      "fin": "#6fb5a8",
+      "top": "#e9e0cc"
+    },
+    "sleeves": {
+      "type": "bare"
+    }
+  }
+}

@@ -826,3 +826,404 @@ def beard_long(col):
              + _chin_window(skin) + _moustache(col, "walrus"))
         return [("beard", "head", s)]
     return part
+
+
+# ───────────────────────── Польша, пачка 2: XI–XIV вв. ─────────────────────────
+
+def mermaid_tail(col="#3f8a8a", fin="#6fb5a8", top="#e9e0cc"):
+    """Сирена: лиф и рыбий хвост вместо юбки и ног (варшавская Сирена)."""
+    def part(ctx):
+        t = (f'<path d="{TORSO_F}" fill="{top}" {st()}/>'
+             f'<path d="M-56,-170 Q0,-130 56,-170" fill="none" {st(6, shade(top, .8))}/>')
+        scales = "".join(f'<path d="M{x - 10},{y} q10,10 20,0" fill="none" stroke="{shade(col, .7)}" stroke-width="2.5"/>'
+                         for y in range(-30, 90, 18) for x in range(-70 + (10 if (y // 18) % 2 else 0), 80, 20))
+        tail = (f'<path d="M-84,-48 C-96,10 -80,60 -40,96 C-20,112 -8,118 0,124 C8,118 20,112 40,96 C80,60 96,10 84,-48 Z" '
+                f'fill="{col}" {st()}/>'
+                f'<g clip-path="url(#mt)">{scales}</g><defs><clipPath id="mt"><path d="M-84,-48 C-96,10 -80,60 -40,96 '
+                f'C-20,112 -8,118 0,124 C8,118 20,112 40,96 C80,60 96,10 84,-48 Z"/></clipPath></defs>'
+                f'<path d="M0,120 C-30,130 -70,150 -96,140 C-80,124 -40,110 0,116 C40,110 80,124 96,140 C70,150 30,130 0,120 Z" '
+                f'fill="{fin}" {st()}/>')
+        return [("torso", "torso", t), ("skirt", "root", tail)]
+    return part
+
+
+def teutonic(steel="#a9b0b8", belt="#5b3a22"):
+    """Рыцарь Тевтонского ордена: кольчуга, белое сюрко и белый плащ с чёрным крестом."""
+    def part(ctx):
+        out = chainmail(steel, "#f4f1ea", belt)(ctx)
+        cross = ('<path d="M-14,-150 L14,-150 L14,-118 L46,-118 L46,-90 L14,-90 L14,-40 L-14,-40 L-14,-90 L-46,-90 '
+                 'L-46,-118 L-14,-118 Z" fill="#1e1e22" stroke="#3a170c" stroke-width="2"/>')
+        cape_ = f'<path d="M-96,-170 C-150,-120 -166,0 -160,96 L160,96 C166,0 150,-120 96,-170 Z" fill="#f4f1ea" {st()}/>'
+        return out + [("torso_over", "torso", cross), ("cape_back", "torso", cape_)]
+    return part
+
+
+def hat_mongol(fur="#6b4a2a", top="#a8312f"):
+    """Монгольская шапка: меховой отворот, острый верх с кисточкой."""
+    def part(ctx):
+        s = (f'<path d="M-120,-250 C-110,-330 -40,-372 0,-380 C40,-372 110,-330 120,-250 Z" fill="{top}" {st()}/>'
+             f'<path d="M-160,-216 C-170,-250 -150,-276 -120,-276 C-60,-290 60,-290 120,-276 C150,-276 170,-250 160,-216 '
+             f'C100,-236 -100,-236 -160,-216 Z" fill="{fur}" {st()}/>'
+             + "".join(f'<path d="M{x},-262 q4,-14 10,-18" fill="none" {st(2.5, shade(fur, .7))}/>' for x in range(-130, 131, 26))
+             + f'<circle cx="0" cy="-386" r="12" fill="#d8ad3c" {st(3)}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_veil(col="#f4f1ea", band=None):
+    """Средневековое покрывало замужней дамы: вимпл вокруг лица, ткань на плечи; поверх — обруч или корона."""
+    def part(ctx):
+        back = (f'<path d="M-176,-200 C-190,-100 -184,0 -150,60 L150,60 C184,0 190,-100 176,-200 C160,-310 -160,-310 -176,-200 Z" '
+                f'fill="{shade(col, .93)}" {st()}/>')
+        front = (f'<path d="M-170,-150 C-176,-262 -100,-318 0,-320 C100,-318 176,-262 170,-150 C156,-206 120,-246 0,-250 '
+                 f'C-120,-246 -156,-206 -170,-150 Z" fill="{col}" {st()}/>'
+                 + both(f'<path d="M-170,-150 C-176,-100 -166,-40 -150,0 C-140,-30 -138,-80 -146,-140 Z" fill="{col}" {st(3)}/>'))
+        out = [("hair_back", "head", back), ("hair_front", "head", front)]
+        if band:
+            out.append(("hat", "head", f'<path d="M-150,-240 C-60,-262 60,-262 150,-240 L150,-218 C60,-240 -60,-240 -150,-218 Z" '
+                                       f'fill="{band}" {st(3)}/>'))
+        return out
+    return part
+
+
+def trumpet(hand="hand_r", gold="#d8ad3c"):
+    def part(ctx):
+        s = (f'<rect x="-6" y="-120" width="12" height="130" rx="5" fill="{gold}" {st(3)}/>'
+             f'<path d="M-6,-120 L-26,-170 L26,-170 L6,-120 Z" fill="{gold}" {st(3)}/>'
+             f'<rect x="-14" y="-60" width="28" height="18" rx="4" fill="#a8312f" {st(2.5)}/>')
+        return [("held", hand, s)]
+    return part
+
+
+def pickaxe(hand="hand_r"):
+    def part(ctx):
+        s = (f'<rect x="-6" y="-150" width="12" height="190" rx="5" fill="#7a5232" {st(3)}/>'
+             f'<path d="M-60,-140 C-30,-170 30,-170 60,-140 L54,-130 C26,-150 -26,-150 -54,-130 Z" fill="#9aa0a8" {st(3)}/>')
+        return [("held", hand, s)]
+    return part
+
+
+def hat_cap(col="#a8312f", fur=None):
+    """Мягкая шапочка-шаперон горожанина; fur — меховая опушка купца."""
+    def part(ctx):
+        s = (f'<path d="M-150,-226 C-160,-296 -80,-340 0,-342 C80,-340 160,-296 150,-226 C90,-240 -90,-240 -150,-226 Z" '
+             f'fill="{col}" {st()}/>'
+             f'<path d="M-60,-326 C-20,-336 20,-336 60,-326" fill="none" {st(3, shade(col, 1.3))}/>')
+        if fur:
+            s += (f'<path d="M-160,-206 C-168,-236 -150,-252 -120,-250 C-60,-262 60,-262 120,-250 C150,-252 168,-236 160,-206 '
+                  f'C100,-224 -100,-224 -160,-206 Z" fill="{fur}" {st()}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+# ───────────────────────── Польша, пачка 3: Ягеллоны, Ренессанс ─────────────────────────
+
+def doublet(col="#2a2a2e", trim="#d4a63c", chain=True, shirt="#f4f1ea"):
+    """Ренессансный дублет: широкие плечи, разрез с рубашкой, золотая цепь; подол-баска."""
+    def part(ctx):
+        hem = 30 if ctx["pose"].get("sit") else 46
+        t = (f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+             f'<path d="M-30,-176 L0,-120 L30,-176 Z" fill="{shirt}" {st(3)}/>'
+             + "".join(f'<path d="M{x},-150 L{x},-30" fill="none" {st(5, trim)}/>' for x in (-60, 60)))
+        over = (f'<path d="M-106,-30 C-40,-18 40,-18 106,-30 L106,-10 C40,2 -40,2 -106,-10 Z" fill="{shade(col, .8)}" {st(3)}/>')
+        if chain:
+            over += (f'<path d="M-70,-168 C-60,-100 60,-100 70,-168" fill="none" {st(8, trim)}/>'
+                     f'<circle cx="0" cy="-112" r="14" fill="{trim}" {st(3)}/>')
+        skirt = _hem_skirt(col, hem, trim, wide=1.05, folds=False)
+        return [("torso", "torso", t), ("torso_over", "torso", over), ("skirt", "root", skirt)]
+    return part
+
+
+def hat_beret(col="#2a2a2e", feather="#f4f1ea"):
+    """Плоский ренессансный берет набок, с пером."""
+    def part(ctx):
+        s = (f'<path d="M-170,-246 C-180,-286 -120,-318 0,-322 C120,-318 180,-286 170,-246 C110,-262 -110,-262 -170,-246 Z" '
+             f'fill="{col}" {st()}/>'
+             f'<path d="M-150,-252 C-80,-270 80,-270 150,-252" fill="none" {st(3, shade(col, 1.5))}/>')
+        if feather:
+            s += (f'<path d="M80,-290 C120,-330 170,-340 196,-316 C160,-312 120,-300 92,-276 Z" fill="{feather}" {st(3)}/>'
+                  f'<circle cx="80" cy="-282" r="10" fill="#d8ad3c" {st(2.5)}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_turban(col="#f4f1ea", jewel="#2f9a8a"):
+    """Османский тюрбан с пером и камнем."""
+    def part(ctx):
+        s = (f'<path d="M-170,-226 C-190,-300 -110,-372 0,-376 C110,-372 190,-300 170,-226 C110,-250 -110,-250 -170,-226 Z" '
+             f'fill="{col}" {st()}/>'
+             + "".join(f'<path d="M-160,{y} C-80,{y - 40} 80,{y - 40} 160,{y}" fill="none" {st(3, shade(col, .8))}/>'
+                       for y in (-246, -280, -314))
+             + f'<circle cx="0" cy="-300" r="16" fill="{jewel}" {st(3)}/>'
+             f'<path d="M0,-312 C-10,-360 10,-390 24,-400 C20,-370 16,-340 8,-312 Z" fill="#f4f1ea" {st(2.5)}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+# ───────────────────────── Польша, пачка 4: Речь Посполитая, XVI–XVIII вв. ─────────────────────────
+
+def kontusz(zupan="#e9d8a8", kontusz_col="#a8312f", sash="#d4a63c", sash2="#2f6a4a"):
+    """Шляхетский наряд: жупан до щиколоток, поверх кунтуш с откидными рукавами, пояс-слуцкий кушак."""
+    def part(ctx):
+        hem = 50 if ctx["pose"].get("sit") else 92
+        t = (f'<path d="{TORSO_M}" fill="{zupan}" {st()}/>'
+             + "".join(f'<circle cx="0" cy="{y}" r="5" fill="#c9a24a" {st(2)}/>' for y in (-150, -122, -94, -66)))
+        coat = (f'<path d="M-74,-172 C-100,-170 -112,-156 -112,-130 L-104,20 L-30,20 L-26,-150 C-34,-166 -52,-174 -74,-172 Z" '
+                f'fill="{kontusz_col}" {st()}/>'
+                f'<path d="M74,-172 C100,-170 112,-156 112,-130 L104,20 L30,20 L26,-150 C34,-166 52,-174 74,-172 Z" '
+                f'fill="{kontusz_col}" {st()}/>')
+        stripes = "".join(f'<path d="M-108,{y} C-40,{y + 12} 40,{y + 12} 108,{y}" fill="none" stroke="{sash2}" stroke-width="4"/>'
+                          for y in (-40, -28, -16))
+        over = (coat + f'<path d="M-108,-50 C-40,-38 40,-38 108,-50 L108,-6 C40,6 -40,6 -108,-6 Z" fill="{sash}" {st(3)}/>'
+                + stripes + f'<path d="M-30,-6 L-40,52 L-18,52 L-12,-4 Z" fill="{sash}" {st(3)}/>')
+        skirt = (_hem_skirt(zupan, hem, folds=True)
+                 + f'<path d="M-96,-44 L-110,{hem} L-30,{hem} L-30,-44 Z M96,-44 L110,{hem} L30,{hem} L30,-44 Z" '
+                   f'fill="{kontusz_col}" {st()}/>')
+        return [("torso", "torso", t), ("torso_over", "torso", over), ("skirt", "root", skirt)]
+    return part
+
+
+def hussar_wings(col="#7a5232", feather="#f4f1ea"):
+    """Крылья крылатого гусара — деревянная рама с перьями за спиной."""
+    def part(ctx):
+        def wing(s):
+            feathers = "".join(f'<path d="M{s * 70},{y} C{s * 120},{y - 30} {s * 150},{y - 40} {s * 160},{y - 70} '
+                               f'C{s * 140},{y - 50} {s * 110},{y - 30} {s * 78},{y + 6} Z" fill="{feather}" {st(2.5)}/>'
+                               for y in range(-260, -40, 34))
+            return (f'<path d="M{s * 60},-40 C{s * 80},-160 {s * 110},-280 {s * 150},-340" fill="none" {st(12, col)}/>'
+                    f'<path d="M{s * 60},-40 C{s * 80},-160 {s * 110},-280 {s * 150},-340" fill="none" stroke="{shade(col, 1.3)}" '
+                    f'stroke-width="5" stroke-linecap="round"/>' + feathers)
+        return [("cape_back", "torso", wing(-1) + wing(1))]
+    return part
+
+
+def hat_wide(col="#2a2a2e", feather="#e9e0cc"):
+    """Широкополая шляпа XVII века с пером (шведы, иноземцы)."""
+    def part(ctx):
+        s = (f'<path d="M-110,-250 C-110,-320 -60,-350 0,-352 C60,-350 110,-320 110,-250 Z" fill="{col}" {st()}/>'
+             f'<path d="M-210,-238 C-200,-266 -120,-280 0,-282 C120,-280 200,-266 210,-238 C150,-224 -150,-224 -210,-238 Z" '
+             f'fill="{col}" {st()}/>'
+             f'<rect x="-110" y="-272" width="220" height="16" rx="6" fill="{shade(col, 1.6)}" {st(2.5)}/>'
+             f'<path d="M60,-270 C110,-330 170,-330 200,-300 C150,-300 110,-286 76,-256 Z" fill="{feather}" {st(2.5)}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def ruff(col="#f4f1ea"):
+    """Брыжи — гофрированный воротник (французы, испанцы)."""
+    def part(ctx):
+        s = "".join(f'<circle cx="{x}" cy="-176" r="20" fill="{col}" {st(2.5)}/>' for x in range(-70, 71, 20))
+        return [("neck", "head", f'<g transform="translate(0,190)">{s}</g>')]
+    return part
+
+
+def hat_horns(col="#3b1a12"):
+    """Рожки (чёрт из легенды о Твардовском)."""
+    def part(ctx):
+        h = f'<path d="M-90,-270 C-110,-320 -130,-350 -150,-370 C-120,-360 -90,-330 -70,-290 Z" fill="{col}" {st()}/>'
+        return [("hat", "head", both(h))]
+    return part
+
+
+def devil_tail(col="#a8262e"):
+    def part(ctx):
+        s = (f'<path d="M60,40 C140,60 170,0 150,-60" fill="none" {st(16, "#3a170c")}/>'
+             f'<path d="M60,40 C140,60 170,0 150,-60" fill="none" stroke="{col}" stroke-width="9" stroke-linecap="round"/>'
+             f'<path d="M150,-60 L130,-90 L176,-84 Z" fill="{col}" {st(3)}/>')
+        return [("cape_back", "root", s)]
+    return part
+
+
+# ───────────────────────── Польша, пачка 5: XVIII–XX вв. ─────────────────────────
+
+def hair_wig(col="#ece8e2"):
+    """Напудренный парик XVIII века: валики-букли на висках, хвост сзади."""
+    def part(ctx):
+        back = (f'<path d="M-150,-200 C-166,-150 -160,-90 -140,-60 L140,-60 C160,-90 166,-150 150,-200 '
+                f'C130,-300 -130,-300 -150,-200 Z" fill="{shade(col, .9)}" {st()}/>')
+        front = (f'<path d="M-150,-170 C-160,-264 -96,-312 0,-314 C96,-312 160,-264 150,-170 C140,-210 110,-246 0,-250 '
+                 f'C-110,-246 -140,-210 -150,-170 Z" fill="{col}" {st()}/>'
+                 + both(f'<ellipse cx="-150" cy="-150" rx="26" ry="18" fill="{col}" {st(3)}/>'
+                        f'<ellipse cx="-152" cy="-116" rx="26" ry="18" fill="{col}" {st(3)}/>')
+                 + f'<path d="M-60,-298 C-20,-306 20,-306 60,-298" fill="none" {st(3, "#ffffff")}/>')
+        return [("hair_back", "head", back), ("hair_front", "head", front)]
+    return part
+
+
+def hat_tricorne(col="#1e1e22", trim="#d4a63c"):
+    def part(ctx):
+        s = (f'<path d="M-200,-236 C-170,-330 -60,-350 0,-352 C60,-350 170,-330 200,-236 C120,-262 60,-270 0,-262 '
+             f'C-60,-270 -120,-262 -200,-236 Z" fill="{col}" {st()}/>'
+             f'<path d="M-196,-240 C-120,-266 -60,-274 0,-266 C60,-274 120,-266 196,-240" fill="none" {st(6, trim)}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_bicorne(col="#1e1e22", cockade="#a8312f"):
+    def part(ctx):
+        s = (f'<path d="M-230,-236 C-180,-300 -80,-350 0,-356 C80,-350 180,-300 230,-236 C120,-262 -120,-262 -230,-236 Z" '
+             f'fill="{col}" {st()}/>'
+             f'<path d="M-226,-240 C-120,-266 120,-266 226,-240" fill="none" {st(5, "#c9a24a")}/>'
+             f'<circle cx="60" cy="-300" r="18" fill="{cockade}" {st(3)}/><circle cx="60" cy="-300" r="8" fill="#f4f1ea"/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_czapka(col="#a8312f", band="#1e1e22", plume="#f4f1ea"):
+    """Уланская конфедератка-чапка с квадратным верхом и султаном."""
+    def part(ctx):
+        s = (f'<path d="M-150,-240 L-130,-300 L130,-300 L150,-240 Z" fill="{band}" {st()}/>'
+             f'<path d="M-160,-300 L-120,-380 L120,-380 L160,-300 Z" fill="{col}" {st()}/>'
+             f'<path d="M-160,-300 L0,-330 L160,-300 M-120,-380 L0,-330 L120,-380" fill="none" {st(3, "#d4a63c")}/>'
+             f'<path d="M-90,-386 C-110,-440 -60,-470 -40,-440 C-30,-420 -50,-396 -76,-382 Z" fill="{plume}" {st(3)}/>'
+             f'<path d="M-130,-246 C-60,-262 60,-262 130,-246" fill="none" {st(4, "#c9c4b8")}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_krakuska(col="#2f4a7a", fur="#2a2a2e", feather="#2f9a8a"):
+    """Краковская шапка косиньера: высокий верх, мех, павлинье перо."""
+    def part(ctx):
+        s = (f'<path d="M-130,-246 C-140,-330 -70,-372 0,-374 C70,-372 140,-330 130,-246 Z" fill="{col}" {st()}/>'
+             f'<path d="M-164,-210 C-172,-246 -150,-262 -124,-260 C-60,-272 60,-272 124,-260 C150,-262 172,-246 164,-210 '
+             f'C100,-228 -100,-228 -164,-210 Z" fill="{fur}" {st()}/>'
+             f'<path d="M90,-300 C120,-380 150,-420 170,-460" fill="none" {st(4, "#2f6a4a")}/>'
+             f'<ellipse cx="172" cy="-466" rx="16" ry="12" fill="{feather}" {st(3)}/><circle cx="172" cy="-466" r="5" fill="#1e3a6a"/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_top(col="#1e1e22"):
+    def part(ctx):
+        s = (f'<path d="M-110,-250 L-120,-420 C-60,-432 60,-432 120,-420 L110,-250 Z" fill="{col}" {st()}/>'
+             f'<path d="M-200,-246 C-150,-270 150,-270 200,-246 C150,-226 -150,-226 -200,-246 Z" fill="{col}" {st()}/>'
+             f'<rect x="-112" y="-290" width="224" height="22" fill="{shade(col, 1.8)}" {st(2.5)}/>'
+             f'<path d="M-80,-410 L-86,-300" fill="none" stroke="#ffffff" stroke-width="6" opacity=".25"/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def hat_pickelhaube(col="#1e1e22", metal="#c9a24a"):
+    def part(ctx):
+        s = (f'<path d="M-150,-226 C-150,-300 -80,-340 0,-342 C80,-340 150,-300 150,-226 C90,-240 -90,-240 -150,-226 Z" '
+             f'fill="{col}" {st()}/>'
+             f'<path d="M-170,-210 C-120,-232 120,-232 170,-210 L150,-200 C90,-220 -90,-220 -150,-200 Z" fill="{col}" {st(3)}/>'
+             f'<path d="M-16,-336 L0,-420 L16,-336 Z" fill="{metal}" {st(3)}/>'
+             f'<path d="M-40,-300 C-40,-260 40,-260 40,-300 C30,-320 -30,-320 -40,-300 Z" fill="{metal}" {st(3)}/>')
+        return [("hat", "head", s)]
+    return part
+
+
+def glasses(col="#3a2a20", kind="round"):
+    """Очки (Вильсон) или пенсне."""
+    def part(ctx):
+        r = 34 if kind == "round" else 28
+        s = (f'<circle cx="-78" cy="-101" r="{r}" fill="#dfe8f0" fill-opacity=".25" {st(5, col)}/>'
+             f'<circle cx="78" cy="-101" r="{r}" fill="#dfe8f0" fill-opacity=".25" {st(5, col)}/>'
+             f'<path d="M-44,-105 Q0,-117 44,-105" fill="none" {st(5, col)}/>')
+        if kind == "round":
+            s += f'<path d="M-112,-105 L-146,-113 M112,-105 L146,-113" fill="none" {st(5, col)}/>'
+        return [("features", "head", s)]
+    return part
+
+
+def frock(col="#4b6a9a", vest="#e9d8a8", trim="#d4a63c", cravat="#f4f1ea"):
+    """Кафтан XVIII века: полы до колен, камзол, шейный платок."""
+    def part(ctx):
+        hem = 40 if ctx["pose"].get("sit") else 70
+        t = (f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+             f'<path d="M-40,-174 L40,-174 L46,20 L-46,20 Z" fill="{vest}" {st(3)}/>'
+             + "".join(f'<circle cx="0" cy="{y}" r="5" fill="{trim}" {st(2)}/>' for y in (-130, -100, -70, -40, -10))
+             + f'<path d="M-26,-176 C-30,-140 30,-140 26,-176 C14,-150 -14,-150 -26,-176 Z" fill="{cravat}" {st(3)}/>'
+             + both(f'<path d="M-46,-170 L-50,20" fill="none" {st(6, trim)}/>'))
+        skirt = (f'<path d="M-96,-44 C-104,0 -112,{hem - 20} -116,{hem} L-40,{hem} L-46,-44 Z" fill="{col}" {st()}/>'
+                 f'<path d="M96,-44 C104,0 112,{hem - 20} 116,{hem} L40,{hem} L46,-44 Z" fill="{col}" {st()}/>'
+                 f'<path d="M-112,{hem - 10} L-44,{hem - 10} M112,{hem - 10} L44,{hem - 10}" fill="none" {st(5, trim)}/>')
+        return [("torso", "torso", t), ("skirt", "root", skirt)]
+    return part
+
+
+def uniform(col="#2f4a7a", facing="#a8312f", trim="#d4a63c", sash=None, epaulettes=True):
+    """Мундир эпохи Наполеона/XIX в.: лацканы, пуговицы в два ряда, эполеты, кушак."""
+    def part(ctx):
+        hem = 30 if ctx["pose"].get("sit") else 46
+        t = (f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+             f'<path d="M-40,-176 L-24,-60 L24,-60 L40,-176 L22,-176 L0,-110 L-22,-176 Z" fill="{facing}" {st(3)}/>'
+             + "".join(f'<circle cx="{x}" cy="{y}" r="5" fill="{trim}" {st(2)}/>' for x in (-16, 16) for y in (-150, -120, -90))
+             + f'<path d="M-40,-178 L40,-178 L36,-160 L-36,-160 Z" fill="{facing}" {st(3)}/>')
+        over = ""
+        if sash:
+            over += f'<path d="M-106,-36 C-40,-24 40,-24 106,-36 L106,-12 C40,0 -40,0 -106,-12 Z" fill="{sash}" {st(3)}/>'
+        else:
+            over += f'<rect x="-106" y="-30" width="212" height="20" rx="5" fill="#f4f1ea" {st(3)}/>'
+        if epaulettes:
+            over += both(f'<path d="M-104,-170 C-120,-166 -128,-150 -120,-140 L-70,-150 L-70,-170 Z" fill="{trim}" {st(3)}/>'
+                         + "".join(f'<path d="M{x},-142 l-2,14" fill="none" {st(3, trim)}/>' for x in (-118, -108, -98, -88)))
+        skirt = _hem_skirt(col, hem, facing, folds=False)
+        return [("torso", "torso", t), ("torso_over", "torso", over), ("skirt", "root", skirt)]
+    return part
+
+
+def sukmana(col="#f1ece2", trim="#a8312f", belt="#a8312f"):
+    """Крестьянская сукмана косиньера: длинный белый кафтан с красной тесьмой."""
+    def part(ctx):
+        hem = 40 if ctx["pose"].get("sit") else 74
+        t = (f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+             f'<path d="M0,-176 L0,20" fill="none" {st(5, trim)}/>'
+             + both(f'<path d="M-36,-176 C-40,-150 -30,-130 -10,-120" fill="none" {st(5, trim)}/>'))
+        over = f'<path d="M-106,-30 C-40,-18 40,-18 106,-30 L106,-10 C40,2 -40,2 -106,-10 Z" fill="{belt}" {st(3)}/>'
+        return [("torso", "torso", t), ("torso_over", "torso", over), ("skirt", "root", _hem_skirt(col, hem, trim))]
+    return part
+
+
+def suit(col="#2a2a2e", shirt="#f4f1ea", tie="#a8312f", long=True):
+    """Костюм XIX–XX вв.: сюртук или пиджак, белая рубашка, галстук."""
+    def part(ctx):
+        hem = 34 if ctx["pose"].get("sit") else (70 if long else 30)
+        t = (f'<path d="{TORSO_M}" fill="{col}" {st()}/>'
+             f'<path d="M-36,-176 L0,-90 L36,-176 Z" fill="{shirt}" {st(3)}/>'
+             f'<path d="M-8,-170 L8,-170 L10,-110 L0,-96 L-10,-110 Z" fill="{tie}" {st(2.5)}/>'
+             + both(f'<path d="M-36,-176 L-6,-80 L-30,-60" fill="none" {st(4, shade(col, 1.5))}/>')
+             + "".join(f'<circle cx="-8" cy="{y}" r="5" fill="{shade(col, 1.6)}"/>' for y in (-60, -30)))
+        skirt = (f'<path d="M-96,-44 C-104,0 -110,{hem - 20} -112,{hem} L-6,{hem} L-6,-44 Z" fill="{col}" {st()}/>'
+                 f'<path d="M96,-44 C104,0 110,{hem - 20} 112,{hem} L6,{hem} L6,-44 Z" fill="{col}" {st()}/>')
+        return [("torso", "torso", t), ("skirt", "root", skirt)]
+    return part
+
+
+def scythe(hand="hand_r"):
+    """Коса, насаженная торчком, — оружие косиньеров."""
+    def part(ctx):
+        s = (f'<rect x="-6" y="-230" width="12" height="290" rx="5" fill="#8a5a2a" {st(3)}/>'
+             f'<path d="M0,-226 C10,-280 20,-330 14,-380 C30,-330 30,-270 6,-214 Z" fill="#d9dde2" {st(3)}/>')
+        return [("held", hand, s)]
+    return part
+
+
+def flag_held(hand="hand_r", col="#f4f1ea", col2="#a8312f"):
+    """Бело-красный флаг на древке."""
+    def part(ctx):
+        s = (f'<rect x="-5" y="-260" width="10" height="320" rx="4" fill="#7a5232" {st(3)}/>'
+             f'<path d="M5,-256 L130,-246 L130,-196 L5,-206 Z" fill="{col}" {st(3)}/>'
+             f'<path d="M5,-206 L130,-196 L130,-146 L5,-156 Z" fill="{col2}" {st(3)}/>')
+        return [("held", hand, s)]
+    return part
+
+
+def book(hand="hand_r", col="#7a2a2a"):
+    def part(ctx):
+        s = (f'<rect x="-30" y="-40" width="60" height="76" rx="5" fill="{col}" {st(3)}/>'
+             f'<rect x="-24" y="-34" width="48" height="64" rx="3" fill="none" {st(2.5, "#d4a63c")}/>')
+        return [("held", hand, s)]
+    return part
+
+
+def flask(hand="hand_r"):
+    """Колба с зелёным светящимся содержимым (лаборатория Кюри)."""
+    def part(ctx):
+        s = (f'<path d="M-10,-60 L-10,-20 L-34,24 C-40,36 -30,44 -18,44 L18,44 C30,44 40,36 34,24 L10,-20 L10,-60 Z" '
+             f'fill="#e8f2f2" fill-opacity=".8" {st(3)}/>'
+             f'<path d="M-28,20 L28,20 L34,30 C38,40 30,44 18,44 L-18,44 C-30,44 -38,40 -34,30 Z" fill="#7fe0a0"/>'
+             f'<rect x="-14" y="-68" width="28" height="10" rx="3" fill="#c9c4b8" {st(2.5)}/>')
+        return [("held", hand, s)]
+    return part

@@ -1,0 +1,68 @@
+{
+  "id": "kozietulski",
+  "name": "Ян Козетульский",
+  "old_ref": "hetman",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "czapka",
+      "col": "#a8312f",
+      "band": "#2f4a7a",
+      "plume": "#f4f1ea"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#2f4a7a",
+      "facing": "#a8312f",
+      "trim": "#c9c4b8",
+      "sash": "",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#a8312f"
+    }
+  }
+}

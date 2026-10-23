@@ -17703,5 +17703,557 @@
   "roles": [
    "князь"
   ]
+ },
+ {
+  "id": "wanda_refusal_pl",
+  "name": "Сватовство Ритигера",
+  "tags": [
+   "sig_wanda_refusal_pl"
+  ],
+  "slots": 2,
+  "emoji": "💔",
+  "action": "отказать жениху",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "жених",
+   "королевна"
+  ]
+ },
+ {
+  "id": "wanda_armies_pl",
+  "name": "Войска сошлись",
+  "tags": [
+   "sig_wanda_armies_pl"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "выйти к войску",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "королевна",
+   "враг"
+  ]
+ },
+ {
+  "id": "rytygier_sword_pl",
+  "name": "Меч на себя",
+  "tags": [
+   "sig_rytygier_sword_pl"
+  ],
+  "slots": 1,
+  "emoji": "🗡️",
+  "action": "броситься на меч",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "wanda_wedding_pl",
+  "name": "Свадьба",
+  "tags": [
+   "v_wed"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "свадьба",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "жених",
+   "невеста"
+  ]
+ },
+ {
+  "id": "wanda_battle_pl",
+  "name": "Битва",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "merchant_net_pl",
+  "name": "Сети купца",
+  "tags": [
+   "sig_merchant_net_pl"
+  ],
+  "slots": 2,
+  "emoji": "🕸️",
+  "action": "поймать сирену",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "купец",
+   "сирена"
+  ]
+ },
+ {
+  "id": "night_rescue_pl",
+  "name": "Ночью у сарая",
+  "tags": [
+   "sig_night_rescue_pl"
+  ],
+  "slots": 2,
+  "emoji": "🌙",
+  "action": "освободить пленницу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "рыбак",
+   "пленница"
+  ]
+ },
+ {
+  "id": "mermaid_oath_pl",
+  "name": "Клятва сирены",
+  "tags": [
+   "sig_mermaid_oath_pl"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "поклясться защищать",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "сирена",
+   "рыбак"
+  ]
+ },
+ {
+  "id": "merchant_deal_pl",
+  "name": "Сделка с купцом",
+  "tags": [
+   "v_bribe"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "подкуп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто платит",
+   "кто берёт"
+  ]
+ },
+ {
+  "id": "skalka_pl",
+  "name": "Костёл на Скалке",
+  "tags": [
+   "sig_skalka_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "покарать епископа",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "епископ"
+  ]
+ },
+ {
+  "id": "magnates_revolt_pl",
+  "name": "Бунт можновладцев",
+  "tags": [
+   "sig_magnates_revolt_pl"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "изгнать короля",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "можновладец",
+   "король"
+  ]
+ },
+ {
+  "id": "herman_power_pl",
+  "name": "Власть — брату",
+  "tags": [
+   "sig_herman_power_pl"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "посадить на стол",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "можновладец",
+   "брат короля"
+  ]
+ },
+ {
+  "id": "bishop_peace_pl",
+  "name": "Примирение с епископом",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "crush_revolt_pl",
+  "name": "Подавить бунт",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "prussian_raids_pl",
+  "name": "Набеги на Мазовию",
+  "tags": [
+   "sig_prussian_raids_pl"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "грабить пограничье",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "язычник",
+   "князь"
+  ]
+ },
+ {
+  "id": "call_order_pl",
+  "name": "Хелминская земля — ордену",
+  "tags": [
+   "sig_call_order_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "позвать рыцарей",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "магистр"
+  ]
+ },
+ {
+  "id": "order_crusade_pl",
+  "name": "Крестовый поход на пруссов",
+  "tags": [
+   "sig_order_crusade_pl"
+  ],
+  "slots": 2,
+  "emoji": "✠",
+  "action": "покорить язычников",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "рыцарь",
+   "язычник"
+  ]
+ },
+ {
+  "id": "konrad_alone_pl",
+  "name": "Идти самому",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "mongol_feint_pl",
+  "name": "Ложное бегство",
+  "tags": [
+   "sig_mongol_feint_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏇",
+  "action": "притворно бежать",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "отступающий",
+   "преследователь"
+  ]
+ },
+ {
+  "id": "legnica_field_pl",
+  "name": "Поле под Легницей",
+  "tags": [
+   "sig_legnica_field_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "окружить",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "рыцарь"
+  ]
+ },
+ {
+  "id": "hejnal_tower_pl",
+  "name": "Мариацкая башня",
+  "tags": [
+   "sig_hejnal_tower_pl"
+  ],
+  "slots": 2,
+  "emoji": "🎺",
+  "action": "трубить тревогу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "трубач",
+   "враг"
+  ]
+ },
+ {
+  "id": "legnica_front_pl",
+  "name": "Лобовой удар",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "dowry_salt_pl",
+  "name": "Приданое — соль",
+  "tags": [
+   "sig_dowry_salt_pl"
+  ],
+  "slots": 2,
+  "emoji": "🧂",
+  "action": "попросить соли",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "отец",
+   "дочь"
+  ]
+ },
+ {
+  "id": "dowry_gold_pl",
+  "name": "Приданое — золото",
+  "tags": [
+   "sig_dowry_gold_pl"
+  ],
+  "slots": 2,
+  "emoji": "🪙",
+  "action": "взять золото",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "отец",
+   "дочь"
+  ]
+ },
+ {
+  "id": "ring_mine_pl",
+  "name": "Перстень в шахту",
+  "tags": [
+   "sig_ring_mine_pl"
+  ],
+  "slots": 1,
+  "emoji": "💍",
+  "action": "бросить перстень",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "княжна"
+  ]
+ },
+ {
+  "id": "wieliczka_pl",
+  "name": "Шахта в Величке",
+  "tags": [
+   "sig_wieliczka_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛏️",
+  "action": "копать",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "рудокоп",
+   "княгиня"
+  ]
+ },
+ {
+  "id": "ojcow_cave_pl",
+  "name": "Пещера у Ойцова",
+  "tags": [
+   "sig_ojcow_cave_pl"
+  ],
+  "slots": 2,
+  "emoji": "🕷️",
+  "action": "спрятаться",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "беглец",
+   "погоня"
+  ]
+ },
+ {
+  "id": "lokietek_muster_pl",
+  "name": "Собрать сторонников",
+  "tags": [
+   "v_prepare"
+  ],
+  "slots": 1,
+  "emoji": "🛡️",
+  "action": "подготовка",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто вооружается"
+  ]
+ },
+ {
+  "id": "wawel_1320_pl",
+  "name": "Коронация на Вавеле",
+  "tags": [
+   "sig_wawel_1320_pl"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "короновать",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "архиепископ"
+  ]
+ },
+ {
+  "id": "lokietek_fight_pl",
+  "name": "Бой с погоней",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "order_split_pl",
+  "name": "Орден делит войско",
+  "tags": [
+   "sig_order_split_pl"
+  ],
+  "slots": 2,
+  "emoji": "🔭",
+  "action": "выследить врага",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "разведчик",
+   "враг"
+  ]
+ },
+ {
+  "id": "plowce_strike_pl",
+  "name": "Удар у Пловцев",
+  "tags": [
+   "sig_plowce_strike_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "ударить по отряду",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "враг"
+  ]
+ },
+ {
+  "id": "heir_charge_pl",
+  "name": "Королевич — в бой",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "krakow_academy_pl",
+  "name": "Краковская академия",
+  "tags": [
+   "sig_krakow_academy_pl"
+  ],
+  "slots": 1,
+  "emoji": "🎓",
+  "action": "основать университет",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "wierzynek_feast_pl",
+  "name": "Пир у Вежинка",
+  "tags": [
+   "sig_wierzynek_feast_pl"
+  ],
+  "slots": 2,
+  "emoji": "🍷",
+  "action": "дать пир",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "хозяин",
+   "король"
+  ]
+ },
+ {
+  "id": "krakow_congress_pl",
+  "name": "Краковский съезд",
+  "tags": [
+   "sig_krakow_congress_pl"
+  ],
+  "slots": 3,
+  "emoji": "🤝",
+  "action": "помирить королей",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "посредник",
+   "гость",
+   "гость"
+  ]
+ },
+ {
+  "id": "silesia_quarrel_pl",
+  "name": "Спор за Силезию",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
  }
 ]

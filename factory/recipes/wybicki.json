@@ -1,0 +1,62 @@
+{
+  "id": "wybicki",
+  "name": "Юзеф Выбицкий",
+  "old_ref": "hetman",
+  "skin": "#f5cbb0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig"
+    },
+    "outfit": {
+      "type": "frock",
+      "col": "#2f4a7a",
+      "vest": "#f4f1ea",
+      "trim": "#c9c4b8"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#f4f1ea"
+    }
+  }
+}

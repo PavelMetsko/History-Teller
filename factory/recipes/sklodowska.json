@@ -1,0 +1,61 @@
+{
+  "id": "sklodowska",
+  "name": "Мария Склодовская-Кюри",
+  "old_ref": "victoria",
+  "skin": "#f9d6c0",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "flask",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#9a6a3a"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#2a2a2e",
+      "trim": "#2a2a2e",
+      "mantle": "#2a2a2e",
+      "shoes": "#2a2a2e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#2a2a2e"
+    }
+  }
+}

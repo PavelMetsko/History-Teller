@@ -1,0 +1,56 @@
+{
+  "id": "kinga",
+  "name": "Княжна Кинга",
+  "old_ref": "victoria",
+  "skin": "#f9d2b8",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#f4f1ea",
+      "band": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#e0b86a"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#6b4a8a",
+      "trim": "#d4a63c",
+      "mantle": "#e9e0cc",
+      "shoes": "#6b4a8a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#6b4a8a",
+      "cuff": "#d4a63c"
+    }
+  }
+}

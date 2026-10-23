@@ -1,0 +1,62 @@
+{
+  "id": "maximilian3",
+  "name": "Эрцгерцог Максимилиан",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#c99a5a"
+    },
+    "hat": {
+      "type": "beret",
+      "col": "#1e1e22",
+      "feather": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "ruff"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#c99a5a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#d4a85a"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#1e1e22",
+      "trim": "#d4a63c",
+      "chain": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e1e22",
+      "cuff": "#d4a63c"
+    }
+  }
+}

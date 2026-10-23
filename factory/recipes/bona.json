@@ -1,0 +1,56 @@
+{
+  "id": "bona",
+  "name": "Королева Бона Сфорца",
+  "old_ref": "victoria",
+  "skin": "#f9d2b8",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#f4f1ea",
+      "band": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#3b2a20",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#3b2a20"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#a8312f",
+      "trim": "#d4a63c",
+      "mantle": "#2a2a2e",
+      "shoes": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#d4a63c"
+    }
+  }
+}

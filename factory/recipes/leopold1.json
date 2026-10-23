@@ -1,0 +1,59 @@
+{
+  "id": "leopold1",
+  "name": "Император Леопольд I",
+  "old_ref": "hetman",
+  "skin": "#f5d0b8",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "ruff"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#d8ad3c"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#2a1a12"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#1e1e22",
+      "gold": "#d8ad3c",
+      "mantle": "#c9a24a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e1e22",
+      "cuff": "#d8ad3c"
+    }
+  }
+}

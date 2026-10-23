@@ -5465,5 +5465,213 @@
    "son_pl"
   ],
   "emoji": "🌾"
+ },
+ {
+  "id": "wanda",
+  "name": "Королевна Ванда",
+  "tags": [
+   "princess_pl"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "rytygier",
+  "name": "Князь Ритигер",
+  "tags": [
+   "german_prince_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "syrenka",
+  "name": "Варшавская Сирена",
+  "tags": [
+   "mermaid_pl"
+  ],
+  "emoji": "🧜‍♀️"
+ },
+ {
+  "id": "wars_fisher",
+  "name": "Рыбак Варс",
+  "tags": [
+   "fisher_pl"
+  ],
+  "emoji": "🎣"
+ },
+ {
+  "id": "merchant_pl",
+  "name": "Богатый купец",
+  "tags": [
+   "merchant_pl"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "boleslaw2",
+  "name": "Болеслав Смелый",
+  "tags": [
+   "king_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "stanislaw_bp",
+  "name": "Епископ Станислав",
+  "tags": [
+   "bishop_kr_pl"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "magnate_pl",
+  "name": "Можновладец",
+  "tags": [
+   "magnate_pl"
+  ],
+  "emoji": "🏰"
+ },
+ {
+  "id": "wladyslaw_herman",
+  "name": "Владислав Герман",
+  "tags": [
+   "herman_pl"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "konrad_maz",
+  "name": "Конрад Мазовецкий",
+  "tags": [
+   "mazovia_pl"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "salza",
+  "name": "Магистр Герман фон Зальца",
+  "tags": [
+   "order_pl"
+  ],
+  "emoji": "✠"
+ },
+ {
+  "id": "henry_pious",
+  "name": "Генрих Благочестивый",
+  "tags": [
+   "silesia_pl"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "mongol_pl",
+  "name": "Монгольский нойон",
+  "tags": [
+   "mongol_pl"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "trumpeter_pl",
+  "name": "Трубач с Мариацкой башни",
+  "tags": [
+   "trumpeter_pl"
+  ],
+  "emoji": "🎺"
+ },
+ {
+  "id": "kinga",
+  "name": "Княжна Кинга",
+  "tags": [
+   "princess_hu_pl"
+  ],
+  "emoji": "💍"
+ },
+ {
+  "id": "bela4",
+  "name": "Король Бела IV",
+  "tags": [
+   "king_hu_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "miner_pl",
+  "name": "Рудокоп из Велички",
+  "tags": [
+   "miner_pl"
+  ],
+  "emoji": "⛏️"
+ },
+ {
+  "id": "lokietek",
+  "name": "Владислав Локетек",
+  "tags": [
+   "lokietek_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "czech_knight",
+  "name": "Рыцарь Вацлава",
+  "tags": [
+   "czech_knight_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "janislaw",
+  "name": "Архиепископ Янислав",
+  "tags": [
+   "archbishop_pl"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "young_casimir",
+  "name": "Королевич Казимир",
+  "tags": [
+   "heir_pl"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "komtur",
+  "name": "Комтур ордена",
+  "tags": [
+   "order_pl"
+  ],
+  "emoji": "✠"
+ },
+ {
+  "id": "casimir3",
+  "name": "Казимир Великий",
+  "tags": [
+   "casimir_great_pl"
+  ],
+  "emoji": "🏛️"
+ },
+ {
+  "id": "charles4_hre",
+  "name": "Император Карл IV",
+  "tags": [
+   "guest_king_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "louis_hu",
+  "name": "Людовик Венгерский",
+  "tags": [
+   "guest_king_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "wierzynek",
+  "name": "Купец Вежинек",
+  "tags": [
+   "host_pl"
+  ],
+  "emoji": "🍷"
  }
 ]
