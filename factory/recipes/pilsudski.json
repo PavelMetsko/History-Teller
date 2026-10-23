@@ -1,0 +1,45 @@
+{
+  "id": "pilsudski",
+  "old_ref": "livingstone",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#9a948c",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#a39d95"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#a7a199"
+    },
+    "hat": {
+      "type": "maciejowka"
+    },
+    "outfit": {
+      "type": "legion_tunic"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7f8c99",
+      "cuff": "#6c7884"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7f8c99"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#2e2622"
+    },
+    "held": {
+      "type": "none"
+    }
+  }
+}

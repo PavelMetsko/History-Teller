@@ -1,0 +1,42 @@
+{
+  "id": "jadwiga",
+  "old_ref": "victoria",
+  "skin": "#f9d2b8",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#5f3a22"
+    },
+    "hair": {
+      "type": "long",
+      "col": "#b97a45"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown"
+    },
+    "outfit": {
+      "type": "gown"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f1e9da",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    }
+  }
+}

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Фабрика персонажей</title>
+<style>
+  :root { --bg:#ece6da; --panel:#f7f3ea; --ink:#3a2418; --muted:#8a7464; --line:#d8cdbb; --accent:#9e2a2b; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.35 -apple-system, system-ui, sans-serif; color:var(--ink); background:var(--bg); }
+  header { display:flex; gap:10px; align-items:center; padding:10px 16px; background:var(--panel); border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0 12px 0 0; }
+  input, select, button { font:inherit; color:inherit; }
+  input[type=text], select { padding:5px 8px; border:1px solid var(--line); border-radius:6px; background:#fff; }
+  button { padding:6px 12px; border:1px solid var(--line); border-radius:6px; background:#fff; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button:disabled { opacity:.5; cursor:default; }
+  #status { color:var(--muted); margin-left:auto; }
+  main { display:grid; grid-template-columns:minmax(230px,330px) minmax(0,1fr) minmax(170px,260px); gap:0; height:calc(100vh - 54px); }
+  #controls { overflow:auto; padding:12px 14px; background:var(--panel); border-right:1px solid var(--line); }
+  .slot { padding:10px 0; border-bottom:1px solid var(--line); }
+  .slot h3 { margin:0 0 6px; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  .slot select { width:100%; }
+  .param { display:flex; align-items:center; gap:8px; margin-top:6px; }
+  .param label { width:110px; color:var(--muted); }
+  .param input[type=color] { width:38px; height:26px; padding:0; border:1px solid var(--line); border-radius:4px; background:none; }
+  .swatches { display:flex; gap:3px; flex-wrap:wrap; }
+  .swatches i { width:14px; height:14px; border-radius:3px; cursor:pointer; border:1px solid rgba(0,0,0,.15); }
+  #stage { overflow:auto; padding:14px; display:flex; flex-direction:column; align-items:stretch; gap:12px; }
+  #pair { display:flex; gap:14px; justify-content:center; }
+  #pair figure { margin:0; flex:0 1 340px; min-width:0; text-align:center; color:var(--muted); font-size:12px; }
+  #big, #old { width:100%; aspect-ratio:2/3; background:#e4dccd; border-radius:10px; overflow:hidden; }
+  #old img { width:100%; height:100%; object-fit:contain; background:none; border-radius:0; }
+  #old .empty { height:100%; display:flex; align-items:center; justify-content:center; }
+  #poses { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .pose { flex:0 1 150px; min-width:90px; text-align:center; color:var(--muted); font-size:12px; }
+  .pose div { width:100%; aspect-ratio:2/3; background:#e4dccd; border-radius:8px; }
+  #big svg, .pose svg { width:100%; height:100%; }
+  aside { overflow:auto; padding:12px; background:var(--panel); border-left:1px solid var(--line); }
+  aside h3 { margin:6px 0; font-size:12px; text-transform:uppercase; color:var(--muted); }
+  aside img { width:100%; background:#e4dccd; border-radius:8px; }
+  .empty { padding:40px 10px; text-align:center; color:var(--muted); background:#e4dccd; border-radius:8px; }
+  #castlist { max-height:260px; overflow:auto; border:1px solid var(--line); border-radius:6px; background:#fff; margin-top:6px; }
+  #castlist div { padding:4px 8px; cursor:pointer; display:flex; justify-content:space-between; gap:6px; }
+  #castlist div:hover { background:#f1e9dc; }
+  #castlist small { color:var(--muted); }
+  .tag { font-size:10px; padding:1px 5px; border-radius:8px; background:#e9dfcf; color:var(--muted); }
+  .tag.ok { background:#dbe9d3; color:#3d6b2e; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Фабрика персонажей</h1>
+  <label>id <input id="rid" type="text" size="16" placeholder="sobieski"></label>
+  <span id="rname" style="color:var(--muted)"></span>
+  <button id="btnNew">Новый</button>
+  <button id="btnRandom">Случайный</button>
+  <button id="btnSave" class="primary">Сохранить спрайты</button>
+  <span id="status">загрузка…</span>
+</header>
+<main>
+  <section id="controls"></section>
+  <section id="stage">
+    <div id="pair">
+      <figure><div id="big"></div><figcaption>новый</figcaption></figure>
+      <figure><div id="old"></div><figcaption>старый (Nano Banana)</figcaption></figure>
+    </div>
+    <div id="poses"></div>
+  </section>
+  <aside>
+    <h3>Персонажи игры</h3>
+    <input id="castq" type="text" placeholder="поиск: имя или id" style="width:100%">
+    <div id="castlist"></div>
+    <h3 style="margin-top:14px">Сохранённый новый</h3>
+    <div id="saved"></div>
+  </aside>
+</main>
+<script>
+const PALETTE = ["#f9d2b8","#f7c9aa","#f3c4a6","#e8b08a","#c98b62","#8d5a3b",
+  "#2a1a12","#4a2e1c","#5a3a22","#8a5a34","#b97a45","#d9b27a","#a7a199","#e9e4dc",
+  "#9e2a2b","#a8262e","#c0563a","#d4a63c","#d8ad3c","#5a6b4a","#3f6b4a","#2f4a7a","#4b6a9a","#7f8c99",
+  "#5b4636","#6b4426","#3b2a20","#f1e9da","#c6cbd1","#2e2622"];
+const POSE_LABEL = {base:"база", triumph:"триумф", defeated:"разгромлен", plot:"заговорщик", dead:"убит"};
+let CAT, CAST = [], recipe, svgs = {}, timer, seq = 0;
+
+const $ = s => document.querySelector(s);
+const status = t => $("#status").textContent = t;
+
+function blankRecipe(id="new_character") {
+  const r = {id, skin:"#f7c9aa", slots:{}};
+  for (const s of CAT.slots) r.slots[s.slot] = {type: s.options[0].id};
+  return r;
+}
+
+function option(slot) { const s = CAT.slots.find(x => x.slot === slot);
+  return s.options.find(o => o.id === recipe.slots[slot]?.type) || s.options[0]; }
+
+function swatches(onPick) {
+  const w = document.createElement("div"); w.className = "swatches";
+  for (const c of PALETTE) { const i = document.createElement("i"); i.style.background = c; i.title = c;
+    i.onclick = () => onPick(c); w.appendChild(i); }
+  return w;
+}
+
+function colorRow(label, value, onChange) {
+  const row = document.createElement("div"); row.className = "param";
+  const l = document.createElement("label"); l.textContent = label;
+  const inp = document.createElement("input"); inp.type = "color"; inp.value = value;
+  inp.oninput = () => onChange(inp.value);
+  row.append(l, inp, swatches(c => { inp.value = c; onChange(c); }));
+  return row;
+}
+
+function drawControls() {
+  const box = $("#controls"); box.innerHTML = "";
+  const skin = document.createElement("div"); skin.className = "slot";
+  skin.innerHTML = "<h3>Кожа</h3>";
+  skin.appendChild(colorRow("Цвет кожи", recipe.skin, v => { recipe.skin = v; changed(); }));
+  box.appendChild(skin);
+  for (const s of CAT.slots) {
+    const d = document.createElement("div"); d.className = "slot";
+    d.innerHTML = `<h3>${s.label}</h3>`;
+    const sel = document.createElement("select");
+    for (const o of s.options) sel.add(new Option(o.label, o.id));
+    const cur = recipe.slots[s.slot] ||= {type: s.options[0].id};
+    sel.value = option(s.slot).id;
+    sel.onchange = () => { recipe.slots[s.slot] = {type: sel.value}; drawControls(); changed(); };
+    d.appendChild(sel);
+    for (const p of option(s.slot).params) {
+      const val = cur[p.key] ?? p.default;
+      if (p.type === "color") d.appendChild(colorRow(p.label, val, v => { cur[p.key] = v; changed(); }));
+      else if (p.type === "bool") {
+        const row = document.createElement("div"); row.className = "param";
+        row.innerHTML = `<label>${p.label}</label>`;
+        const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!val;
+        cb.onchange = () => { cur[p.key] = cb.checked; changed(); };
+        row.appendChild(cb); d.appendChild(row);
+      } else if (p.type === "choice") {
+        const row = document.createElement("div"); row.className = "param";
+        row.innerHTML = `<label>${p.label}</label>`;
+        const c = document.createElement("select");
+        for (const [v, t] of p.options) c.add(new Option(t, v));
+        c.value = val; c.onchange = () => { cur[p.key] = c.value; changed(); };
+        row.appendChild(c); d.appendChild(row);
+      }
+    }
+    box.appendChild(d);
+  }
+}
+
+function changed() { clearTimeout(timer); timer = setTimeout(render, 120); }
+
+async function fetchPoses() {
+  const r = await fetch("/api/render", {method:"POST", body: JSON.stringify({recipe})});
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error);
+  return j.poses;
+}
+
+async function render() {
+  recipe.id = $("#rid").value.trim() || recipe.id;
+  const my = ++seq;
+  let poses;
+  try { poses = await fetchPoses(); } catch (e) { status(e.message); return; }
+  if (my !== seq) return;               // пришёл ответ на устаревший рендер
+  svgs = poses;
+  $("#big").innerHTML = svgs.base;
+  const row = $("#poses"); row.innerHTML = "";
+  for (const p of CAT.poses) {
+    if (p === "base") continue;
+    const w = document.createElement("div"); w.className = "pose";
+    w.innerHTML = `<div>${svgs[p]}</div>${POSE_LABEL[p]}`; row.appendChild(w);
+  }
+  fitPreviews();
+  status("готово к сохранению");
+}
+
+// Превью в том же масштабе, что и сохранённый спрайт: рост 0.77 кадра, пол на 752,
+// масштаб и центр — по базовой позе (как в build.normalize)
+function fitPreviews() {
+  const bb = svg => { const g = svg.querySelector("g[filter]"); const b = g.getBBox(); return {x:b.x-6, y:b.y-6, w:b.width+12, h:b.height+12}; };
+  const base = $("#big svg"); if (!base) return;
+  const b0 = bb(base), k = 0.77 * 768 / b0.h, vw = 512 / k, vh = 768 / k, cx = b0.x + b0.w / 2;
+  for (const svg of [base, ...document.querySelectorAll(".pose svg")]) {
+    const b = bb(svg);
+    svg.setAttribute("viewBox", `${cx - vw / 2} ${b.y + b.h - 752 / k} ${vw} ${vh}`);
+  }
+}
+
+function rasterize(svg) {
+  return new Promise((ok, fail) => {
+    const img = new Image();
+    img.onload = () => { const c = document.createElement("canvas"); c.width = 1024; c.height = 1536;
+      c.getContext("2d").drawImage(img, 0, 0, 1024, 1536); ok(c.toDataURL("image/png")); };
+    img.onerror = fail;
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  });
+}
+
+async function save() {
+  recipe.id = $("#rid").value.trim();
+  if (!/^[a-z][a-z0-9_]*$/.test(recipe.id)) { status("id: латиница в нижнем регистре, цифры и _"); return; }
+  $("#btnSave").disabled = true; status("сохраняю…");
+  clearTimeout(timer); ++seq;
+  let poses;
+  try { poses = await fetchPoses(); } catch (e) { status(e.message); $("#btnSave").disabled = false; return; }
+  const png = {};
+  for (const p of CAT.poses) png[p] = await rasterize(poses[p]);
+  const r = await fetch("/api/save", {method:"POST", body: JSON.stringify({recipe, png})});
+  const j = await r.json(); $("#btnSave").disabled = false;
+  if (!r.ok) { status(j.error); return; }
+  status(`сохранено: ${j.saved.length} файлов в Content/art_v2`);
+  await loadCast(); showSide();
+}
+
+function img(src) { return `<img src="${src}?t=${Date.now()}" onerror="this.outerHTML='<div class=empty>нет</div>'">`; }
+
+function showSide() {
+  const id = recipe.id, c = CAST.find(x => x.id === id);
+  $("#rname").textContent = c ? c.name : "";
+  $("#old").innerHTML = img(`/art/char_${id}.webp`);
+  $("#saved").innerHTML = img(`/art_v2/char_${id}.webp`);
+}
+
+async function openChar(id) {
+  const r = await fetch(`/api/recipe?id=${encodeURIComponent(id)}`);
+  if (r.ok) recipe = await r.json();
+  else { const keep = recipe ? structuredClone(recipe) : blankRecipe(); keep.id = id; recipe = keep; }
+  $("#rid").value = recipe.id; drawControls(); showSide(); render();
+}
+
+function randomize() {
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  for (const s of CAT.slots) {
+    if (s.slot === "body") continue;
+    const o = pick(s.options); const cur = {type: o.id};
+    for (const p of o.params) if (p.type === "color") cur[p.key] = pick(PALETTE.slice(6));
+    recipe.slots[s.slot] = cur;
+  }
+  recipe.skin = pick(PALETTE.slice(0, 6));
+  drawControls(); changed();
+}
+
+async function loadCast() { CAST = await (await fetch("/api/cast")).json(); drawCast(); }
+
+function drawCast() {
+  const q = $("#castq").value.trim().toLowerCase(); const list = $("#castlist"); list.innerHTML = "";
+  for (const c of CAST.filter(c => !q || c.id.includes(q) || c.name.toLowerCase().includes(q)).slice(0, 200)) {
+    const d = document.createElement("div");
+    d.innerHTML = `<span>${c.name} <small>${c.id}</small></span>` + (c.new ? `<span class="tag ok">новый</span>` : c.recipe ? `<span class="tag">рецепт</span>` : "");
+    d.onclick = () => openChar(c.id); list.appendChild(d);
+  }
+}
+
+(async () => {
+  CAT = await (await fetch("/api/catalog")).json();
+  await loadCast();
+  $("#castq").oninput = drawCast;
+  $("#rid").onchange = () => { recipe.id = $("#rid").value.trim(); showSide(); };
+  $("#btnNew").onclick = () => { recipe = blankRecipe(); $("#rid").value = recipe.id; drawControls(); showSide(); render(); };
+  $("#btnRandom").onclick = randomize;
+  $("#btnSave").onclick = save;
+  await openChar("sobieski");
+})();
+</script>
+</body>
+</html>

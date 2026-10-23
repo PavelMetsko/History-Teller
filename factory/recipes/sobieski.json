@@ -1,0 +1,46 @@
+{
+  "id": "sobieski",
+  "old_ref": "hetman",
+  "skin": "#f7c9aa",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426"
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#6b4426"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#7a4a2a"
+    },
+    "hat": {
+      "type": "kolpak"
+    },
+    "outfit": {
+      "type": "zupan_hussar"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#9e2a2b",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#9e2a2b"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#a8782a"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    }
+  }
+}

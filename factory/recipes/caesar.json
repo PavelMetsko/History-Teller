@@ -1,0 +1,46 @@
+{
+  "id": "caesar",
+  "old_ref": "caesar",
+  "skin": "#f5cbb0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#a5a0a6",
+      "iris": "#6b3a1f"
+    },
+    "age": {
+      "type": "old"
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "laurel"
+    },
+    "outfit": {
+      "type": "toga"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "sleeves": {
+      "type": "bare"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "sandals"
+    },
+    "held": {
+      "type": "none"
+    }
+  }
+}
