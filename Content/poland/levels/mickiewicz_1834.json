@@ -1,0 +1,73 @@
+{
+ "id": "mickiewicz_1834",
+ "order": 435,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_romance",
+ "cover": "pan_tadeusz_pl",
+ "panels": 3,
+ "scenes": [
+  "great_emigration_pl",
+  "pan_tadeusz_pl",
+  "emigre_evening_pl",
+  "amnesty_pl"
+ ],
+ "characters": [
+  "mickiewicz",
+  "emigre_pl",
+  "nicholas1_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "nicholas1_pl": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "emigre_pl",
+     "is": "consoled_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "emigre_pl",
+      "is": "siberia_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "great_emigration_pl",
+   "characters": [
+    "mickiewicz",
+    "emigre_pl"
+   ]
+  },
+  {
+   "scene": "pan_tadeusz_pl",
+   "characters": [
+    "mickiewicz"
+   ]
+  },
+  {
+   "scene": "emigre_evening_pl",
+   "characters": [
+    "mickiewicz",
+    "emigre_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

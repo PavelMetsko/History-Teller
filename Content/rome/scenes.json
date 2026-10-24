@@ -20525,5 +20525,847 @@
    "князь",
    "герой"
   ]
+ },
+ {
+  "id": "methodius_warning_pl",
+  "name": "Предостережение Мефодия",
+  "tags": [
+   "sig_methodius_warning_pl"
+  ],
+  "slots": 2,
+  "emoji": "✝️",
+  "action": "послать слово князю",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "проповедник",
+   "князь"
+  ]
+ },
+ {
+  "id": "vistulan_baptism_pl",
+  "name": "Крещение по своей воле",
+  "tags": [
+   "sig_vistulan_baptism_pl"
+  ],
+  "slots": 2,
+  "emoji": "💧",
+  "action": "креститься на своей земле",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "проповедник",
+   "князь"
+  ]
+ },
+ {
+  "id": "moravian_raid_pl",
+  "name": "Поход Святополка",
+  "tags": [
+   "sig_moravian_raid_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "идти войной на вислян",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "князь"
+  ]
+ },
+ {
+  "id": "captive_baptism_pl",
+  "name": "Крещение в плену",
+  "tags": [
+   "sig_captive_baptism_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "крестить пленника",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "проповедник",
+   "пленник"
+  ]
+ },
+ {
+  "id": "emperor_dies_pl",
+  "name": "Смерть императора",
+  "tags": [
+   "sig_emperor_dies_pl"
+  ],
+  "slots": 1,
+  "emoji": "⚰️",
+  "action": "встретить смертный час",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "император"
+  ]
+ },
+ {
+  "id": "coronation_1025_pl",
+  "name": "Коронация в Гнезно",
+  "tags": [
+   "sig_coronation_1025_pl"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "возложить корону",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "архиепископ",
+   "князь"
+  ]
+ },
+ {
+  "id": "ask_crown_pl",
+  "name": "Просить корону у императора",
+  "tags": [
+   "sig_ask_crown_pl"
+  ],
+  "slots": 2,
+  "emoji": "🙏",
+  "action": "просить разрешения",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто просит",
+   "император"
+  ]
+ },
+ {
+  "id": "chrobry_war_pl",
+  "name": "Новая война с империей",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "location_charter_pl",
+  "name": "Локационная грамота",
+  "tags": [
+   "sig_location_charter_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "дать городу право",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "войт"
+  ]
+ },
+ {
+  "id": "settle_town_pl",
+  "name": "Заселить новый город",
+  "tags": [
+   "sig_settle_town_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏘️",
+  "action": "принять поселенца",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "войт",
+   "поселенец"
+  ]
+ },
+ {
+  "id": "rynek_pl",
+  "name": "Разметка Рынка",
+  "tags": [
+   "sig_rynek_pl"
+  ],
+  "slots": 2,
+  "emoji": "📐",
+  "action": "размерить площадь",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "войт",
+   "купец"
+  ]
+ },
+ {
+  "id": "buy_wojt_pl",
+  "name": "Выкупить войтовство",
+  "tags": [
+   "v_bribe"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "подкуп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто платит",
+   "кого покупают"
+  ]
+ },
+ {
+  "id": "kalisz_statute_pl",
+  "name": "Калишский статут",
+  "tags": [
+   "sig_kalisz_statute_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "даровать привилей",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "старейшина"
+  ]
+ },
+ {
+  "id": "kahal_pl",
+  "name": "Община и синагога",
+  "tags": [
+   "sig_kahal_pl"
+  ],
+  "slots": 1,
+  "emoji": "🕍",
+  "action": "поселиться общиной",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "старейшина"
+  ]
+ },
+ {
+  "id": "kalisz_loan_pl",
+  "name": "Заём",
+  "tags": [
+   "sig_kalisz_loan_pl"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "взять в долг",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "заёмщик",
+   "заимодавец"
+  ]
+ },
+ {
+  "id": "blood_libel_pl",
+  "name": "Наветы",
+  "tags": [
+   "sig_blood_libel_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "обвинить",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "обвинитель",
+   "обвиняемый"
+  ]
+ },
+ {
+  "id": "jadwiga_will_pl",
+  "name": "Завещание Ядвиги",
+  "tags": [
+   "sig_jadwiga_will_pl"
+  ],
+  "slots": 2,
+  "emoji": "💎",
+  "action": "завещать драгоценности",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "королева",
+   "король"
+  ]
+ },
+ {
+  "id": "academy_founding_pl",
+  "name": "Возрождение академии",
+  "tags": [
+   "sig_academy_founding_pl"
+  ],
+  "slots": 2,
+  "emoji": "🎓",
+  "action": "открыть университет",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "ректор"
+  ]
+ },
+ {
+  "id": "first_lecture_pl",
+  "name": "Первая лекция",
+  "tags": [
+   "sig_first_lecture_pl"
+  ],
+  "slots": 1,
+  "emoji": "📖",
+  "action": "начать занятия",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "ректор"
+  ]
+ },
+ {
+  "id": "jewels_to_war_pl",
+  "name": "Драгоценности — на войну",
+  "tags": [
+   "sig_jewels_to_war_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "отдать казну на войско",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "король",
+   "можновладец"
+  ]
+ },
+ {
+  "id": "sejmik_pl",
+  "name": "Сеймик",
+  "tags": [
+   "sig_sejmik_pl"
+  ],
+  "slots": 1,
+  "emoji": "🗳️",
+  "action": "выбрать посла",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "шляхтич"
+  ]
+ },
+ {
+  "id": "radom_sejm_pl",
+  "name": "Сейм в Радоме",
+  "tags": [
+   "sig_radom_sejm_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "принять конституцию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "посол",
+   "король"
+  ]
+ },
+ {
+  "id": "laski_statute_pl",
+  "name": "Статут Лаского",
+  "tags": [
+   "sig_laski_statute_pl"
+  ],
+  "slots": 2,
+  "emoji": "📚",
+  "action": "напечатать законы",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "канцлер",
+   "король"
+  ]
+ },
+ {
+  "id": "mielnik_pl",
+  "name": "Мельницкий привилей",
+  "tags": [
+   "sig_mielnik_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "отдать власть сенату",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "король",
+   "можновладец"
+  ]
+ },
+ {
+  "id": "latin_advice_pl",
+  "name": "«Пиши по-латыни»",
+  "tags": [
+   "sig_latin_advice_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "наставить писать по-латыни",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "наставник",
+   "поэт"
+  ]
+ },
+ {
+  "id": "polish_pen_pl",
+  "name": "Перо по-польски",
+  "tags": [
+   "sig_polish_pen_pl"
+  ],
+  "slots": 1,
+  "emoji": "✒️",
+  "action": "писать на родном языке",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "поэт"
+  ]
+ },
+ {
+  "id": "print_shop_pl",
+  "name": "Краковская печатня",
+  "tags": [
+   "sig_print_shop_pl"
+  ],
+  "slots": 2,
+  "emoji": "📚",
+  "action": "напечатать книгу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "печатник",
+   "автор"
+  ]
+ },
+ {
+  "id": "manor_reading_pl",
+  "name": "Чтение в усадьбе",
+  "tags": [
+   "sig_manor_reading_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏡",
+  "action": "читать книгу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "читатель",
+   "автор"
+  ]
+ },
+ {
+  "id": "panszczyzna_pl",
+  "name": "Барщина",
+  "tags": [
+   "sig_panszczyzna_pl"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "согнать на барщину",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "пан",
+   "крестьянин"
+  ]
+ },
+ {
+  "id": "vistula_raft_pl",
+  "name": "Плоты по Висле",
+  "tags": [
+   "sig_vistula_raft_pl"
+  ],
+  "slots": 2,
+  "emoji": "🛶",
+  "action": "сплавить зерно",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "флисак",
+   "пан"
+  ]
+ },
+ {
+  "id": "gdansk_sale_pl",
+  "name": "Гданьский порт",
+  "tags": [
+   "sig_gdansk_sale_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚓",
+  "action": "продать зерно",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "покупатель",
+   "продавец"
+  ]
+ },
+ {
+  "id": "peasant_run_pl",
+  "name": "Бежать на Украину",
+  "tags": [
+   "v_flee"
+  ],
+  "slots": 1,
+  "emoji": "🚪",
+  "action": "уход",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто бежит"
+  ]
+ },
+ {
+  "id": "batory_wedding_pl",
+  "name": "Свадьба с Ягеллонкой",
+  "tags": [
+   "sig_batory_wedding_pl"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "жениться и короноваться",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "избранник",
+   "королева"
+  ]
+ },
+ {
+  "id": "not_consciences_pl",
+  "name": "«Король людей, не совестей»",
+  "tags": [
+   "sig_not_consciences_pl"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "защитить иноверца",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король",
+   "кальвинист"
+  ]
+ },
+ {
+  "id": "vilnius_academy_pl",
+  "name": "Виленская академия",
+  "tags": [
+   "sig_vilnius_academy_pl"
+  ],
+  "slots": 2,
+  "emoji": "🎓",
+  "action": "даровать права университета",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "иезуит"
+  ]
+ },
+ {
+  "id": "skarga_disputation_pl",
+  "name": "Диспут проповедника",
+  "tags": [
+   "sig_skarga_disputation_pl"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "обличить еретика",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "проповедник",
+   "кальвинист"
+  ]
+ },
+ {
+  "id": "sejm_1658_pl",
+  "name": "Сейм 1658 года",
+  "tags": [
+   "sig_sejm_1658_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "изгнать ариан",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "арианин"
+  ]
+ },
+ {
+  "id": "convert_offer_pl",
+  "name": "Перейти в католичество",
+  "tags": [
+   "sig_convert_offer_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "отречься от веры",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "приор",
+   "арианин"
+  ]
+ },
+ {
+  "id": "exile_amsterdam_pl",
+  "name": "Дорога в Амстердам",
+  "tags": [
+   "sig_exile_amsterdam_pl"
+  ],
+  "slots": 1,
+  "emoji": "🚪",
+  "action": "уйти в изгнание",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "изгнанник"
+  ]
+ },
+ {
+  "id": "bibliotheca_pl",
+  "name": "«Библиотека польских братьев»",
+  "tags": [
+   "sig_bibliotheca_pl"
+  ],
+  "slots": 2,
+  "emoji": "📚",
+  "action": "издать труды",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "печатник",
+   "автор"
+  ]
+ },
+ {
+  "id": "jesuit_dissolved_pl",
+  "name": "Папское бреве о роспуске",
+  "tags": [
+   "sig_jesuit_dissolved_pl"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "огласить папское бреве",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "иезуит"
+  ]
+ },
+ {
+  "id": "ken_founded_pl",
+  "name": "Комиссия национального образования",
+  "tags": [
+   "sig_ken_founded_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏫",
+  "action": "учредить комиссию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "бывший иезуит"
+  ]
+ },
+ {
+  "id": "distribution_pl",
+  "name": "Распределительная комиссия",
+  "tags": [
+   "sig_distribution_pl"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "распределить имущество",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "маршалок",
+   "король"
+  ]
+ },
+ {
+  "id": "academy_reform_pl",
+  "name": "Реформа Краковской академии",
+  "tags": [
+   "sig_academy_reform_pl"
+  ],
+  "slots": 2,
+  "emoji": "🎓",
+  "action": "реформировать академию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "реформатор",
+   "король"
+  ]
+ },
+ {
+  "id": "great_emigration_pl",
+  "name": "Великая эмиграция",
+  "tags": [
+   "sig_great_emigration_pl"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "уйти за границу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "поэт",
+   "повстанец"
+  ]
+ },
+ {
+  "id": "pan_tadeusz_pl",
+  "name": "«Пан Тадеуш»",
+  "tags": [
+   "sig_pan_tadeusz_pl"
+  ],
+  "slots": 1,
+  "emoji": "✒️",
+  "action": "писать поэму",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "поэт"
+  ]
+ },
+ {
+  "id": "emigre_evening_pl",
+  "name": "Вечер у эмигрантов",
+  "tags": [
+   "sig_emigre_evening_pl"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "прочесть вслух",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "поэт",
+   "слушатель"
+  ]
+ },
+ {
+  "id": "amnesty_pl",
+  "name": "Царская амнистия",
+  "tags": [
+   "sig_amnesty_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "вернуться по амнистии",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "царь",
+   "повстанец"
+  ]
+ },
+ {
+  "id": "customs_lifted_pl",
+  "name": "Таможня на Восток открыта",
+  "tags": [
+   "sig_customs_lifted_pl"
+  ],
+  "slots": 2,
+  "emoji": "🚂",
+  "action": "открыть рынок империи",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "таможенник",
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "village_to_city_pl",
+  "name": "Из деревни — на фабрику",
+  "tags": [
+   "sig_village_to_city_pl"
+  ],
+  "slots": 1,
+  "emoji": "🧳",
+  "action": "уйти в город",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто уходит"
+  ]
+ },
+ {
+  "id": "factory_floor_pl",
+  "name": "Ткацкий цех",
+  "tags": [
+   "sig_factory_floor_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏭",
+  "action": "запустить станки",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "фабрикант",
+   "рабочий"
+  ]
+ },
+ {
+  "id": "lodz_strike_pl",
+  "name": "Забастовка",
+  "tags": [
+   "sig_lodz_strike_pl"
+  ],
+  "slots": 2,
+  "emoji": "✊",
+  "action": "бросить работу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "рабочий",
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "secret_courses_pl",
+  "name": "Тайные курсы",
+  "tags": [
+   "sig_secret_courses_pl"
+  ],
+  "slots": 1,
+  "emoji": "🕯️",
+  "action": "собрать курсы на квартире",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "устроительница"
+  ]
+ },
+ {
+  "id": "move_flat_pl",
+  "name": "Переезд на новую квартиру",
+  "tags": [
+   "sig_move_flat_pl"
+  ],
+  "slots": 1,
+  "emoji": "🧳",
+  "action": "сменить адрес",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "устроительница"
+  ]
+ },
+ {
+  "id": "secret_lecture_pl",
+  "name": "Лекция по химии",
+  "tags": [
+   "sig_secret_lecture_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚗️",
+  "action": "учить",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "преподаватель",
+   "слушательница"
+  ]
+ },
+ {
+  "id": "gendarme_raid_pl",
+  "name": "Обыск",
+  "tags": [
+   "sig_gendarme_raid_pl"
+  ],
+  "slots": 2,
+  "emoji": "🚨",
+  "action": "нагрянуть с обыском",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "жандарм",
+   "устроительница"
+  ]
+ },
+ {
+  "id": "go_paris_pl",
+  "name": "Уехать учиться в Париж",
+  "tags": [
+   "v_flee"
+  ],
+  "slots": 1,
+  "emoji": "🚪",
+  "action": "уход",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто уезжает"
+  ]
  }
 ]

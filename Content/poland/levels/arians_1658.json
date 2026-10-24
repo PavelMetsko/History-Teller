@@ -1,0 +1,77 @@
+{
+ "id": "arians_1658",
+ "order": 302,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_tension",
+ "cover": "exile_amsterdam_pl",
+ "panels": 3,
+ "scenes": [
+  "sejm_1658_pl",
+  "convert_offer_pl",
+  "exile_amsterdam_pl",
+  "bibliotheca_pl"
+ ],
+ "characters": [
+  "jan_kazimierz",
+  "wiszowaty",
+  "kordecki",
+  "printer_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "jan_kazimierz": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "kordecki": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wiszowaty",
+     "is": "bibliotheca_done_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wiszowaty",
+      "is": "converted_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sejm_1658_pl",
+   "characters": [
+    "jan_kazimierz",
+    "wiszowaty"
+   ]
+  },
+  {
+   "scene": "exile_amsterdam_pl",
+   "characters": [
+    "wiszowaty"
+   ]
+  },
+  {
+   "scene": "bibliotheca_pl",
+   "characters": [
+    "printer_pl",
+    "wiszowaty"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

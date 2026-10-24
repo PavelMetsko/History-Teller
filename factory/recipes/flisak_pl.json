@@ -1,0 +1,65 @@
+{
+  "id": "flisak_pl",
+  "name": "Флисак",
+  "skin": "#e8b290",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#5a4434",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#6b5a4a",
+      "fur": "#c9b08a",
+      "rope": "#a88a5a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#6b5a4a",
+      "cuff": "#6b5a4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#4a3a30"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

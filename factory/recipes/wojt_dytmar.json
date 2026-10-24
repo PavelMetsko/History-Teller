@@ -1,0 +1,65 @@
+{
+  "id": "wojt_dytmar",
+  "name": "Войт Дитмар",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b97a45",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#b97a45"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#b97a45"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#2f6a4a",
+      "fur": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#7a5232",
+      "trim": "#2f6a4a",
+      "belt": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a5232",
+      "cuff": "#2f6a4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

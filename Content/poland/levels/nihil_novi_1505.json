@@ -1,0 +1,80 @@
+{
+ "id": "nihil_novi_1505",
+ "order": 175,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_tension",
+ "cover": "radom_sejm_pl",
+ "panels": 3,
+ "scenes": [
+  "sejmik_pl",
+  "radom_sejm_pl",
+  "laski_statute_pl",
+  "mielnik_pl"
+ ],
+ "characters": [
+  "alexander_jag",
+  "szlachcic_pl",
+  "laski_chancellor",
+  "magnate_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander_jag": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "laski_chancellor",
+     "is": "printed_law_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexander_jag",
+     "is": "nihil_novi_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "alexander_jag",
+      "is": "senate_rule_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sejmik_pl",
+   "characters": [
+    "szlachcic_pl"
+   ]
+  },
+  {
+   "scene": "radom_sejm_pl",
+   "characters": [
+    "szlachcic_pl",
+    "alexander_jag"
+   ]
+  },
+  {
+   "scene": "laski_statute_pl",
+   "characters": [
+    "laski_chancellor",
+    "alexander_jag"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

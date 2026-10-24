@@ -1,0 +1,71 @@
+{
+ "id": "grain_gdansk",
+ "order": 225,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_tension",
+ "cover": "gdansk_sale_pl",
+ "panels": 3,
+ "scenes": [
+  "panszczyzna_pl",
+  "vistula_raft_pl",
+  "gdansk_sale_pl",
+  "peasant_run_pl"
+ ],
+ "characters": [
+  "szlachcic_pl",
+  "peasant_pl",
+  "flisak_pl",
+  "dutch_skipper"
+ ],
+ "initialState": {
+  "flags": {
+   "szlachcic_pl": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dutch_skipper",
+     "is": "bought_grain_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "peasant_pl",
+     "is": "serf_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "panszczyzna_pl",
+   "characters": [
+    "szlachcic_pl",
+    "peasant_pl"
+   ]
+  },
+  {
+   "scene": "vistula_raft_pl",
+   "characters": [
+    "flisak_pl",
+    "szlachcic_pl"
+   ]
+  },
+  {
+   "scene": "gdansk_sale_pl",
+   "characters": [
+    "dutch_skipper",
+    "szlachcic_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

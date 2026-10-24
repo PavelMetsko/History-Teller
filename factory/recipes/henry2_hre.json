@@ -1,0 +1,62 @@
+{
+  "id": "henry2_hre",
+  "name": "Император Генрих II",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "crown",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#5a2a6b",
+      "gold": "#d8ad3c",
+      "mantle": "#a8262e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a6b",
+      "cuff": "#d8ad3c"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#d8ad3c"
+    }
+  }
+}

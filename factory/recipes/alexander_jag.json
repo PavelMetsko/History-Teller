@@ -1,0 +1,61 @@
+{
+  "id": "alexander_jag",
+  "name": "Король Александр Ягеллон",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#4a2e1c",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#4a2e1c"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#2f4a7a",
+      "gold": "#d8ad3c",
+      "mantle": "#a8262e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#d8ad3c"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#d8ad3c"
+    }
+  }
+}

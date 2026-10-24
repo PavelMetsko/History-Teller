@@ -1,0 +1,86 @@
+{
+ "id": "kalisz_1264",
+ "order": 102,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "kalisz_statute_pl",
+ "panels": 3,
+ "scenes": [
+  "kalisz_statute_pl",
+  "kahal_pl",
+  "kalisz_loan_pl",
+  "blood_libel_pl"
+ ],
+ "characters": [
+  "boleslaw_pious",
+  "jewish_elder",
+  "glogow_burgher"
+ ],
+ "initialState": {
+  "flags": {
+   "boleslaw_pious": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jewish_elder",
+     "is": "community_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "glogow_burgher",
+     "is": "credit_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "glogow_burgher",
+      "is": "libel_punished_pl"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "jewish_elder",
+      "is": "expelled_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kalisz_statute_pl",
+   "characters": [
+    "boleslaw_pious",
+    "jewish_elder"
+   ]
+  },
+  {
+   "scene": "kahal_pl",
+   "characters": [
+    "jewish_elder"
+   ]
+  },
+  {
+   "scene": "kalisz_loan_pl",
+   "characters": [
+    "glogow_burgher",
+    "jewish_elder"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

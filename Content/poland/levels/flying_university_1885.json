@@ -1,0 +1,72 @@
+{
+ "id": "flying_university_1885",
+ "order": 458,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "secret_lecture_pl",
+ "panels": 3,
+ "scenes": [
+  "secret_courses_pl",
+  "move_flat_pl",
+  "secret_lecture_pl",
+  "gendarme_raid_pl",
+  "go_paris_pl"
+ ],
+ "characters": [
+  "dawidowa",
+  "sklodowska",
+  "gendarme_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "gendarme_ru": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sklodowska",
+     "is": "educated_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "dawidowa",
+      "is": "caught_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "secret_courses_pl",
+   "characters": [
+    "dawidowa"
+   ]
+  },
+  {
+   "scene": "move_flat_pl",
+   "characters": [
+    "dawidowa"
+   ]
+  },
+  {
+   "scene": "secret_lecture_pl",
+   "characters": [
+    "dawidowa",
+    "sklodowska"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

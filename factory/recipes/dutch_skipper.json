@@ -1,0 +1,65 @@
+{
+  "id": "dutch_skipper",
+  "name": "Голландский шкипер",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8b070",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#d8b070"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#d8b070"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#1e1e22",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "ruff",
+      "col": "#f4f1ea"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#1e1e22",
+      "trim": "#f4f1ea",
+      "chain": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e1e22",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#1e1e22"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

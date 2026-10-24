@@ -1,0 +1,83 @@
+{
+ "id": "ken_1773",
+ "order": 355,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_ceremony",
+ "cover": "ken_founded_pl",
+ "panels": 3,
+ "scenes": [
+  "jesuit_dissolved_pl",
+  "ken_founded_pl",
+  "distribution_pl",
+  "academy_reform_pl"
+ ],
+ "characters": [
+  "poniatowski",
+  "jesuit_pl",
+  "poninski",
+  "kollataj"
+ ],
+ "initialState": {
+  "flags": {
+   "poniatowski": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "poninski": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "kollataj",
+     "is": "reformed_academy_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "jesuit_pl",
+     "is": "teacher_ken_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "poniatowski",
+      "is": "funds_stolen_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jesuit_dissolved_pl",
+   "characters": [
+    "jesuit_pl"
+   ]
+  },
+  {
+   "scene": "ken_founded_pl",
+   "characters": [
+    "poniatowski",
+    "jesuit_pl"
+   ]
+  },
+  {
+   "scene": "academy_reform_pl",
+   "characters": [
+    "kollataj",
+    "poniatowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

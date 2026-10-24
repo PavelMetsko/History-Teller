@@ -30245,5 +30245,2021 @@
     "flag": "rewarded_pl"
    }
   ]
+ },
+ {
+  "id": "methodius_warning_pl_sig",
+  "comment": "Мефодий передаёт князю вислян: «Крестись добровольно на своей земле, чтобы не крестили тебя пленником на чужой»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_methodius_warning_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "methodius_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vistulan_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "warned_pl"
+   }
+  ]
+ },
+ {
+  "id": "vistulan_baptism_pl_sig",
+  "comment": "Предупреждённый князь крестится сам, в своей земле, — и остаётся князем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vistulan_baptism_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "methodius_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vistulan_pl"
+     ],
+     "flags": [
+      "warned_pl"
+     ],
+     "notFlags": [
+      "captive_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "baptized_free_pl"
+   }
+  ]
+ },
+ {
+  "id": "moravian_raid_pl_sig",
+  "comment": "Святополк Моравский идёт на некрещёного князя-язычника, берёт его в плен и уводит из его земли",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_moravian_raid_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "moravian_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vistulan_pl"
+     ],
+     "notFlags": [
+      "baptized_free_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor"
+   }
+  ]
+ },
+ {
+  "id": "captive_baptism_pl_sig",
+  "comment": "Пленного князя крестят на чужой земле — как и было предсказано",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_captive_baptism_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "methodius_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vistulan_pl"
+     ],
+     "flags": [
+      "captive_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "baptized_captive_pl"
+   }
+  ]
+ },
+ {
+  "id": "emperor_dies_pl_sig",
+  "comment": "Император Генрих II умирает бездетным — трон империи пустеет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emperor_dies_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emperor_h2_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "ask_crown_pl_sig",
+  "comment": "Живой император отказывает: польская корона — угроза империи, и дело кончается войной",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ask_crown_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piast_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emperor_h2_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "refused_crown_pl"
+   },
+   {
+    "type": "addRelation",
+    "rel": "enemy_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "coronation_1025_pl_sig",
+  "comment": "Архиепископ возлагает корону на Болеслава — Польша становится королевством",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_coronation_1025_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "archbishop_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "piast_pl"
+     ],
+     "notFlags": [
+      "refused_crown_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "first_king_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "reigns"
+   }
+  ]
+ },
+ {
+  "id": "location_charter_pl_sig",
+  "comment": "Князь даёт войту грамоту: город на магдебургском праве — свой суд, своя рада, свои вольности",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_location_charter_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "boleslaw5_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wojt_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "chartered_pl"
+   }
+  ]
+ },
+ {
+  "id": "settle_merchant_pl_sig",
+  "comment": "Войт зовёт в город купцов и ремесленников — они получают дома и мещанское право",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_settle_town_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wojt_pl"
+     ],
+     "flags": [
+      "chartered_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "merchant_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "settled_pl"
+   }
+  ]
+ },
+ {
+  "id": "settle_peasant_pl_sig",
+  "comment": "Войт сманивает в город княжеского крестьянина — а грамота это прямо запрещает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_settle_town_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wojt_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "peasant_serf_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "broke_charter_pl"
+   }
+  ]
+ },
+ {
+  "id": "rynek_pl_sig",
+  "comment": "Войт размечает огромную квадратную площадь — Рынок, и вокруг неё ровные кварталы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rynek_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wojt_pl"
+     ],
+     "flags": [
+      "chartered_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "merchant_pl"
+     ],
+     "flags": [
+      "settled_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rynek_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "trade_pl"
+   }
+  ]
+ },
+ {
+  "id": "kalisz_statute_pl_sig",
+  "comment": "Князь берёт евреев под свою защиту: обида еврею — обида князю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kalisz_statute_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pious_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jew_elder_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "protected_pl"
+   }
+  ]
+ },
+ {
+  "id": "kahal_pl_sig",
+  "comment": "Под защитой статута община строит синагогу, школу, своё кладбище",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kahal_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jew_elder_pl"
+     ],
+     "flags": [
+      "protected_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "community_pl"
+   }
+  ]
+ },
+ {
+  "id": "kalisz_loan_pl_sig",
+  "comment": "Горожанин берёт заём у общины — по закону, под залог и честный процент",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kalisz_loan_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "burgher_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jew_elder_pl"
+     ],
+     "flags": [
+      "community_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "credit_pl"
+   }
+  ]
+ },
+ {
+  "id": "blood_libel_protected_pl_sig",
+  "comment": "Навет при защите статута: обвинителя, не доказавшего вины, карают как клеветника",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_blood_libel_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "burgher_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jew_elder_pl"
+     ],
+     "flags": [
+      "protected_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "libel_punished_pl"
+   }
+  ]
+ },
+ {
+  "id": "blood_libel_unprotected_pl_sig",
+  "comment": "Навет без защиты закона — и общину изгоняют",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_blood_libel_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "burgher_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jew_elder_pl"
+     ],
+     "notFlags": [
+      "protected_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "expelled_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "jadwiga_will_pl_sig",
+  "comment": "Умирающая королева завещает свои драгоценности на возрождение Краковской академии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_jadwiga_will_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jadwiga_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jagiello_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bequest_pl"
+   }
+  ]
+ },
+ {
+  "id": "jewels_to_war_pl_sig",
+  "comment": "Можновладец уговаривает короля пустить завещанное на войско против Ордена",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_jewels_to_war_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jagiello_pl"
+     ],
+     "flags": [
+      "bequest_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "magnate_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "bequest_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "spent_jewels_pl"
+   }
+  ]
+ },
+ {
+  "id": "academy_founding_pl_sig",
+  "comment": "Король исполняет волю жены: академия открыта снова, во главе — ректор",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_academy_founding_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jagiello_pl"
+     ],
+     "flags": [
+      "bequest_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rector_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rector_named_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "founder_univ_pl"
+   }
+  ]
+ },
+ {
+  "id": "first_lecture_pl_sig",
+  "comment": "Ректор открывает занятия: право, богословие, медицина, свободные искусства",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_first_lecture_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rector_pl"
+     ],
+     "flags": [
+      "rector_named_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lectures_pl"
+   }
+  ]
+ },
+ {
+  "id": "sejmik_pl_sig",
+  "comment": "Шляхта воеводства собирается на сеймик и выбирает посла на вальный сейм",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sejmik_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "szlachcic_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "envoy_pl"
+   }
+  ]
+ },
+ {
+  "id": "mielnik_pl_sig",
+  "comment": "Король подписывает привилей магнатов: вся власть — сенату, то есть горстке вельмож",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mielnik_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexander_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "magnate_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "senate_rule_pl"
+   }
+  ]
+ },
+ {
+  "id": "radom_sejm_pl_sig",
+  "comment": "Сейм в Радоме: «ничего нового без общего согласия» — король не издаёт законов без сената и послов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_radom_sejm_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "szlachcic_pl"
+     ],
+     "flags": [
+      "envoy_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexander_pl"
+     ],
+     "notFlags": [
+      "senate_rule_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "nihil_novi_pl"
+   }
+  ]
+ },
+ {
+  "id": "laski_statute_pl_sig",
+  "comment": "Канцлер собирает все права королевства в одну книгу и отдаёт её в печать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_laski_statute_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "laski_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexander_pl"
+     ],
+     "flags": [
+      "nihil_novi_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "printed_law_pl"
+   }
+  ]
+ },
+ {
+  "id": "latin_advice_pl_sig",
+  "comment": "Учёный прелат убеждает поэта: серьёзные книги пишут только по-латыни",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_latin_advice_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "primate_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "poet_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "latin_pl"
+   }
+  ]
+ },
+ {
+  "id": "polish_pen_pl_sig",
+  "comment": "Поэт пишет по-польски — для шляхтича, а не для профессора",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_polish_pen_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "poet_pl"
+     ],
+     "notFlags": [
+      "latin_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "polish_book_pl"
+   }
+  ]
+ },
+ {
+  "id": "print_shop_pl_sig",
+  "comment": "Печатник набирает польскую книгу — и её покупают по всей стране",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_print_shop_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "printer_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "poet_pl"
+     ],
+     "flags": [
+      "polish_book_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "printed_pl"
+   }
+  ]
+ },
+ {
+  "id": "manor_reading_pl_sig",
+  "comment": "Шляхтич в усадьбе читает книгу на своём языке — и смеётся, и спорит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_manor_reading_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "szlachcic_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rej_pl"
+     ],
+     "flags": [
+      "printed_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reads_polish_pl"
+   }
+  ]
+ },
+ {
+  "id": "panszczyzna_pl_sig",
+  "comment": "Пан гонит крестьянина на барщину: сначала день в неделю, потом три, потом шесть",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_panszczyzna_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "szlachcic_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "peasant_serf_pl"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "serf_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "harvest_pl"
+   }
+  ]
+ },
+ {
+  "id": "vistula_raft_pl_sig",
+  "comment": "Флисаки грузят панское зерно на плоты и сплавляют по Висле до Гданьска",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vistula_raft_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "flisak_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "szlachcic_pl"
+     ],
+     "flags": [
+      "harvest_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "grain_shipped_pl"
+   }
+  ]
+ },
+ {
+  "id": "gdansk_sale_pl_sig",
+  "comment": "Голландский шкипер скупает польскую рожь — в Амстердаме её ждут тысячи ртов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gdansk_sale_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dutch_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "szlachcic_pl"
+     ],
+     "flags": [
+      "grain_shipped_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "bought_grain_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rich_pl"
+   }
+  ]
+ },
+ {
+  "id": "batory_wedding_pl_sig",
+  "comment": "Трансильванский князь женится на Анне Ягеллонке — таково условие элекции — и коронуется в тот же день",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_batory_wedding_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "batory_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "infanta_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "king_b_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reigns"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "married"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "married"
+   }
+  ]
+ },
+ {
+  "id": "not_consciences_pl_sig",
+  "comment": "Католик Баторий отказывается преследовать протестантов: «Я король людей, а не совестей»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_not_consciences_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "batory_pl"
+     ],
+     "flags": [
+      "king_b_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lith_magnate_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "tolerated_pl"
+   }
+  ]
+ },
+ {
+  "id": "skarga_disputation_pl_sig",
+  "comment": "Проповедник требует изгнать ересь — и без королевской защиты кальвиниста гонят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_skarga_disputation_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "skarga_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lith_magnate_pl"
+     ],
+     "notFlags": [
+      "tolerated_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "persecuted_pl"
+   }
+  ]
+ },
+ {
+  "id": "vilnius_academy_pl_sig",
+  "comment": "Король возводит иезуитскую коллегию в Вильне в академию — первый университет Великого княжества",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vilnius_academy_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "batory_pl"
+     ],
+     "flags": [
+      "king_b_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "skarga_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rector_v_pl"
+   }
+  ]
+ },
+ {
+  "id": "sejm_1658_pl_sig",
+  "comment": "После шведского «Потопа» сейм обвиняет ариан в измене: перейти в католичество — или покинуть страну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sejm_1658_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jk_king_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arian_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "banished_pl"
+   }
+  ]
+ },
+ {
+  "id": "convert_offer_pl_sig",
+  "comment": "Изгнанник принимает католичество — и остаётся дома, но его вера уходит из Польши",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_convert_offer_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prior_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arian_pl"
+     ],
+     "flags": [
+      "banished_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "converted_pl"
+   }
+  ]
+ },
+ {
+  "id": "exile_amsterdam_pl_sig",
+  "comment": "Арианин уезжает в веротерпимый Амстердам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_exile_amsterdam_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arian_pl"
+     ],
+     "flags": [
+      "banished_pl"
+     ],
+     "notFlags": [
+      "converted_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_amsterdam_pl"
+   }
+  ]
+ },
+ {
+  "id": "bibliotheca_pl_sig",
+  "comment": "В Амстердаме печатают многотомную «Библиотеку польских братьев» — её будут читать Локк и Вольтер",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bibliotheca_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "printer_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arian_pl"
+     ],
+     "flags": [
+      "in_amsterdam_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bibliotheca_done_pl"
+   }
+  ]
+ },
+ {
+  "id": "jesuit_dissolved_pl_sig",
+  "comment": "Папа распускает орден иезуитов — сотни их школ в Польше остаются без хозяина",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_jesuit_dissolved_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jesuit_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dissolved_pl"
+   }
+  ]
+ },
+ {
+  "id": "ken_founded_pl_sig",
+  "comment": "Король и сейм создают Комиссию национального образования — на имущество ордена",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ken_founded_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sa_king_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jesuit_pl"
+     ],
+     "flags": [
+      "dissolved_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ken_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "teacher_ken_pl"
+   }
+  ]
+ },
+ {
+  "id": "distribution_pl_sig",
+  "comment": "Маршалок Понинский и его люди «распределяют» имущество иезуитов — себе в карман",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_distribution_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "poninski_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sa_king_pl"
+     ],
+     "flags": [
+      "ken_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "funds_stolen_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rich_pl"
+   }
+  ]
+ },
+ {
+  "id": "academy_reform_pl_sig",
+  "comment": "Коллонтай перестраивает Краковскую академию: вместо схоластики — физика, химия, медицина, на польском языке",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_academy_reform_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "reformer_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sa_king_pl"
+     ],
+     "flags": [
+      "ken_pl"
+     ],
+     "notFlags": [
+      "funds_stolen_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reformed_academy_pl"
+   }
+  ]
+ },
+ {
+  "id": "great_emigration_pl_sig",
+  "comment": "После разгрома восстания тысячи поляков уходят во Францию — поэт вместе с ними",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_great_emigration_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mickiewicz_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emigre_pl"
+     ],
+     "notFlags": [
+      "siberia_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_paris_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "in_paris_pl"
+   }
+  ]
+ },
+ {
+  "id": "amnesty_pl_sig",
+  "comment": "Повстанец верит обещанию прощения и возвращается — а по дороге домой его отправляют в Сибирь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_amnesty_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar_n_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emigre_pl"
+     ],
+     "notFlags": [
+      "in_paris_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "siberia_pl"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated"
+   }
+  ]
+ },
+ {
+  "id": "pan_tadeusz_pl_sig",
+  "comment": "В парижской тоске поэт пишет поэму о старой шляхетской Литве — дом, которого больше нет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pan_tadeusz_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mickiewicz_pl"
+     ],
+     "flags": [
+      "in_paris_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "tadeusz_pl"
+   }
+  ]
+ },
+ {
+  "id": "emigre_evening_pl_sig",
+  "comment": "Эмигранты слушают поэму — и плачут: родина у них есть, хотя бы в книге",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emigre_evening_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mickiewicz_pl"
+     ],
+     "flags": [
+      "tadeusz_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emigre_pl"
+     ],
+     "flags": [
+      "in_paris_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "consoled_pl"
+   }
+  ]
+ },
+ {
+  "id": "customs_lifted_pl_sig",
+  "comment": "Граница с Россией открыта для товара — польские ткани едут до самого Тихого океана",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_customs_lifted_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "customs_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "factory_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "russian_market_pl"
+   }
+  ]
+ },
+ {
+  "id": "village_to_city_pl_sig",
+  "comment": "Освобождённый крестьянин уходит в Лодзь — и становится рабочим",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_village_to_city_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "peasant_serf_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "factory_hand_pl"
+   }
+  ]
+ },
+ {
+  "id": "factory_floor_peasant_pl_sig",
+  "comment": "Фабрикант ставит вчерашнего крестьянина к станку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_factory_floor_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "factory_pl"
+     ],
+     "flags": [
+      "russian_market_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "peasant_serf_pl"
+     ],
+     "flags": [
+      "factory_hand_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "empire_pl"
+   }
+  ]
+ },
+ {
+  "id": "factory_floor_weaver_pl_sig",
+  "comment": "Станки гудят день и ночь — ткачихи работают по двенадцать часов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_factory_floor_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "factory_pl"
+     ],
+     "flags": [
+      "russian_market_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "worker_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "empire_pl"
+   }
+  ]
+ },
+ {
+  "id": "lodz_strike_pl_sig",
+  "comment": "Рабочие бросают станки — фабрика встаёт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lodz_strike_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "worker_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "factory_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "halted_pl"
+   }
+  ]
+ },
+ {
+  "id": "secret_courses_pl_sig",
+  "comment": "Ядвига Давидова собирает на частной квартире курсы для женщин — университет им закрыт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_secret_courses_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "educator_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "courses_pl"
+   }
+  ]
+ },
+ {
+  "id": "move_flat_pl_sig",
+  "comment": "Курсы каждую неделю кочуют с квартиры на квартиру — полиция не успевает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_move_flat_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "educator_pl"
+     ],
+     "flags": [
+      "courses_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "moving_pl"
+   }
+  ]
+ },
+ {
+  "id": "gendarme_raid_pl_sig",
+  "comment": "Жандарм накрывает курсы, пока они сидят на одном месте",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gendarme_raid_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gendarme_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "educator_pl"
+     ],
+     "notFlags": [
+      "moving_pl"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "caught_pl"
+   }
+  ]
+ },
+ {
+  "id": "secret_lecture_pl_sig",
+  "comment": "Профессора тайком читают девушкам химию и физику — по-польски",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_secret_lecture_pl"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "educator_pl"
+     ],
+     "flags": [
+      "moving_pl"
+     ],
+     "notFlags": [
+      "caught_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "scientist_pl"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "educated_pl"
+   }
+  ]
  }
 ]

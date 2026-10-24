@@ -1,0 +1,66 @@
+{
+ "id": "lodz_1880",
+ "order": 455,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "factory_floor_pl",
+ "panels": 2,
+ "scenes": [
+  "customs_lifted_pl",
+  "village_to_city_pl",
+  "factory_floor_pl",
+  "lodz_strike_pl"
+ ],
+ "characters": [
+  "poznanski",
+  "weaver_pl",
+  "peasant_pl",
+  "customs_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "poznanski": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "poznanski",
+     "is": "empire_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "poznanski",
+      "is": "halted_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "customs_lifted_pl",
+   "characters": [
+    "customs_ru",
+    "poznanski"
+   ]
+  },
+  {
+   "scene": "factory_floor_pl",
+   "characters": [
+    "poznanski",
+    "weaver_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

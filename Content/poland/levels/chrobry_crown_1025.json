@@ -1,0 +1,69 @@
+{
+ "id": "chrobry_crown_1025",
+ "order": 55,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "coronation_1025_pl",
+ "panels": 2,
+ "scenes": [
+  "emperor_dies_pl",
+  "coronation_1025_pl",
+  "ask_crown_pl",
+  "chrobry_war_pl"
+ ],
+ "characters": [
+  "chrobry",
+  "henry2_hre",
+  "archbishop_gn"
+ ],
+ "initialState": {
+  "flags": {
+   "chrobry": [
+    "standing",
+    "strong",
+    "reigns"
+   ],
+   "henry2_hre": [
+    "standing",
+    "strong",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "chrobry",
+     "is": "first_king_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "henry2_hre",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "emperor_dies_pl",
+   "characters": [
+    "henry2_hre"
+   ]
+  },
+  {
+   "scene": "coronation_1025_pl",
+   "characters": [
+    "archbishop_gn",
+    "chrobry"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

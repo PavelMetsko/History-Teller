@@ -1,0 +1,75 @@
+{
+ "id": "vistulans_880",
+ "order": 25,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_tension",
+ "cover": "methodius_warning_pl",
+ "panels": 3,
+ "scenes": [
+  "methodius_warning_pl",
+  "vistulan_baptism_pl",
+  "moravian_raid_pl",
+  "captive_baptism_pl"
+ ],
+ "characters": [
+  "methodius",
+  "vistulan_prince",
+  "svatopluk"
+ ],
+ "initialState": {
+  "flags": {
+   "vistulan_prince": [
+    "standing",
+    "reigns"
+   ],
+   "svatopluk": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "vistulan_prince",
+     "is": "baptized_captive_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "svatopluk",
+     "is": "victor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "methodius_warning_pl",
+   "characters": [
+    "methodius",
+    "vistulan_prince"
+   ]
+  },
+  {
+   "scene": "moravian_raid_pl",
+   "characters": [
+    "svatopluk",
+    "vistulan_prince"
+   ]
+  },
+  {
+   "scene": "captive_baptism_pl",
+   "characters": [
+    "methodius",
+    "vistulan_prince"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

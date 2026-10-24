@@ -1,0 +1,65 @@
+{
+  "id": "ostrogski",
+  "name": "Князь Константин Острожский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8d4dc",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#d8d4dc"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#3b2a20",
+      "top": "#5a2a6b"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9d8a8",
+      "kontusz": "#5a2a6b",
+      "sash": "#d4a63c",
+      "sash2": "#2f6a4a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a6b",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#d4a63c",
+      "top": "#d4a63c"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "vistulan_prince",
+  "name": "Князь вислян",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b97a45",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "long",
+      "col": "#b97a45"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#b97a45"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#8a6a4a",
+      "top": "#7a5232"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#7a5232",
+      "fur": "#c9b08a",
+      "rope": "#a88a5a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a5232",
+      "cuff": "#7a5232"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#4a3a30"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#5a3a22"
+    }
+  }
+}

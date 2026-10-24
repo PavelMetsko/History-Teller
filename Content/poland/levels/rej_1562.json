@@ -1,0 +1,73 @@
+{
+ "id": "rej_1562",
+ "order": 215,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_ceremony",
+ "cover": "polish_pen_pl",
+ "panels": 3,
+ "scenes": [
+  "latin_advice_pl",
+  "polish_pen_pl",
+  "print_shop_pl",
+  "manor_reading_pl"
+ ],
+ "characters": [
+  "rej",
+  "kochanowski",
+  "printer_pl",
+  "szlachcic_pl",
+  "primate_uchanski"
+ ],
+ "initialState": {
+  "flags": {
+   "primate_uchanski": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "szlachcic_pl",
+     "is": "reads_polish_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "rej",
+      "is": "latin_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "polish_pen_pl",
+   "characters": [
+    "rej"
+   ]
+  },
+  {
+   "scene": "print_shop_pl",
+   "characters": [
+    "printer_pl",
+    "rej"
+   ]
+  },
+  {
+   "scene": "manor_reading_pl",
+   "characters": [
+    "szlachcic_pl",
+    "rej"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

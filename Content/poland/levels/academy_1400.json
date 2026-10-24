@@ -1,0 +1,78 @@
+{
+ "id": "academy_1400",
+ "order": 145,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_ceremony",
+ "cover": "academy_founding_pl",
+ "panels": 3,
+ "scenes": [
+  "jadwiga_will_pl",
+  "academy_founding_pl",
+  "first_lecture_pl",
+  "jewels_to_war_pl"
+ ],
+ "characters": [
+  "jadwiga",
+  "jagiello",
+  "skarbimierz",
+  "magnate_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "jadwiga": [
+    "standing",
+    "crowned"
+   ],
+   "jagiello": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "skarbimierz",
+     "is": "lectures_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "jagiello",
+      "is": "spent_jewels_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jadwiga_will_pl",
+   "characters": [
+    "jadwiga",
+    "jagiello"
+   ]
+  },
+  {
+   "scene": "academy_founding_pl",
+   "characters": [
+    "jagiello",
+    "skarbimierz"
+   ]
+  },
+  {
+   "scene": "first_lecture_pl",
+   "characters": [
+    "skarbimierz"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

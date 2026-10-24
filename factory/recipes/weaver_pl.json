@@ -1,0 +1,61 @@
+{
+  "id": "weaver_pl",
+  "name": "Ткачиха",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#6b4426"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#e9e0cc",
+      "band": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#7f8c99",
+      "trim": "#e9e0cc",
+      "mantle": "#5a4434",
+      "shoes": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7f8c99",
+      "cuff": "#e9e0cc"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

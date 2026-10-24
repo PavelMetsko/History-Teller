@@ -1,0 +1,86 @@
+{
+ "id": "batory_1579",
+ "order": 245,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_ceremony",
+ "cover": "vilnius_academy_pl",
+ "panels": 3,
+ "scenes": [
+  "batory_wedding_pl",
+  "not_consciences_pl",
+  "vilnius_academy_pl",
+  "skarga_disputation_pl"
+ ],
+ "characters": [
+  "batory",
+  "anna_jag",
+  "skarga",
+  "radziwill_rudy"
+ ],
+ "initialState": {
+  "flags": {
+   "batory": [
+    "standing",
+    "strong"
+   ],
+   "anna_jag": [
+    "standing"
+   ],
+   "radziwill_rudy": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "skarga",
+     "is": "rector_v_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "radziwill_rudy",
+     "is": "tolerated_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "radziwill_rudy",
+      "is": "persecuted_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "batory_wedding_pl",
+   "characters": [
+    "batory",
+    "anna_jag"
+   ]
+  },
+  {
+   "scene": "not_consciences_pl",
+   "characters": [
+    "batory",
+    "radziwill_rudy"
+   ]
+  },
+  {
+   "scene": "vilnius_academy_pl",
+   "characters": [
+    "batory",
+    "skarga"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

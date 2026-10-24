@@ -6489,5 +6489,247 @@
    "knight_wawel_pl"
   ],
   "emoji": "🛡️"
+ },
+ {
+  "id": "methodius",
+  "name": "Святой Мефодий",
+  "tags": [
+   "methodius_pl"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "vistulan_prince",
+  "name": "Князь вислян",
+  "tags": [
+   "vistulan_pl"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "svatopluk",
+  "name": "Святополк Моравский",
+  "tags": [
+   "moravian_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "henry2_hre",
+  "name": "Император Генрих II",
+  "tags": [
+   "emperor_h2_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "archbishop_gn",
+  "name": "Архиепископ Гнезненский",
+  "tags": [
+   "archbishop_pl"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "boleslaw5",
+  "name": "Болеслав Стыдливый",
+  "tags": [
+   "boleslaw5_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "wojt_dytmar",
+  "name": "Войт Дитмар",
+  "tags": [
+   "wojt_pl"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "boleslaw_pious",
+  "name": "Болеслав Благочестивый",
+  "tags": [
+   "pious_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "jewish_elder",
+  "name": "Старейшина общины",
+  "tags": [
+   "jew_elder_pl"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "skarbimierz",
+  "name": "Ректор Станислав из Скарбимежа",
+  "tags": [
+   "rector_pl"
+  ],
+  "emoji": "🎓"
+ },
+ {
+  "id": "alexander_jag",
+  "name": "Король Александр Ягеллон",
+  "tags": [
+   "alexander_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "laski_chancellor",
+  "name": "Канцлер Ян Лаский",
+  "tags": [
+   "laski_pl"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "szlachcic_pl",
+  "name": "Шляхтич-помещик",
+  "tags": [
+   "szlachcic_pl"
+  ],
+  "emoji": "🌾"
+ },
+ {
+  "id": "peasant_pl",
+  "name": "Крестьянин",
+  "tags": [
+   "peasant_serf_pl"
+  ],
+  "emoji": "🌾"
+ },
+ {
+  "id": "flisak_pl",
+  "name": "Флисак",
+  "tags": [
+   "flisak_pl"
+  ],
+  "emoji": "🛶"
+ },
+ {
+  "id": "dutch_skipper",
+  "name": "Голландский шкипер",
+  "tags": [
+   "dutch_pl"
+  ],
+  "emoji": "⛵"
+ },
+ {
+  "id": "rej",
+  "name": "Николай Рей",
+  "tags": [
+   "rej_pl",
+   "poet_pl"
+  ],
+  "emoji": "✒️"
+ },
+ {
+  "id": "kochanowski",
+  "name": "Ян Кохановский",
+  "tags": [
+   "kochanowski_pl",
+   "poet_pl"
+  ],
+  "emoji": "✒️"
+ },
+ {
+  "id": "printer_pl",
+  "name": "Печатник Виетор",
+  "tags": [
+   "printer_pl"
+  ],
+  "emoji": "📚"
+ },
+ {
+  "id": "batory",
+  "name": "Стефан Баторий",
+  "tags": [
+   "batory_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "skarga",
+  "name": "Пётр Скарга",
+  "tags": [
+   "skarga_pl"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "wiszowaty",
+  "name": "Анджей Вишоватый",
+  "tags": [
+   "arian_pl"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "jesuit_pl",
+  "name": "Отец-иезуит",
+  "tags": [
+   "jesuit_pl"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "poninski",
+  "name": "Адам Понинский",
+  "tags": [
+   "poninski_pl"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "mickiewicz",
+  "name": "Адам Мицкевич",
+  "tags": [
+   "mickiewicz_pl"
+  ],
+  "emoji": "✒️"
+ },
+ {
+  "id": "emigre_pl",
+  "name": "Эмигрант-повстанец",
+  "tags": [
+   "emigre_pl"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "poznanski",
+  "name": "Израиль Познанский",
+  "tags": [
+   "factory_pl"
+  ],
+  "emoji": "🏭"
+ },
+ {
+  "id": "weaver_pl",
+  "name": "Ткачиха",
+  "tags": [
+   "worker_pl"
+  ],
+  "emoji": "🧵"
+ },
+ {
+  "id": "dawidowa",
+  "name": "Ядвига Давидова",
+  "tags": [
+   "educator_pl"
+  ],
+  "emoji": "📚"
+ },
+ {
+  "id": "gendarme_ru",
+  "name": "Жандармский ротмистр",
+  "tags": [
+   "gendarme_pl"
+  ],
+  "emoji": "🚨"
  }
 ]

@@ -1,0 +1,60 @@
+{
+  "id": "laski_chancellor",
+  "name": "Канцлер Ян Лаский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#8a7a6a"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "mitre",
+      "col": "#f1ece2",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#a8262e",
+      "rope": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8262e",
+      "cuff": "#a8262e"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

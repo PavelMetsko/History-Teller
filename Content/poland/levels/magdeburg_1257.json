@@ -1,0 +1,80 @@
+{
+ "id": "magdeburg_1257",
+ "order": 101,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "rynek_pl",
+ "panels": 3,
+ "scenes": [
+  "location_charter_pl",
+  "settle_town_pl",
+  "rynek_pl",
+  "buy_wojt_pl"
+ ],
+ "characters": [
+  "boleslaw5",
+  "wojt_dytmar",
+  "merchant_pl",
+  "peasant_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "boleslaw5": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wojt_dytmar",
+     "is": "rynek_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "merchant_pl",
+     "is": "trade_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wojt_dytmar",
+      "is": "broke_charter_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "location_charter_pl",
+   "characters": [
+    "boleslaw5",
+    "wojt_dytmar"
+   ]
+  },
+  {
+   "scene": "settle_town_pl",
+   "characters": [
+    "wojt_dytmar",
+    "merchant_pl"
+   ]
+  },
+  {
+   "scene": "rynek_pl",
+   "characters": [
+    "wojt_dytmar",
+    "merchant_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}
