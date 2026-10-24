@@ -24,9 +24,9 @@
       "col": "#d8d4dc"
     },
     "hat": {
-      "type": "beret",
+      "type": "wide",
       "col": "#2a2a2e",
-      "feather": ""
+      "feather": "#f4f1ea"
     },
     "cape": {
       "type": "none"

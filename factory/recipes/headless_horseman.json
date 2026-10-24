@@ -1,7 +1,7 @@
 {
   "id": "headless_horseman",
   "name": "Всадник без головы",
-  "skin": "#f3c4a6",
+  "skin": "#151018",
   "slots": {
     "body": {
       "type": "male"
@@ -19,7 +19,9 @@
       "type": "none"
     },
     "hat": {
-      "type": "none"
+      "type": "tricorne",
+      "col": "#1e1e22",
+      "trim": "#5a2a2a"
     },
     "cape": {
       "type": "cape",
