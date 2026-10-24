@@ -356,14 +356,19 @@ def hair_curly(col):
     return part
 
 
+# Шлем обхватывает голову: купол + нащёчные края до уровня ушей, лицо открыто в «окне»
+_HELM_SHELL = ("M-166,-112 C-178,-250 -110,{top} 0,{top} C110,{top} 178,-250 166,-112 L136,-112 L136,-196 "
+               "C82,-218 -82,-218 -136,-196 L-136,-112 Z")
+_HELM_RIM = "M-150,-226 C-84,-246 84,-246 150,-226 L150,-202 C84,-222 -84,-222 -150,-202 Z"
+
+
 def hat_helmet(col="#b9bfc6", trim="#8a6a2a"):
     def part(ctx):
-        s = (f'<path d="M-158,-212 C-160,-296 -90,-346 0,-346 C90,-346 160,-296 158,-212 C100,-228 -100,-228 -158,-212 Z" '
-             f'fill="{col}" {st()}/>'
-             f'<rect x="-160" y="-226" width="320" height="22" rx="8" fill="{trim}" {st(3)}/>'
-             f'<rect x="-9" y="-226" width="18" height="96" rx="6" fill="{col}" {st(3)}/>'
-             f'<path d="M0,-346 L0,-230" fill="none" {st(3, shade(col, .7))}/>'
-             f'<ellipse cx="-60" cy="-300" rx="30" ry="14" fill="#fff" opacity=".35"/>')
+        s = (f'<path d="{_HELM_SHELL.format(top=-336, ctop=-250)}" fill="{col}" {st()}/>'
+             f'<path d="{_HELM_RIM}" fill="{trim}" {st(3)}/>'
+             f'<path d="M-9,-206 L9,-206 L7,-112 C4,-104 -4,-104 -7,-112 Z" fill="{col}" {st(3)}/>'
+             f'<path d="M0,-334 L0,-222" fill="none" {st(3, shade(col, .7))}/>'
+             f'<ellipse cx="-70" cy="-290" rx="34" ry="16" fill="#fff" opacity=".35" transform="rotate(-25 -70 -290)"/>')
         return [("hat", "head", s)]
     return part
 
@@ -629,12 +634,12 @@ def emperor_robe(col="#5a2a6b", gold="#d8ad3c", mantle="#a8262e"):
 def hat_nasal(col="#a9b0b8", trim="#8a6a2a"):
     """Конический шлем с наносником (X–XI вв.)."""
     def part(ctx):
-        s = (f'<path d="M-150,-206 C-154,-270 -80,-360 0,-372 C80,-360 154,-270 150,-206 C90,-222 -90,-222 -150,-206 Z" '
-             f'fill="{col}" {st()}/>'
-             f'<path d="M-152,-222 C-90,-238 90,-238 152,-222 L152,-200 C90,-216 -90,-216 -152,-200 Z" fill="{trim}" {st(3)}/>'
-             f'<rect x="-10" y="-216" width="20" height="86" rx="6" fill="{col}" {st(3)}/>'
-             f'<path d="M0,-368 L0,-226" fill="none" {st(3, shade(col, .7))}/>'
-             f'<ellipse cx="-56" cy="-300" rx="22" ry="40" fill="#fff" opacity=".3" transform="rotate(20 -56 -300)"/>')
+        s = (f'<path d="M-166,-112 C-176,-232 -96,-352 0,-380 C96,-352 176,-232 166,-112 L136,-112 L136,-196 '
+             f'C82,-218 -82,-218 -136,-196 L-136,-112 Z" fill="{col}" {st()}/>'
+             f'<path d="{_HELM_RIM}" fill="{trim}" {st(3)}/>'
+             f'<path d="M-9,-206 L9,-206 L7,-112 C4,-104 -4,-104 -7,-112 Z" fill="{col}" {st(3)}/>'
+             f'<path d="M0,-376 L0,-222" fill="none" {st(3, shade(col, .7))}/>'
+             f'<ellipse cx="-62" cy="-288" rx="20" ry="44" fill="#fff" opacity=".3" transform="rotate(28 -62 -288)"/>')
         return [("hat", "head", s)]
     return part
 
@@ -737,11 +742,9 @@ def _zig(x0, y0, x1, y1, n, amp, side):
 def _moustache(col, kind):
     hi = shade(col, 1.35)
     if kind == "handlebar":
-        half = ("M0,-62 C-22,-72 -52,-66 -72,-52 C-84,-44 -92,-46 -98,-54 "
-                "C-96,-44 -86,-36 -72,-38 C-54,-40 -28,-48 0,-50 Z")
-        curl = "M-98,-54 C-108,-60 -108,-76 -96,-78 C-88,-79 -84,-70 -91,-67"
-        s = (f'<path d="{curl}" fill="none" {_ink(13)}/><path d="{curl}" fill="none" stroke="{col}" stroke-width="6" stroke-linecap="round"/>'
-             f'<path d="{half}" fill="{col}" {_ink()}/>'
+        half = ("M0,-62 C-22,-72 -50,-68 -70,-58 C-82,-52 -90,-58 -94,-70 C-98,-58 -94,-44 -80,-40 "
+                "C-60,-36 -30,-46 0,-50 Z")
+        s = (f'<path d="{half}" fill="{col}" {_ink()}/>'
              f'<path d="M-6,-58 C-26,-64 -50,-60 -68,-50" fill="none" stroke="{hi}" stroke-width="5" stroke-linecap="round" opacity=".8"/>')
     elif kind == "walrus":
         half = "M0,-64 C-24,-72 -58,-66 -70,-46 C-76,-34 -74,-22 -64,-18 C-58,-32 -40,-44 0,-48 Z"
@@ -861,11 +864,12 @@ def teutonic(steel="#a9b0b8", belt="#5b3a22"):
 def hat_mongol(fur="#6b4a2a", top="#a8312f"):
     """Монгольская шапка: меховой отворот, острый верх с кисточкой."""
     def part(ctx):
-        s = (f'<path d="M-120,-250 C-110,-330 -40,-372 0,-380 C40,-372 110,-330 120,-250 Z" fill="{top}" {st()}/>'
-             f'<path d="M-160,-216 C-170,-250 -150,-276 -120,-276 C-60,-290 60,-290 120,-276 C150,-276 170,-250 160,-216 '
-             f'C100,-236 -100,-236 -160,-216 Z" fill="{fur}" {st()}/>'
-             + "".join(f'<path d="M{x},-262 q4,-14 10,-18" fill="none" {st(2.5, shade(fur, .7))}/>' for x in range(-130, 131, 26))
-             + f'<circle cx="0" cy="-386" r="12" fill="#d8ad3c" {st(3)}/>')
+        s = (f'<path d="M-124,-236 C-120,-306 -50,-360 0,-370 C50,-360 120,-306 124,-236 Z" fill="{top}" {st()}/>'
+             f'<path d="M-60,-300 C-30,-336 0,-350 20,-352" fill="none" {st(3, shade(top, 1.3))}/>'
+             f'<path d="M-172,-196 C-184,-234 -160,-262 -126,-258 C-60,-272 60,-272 126,-258 C160,-262 184,-234 172,-196 '
+             f'C108,-220 -108,-220 -172,-196 Z" fill="{fur}" {st()}/>'
+             + "".join(f'<path d="M{x},-246 q4,-12 10,-16" fill="none" {st(2.5, shade(fur, .7))}/>' for x in range(-140, 141, 28))
+             + f'<circle cx="0" cy="-376" r="12" fill="#d8ad3c" {st(3)}/>')
         return [("hat", "head", s)]
     return part
 
@@ -906,9 +910,10 @@ def pickaxe(hand="hand_r"):
 def hat_cap(col="#a8312f", fur=None):
     """Мягкая шапочка-шаперон горожанина; fur — меховая опушка купца."""
     def part(ctx):
-        s = (f'<path d="M-150,-226 C-160,-296 -80,-340 0,-342 C80,-340 160,-296 150,-226 C90,-240 -90,-240 -150,-226 Z" '
-             f'fill="{col}" {st()}/>'
-             f'<path d="M-60,-326 C-20,-336 20,-336 60,-326" fill="none" {st(3, shade(col, 1.3))}/>')
+        s = (f'<path d="M-150,-214 C-178,-280 -110,-336 -10,-340 C90,-344 176,-310 172,-252 C170,-226 156,-214 148,-212 '
+             f'C90,-232 -90,-232 -150,-214 Z" fill="{col}" {st()}/>'
+             f'<path d="M-96,-304 C-40,-326 40,-326 110,-300 M-30,-238 C10,-262 70,-282 130,-282" fill="none" {st(3, shade(col, .75))}/>'
+             f'<path d="M-90,-318 C-50,-332 -10,-334 30,-330" fill="none" {st(4, shade(col, 1.3))}/>')
         if fur:
             s += (f'<path d="M-160,-206 C-168,-236 -150,-252 -120,-250 C-60,-262 60,-262 120,-250 C150,-252 168,-236 160,-206 '
                   f'C100,-224 -100,-224 -160,-206 Z" fill="{fur}" {st()}/>')
@@ -1052,9 +1057,13 @@ def hair_wig(col="#ece8e2"):
 
 def hat_tricorne(col="#1e1e22", trim="#d4a63c"):
     def part(ctx):
-        s = (f'<path d="M-200,-236 C-170,-330 -60,-350 0,-352 C60,-350 170,-330 200,-236 C120,-262 60,-270 0,-262 '
-             f'C-60,-270 -120,-262 -200,-236 Z" fill="{col}" {st()}/>'
-             f'<path d="M-196,-240 C-120,-266 -60,-274 0,-266 C60,-274 120,-266 196,-240" fill="none" {st(6, trim)}/>')
+        # тулья позади + поля, загнутые вверх к двум боковым углам, третий угол смотрит вперёд-вниз
+        brim_top = "M-214,-318 C-150,-286 -60,-262 0,-238 C60,-262 150,-286 214,-318"
+        s = (f'<path d="M-150,-226 C-128,-250 -122,-334 0,-358 C122,-334 128,-250 150,-226 Z" fill="{shade(col, .85)}" {st()}/>'
+             f'<path d="{brim_top} C200,-270 160,-236 100,-224 C60,-218 20,-212 0,-206 C-20,-212 -60,-218 -100,-224 '
+             f'C-160,-236 -200,-270 -214,-318 Z" fill="{col}" {st()}/>'
+             f'<path d="{brim_top}" fill="none" {st(7, trim)}/>'
+             f'<path d="M-150,-262 C-100,-246 -50,-236 -14,-224" fill="none" {st(3, shade(col, 1.6))}/>')
         return [("hat", "head", s)]
     return part
 

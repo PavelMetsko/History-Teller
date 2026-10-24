@@ -41,7 +41,7 @@
       "type": "std",
       "brow": "#e9e0cc",
       "iris": "#4b6a9a",
-      "bushy": false
+      "bushy": true
     },
     "hair": {
       "type": "receding",
@@ -52,7 +52,7 @@
       "col": "#2f6a4a",
       "facing": "#a8312f",
       "trim": "#d4a63c",
-      "sash": "",
+      "sash": "#2f6aa8",
       "epaulettes": true
     },
     "sleeves": {

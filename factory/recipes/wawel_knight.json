@@ -8,11 +8,13 @@
       "type": "male"
     },
     "beard": {
-      "type": "handlebar",
+      "type": "goatee",
       "col": "#6b4426"
     },
     "hat": {
-      "type": "helmet"
+      "type": "nasal",
+      "col": "#b9bfc6",
+      "trim": "#8a6a2a"
     },
     "cape": {
       "type": "none"
@@ -43,7 +45,7 @@
       "type": "std",
       "brow": "#6b4426",
       "iris": "#6b3a1f",
-      "bushy": true
+      "bushy": false
     },
     "hair": {
       "type": "none"

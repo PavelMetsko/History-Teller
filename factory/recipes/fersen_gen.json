@@ -11,13 +11,17 @@
       "type": "none"
     },
     "hat": {
-      "type": "tricorne"
+      "type": "tricorne",
+      "col": "#1e1e22",
+      "trim": "#d4a63c"
     },
     "cape": {
-      "type": "none"
+      "type": "cape",
+      "col": "#1e3a2a"
     },
     "held": {
-      "type": "none"
+      "type": "bulawa",
+      "hand": "hand_r"
     },
     "collar": {
       "type": "none"
@@ -34,16 +38,17 @@
       "col": "#1e1e22"
     },
     "age": {
-      "type": "young"
+      "type": "old"
     },
     "face": {
       "type": "std",
-      "brow": "#6b4426",
-      "iris": "#6b3a1f",
+      "brow": "#b8b4c0",
+      "iris": "#5f7a9a",
       "bushy": false
     },
     "hair": {
-      "type": "wig"
+      "type": "wig",
+      "col": "#ece8e2"
     },
     "outfit": {
       "type": "uniform",

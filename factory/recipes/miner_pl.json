@@ -12,8 +12,9 @@
       "col": "#3b2a20"
     },
     "hat": {
-      "type": "hood",
-      "col": "#5b4a3a"
+      "type": "cap",
+      "col": "#6b5a44",
+      "fur": ""
     },
     "cape": {
       "type": "none"

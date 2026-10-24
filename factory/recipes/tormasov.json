@@ -9,21 +9,22 @@
     },
     "face": {
       "type": "std",
-      "brow": "#6b4426",
+      "brow": "#3b2a20",
       "iris": "#6b3a1f",
-      "bushy": false
+      "bushy": true
     },
     "hair": {
-      "type": "wig",
-      "col": "#ece8e2"
+      "type": "short_sides",
+      "col": "#3b2a20"
     },
     "beard": {
-      "type": "none"
+      "type": "handlebar",
+      "col": "#3b2a20"
     },
     "hat": {
-      "type": "tricorne",
+      "type": "bicorne",
       "col": "#1e1e22",
-      "trim": "#d4a63c"
+      "cockade": "#f4f1ea"
     },
     "cape": {
       "type": "none"
@@ -43,7 +44,7 @@
       "col": "#2f6a4a",
       "facing": "#a8312f",
       "trim": "#d4a63c",
-      "sash": "",
+      "sash": "#a8312f",
       "epaulettes": true
     },
     "sleeves": {

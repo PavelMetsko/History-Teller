@@ -12,8 +12,7 @@
       "col": "#e6e0d6"
     },
     "hat": {
-      "type": "hood",
-      "col": "#7a6a52"
+      "type": "none"
     },
     "cape": {
       "type": "none"
@@ -47,6 +46,10 @@
       "type": "std",
       "col": "#7a6a52",
       "cuff": "#7a6a52"
+    },
+    "hair": {
+      "type": "long",
+      "col": "#e6e0d6"
     }
   }
 }
