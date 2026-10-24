@@ -40,6 +40,23 @@ MUSIC = {
     "tension": {"prompt": f"{STYLE} Mysterious andante in G minor: low cellos and basses ostinato, "
                           f"horn pedal, sparse pizzicato, a single oboe phrase, timpani on downbeats. "
                           f"Intrigue and suspense, never loud. Loops seamlessly.", "ms": 60000},
+    # глава «Польша»: польский колорит — мазурка, полонез, Шопен, старопольские колокола
+    "poland_tension":  {"prompt": f"{STYLE} Polish historical mood, Chopin-like melancholy: slow "
+                                  f"mazurka rhythm in A minor on low strings, solo clarinet melody with "
+                                  f"a folk modal turn, distant church bell, quiet harp. Uneasy, "
+                                  f"brooding, never loud. Loops seamlessly.", "ms": 60000},
+    "poland_battle":   {"prompt": f"{STYLE} Heroic Polish cavalry charge, winged hussars: driving "
+                                  f"3/4 polonaise-march rhythm in D minor, strong timpani, horns and "
+                                  f"trumpets in unison, urgent strings ostinato, epic but controlled, "
+                                  f"no drum kit. Loops seamlessly.", "ms": 60000},
+    "poland_ceremony": {"prompt": f"{STYLE} Stately Polish court ceremony: majestic polonaise in "
+                                  f"G major, brass fanfare phrases, bright strings, harpsichord-like "
+                                  f"harp, Wawel cathedral bell, coronation pomp, dignified tempo. "
+                                  f"Loops seamlessly.", "ms": 60000},
+    "poland_romance":  {"prompt": f"{STYLE} Tender Polish romance, Chopin nocturne character "
+                                  f"arranged for orchestra: solo violin and cello duet over soft "
+                                  f"strings, rubato feel, gentle harp, nostalgic and longing, quiet. "
+                                  f"Loops seamlessly.", "ms": 60000},
 }
 
 SFX = {
