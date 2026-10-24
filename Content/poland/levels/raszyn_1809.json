@@ -1,0 +1,78 @@
+{
+ "id": "raszyn_1809",
+ "order": 412,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_battle",
+ "cover": "galicia_march_pl",
+ "panels": 3,
+ "scenes": [
+  "raszyn_pl",
+  "yield_warsaw_pl",
+  "galicia_march_pl",
+  "last_stand_pl"
+ ],
+ "characters": [
+  "jozef_poniatowski",
+  "archduke_ferdinand",
+  "napoleon_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "jozef_poniatowski": [
+    "standing"
+   ],
+   "archduke_ferdinand": [
+    "standing",
+    "strong"
+   ],
+   "napoleon_pl": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jozef_poniatowski",
+     "is": "galicia_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "archduke_ferdinand",
+     "is": "in_warsaw_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "raszyn_pl",
+   "characters": [
+    "jozef_poniatowski",
+    "archduke_ferdinand"
+   ]
+  },
+  {
+   "scene": "yield_warsaw_pl",
+   "characters": [
+    "archduke_ferdinand",
+    "jozef_poniatowski"
+   ]
+  },
+  {
+   "scene": "galicia_march_pl",
+   "characters": [
+    "jozef_poniatowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

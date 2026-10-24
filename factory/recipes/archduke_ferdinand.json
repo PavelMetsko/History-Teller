@@ -1,0 +1,65 @@
+{
+  "id": "archduke_ferdinand",
+  "name": "Эрцгерцог Фердинанд д’Эсте",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "bicorne",
+      "col": "#1e1e22",
+      "cockade": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#f4f1ea",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "#d4a63c",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

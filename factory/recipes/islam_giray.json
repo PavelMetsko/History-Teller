@@ -1,0 +1,64 @@
+{
+  "id": "islam_giray",
+  "name": "Хан Ислам Герай",
+  "skin": "#e8b290",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "none",
+      "col": "#2a1a12"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "mongol",
+      "fur": "#3b2a20",
+      "top": "#2f6a4a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#2f6a4a",
+      "trim": "#d4a63c",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#a8312f"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#c99a2e",
+      "top": "#c99a2e"
+    }
+  }
+}

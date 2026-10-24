@@ -21367,5 +21367,1129 @@
   "roles": [
    "кто уезжает"
   ]
+ },
+ {
+  "id": "mestwin_will_pl",
+  "name": "Завещание Мстивоя",
+  "tags": [
+   "sig_mestwin_will_pl"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "унаследовать Поморье",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "coronation_1295_pl",
+  "name": "Коронация в Гнезно",
+  "tags": [
+   "sig_coronation_1295_pl"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "короновать",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "архиепископ",
+   "князь"
+  ]
+ },
+ {
+  "id": "rogozno_pl",
+  "name": "Масленица в Рогозьно",
+  "tags": [
+   "sig_rogozno_pl"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "напасть на рассвете",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "жертва"
+  ]
+ },
+ {
+  "id": "brand_talks_pl",
+  "name": "Мир с Бранденбургом",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "brand_siege_pl",
+  "name": "Бранденбуржцы у Гданьска",
+  "tags": [
+   "sig_brand_siege_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "осадить город",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "осаждающий",
+   "горожанин"
+  ]
+ },
+ {
+  "id": "call_knights_pl",
+  "name": "Позвать крестоносцев на помощь",
+  "tags": [
+   "sig_call_knights_pl"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "просить помощи",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "комтур"
+  ]
+ },
+ {
+  "id": "gdansk_night_pl",
+  "name": "Ночь 13 ноября",
+  "tags": [
+   "sig_gdansk_night_pl"
+  ],
+  "slots": 3,
+  "emoji": "🗡️",
+  "action": "войти в город",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "комтур",
+   "осаждающий",
+   "горожанин"
+  ]
+ },
+ {
+  "id": "pay_order_pl",
+  "name": "Заплатить ордену",
+  "tags": [
+   "v_bribe"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "подкуп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто платит",
+   "кого покупают"
+  ]
+ },
+ {
+  "id": "koszyce_pl",
+  "name": "Кошице",
+  "tags": [
+   "sig_koszyce_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "даровать привилей",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "шляхтич"
+  ]
+ },
+ {
+  "id": "daughter_heir_pl",
+  "name": "Наследница",
+  "tags": [
+   "sig_daughter_heir_pl"
+  ],
+  "slots": 2,
+  "emoji": "👸",
+  "action": "назначить наследницей",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "дочь"
+  ]
+ },
+ {
+  "id": "raise_tax_pl",
+  "name": "Новый налог",
+  "tags": [
+   "sig_raise_tax_pl"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "поднять налог",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "король",
+   "шляхтич"
+  ]
+ },
+ {
+  "id": "magnates_deal_pl",
+  "name": "Сговор с вельможами",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "commission_altar_pl",
+  "name": "Заказ мещан",
+  "tags": [
+   "sig_commission_altar_pl"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "заказать алтарь",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "мещанин",
+   "мастер"
+  ]
+ },
+ {
+  "id": "carve_linden_pl",
+  "name": "Двенадцать лет резьбы",
+  "tags": [
+   "sig_carve_linden_pl"
+  ],
+  "slots": 1,
+  "emoji": "🪵",
+  "action": "резать липу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "мастер"
+  ]
+ },
+ {
+  "id": "altar_consecration_pl",
+  "name": "Освящение алтаря",
+  "tags": [
+   "sig_altar_consecration_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "освятить алтарь",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "мастер",
+   "король"
+  ]
+ },
+ {
+  "id": "nuremberg_bill_pl",
+  "name": "Нюрнбергский вексель",
+  "tags": [
+   "sig_nuremberg_bill_pl"
+  ],
+  "slots": 2,
+  "emoji": "✒️",
+  "action": "подделать подпись",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "мастер",
+   "купец"
+  ]
+ },
+ {
+  "id": "bona_italians_pl",
+  "name": "Итальянцы при дворе",
+  "tags": [
+   "sig_bona_italians_pl"
+  ],
+  "slots": 2,
+  "emoji": "🎨",
+  "action": "позвать мастеров",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "королева",
+   "зодчий"
+  ]
+ },
+ {
+  "id": "sigismund_chapel_pl",
+  "name": "Сигизмундова капелла",
+  "tags": [
+   "sig_sigismund_chapel_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "строить капеллу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "зодчий"
+  ]
+ },
+ {
+  "id": "bell_1520_pl",
+  "name": "Колокол «Зыгмунт»",
+  "tags": [
+   "sig_bell_1520_pl"
+  ],
+  "slots": 1,
+  "emoji": "🔔",
+  "action": "отлить колокол",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "rival_quarrel_pl",
+  "name": "Ссора с соперником",
+  "tags": [
+   "sig_rival_quarrel_pl"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "затеять ссору",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "зодчий",
+   "соперник"
+  ]
+ },
+ {
+  "id": "wawel_fire_pl",
+  "name": "Пожар на Вавеле",
+  "tags": [
+   "sig_wawel_fire_pl"
+  ],
+  "slots": 1,
+  "emoji": "🔥",
+  "action": "возиться с алхимией",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "move_warsaw_pl",
+  "name": "Двор едет в Варшаву",
+  "tags": [
+   "sig_move_warsaw_pl"
+  ],
+  "slots": 1,
+  "emoji": "🐎",
+  "action": "перенести двор",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "rebuild_wawel_pl",
+  "name": "Отстроить Вавель",
+  "tags": [
+   "sig_rebuild_wawel_pl"
+  ],
+  "slots": 1,
+  "emoji": "🏰",
+  "action": "остаться в Кракове",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "column_pl",
+  "name": "Колонна Сигизмунда",
+  "tags": [
+   "sig_column_pl"
+  ],
+  "slots": 2,
+  "emoji": "🗿",
+  "action": "поставить колонну",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "сын",
+   "отец"
+  ]
+ },
+ {
+  "id": "subotiv_raid_pl",
+  "name": "Наезд на Суботов",
+  "tags": [
+   "sig_subotiv_raid_pl"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "отнять хутор",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "подстароста",
+   "сотник"
+  ]
+ },
+ {
+  "id": "sabre_advice_pl",
+  "name": "Жалоба королю",
+  "tags": [
+   "sig_sabre_advice_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "искать правды в суде",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "сотник",
+   "подстароста"
+  ]
+ },
+ {
+  "id": "khan_alliance_pl",
+  "name": "Союз с ханом",
+  "tags": [
+   "sig_khan_alliance_pl"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "позвать орду",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "гетман",
+   "хан"
+  ]
+ },
+ {
+  "id": "korsun_pl",
+  "name": "Корсунь",
+  "tags": [
+   "sig_korsun_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "ударить по коронному войску",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "гетман",
+   "коронный гетман"
+  ]
+ },
+ {
+  "id": "secret_conversion_pl",
+  "name": "Тайное обращение",
+  "tags": [
+   "sig_secret_conversion_pl"
+  ],
+  "slots": 1,
+  "emoji": "⛪",
+  "action": "принять католичество",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "курфюрст"
+  ]
+ },
+ {
+  "id": "saxon_dash_pl",
+  "name": "Бросок саксонского войска",
+  "tags": [
+   "sig_saxon_dash_pl"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "успеть первым",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "курфюрст",
+   "соперник"
+  ]
+ },
+ {
+  "id": "oliwa_roads_pl",
+  "name": "Рейд у Оливы",
+  "tags": [
+   "sig_oliwa_roads_pl"
+  ],
+  "slots": 1,
+  "emoji": "⛵",
+  "action": "повернуть корабли",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "принц"
+  ]
+ },
+ {
+  "id": "buy_votes_pl",
+  "name": "Скупить голоса",
+  "tags": [
+   "v_bribe"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "подкуп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто платит",
+   "кого покупают"
+  ]
+ },
+ {
+  "id": "bishops_kidnap_pl",
+  "name": "Арест епископов",
+  "tags": [
+   "sig_bishops_kidnap_pl"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "увезти в Калугу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "посол",
+   "епископ"
+  ]
+ },
+ {
+  "id": "bar_oath_pl",
+  "name": "Конфедерация в Баре",
+  "tags": [
+   "sig_bar_oath_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "поклясться за веру и вольность",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "конфедерат",
+   "епископ"
+  ]
+ },
+ {
+  "id": "jasna_defense_pl",
+  "name": "Оборона Ясной Горы",
+  "tags": [
+   "sig_jasna_defense_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "держать монастырь",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "конфедерат",
+   "посол"
+  ]
+ },
+ {
+  "id": "king_kidnap_pl",
+  "name": "Похищение короля",
+  "tags": [
+   "sig_king_kidnap_pl"
+  ],
+  "slots": 2,
+  "emoji": "🌙",
+  "action": "похитить короля",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "конфедерат",
+   "король"
+  ]
+ },
+ {
+  "id": "targowica_act_pl",
+  "name": "Акт Тарговицкой конфедерации",
+  "tags": [
+   "sig_targowica_act_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "подписать акт",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "магнат",
+   "императрица"
+  ]
+ },
+ {
+  "id": "zielence_pl",
+  "name": "Зеленцы",
+  "tags": [
+   "sig_zielence_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "дать бой",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "магнат"
+  ]
+ },
+ {
+  "id": "king_joins_pl",
+  "name": "Король примыкает к Тарговице",
+  "tags": [
+   "sig_king_joins_pl"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать акцессию",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "магнат"
+  ]
+ },
+ {
+  "id": "king_to_army_pl",
+  "name": "Король идёт к войску",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "deputy_protest_pl",
+  "name": "Протест депутата",
+  "tags": [
+   "sig_deputy_protest_pl"
+  ],
+  "slots": 1,
+  "emoji": "📢",
+  "action": "протестовать",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "депутат"
+  ]
+ },
+ {
+  "id": "silent_sejm_pl",
+  "name": "Немое заседание",
+  "tags": [
+   "sig_silent_sejm_pl"
+  ],
+  "slots": 2,
+  "emoji": "🤐",
+  "action": "промолчать",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "посол",
+   "депутат"
+  ]
+ },
+ {
+  "id": "partition_treaty_pl",
+  "name": "Договор о втором разделе",
+  "tags": [
+   "sig_partition_treaty_pl"
+  ],
+  "slots": 3,
+  "emoji": "✍️",
+  "action": "утвердить договор",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "посол",
+   "депутат",
+   "король"
+  ]
+ },
+ {
+  "id": "abdication_1795_pl",
+  "name": "Отречение в Гродно",
+  "tags": [
+   "sig_abdication_1795_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "отречься от короны",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "императрица",
+   "король"
+  ]
+ },
+ {
+  "id": "raszyn_pl",
+  "name": "Рашин",
+  "tags": [
+   "sig_raszyn_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "встретить австрийцев",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "эрцгерцог"
+  ]
+ },
+ {
+  "id": "yield_warsaw_pl",
+  "name": "Сдать Варшаву без боя",
+  "tags": [
+   "sig_yield_warsaw_pl"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "уступить столицу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "эрцгерцог",
+   "князь"
+  ]
+ },
+ {
+  "id": "galicia_march_pl",
+  "name": "Поход в Галицию",
+  "tags": [
+   "sig_galicia_march_pl"
+  ],
+  "slots": 1,
+  "emoji": "🐎",
+  "action": "идти на юг",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "last_stand_pl",
+  "name": "Стоять насмерть у стен",
+  "tags": [
+   "sig_last_stand_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "держать Варшаву",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "эрцгерцог"
+  ]
+ },
+ {
+  "id": "marshal_baton_pl",
+  "name": "Маршальский жезл",
+  "tags": [
+   "sig_marshal_baton_pl"
+  ],
+  "slots": 2,
+  "emoji": "🎖️",
+  "action": "вручить жезл",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "князь"
+  ]
+ },
+ {
+  "id": "rear_guard_pl",
+  "name": "Прикрыть отступление",
+  "tags": [
+   "sig_rear_guard_pl"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "держать арьергард",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "император"
+  ]
+ },
+ {
+  "id": "elster_crossing_pl",
+  "name": "Эльстер",
+  "tags": [
+   "sig_elster_crossing_pl"
+  ],
+  "slots": 1,
+  "emoji": "🌊",
+  "action": "броситься в реку",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "switch_sides_pl",
+  "name": "Предложение царя",
+  "tags": [
+   "sig_switch_sides_pl"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "перейти к союзникам",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "император",
+   "князь"
+  ]
+ },
+ {
+  "id": "vienna_congress_pl",
+  "name": "Венский конгресс",
+  "tags": [
+   "sig_vienna_congress_pl"
+  ],
+  "slots": 2,
+  "emoji": "🗺️",
+  "action": "договориться о Польше",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "советник"
+  ]
+ },
+ {
+  "id": "constitution_1815_pl",
+  "name": "Конституция Царства",
+  "tags": [
+   "sig_constitution_1815_pl"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "даровать конституцию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "советник"
+  ]
+ },
+ {
+  "id": "namiestnik_pl",
+  "name": "Назначить наместника",
+  "tags": [
+   "sig_namiestnik_pl"
+  ],
+  "slots": 2,
+  "emoji": "👔",
+  "action": "сделать наместником",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "император",
+   "советник"
+  ]
+ },
+ {
+  "id": "army_command_pl",
+  "name": "Командующий армией",
+  "tags": [
+   "sig_army_command_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "отдать армию брату",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "император",
+   "брат"
+  ]
+ },
+ {
+  "id": "krakow_rising_pl",
+  "name": "Краковское восстание",
+  "tags": [
+   "sig_krakow_rising_pl"
+  ],
+  "slots": 1,
+  "emoji": "🚩",
+  "action": "поднять восстание",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "революционер"
+  ]
+ },
+ {
+  "id": "promise_land_pl",
+  "name": "Обещать землю крестьянам",
+  "tags": [
+   "sig_promise_land_pl"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "пообещать землю",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "революционер",
+   "крестьянин"
+  ]
+ },
+ {
+  "id": "rabacja_pl",
+  "name": "Галицийская резня",
+  "tags": [
+   "sig_rabacja_pl"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "пойти на усадьбы",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "крестьянин",
+   "шляхтич"
+  ]
+ },
+ {
+  "id": "podgorze_procession_pl",
+  "name": "Крестный ход в Подгуже",
+  "tags": [
+   "sig_podgorze_procession_pl"
+  ],
+  "slots": 1,
+  "emoji": "✝️",
+  "action": "выйти к крестьянам с крестом",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "революционер"
+  ]
+ },
+ {
+  "id": "moabit_release_pl",
+  "name": "Ворота Моабита",
+  "tags": [
+   "sig_moabit_release_pl"
+  ],
+  "slots": 1,
+  "emoji": "🔓",
+  "action": "выйти из тюрьмы",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "узник"
+  ]
+ },
+ {
+  "id": "kosynierzy_pl",
+  "name": "Косиньеры",
+  "tags": [
+   "sig_kosynierzy_pl"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "поставить косы торчком",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "командир",
+   "крестьянин"
+  ]
+ },
+ {
+  "id": "miloslaw_pl",
+  "name": "Милослав",
+  "tags": [
+   "sig_miloslaw_pl"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "ударить по пруссакам",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "командир",
+   "противник"
+  ]
+ },
+ {
+  "id": "jaroslawiec_pl",
+  "name": "Ярославецкое соглашение",
+  "tags": [
+   "sig_jaroslawiec_pl"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "распустить отряды",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "командир",
+   "чиновник"
+  ]
+ },
+ {
+  "id": "revolution_1905_pl",
+  "name": "Революция 1905 года",
+  "tags": [
+   "sig_revolution_1905_pl"
+  ],
+  "slots": 1,
+  "emoji": "🚩",
+  "action": "услышать о забастовках",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "гимназист"
+  ]
+ },
+ {
+  "id": "school_strike_pl",
+  "name": "Школьная забастовка",
+  "tags": [
+   "sig_school_strike_pl"
+  ],
+  "slots": 2,
+  "emoji": "📚",
+  "action": "отказаться учиться по-русски",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "гимназист",
+   "жандарм"
+  ]
+ },
+ {
+  "id": "polish_school_pl",
+  "name": "Польская школа",
+  "tags": [
+   "sig_polish_school_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏫",
+  "action": "учить по-польски",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "учительница",
+   "ученик"
+  ]
+ },
+ {
+  "id": "back_to_desk_pl",
+  "name": "Вернуться за парту",
+  "tags": [
+   "sig_back_to_desk_pl"
+  ],
+  "slots": 1,
+  "emoji": "🪑",
+  "action": "смириться",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "гимназист"
+  ]
+ },
+ {
+  "id": "oleandry_pl",
+  "name": "Олеандры",
+  "tags": [
+   "sig_oleandry_pl"
+  ],
+  "slots": 2,
+  "emoji": "🎖️",
+  "action": "построить кадровую роту",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "комендант",
+   "стрелец"
+  ]
+ },
+ {
+  "id": "border_posts_pl",
+  "name": "Пограничные столбы",
+  "tags": [
+   "sig_border_posts_pl"
+  ],
+  "slots": 2,
+  "emoji": "🪓",
+  "action": "повалить столбы",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "стрелец",
+   "страж"
+  ]
+ },
+ {
+  "id": "kielce_pl",
+  "name": "Вход в Кельце",
+  "tags": [
+   "sig_kielce_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏘️",
+  "action": "войти в город",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "стрелец",
+   "горожанин"
+  ]
+ },
+ {
+  "id": "kielce_battle_pl",
+  "name": "Бой за Кельце",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "act_5_nov_pl",
+  "name": "Акт 5 ноября",
+  "tags": [
+   "sig_act_5_nov_pl"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "провозгласить королевство",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал-губернатор"
+  ]
+ },
+ {
+  "id": "call_recruits_pl",
+  "name": "Набор добровольцев",
+  "tags": [
+   "sig_call_recruits_pl"
+  ],
+  "slots": 2,
+  "emoji": "📯",
+  "action": "звать в армию",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "генерал-губернатор",
+   "комендант"
+  ]
+ },
+ {
+  "id": "state_council_pl",
+  "name": "Временный Государственный совет",
+  "tags": [
+   "sig_state_council_pl"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "войти в совет",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал-губернатор",
+   "комендант"
+  ]
+ },
+ {
+  "id": "pilsudski_resign_pl",
+  "name": "Подать в отставку",
+  "tags": [
+   "v_flee"
+  ],
+  "slots": 1,
+  "emoji": "🚪",
+  "action": "уход",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто уходит"
+  ]
  }
 ]

@@ -1,0 +1,62 @@
+{
+  "id": "alexander1_pl",
+  "name": "Император Александр I",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b97a45",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#b97a45"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#1e3a2a",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "#2f6aa8",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e3a2a",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

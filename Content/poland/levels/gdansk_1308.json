@@ -1,0 +1,81 @@
+{
+ "id": "gdansk_1308",
+ "order": 112,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_tension",
+ "cover": "gdansk_night_pl",
+ "panels": 3,
+ "scenes": [
+  "brand_siege_pl",
+  "call_knights_pl",
+  "gdansk_night_pl",
+  "pay_order_pl"
+ ],
+ "characters": [
+  "lokietek",
+  "komtur",
+  "brandenburg_knight",
+  "merchant_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "lokietek": [
+    "standing",
+    "reigns"
+   ],
+   "komtur": [
+    "standing",
+    "strong"
+   ],
+   "brandenburg_knight": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "komtur",
+     "is": "holds_gdansk_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "brandenburg_knight",
+     "is": "away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "brand_siege_pl",
+   "characters": [
+    "brandenburg_knight",
+    "merchant_pl"
+   ]
+  },
+  {
+   "scene": "call_knights_pl",
+   "characters": [
+    "lokietek",
+    "komtur"
+   ]
+  },
+  {
+   "scene": "gdansk_night_pl",
+   "characters": [
+    "komtur",
+    "brandenburg_knight",
+    "merchant_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

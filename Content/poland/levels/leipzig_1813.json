@@ -1,0 +1,81 @@
+{
+ "id": "leipzig_1813",
+ "order": 415,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "elster_crossing_pl",
+ "panels": 3,
+ "scenes": [
+  "marshal_baton_pl",
+  "rear_guard_pl",
+  "elster_crossing_pl",
+  "switch_sides_pl"
+ ],
+ "characters": [
+  "jozef_poniatowski",
+  "napoleon_pl",
+  "alexander1_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon_pl": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "alexander1_pl": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "jozef_poniatowski": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jozef_poniatowski",
+     "is": "honor_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "jozef_poniatowski",
+      "is": "switched_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "marshal_baton_pl",
+   "characters": [
+    "napoleon_pl",
+    "jozef_poniatowski"
+   ]
+  },
+  {
+   "scene": "rear_guard_pl",
+   "characters": [
+    "jozef_poniatowski",
+    "napoleon_pl"
+   ]
+  },
+  {
+   "scene": "elster_crossing_pl",
+   "characters": [
+    "jozef_poniatowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

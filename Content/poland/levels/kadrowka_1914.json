@@ -1,0 +1,69 @@
+{
+ "id": "kadrowka_1914",
+ "order": 486,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_battle",
+ "cover": "border_posts_pl",
+ "panels": 3,
+ "scenes": [
+  "oleandry_pl",
+  "border_posts_pl",
+  "kielce_pl",
+  "kielce_battle_pl"
+ ],
+ "characters": [
+  "pilsudski",
+  "strzelec_pl",
+  "gendarme_ru",
+  "merchant_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "pilsudski": [
+    "standing",
+    "strong"
+   ],
+   "gendarme_ru": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "strzelec_pl",
+     "is": "in_kielce_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "oleandry_pl",
+   "characters": [
+    "pilsudski",
+    "strzelec_pl"
+   ]
+  },
+  {
+   "scene": "border_posts_pl",
+   "characters": [
+    "strzelec_pl",
+    "gendarme_ru"
+   ]
+  },
+  {
+   "scene": "kielce_pl",
+   "characters": [
+    "strzelec_pl",
+    "merchant_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

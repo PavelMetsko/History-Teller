@@ -1,0 +1,64 @@
+{
+ "id": "school_strike_1905",
+ "order": 485,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "school_strike_pl",
+ "panels": 3,
+ "scenes": [
+  "revolution_1905_pl",
+  "school_strike_pl",
+  "polish_school_pl",
+  "back_to_desk_pl"
+ ],
+ "characters": [
+  "gymnasist_pl",
+  "gendarme_ru",
+  "dawidowa"
+ ],
+ "initialState": {
+  "flags": {
+   "gendarme_ru": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "gymnasist_pl",
+     "is": "polish_school_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "revolution_1905_pl",
+   "characters": [
+    "gymnasist_pl"
+   ]
+  },
+  {
+   "scene": "school_strike_pl",
+   "characters": [
+    "gymnasist_pl",
+    "gendarme_ru"
+   ]
+  },
+  {
+   "scene": "polish_school_pl",
+   "characters": [
+    "dawidowa",
+    "gymnasist_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

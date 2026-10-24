@@ -1,0 +1,65 @@
+{
+  "id": "brandenburg_knight",
+  "name": "Бранденбургский рыцарь",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "helmet",
+      "col": "#b9bfc6",
+      "trim": "#8a6a2a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#a9b0b8",
+      "surcoat": "#f4f1ea",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#4a3a30"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#5a3a22"
+    }
+  }
+}

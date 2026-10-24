@@ -1,0 +1,78 @@
+{
+ "id": "khmelnytsky_1648",
+ "order": 285,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_battle",
+ "cover": "korsun_pl",
+ "panels": 3,
+ "scenes": [
+  "subotiv_raid_pl",
+  "sabre_advice_pl",
+  "khan_alliance_pl",
+  "korsun_pl"
+ ],
+ "characters": [
+  "khmelnytsky",
+  "czaplinski",
+  "islam_giray",
+  "potocki_hetman"
+ ],
+ "initialState": {
+  "flags": {
+   "potocki_hetman": [
+    "standing",
+    "strong"
+   ],
+   "islam_giray": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "potocki_hetman",
+     "is": "captive_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "khmelnytsky",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "subotiv_raid_pl",
+   "characters": [
+    "czaplinski",
+    "khmelnytsky"
+   ]
+  },
+  {
+   "scene": "khan_alliance_pl",
+   "characters": [
+    "khmelnytsky",
+    "islam_giray"
+   ]
+  },
+  {
+   "scene": "korsun_pl",
+   "characters": [
+    "khmelnytsky",
+    "potocki_hetman"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

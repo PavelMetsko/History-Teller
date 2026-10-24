@@ -1,0 +1,66 @@
+{
+  "id": "potocki_hetman",
+  "name": "Гетман Николай Потоцкий",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "walrus",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#3b2a20",
+      "top": "#2f6a4a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "zupan_hussar",
+      "cloth": "#2f6a4a",
+      "steel": "#c6cbd1",
+      "sash1": "#d4a63c",
+      "sash2": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#2f6a4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#d4a63c",
+      "top": "#d4a63c"
+    }
+  }
+}

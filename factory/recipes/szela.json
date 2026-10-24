@@ -1,0 +1,65 @@
+{
+  "id": "szela",
+  "name": "Якуб Шеля",
+  "skin": "#efbf9c",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8d4dc",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#d8d4dc"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#5a4434",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scythe",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "sukmana",
+      "col": "#e9e0cc",
+      "trim": "#6b4426",
+      "belt": "#6b4426"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#e9e0cc"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#e9e0cc"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a5232",
+      "top": "#7a5232"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+ "id": "stwosz_1489",
+ "order": 172,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_ceremony",
+ "cover": "altar_consecration_pl",
+ "panels": 3,
+ "scenes": [
+  "commission_altar_pl",
+  "carve_linden_pl",
+  "altar_consecration_pl",
+  "nuremberg_bill_pl"
+ ],
+ "characters": [
+  "wit_stwosz",
+  "merchant_pl",
+  "casimir4"
+ ],
+ "initialState": {
+  "flags": {
+   "casimir4": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wit_stwosz",
+     "is": "altar_done_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "wit_stwosz",
+      "is": "branded_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "commission_altar_pl",
+   "characters": [
+    "merchant_pl",
+    "wit_stwosz"
+   ]
+  },
+  {
+   "scene": "carve_linden_pl",
+   "characters": [
+    "wit_stwosz"
+   ]
+  },
+  {
+   "scene": "altar_consecration_pl",
+   "characters": [
+    "wit_stwosz",
+    "casimir4"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

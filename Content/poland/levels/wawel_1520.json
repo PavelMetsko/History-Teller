@@ -1,0 +1,76 @@
+{
+ "id": "wawel_1520",
+ "order": 185,
+ "epoch": "poland",
+ "act": "Акт III · Ягеллоны",
+ "music": "poland_ceremony",
+ "cover": "sigismund_chapel_pl",
+ "panels": 3,
+ "scenes": [
+  "bona_italians_pl",
+  "sigismund_chapel_pl",
+  "bell_1520_pl",
+  "rival_quarrel_pl"
+ ],
+ "characters": [
+  "sigismund1",
+  "bona",
+  "berrecci",
+  "magnate_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "sigismund1": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "bona": [
+    "standing",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "berrecci",
+     "is": "chapel_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "sigismund1",
+     "is": "bell_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bona_italians_pl",
+   "characters": [
+    "bona",
+    "berrecci"
+   ]
+  },
+  {
+   "scene": "sigismund_chapel_pl",
+   "characters": [
+    "sigismund1",
+    "berrecci"
+   ]
+  },
+  {
+   "scene": "bell_1520_pl",
+   "characters": [
+    "sigismund1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

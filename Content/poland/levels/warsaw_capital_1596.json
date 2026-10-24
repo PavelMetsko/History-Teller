@@ -1,0 +1,72 @@
+{
+ "id": "warsaw_capital_1596",
+ "order": 255,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_ceremony",
+ "cover": "column_pl",
+ "panels": 3,
+ "scenes": [
+  "wawel_fire_pl",
+  "move_warsaw_pl",
+  "rebuild_wawel_pl",
+  "column_pl"
+ ],
+ "characters": [
+  "sigismund3",
+  "wladyslaw4",
+  "zamoyski"
+ ],
+ "initialState": {
+  "flags": {
+   "sigismund3": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wladyslaw4",
+     "is": "column_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "sigismund3",
+      "is": "stays_krakow_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "wawel_fire_pl",
+   "characters": [
+    "sigismund3"
+   ]
+  },
+  {
+   "scene": "move_warsaw_pl",
+   "characters": [
+    "sigismund3"
+   ]
+  },
+  {
+   "scene": "column_pl",
+   "characters": [
+    "wladyslaw4",
+    "sigismund3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

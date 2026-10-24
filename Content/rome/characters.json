@@ -6731,5 +6731,181 @@
    "gendarme_pl"
   ],
   "emoji": "🚨"
+ },
+ {
+  "id": "przemysl2",
+  "name": "Пшемысл II",
+  "tags": [
+   "przemysl_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "brandenburg_knight",
+  "name": "Бранденбургский рыцарь",
+  "tags": [
+   "brand_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "wit_stwosz",
+  "name": "Вит Ствош",
+  "tags": [
+   "carver_pl"
+  ],
+  "emoji": "🪵"
+ },
+ {
+  "id": "berrecci",
+  "name": "Бартоломео Берреччи",
+  "tags": [
+   "architect_pl"
+  ],
+  "emoji": "🏛️"
+ },
+ {
+  "id": "khmelnytsky",
+  "name": "Богдан Хмельницкий",
+  "tags": [
+   "khmel_pl"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "czaplinski",
+  "name": "Подстароста Чаплинский",
+  "tags": [
+   "starosta_pl"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "potocki_hetman",
+  "name": "Гетман Николай Потоцкий",
+  "tags": [
+   "crown_hetman_pl"
+  ],
+  "emoji": "🪽"
+ },
+ {
+  "id": "islam_giray",
+  "name": "Хан Ислам Герай",
+  "tags": [
+   "khan_pl"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "august2",
+  "name": "Август II Сильный",
+  "tags": [
+   "saxon2_pl"
+  ],
+  "emoji": "💪"
+ },
+ {
+  "id": "conti",
+  "name": "Принц де Конти",
+  "tags": [
+   "conti_pl"
+  ],
+  "emoji": "⛵"
+ },
+ {
+  "id": "pulaski",
+  "name": "Казимир Пулаский",
+  "tags": [
+   "pulaski_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "soltyk",
+  "name": "Епископ Каетан Солтык",
+  "tags": [
+   "bishop_k_pl"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "potocki_sz",
+  "name": "Щенсны Потоцкий",
+  "tags": [
+   "targowica_pl"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "sievers",
+  "name": "Посол Сиверс",
+  "tags": [
+   "ambassador_s_pl"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "archduke_ferdinand",
+  "name": "Эрцгерцог Фердинанд д’Эсте",
+  "tags": [
+   "austrian_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "alexander1_pl",
+  "name": "Император Александр I",
+  "tags": [
+   "tsar_a1_pl"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "czartoryski",
+  "name": "Князь Адам Чарторыйский",
+  "tags": [
+   "czartoryski_pl"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "dembowski",
+  "name": "Эдвард Дембовский",
+  "tags": [
+   "dembowski_pl"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "szela",
+  "name": "Якуб Шеля",
+  "tags": [
+   "szela_pl"
+  ],
+  "emoji": "🌾"
+ },
+ {
+  "id": "mieroslawski",
+  "name": "Людвик Мерославский",
+  "tags": [
+   "mieroslawski_pl"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "gymnasist_pl",
+  "name": "Гимназист",
+  "tags": [
+   "gymnasist_pl"
+  ],
+  "emoji": "🎒"
+ },
+ {
+  "id": "strzelec_pl",
+  "name": "Стрелец Первой кадровой",
+  "tags": [
+   "strzelec_pl"
+  ],
+  "emoji": "🎖️"
  }
 ]

@@ -1,0 +1,82 @@
+{
+ "id": "bar_1768",
+ "order": 345,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_tension",
+ "cover": "jasna_defense_pl",
+ "panels": 3,
+ "scenes": [
+  "bishops_kidnap_pl",
+  "bar_oath_pl",
+  "jasna_defense_pl",
+  "king_kidnap_pl"
+ ],
+ "characters": [
+  "repnin",
+  "soltyk",
+  "pulaski",
+  "poniatowski"
+ ],
+ "initialState": {
+  "flags": {
+   "repnin": [
+    "standing",
+    "strong"
+   ],
+   "poniatowski": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "soltyk": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pulaski",
+     "is": "held_jasna_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pulaski",
+      "is": "outlaw_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bishops_kidnap_pl",
+   "characters": [
+    "repnin",
+    "soltyk"
+   ]
+  },
+  {
+   "scene": "bar_oath_pl",
+   "characters": [
+    "pulaski",
+    "soltyk"
+   ]
+  },
+  {
+   "scene": "jasna_defense_pl",
+   "characters": [
+    "pulaski",
+    "repnin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

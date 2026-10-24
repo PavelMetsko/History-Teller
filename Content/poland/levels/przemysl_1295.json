@@ -1,0 +1,81 @@
+{
+ "id": "przemysl_1295",
+ "order": 107,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_tension",
+ "cover": "coronation_1295_pl",
+ "panels": 3,
+ "scenes": [
+  "mestwin_will_pl",
+  "coronation_1295_pl",
+  "rogozno_pl",
+  "brand_talks_pl"
+ ],
+ "characters": [
+  "przemysl2",
+  "archbishop_gn",
+  "brandenburg_knight"
+ ],
+ "initialState": {
+  "flags": {
+   "przemysl2": [
+    "standing"
+   ],
+   "brandenburg_knight": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "przemysl2",
+     "is": "crowned_1295_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "przemysl2",
+     "is": "dead"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "przemysl2",
+      "is": "captive_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mestwin_will_pl",
+   "characters": [
+    "przemysl2"
+   ]
+  },
+  {
+   "scene": "coronation_1295_pl",
+   "characters": [
+    "archbishop_gn",
+    "przemysl2"
+   ]
+  },
+  {
+   "scene": "rogozno_pl",
+   "characters": [
+    "brandenburg_knight",
+    "przemysl2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

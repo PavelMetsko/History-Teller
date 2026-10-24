@@ -1,0 +1,84 @@
+{
+ "id": "kingdom_1815",
+ "order": 418,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_ceremony",
+ "cover": "constitution_1815_pl",
+ "panels": 3,
+ "scenes": [
+  "vienna_congress_pl",
+  "constitution_1815_pl",
+  "namiestnik_pl",
+  "army_command_pl"
+ ],
+ "characters": [
+  "alexander1_pl",
+  "czartoryski",
+  "konstantin_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander1_pl": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "konstantin_pl": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander1_pl",
+     "is": "constitution_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "konstantin_pl",
+     "is": "commander_pl"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "czartoryski",
+      "is": "viceroy_pl"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "vienna_congress_pl",
+   "characters": [
+    "alexander1_pl",
+    "czartoryski"
+   ]
+  },
+  {
+   "scene": "constitution_1815_pl",
+   "characters": [
+    "alexander1_pl",
+    "czartoryski"
+   ]
+  },
+  {
+   "scene": "army_command_pl",
+   "characters": [
+    "alexander1_pl",
+    "konstantin_pl"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

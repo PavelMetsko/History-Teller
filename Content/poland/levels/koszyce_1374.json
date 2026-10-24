@@ -1,0 +1,66 @@
+{
+ "id": "koszyce_1374",
+ "order": 135,
+ "epoch": "poland",
+ "act": "Акт II · Пясты",
+ "music": "poland_ceremony",
+ "cover": "koszyce_pl",
+ "panels": 2,
+ "scenes": [
+  "koszyce_pl",
+  "daughter_heir_pl",
+  "raise_tax_pl",
+  "magnates_deal_pl"
+ ],
+ "characters": [
+  "louis_hu",
+  "szlachcic_pl",
+  "jadwiga",
+  "magnate_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "louis_hu": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jadwiga",
+     "is": "heir_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "szlachcic_pl",
+     "is": "privileged_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "koszyce_pl",
+   "characters": [
+    "louis_hu",
+    "szlachcic_pl"
+   ]
+  },
+  {
+   "scene": "daughter_heir_pl",
+   "characters": [
+    "louis_hu",
+    "jadwiga"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

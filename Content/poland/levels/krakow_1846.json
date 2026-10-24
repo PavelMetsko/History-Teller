@@ -1,0 +1,68 @@
+{
+ "id": "krakow_1846",
+ "order": 437,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_tension",
+ "cover": "krakow_rising_pl",
+ "panels": 3,
+ "scenes": [
+  "krakow_rising_pl",
+  "promise_land_pl",
+  "rabacja_pl",
+  "podgorze_procession_pl"
+ ],
+ "characters": [
+  "dembowski",
+  "szela",
+  "szlachcic_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "szlachcic_pl": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dembowski",
+     "is": "martyr_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "szela",
+     "is": "rabacja_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "krakow_rising_pl",
+   "characters": [
+    "dembowski"
+   ]
+  },
+  {
+   "scene": "rabacja_pl",
+   "characters": [
+    "szela",
+    "szlachcic_pl"
+   ]
+  },
+  {
+   "scene": "podgorze_procession_pl",
+   "characters": [
+    "dembowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

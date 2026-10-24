@@ -1,0 +1,77 @@
+{
+ "id": "grodno_1795",
+ "order": 385,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_tension",
+ "cover": "abdication_1795_pl",
+ "panels": 3,
+ "scenes": [
+  "deputy_protest_pl",
+  "silent_sejm_pl",
+  "partition_treaty_pl",
+  "abdication_1795_pl"
+ ],
+ "characters": [
+  "sievers",
+  "szlachcic_pl",
+  "poniatowski",
+  "catherine2_pl"
+ ],
+ "initialState": {
+  "flags": {
+   "poniatowski": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "catherine2_pl": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "sievers": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "poniatowski",
+     "is": "abdicated_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "silent_sejm_pl",
+   "characters": [
+    "sievers",
+    "szlachcic_pl"
+   ]
+  },
+  {
+   "scene": "partition_treaty_pl",
+   "characters": [
+    "sievers",
+    "szlachcic_pl",
+    "poniatowski"
+   ]
+  },
+  {
+   "scene": "abdication_1795_pl",
+   "characters": [
+    "catherine2_pl",
+    "poniatowski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

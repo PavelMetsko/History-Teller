@@ -1,0 +1,82 @@
+{
+ "id": "targowica_1792",
+ "order": 365,
+ "epoch": "poland",
+ "act": "Акт V · Разделы",
+ "music": "poland_battle",
+ "cover": "zielence_pl",
+ "panels": 3,
+ "scenes": [
+  "targowica_act_pl",
+  "zielence_pl",
+  "king_joins_pl",
+  "king_to_army_pl"
+ ],
+ "characters": [
+  "potocki_sz",
+  "catherine2_pl",
+  "jozef_poniatowski",
+  "poniatowski"
+ ],
+ "initialState": {
+  "flags": {
+   "catherine2_pl": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "poniatowski": [
+    "standing",
+    "reigns",
+    "crowned"
+   ],
+   "jozef_poniatowski": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jozef_poniatowski",
+     "is": "virtuti_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "poniatowski",
+     "is": "joined_targowica_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "targowica_act_pl",
+   "characters": [
+    "potocki_sz",
+    "catherine2_pl"
+   ]
+  },
+  {
+   "scene": "zielence_pl",
+   "characters": [
+    "jozef_poniatowski",
+    "potocki_sz"
+   ]
+  },
+  {
+   "scene": "king_joins_pl",
+   "characters": [
+    "poniatowski",
+    "potocki_sz"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

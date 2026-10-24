@@ -1,0 +1,65 @@
+{
+  "id": "czaplinski",
+  "name": "Подстароста Чаплинский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#8a6a4a",
+      "top": "#5a2a6b"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9d8a8",
+      "kontusz": "#5a2a6b",
+      "sash": "#d4a63c",
+      "sash2": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a6b",
+      "cuff": "#5a2a6b"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#5a3a22"
+    }
+  }
+}

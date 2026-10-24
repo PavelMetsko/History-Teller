@@ -1,0 +1,65 @@
+{
+  "id": "wit_stwosz",
+  "name": "Вит Ствош",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "beret",
+      "col": "#5a2a6b",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "pickaxe",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#6b5a4a",
+      "trim": "#5a2a6b",
+      "belt": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#6b5a4a",
+      "cuff": "#6b5a4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

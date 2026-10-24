@@ -76,6 +76,21 @@
       "productID": "com.decima.historyteller.chapter.byzantium",
       "referenceName": "Chapter \u2014 Byzantium",
       "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2.99",
+      "familyShareable": false,
+      "internalID": "A1B2C3D4-0000-0000-0000-000000000015",
+      "localizations": [
+        {
+          "description": "Unlock the Poland chapter.",
+          "displayName": "Poland",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.decima.historyteller.chapter.poland",
+      "referenceName": "Chapter \u2014 Poland",
+      "type": "NonConsumable"
     }
   ],
   "settings": {

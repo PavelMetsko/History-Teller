@@ -1,0 +1,70 @@
+{
+ "id": "poznan_1848",
+ "order": 439,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_battle",
+ "cover": "miloslaw_pl",
+ "panels": 3,
+ "scenes": [
+  "moabit_release_pl",
+  "kosynierzy_pl",
+  "miloslaw_pl",
+  "jaroslawiec_pl"
+ ],
+ "characters": [
+  "mieroslawski",
+  "peasant_pl",
+  "prussian_official"
+ ],
+ "initialState": {
+  "flags": {
+   "prussian_official": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mieroslawski",
+     "is": "won_miloslaw_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "peasant_pl",
+     "is": "kosynier_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "moabit_release_pl",
+   "characters": [
+    "mieroslawski"
+   ]
+  },
+  {
+   "scene": "kosynierzy_pl",
+   "characters": [
+    "mieroslawski",
+    "peasant_pl"
+   ]
+  },
+  {
+   "scene": "miloslaw_pl",
+   "characters": [
+    "mieroslawski",
+    "prussian_official"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

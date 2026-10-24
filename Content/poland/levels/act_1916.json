@@ -1,0 +1,68 @@
+{
+ "id": "act_1916",
+ "order": 488,
+ "epoch": "poland",
+ "act": "Акт VI · Без государства",
+ "music": "poland_ceremony",
+ "cover": "act_5_nov_pl",
+ "panels": 3,
+ "scenes": [
+  "act_5_nov_pl",
+  "call_recruits_pl",
+  "state_council_pl",
+  "pilsudski_resign_pl"
+ ],
+ "characters": [
+  "beseler",
+  "pilsudski",
+  "regent_kakowski"
+ ],
+ "initialState": {
+  "flags": {
+   "beseler": [
+    "standing",
+    "strong"
+   ],
+   "pilsudski": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pilsudski",
+     "is": "council_pl"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "act_5_nov_pl",
+   "characters": [
+    "beseler"
+   ]
+  },
+  {
+   "scene": "call_recruits_pl",
+   "characters": [
+    "beseler",
+    "pilsudski"
+   ]
+  },
+  {
+   "scene": "state_council_pl",
+   "characters": [
+    "beseler",
+    "pilsudski"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

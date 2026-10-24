@@ -1,0 +1,72 @@
+{
+ "id": "august2_1697",
+ "order": 325,
+ "epoch": "poland",
+ "act": "Акт IV · Речь Посполитая",
+ "music": "poland_ceremony",
+ "cover": "saxon_dash_pl",
+ "panels": 3,
+ "scenes": [
+  "secret_conversion_pl",
+  "saxon_dash_pl",
+  "oliwa_roads_pl",
+  "buy_votes_pl"
+ ],
+ "characters": [
+  "august2",
+  "conti",
+  "archbishop_gn"
+ ],
+ "initialState": {
+  "flags": {
+   "august2": [
+    "standing",
+    "strong"
+   ],
+   "conti": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "august2",
+     "is": "crowned_aug_pl"
+    }
+   },
+   {
+    "flag": {
+     "char": "conti",
+     "is": "away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "secret_conversion_pl",
+   "characters": [
+    "august2"
+   ]
+  },
+  {
+   "scene": "saxon_dash_pl",
+   "characters": [
+    "august2",
+    "conti"
+   ]
+  },
+  {
+   "scene": "oliwa_roads_pl",
+   "characters": [
+    "conti"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}
