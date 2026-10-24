@@ -1,0 +1,71 @@
+{
+ "id": "sherman_1864",
+ "order": 900,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_battle",
+ "cover": "march_sea_us",
+ "panels": 3,
+ "scenes": [
+  "atlanta_falls_us",
+  "peace_talks_us",
+  "reelection_us",
+  "march_sea_us"
+ ],
+ "characters": [
+  "william_sherman",
+  "ulysses_grant",
+  "abraham_lincoln",
+  "jefferson_davis"
+ ],
+ "initialState": {
+  "flags": {
+   "jefferson_davis": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "reelected_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "william_sherman",
+     "is": "savannah_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "atlanta_falls_us",
+   "characters": [
+    "william_sherman",
+    "jefferson_davis"
+   ]
+  },
+  {
+   "scene": "reelection_us",
+   "characters": [
+    "abraham_lincoln",
+    "william_sherman"
+   ]
+  },
+  {
+   "scene": "march_sea_us",
+   "characters": [
+    "william_sherman"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

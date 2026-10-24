@@ -1,0 +1,62 @@
+{
+  "id": "gall_lakota",
+  "name": "Галл",
+  "skin": "#c68a5e",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "long",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#7a5232",
+      "fur": "#d8ad3c",
+      "rope": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a5232",
+      "cuff": "#7a5232"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a5232"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8794e",
+      "top": "#a8794e"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+ "id": "great_awakening",
+ "order": 260,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "open_air_us",
+ "panels": 2,
+ "scenes": [
+  "closed_pulpits_us",
+  "open_air_us",
+  "angry_god_us",
+  "invite_church_us"
+ ],
+ "characters": [
+  "edwards_j",
+  "whitefield",
+  "franklin",
+  "chauncy"
+ ],
+ "initialState": {
+  "flags": {
+   "chauncy": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "franklin",
+     "is": "donated_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "closed_pulpits_us",
+   "characters": [
+    "chauncy",
+    "whitefield"
+   ]
+  },
+  {
+   "scene": "open_air_us",
+   "characters": [
+    "whitefield",
+    "franklin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

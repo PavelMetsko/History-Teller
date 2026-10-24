@@ -1,0 +1,75 @@
+{
+ "id": "indian_removal_1838",
+ "order": 720,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_tension",
+ "cover": "trail_tears_us",
+ "panels": 3,
+ "scenes": [
+  "removal_act_us",
+  "worcester_ruling_us",
+  "new_echota_us",
+  "trail_tears_us"
+ ],
+ "characters": [
+  "andrew_jackson",
+  "john_ross",
+  "major_ridge",
+  "winfield_scott"
+ ],
+ "initialState": {
+  "flags": {
+   "andrew_jackson": [
+    "standing",
+    "reigns"
+   ],
+   "winfield_scott": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "major_ridge",
+     "is": "treaty_echota_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_ross",
+     "is": "trail_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "removal_act_us",
+   "characters": [
+    "andrew_jackson"
+   ]
+  },
+  {
+   "scene": "new_echota_us",
+   "characters": [
+    "major_ridge",
+    "andrew_jackson"
+   ]
+  },
+  {
+   "scene": "trail_tears_us",
+   "characters": [
+    "winfield_scott",
+    "john_ross"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "id": "harpers_ferry_1859",
+ "order": 850,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_battle",
+ "cover": "arsenal_raid_us",
+ "panels": 3,
+ "scenes": [
+  "douglass_meets_brown_us",
+  "douglass_joins_us",
+  "arsenal_raid_us",
+  "marines_storm_us"
+ ],
+ "characters": [
+  "john_brown",
+  "robert_lee",
+  "dangerfield_newby",
+  "frederick_douglass"
+ ],
+ "initialState": {
+  "flags": {
+   "robert_lee": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_brown",
+     "is": "captured_hf_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "frederick_douglass",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "douglass_meets_brown_us",
+   "characters": [
+    "frederick_douglass",
+    "john_brown"
+   ]
+  },
+  {
+   "scene": "arsenal_raid_us",
+   "characters": [
+    "john_brown",
+    "dangerfield_newby"
+   ]
+  },
+  {
+   "scene": "marines_storm_us",
+   "characters": [
+    "robert_lee",
+    "john_brown"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "isaac_brock",
+  "name": "Генерал Айзек Брок",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8b070",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#d8b070"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "bicorne",
+      "col": "#1e1e22",
+      "cockade": "#1e1e22"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#a8312f",
+      "facing": "#2f4a7a",
+      "trim": "#d4a63c",
+      "sash": "#a8312f",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#e9d8a8"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

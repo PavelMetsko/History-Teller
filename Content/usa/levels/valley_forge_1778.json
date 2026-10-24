@@ -1,0 +1,70 @@
+{
+ "id": "valley_forge_1778",
+ "order": 400,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_tension",
+ "cover": "steuben_drill_us",
+ "panels": 3,
+ "scenes": [
+  "winter_camp_us",
+  "steuben_drill_us",
+  "pulaski_cavalry_us",
+  "go_home_us"
+ ],
+ "characters": [
+  "washington",
+  "steuben",
+  "lafayette",
+  "pulaski"
+ ],
+ "initialState": {
+  "flags": {
+   "washington": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "washington",
+     "is": "drilled_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "washington",
+     "is": "cavalry_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "winter_camp_us",
+   "characters": [
+    "washington"
+   ]
+  },
+  {
+   "scene": "steuben_drill_us",
+   "characters": [
+    "steuben",
+    "washington"
+   ]
+  },
+  {
+   "scene": "pulaski_cavalry_us",
+   "characters": [
+    "pulaski",
+    "washington"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "id": "lewis_clark_1804",
+ "order": 570,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_romance",
+ "cover": "pacific_view_us",
+ "panels": 3,
+ "scenes": [
+  "mandan_winter_us",
+  "shoshone_reunion_us",
+  "pacific_view_us",
+  "rockies_alone_us"
+ ],
+ "characters": [
+  "meriwether_lewis",
+  "william_clark",
+  "sacagawea",
+  "charbonneau",
+  "cameahwait"
+ ],
+ "initialState": {
+  "flags": {
+   "cameahwait": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "william_clark",
+     "is": "pacific_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mandan_winter_us",
+   "characters": [
+    "meriwether_lewis",
+    "charbonneau",
+    "sacagawea"
+   ]
+  },
+  {
+   "scene": "shoshone_reunion_us",
+   "characters": [
+    "sacagawea",
+    "cameahwait"
+   ]
+  },
+  {
+   "scene": "pacific_view_us",
+   "characters": [
+    "meriwether_lewis",
+    "william_clark",
+    "sacagawea"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "id": "st_augustine_1565",
+ "order": 130,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_tension",
+ "cover": "founding_mass_us",
+ "panels": 3,
+ "scenes": [
+  "founding_mass_us",
+  "hurricane_us",
+  "matanzas_us",
+  "saturiwa_talks_us"
+ ],
+ "characters": [
+  "menendez_aviles",
+  "ribault",
+  "saturiwa",
+  "lopez_mendoza"
+ ],
+ "initialState": {
+  "flags": {
+   "menendez_aviles": [
+    "standing",
+    "strong"
+   ],
+   "ribault": [
+    "standing",
+    "strong"
+   ],
+   "saturiwa": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "menendez_aviles",
+     "is": "founded_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "ribault",
+     "is": "dead"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "menendez_aviles",
+      "is": "defeated"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "founding_mass_us",
+   "characters": [
+    "lopez_mendoza",
+    "menendez_aviles"
+   ]
+  },
+  {
+   "scene": "hurricane_us",
+   "characters": [
+    "ribault"
+   ]
+  },
+  {
+   "scene": "matanzas_us",
+   "characters": [
+    "menendez_aviles",
+    "ribault"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

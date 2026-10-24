@@ -1,0 +1,74 @@
+{
+ "id": "panama_1903",
+ "order": 1220,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_ceremony",
+ "cover": "panama_revolt_us",
+ "panels": 3,
+ "scenes": [
+  "colombia_talks_us",
+  "panama_revolt_us",
+  "canal_treaty_us",
+  "canal_opens_us"
+ ],
+ "characters": [
+  "teddy_roosevelt",
+  "bunau_varilla",
+  "manuel_amador",
+  "john_hay"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "manuel_amador",
+     "is": "panama_free_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_hay",
+     "is": "canal_zone_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "john_hay",
+      "is": "stalled_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "panama_revolt_us",
+   "characters": [
+    "teddy_roosevelt",
+    "manuel_amador"
+   ]
+  },
+  {
+   "scene": "canal_treaty_us",
+   "characters": [
+    "john_hay",
+    "bunau_varilla"
+   ]
+  },
+  {
+   "scene": "canal_opens_us",
+   "characters": [
+    "teddy_roosevelt"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

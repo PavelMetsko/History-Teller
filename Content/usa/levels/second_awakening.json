@@ -1,0 +1,73 @@
+{
+ "id": "second_awakening",
+ "order": 710,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_ceremony",
+ "cover": "dix_memorial_us",
+ "panels": 3,
+ "scenes": [
+  "revival_camp_us",
+  "dix_memorial_us",
+  "convent_sermon_us",
+  "aint_i_woman_us"
+ ],
+ "characters": [
+  "charles_finney",
+  "lyman_beecher",
+  "dorothea_dix",
+  "sojourner_truth"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dorothea_dix",
+     "is": "asylums_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "sojourner_truth",
+     "is": "speech_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "lyman_beecher",
+      "is": "mob_fire_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "revival_camp_us",
+   "characters": [
+    "charles_finney"
+   ]
+  },
+  {
+   "scene": "dix_memorial_us",
+   "characters": [
+    "dorothea_dix",
+    "charles_finney"
+   ]
+  },
+  {
+   "scene": "aint_i_woman_us",
+   "characters": [
+    "sojourner_truth"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

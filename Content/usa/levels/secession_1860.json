@@ -1,0 +1,74 @@
+{
+ "id": "secession_1860",
+ "order": 860,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "election_1860_us",
+ "panels": 3,
+ "scenes": [
+  "charleston_split_us",
+  "election_1860_us",
+  "crittenden_us",
+  "confederacy_us"
+ ],
+ "characters": [
+  "abraham_lincoln",
+  "stephen_douglas",
+  "breckinridge",
+  "jefferson_davis"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "elected_1860_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "jefferson_davis",
+     "is": "confederacy_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "abraham_lincoln",
+      "is": "betrayed_platform_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "charleston_split_us",
+   "characters": [
+    "stephen_douglas",
+    "breckinridge"
+   ]
+  },
+  {
+   "scene": "election_1860_us",
+   "characters": [
+    "abraham_lincoln"
+   ]
+  },
+  {
+   "scene": "confederacy_us",
+   "characters": [
+    "jefferson_davis",
+    "abraham_lincoln"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

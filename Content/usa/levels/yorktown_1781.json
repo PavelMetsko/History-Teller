@@ -1,0 +1,69 @@
+{
+ "id": "yorktown_1781",
+ "order": 415,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_battle",
+ "cover": "yorktown_siege_us",
+ "panels": 3,
+ "scenes": [
+  "feint_new_york_us",
+  "attack_new_york_us",
+  "march_south_us",
+  "yorktown_siege_us"
+ ],
+ "characters": [
+  "washington",
+  "rochambeau",
+  "cornwallis",
+  "lafayette"
+ ],
+ "initialState": {
+  "flags": {
+   "cornwallis": [
+    "standing",
+    "strong"
+   ],
+   "washington": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cornwallis",
+     "is": "surrendered_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "feint_new_york_us",
+   "characters": [
+    "washington"
+   ]
+  },
+  {
+   "scene": "march_south_us",
+   "characters": [
+    "washington",
+    "rochambeau"
+   ]
+  },
+  {
+   "scene": "yorktown_siege_us",
+   "characters": [
+    "washington",
+    "rochambeau",
+    "cornwallis"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

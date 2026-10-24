@@ -1,0 +1,66 @@
+{
+ "id": "lincoln_douglas_1858",
+ "order": 840,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_ceremony",
+ "cover": "freeport_us",
+ "panels": 3,
+ "scenes": [
+  "house_divided_us",
+  "freeport_us",
+  "skip_debates_us",
+  "tribune_us"
+ ],
+ "characters": [
+  "abraham_lincoln",
+  "stephen_douglas",
+  "mary_lincoln",
+  "horace_greeley"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "stephen_douglas",
+     "is": "freeport_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "famous_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "house_divided_us",
+   "characters": [
+    "abraham_lincoln"
+   ]
+  },
+  {
+   "scene": "freeport_us",
+   "characters": [
+    "abraham_lincoln",
+    "stephen_douglas"
+   ]
+  },
+  {
+   "scene": "tribune_us",
+   "characters": [
+    "horace_greeley",
+    "abraham_lincoln"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

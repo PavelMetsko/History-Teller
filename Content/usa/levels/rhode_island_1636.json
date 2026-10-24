@@ -1,0 +1,78 @@
+{
+ "id": "rhode_island_1636",
+ "order": 190,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "narragansett_land_us",
+ "panels": 3,
+ "scenes": [
+  "banish_williams_us",
+  "recant_us",
+  "narragansett_land_us",
+  "providence_refuge_us"
+ ],
+ "characters": [
+  "roger_williams",
+  "winthrop",
+  "hutchinson",
+  "canonicus"
+ ],
+ "initialState": {
+  "flags": {
+   "winthrop": [
+    "standing",
+    "reigns"
+   ],
+   "canonicus": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hutchinson",
+     "is": "refuge_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "roger_williams",
+      "is": "recanted_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "banish_williams_us",
+   "characters": [
+    "winthrop",
+    "roger_williams"
+   ]
+  },
+  {
+   "scene": "narragansett_land_us",
+   "characters": [
+    "canonicus",
+    "roger_williams"
+   ]
+  },
+  {
+   "scene": "providence_refuge_us",
+   "characters": [
+    "roger_williams",
+    "hutchinson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

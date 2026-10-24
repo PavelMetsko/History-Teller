@@ -1,0 +1,63 @@
+{
+  "id": "juan_seguin",
+  "name": "Хуан Сегин",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#2a1a12"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#3b2a20",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#a8312f",
+      "trim": "#d4a63c",
+      "belt": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#3b2a20"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+ "id": "paris_1783",
+ "order": 420,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_ceremony",
+ "cover": "treaty_paris_us",
+ "panels": 3,
+ "scenes": [
+  "congress_instructions_us",
+  "separate_talks_us",
+  "treaty_paris_us",
+  "vergennes_soothe_us"
+ ],
+ "characters": [
+  "franklin",
+  "john_jay",
+  "john_adams",
+  "vergennes"
+ ],
+ "initialState": {
+  "flags": {
+   "vergennes": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "franklin",
+     "is": "treaty_1783_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "vergennes",
+     "is": "calmed_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "separate_talks_us",
+   "characters": [
+    "john_jay",
+    "john_adams"
+   ]
+  },
+  {
+   "scene": "treaty_paris_us",
+   "characters": [
+    "franklin",
+    "john_adams"
+   ]
+  },
+  {
+   "scene": "vergennes_soothe_us",
+   "characters": [
+    "franklin",
+    "vergennes"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "burgoyne",
+  "name": "Генерал Джон Бёргойн",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#ece8e2",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig",
+      "col": "#ece8e2"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "tricorne",
+      "col": "#1e1e22",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "frock",
+      "col": "#a8312f",
+      "vest": "#f4f1ea",
+      "trim": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

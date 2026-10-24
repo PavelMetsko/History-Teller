@@ -1,0 +1,65 @@
+{
+ "id": "antietam_1862",
+ "order": 880,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_battle",
+ "cover": "emancipation_us",
+ "panels": 3,
+ "scenes": [
+  "lost_order_us",
+  "antietam_us",
+  "early_proclamation_us",
+  "emancipation_us"
+ ],
+ "characters": [
+  "abraham_lincoln",
+  "mcclellan",
+  "robert_lee",
+  "frederick_douglass"
+ ],
+ "initialState": {
+  "flags": {
+   "robert_lee": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "proclamation_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "lost_order_us",
+   "characters": [
+    "mcclellan"
+   ]
+  },
+  {
+   "scene": "antietam_us",
+   "characters": [
+    "mcclellan",
+    "robert_lee"
+   ]
+  },
+  {
+   "scene": "emancipation_us",
+   "characters": [
+    "abraham_lincoln",
+    "mcclellan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

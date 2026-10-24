@@ -1,0 +1,68 @@
+{
+ "id": "plymouth_1621",
+ "order": 180,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "harvest_feast_us",
+ "panels": 3,
+ "scenes": [
+  "corn_lesson_us",
+  "treaty_1621_us",
+  "harvest_feast_us",
+  "plymouth_muskets_us"
+ ],
+ "characters": [
+  "squanto",
+  "massasoit",
+  "bradford",
+  "winslow_e"
+ ],
+ "initialState": {
+  "flags": {
+   "massasoit": [
+    "standing",
+    "reigns",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bradford",
+     "is": "feast_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "corn_lesson_us",
+   "characters": [
+    "squanto",
+    "bradford"
+   ]
+  },
+  {
+   "scene": "treaty_1621_us",
+   "characters": [
+    "massasoit",
+    "squanto",
+    "bradford"
+   ]
+  },
+  {
+   "scene": "harvest_feast_us",
+   "characters": [
+    "massasoit",
+    "bradford"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

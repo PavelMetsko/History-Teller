@@ -1,0 +1,75 @@
+{
+ "id": "compromise_1877",
+ "order": 970,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "wormley_deal_us",
+ "panels": 3,
+ "scenes": [
+  "disputed_count_us",
+  "wormley_deal_us",
+  "douglass_marshal_us",
+  "tilden_fights_us"
+ ],
+ "characters": [
+  "rutherford_hayes",
+  "samuel_tilden",
+  "frederick_douglass",
+  "wade_hampton"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rutherford_hayes",
+     "is": "president_1877_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "wade_hampton",
+     "is": "redeemed_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "samuel_tilden",
+      "is": "street_fight_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "disputed_count_us",
+   "characters": [
+    "rutherford_hayes",
+    "samuel_tilden"
+   ]
+  },
+  {
+   "scene": "wormley_deal_us",
+   "characters": [
+    "rutherford_hayes",
+    "wade_hampton"
+   ]
+  },
+  {
+   "scene": "douglass_marshal_us",
+   "characters": [
+    "rutherford_hayes",
+    "frederick_douglass"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

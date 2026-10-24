@@ -1,0 +1,79 @@
+{
+ "id": "election_1800",
+ "order": 540,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_ceremony",
+ "cover": "hamilton_letters_us",
+ "panels": 3,
+ "scenes": [
+  "electoral_tie_us",
+  "burr_intrigue_us",
+  "hamilton_letters_us",
+  "peaceful_transfer_us"
+ ],
+ "characters": [
+  "jefferson",
+  "john_adams",
+  "aaron_burr",
+  "alexander_hamilton"
+ ],
+ "initialState": {
+  "flags": {
+   "john_adams": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jefferson",
+     "is": "president_1800_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_adams",
+     "is": "peaceful_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "aaron_burr",
+      "is": "usurper_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "electoral_tie_us",
+   "characters": [
+    "jefferson",
+    "aaron_burr"
+   ]
+  },
+  {
+   "scene": "hamilton_letters_us",
+   "characters": [
+    "alexander_hamilton",
+    "jefferson"
+   ]
+  },
+  {
+   "scene": "peaceful_transfer_us",
+   "characters": [
+    "john_adams"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

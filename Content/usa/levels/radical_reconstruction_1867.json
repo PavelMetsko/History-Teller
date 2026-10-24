@@ -1,0 +1,72 @@
+{
+ "id": "radical_reconstruction_1867",
+ "order": 930,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_ceremony",
+ "cover": "fourteenth_us",
+ "panels": 3,
+ "scenes": [
+  "military_districts_us",
+  "fourteenth_us",
+  "impeachment_us",
+  "leave_south_us"
+ ],
+ "characters": [
+  "thaddeus_stevens",
+  "andrew_johnson",
+  "ulysses_grant",
+  "john_bingham"
+ ],
+ "initialState": {
+  "flags": {
+   "andrew_johnson": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_bingham",
+     "is": "fourteenth_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "andrew_johnson",
+     "is": "impeached_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "military_districts_us",
+   "characters": [
+    "thaddeus_stevens",
+    "ulysses_grant"
+   ]
+  },
+  {
+   "scene": "fourteenth_us",
+   "characters": [
+    "john_bingham",
+    "thaddeus_stevens"
+   ]
+  },
+  {
+   "scene": "impeachment_us",
+   "characters": [
+    "thaddeus_stevens",
+    "andrew_johnson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

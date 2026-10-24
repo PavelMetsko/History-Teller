@@ -1,0 +1,66 @@
+{
+ "id": "ww1_1917",
+ "order": 1290,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_battle",
+ "cover": "fourteen_points_us",
+ "panels": 3,
+ "scenes": [
+  "zimmermann_us",
+  "stay_neutral_us",
+  "aef_us",
+  "fourteen_points_us"
+ ],
+ "characters": [
+  "wilson",
+  "house_col",
+  "john_pershing",
+  "eugene_debs"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wilson",
+     "is": "fourteen_points_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_pershing",
+     "is": "aef_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "zimmermann_us",
+   "characters": [
+    "wilson"
+   ]
+  },
+  {
+   "scene": "aef_us",
+   "characters": [
+    "wilson",
+    "john_pershing"
+   ]
+  },
+  {
+   "scene": "fourteen_points_us",
+   "characters": [
+    "wilson",
+    "house_col"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

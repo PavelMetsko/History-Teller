@@ -1,0 +1,71 @@
+{
+ "id": "black_codes_1865",
+ "order": 920,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "dear_master_us",
+ "panels": 3,
+ "scenes": [
+  "johnson_pardons_us",
+  "black_codes_us",
+  "dear_master_us",
+  "override_veto_us"
+ ],
+ "characters": [
+  "andrew_johnson",
+  "thaddeus_stevens",
+  "robert_smalls",
+  "jourdon_anderson"
+ ],
+ "initialState": {
+  "flags": {
+   "andrew_johnson": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jourdon_anderson",
+     "is": "letter_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "thaddeus_stevens",
+     "is": "civil_rights_1866_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "black_codes_us",
+   "characters": [
+    "andrew_johnson",
+    "robert_smalls"
+   ]
+  },
+  {
+   "scene": "dear_master_us",
+   "characters": [
+    "jourdon_anderson"
+   ]
+  },
+  {
+   "scene": "override_veto_us",
+   "characters": [
+    "thaddeus_stevens",
+    "andrew_johnson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

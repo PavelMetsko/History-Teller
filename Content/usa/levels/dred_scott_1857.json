@@ -1,0 +1,67 @@
+{
+ "id": "dred_scott_1857",
+ "order": 830,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "taney_ruling_us",
+ "panels": 3,
+ "scenes": [
+  "free_soil_years_us",
+  "buy_freedom_us",
+  "taney_ruling_us",
+  "douglass_hope_us"
+ ],
+ "characters": [
+  "dred_scott",
+  "harriet_scott",
+  "roger_taney",
+  "frederick_douglass"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "roger_taney",
+     "is": "ruling_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "frederick_douglass",
+     "is": "hope_speech_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "free_soil_years_us",
+   "characters": [
+    "dred_scott",
+    "harriet_scott"
+   ]
+  },
+  {
+   "scene": "taney_ruling_us",
+   "characters": [
+    "dred_scott",
+    "roger_taney"
+   ]
+  },
+  {
+   "scene": "douglass_hope_us",
+   "characters": [
+    "frederick_douglass",
+    "roger_taney"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

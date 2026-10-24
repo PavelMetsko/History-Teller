@@ -1,0 +1,74 @@
+{
+ "id": "dawes_wounded_knee_1890",
+ "order": 1030,
+ "epoch": "usa",
+ "act": "Акт VII · Позолоченный век",
+ "music": "usa_tension",
+ "cover": "ghost_dance_us",
+ "panels": 3,
+ "scenes": [
+  "dawes_act_us",
+  "ghost_dance_us",
+  "arrest_sitting_bull_us",
+  "wounded_knee_us"
+ ],
+ "characters": [
+  "henry_dawes",
+  "kicking_bear",
+  "sitting_bull",
+  "forsyth",
+  "spotted_elk"
+ ],
+ "initialState": {
+  "flags": {
+   "forsyth": [
+    "standing",
+    "strong"
+   ],
+   "sitting_bull": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry_dawes",
+     "is": "allotment_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "forsyth",
+     "is": "massacre_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dawes_act_us",
+   "characters": [
+    "henry_dawes"
+   ]
+  },
+  {
+   "scene": "ghost_dance_us",
+   "characters": [
+    "kicking_bear"
+   ]
+  },
+  {
+   "scene": "wounded_knee_us",
+   "characters": [
+    "forsyth",
+    "spotted_elk"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

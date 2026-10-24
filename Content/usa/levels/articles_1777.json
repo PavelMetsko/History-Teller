@@ -1,0 +1,70 @@
+{
+ "id": "articles_1777",
+ "order": 390,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_tension",
+ "cover": "draft_articles_us",
+ "panels": 3,
+ "scenes": [
+  "draft_articles_us",
+  "states_refuse_us",
+  "print_continentals_us",
+  "morris_credit_us"
+ ],
+ "characters": [
+  "dickinson",
+  "robert_morris",
+  "washington",
+  "george_clinton"
+ ],
+ "initialState": {
+  "flags": {
+   "washington": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dickinson",
+     "is": "articles_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "washington",
+     "is": "paid_troops_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "draft_articles_us",
+   "characters": [
+    "dickinson"
+   ]
+  },
+  {
+   "scene": "states_refuse_us",
+   "characters": [
+    "george_clinton",
+    "robert_morris"
+   ]
+  },
+  {
+   "scene": "morris_credit_us",
+   "characters": [
+    "robert_morris",
+    "washington"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

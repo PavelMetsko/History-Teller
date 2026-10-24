@@ -1,0 +1,68 @@
+{
+ "id": "haudenosaunee",
+ "order": 110,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "comb_snakes_us",
+ "panels": 3,
+ "scenes": [
+  "condolence_us",
+  "clan_mother_us",
+  "comb_snakes_us",
+  "onondaga_war_us"
+ ],
+ "characters": [
+  "deganawida",
+  "hiawatha",
+  "jigonsaseh",
+  "tadodaho"
+ ],
+ "initialState": {
+  "flags": {
+   "tadodaho": [
+    "standing",
+    "strong",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tadodaho",
+     "is": "great_law_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "condolence_us",
+   "characters": [
+    "deganawida",
+    "hiawatha"
+   ]
+  },
+  {
+   "scene": "clan_mother_us",
+   "characters": [
+    "jigonsaseh",
+    "deganawida"
+   ]
+  },
+  {
+   "scene": "comb_snakes_us",
+   "characters": [
+    "hiawatha",
+    "deganawida",
+    "tadodaho"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

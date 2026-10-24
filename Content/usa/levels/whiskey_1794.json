@@ -1,0 +1,65 @@
+{
+ "id": "whiskey_1794",
+ "order": 520,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_tension",
+ "cover": "federal_army_us",
+ "panels": 3,
+ "scenes": [
+  "whiskey_excise_us",
+  "tar_feathers_us",
+  "federal_army_us",
+  "ignore_rebels_us"
+ ],
+ "characters": [
+  "washington",
+  "alexander_hamilton",
+  "gallatin",
+  "david_bradford"
+ ],
+ "initialState": {
+  "flags": {
+   "washington": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "washington",
+     "is": "law_enforced_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "whiskey_excise_us",
+   "characters": [
+    "alexander_hamilton"
+   ]
+  },
+  {
+   "scene": "tar_feathers_us",
+   "characters": [
+    "david_bradford",
+    "alexander_hamilton"
+   ]
+  },
+  {
+   "scene": "federal_army_us",
+   "characters": [
+    "washington",
+    "david_bradford"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

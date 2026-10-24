@@ -1,0 +1,65 @@
+{
+ "id": "naacp_1909",
+ "order": 1250,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_tension",
+ "cover": "naacp_founded_us",
+ "panels": 3,
+ "scenes": [
+  "southern_horrors_us",
+  "atlanta_compromise_us",
+  "niagara_us",
+  "naacp_founded_us"
+ ],
+ "characters": [
+  "du_bois",
+  "ida_wells",
+  "mary_ovington",
+  "booker_washington"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "du_bois",
+     "is": "naacp_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "ida_wells",
+     "is": "anti_lynching_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "southern_horrors_us",
+   "characters": [
+    "ida_wells"
+   ]
+  },
+  {
+   "scene": "niagara_us",
+   "characters": [
+    "du_bois"
+   ]
+  },
+  {
+   "scene": "naacp_founded_us",
+   "characters": [
+    "mary_ovington",
+    "du_bois"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

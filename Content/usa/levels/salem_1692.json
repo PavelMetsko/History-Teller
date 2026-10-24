@@ -1,0 +1,79 @@
+{
+ "id": "salem_1692",
+ "order": 230,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_tension",
+ "cover": "nurse_trial_us",
+ "panels": 3,
+ "scenes": [
+  "girls_fits_us",
+  "tituba_confession_us",
+  "tituba_denial_us",
+  "nurse_trial_us"
+ ],
+ "characters": [
+  "tituba",
+  "abigail_williams",
+  "samuel_parris",
+  "rebecca_nurse"
+ ],
+ "initialState": {
+  "flags": {
+   "samuel_parris": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tituba",
+     "is": "confessed_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "tituba",
+      "is": "dead"
+     }
+    }
+   },
+   {
+    "flag": {
+     "char": "rebecca_nurse",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "girls_fits_us",
+   "characters": [
+    "abigail_williams",
+    "samuel_parris"
+   ]
+  },
+  {
+   "scene": "tituba_confession_us",
+   "characters": [
+    "tituba",
+    "samuel_parris"
+   ]
+  },
+  {
+   "scene": "nurse_trial_us",
+   "characters": [
+    "abigail_williams",
+    "rebecca_nurse"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

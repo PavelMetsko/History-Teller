@@ -1,0 +1,64 @@
+{
+ "id": "alien_sedition_1798",
+ "order": 530,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_tension",
+ "cover": "lyon_jailed_us",
+ "panels": 3,
+ "scenes": [
+  "sign_sedition_us",
+  "lyon_jailed_us",
+  "reelect_jail_us",
+  "kentucky_resolutions_us"
+ ],
+ "characters": [
+  "john_adams",
+  "jefferson",
+  "madison",
+  "matthew_lyon"
+ ],
+ "initialState": {
+  "flags": {
+   "john_adams": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "matthew_lyon",
+     "is": "reelected_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sign_sedition_us",
+   "characters": [
+    "john_adams"
+   ]
+  },
+  {
+   "scene": "lyon_jailed_us",
+   "characters": [
+    "john_adams",
+    "matthew_lyon"
+   ]
+  },
+  {
+   "scene": "reelect_jail_us",
+   "characters": [
+    "matthew_lyon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

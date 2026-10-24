@@ -1,0 +1,60 @@
+{
+ "id": "jungle_1906",
+ "order": 1230,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_tension",
+ "cover": "jungle_book_us",
+ "panels": 3,
+ "scenes": [
+  "jungle_book_us",
+  "trust_armour_us",
+  "chicago_inspection_us",
+  "pure_food_us"
+ ],
+ "characters": [
+  "upton_sinclair",
+  "teddy_roosevelt",
+  "harvey_wiley",
+  "ogden_armour"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "harvey_wiley",
+     "is": "pure_food_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jungle_book_us",
+   "characters": [
+    "upton_sinclair"
+   ]
+  },
+  {
+   "scene": "chicago_inspection_us",
+   "characters": [
+    "teddy_roosevelt",
+    "upton_sinclair"
+   ]
+  },
+  {
+   "scene": "pure_food_us",
+   "characters": [
+    "harvey_wiley",
+    "teddy_roosevelt"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

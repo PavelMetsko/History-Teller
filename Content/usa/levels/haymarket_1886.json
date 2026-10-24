@@ -1,0 +1,60 @@
+{
+ "id": "haymarket_1886",
+ "order": 1020,
+ "epoch": "usa",
+ "act": "Акт VII · Позолоченный век",
+ "music": "usa_tension",
+ "cover": "haymarket_bomb_us",
+ "panels": 3,
+ "scenes": [
+  "may_day_us",
+  "haymarket_bomb_us",
+  "haymarket_trial_us",
+  "afl_founded_us"
+ ],
+ "characters": [
+  "albert_parsons",
+  "august_spies",
+  "lucy_parsons",
+  "gompers"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lucy_parsons",
+     "is": "widow_campaign_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "may_day_us",
+   "characters": [
+    "august_spies"
+   ]
+  },
+  {
+   "scene": "haymarket_bomb_us",
+   "characters": [
+    "albert_parsons",
+    "august_spies"
+   ]
+  },
+  {
+   "scene": "haymarket_trial_us",
+   "characters": [
+    "lucy_parsons",
+    "albert_parsons"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

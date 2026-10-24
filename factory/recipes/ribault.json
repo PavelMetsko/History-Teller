@@ -1,0 +1,65 @@
+{
+  "id": "ribault",
+  "name": "Жан Рибо",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "beret",
+      "col": "#2f4a7a",
+      "feather": "#f4f1ea"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "ruff",
+      "col": "#f4f1ea"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#2f4a7a",
+      "trim": "#d4a63c",
+      "chain": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#2f4a7a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

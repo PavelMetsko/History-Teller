@@ -1,0 +1,60 @@
+{
+  "id": "sarah_bagley",
+  "name": "Сара Бэгли",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#7f8c99",
+      "trim": "#f4f1ea",
+      "mantle": "#5a4434",
+      "shoes": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7f8c99",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

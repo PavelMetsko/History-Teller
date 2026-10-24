@@ -1,0 +1,66 @@
+{
+  "id": "john_white",
+  "name": "Губернатор Джон Уайт",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "beret",
+      "col": "#2a2a2e",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "ruff",
+      "col": "#f4f1ea"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#5a4434",
+      "trim": "#d4a63c",
+      "chain": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a4434",
+      "cuff": "#5a4434"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

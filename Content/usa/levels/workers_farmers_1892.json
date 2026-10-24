@@ -1,0 +1,65 @@
+{
+ "id": "workers_farmers_1892",
+ "order": 1040,
+ "epoch": "usa",
+ "act": "Акт VII · Позолоченный век",
+ "music": "usa_tension",
+ "cover": "pullman_strike_us",
+ "panels": 3,
+ "scenes": [
+  "homestead_lockout_us",
+  "pullman_strike_us",
+  "federal_troops_pullman_us",
+  "less_corn_us"
+ ],
+ "characters": [
+  "carnegie",
+  "frick",
+  "eugene_debs",
+  "mary_lease"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "eugene_debs",
+     "is": "jailed_debs_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "mary_lease",
+     "is": "populists_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pullman_strike_us",
+   "characters": [
+    "eugene_debs"
+   ]
+  },
+  {
+   "scene": "federal_troops_pullman_us",
+   "characters": [
+    "frick",
+    "eugene_debs"
+   ]
+  },
+  {
+   "scene": "less_corn_us",
+   "characters": [
+    "mary_lease"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

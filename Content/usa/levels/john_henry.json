@@ -1,0 +1,80 @@
+{
+ "id": "john_henry",
+ "order": 50,
+ "epoch": "usa",
+ "act": "Акт I · Легенды",
+ "music": "usa_battle",
+ "cover": "tunnel_race_us",
+ "panels": 3,
+ "scenes": [
+  "captain_bet_us",
+  "tunnel_race_us",
+  "hammer_passes_us",
+  "buy_drill_us"
+ ],
+ "characters": [
+  "john_henry",
+  "polly_ann",
+  "rail_captain",
+  "drill_salesman"
+ ],
+ "initialState": {
+  "flags": {
+   "john_henry": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_henry",
+     "is": "beat_machine_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "polly_ann",
+     "is": "legend_lives_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "rail_captain",
+      "is": "drill_bought_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "captain_bet_us",
+   "characters": [
+    "rail_captain",
+    "drill_salesman"
+   ]
+  },
+  {
+   "scene": "tunnel_race_us",
+   "characters": [
+    "john_henry",
+    "drill_salesman"
+   ]
+  },
+  {
+   "scene": "hammer_passes_us",
+   "characters": [
+    "polly_ann",
+    "drill_salesman"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

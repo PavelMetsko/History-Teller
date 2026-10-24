@@ -1,0 +1,71 @@
+{
+ "id": "exclusion_1882",
+ "order": 1000,
+ "epoch": "usa",
+ "act": "Акт VII · Позолоченный век",
+ "music": "usa_tension",
+ "cover": "wong_case_us",
+ "panels": 3,
+ "scenes": [
+  "chinese_must_go_us",
+  "exclusion_act_us",
+  "wong_case_us",
+  "new_colossus_us"
+ ],
+ "characters": [
+  "chester_arthur",
+  "denis_kearney",
+  "wong_kim_ark",
+  "emma_lazarus"
+ ],
+ "initialState": {
+  "flags": {
+   "chester_arthur": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wong_kim_ark",
+     "is": "citizen_wka_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "emma_lazarus",
+     "is": "colossus_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "exclusion_act_us",
+   "characters": [
+    "chester_arthur",
+    "denis_kearney"
+   ]
+  },
+  {
+   "scene": "wong_case_us",
+   "characters": [
+    "wong_kim_ark",
+    "chester_arthur"
+   ]
+  },
+  {
+   "scene": "new_colossus_us",
+   "characters": [
+    "emma_lazarus"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

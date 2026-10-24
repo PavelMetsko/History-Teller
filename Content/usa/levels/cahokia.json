@@ -1,0 +1,79 @@
+{
+ "id": "cahokia",
+ "order": 100,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "monks_mound_us",
+ "panels": 3,
+ "scenes": [
+  "woodhenge_us",
+  "monks_mound_us",
+  "shell_trade_us",
+  "palisade_us"
+ ],
+ "characters": [
+  "cahokia_elder",
+  "sun_priestess",
+  "shell_master",
+  "aztalan_envoy"
+ ],
+ "initialState": {
+  "flags": {
+   "cahokia_elder": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cahokia_elder",
+     "is": "mound_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "shell_master",
+     "is": "trade_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cahokia_elder",
+      "is": "forest_gone_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "woodhenge_us",
+   "characters": [
+    "sun_priestess"
+   ]
+  },
+  {
+   "scene": "monks_mound_us",
+   "characters": [
+    "cahokia_elder",
+    "sun_priestess"
+   ]
+  },
+  {
+   "scene": "shell_trade_us",
+   "characters": [
+    "shell_master",
+    "aztalan_envoy"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

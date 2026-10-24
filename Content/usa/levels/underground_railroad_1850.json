@@ -1,0 +1,71 @@
+{
+ "id": "underground_railroad_1850",
+ "order": 800,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "north_star_us",
+ "panels": 3,
+ "scenes": [
+  "fugitive_act_us",
+  "north_star_us",
+  "open_train_us",
+  "burns_returned_us"
+ ],
+ "characters": [
+  "harriet_tubman",
+  "william_still",
+  "anthony_burns",
+  "millard_fillmore"
+ ],
+ "initialState": {
+  "flags": {
+   "millard_fillmore": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "harriet_tubman",
+     "is": "rescues_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "anthony_burns",
+     "is": "returned_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fugitive_act_us",
+   "characters": [
+    "millard_fillmore"
+   ]
+  },
+  {
+   "scene": "north_star_us",
+   "characters": [
+    "harriet_tubman",
+    "william_still"
+   ]
+  },
+  {
+   "scene": "burns_returned_us",
+   "characters": [
+    "millard_fillmore",
+    "anthony_burns"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

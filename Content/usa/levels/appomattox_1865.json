@@ -1,0 +1,82 @@
+{
+ "id": "appomattox_1865",
+ "order": 910,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "appomattox_us",
+ "panels": 3,
+ "scenes": [
+  "thirteenth_us",
+  "appomattox_us",
+  "fords_theatre_us",
+  "fight_on_us"
+ ],
+ "characters": [
+  "ulysses_grant",
+  "robert_lee",
+  "ely_parker",
+  "abraham_lincoln",
+  "john_wilkes_booth"
+ ],
+ "initialState": {
+  "flags": {
+   "robert_lee": [
+    "standing"
+   ],
+   "abraham_lincoln": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "thirteenth_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "robert_lee",
+     "is": "surrendered_lee_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "thirteenth_us",
+   "characters": [
+    "abraham_lincoln"
+   ]
+  },
+  {
+   "scene": "appomattox_us",
+   "characters": [
+    "ulysses_grant",
+    "robert_lee",
+    "ely_parker"
+   ]
+  },
+  {
+   "scene": "fords_theatre_us",
+   "characters": [
+    "john_wilkes_booth",
+    "abraham_lincoln"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

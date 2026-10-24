@@ -1,0 +1,64 @@
+{
+  "id": "custer",
+  "name": "Подполковник Джордж Кастер",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8b070",
+      "iris": "#5f7a9a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#d8b070"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#d8b070"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#e9d8a8",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#c9a06a",
+      "fur": "#e9d8a8",
+      "rope": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#c9a06a",
+      "cuff": "#c9a06a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2f4a7a"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

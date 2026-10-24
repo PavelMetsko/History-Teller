@@ -1,0 +1,60 @@
+{
+  "id": "pontiac",
+  "name": "Понтиак",
+  "skin": "#c68a5e",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#7a5232",
+      "fur": "#2f9a8a",
+      "rope": "#7a5232"
+    },
+    "sleeves": {
+      "type": "bare"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a5232"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a5232",
+      "top": "#7a5232"
+    }
+  }
+}

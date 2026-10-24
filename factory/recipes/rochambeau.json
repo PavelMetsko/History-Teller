@@ -1,0 +1,63 @@
+{
+  "id": "rochambeau",
+  "name": "Граф де Рошамбо",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#ece8e2",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig",
+      "col": "#ece8e2"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "tricorne",
+      "col": "#1e1e22",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "frock",
+      "col": "#f4f1ea",
+      "vest": "#2f4a7a",
+      "trim": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2f4a7a"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

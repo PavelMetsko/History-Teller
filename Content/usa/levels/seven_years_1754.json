@@ -1,0 +1,80 @@
+{
+ "id": "seven_years_1754",
+ "order": 270,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_battle",
+ "cover": "jumonville_glen_us",
+ "panels": 3,
+ "scenes": [
+  "jumonville_glen_us",
+  "fort_necessity_us",
+  "pontiac_war_us",
+  "necessity_fight_us"
+ ],
+ "characters": [
+  "washington",
+  "tanaghrisson",
+  "jumonville",
+  "pontiac",
+  "amherst"
+ ],
+ "initialState": {
+  "flags": {
+   "washington": [
+    "standing"
+   ],
+   "amherst": [
+    "standing",
+    "strong"
+   ],
+   "pontiac": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "washington",
+     "is": "surrendered_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "amherst",
+     "is": "proclamation_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jumonville_glen_us",
+   "characters": [
+    "washington",
+    "tanaghrisson",
+    "jumonville"
+   ]
+  },
+  {
+   "scene": "fort_necessity_us",
+   "characters": [
+    "washington"
+   ]
+  },
+  {
+   "scene": "pontiac_war_us",
+   "characters": [
+    "pontiac",
+    "amherst"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

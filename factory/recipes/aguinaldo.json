@@ -1,0 +1,65 @@
+{
+  "id": "aguinaldo",
+  "name": "Эмилио Агинальдо",
+  "skin": "#c9925e",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#e9d8a8",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#e9e0cc",
+      "facing": "#2f4a7a",
+      "trim": "#d4a63c",
+      "sash": "#a8312f",
+      "epaulettes": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#e9e0cc",
+      "cuff": "#e9e0cc"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#e9e0cc"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

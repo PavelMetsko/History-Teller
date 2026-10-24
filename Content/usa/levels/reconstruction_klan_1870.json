@@ -1,0 +1,70 @@
+{
+ "id": "reconstruction_klan_1870",
+ "order": 950,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "revels_seated_us",
+ "panels": 3,
+ "scenes": [
+  "revels_seated_us",
+  "klan_terror_us",
+  "enforcement_us",
+  "ignore_klan_us"
+ ],
+ "characters": [
+  "hiram_revels",
+  "ulysses_grant",
+  "nathan_forrest",
+  "blanche_bruce"
+ ],
+ "initialState": {
+  "flags": {
+   "ulysses_grant": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hiram_revels",
+     "is": "seated_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "nathan_forrest",
+     "is": "klan_broken_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "revels_seated_us",
+   "characters": [
+    "hiram_revels"
+   ]
+  },
+  {
+   "scene": "klan_terror_us",
+   "characters": [
+    "nathan_forrest"
+   ]
+  },
+  {
+   "scene": "enforcement_us",
+   "characters": [
+    "ulysses_grant",
+    "nathan_forrest"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "bacon_1676",
+ "order": 210,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_tension",
+ "cover": "burn_jamestown_us",
+ "panels": 3,
+ "scenes": [
+  "frontier_raid_us",
+  "burn_jamestown_us",
+  "middle_plantation_us",
+  "grant_commission_us"
+ ],
+ "characters": [
+  "bacon_n",
+  "berkeley_w",
+  "cockacoeske"
+ ],
+ "initialState": {
+  "flags": {
+   "berkeley_w": [
+    "standing",
+    "reigns"
+   ],
+   "cockacoeske": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bacon_n",
+     "is": "burned_jamestown_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "cockacoeske",
+     "is": "treaty_1677_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "frontier_raid_us",
+   "characters": [
+    "bacon_n",
+    "cockacoeske"
+   ]
+  },
+  {
+   "scene": "burn_jamestown_us",
+   "characters": [
+    "bacon_n",
+    "berkeley_w"
+   ]
+  },
+  {
+   "scene": "middle_plantation_us",
+   "characters": [
+    "cockacoeske",
+    "berkeley_w"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "id": "pueblo_1680",
+ "order": 220,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_battle",
+ "cover": "santa_fe_siege_us",
+ "panels": 3,
+ "scenes": [
+  "knotted_cords_us",
+  "cords_captured_us",
+  "santa_fe_siege_us",
+  "retreat_paso_us"
+ ],
+ "characters": [
+  "pope_pueblo",
+  "catiti",
+  "otermin"
+ ],
+ "initialState": {
+  "flags": {
+   "otermin": [
+    "standing",
+    "reigns",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "otermin",
+     "is": "retreated_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "knotted_cords_us",
+   "characters": [
+    "pope_pueblo",
+    "catiti"
+   ]
+  },
+  {
+   "scene": "santa_fe_siege_us",
+   "characters": [
+    "pope_pueblo",
+    "otermin"
+   ]
+  },
+  {
+   "scene": "retreat_paso_us",
+   "characters": [
+    "otermin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

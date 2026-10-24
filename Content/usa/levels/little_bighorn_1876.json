@@ -1,0 +1,74 @@
+{
+ "id": "little_bighorn_1876",
+ "order": 960,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_battle",
+ "cover": "greasy_grass_us",
+ "panels": 3,
+ "scenes": [
+  "sun_dance_us",
+  "custer_splits_us",
+  "wait_terry_us",
+  "greasy_grass_us"
+ ],
+ "characters": [
+  "sitting_bull",
+  "crazy_horse",
+  "gall_lakota",
+  "custer"
+ ],
+ "initialState": {
+  "flags": {
+   "custer": [
+    "standing",
+    "strong"
+   ],
+   "sitting_bull": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sitting_bull",
+     "is": "vision_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "custer",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sun_dance_us",
+   "characters": [
+    "sitting_bull"
+   ]
+  },
+  {
+   "scene": "custer_splits_us",
+   "characters": [
+    "custer"
+   ]
+  },
+  {
+   "scene": "greasy_grass_us",
+   "characters": [
+    "crazy_horse",
+    "custer"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

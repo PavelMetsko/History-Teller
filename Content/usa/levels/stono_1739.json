@@ -1,0 +1,75 @@
+{
+ "id": "stono_1739",
+ "order": 250,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_tension",
+ "cover": "stono_rising_us",
+ "panels": 3,
+ "scenes": [
+  "fort_mose_us",
+  "freedom_edict_us",
+  "stono_rising_us",
+  "bull_militia_us"
+ ],
+ "characters": [
+  "jemmy",
+  "william_bull",
+  "montiano",
+  "francisco_menendez"
+ ],
+ "initialState": {
+  "flags": {
+   "william_bull": [
+    "standing",
+    "strong"
+   ],
+   "montiano": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francisco_menendez",
+     "is": "fort_mose_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "jemmy",
+     "is": "rising_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fort_mose_us",
+   "characters": [
+    "montiano",
+    "francisco_menendez"
+   ]
+  },
+  {
+   "scene": "freedom_edict_us",
+   "characters": [
+    "montiano",
+    "jemmy"
+   ]
+  },
+  {
+   "scene": "stono_rising_us",
+   "characters": [
+    "jemmy"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

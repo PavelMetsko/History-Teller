@@ -1,0 +1,72 @@
+{
+ "id": "nullification_1832",
+ "order": 740,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_tension",
+ "cover": "compromise_tariff_us",
+ "panels": 3,
+ "scenes": [
+  "nullify_tariff_us",
+  "hang_calhoun_us",
+  "compromise_tariff_us",
+  "bank_war_us"
+ ],
+ "characters": [
+  "andrew_jackson",
+  "john_calhoun",
+  "henry_clay",
+  "nicholas_biddle"
+ ],
+ "initialState": {
+  "flags": {
+   "andrew_jackson": [
+    "standing",
+    "reigns",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry_clay",
+     "is": "compromise_1833_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "nicholas_biddle",
+     "is": "bank_killed_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "nullify_tariff_us",
+   "characters": [
+    "john_calhoun"
+   ]
+  },
+  {
+   "scene": "compromise_tariff_us",
+   "characters": [
+    "henry_clay",
+    "john_calhoun"
+   ]
+  },
+  {
+   "scene": "bank_war_us",
+   "characters": [
+    "andrew_jackson",
+    "nicholas_biddle"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

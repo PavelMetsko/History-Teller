@@ -1,0 +1,72 @@
+{
+ "id": "teddy_1902",
+ "order": 1200,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_ceremony",
+ "cover": "yosemite_camp_us",
+ "panels": 3,
+ "scenes": [
+  "northern_securities_us",
+  "send_your_man_us",
+  "yosemite_camp_us",
+  "forest_service_us"
+ ],
+ "characters": [
+  "teddy_roosevelt",
+  "jp_morgan",
+  "gifford_pinchot",
+  "john_muir"
+ ],
+ "initialState": {
+  "flags": {
+   "teddy_roosevelt": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "teddy_roosevelt",
+     "is": "trust_broken_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "teddy_roosevelt",
+     "is": "parks_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "northern_securities_us",
+   "characters": [
+    "teddy_roosevelt",
+    "jp_morgan"
+   ]
+  },
+  {
+   "scene": "yosemite_camp_us",
+   "characters": [
+    "john_muir",
+    "teddy_roosevelt"
+   ]
+  },
+  {
+   "scene": "forest_service_us",
+   "characters": [
+    "gifford_pinchot",
+    "teddy_roosevelt"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

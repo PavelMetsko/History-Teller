@@ -22491,5 +22491,5649 @@
   "roles": [
    "кто уходит"
   ]
+ },
+ {
+  "id": "flag_committee_us",
+  "name": "Комитет приходит к швее",
+  "tags": [
+   "sig_flag_committee_us"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "заказать флаг",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал",
+   "швея"
+  ]
+ },
+ {
+  "id": "one_snip_us",
+  "name": "Один взмах ножниц",
+  "tags": [
+   "sig_one_snip_us"
+  ],
+  "slots": 1,
+  "emoji": "✂️",
+  "action": "вырезать звезду",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "швея"
+  ]
+ },
+ {
+  "id": "six_star_us",
+  "name": "Шестиконечные звёзды",
+  "tags": [
+   "sig_six_star_us"
+  ],
+  "slots": 1,
+  "emoji": "✡️",
+  "action": "шить как на эскизе",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "швея"
+  ]
+ },
+ {
+  "id": "sew_flag_us",
+  "name": "Первый флаг",
+  "tags": [
+   "sig_sew_flag_us"
+  ],
+  "slots": 2,
+  "emoji": "🇺🇸",
+  "action": "сшить флаг",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "швея",
+   "заказчик"
+  ]
+ },
+ {
+  "id": "henpecked_us",
+  "name": "Ворчливая жена",
+  "tags": [
+   "sig_henpecked_us"
+  ],
+  "slots": 2,
+  "emoji": "🧹",
+  "action": "сбежать от жены",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "жена",
+   "муж"
+  ]
+ },
+ {
+  "id": "ninepins_us",
+  "name": "Кегли в горах Кэтскилл",
+  "tags": [
+   "sig_ninepins_us"
+  ],
+  "slots": 2,
+  "emoji": "🎳",
+  "action": "выпить с призраками",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "призрак",
+   "гость"
+  ]
+ },
+ {
+  "id": "return_village_us",
+  "name": "Возвращение в деревню",
+  "tags": [
+   "sig_return_village_us"
+  ],
+  "slots": 2,
+  "emoji": "🏘️",
+  "action": "узнать новости",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "странник",
+   "трактирщик"
+  ]
+ },
+ {
+  "id": "toast_king_us",
+  "name": "Тост за короля Георга",
+  "tags": [
+   "sig_toast_king_us"
+  ],
+  "slots": 1,
+  "emoji": "🍻",
+  "action": "поднять кружку",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "кто пьёт"
+  ]
+ },
+ {
+  "id": "tassel_party_us",
+  "name": "Праздник у ван Тасселов",
+  "tags": [
+   "sig_tassel_party_us"
+  ],
+  "slots": 2,
+  "emoji": "💃",
+  "action": "ухаживать",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кавалер",
+   "невеста"
+  ]
+ },
+ {
+  "id": "ghost_tales_us",
+  "name": "Страшные истории у камина",
+  "tags": [
+   "sig_ghost_tales_us"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "рассказать о призраке",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "рассказчик",
+   "слушатель"
+  ]
+ },
+ {
+  "id": "bridge_chase_us",
+  "name": "Погоня у церковного моста",
+  "tags": [
+   "sig_bridge_chase_us"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "гнаться в ночи",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "всадник",
+   "путник"
+  ]
+ },
+ {
+  "id": "hollow_duel_us",
+  "name": "Вызвать соперника на бой",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "cider_seeds_us",
+  "name": "Семечки из сидровой мельницы",
+  "tags": [
+   "sig_cider_seeds_us"
+  ],
+  "slots": 2,
+  "emoji": "🌰",
+  "action": "собрать семечки",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "мельник",
+   "странник"
+  ]
+ },
+ {
+  "id": "nursery_us",
+  "name": "Питомник на краю леса",
+  "tags": [
+   "sig_nursery_us"
+  ],
+  "slots": 1,
+  "emoji": "🌱",
+  "action": "посадить питомник",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "садовник"
+  ]
+ },
+ {
+  "id": "orchard_claim_us",
+  "name": "Пятьдесят яблонь — и земля твоя",
+  "tags": [
+   "sig_orchard_claim_us"
+  ],
+  "slots": 2,
+  "emoji": "🏡",
+  "action": "продать саженцы",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "переселенец",
+   "садовник"
+  ]
+ },
+ {
+  "id": "graft_us",
+  "name": "Привить сладкий сорт",
+  "tags": [
+   "sig_graft_us"
+  ],
+  "slots": 1,
+  "emoji": "🔪",
+  "action": "сделать прививку",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "садовник"
+  ]
+ },
+ {
+  "id": "captain_bet_us",
+  "name": "Спор капитана",
+  "tags": [
+   "sig_captain_bet_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "поспорить",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "капитан",
+   "продавец"
+  ]
+ },
+ {
+  "id": "tunnel_race_us",
+  "name": "Человек против машины",
+  "tags": [
+   "sig_tunnel_race_us"
+  ],
+  "slots": 2,
+  "emoji": "⚒️",
+  "action": "бить быстрее машины",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "молотобоец",
+   "машина"
+  ]
+ },
+ {
+  "id": "hammer_passes_us",
+  "name": "Молот переходит к Полли",
+  "tags": [
+   "sig_hammer_passes_us"
+  ],
+  "slots": 2,
+  "emoji": "💪",
+  "action": "поднять молот",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кто поднимает",
+   "проигравший"
+  ]
+ },
+ {
+  "id": "buy_drill_us",
+  "name": "Купить машину без спора",
+  "tags": [
+   "sig_buy_drill_us"
+  ],
+  "slots": 2,
+  "emoji": "💵",
+  "action": "купить дрель",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "капитан",
+   "продавец"
+  ]
+ },
+ {
+  "id": "blue_snow_us",
+  "name": "Зима синего снега",
+  "tags": [
+   "sig_blue_snow_us"
+  ],
+  "slots": 1,
+  "emoji": "❄️",
+  "action": "найти синего телёнка",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "лесоруб"
+  ]
+ },
+ {
+  "id": "crooked_river_us",
+  "name": "Выпрямить реку",
+  "tags": [
+   "sig_crooked_river_us"
+  ],
+  "slots": 1,
+  "emoji": "🐂",
+  "action": "тянуть реку быком",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "лесоруб"
+  ]
+ },
+ {
+  "id": "pancake_griddle_us",
+  "name": "Сковорода на акр",
+  "tags": [
+   "sig_pancake_griddle_us"
+  ],
+  "slots": 2,
+  "emoji": "🥞",
+  "action": "испечь блины на весь лагерь",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "повар",
+   "лесоруб"
+  ]
+ },
+ {
+  "id": "ledger_us",
+  "name": "Счётная книга лагеря",
+  "tags": [
+   "sig_ledger_us"
+  ],
+  "slots": 2,
+  "emoji": "📒",
+  "action": "свести счета",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "счетовод",
+   "лесоруб"
+  ]
+ },
+ {
+  "id": "monks_mound_us",
+  "name": "Великий курган",
+  "tags": [
+   "sig_monks_mound_us"
+  ],
+  "slots": 2,
+  "emoji": "⛰️",
+  "action": "насыпать курган",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "старейшина",
+   "жрица"
+  ]
+ },
+ {
+  "id": "shell_trade_us",
+  "name": "Раковины с Мексиканского залива",
+  "tags": [
+   "sig_shell_trade_us"
+  ],
+  "slots": 2,
+  "emoji": "🐚",
+  "action": "обменять раковины",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "мастер",
+   "посланник"
+  ]
+ },
+ {
+  "id": "woodhenge_us",
+  "name": "Деревянный круг солнца",
+  "tags": [
+   "sig_woodhenge_us"
+  ],
+  "slots": 1,
+  "emoji": "🌅",
+  "action": "отметить солнцестояние",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "жрица"
+  ]
+ },
+ {
+  "id": "palisade_us",
+  "name": "Частокол из всего леса",
+  "tags": [
+   "sig_palisade_us"
+  ],
+  "slots": 1,
+  "emoji": "🪵",
+  "action": "вырубить лес на стены",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "старейшина"
+  ]
+ },
+ {
+  "id": "condolence_us",
+  "name": "Обряд утешения",
+  "tags": [
+   "sig_condolence_us"
+  ],
+  "slots": 2,
+  "emoji": "📿",
+  "action": "утешить вампумом",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "миротворец",
+   "скорбящий"
+  ]
+ },
+ {
+  "id": "clan_mother_us",
+  "name": "Слово матери кланов",
+  "tags": [
+   "sig_clan_mother_us"
+  ],
+  "slots": 2,
+  "emoji": "🌽",
+  "action": "получить поддержку",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "мать кланов",
+   "миротворец"
+  ]
+ },
+ {
+  "id": "comb_snakes_us",
+  "name": "Расчесать змей из волос",
+  "tags": [
+   "sig_comb_snakes_us"
+  ],
+  "slots": 3,
+  "emoji": "🐍",
+  "action": "убедить вождя",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "Хайавата",
+   "миротворец",
+   "вождь"
+  ]
+ },
+ {
+  "id": "onondaga_war_us",
+  "name": "Идти на Онондагу войной",
+  "tags": [
+   "sig_onondaga_war_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "напасть",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "вождь"
+  ]
+ },
+ {
+  "id": "tierra_us",
+  "name": "«Земля!»",
+  "tags": [
+   "sig_tierra_us"
+  ],
+  "slots": 2,
+  "emoji": "🔭",
+  "action": "увидеть землю",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "матрос",
+   "адмирал"
+  ]
+ },
+ {
+  "id": "great_khan_us",
+  "name": "Посольство к Великому хану",
+  "tags": [
+   "sig_great_khan_us"
+  ],
+  "slots": 2,
+  "emoji": "🐉",
+  "action": "искать Китай",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "переводчик",
+   "касик"
+  ]
+ },
+ {
+  "id": "guaca_gifts_us",
+  "name": "Дары касика",
+  "tags": [
+   "sig_guaca_gifts_us"
+  ],
+  "slots": 2,
+  "emoji": "🎁",
+  "action": "заключить дружбу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "адмирал",
+   "касик"
+  ]
+ },
+ {
+  "id": "navidad_us",
+  "name": "Крушение и форт Навидад",
+  "tags": [
+   "sig_navidad_us"
+  ],
+  "slots": 2,
+  "emoji": "🏚️",
+  "action": "построить форт из обломков",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "адмирал",
+   "касик"
+  ]
+ },
+ {
+  "id": "founding_mass_us",
+  "name": "Первая месса на берегу",
+  "tags": [
+   "sig_founding_mass_us"
+  ],
+  "slots": 2,
+  "emoji": "✝️",
+  "action": "основать город",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "капеллан",
+   "адмирал"
+  ]
+ },
+ {
+  "id": "hurricane_us",
+  "name": "Ураган разбивает флот",
+  "tags": [
+   "sig_hurricane_us"
+  ],
+  "slots": 1,
+  "emoji": "🌀",
+  "action": "выйти в море",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "капитан"
+  ]
+ },
+ {
+  "id": "matanzas_us",
+  "name": "Бухта Матансас",
+  "tags": [
+   "sig_matanzas_us"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "принять сдачу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "адмирал",
+   "капитан"
+  ]
+ },
+ {
+  "id": "saturiwa_talks_us",
+  "name": "Переговоры с Сатуривой",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "sail_supplies_us",
+  "name": "Отплыть за припасами",
+  "tags": [
+   "sig_sail_supplies_us"
+  ],
+  "slots": 1,
+  "emoji": "⛵",
+  "action": "плыть в Англию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "губернатор"
+  ]
+ },
+ {
+  "id": "croatoan_carve_us",
+  "name": "Слово на столбе",
+  "tags": [
+   "sig_croatoan_carve_us"
+  ],
+  "slots": 1,
+  "emoji": "🪵",
+  "action": "вырезать знак",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "колонистка"
+  ]
+ },
+ {
+  "id": "cross_carve_us",
+  "name": "Мальтийский крест — знак беды",
+  "tags": [
+   "sig_cross_carve_us"
+  ],
+  "slots": 1,
+  "emoji": "✝️",
+  "action": "вырезать крест",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "колонистка"
+  ]
+ },
+ {
+  "id": "return_1590_us",
+  "name": "Возвращение через три года",
+  "tags": [
+   "sig_return_1590_us"
+  ],
+  "slots": 2,
+  "emoji": "🏝️",
+  "action": "найти колонию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "губернатор",
+   "колонистка"
+  ]
+ },
+ {
+  "id": "corn_trade_us",
+  "name": "Кукуруза в голодную зиму",
+  "tags": [
+   "sig_corn_trade_us"
+  ],
+  "slots": 2,
+  "emoji": "🌽",
+  "action": "выменять еду",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "капитан",
+   "верховный вождь"
+  ]
+ },
+ {
+  "id": "tobacco_us",
+  "name": "Сладкий табак с Тринидада",
+  "tags": [
+   "sig_tobacco_us"
+  ],
+  "slots": 1,
+  "emoji": "🌿",
+  "action": "посадить табак",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "плантатор"
+  ]
+ },
+ {
+  "id": "rolfe_wedding_us",
+  "name": "Свадьба в Джеймстауне",
+  "tags": [
+   "sig_rolfe_wedding_us"
+  ],
+  "slots": 3,
+  "emoji": "💍",
+  "action": "заключить союз",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "жених",
+   "невеста",
+   "отец"
+  ]
+ },
+ {
+  "id": "jamestown_raid_us",
+  "name": "Напасть на деревни Похатана",
+  "tags": [
+   "sig_jamestown_raid_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "напасть",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "great_charter_us",
+  "name": "Великая хартия компании",
+  "tags": [
+   "sig_great_charter_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "огласить хартию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "губернатор"
+  ]
+ },
+ {
+  "id": "elect_burgess_us",
+  "name": "Выборы бёрджессов",
+  "tags": [
+   "sig_elect_burgess_us"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "избрать представителя",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "губернатор",
+   "кандидат"
+  ]
+ },
+ {
+  "id": "first_assembly_us",
+  "name": "Первая ассамблея в церкви",
+  "tags": [
+   "sig_first_assembly_us"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "открыть заседание",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "спикер",
+   "бёрджесс"
+  ]
+ },
+ {
+  "id": "summer_fever_us",
+  "name": "Разъехаться от жары и лихорадки",
+  "tags": [
+   "v_flee"
+  ],
+  "slots": 1,
+  "emoji": "🚪",
+  "action": "уход",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто уезжает"
+  ]
+ },
+ {
+  "id": "north_landing_us",
+  "name": "Шторм уносит на север",
+  "tags": [
+   "sig_north_landing_us"
+  ],
+  "slots": 1,
+  "emoji": "🌊",
+  "action": "встать у Кейп-Кода",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "старейшина"
+  ]
+ },
+ {
+  "id": "compact_us",
+  "name": "Соглашение в каюте",
+  "tags": [
+   "sig_compact_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать соглашение",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "старейшина",
+   "чужак"
+  ]
+ },
+ {
+  "id": "strangers_leave_us",
+  "name": "«Здесь нам никто не указ»",
+  "tags": [
+   "sig_strangers_leave_us"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "разойтись",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "чужак",
+   "капитан"
+  ]
+ },
+ {
+  "id": "plymouth_rock_us",
+  "name": "Разведка берега",
+  "tags": [
+   "sig_plymouth_rock_us"
+  ],
+  "slots": 2,
+  "emoji": "🧭",
+  "action": "выбрать место",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "капитан",
+   "летописец"
+  ]
+ },
+ {
+  "id": "corn_lesson_us",
+  "name": "Кукуруза и рыба в лунке",
+  "tags": [
+   "sig_corn_lesson_us"
+  ],
+  "slots": 2,
+  "emoji": "🌽",
+  "action": "научить сажать",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "учитель",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "treaty_1621_us",
+  "name": "Договор с вампаноагами",
+  "tags": [
+   "sig_treaty_1621_us"
+  ],
+  "slots": 3,
+  "emoji": "🤝",
+  "action": "заключить союз",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "сахем",
+   "переводчик",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "harvest_feast_us",
+  "name": "Три дня урожайного пира",
+  "tags": [
+   "sig_harvest_feast_us"
+  ],
+  "slots": 2,
+  "emoji": "🦃",
+  "action": "разделить урожай",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "сахем",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "plymouth_muskets_us",
+  "name": "Салют из мушкетов",
+  "tags": [
+   "v_prepare"
+  ],
+  "slots": 1,
+  "emoji": "🛡️",
+  "action": "подготовка",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто стреляет"
+  ]
+ },
+ {
+  "id": "banish_williams_us",
+  "name": "Суд в Бостоне",
+  "tags": [
+   "sig_banish_williams_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "изгнать из колонии",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "губернатор",
+   "проповедник"
+  ]
+ },
+ {
+  "id": "recant_us",
+  "name": "Покаяться перед судом",
+  "tags": [
+   "sig_recant_us"
+  ],
+  "slots": 2,
+  "emoji": "🙇",
+  "action": "отречься от взглядов",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "проповедник"
+  ]
+ },
+ {
+  "id": "narragansett_land_us",
+  "name": "Земля от наррагансеттов",
+  "tags": [
+   "sig_narragansett_land_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "получить землю",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "сахем",
+   "изгнанник"
+  ]
+ },
+ {
+  "id": "providence_refuge_us",
+  "name": "Приют в Провиденсе",
+  "tags": [
+   "sig_providence_refuge_us"
+  ],
+  "slots": 2,
+  "emoji": "🏡",
+  "action": "принять гонимых",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "основатель",
+   "гонимая"
+  ]
+ },
+ {
+  "id": "sassamon_trial_us",
+  "name": "Суд по делу Сассамона",
+  "tags": [
+   "sig_sassamon_trial_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "повесить троих вампаноагов",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "губернатор",
+   "сахем"
+  ]
+ },
+ {
+  "id": "weetamoo_alliance_us",
+  "name": "Союз сахемов",
+  "tags": [
+   "sig_weetamoo_alliance_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "собрать союзников",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "сахем",
+   "сахем"
+  ]
+ },
+ {
+  "id": "church_rangers_us",
+  "name": "Рейнджеры Чёрча",
+  "tags": [
+   "sig_church_rangers_us"
+  ],
+  "slots": 2,
+  "emoji": "🌲",
+  "action": "выследить в болотах",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "капитан",
+   "сахем"
+  ]
+ },
+ {
+  "id": "metacom_parley_us",
+  "name": "Переговоры в Плимуте",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "frontier_raid_us",
+  "name": "Удар по «мирным» индейцам",
+  "tags": [
+   "sig_frontier_raid_us"
+  ],
+  "slots": 2,
+  "emoji": "🏹",
+  "action": "напасть на соседей",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "бунтарь",
+   "царица"
+  ]
+ },
+ {
+  "id": "burn_jamestown_us",
+  "name": "Джеймстаун в огне",
+  "tags": [
+   "sig_burn_jamestown_us"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "сжечь столицу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "бунтарь",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "middle_plantation_us",
+  "name": "Договор в Мидл-Плантейшн",
+  "tags": [
+   "sig_middle_plantation_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "подписать мир",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "царица",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "grant_commission_us",
+  "name": "Дать бунтарю патент",
+  "tags": [
+   "sig_grant_commission_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "узаконить поход",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "бунтарь"
+  ]
+ },
+ {
+  "id": "knotted_cords_us",
+  "name": "Шнуры с узлами",
+  "tags": [
+   "sig_knotted_cords_us"
+  ],
+  "slots": 2,
+  "emoji": "🪢",
+  "action": "разослать шнуры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вождь",
+   "гонец"
+  ]
+ },
+ {
+  "id": "cords_captured_us",
+  "name": "Гонцы в плену",
+  "tags": [
+   "sig_cords_captured_us"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "схватить гонцов",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "гонец"
+  ]
+ },
+ {
+  "id": "santa_fe_siege_us",
+  "name": "Осада Санта-Фе",
+  "tags": [
+   "sig_santa_fe_siege_us"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "поднять пуэбло",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вождь",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "retreat_paso_us",
+  "name": "Отход к Эль-Пасо",
+  "tags": [
+   "sig_retreat_paso_us"
+  ],
+  "slots": 1,
+  "emoji": "🐎",
+  "action": "уйти на юг",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "губернатор"
+  ]
+ },
+ {
+  "id": "girls_fits_us",
+  "name": "Припадки в доме пастора",
+  "tags": [
+   "sig_girls_fits_us"
+  ],
+  "slots": 2,
+  "emoji": "😵",
+  "action": "кричать и корчиться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "девочка",
+   "пастор"
+  ]
+ },
+ {
+  "id": "tituba_confession_us",
+  "name": "Признание служанки",
+  "tags": [
+   "sig_tituba_confession_us"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "признаться в колдовстве",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "служанка",
+   "пастор"
+  ]
+ },
+ {
+  "id": "tituba_denial_us",
+  "name": "Всё отрицать",
+  "tags": [
+   "sig_tituba_denial_us"
+  ],
+  "slots": 2,
+  "emoji": "🙅",
+  "action": "отрицать вину",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "служанка",
+   "пастор"
+  ]
+ },
+ {
+  "id": "nurse_trial_us",
+  "name": "Суд над Ребеккой Нёрс",
+  "tags": [
+   "sig_nurse_trial_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "обвинить",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "обвинительница",
+   "обвиняемая"
+  ]
+ },
+ {
+  "id": "weekly_journal_us",
+  "name": "«Нью-Йоркский еженедельник»",
+  "tags": [
+   "sig_weekly_journal_us"
+  ],
+  "slots": 2,
+  "emoji": "📰",
+  "action": "напечатать критику",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "печатник",
+   "автор"
+  ]
+ },
+ {
+  "id": "seditious_libel_us",
+  "name": "Арест за клевету",
+  "tags": [
+   "sig_seditious_libel_us"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "арестовать печатника",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "губернатор",
+   "печатник"
+  ]
+ },
+ {
+  "id": "apology_us",
+  "name": "Извиниться перед губернатором",
+  "tags": [
+   "sig_apology_us"
+  ],
+  "slots": 2,
+  "emoji": "🙇",
+  "action": "просить прощения",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "печатник",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "jury_truth_us",
+  "name": "Правда как защита",
+  "tags": [
+   "sig_jury_truth_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "обратиться к присяжным",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "адвокат",
+   "подсудимый"
+  ]
+ },
+ {
+  "id": "fort_mose_us",
+  "name": "Форт Мозе",
+  "tags": [
+   "sig_fort_mose_us"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "основать вольный форт",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "губернатор",
+   "командир"
+  ]
+ },
+ {
+  "id": "freedom_edict_us",
+  "name": "Слух об испанской свободе",
+  "tags": [
+   "sig_freedom_edict_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "пообещать свободу беглецам",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "губернатор",
+   "вожак"
+  ]
+ },
+ {
+  "id": "stono_rising_us",
+  "name": "Восстание у реки Стоно",
+  "tags": [
+   "sig_stono_rising_us"
+  ],
+  "slots": 1,
+  "emoji": "🥁",
+  "action": "идти на юг с барабанами",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вожак"
+  ]
+ },
+ {
+  "id": "bull_militia_us",
+  "name": "Ополчение плантаторов",
+  "tags": [
+   "sig_bull_militia_us"
+  ],
+  "slots": 2,
+  "emoji": "🔫",
+  "action": "догнать восставших",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вице-губернатор",
+   "вожак"
+  ]
+ },
+ {
+  "id": "closed_pulpits_us",
+  "name": "Церкви закрыты для проповедника",
+  "tags": [
+   "sig_closed_pulpits_us"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "не пустить на кафедру",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "пастор",
+   "проповедник"
+  ]
+ },
+ {
+  "id": "open_air_us",
+  "name": "Проповедь под открытым небом",
+  "tags": [
+   "sig_open_air_us"
+  ],
+  "slots": 2,
+  "emoji": "📢",
+  "action": "проповедовать толпе",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "проповедник",
+   "слушатель"
+  ]
+ },
+ {
+  "id": "angry_god_us",
+  "name": "«Грешники в руках разгневанного Бога»",
+  "tags": [
+   "sig_angry_god_us"
+  ],
+  "slots": 1,
+  "emoji": "🔥",
+  "action": "читать проповедь",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "проповедник"
+  ]
+ },
+ {
+  "id": "invite_church_us",
+  "name": "Пригласить в церковь",
+  "tags": [
+   "sig_invite_church_us"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "проповедовать в храме",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "пастор",
+   "проповедник"
+  ]
+ },
+ {
+  "id": "jumonville_glen_us",
+  "name": "Лощина Жюмонвиля",
+  "tags": [
+   "sig_jumonville_glen_us"
+  ],
+  "slots": 3,
+  "emoji": "🌲",
+  "action": "окружить французов",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "офицер",
+   "союзник",
+   "француз"
+  ]
+ },
+ {
+  "id": "fort_necessity_us",
+  "name": "Форт Несессити",
+  "tags": [
+   "sig_fort_necessity_us"
+  ],
+  "slots": 1,
+  "emoji": "🏚️",
+  "action": "сдать форт",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "офицер"
+  ]
+ },
+ {
+  "id": "pontiac_war_us",
+  "name": "Война Понтиака",
+  "tags": [
+   "sig_pontiac_war_us"
+  ],
+  "slots": 2,
+  "emoji": "🏹",
+  "action": "поднять народы",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вождь",
+   "генерал"
+  ]
+ },
+ {
+  "id": "necessity_fight_us",
+  "name": "Стоять насмерть",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "stamp_law_us",
+  "name": "Закон о гербовом сборе",
+  "tags": [
+   "sig_stamp_law_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "ввести сбор",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "министр"
+  ]
+ },
+ {
+  "id": "sons_liberty_us",
+  "name": "Чучело на Дереве свободы",
+  "tags": [
+   "sig_sons_liberty_us"
+  ],
+  "slots": 2,
+  "emoji": "🌳",
+  "action": "напугать сборщика",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "«Сыны свободы»",
+   "сборщик"
+  ]
+ },
+ {
+  "id": "pay_stamps_us",
+  "name": "Покорно купить марки",
+  "tags": [
+   "sig_pay_stamps_us"
+  ],
+  "slots": 2,
+  "emoji": "💷",
+  "action": "платить сбор",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "колонист",
+   "сборщик"
+  ]
+ },
+ {
+  "id": "franklin_commons_us",
+  "name": "Франклин в палате общин",
+  "tags": [
+   "sig_franklin_commons_us"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "убедить парламент",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "агент колоний",
+   "министр"
+  ]
+ },
+ {
+  "id": "snowballs_us",
+  "name": "Снежки и дубинки на Кинг-стрит",
+  "tags": [
+   "sig_snowballs_us"
+  ],
+  "slots": 2,
+  "emoji": "❄️",
+  "action": "наступать на часового",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "моряк",
+   "капитан"
+  ]
+ },
+ {
+  "id": "revere_engraving_us",
+  "name": "Гравюра «Кровавая бойня»",
+  "tags": [
+   "sig_revere_engraving_us"
+  ],
+  "slots": 2,
+  "emoji": "🖼️",
+  "action": "раструбить по колониям",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "агитатор",
+   "обвиняемый"
+  ]
+ },
+ {
+  "id": "defend_soldiers_us",
+  "name": "Адвокат для солдат",
+  "tags": [
+   "sig_defend_soldiers_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "защищать в суде",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "адвокат",
+   "подсудимый"
+  ]
+ },
+ {
+  "id": "refuse_defense_us",
+  "name": "Отказаться от дела",
+  "tags": [
+   "sig_refuse_defense_us"
+  ],
+  "slots": 2,
+  "emoji": "🚫",
+  "action": "не защищать «убийц»",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "адвокат",
+   "подсудимый"
+  ]
+ },
+ {
+  "id": "hutchinson_refuses_us",
+  "name": "Губернатор не выпускает корабли",
+  "tags": [
+   "sig_hutchinson_refuses_us"
+  ],
+  "slots": 2,
+  "emoji": "🚫",
+  "action": "запретить уйти с чаем",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "судовладелец"
+  ]
+ },
+ {
+  "id": "old_south_meeting_us",
+  "name": "Собрание в Олд-Саут",
+  "tags": [
+   "sig_old_south_meeting_us"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "подать сигнал",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "агитатор",
+   "судовладелец"
+  ]
+ },
+ {
+  "id": "pay_duty_us",
+  "name": "Заплатить пошлину",
+  "tags": [
+   "sig_pay_duty_us"
+  ],
+  "slots": 2,
+  "emoji": "💷",
+  "action": "выгрузить чай",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "судовладелец",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "boston_tea_us",
+  "name": "Чай в бостонской гавани",
+  "tags": [
+   "sig_boston_tea_us"
+  ],
+  "slots": 1,
+  "emoji": "🫖",
+  "action": "высыпать чай в море",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "агитатор"
+  ]
+ },
+ {
+  "id": "galloway_plan_us",
+  "name": "План союза Гэллоуэя",
+  "tags": [
+   "sig_galloway_plan_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "примириться с короной",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "умеренный",
+   "делегат"
+  ]
+ },
+ {
+  "id": "continental_assoc_us",
+  "name": "Континентальная ассоциация",
+  "tags": [
+   "sig_continental_assoc_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "объявить бойкот",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "делегат",
+   "делегат"
+  ]
+ },
+ {
+  "id": "king_rejects_us",
+  "name": "Король отвергает петицию",
+  "tags": [
+   "sig_king_rejects_us"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "объявить мятеж",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "делегат"
+  ]
+ },
+ {
+  "id": "two_lanterns_us",
+  "name": "Два фонаря на колокольне",
+  "tags": [
+   "sig_two_lanterns_us"
+  ],
+  "slots": 2,
+  "emoji": "🏮",
+  "action": "подать сигнал",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "пономарь",
+   "гонец"
+  ]
+ },
+ {
+  "id": "midnight_ride_us",
+  "name": "Полуночная скачка",
+  "tags": [
+   "sig_midnight_ride_us"
+  ],
+  "slots": 2,
+  "emoji": "🏇",
+  "action": "поднять тревогу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "гонец",
+   "вожак"
+  ]
+ },
+ {
+  "id": "redcoat_patrol_us",
+  "name": "Британский патруль на дороге",
+  "tags": [
+   "sig_redcoat_patrol_us"
+  ],
+  "slots": 2,
+  "emoji": "🛑",
+  "action": "задержать гонца",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "генерал",
+   "гонец"
+  ]
+ },
+ {
+  "id": "concord_bridge_us",
+  "name": "Мост в Конкорде",
+  "tags": [
+   "sig_concord_bridge_us"
+  ],
+  "slots": 2,
+  "emoji": "🔫",
+  "action": "выйти за оружием",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "ополченец"
+  ]
+ },
+ {
+  "id": "fortify_hill_us",
+  "name": "Ночные окопы на Бридс-Хилл",
+  "tags": [
+   "sig_fortify_hill_us"
+  ],
+  "slots": 1,
+  "emoji": "⛏️",
+  "action": "укрепить холм",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "полковник"
+  ]
+ },
+ {
+  "id": "fire_early_us",
+  "name": "Стрелять издалека",
+  "tags": [
+   "sig_fire_early_us"
+  ],
+  "slots": 2,
+  "emoji": "💨",
+  "action": "палить сразу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "полковник",
+   "генерал"
+  ]
+ },
+ {
+  "id": "whites_eyes_us",
+  "name": "«Пока не увидите белки их глаз!»",
+  "tags": [
+   "sig_whites_eyes_us"
+  ],
+  "slots": 2,
+  "emoji": "👁️",
+  "action": "подпустить ближе",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "полковник",
+   "генерал"
+  ]
+ },
+ {
+  "id": "third_assault_us",
+  "name": "Третий штурм",
+  "tags": [
+   "sig_third_assault_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "взять высоту",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "защитник"
+  ]
+ },
+ {
+  "id": "common_sense_us",
+  "name": "«Здравый смысл»",
+  "tags": [
+   "sig_common_sense_us"
+  ],
+  "slots": 1,
+  "emoji": "📰",
+  "action": "издать памфлет",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "памфлетист"
+  ]
+ },
+ {
+  "id": "wait_reconcile_us",
+  "name": "Подождать примирения",
+  "tags": [
+   "sig_wait_reconcile_us"
+  ],
+  "slots": 2,
+  "emoji": "⏳",
+  "action": "отложить разрыв",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "умеренный",
+   "автор"
+  ]
+ },
+ {
+  "id": "draft_declaration_us",
+  "name": "Черновик Декларации",
+  "tags": [
+   "sig_draft_declaration_us"
+  ],
+  "slots": 2,
+  "emoji": "✒️",
+  "action": "написать Декларацию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "автор",
+   "памфлетист"
+  ]
+ },
+ {
+  "id": "remember_ladies_us",
+  "name": "«Не забудь о дамах»",
+  "tags": [
+   "sig_remember_ladies_us"
+  ],
+  "slots": 2,
+  "emoji": "💌",
+  "action": "написать мужу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "жена",
+   "муж"
+  ]
+ },
+ {
+  "id": "glover_boats_us",
+  "name": "Переправа через Делавэр",
+  "tags": [
+   "sig_glover_boats_us"
+  ],
+  "slots": 2,
+  "emoji": "🚣",
+  "action": "переправить армию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "моряк",
+   "генерал"
+  ]
+ },
+ {
+  "id": "rall_note_us",
+  "name": "Записка в кармане",
+  "tags": [
+   "sig_rall_note_us"
+  ],
+  "slots": 1,
+  "emoji": "🃏",
+  "action": "не читать донесение",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "полковник"
+  ]
+ },
+ {
+  "id": "rall_reads_us",
+  "name": "Прочитать донесение",
+  "tags": [
+   "sig_rall_reads_us"
+  ],
+  "slots": 1,
+  "emoji": "📩",
+  "action": "поднять гарнизон",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "полковник"
+  ]
+ },
+ {
+  "id": "trenton_attack_us",
+  "name": "Рассвет в Трентоне",
+  "tags": [
+   "sig_trenton_attack_us"
+  ],
+  "slots": 2,
+  "emoji": "🥁",
+  "action": "ударить по гессенцам",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "полковник"
+  ]
+ },
+ {
+  "id": "bemis_heights_us",
+  "name": "Укрепления на Бемис-Хайтс",
+  "tags": [
+   "sig_bemis_heights_us"
+  ],
+  "slots": 2,
+  "emoji": "📐",
+  "action": "укрепить высоты",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "инженер",
+   "генерал"
+  ]
+ },
+ {
+  "id": "arnold_charge_us",
+  "name": "Атака без приказа",
+  "tags": [
+   "sig_arnold_charge_us"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "броситься в бой",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "командир",
+   "противник"
+  ]
+ },
+ {
+  "id": "gates_attacks_us",
+  "name": "Генерал сам ведёт атаку",
+  "tags": [
+   "sig_gates_attacks_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "атаковать в лоб",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "saratoga_surrender_us",
+  "name": "Капитуляция при Саратоге",
+  "tags": [
+   "sig_saratoga_surrender_us"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "принять капитуляцию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "draft_articles_us",
+  "name": "Статьи Конфедерации",
+  "tags": [
+   "sig_draft_articles_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "написать статьи союза",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "автор"
+  ]
+ },
+ {
+  "id": "states_refuse_us",
+  "name": "Штаты не платят",
+  "tags": [
+   "sig_states_refuse_us"
+  ],
+  "slots": 2,
+  "emoji": "🚫",
+  "action": "отказать в налоге",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "финансист"
+  ]
+ },
+ {
+  "id": "print_continentals_us",
+  "name": "Печатный станок",
+  "tags": [
+   "sig_print_continentals_us"
+  ],
+  "slots": 1,
+  "emoji": "🖨️",
+  "action": "напечатать доллары",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "финансист"
+  ]
+ },
+ {
+  "id": "morris_credit_us",
+  "name": "Кредит на собственное имя",
+  "tags": [
+   "sig_morris_credit_us"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "заплатить армии",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "финансист",
+   "генерал"
+  ]
+ },
+ {
+  "id": "winter_camp_us",
+  "name": "Зима в Вэлли-Фордж",
+  "tags": [
+   "sig_winter_camp_us"
+  ],
+  "slots": 1,
+  "emoji": "❄️",
+  "action": "встать на зимовку",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "steuben_drill_us",
+  "name": "Муштра барона",
+  "tags": [
+   "sig_steuben_drill_us"
+  ],
+  "slots": 2,
+  "emoji": "🥁",
+  "action": "учить строю",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "инструктор",
+   "генерал"
+  ]
+ },
+ {
+  "id": "pulaski_cavalry_us",
+  "name": "Кавалерия Пулаского",
+  "tags": [
+   "sig_pulaski_cavalry_us"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "создать кавалерию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кавалерист",
+   "генерал"
+  ]
+ },
+ {
+  "id": "go_home_us",
+  "name": "Распустить армию по домам",
+  "tags": [
+   "sig_go_home_us"
+  ],
+  "slots": 1,
+  "emoji": "🏠",
+  "action": "отпустить на зиму",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "peggy_letters_us",
+  "name": "Шифрованные письма",
+  "tags": [
+   "sig_peggy_letters_us"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "связать с британцами",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "жена",
+   "офицер"
+  ]
+ },
+ {
+  "id": "sell_westpoint_us",
+  "name": "Цена Вест-Пойнта",
+  "tags": [
+   "sig_sell_westpoint_us"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "продать крепость",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "офицер"
+  ]
+ },
+ {
+  "id": "tarrytown_us",
+  "name": "Патруль у Тарритауна",
+  "tags": [
+   "sig_tarrytown_us"
+  ],
+  "slots": 2,
+  "emoji": "🛑",
+  "action": "обыскать путника",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "шпион",
+   "предатель"
+  ]
+ },
+ {
+  "id": "andre_uniform_us",
+  "name": "Ехать в мундире",
+  "tags": [
+   "sig_andre_uniform_us"
+  ],
+  "slots": 1,
+  "emoji": "💂",
+  "action": "не переодеваться",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "шпион"
+  ]
+ },
+ {
+  "id": "feint_new_york_us",
+  "name": "Ложная подготовка к штурму Нью-Йорка",
+  "tags": [
+   "sig_feint_new_york_us"
+  ],
+  "slots": 1,
+  "emoji": "🎭",
+  "action": "обмануть Клинтона",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "attack_new_york_us",
+  "name": "Штурмовать Нью-Йорк",
+  "tags": [
+   "sig_attack_new_york_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "ударить по Нью-Йорку",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "союзник"
+  ]
+ },
+ {
+  "id": "march_south_us",
+  "name": "Марш к Вирджинии",
+  "tags": [
+   "sig_march_south_us"
+  ],
+  "slots": 2,
+  "emoji": "🚶",
+  "action": "идти на юг вместе",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал",
+   "союзник"
+  ]
+ },
+ {
+  "id": "yorktown_siege_us",
+  "name": "Осада Йорктауна",
+  "tags": [
+   "sig_yorktown_siege_us"
+  ],
+  "slots": 3,
+  "emoji": "💣",
+  "action": "запереть британцев",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "союзник",
+   "противник"
+  ]
+ },
+ {
+  "id": "congress_instructions_us",
+  "name": "Инструкции Конгресса",
+  "tags": [
+   "sig_congress_instructions_us"
+  ],
+  "slots": 2,
+  "emoji": "📩",
+  "action": "ничего без Франции",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "министр",
+   "дипломат"
+  ]
+ },
+ {
+  "id": "separate_talks_us",
+  "name": "Тайные переговоры с британцами",
+  "tags": [
+   "sig_separate_talks_us"
+  ],
+  "slots": 2,
+  "emoji": "🤫",
+  "action": "договориться без французов",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "дипломат",
+   "дипломат"
+  ]
+ },
+ {
+  "id": "treaty_paris_us",
+  "name": "Парижский мир",
+  "tags": [
+   "sig_treaty_paris_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать мир",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "дипломат",
+   "дипломат"
+  ]
+ },
+ {
+  "id": "vergennes_soothe_us",
+  "name": "Объяснение с Верженном",
+  "tags": [
+   "sig_vergennes_soothe_us"
+  ],
+  "slots": 2,
+  "emoji": "🍷",
+  "action": "успокоить союзника",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "посол",
+   "министр"
+  ]
+ },
+ {
+  "id": "foreclosure_us",
+  "name": "Ферма за долги",
+  "tags": [
+   "sig_foreclosure_us"
+  ],
+  "slots": 2,
+  "emoji": "🏚️",
+  "action": "отобрать за долги",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "фермер"
+  ]
+ },
+ {
+  "id": "forgive_debts_us",
+  "name": "Простить долги",
+  "tags": [
+   "sig_forgive_debts_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "отменить взыскания",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "губернатор",
+   "фермер"
+  ]
+ },
+ {
+  "id": "springfield_us",
+  "name": "Арсенал в Спрингфилде",
+  "tags": [
+   "sig_springfield_us"
+  ],
+  "slots": 2,
+  "emoji": "💥",
+  "action": "разогнать картечью",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "мятежник"
+  ]
+ },
+ {
+  "id": "washington_alarm_us",
+  "name": "Тревога в Маунт-Верноне",
+  "tags": [
+   "sig_washington_alarm_us"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "согласиться ехать на съезд",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал в отставке",
+   "мятежник"
+  ]
+ },
+ {
+  "id": "virginia_plan_us",
+  "name": "Вирджинский план",
+  "tags": [
+   "sig_virginia_plan_us"
+  ],
+  "slots": 1,
+  "emoji": "📐",
+  "action": "предложить систему",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "автор"
+  ]
+ },
+ {
+  "id": "great_compromise_us",
+  "name": "Великий компромисс",
+  "tags": [
+   "sig_great_compromise_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "примирить большие и малые штаты",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "посредник",
+   "автор"
+  ]
+ },
+ {
+  "id": "open_doors_us",
+  "name": "Открыть двери конвента",
+  "tags": [
+   "sig_open_doors_us"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "спорить при публике",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "делегат",
+   "автор"
+  ]
+ },
+ {
+  "id": "bill_of_rights_us",
+  "name": "Билль о правах",
+  "tags": [
+   "sig_bill_of_rights_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "записать права",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "критик",
+   "автор"
+  ]
+ },
+ {
+  "id": "assumption_plan_us",
+  "name": "Доклад о государственном кредите",
+  "tags": [
+   "sig_assumption_plan_us"
+  ],
+  "slots": 1,
+  "emoji": "📊",
+  "action": "предложить план",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "министр"
+  ]
+ },
+ {
+  "id": "dinner_deal_us",
+  "name": "Обед у Джефферсона",
+  "tags": [
+   "sig_dinner_deal_us"
+  ],
+  "slots": 3,
+  "emoji": "🍷",
+  "action": "договориться за ужином",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "хозяин",
+   "министр",
+   "противник"
+  ]
+ },
+ {
+  "id": "bank_signed_us",
+  "name": "Подпись под банком",
+  "tags": [
+   "sig_bank_signed_us"
+  ],
+  "slots": 2,
+  "emoji": "🏦",
+  "action": "подписать закон о банке",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "министр",
+   "президент"
+  ]
+ },
+ {
+  "id": "bank_veto_us",
+  "name": "Мнение госсекретаря о банке",
+  "tags": [
+   "sig_bank_veto_us"
+  ],
+  "slots": 2,
+  "emoji": "✋",
+  "action": "наложить вето",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "госсекретарь",
+   "президент"
+  ]
+ },
+ {
+  "id": "mulberry_grove_us",
+  "name": "Плантация Малберри-Гроув",
+  "tags": [
+   "sig_mulberry_grove_us"
+  ],
+  "slots": 2,
+  "emoji": "🏡",
+  "action": "дать мастерскую",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "хозяйка",
+   "изобретатель"
+  ]
+ },
+ {
+  "id": "patent_us",
+  "name": "Патент у госсекретаря",
+  "tags": [
+   "sig_patent_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "получить патент",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "изобретатель",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "cotton_kingdom_us",
+  "name": "Хлопковое царство",
+  "tags": [
+   "sig_cotton_kingdom_us"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "сдавать машины внаём",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "компаньон",
+   "изобретатель"
+  ]
+ },
+ {
+  "id": "sell_rights_us",
+  "name": "Продать права сразу",
+  "tags": [
+   "sig_sell_rights_us"
+  ],
+  "slots": 2,
+  "emoji": "💵",
+  "action": "продать изобретение",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "компаньон",
+   "изобретатель"
+  ]
+ },
+ {
+  "id": "whiskey_excise_us",
+  "name": "Акциз на виски",
+  "tags": [
+   "sig_whiskey_excise_us"
+  ],
+  "slots": 1,
+  "emoji": "🥃",
+  "action": "ввести налог",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "министр"
+  ]
+ },
+ {
+  "id": "tar_feathers_us",
+  "name": "Сборщик в дёгте и перьях",
+  "tags": [
+   "sig_tar_feathers_us"
+  ],
+  "slots": 2,
+  "emoji": "🪶",
+  "action": "поднять округ",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вожак",
+   "министр"
+  ]
+ },
+ {
+  "id": "federal_army_us",
+  "name": "Президент во главе армии",
+  "tags": [
+   "sig_federal_army_us"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "повести ополчение",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "вожак"
+  ]
+ },
+ {
+  "id": "ignore_rebels_us",
+  "name": "Не замечать бунта",
+  "tags": [
+   "sig_ignore_rebels_us"
+  ],
+  "slots": 1,
+  "emoji": "🙈",
+  "action": "оставить как есть",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "sign_sedition_us",
+  "name": "Законы об иностранцах и мятеже",
+  "tags": [
+   "sig_sign_sedition_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "подписать законы",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "lyon_jailed_us",
+  "name": "Конгрессмен в тюрьме",
+  "tags": [
+   "sig_lyon_jailed_us"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "осудить за критику",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент",
+   "критик"
+  ]
+ },
+ {
+  "id": "reelect_jail_us",
+  "name": "Выборы из-за решётки",
+  "tags": [
+   "sig_reelect_jail_us"
+  ],
+  "slots": 1,
+  "emoji": "🗳️",
+  "action": "переизбраться",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "узник"
+  ]
+ },
+ {
+  "id": "kentucky_resolutions_us",
+  "name": "Резолюции Кентукки и Вирджинии",
+  "tags": [
+   "sig_kentucky_resolutions_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "объявить законы ничтожными",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вице-президент",
+   "соавтор"
+  ]
+ },
+ {
+  "id": "electoral_tie_us",
+  "name": "Ничья в коллегии выборщиков",
+  "tags": [
+   "sig_electoral_tie_us"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "подсчитать голоса",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кандидат",
+   "напарник"
+  ]
+ },
+ {
+  "id": "burr_intrigue_us",
+  "name": "Сделка с федералистами",
+  "tags": [
+   "sig_burr_intrigue_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "перехватить президентство",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "напарник",
+   "федералист"
+  ]
+ },
+ {
+  "id": "hamilton_letters_us",
+  "name": "Письма Гамильтона",
+  "tags": [
+   "sig_hamilton_letters_us"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "склонить палату",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "федералист",
+   "кандидат"
+  ]
+ },
+ {
+  "id": "peaceful_transfer_us",
+  "name": "Президент уезжает на рассвете",
+  "tags": [
+   "sig_peaceful_transfer_us"
+  ],
+  "slots": 1,
+  "emoji": "🐎",
+  "action": "передать власть",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "withheld_commission_us",
+  "name": "Неврученное назначение",
+  "tags": [
+   "sig_withheld_commission_us"
+  ],
+  "slots": 2,
+  "emoji": "📂",
+  "action": "задержать бумаги",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "госсекретарь",
+   "судья"
+  ]
+ },
+ {
+  "id": "marbury_sues_us",
+  "name": "Иск в Верховный суд",
+  "tags": [
+   "sig_marbury_sues_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "потребовать должность",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "истец",
+   "верховный судья"
+  ]
+ },
+ {
+  "id": "issue_mandamus_us",
+  "name": "Приказать госсекретарю",
+  "tags": [
+   "sig_issue_mandamus_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "отдать приказ",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "верховный судья",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "judicial_review_us",
+  "name": "Решение по делу «Марбери против Мэдисона»",
+  "tags": [
+   "sig_judicial_review_us"
+  ],
+  "slots": 1,
+  "emoji": "🏛️",
+  "action": "объявить закон неконституционным",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "верховный судья"
+  ]
+ },
+ {
+  "id": "haiti_loss_us",
+  "name": "Гибель армии на Гаити",
+  "tags": [
+   "sig_haiti_loss_us"
+  ],
+  "slots": 1,
+  "emoji": "🏝️",
+  "action": "потерять Сан-Доминго",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "император"
+  ]
+ },
+ {
+  "id": "whole_louisiana_us",
+  "name": "«Что вы дадите за всю Луизиану?»",
+  "tags": [
+   "sig_whole_louisiana_us"
+  ],
+  "slots": 2,
+  "emoji": "🗺️",
+  "action": "предложить сделку",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "первый консул",
+   "посол"
+  ]
+ },
+ {
+  "id": "sign_purchase_us",
+  "name": "Подписание в Париже",
+  "tags": [
+   "sig_sign_purchase_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать покупку",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "посланник",
+   "посол"
+  ]
+ },
+ {
+  "id": "wait_amendment_us",
+  "name": "Ждать поправки к Конституции",
+  "tags": [
+   "sig_wait_amendment_us"
+  ],
+  "slots": 1,
+  "emoji": "⏳",
+  "action": "отложить ответ",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "mandan_winter_us",
+  "name": "Зима у манданов",
+  "tags": [
+   "sig_mandan_winter_us"
+  ],
+  "slots": 3,
+  "emoji": "🏕️",
+  "action": "нанять переводчиков",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "капитан",
+   "переводчик",
+   "жена"
+  ]
+ },
+ {
+  "id": "shoshone_reunion_us",
+  "name": "Встреча с шошонами",
+  "tags": [
+   "sig_shoshone_reunion_us"
+  ],
+  "slots": 2,
+  "emoji": "🐴",
+  "action": "узнать брата",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "переводчица",
+   "вождь"
+  ]
+ },
+ {
+  "id": "pacific_view_us",
+  "name": "«Океан виден! О, радость!»",
+  "tags": [
+   "sig_pacific_view_us"
+  ],
+  "slots": 3,
+  "emoji": "🌊",
+  "action": "дойти до Тихого океана",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "капитан",
+   "капитан",
+   "проводница"
+  ]
+ },
+ {
+  "id": "rockies_alone_us",
+  "name": "Через горы без лошадей",
+  "tags": [
+   "sig_rockies_alone_us"
+  ],
+  "slots": 2,
+  "emoji": "⛰️",
+  "action": "идти напролом",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "капитан",
+   "капитан"
+  ]
+ },
+ {
+  "id": "prophet_vision_us",
+  "name": "Видение Пророка",
+  "tags": [
+   "sig_prophet_vision_us"
+  ],
+  "slots": 1,
+  "emoji": "👁️",
+  "action": "призвать к старым обычаям",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "пророк"
+  ]
+ },
+ {
+  "id": "tecumseh_tour_us",
+  "name": "Поездка по народам",
+  "tags": [
+   "sig_tecumseh_tour_us"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "собрать конфедерацию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "вождь",
+   "пророк"
+  ]
+ },
+ {
+  "id": "tippecanoe_us",
+  "name": "Типпекану",
+  "tags": [
+   "sig_tippecanoe_us"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "напасть на Город Пророка",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "губернатор",
+   "пророк"
+  ]
+ },
+ {
+  "id": "detroit_us",
+  "name": "Детройт без боя",
+  "tags": [
+   "sig_detroit_us"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "взять крепость",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "вождь",
+   "генерал"
+  ]
+ },
+ {
+  "id": "dolley_portrait_us",
+  "name": "Портрет Вашингтона",
+  "tags": [
+   "sig_dolley_portrait_us"
+  ],
+  "slots": 2,
+  "emoji": "🖼️",
+  "action": "спасти портрет",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "первая леди",
+   "президент"
+  ]
+ },
+ {
+  "id": "fort_mchenry_us",
+  "name": "Рассвет над фортом Мак-Генри",
+  "tags": [
+   "sig_fort_mchenry_us"
+  ],
+  "slots": 1,
+  "emoji": "🎆",
+  "action": "написать стихи",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "поэт"
+  ]
+ },
+ {
+  "id": "new_orleans_us",
+  "name": "Новый Орлеан",
+  "tags": [
+   "sig_new_orleans_us"
+  ],
+  "slots": 1,
+  "emoji": "🌳",
+  "action": "отбить британцев",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "wait_peace_news_us",
+  "name": "Ждать вестей о мире",
+  "tags": [
+   "sig_wait_peace_news_us"
+  ],
+  "slots": 1,
+  "emoji": "⏳",
+  "action": "не начинать бой",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "tallmadge_amend_us",
+  "name": "Поправка Толмаджа",
+  "tags": [
+   "sig_tallmadge_amend_us"
+  ],
+  "slots": 2,
+  "emoji": "✋",
+  "action": "запретить рабство в Миссури",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "конгрессмен",
+   "спикер"
+  ]
+ },
+ {
+  "id": "maine_pair_us",
+  "name": "Миссури и Мэн в паре",
+  "tags": [
+   "sig_maine_pair_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "принять два штата разом",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "спикер",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "line_3630_us",
+  "name": "Линия 36°30′",
+  "tags": [
+   "sig_line_3630_us"
+  ],
+  "slots": 1,
+  "emoji": "📏",
+  "action": "провести черту",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "спикер"
+  ]
+ },
+ {
+  "id": "firebell_us",
+  "name": "«Пожарный колокол в ночи»",
+  "tags": [
+   "sig_firebell_us"
+  ],
+  "slots": 1,
+  "emoji": "🔔",
+  "action": "написать письмо",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "старый президент"
+  ]
+ },
+ {
+  "id": "canning_offer_us",
+  "name": "Предложение Каннинга",
+  "tags": [
+   "sig_canning_offer_us"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "предложить совместное заявление",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "британец",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "joint_statement_us",
+  "name": "Подписать вместе с Британией",
+  "tags": [
+   "sig_joint_statement_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "принять британскую защиту",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "британец",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "monroe_message_us",
+  "name": "Послание Конгрессу",
+  "tags": [
+   "sig_monroe_message_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "объявить доктрину",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "bolivar_hears_us",
+  "name": "Весть в Боготе",
+  "tags": [
+   "sig_bolivar_hears_us"
+  ],
+  "slots": 2,
+  "emoji": "📰",
+  "action": "узнать о доктрине",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "освободитель",
+   "президент"
+  ]
+ },
+ {
+  "id": "clinton_ditch_us",
+  "name": "«Канава Клинтона»",
+  "tags": [
+   "sig_clinton_ditch_us"
+  ],
+  "slots": 1,
+  "emoji": "🚢",
+  "action": "прорыть канал",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "губернатор"
+  ]
+ },
+ {
+  "id": "lowell_mills_us",
+  "name": "Фабричный город Лоуэлл",
+  "tags": [
+   "sig_lowell_mills_us"
+  ],
+  "slots": 2,
+  "emoji": "🏭",
+  "action": "нанять фермерских дочерей",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "управляющий",
+   "работница"
+  ]
+ },
+ {
+  "id": "wage_cut_us",
+  "name": "Урезать плату молча",
+  "tags": [
+   "sig_wage_cut_us"
+  ],
+  "slots": 2,
+  "emoji": "✂️",
+  "action": "снизить жалованье",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "управляющий",
+   "работница"
+  ]
+ },
+ {
+  "id": "ten_hour_petition_us",
+  "name": "Петиция о десятичасовом дне",
+  "tags": [
+   "sig_ten_hour_petition_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "подать петицию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "работница",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "revival_camp_us",
+  "name": "Палаточное возрождение",
+  "tags": [
+   "sig_revival_camp_us"
+  ],
+  "slots": 1,
+  "emoji": "⛺",
+  "action": "звать к покаянию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "проповедник"
+  ]
+ },
+ {
+  "id": "dix_memorial_us",
+  "name": "Доклад о безумных в клетках",
+  "tags": [
+   "sig_dix_memorial_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "обратиться к законодателям",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "реформатор",
+   "проповедник"
+  ]
+ },
+ {
+  "id": "convent_sermon_us",
+  "name": "Проповедь против католиков",
+  "tags": [
+   "sig_convent_sermon_us"
+  ],
+  "slots": 1,
+  "emoji": "🔥",
+  "action": "пугать «папизмом»",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "пастор"
+  ]
+ },
+ {
+  "id": "aint_i_woman_us",
+  "name": "«Разве я не женщина?»",
+  "tags": [
+   "sig_aint_i_woman_us"
+  ],
+  "slots": 1,
+  "emoji": "✊",
+  "action": "выступить на съезде",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "проповедница"
+  ]
+ },
+ {
+  "id": "removal_act_us",
+  "name": "Закон о выселении индейцев",
+  "tags": [
+   "sig_removal_act_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "подписать закон",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "worcester_ruling_us",
+  "name": "Решение Верховного суда",
+  "tags": [
+   "sig_worcester_ruling_us"
+  ],
+  "slots": 1,
+  "emoji": "⚖️",
+  "action": "выиграть дело в суде",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вождь"
+  ]
+ },
+ {
+  "id": "new_echota_us",
+  "name": "Договор в Нью-Эчоте",
+  "tags": [
+   "sig_new_echota_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать за весь народ",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "подписант",
+   "президент"
+  ]
+ },
+ {
+  "id": "trail_tears_us",
+  "name": "Дорога слёз",
+  "tags": [
+   "sig_trail_tears_us"
+  ],
+  "slots": 2,
+  "emoji": "🚶",
+  "action": "вести на запад",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "вождь"
+  ]
+ },
+ {
+  "id": "liberator_us",
+  "name": "Газета «Освободитель»",
+  "tags": [
+   "sig_liberator_us"
+  ],
+  "slots": 1,
+  "emoji": "📰",
+  "action": "печатать газету",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "редактор"
+  ]
+ },
+ {
+  "id": "eclipse_sign_us",
+  "name": "Знак на небе",
+  "tags": [
+   "sig_eclipse_sign_us"
+  ],
+  "slots": 1,
+  "emoji": "🌑",
+  "action": "поднять восстание",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "проповедник"
+  ]
+ },
+ {
+  "id": "confessions_us",
+  "name": "«Признания Ната Тёрнера»",
+  "tags": [
+   "sig_confessions_us"
+  ],
+  "slots": 2,
+  "emoji": "✒️",
+  "action": "записать признание",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "адвокат",
+   "узник"
+  ]
+ },
+ {
+  "id": "silence_south_us",
+  "name": "Запрет аболиционистских газет",
+  "tags": [
+   "sig_silence_south_us"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "жечь газеты на почте",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "редактор"
+  ]
+ },
+ {
+  "id": "nullify_tariff_us",
+  "name": "Ордонанс о нуллификации",
+  "tags": [
+   "sig_nullify_tariff_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "отменить тариф в штате",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "сенатор"
+  ]
+ },
+ {
+  "id": "hang_calhoun_us",
+  "name": "«Повешу первого же!»",
+  "tags": [
+   "sig_hang_calhoun_us"
+  ],
+  "slots": 2,
+  "emoji": "🪢",
+  "action": "послать войска",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент",
+   "сенатор"
+  ]
+ },
+ {
+  "id": "compromise_tariff_us",
+  "name": "Компромиссный тариф",
+  "tags": [
+   "sig_compromise_tariff_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "снизить тариф постепенно",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "посредник",
+   "сенатор"
+  ]
+ },
+ {
+  "id": "bank_war_us",
+  "name": "Вето на банк",
+  "tags": [
+   "sig_bank_war_us"
+  ],
+  "slots": 2,
+  "emoji": "🏦",
+  "action": "убить банк",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "банкир"
+  ]
+ },
+ {
+  "id": "alamo_siege_us",
+  "name": "Осада миссии Аламо",
+  "tags": [
+   "sig_alamo_siege_us"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "штурмовать миссию",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "защитник"
+  ]
+ },
+ {
+  "id": "seguin_courier_us",
+  "name": "Гонец за подмогой",
+  "tags": [
+   "sig_seguin_courier_us"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "прорваться за помощью",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "гонец",
+   "командир"
+  ]
+ },
+ {
+  "id": "relieve_alamo_us",
+  "name": "Спасать Аламо",
+  "tags": [
+   "sig_relieve_alamo_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "идти на выручку",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "командир",
+   "генерал"
+  ]
+ },
+ {
+  "id": "san_jacinto_us",
+  "name": "Сан-Хасинто",
+  "tags": [
+   "sig_san_jacinto_us"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "напасть во время сиесты",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "командир",
+   "генерал"
+  ]
+ },
+ {
+  "id": "extermination_order_us",
+  "name": "Приказ об истреблении",
+  "tags": [
+   "sig_extermination_order_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "изгнать из штата",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "губернатор",
+   "лидер"
+  ]
+ },
+ {
+  "id": "nauvoo_stay_us",
+  "name": "Остаться в Наву",
+  "tags": [
+   "sig_nauvoo_stay_us"
+  ],
+  "slots": 2,
+  "emoji": "🏠",
+  "action": "не уходить",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "вдова",
+   "лидер"
+  ]
+ },
+ {
+  "id": "handcart_trek_us",
+  "name": "Исход на Запад",
+  "tags": [
+   "sig_handcart_trek_us"
+  ],
+  "slots": 1,
+  "emoji": "🛞",
+  "action": "вести через прерии",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "лидер"
+  ]
+ },
+ {
+  "id": "this_is_place_us",
+  "name": "«Это то самое место»",
+  "tags": [
+   "sig_this_is_place_us"
+  ],
+  "slots": 1,
+  "emoji": "⛰️",
+  "action": "основать город у озера",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "лидер"
+  ]
+ },
+ {
+  "id": "annex_texas_us",
+  "name": "Аннексия Техаса",
+  "tags": [
+   "sig_annex_texas_us"
+  ],
+  "slots": 1,
+  "emoji": "🌟",
+  "action": "присоединить Техас",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "oregon_fight_us",
+  "name": "«54°40′ или война!»",
+  "tags": [
+   "sig_oregon_fight_us"
+  ],
+  "slots": 1,
+  "emoji": "⚔️",
+  "action": "воевать с Британией за Орегон",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "rio_grande_us",
+  "name": "Войска на Рио-Гранде",
+  "tags": [
+   "sig_rio_grande_us"
+  ],
+  "slots": 2,
+  "emoji": "🔫",
+  "action": "начать войну",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент",
+   "генерал"
+  ]
+ },
+ {
+  "id": "guadalupe_us",
+  "name": "Договор Гуадалупе-Идальго",
+  "tags": [
+   "sig_guadalupe_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "забрать половину Мексики",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "london_snub_us",
+  "name": "За занавеской в Лондоне",
+  "tags": [
+   "sig_london_snub_us"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "не пустить женщин в зал",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "делегатка",
+   "делегатка"
+  ]
+ },
+ {
+  "id": "sentiments_us",
+  "name": "Декларация чувств",
+  "tags": [
+   "sig_sentiments_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "переписать Декларацию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "автор",
+   "соратница"
+  ]
+ },
+ {
+  "id": "drop_vote_us",
+  "name": "«Это сделает нас смешными»",
+  "tags": [
+   "sig_drop_vote_us"
+  ],
+  "slots": 2,
+  "emoji": "🙅",
+  "action": "убрать требование голоса",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "осторожная",
+   "автор"
+  ]
+ },
+ {
+  "id": "douglass_vote_us",
+  "name": "Голос Дугласа",
+  "tags": [
+   "sig_douglass_vote_us"
+  ],
+  "slots": 2,
+  "emoji": "📢",
+  "action": "поддержать право голоса",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "оратор",
+   "автор"
+  ]
+ },
+ {
+  "id": "fugitive_act_us",
+  "name": "Закон о беглых рабах",
+  "tags": [
+   "sig_fugitive_act_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "подписать закон",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "north_star_us",
+  "name": "По Полярной звезде",
+  "tags": [
+   "sig_north_star_us"
+  ],
+  "slots": 2,
+  "emoji": "🌟",
+  "action": "провести беглецов",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "проводница",
+   "станционный смотритель"
+  ]
+ },
+ {
+  "id": "open_train_us",
+  "name": "Ехать открыто поездом",
+  "tags": [
+   "sig_open_train_us"
+  ],
+  "slots": 1,
+  "emoji": "🚂",
+  "action": "сесть в вагон",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "беглянка"
+  ]
+ },
+ {
+  "id": "burns_returned_us",
+  "name": "Бёрнс под конвоем",
+  "tags": [
+   "sig_burns_returned_us"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "вернуть беглеца",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент",
+   "беглец"
+  ]
+ },
+ {
+  "id": "popular_sovereignty_us",
+  "name": "Закон Канзас—Небраска",
+  "tags": [
+   "sig_popular_sovereignty_us"
+  ],
+  "slots": 1,
+  "emoji": "🗳️",
+  "action": "отдать вопрос поселенцам",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "сенатор"
+  ]
+ },
+ {
+  "id": "keep_line_us",
+  "name": "Сохранить линию 1820 года",
+  "tags": [
+   "sig_keep_line_us"
+  ],
+  "slots": 1,
+  "emoji": "📏",
+  "action": "не трогать компромисс",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "сенатор"
+  ]
+ },
+ {
+  "id": "anti_nebraska_us",
+  "name": "Новая партия",
+  "tags": [
+   "sig_anti_nebraska_us"
+  ],
+  "slots": 2,
+  "emoji": "🐘",
+  "action": "основать республиканскую партию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "аболиционист",
+   "юрист"
+  ]
+ },
+ {
+  "id": "emigrant_aid_us",
+  "name": "Переселенцы в Канзас",
+  "tags": [
+   "sig_emigrant_aid_us"
+  ],
+  "slots": 1,
+  "emoji": "🌾",
+  "action": "везти фрисойлеров",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "переселенец"
+  ]
+ },
+ {
+  "id": "sack_lawrence_us",
+  "name": "Разгром Лоуренса",
+  "tags": [
+   "sig_sack_lawrence_us"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "сжечь город фрисойлеров",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "шериф",
+   "поселенец"
+  ]
+ },
+ {
+  "id": "pottawatomie_us",
+  "name": "Ночь у Поттаватоми-Крик",
+  "tags": [
+   "sig_pottawatomie_us"
+  ],
+  "slots": 1,
+  "emoji": "🗡️",
+  "action": "мстить",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "мститель"
+  ]
+ },
+ {
+  "id": "senate_caning_us",
+  "name": "Трость в сенате",
+  "tags": [
+   "sig_senate_caning_us"
+  ],
+  "slots": 2,
+  "emoji": "🦯",
+  "action": "избить сенатора",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "конгрессмен",
+   "сенатор"
+  ]
+ },
+ {
+  "id": "peaceful_vote_us",
+  "name": "Честное голосование",
+  "tags": [
+   "sig_peaceful_vote_us"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "решить голосованием",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "шериф",
+   "поселенец"
+  ]
+ },
+ {
+  "id": "free_soil_years_us",
+  "name": "Годы на свободной земле",
+  "tags": [
+   "sig_free_soil_years_us"
+  ],
+  "slots": 2,
+  "emoji": "🏞️",
+  "action": "жить в форте на Севере",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "муж",
+   "жена"
+  ]
+ },
+ {
+  "id": "buy_freedom_us",
+  "name": "Попробовать выкупиться",
+  "tags": [
+   "sig_buy_freedom_us"
+  ],
+  "slots": 2,
+  "emoji": "💵",
+  "action": "предложить деньги",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "муж",
+   "жена"
+  ]
+ },
+ {
+  "id": "taney_ruling_us",
+  "name": "Решение Тони",
+  "tags": [
+   "sig_taney_ruling_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "вынести приговор",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "истец",
+   "судья"
+  ]
+ },
+ {
+  "id": "douglass_hope_us",
+  "name": "«Моя надежда никогда не была так сильна»",
+  "tags": [
+   "sig_douglass_hope_us"
+  ],
+  "slots": 2,
+  "emoji": "📢",
+  "action": "ответить решению",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "оратор",
+   "судья"
+  ]
+ },
+ {
+  "id": "house_divided_us",
+  "name": "«Дом, разделённый надвое»",
+  "tags": [
+   "sig_house_divided_us"
+  ],
+  "slots": 1,
+  "emoji": "🏠",
+  "action": "произнести речь",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кандидат"
+  ]
+ },
+ {
+  "id": "freeport_us",
+  "name": "Дебаты во Фрипорте",
+  "tags": [
+   "sig_freeport_us"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "задать неудобный вопрос",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кандидат",
+   "сенатор"
+  ]
+ },
+ {
+  "id": "skip_debates_us",
+  "name": "Отказаться от дебатов",
+  "tags": [
+   "sig_skip_debates_us"
+  ],
+  "slots": 2,
+  "emoji": "🙅",
+  "action": "не выходить на помост",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "кандидат",
+   "сенатор"
+  ]
+ },
+ {
+  "id": "tribune_us",
+  "name": "Стенограммы в газетах",
+  "tags": [
+   "sig_tribune_us"
+  ],
+  "slots": 2,
+  "emoji": "📰",
+  "action": "печатать дебаты",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "редактор",
+   "кандидат"
+  ]
+ },
+ {
+  "id": "douglass_meets_brown_us",
+  "name": "Встреча в каменоломне",
+  "tags": [
+   "sig_douglass_meets_brown_us"
+  ],
+  "slots": 2,
+  "emoji": "🪨",
+  "action": "позвать с собой",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "оратор",
+   "аболиционист"
+  ]
+ },
+ {
+  "id": "douglass_joins_us",
+  "name": "Дуглас идёт с Брауном",
+  "tags": [
+   "sig_douglass_joins_us"
+  ],
+  "slots": 2,
+  "emoji": "🔫",
+  "action": "присоединиться к рейду",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "оратор",
+   "аболиционист"
+  ]
+ },
+ {
+  "id": "arsenal_raid_us",
+  "name": "Захват арсенала",
+  "tags": [
+   "sig_arsenal_raid_us"
+  ],
+  "slots": 2,
+  "emoji": "🏚️",
+  "action": "захватить арсенал",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "аболиционист",
+   "соратник"
+  ]
+ },
+ {
+  "id": "marines_storm_us",
+  "name": "Морская пехота у пожарного депо",
+  "tags": [
+   "sig_marines_storm_us"
+  ],
+  "slots": 2,
+  "emoji": "🚒",
+  "action": "взять депо штурмом",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "полковник",
+   "аболиционист"
+  ]
+ },
+ {
+  "id": "charleston_split_us",
+  "name": "Раскол в Чарлстоне",
+  "tags": [
+   "sig_charleston_split_us"
+  ],
+  "slots": 2,
+  "emoji": "💔",
+  "action": "расколоть демократов",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "северный демократ",
+   "южный демократ"
+  ]
+ },
+ {
+  "id": "election_1860_us",
+  "name": "Выборы 1860 года",
+  "tags": [
+   "sig_election_1860_us"
+  ],
+  "slots": 1,
+  "emoji": "🗳️",
+  "action": "победить без Юга",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кандидат"
+  ]
+ },
+ {
+  "id": "crittenden_us",
+  "name": "Компромисс Криттендена",
+  "tags": [
+   "sig_crittenden_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "провести линию до Тихого океана",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "президент",
+   "южанин"
+  ]
+ },
+ {
+  "id": "confederacy_us",
+  "name": "Конфедерация в Монтгомери",
+  "tags": [
+   "sig_confederacy_us"
+  ],
+  "slots": 2,
+  "emoji": "⭐",
+  "action": "объявить сецессию",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент Конфедерации",
+   "кандидат"
+  ]
+ },
+ {
+  "id": "resupply_sumter_us",
+  "name": "Только хлеб, без пороха",
+  "tags": [
+   "sig_resupply_sumter_us"
+  ],
+  "slots": 2,
+  "emoji": "🍞",
+  "action": "послать продовольствие",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "президент",
+   "комендант"
+  ]
+ },
+ {
+  "id": "evacuate_sumter_us",
+  "name": "Оставить форт",
+  "tags": [
+   "sig_evacuate_sumter_us"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "вывести гарнизон",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент",
+   "комендант"
+  ]
+ },
+ {
+  "id": "davis_order_us",
+  "name": "Приказ из Монтгомери",
+  "tags": [
+   "sig_davis_order_us"
+  ],
+  "slots": 2,
+  "emoji": "📩",
+  "action": "приказать открыть огонь",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент Конфедерации",
+   "генерал"
+  ]
+ },
+ {
+  "id": "sumter_bombard_us",
+  "name": "Обстрел Самтера",
+  "tags": [
+   "sig_sumter_bombard_us"
+  ],
+  "slots": 2,
+  "emoji": "💥",
+  "action": "открыть огонь",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "комендант"
+  ]
+ },
+ {
+  "id": "lost_order_us",
+  "name": "Приказ, завёрнутый в сигары",
+  "tags": [
+   "sig_lost_order_us"
+  ],
+  "slots": 1,
+  "emoji": "🚬",
+  "action": "найти чужой приказ",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "antietam_us",
+  "name": "Энтиетам",
+  "tags": [
+   "sig_antietam_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "дать бой у ручья",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "early_proclamation_us",
+  "name": "Освобождение без победы",
+  "tags": [
+   "sig_early_proclamation_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "объявить сразу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "emancipation_us",
+  "name": "Прокламация об освобождении",
+  "tags": [
+   "sig_emancipation_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "освободить рабов в мятежных штатах",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "генерал"
+  ]
+ },
+ {
+  "id": "picketts_charge_us",
+  "name": "Атака Пикетта",
+  "tags": [
+   "sig_picketts_charge_us"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "ударить в центр",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "vicksburg_siege_us",
+  "name": "Осада Виксберга",
+  "tags": [
+   "sig_vicksburg_siege_us"
+  ],
+  "slots": 1,
+  "emoji": "🌊",
+  "action": "взять крепость на Миссисипи",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "gettysburg_address_us",
+  "name": "Геттисбергская речь",
+  "tags": [
+   "sig_gettysburg_address_us"
+  ],
+  "slots": 1,
+  "emoji": "🎩",
+  "action": "сказать 272 слова",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "lee_invades_again_us",
+  "name": "Ещё одно вторжение",
+  "tags": [
+   "sig_lee_invades_again_us"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "снова идти на Север",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "atlanta_falls_us",
+  "name": "Атланта пала",
+  "tags": [
+   "sig_atlanta_falls_us"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "взять Атланту",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "peace_talks_us",
+  "name": "Мир с Конфедерацией",
+  "tags": [
+   "sig_peace_talks_us"
+  ],
+  "slots": 2,
+  "emoji": "🕊️",
+  "action": "предложить мир без освобождения",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент",
+   "президент Конфедерации"
+  ]
+ },
+ {
+  "id": "reelection_us",
+  "name": "Выборы 1864 года",
+  "tags": [
+   "sig_reelection_us"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "переизбраться",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "генерал"
+  ]
+ },
+ {
+  "id": "march_sea_us",
+  "name": "Марш к морю",
+  "tags": [
+   "sig_march_sea_us"
+  ],
+  "slots": 1,
+  "emoji": "🌊",
+  "action": "идти через Джорджию",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "thirteenth_us",
+  "name": "Тринадцатая поправка",
+  "tags": [
+   "sig_thirteenth_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "провести поправку через Конгресс",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "appomattox_us",
+  "name": "Дом Маклина в Аппоматтоксе",
+  "tags": [
+   "sig_appomattox_us"
+  ],
+  "slots": 3,
+  "emoji": "🤝",
+  "action": "принять капитуляцию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "противник",
+   "секретарь"
+  ]
+ },
+ {
+  "id": "fords_theatre_us",
+  "name": "Театр Форда",
+  "tags": [
+   "sig_fords_theatre_us"
+  ],
+  "slots": 2,
+  "emoji": "🎭",
+  "action": "войти в ложу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "убийца",
+   "президент"
+  ]
+ },
+ {
+  "id": "fight_on_us",
+  "name": "Уйти в горы партизанить",
+  "tags": [
+   "sig_fight_on_us"
+  ],
+  "slots": 2,
+  "emoji": "🌲",
+  "action": "не сдаваться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "генерал",
+   "противник"
+  ]
+ },
+ {
+  "id": "johnson_pardons_us",
+  "name": "Помилования для плантаторов",
+  "tags": [
+   "sig_johnson_pardons_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "вернуть власть бывшим конфедератам",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "black_codes_us",
+  "name": "«Чёрные кодексы»",
+  "tags": [
+   "sig_black_codes_us"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "принять законы о труде",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент",
+   "конгрессмен"
+  ]
+ },
+ {
+  "id": "dear_master_us",
+  "name": "Письмо бывшему хозяину",
+  "tags": [
+   "sig_dear_master_us"
+  ],
+  "slots": 1,
+  "emoji": "✉️",
+  "action": "ответить на приглашение вернуться",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "бывший раб"
+  ]
+ },
+ {
+  "id": "override_veto_us",
+  "name": "Закон о гражданских правах",
+  "tags": [
+   "sig_override_veto_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "преодолеть вето",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "конгрессмен",
+   "президент"
+  ]
+ },
+ {
+  "id": "military_districts_us",
+  "name": "Военные округа",
+  "tags": [
+   "sig_military_districts_us"
+  ],
+  "slots": 2,
+  "emoji": "🎖️",
+  "action": "ввести войска на Юг",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "конгрессмен",
+   "генерал"
+  ]
+ },
+ {
+  "id": "fourteenth_us",
+  "name": "Четырнадцатая поправка",
+  "tags": [
+   "sig_fourteenth_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "записать равную защиту",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "автор",
+   "конгрессмен"
+  ]
+ },
+ {
+  "id": "impeachment_us",
+  "name": "Импичмент Джонсона",
+  "tags": [
+   "sig_impeachment_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "отдать президента под суд",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "конгрессмен",
+   "президент"
+  ]
+ },
+ {
+  "id": "leave_south_us",
+  "name": "Отдать Юг штатам",
+  "tags": [
+   "sig_leave_south_us"
+  ],
+  "slots": 2,
+  "emoji": "🏠",
+  "action": "не вмешиваться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент",
+   "генерал"
+  ]
+ },
+ {
+  "id": "hire_chinese_us",
+  "name": "Бригады из Гуандуна",
+  "tags": [
+   "sig_hire_chinese_us"
+  ],
+  "slots": 2,
+  "emoji": "⛏️",
+  "action": "нанять китайских рабочих",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "подрядчик",
+   "бригадир"
+  ]
+ },
+ {
+  "id": "irish_only_us",
+  "name": "Только свои рабочие",
+  "tags": [
+   "sig_irish_only_us"
+  ],
+  "slots": 1,
+  "emoji": "🚫",
+  "action": "отказать китайцам",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "подрядчик"
+  ]
+ },
+ {
+  "id": "union_pacific_us",
+  "name": "Через прерии на запад",
+  "tags": [
+   "sig_union_pacific_us"
+  ],
+  "slots": 1,
+  "emoji": "🛤️",
+  "action": "вести дорогу с востока",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "инженер"
+  ]
+ },
+ {
+  "id": "golden_spike_us",
+  "name": "Золотой костыль в Промонтори",
+  "tags": [
+   "sig_golden_spike_us"
+  ],
+  "slots": 2,
+  "emoji": "🔨",
+  "action": "забить последний костыль",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "магнат",
+   "инженер"
+  ]
+ },
+ {
+  "id": "revels_seated_us",
+  "name": "Первый чернокожий сенатор",
+  "tags": [
+   "sig_revels_seated_us"
+  ],
+  "slots": 1,
+  "emoji": "🏛️",
+  "action": "занять место Джефферсона Дэвиса",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "сенатор"
+  ]
+ },
+ {
+  "id": "klan_terror_us",
+  "name": "Ночные всадники",
+  "tags": [
+   "sig_klan_terror_us"
+  ],
+  "slots": 1,
+  "emoji": "🔥",
+  "action": "запугивать избирателей",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "главарь"
+  ]
+ },
+ {
+  "id": "enforcement_us",
+  "name": "Законы против Клана",
+  "tags": [
+   "sig_enforcement_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "отправить войска и суды",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "главарь"
+  ]
+ },
+ {
+  "id": "ignore_klan_us",
+  "name": "Закрыть глаза на террор",
+  "tags": [
+   "sig_ignore_klan_us"
+  ],
+  "slots": 1,
+  "emoji": "🙈",
+  "action": "не вмешиваться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "sun_dance_us",
+  "name": "Видение на Пляске Солнца",
+  "tags": [
+   "sig_sun_dance_us"
+  ],
+  "slots": 1,
+  "emoji": "☀️",
+  "action": "увидеть видение",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вождь-шаман"
+  ]
+ },
+ {
+  "id": "custer_splits_us",
+  "name": "Кастер делит полк",
+  "tags": [
+   "sig_custer_splits_us"
+  ],
+  "slots": 1,
+  "emoji": "⚡",
+  "action": "атаковать не дожидаясь",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "подполковник"
+  ]
+ },
+ {
+  "id": "wait_terry_us",
+  "name": "Ждать колонну Терри",
+  "tags": [
+   "sig_wait_terry_us"
+  ],
+  "slots": 1,
+  "emoji": "⏳",
+  "action": "дождаться подкреплений",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "подполковник"
+  ]
+ },
+ {
+  "id": "greasy_grass_us",
+  "name": "Литл-Бигхорн",
+  "tags": [
+   "sig_greasy_grass_us"
+  ],
+  "slots": 2,
+  "emoji": "🏹",
+  "action": "ударить в ответ",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "военный вождь",
+   "подполковник"
+  ]
+ },
+ {
+  "id": "disputed_count_us",
+  "name": "Спорный подсчёт",
+  "tags": [
+   "sig_disputed_count_us"
+  ],
+  "slots": 2,
+  "emoji": "📊",
+  "action": "оспорить выборы",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "республиканец",
+   "демократ"
+  ]
+ },
+ {
+  "id": "wormley_deal_us",
+  "name": "Сделка в отеле «Уормли»",
+  "tags": [
+   "sig_wormley_deal_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "обменять войска на президентство",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "республиканец",
+   "южанин"
+  ]
+ },
+ {
+  "id": "douglass_marshal_us",
+  "name": "Дуглас — маршал округа",
+  "tags": [
+   "sig_douglass_marshal_us"
+  ],
+  "slots": 2,
+  "emoji": "🎖️",
+  "action": "дать должность",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "президент",
+   "оратор"
+  ]
+ },
+ {
+  "id": "tilden_fights_us",
+  "name": "Кандидат зовёт сторонников на улицы",
+  "tags": [
+   "sig_tilden_fights_us"
+  ],
+  "slots": 2,
+  "emoji": "✊",
+  "action": "не уступать",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "демократ",
+   "республиканец"
+  ]
+ },
+ {
+  "id": "chinese_must_go_us",
+  "name": "«Китайцы должны уйти!»",
+  "tags": [
+   "sig_chinese_must_go_us"
+  ],
+  "slots": 1,
+  "emoji": "📢",
+  "action": "разжигать толпу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "агитатор"
+  ]
+ },
+ {
+  "id": "exclusion_act_us",
+  "name": "Закон об исключении китайцев",
+  "tags": [
+   "sig_exclusion_act_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "подписать запрет",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент",
+   "агитатор"
+  ]
+ },
+ {
+  "id": "wong_case_us",
+  "name": "Гражданин по рождению",
+  "tags": [
+   "sig_wong_case_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "отстоять гражданство",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "истец",
+   "президент"
+  ]
+ },
+ {
+  "id": "new_colossus_us",
+  "name": "«Новый Колосс»",
+  "tags": [
+   "sig_new_colossus_us"
+  ],
+  "slots": 1,
+  "emoji": "🗽",
+  "action": "написать сонет",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "поэтесса"
+  ]
+ },
+ {
+  "id": "caisson_disease_us",
+  "name": "Кессонная болезнь",
+  "tags": [
+   "sig_caisson_disease_us"
+  ],
+  "slots": 1,
+  "emoji": "🫧",
+  "action": "спуститься в кессон",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "инженер"
+  ]
+ },
+ {
+  "id": "emily_engineer_us",
+  "name": "Жена-инженер",
+  "tags": [
+   "sig_emily_engineer_us"
+  ],
+  "slots": 2,
+  "emoji": "📐",
+  "action": "вести стройку",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "жена",
+   "инженер"
+  ]
+ },
+ {
+  "id": "pearl_street_us",
+  "name": "Электростанция на Перл-стрит",
+  "tags": [
+   "sig_pearl_street_us"
+  ],
+  "slots": 1,
+  "emoji": "💡",
+  "action": "зажечь Манхэттен",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "изобретатель"
+  ]
+ },
+ {
+  "id": "war_currents_us",
+  "name": "Война токов",
+  "tags": [
+   "sig_war_currents_us"
+  ],
+  "slots": 2,
+  "emoji": "⚡",
+  "action": "доказать преимущество тока",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "изобретатель",
+   "соперник"
+  ]
+ },
+ {
+  "id": "may_day_us",
+  "name": "Первомайская забастовка",
+  "tags": [
+   "sig_may_day_us"
+  ],
+  "slots": 1,
+  "emoji": "✊",
+  "action": "бастовать за восемь часов",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "редактор"
+  ]
+ },
+ {
+  "id": "haymarket_bomb_us",
+  "name": "Бомба на Хеймаркет-сквер",
+  "tags": [
+   "sig_haymarket_bomb_us"
+  ],
+  "slots": 2,
+  "emoji": "💣",
+  "action": "выступать на митинге",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "оратор",
+   "оратор"
+  ]
+ },
+ {
+  "id": "haymarket_trial_us",
+  "name": "Суд без доказательств",
+  "tags": [
+   "sig_haymarket_trial_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "приговорить ораторов",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вдова",
+   "оратор"
+  ]
+ },
+ {
+  "id": "afl_founded_us",
+  "name": "Американская федерация труда",
+  "tags": [
+   "sig_afl_founded_us"
+  ],
+  "slots": 1,
+  "emoji": "🤝",
+  "action": "строить профсоюз ремёсел",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "профсоюзный лидер"
+  ]
+ },
+ {
+  "id": "dawes_act_us",
+  "name": "Закон Доуза",
+  "tags": [
+   "sig_dawes_act_us"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "поделить общинные земли",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "сенатор"
+  ]
+ },
+ {
+  "id": "ghost_dance_us",
+  "name": "Пляска Духов",
+  "tags": [
+   "sig_ghost_dance_us"
+  ],
+  "slots": 1,
+  "emoji": "💃",
+  "action": "танцевать о возвращении бизонов",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "пророк"
+  ]
+ },
+ {
+  "id": "arrest_sitting_bull_us",
+  "name": "Арест Сидящего Быка",
+  "tags": [
+   "sig_arrest_sitting_bull_us"
+  ],
+  "slots": 2,
+  "emoji": "🔫",
+  "action": "арестовать вождя",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "пророк",
+   "вождь"
+  ]
+ },
+ {
+  "id": "wounded_knee_us",
+  "name": "Вундед-Ни",
+  "tags": [
+   "sig_wounded_knee_us"
+  ],
+  "slots": 2,
+  "emoji": "❄️",
+  "action": "разоружать лагерь",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "полковник",
+   "вождь"
+  ]
+ },
+ {
+  "id": "homestead_lockout_us",
+  "name": "Локаут в Хомстеде",
+  "tags": [
+   "sig_homestead_lockout_us"
+  ],
+  "slots": 2,
+  "emoji": "🔒",
+  "action": "вызвать пинкертонов",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "управляющий",
+   "владелец"
+  ]
+ },
+ {
+  "id": "pullman_strike_us",
+  "name": "Забастовка Пульмана",
+  "tags": [
+   "sig_pullman_strike_us"
+  ],
+  "slots": 1,
+  "emoji": "🚂",
+  "action": "остановить поезда",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "профсоюзный лидер"
+  ]
+ },
+ {
+  "id": "federal_troops_pullman_us",
+  "name": "Войска против забастовщиков",
+  "tags": [
+   "sig_federal_troops_pullman_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "посадить лидера",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "владелец",
+   "профсоюзный лидер"
+  ]
+ },
+ {
+  "id": "less_corn_us",
+  "name": "«Меньше кукурузы, больше ада!»",
+  "tags": [
+   "sig_less_corn_us"
+  ],
+  "slots": 1,
+  "emoji": "🌽",
+  "action": "звать фермеров в политику",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "ораторша"
+  ]
+ },
+ {
+  "id": "whites_only_car_us",
+  "name": "Вагон «для белых»",
+  "tags": [
+   "sig_whites_only_car_us"
+  ],
+  "slots": 2,
+  "emoji": "🚃",
+  "action": "сесть и назвать себя",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "пассажир",
+   "адвокат"
+  ]
+ },
+ {
+  "id": "colored_car_us",
+  "name": "Вагон «для цветных»",
+  "tags": [
+   "sig_colored_car_us"
+  ],
+  "slots": 1,
+  "emoji": "🚃",
+  "action": "сесть куда велено",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "пассажир"
+  ]
+ },
+ {
+  "id": "separate_equal_us",
+  "name": "«Раздельные, но равные»",
+  "tags": [
+   "sig_separate_equal_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "вынести решение",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "судья",
+   "пассажир"
+  ]
+ },
+ {
+  "id": "color_blind_us",
+  "name": "«Наша Конституция не различает цвета»",
+  "tags": [
+   "sig_color_blind_us"
+  ],
+  "slots": 1,
+  "emoji": "✋",
+  "action": "написать особое мнение",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "судья"
+  ]
+ },
+ {
+  "id": "hawaii_coup_us",
+  "name": "Переворот в Гонолулу",
+  "tags": [
+   "sig_hawaii_coup_us"
+  ],
+  "slots": 1,
+  "emoji": "🌺",
+  "action": "свергнуть королеву",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "королева"
+  ]
+ },
+ {
+  "id": "maine_explodes_us",
+  "name": "Взрыв «Мэна»",
+  "tags": [
+   "sig_maine_explodes_us"
+  ],
+  "slots": 1,
+  "emoji": "💥",
+  "action": "объявить войну Испании",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "annex_hawaii_us",
+  "name": "Аннексия Гавайев",
+  "tags": [
+   "sig_annex_hawaii_us"
+  ],
+  "slots": 2,
+  "emoji": "🌺",
+  "action": "присоединить острова",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент",
+   "королева"
+  ]
+ },
+ {
+  "id": "philippine_war_us",
+  "name": "Филиппино-американская война",
+  "tags": [
+   "sig_philippine_war_us"
+  ],
+  "slots": 2,
+  "emoji": "🌴",
+  "action": "не отдавать независимость",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент",
+   "революционер"
+  ]
+ },
+ {
+  "id": "northern_securities_us",
+  "name": "Иск против треста",
+  "tags": [
+   "sig_northern_securities_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "разбить железнодорожный трест",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "банкир"
+  ]
+ },
+ {
+  "id": "send_your_man_us",
+  "name": "«Пришлите вашего человека к моему»",
+  "tags": [
+   "sig_send_your_man_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "договориться по-тихому",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "банкир",
+   "президент"
+  ]
+ },
+ {
+  "id": "yosemite_camp_us",
+  "name": "Ночь у костра в Йосемити",
+  "tags": [
+   "sig_yosemite_camp_us"
+  ],
+  "slots": 2,
+  "emoji": "🏕️",
+  "action": "спать под звёздами",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "натуралист",
+   "президент"
+  ]
+ },
+ {
+  "id": "forest_service_us",
+  "name": "Служба лесов",
+  "tags": [
+   "sig_forest_service_us"
+  ],
+  "slots": 2,
+  "emoji": "🌲",
+  "action": "управлять лесами",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "лесничий",
+   "президент"
+  ]
+ },
+ {
+  "id": "lilienthal_tables_us",
+  "name": "Таблицы Лилиенталя",
+  "tags": [
+   "sig_lilienthal_tables_us"
+  ],
+  "slots": 2,
+  "emoji": "📊",
+  "action": "довериться чужим данным",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "брат",
+   "советник"
+  ]
+ },
+ {
+  "id": "wind_tunnel_us",
+  "name": "Аэродинамическая труба из ящика",
+  "tags": [
+   "sig_wind_tunnel_us"
+  ],
+  "slots": 2,
+  "emoji": "🌬️",
+  "action": "измерить крылья самим",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "брат",
+   "брат"
+  ]
+ },
+ {
+  "id": "wing_warping_us",
+  "name": "Перекос крыла",
+  "tags": [
+   "sig_wing_warping_us"
+  ],
+  "slots": 2,
+  "emoji": "🪁",
+  "action": "научить планер поворачивать",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "брат",
+   "советник"
+  ]
+ },
+ {
+  "id": "kitty_hawk_us",
+  "name": "Двенадцать секунд над Китти-Хок",
+  "tags": [
+   "sig_kitty_hawk_us"
+  ],
+  "slots": 2,
+  "emoji": "✈️",
+  "action": "взлететь",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "пилот",
+   "брат"
+  ]
+ },
+ {
+  "id": "colombia_talks_us",
+  "name": "Торг с Колумбией",
+  "tags": [
+   "sig_colombia_talks_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "договариваться с Боготой",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "госсекретарь",
+   "француз"
+  ]
+ },
+ {
+  "id": "panama_revolt_us",
+  "name": "Восстание в Панаме",
+  "tags": [
+   "sig_panama_revolt_us"
+  ],
+  "slots": 2,
+  "emoji": "🇵🇦",
+  "action": "поддержать отделение",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "революционер"
+  ]
+ },
+ {
+  "id": "canal_treaty_us",
+  "name": "Договор Хэя — Бюно-Варийи",
+  "tags": [
+   "sig_canal_treaty_us"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать договор о зоне",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "госсекретарь",
+   "француз"
+  ]
+ },
+ {
+  "id": "canal_opens_us",
+  "name": "Открытие канала",
+  "tags": [
+   "sig_canal_opens_us"
+  ],
+  "slots": 1,
+  "emoji": "🚢",
+  "action": "пропустить первый корабль",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "jungle_book_us",
+  "name": "Роман «Джунгли»",
+  "tags": [
+   "sig_jungle_book_us"
+  ],
+  "slots": 1,
+  "emoji": "📕",
+  "action": "издать роман о бойнях",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "писатель"
+  ]
+ },
+ {
+  "id": "trust_armour_us",
+  "name": "Поверить мясопромышленнику",
+  "tags": [
+   "sig_trust_armour_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "принять заверения",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "магнат",
+   "президент"
+  ]
+ },
+ {
+  "id": "chicago_inspection_us",
+  "name": "Проверка боен",
+  "tags": [
+   "sig_chicago_inspection_us"
+  ],
+  "slots": 2,
+  "emoji": "🔎",
+  "action": "послать инспекторов",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "президент",
+   "писатель"
+  ]
+ },
+ {
+  "id": "pure_food_us",
+  "name": "Закон о чистых продуктах",
+  "tags": [
+   "sig_pure_food_us"
+  ],
+  "slots": 2,
+  "emoji": "🧪",
+  "action": "принять закон",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "химик",
+   "президент"
+  ]
+ },
+ {
+  "id": "model_t_us",
+  "name": "Модель Т",
+  "tags": [
+   "sig_model_t_us"
+  ],
+  "slots": 1,
+  "emoji": "🚗",
+  "action": "сделать машину для всех",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "assembly_line_us",
+  "name": "Движущийся конвейер",
+  "tags": [
+   "sig_assembly_line_us"
+  ],
+  "slots": 2,
+  "emoji": "⚙️",
+  "action": "запустить ленту",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "мастер",
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "five_dollar_day_us",
+  "name": "Пять долларов в день",
+  "tags": [
+   "sig_five_dollar_day_us"
+  ],
+  "slots": 2,
+  "emoji": "💵",
+  "action": "удвоить плату",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "компаньон",
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "raise_price_us",
+  "name": "Поднять цену",
+  "tags": [
+   "sig_raise_price_us"
+  ],
+  "slots": 2,
+  "emoji": "📈",
+  "action": "продавать дороже",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "компаньон",
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "southern_horrors_us",
+  "name": "«Южные ужасы»",
+  "tags": [
+   "sig_southern_horrors_us"
+  ],
+  "slots": 1,
+  "emoji": "🖋️",
+  "action": "расследовать линчевания",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "журналистка"
+  ]
+ },
+ {
+  "id": "atlanta_compromise_us",
+  "name": "Атлантский компромисс",
+  "tags": [
+   "sig_atlanta_compromise_us"
+  ],
+  "slots": 2,
+  "emoji": "🧱",
+  "action": "принять сегрегацию ради ремёсел",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "педагог",
+   "историк"
+  ]
+ },
+ {
+  "id": "niagara_us",
+  "name": "Движение Ниагара",
+  "tags": [
+   "sig_niagara_us"
+  ],
+  "slots": 1,
+  "emoji": "🌊",
+  "action": "требовать полных прав",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "историк"
+  ]
+ },
+ {
+  "id": "naacp_founded_us",
+  "name": "Национальная ассоциация",
+  "tags": [
+   "sig_naacp_founded_us"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "основать NAACP",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "организатор",
+   "историк"
+  ]
+ },
+ {
+  "id": "uprising_20000_us",
+  "name": "Восстание двадцати тысяч",
+  "tags": [
+   "sig_uprising_20000_us"
+  ],
+  "slots": 1,
+  "emoji": "✊",
+  "action": "призвать к стачке",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "работница"
+  ]
+ },
+ {
+  "id": "locked_doors_us",
+  "name": "Запертые двери",
+  "tags": [
+   "sig_locked_doors_us"
+  ],
+  "slots": 2,
+  "emoji": "🔒",
+  "action": "запирать выходы",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "фабрикант",
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "unlock_doors_us",
+  "name": "Открыть выходы",
+  "tags": [
+   "sig_unlock_doors_us"
+  ],
+  "slots": 2,
+  "emoji": "🔓",
+  "action": "не запирать двери",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "фабрикант",
+   "фабрикант"
+  ]
+ },
+ {
+  "id": "perkins_witness_us",
+  "name": "Свидетельница с тротуара",
+  "tags": [
+   "sig_perkins_witness_us"
+  ],
+  "slots": 1,
+  "emoji": "📋",
+  "action": "добиться законов",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "реформатор"
+  ]
+ },
+ {
+  "id": "plan_parade_us",
+  "name": "Парад накануне инаугурации",
+  "tags": [
+   "sig_plan_parade_us"
+  ],
+  "slots": 2,
+  "emoji": "📯",
+  "action": "назначить шествие",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "организатор",
+   "соратница"
+  ]
+ },
+ {
+  "id": "back_of_march_us",
+  "name": "«Идите в конце колонны»",
+  "tags": [
+   "sig_back_of_march_us"
+  ],
+  "slots": 2,
+  "emoji": "🚫",
+  "action": "отправить в хвост",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "организатор",
+   "журналистка"
+  ]
+ },
+ {
+  "id": "wells_steps_in_us",
+  "name": "Уэллс встаёт в колонну Иллинойса",
+  "tags": [
+   "sig_wells_steps_in_us"
+  ],
+  "slots": 2,
+  "emoji": "🚶",
+  "action": "занять своё место",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "журналистка",
+   "организатор"
+  ]
+ },
+ {
+  "id": "silent_sentinels_us",
+  "name": "Пикет у Белого дома",
+  "tags": [
+   "sig_silent_sentinels_us"
+  ],
+  "slots": 2,
+  "emoji": "🪧",
+  "action": "держать плакаты",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "организатор",
+   "президент"
+  ]
+ },
+ {
+  "id": "jekyll_island_us",
+  "name": "Тайная встреча на острове Джекил",
+  "tags": [
+   "sig_jekyll_island_us"
+  ],
+  "slots": 1,
+  "emoji": "🦆",
+  "action": "написать план центрального банка",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "банкир"
+  ]
+ },
+ {
+  "id": "bankers_bank_us",
+  "name": "Банк банкиров",
+  "tags": [
+   "sig_bankers_bank_us"
+  ],
+  "slots": 2,
+  "emoji": "🏦",
+  "action": "отдать банк Уолл-стрит",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "банкир",
+   "президент"
+  ]
+ },
+ {
+  "id": "federal_reserve_us",
+  "name": "Федеральная резервная система",
+  "tags": [
+   "sig_federal_reserve_us"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "провести закон",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "конгрессмен",
+   "президент"
+  ]
+ },
+ {
+  "id": "curse_bigness_us",
+  "name": "«Проклятие величины»",
+  "tags": [
+   "sig_curse_bigness_us"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "ударить по монополиям",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "юрист",
+   "президент"
+  ]
+ },
+ {
+  "id": "zimmermann_us",
+  "name": "Телеграмма Циммермана",
+  "tags": [
+   "sig_zimmermann_us"
+  ],
+  "slots": 1,
+  "emoji": "📨",
+  "action": "расшифровать телеграмму",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "президент"
+  ]
+ },
+ {
+  "id": "stay_neutral_us",
+  "name": "Сохранить нейтралитет",
+  "tags": [
+   "sig_stay_neutral_us"
+  ],
+  "slots": 2,
+  "emoji": "🕊️",
+  "action": "остаться в стороне",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "президент",
+   "советник"
+  ]
+ },
+ {
+  "id": "aef_us",
+  "name": "Американский экспедиционный корпус",
+  "tags": [
+   "sig_aef_us"
+  ],
+  "slots": 2,
+  "emoji": "🎖️",
+  "action": "послать армию во Францию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "генерал"
+  ]
+ },
+ {
+  "id": "fourteen_points_us",
+  "name": "Четырнадцать пунктов",
+  "tags": [
+   "sig_fourteen_points_us"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "изложить план мира",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "президент",
+   "советник"
+  ]
  }
 ]

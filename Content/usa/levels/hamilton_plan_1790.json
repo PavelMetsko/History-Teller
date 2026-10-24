@@ -1,0 +1,72 @@
+{
+ "id": "hamilton_plan_1790",
+ "order": 500,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_ceremony",
+ "cover": "dinner_deal_us",
+ "panels": 3,
+ "scenes": [
+  "assumption_plan_us",
+  "dinner_deal_us",
+  "bank_signed_us",
+  "bank_veto_us"
+ ],
+ "characters": [
+  "alexander_hamilton",
+  "jefferson",
+  "madison",
+  "washington"
+ ],
+ "initialState": {
+  "flags": {
+   "washington": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander_hamilton",
+     "is": "bank_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "jefferson",
+     "is": "capital_potomac_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "assumption_plan_us",
+   "characters": [
+    "alexander_hamilton"
+   ]
+  },
+  {
+   "scene": "dinner_deal_us",
+   "characters": [
+    "jefferson",
+    "alexander_hamilton",
+    "madison"
+   ]
+  },
+  {
+   "scene": "bank_signed_us",
+   "characters": [
+    "alexander_hamilton",
+    "washington"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

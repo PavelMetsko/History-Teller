@@ -1,0 +1,72 @@
+{
+ "id": "monroe_1823",
+ "order": 610,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_ceremony",
+ "cover": "monroe_message_us",
+ "panels": 3,
+ "scenes": [
+  "canning_offer_us",
+  "joint_statement_us",
+  "monroe_message_us",
+  "bolivar_hears_us"
+ ],
+ "characters": [
+  "james_monroe",
+  "jq_adams",
+  "george_canning",
+  "bolivar"
+ ],
+ "initialState": {
+  "flags": {
+   "james_monroe": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "james_monroe",
+     "is": "doctrine_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "bolivar",
+     "is": "heard_doctrine_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "canning_offer_us",
+   "characters": [
+    "george_canning",
+    "jq_adams"
+   ]
+  },
+  {
+   "scene": "monroe_message_us",
+   "characters": [
+    "james_monroe",
+    "jq_adams"
+   ]
+  },
+  {
+   "scene": "bolivar_hears_us",
+   "characters": [
+    "bolivar",
+    "james_monroe"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

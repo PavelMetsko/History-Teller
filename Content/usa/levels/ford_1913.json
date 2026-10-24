@@ -1,0 +1,60 @@
+{
+ "id": "ford_1913",
+ "order": 1240,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_ceremony",
+ "cover": "assembly_line_us",
+ "panels": 3,
+ "scenes": [
+  "model_t_us",
+  "assembly_line_us",
+  "five_dollar_day_us",
+  "raise_price_us"
+ ],
+ "characters": [
+  "henry_ford",
+  "james_couzens",
+  "charles_sorensen",
+  "samuel_marquis"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry_ford",
+     "is": "five_dollar_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "model_t_us",
+   "characters": [
+    "henry_ford"
+   ]
+  },
+  {
+   "scene": "assembly_line_us",
+   "characters": [
+    "charles_sorensen",
+    "henry_ford"
+   ]
+  },
+  {
+   "scene": "five_dollar_day_us",
+   "characters": [
+    "james_couzens",
+    "henry_ford"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

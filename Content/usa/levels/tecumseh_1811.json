@@ -1,0 +1,65 @@
+{
+ "id": "tecumseh_1811",
+ "order": 580,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_battle",
+ "cover": "tecumseh_tour_us",
+ "panels": 3,
+ "scenes": [
+  "prophet_vision_us",
+  "tecumseh_tour_us",
+  "tippecanoe_us",
+  "detroit_us"
+ ],
+ "characters": [
+  "tecumseh",
+  "tenskwatawa",
+  "w_h_harrison",
+  "isaac_brock"
+ ],
+ "initialState": {
+  "flags": {
+   "w_h_harrison": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "isaac_brock",
+     "is": "detroit_taken_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prophet_vision_us",
+   "characters": [
+    "tenskwatawa"
+   ]
+  },
+  {
+   "scene": "tecumseh_tour_us",
+   "characters": [
+    "tecumseh",
+    "tenskwatawa"
+   ]
+  },
+  {
+   "scene": "detroit_us",
+   "characters": [
+    "tecumseh",
+    "isaac_brock"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

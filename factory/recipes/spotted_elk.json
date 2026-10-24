@@ -1,0 +1,62 @@
+{
+  "id": "spotted_elk",
+  "name": "Пятнистый Лось (Большая Нога)",
+  "skin": "#c68a5e",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b3a38",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#3b3a38"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#4b6a9a"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#7a5232",
+      "fur": "#e9d8a8",
+      "rope": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a5232",
+      "cuff": "#7a5232"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a5232"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8794e",
+      "top": "#a8794e"
+    }
+  }
+}

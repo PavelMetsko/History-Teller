@@ -1,0 +1,65 @@
+{
+  "id": "carver",
+  "name": "Джон Карвер",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#1e1e22",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "ruff",
+      "col": "#f4f1ea"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#2a2a2e",
+      "trim": "#f4f1ea",
+      "chain": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2a2a2e"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    }
+  }
+}

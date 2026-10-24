@@ -1,0 +1,73 @@
+{
+ "id": "lexington_1775",
+ "order": 340,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_battle",
+ "cover": "midnight_ride_us",
+ "panels": 3,
+ "scenes": [
+  "two_lanterns_us",
+  "midnight_ride_us",
+  "redcoat_patrol_us",
+  "concord_bridge_us"
+ ],
+ "characters": [
+  "paul_revere",
+  "robert_newman",
+  "gage",
+  "samuel_adams"
+ ],
+ "initialState": {
+  "flags": {
+   "gage": [
+    "standing",
+    "strong",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "samuel_adams",
+     "is": "warned_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "gage",
+     "is": "shot_heard_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "two_lanterns_us",
+   "characters": [
+    "robert_newman",
+    "paul_revere"
+   ]
+  },
+  {
+   "scene": "midnight_ride_us",
+   "characters": [
+    "paul_revere",
+    "samuel_adams"
+   ]
+  },
+  {
+   "scene": "concord_bridge_us",
+   "characters": [
+    "gage",
+    "samuel_adams"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

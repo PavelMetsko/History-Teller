@@ -1,0 +1,65 @@
+{
+ "id": "virginia_1619",
+ "order": 160,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "first_assembly_us",
+ "panels": 3,
+ "scenes": [
+  "great_charter_us",
+  "elect_burgess_us",
+  "first_assembly_us",
+  "summer_fever_us"
+ ],
+ "characters": [
+  "yeardley",
+  "john_pory",
+  "burgess_us",
+  "john_rolfe"
+ ],
+ "initialState": {
+  "flags": {
+   "yeardley": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_pory",
+     "is": "assembly_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "great_charter_us",
+   "characters": [
+    "yeardley"
+   ]
+  },
+  {
+   "scene": "elect_burgess_us",
+   "characters": [
+    "yeardley",
+    "burgess_us"
+   ]
+  },
+  {
+   "scene": "first_assembly_us",
+   "characters": [
+    "john_pory",
+    "burgess_us"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

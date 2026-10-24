@@ -1,0 +1,77 @@
+{
+ "id": "metacom_1675",
+ "order": 200,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_battle",
+ "cover": "weetamoo_alliance_us",
+ "panels": 3,
+ "scenes": [
+  "sassamon_trial_us",
+  "weetamoo_alliance_us",
+  "church_rangers_us",
+  "metacom_parley_us"
+ ],
+ "characters": [
+  "metacom",
+  "weetamoo",
+  "josiah_winslow",
+  "benjamin_church"
+ ],
+ "initialState": {
+  "flags": {
+   "metacom": [
+    "standing",
+    "reigns",
+    "strong"
+   ],
+   "weetamoo": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "weetamoo",
+     "is": "alliance_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "metacom",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sassamon_trial_us",
+   "characters": [
+    "josiah_winslow",
+    "metacom"
+   ]
+  },
+  {
+   "scene": "weetamoo_alliance_us",
+   "characters": [
+    "metacom",
+    "weetamoo"
+   ]
+  },
+  {
+   "scene": "church_rangers_us",
+   "characters": [
+    "benjamin_church",
+    "metacom"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

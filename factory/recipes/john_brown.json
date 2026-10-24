@@ -1,0 +1,63 @@
+{
+  "id": "john_brown",
+  "name": "Джон Браун",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#5f7a9a",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#3b2a20",
+      "trim": "#1e1e22",
+      "belt": "#1e1e22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#3b2a20",
+      "cuff": "#3b2a20"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    }
+  }
+}

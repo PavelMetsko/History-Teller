@@ -1,0 +1,66 @@
+{
+ "id": "sleepy_hollow",
+ "order": 30,
+ "epoch": "usa",
+ "act": "Акт I · Легенды",
+ "music": "usa_tension",
+ "cover": "bridge_chase_us",
+ "panels": 3,
+ "scenes": [
+  "tassel_party_us",
+  "ghost_tales_us",
+  "bridge_chase_us",
+  "hollow_duel_us"
+ ],
+ "characters": [
+  "ichabod_crane",
+  "katrina",
+  "brom_bones",
+  "headless_horseman"
+ ],
+ "initialState": {
+  "flags": {
+   "brom_bones": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ichabod_crane",
+     "is": "fled_hollow_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tassel_party_us",
+   "characters": [
+    "ichabod_crane",
+    "katrina"
+   ]
+  },
+  {
+   "scene": "ghost_tales_us",
+   "characters": [
+    "brom_bones",
+    "ichabod_crane"
+   ]
+  },
+  {
+   "scene": "bridge_chase_us",
+   "characters": [
+    "headless_horseman",
+    "ichabod_crane"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

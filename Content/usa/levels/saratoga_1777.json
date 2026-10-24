@@ -1,0 +1,69 @@
+{
+ "id": "saratoga_1777",
+ "order": 380,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_battle",
+ "cover": "saratoga_surrender_us",
+ "panels": 3,
+ "scenes": [
+  "bemis_heights_us",
+  "arnold_charge_us",
+  "gates_attacks_us",
+  "saratoga_surrender_us"
+ ],
+ "characters": [
+  "gates",
+  "burgoyne",
+  "arnold",
+  "kosciuszko"
+ ],
+ "initialState": {
+  "flags": {
+   "burgoyne": [
+    "standing",
+    "strong"
+   ],
+   "gates": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "burgoyne",
+     "is": "surrendered_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bemis_heights_us",
+   "characters": [
+    "kosciuszko",
+    "gates"
+   ]
+  },
+  {
+   "scene": "arnold_charge_us",
+   "characters": [
+    "arnold",
+    "burgoyne"
+   ]
+  },
+  {
+   "scene": "saratoga_surrender_us",
+   "characters": [
+    "gates",
+    "burgoyne"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

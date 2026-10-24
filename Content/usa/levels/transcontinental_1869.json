@@ -1,0 +1,66 @@
+{
+ "id": "transcontinental_1869",
+ "order": 940,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_ceremony",
+ "cover": "golden_spike_us",
+ "panels": 3,
+ "scenes": [
+  "hire_chinese_us",
+  "irish_only_us",
+  "union_pacific_us",
+  "golden_spike_us"
+ ],
+ "characters": [
+  "leland_stanford",
+  "grenville_dodge",
+  "charles_crocker",
+  "chin_lin_sou"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "leland_stanford",
+     "is": "spike_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles_crocker",
+     "is": "central_done_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hire_chinese_us",
+   "characters": [
+    "charles_crocker",
+    "chin_lin_sou"
+   ]
+  },
+  {
+   "scene": "union_pacific_us",
+   "characters": [
+    "grenville_dodge"
+   ]
+  },
+  {
+   "scene": "golden_spike_us",
+   "characters": [
+    "leland_stanford",
+    "grenville_dodge"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

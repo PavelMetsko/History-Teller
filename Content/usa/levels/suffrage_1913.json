@@ -1,0 +1,67 @@
+{
+ "id": "suffrage_1913",
+ "order": 1270,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_ceremony",
+ "cover": "plan_parade_us",
+ "panels": 3,
+ "scenes": [
+  "plan_parade_us",
+  "back_of_march_us",
+  "wells_steps_in_us",
+  "silent_sentinels_us"
+ ],
+ "characters": [
+  "alice_paul",
+  "lucy_burns",
+  "ida_wells",
+  "wilson"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ida_wells",
+     "is": "in_line_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "wilson",
+     "is": "supports_suffrage_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "plan_parade_us",
+   "characters": [
+    "alice_paul",
+    "lucy_burns"
+   ]
+  },
+  {
+   "scene": "wells_steps_in_us",
+   "characters": [
+    "ida_wells",
+    "alice_paul"
+   ]
+  },
+  {
+   "scene": "silent_sentinels_us",
+   "characters": [
+    "alice_paul",
+    "wilson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

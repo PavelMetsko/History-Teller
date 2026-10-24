@@ -1,0 +1,66 @@
+{
+ "id": "fed_reserve_1913",
+ "order": 1280,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_ceremony",
+ "cover": "federal_reserve_us",
+ "panels": 3,
+ "scenes": [
+  "jekyll_island_us",
+  "bankers_bank_us",
+  "federal_reserve_us",
+  "curse_bigness_us"
+ ],
+ "characters": [
+  "wilson",
+  "carter_glass",
+  "paul_warburg",
+  "louis_brandeis"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wilson",
+     "is": "fed_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "wilson",
+     "is": "antitrust_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "jekyll_island_us",
+   "characters": [
+    "paul_warburg"
+   ]
+  },
+  {
+   "scene": "federal_reserve_us",
+   "characters": [
+    "carter_glass",
+    "wilson"
+   ]
+  },
+  {
+   "scene": "curse_bigness_us",
+   "characters": [
+    "louis_brandeis",
+    "wilson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

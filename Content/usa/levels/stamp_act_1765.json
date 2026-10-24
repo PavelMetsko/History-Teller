@@ -1,0 +1,72 @@
+{
+ "id": "stamp_act_1765",
+ "order": 300,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_tension",
+ "cover": "sons_liberty_us",
+ "panels": 3,
+ "scenes": [
+  "stamp_law_us",
+  "sons_liberty_us",
+  "pay_stamps_us",
+  "franklin_commons_us"
+ ],
+ "characters": [
+  "patrick_henry",
+  "grenville",
+  "andrew_oliver",
+  "samuel_adams",
+  "franklin"
+ ],
+ "initialState": {
+  "flags": {
+   "grenville": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "andrew_oliver",
+     "is": "resigned_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "grenville",
+     "is": "repealed_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "stamp_law_us",
+   "characters": [
+    "grenville"
+   ]
+  },
+  {
+   "scene": "sons_liberty_us",
+   "characters": [
+    "samuel_adams",
+    "andrew_oliver"
+   ]
+  },
+  {
+   "scene": "franklin_commons_us",
+   "characters": [
+    "franklin",
+    "grenville"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

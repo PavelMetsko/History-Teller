@@ -1,0 +1,64 @@
+{
+  "id": "charbonneau",
+  "name": "Туссен Шарбонно",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#8a7a6a"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#a8312f",
+      "fur": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#7a5232",
+      "fur": "#e9d8a8",
+      "rope": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a5232",
+      "cuff": "#7a5232"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5a3a22",
+      "top": "#5a3a22"
+    }
+  }
+}

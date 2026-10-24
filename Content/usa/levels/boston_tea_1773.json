@@ -1,0 +1,70 @@
+{
+ "id": "boston_tea_1773",
+ "order": 320,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_tension",
+ "cover": "boston_tea_us",
+ "panels": 3,
+ "scenes": [
+  "hutchinson_refuses_us",
+  "old_south_meeting_us",
+  "pay_duty_us",
+  "boston_tea_us"
+ ],
+ "characters": [
+  "samuel_adams",
+  "thomas_hutchinson",
+  "francis_rotch",
+  "george3"
+ ],
+ "initialState": {
+  "flags": {
+   "thomas_hutchinson": [
+    "standing",
+    "reigns"
+   ],
+   "george3": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "samuel_adams",
+     "is": "tea_dumped_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hutchinson_refuses_us",
+   "characters": [
+    "thomas_hutchinson",
+    "francis_rotch"
+   ]
+  },
+  {
+   "scene": "old_south_meeting_us",
+   "characters": [
+    "samuel_adams",
+    "francis_rotch"
+   ]
+  },
+  {
+   "scene": "boston_tea_us",
+   "characters": [
+    "samuel_adams"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

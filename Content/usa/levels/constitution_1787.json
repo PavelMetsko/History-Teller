@@ -1,0 +1,60 @@
+{
+ "id": "constitution_1787",
+ "order": 440,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_ceremony",
+ "cover": "great_compromise_us",
+ "panels": 3,
+ "scenes": [
+  "virginia_plan_us",
+  "great_compromise_us",
+  "open_doors_us",
+  "bill_of_rights_us"
+ ],
+ "characters": [
+  "madison",
+  "roger_sherman",
+  "alexander_hamilton",
+  "george_mason"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "madison",
+     "is": "bill_rights_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "virginia_plan_us",
+   "characters": [
+    "madison"
+   ]
+  },
+  {
+   "scene": "great_compromise_us",
+   "characters": [
+    "roger_sherman",
+    "madison"
+   ]
+  },
+  {
+   "scene": "bill_of_rights_us",
+   "characters": [
+    "george_mason",
+    "madison"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

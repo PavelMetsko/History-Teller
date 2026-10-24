@@ -1,0 +1,62 @@
+{
+  "id": "betsy_ross",
+  "name": "Бетси Росс",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6b4426",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#6b4426"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#f4f1ea",
+      "band": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "flag",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#4b6a9a",
+      "trim": "#f4f1ea",
+      "mantle": "#a8312f",
+      "shoes": "#1e1e22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#4b6a9a",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

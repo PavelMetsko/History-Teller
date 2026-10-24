@@ -1,0 +1,73 @@
+{
+ "id": "alamo_1836",
+ "order": 750,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_battle",
+ "cover": "san_jacinto_us",
+ "panels": 3,
+ "scenes": [
+  "seguin_courier_us",
+  "alamo_siege_us",
+  "relieve_alamo_us",
+  "san_jacinto_us"
+ ],
+ "characters": [
+  "santa_anna",
+  "sam_houston",
+  "juan_seguin",
+  "davy_crockett"
+ ],
+ "initialState": {
+  "flags": {
+   "santa_anna": [
+    "standing",
+    "strong",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "santa_anna",
+     "is": "captured_sj_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "juan_seguin",
+     "is": "courier_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "seguin_courier_us",
+   "characters": [
+    "juan_seguin",
+    "sam_houston"
+   ]
+  },
+  {
+   "scene": "alamo_siege_us",
+   "characters": [
+    "santa_anna",
+    "davy_crockett"
+   ]
+  },
+  {
+   "scene": "san_jacinto_us",
+   "characters": [
+    "sam_houston",
+    "santa_anna"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

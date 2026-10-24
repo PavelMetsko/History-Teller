@@ -1,0 +1,71 @@
+{
+ "id": "arnold_1780",
+ "order": 410,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_tension",
+ "cover": "sell_westpoint_us",
+ "panels": 3,
+ "scenes": [
+  "peggy_letters_us",
+  "sell_westpoint_us",
+  "tarrytown_us",
+  "andre_uniform_us"
+ ],
+ "characters": [
+  "arnold",
+  "peggy_shippen",
+  "john_andre",
+  "washington"
+ ],
+ "initialState": {
+  "flags": {
+   "arnold": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "arnold",
+     "is": "fled_traitor_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_andre",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "peggy_letters_us",
+   "characters": [
+    "peggy_shippen",
+    "john_andre"
+   ]
+  },
+  {
+   "scene": "sell_westpoint_us",
+   "characters": [
+    "arnold",
+    "john_andre"
+   ]
+  },
+  {
+   "scene": "tarrytown_us",
+   "characters": [
+    "john_andre",
+    "arnold"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

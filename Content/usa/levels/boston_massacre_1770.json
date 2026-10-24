@@ -1,0 +1,72 @@
+{
+ "id": "boston_massacre_1770",
+ "order": 310,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_tension",
+ "cover": "snowballs_us",
+ "panels": 3,
+ "scenes": [
+  "snowballs_us",
+  "revere_engraving_us",
+  "defend_soldiers_us",
+  "refuse_defense_us"
+ ],
+ "characters": [
+  "john_adams",
+  "crispus_attucks",
+  "preston_t",
+  "samuel_adams"
+ ],
+ "initialState": {
+  "flags": {
+   "preston_t": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "preston_t",
+     "is": "acquitted_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "samuel_adams",
+     "is": "propaganda_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "snowballs_us",
+   "characters": [
+    "crispus_attucks",
+    "preston_t"
+   ]
+  },
+  {
+   "scene": "revere_engraving_us",
+   "characters": [
+    "samuel_adams",
+    "preston_t"
+   ]
+  },
+  {
+   "scene": "defend_soldiers_us",
+   "characters": [
+    "john_adams",
+    "preston_t"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

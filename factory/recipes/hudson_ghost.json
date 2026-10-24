@@ -1,0 +1,65 @@
+{
+  "id": "hudson_ghost",
+  "name": "Призрак Хендрика Гудзона",
+  "skin": "#c9d6dc",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#e6e0d6",
+      "iris": "#7fa0b8",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#e6e0d6"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#e6e0d6"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#3b4a5a",
+      "feather": "#e6e0d6"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "ruff",
+      "col": "#e6e0d6"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#3b4a5a",
+      "trim": "#c9d6dc",
+      "chain": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#3b4a5a",
+      "cuff": "#3b4a5a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b4a5a"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#2a2a2e",
+      "top": "#2a2a2e"
+    }
+  }
+}

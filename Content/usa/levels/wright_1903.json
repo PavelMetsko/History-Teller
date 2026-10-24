@@ -1,0 +1,61 @@
+{
+ "id": "wright_1903",
+ "order": 1210,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_romance",
+ "cover": "kitty_hawk_us",
+ "panels": 3,
+ "scenes": [
+  "lilienthal_tables_us",
+  "wind_tunnel_us",
+  "wing_warping_us",
+  "kitty_hawk_us"
+ ],
+ "characters": [
+  "orville_wright",
+  "wilbur_wright",
+  "katharine_wright",
+  "octave_chanute"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "orville_wright",
+     "is": "first_flight_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "wing_warping_us",
+   "characters": [
+    "wilbur_wright",
+    "octave_chanute"
+   ]
+  },
+  {
+   "scene": "wind_tunnel_us",
+   "characters": [
+    "wilbur_wright",
+    "orville_wright"
+   ]
+  },
+  {
+   "scene": "kitty_hawk_us",
+   "characters": [
+    "orville_wright",
+    "wilbur_wright"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

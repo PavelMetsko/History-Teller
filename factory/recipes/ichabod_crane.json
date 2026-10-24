@@ -1,0 +1,64 @@
+{
+  "id": "ichabod_crane",
+  "name": "Икабод Крейн",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "tricorne",
+      "col": "#2a2a2e",
+      "trim": "#5a4434"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "book",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "frock",
+      "col": "#2a2a2e",
+      "vest": "#7a6a52",
+      "trim": "#5a4434"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#2a2a2e"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a6a52"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    }
+  }
+}

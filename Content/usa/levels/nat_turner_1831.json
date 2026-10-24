@@ -1,0 +1,70 @@
+{
+ "id": "nat_turner_1831",
+ "order": 730,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_tension",
+ "cover": "eclipse_sign_us",
+ "panels": 3,
+ "scenes": [
+  "liberator_us",
+  "eclipse_sign_us",
+  "confessions_us",
+  "silence_south_us"
+ ],
+ "characters": [
+  "nat_turner",
+  "garrison",
+  "thomas_gray",
+  "john_floyd"
+ ],
+ "initialState": {
+  "flags": {
+   "john_floyd": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "garrison",
+     "is": "liberator_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "thomas_gray",
+     "is": "confessions_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "liberator_us",
+   "characters": [
+    "garrison"
+   ]
+  },
+  {
+   "scene": "eclipse_sign_us",
+   "characters": [
+    "nat_turner"
+   ]
+  },
+  {
+   "scene": "confessions_us",
+   "characters": [
+    "thomas_gray",
+    "nat_turner"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

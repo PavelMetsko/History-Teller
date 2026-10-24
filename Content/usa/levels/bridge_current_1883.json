@@ -1,0 +1,66 @@
+{
+ "id": "bridge_current_1883",
+ "order": 1010,
+ "epoch": "usa",
+ "act": "Акт VII · Позолоченный век",
+ "music": "usa_ceremony",
+ "cover": "emily_engineer_us",
+ "panels": 3,
+ "scenes": [
+  "caisson_disease_us",
+  "emily_engineer_us",
+  "pearl_street_us",
+  "war_currents_us"
+ ],
+ "characters": [
+  "emily_roebling",
+  "washington_roebling",
+  "edison",
+  "tesla"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "emily_roebling",
+     "is": "bridge_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "tesla",
+     "is": "ac_wins_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "caisson_disease_us",
+   "characters": [
+    "washington_roebling"
+   ]
+  },
+  {
+   "scene": "emily_engineer_us",
+   "characters": [
+    "emily_roebling",
+    "washington_roebling"
+   ]
+  },
+  {
+   "scene": "war_currents_us",
+   "characters": [
+    "tesla",
+    "edison"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

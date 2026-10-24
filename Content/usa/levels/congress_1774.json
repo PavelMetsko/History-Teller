@@ -1,0 +1,73 @@
+{
+ "id": "congress_1774",
+ "order": 330,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_ceremony",
+ "cover": "continental_assoc_us",
+ "panels": 2,
+ "scenes": [
+  "galloway_plan_us",
+  "continental_assoc_us",
+  "king_rejects_us"
+ ],
+ "characters": [
+  "washington",
+  "john_adams",
+  "galloway",
+  "george3"
+ ],
+ "initialState": {
+  "flags": {
+   "george3": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "washington",
+     "is": "association_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "george3",
+     "is": "rebellion_declared_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "john_adams",
+      "is": "reconciled_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "continental_assoc_us",
+   "characters": [
+    "john_adams",
+    "washington"
+   ]
+  },
+  {
+   "scene": "king_rejects_us",
+   "characters": [
+    "george3",
+    "washington"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

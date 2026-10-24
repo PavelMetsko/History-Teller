@@ -1,0 +1,72 @@
+{
+ "id": "betsy_ross",
+ "order": 10,
+ "epoch": "usa",
+ "act": "Акт I · Легенды",
+ "music": "usa_ceremony",
+ "cover": "sew_flag_us",
+ "panels": 3,
+ "scenes": [
+  "flag_committee_us",
+  "one_snip_us",
+  "six_star_us",
+  "sew_flag_us"
+ ],
+ "characters": [
+  "betsy_ross",
+  "washington",
+  "robert_morris"
+ ],
+ "initialState": {
+  "flags": {
+   "washington": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "betsy_ross",
+     "is": "flag_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "betsy_ross",
+      "is": "six_star_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "flag_committee_us",
+   "characters": [
+    "washington",
+    "betsy_ross"
+   ]
+  },
+  {
+   "scene": "one_snip_us",
+   "characters": [
+    "betsy_ross"
+   ]
+  },
+  {
+   "scene": "sew_flag_us",
+   "characters": [
+    "betsy_ross",
+    "robert_morris"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

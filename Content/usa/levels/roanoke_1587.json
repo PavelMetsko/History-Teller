@@ -1,0 +1,70 @@
+{
+ "id": "roanoke_1587",
+ "order": 140,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_tension",
+ "cover": "return_1590_us",
+ "panels": 3,
+ "scenes": [
+  "sail_supplies_us",
+  "croatoan_carve_us",
+  "cross_carve_us",
+  "return_1590_us"
+ ],
+ "characters": [
+  "john_white",
+  "eleanor_dare",
+  "manteo"
+ ],
+ "initialState": {
+  "flags": {
+   "john_white": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_white",
+     "is": "croatoan_found_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "eleanor_dare",
+      "is": "distress_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sail_supplies_us",
+   "characters": [
+    "john_white"
+   ]
+  },
+  {
+   "scene": "croatoan_carve_us",
+   "characters": [
+    "eleanor_dare"
+   ]
+  },
+  {
+   "scene": "return_1590_us",
+   "characters": [
+    "john_white",
+    "eleanor_dare"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

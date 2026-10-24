@@ -1,0 +1,59 @@
+{
+ "id": "missouri_1820",
+ "order": 600,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_tension",
+ "cover": "line_3630_us",
+ "panels": 3,
+ "scenes": [
+  "tallmadge_amend_us",
+  "maine_pair_us",
+  "line_3630_us",
+  "firebell_us"
+ ],
+ "characters": [
+  "henry_clay",
+  "tallmadge",
+  "jefferson",
+  "jq_adams"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry_clay",
+     "is": "compromise_1820_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "maine_pair_us",
+   "characters": [
+    "henry_clay",
+    "jq_adams"
+   ]
+  },
+  {
+   "scene": "line_3630_us",
+   "characters": [
+    "henry_clay"
+   ]
+  },
+  {
+   "scene": "firebell_us",
+   "characters": [
+    "jefferson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

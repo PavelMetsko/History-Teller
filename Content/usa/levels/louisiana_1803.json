@@ -1,0 +1,74 @@
+{
+ "id": "louisiana_1803",
+ "order": 560,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_ceremony",
+ "cover": "whole_louisiana_us",
+ "panels": 3,
+ "scenes": [
+  "haiti_loss_us",
+  "whole_louisiana_us",
+  "sign_purchase_us",
+  "wait_amendment_us"
+ ],
+ "characters": [
+  "jefferson",
+  "napoleon",
+  "robert_livingston",
+  "james_monroe"
+ ],
+ "initialState": {
+  "flags": {
+   "napoleon": [
+    "standing",
+    "reigns",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "robert_livingston",
+     "is": "purchased_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "jefferson",
+      "is": "hesitated_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "haiti_loss_us",
+   "characters": [
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "whole_louisiana_us",
+   "characters": [
+    "napoleon",
+    "robert_livingston"
+   ]
+  },
+  {
+   "scene": "sign_purchase_us",
+   "characters": [
+    "james_monroe",
+    "robert_livingston"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

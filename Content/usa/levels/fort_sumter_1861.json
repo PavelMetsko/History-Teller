@@ -1,0 +1,70 @@
+{
+ "id": "fort_sumter_1861",
+ "order": 870,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_battle",
+ "cover": "sumter_bombard_us",
+ "panels": 3,
+ "scenes": [
+  "resupply_sumter_us",
+  "evacuate_sumter_us",
+  "davis_order_us",
+  "sumter_bombard_us"
+ ],
+ "characters": [
+  "abraham_lincoln",
+  "jefferson_davis",
+  "robert_anderson",
+  "beauregard"
+ ],
+ "initialState": {
+  "flags": {
+   "abraham_lincoln": [
+    "standing",
+    "reigns"
+   ],
+   "jefferson_davis": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "robert_anderson",
+     "is": "surrendered_sumter_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "resupply_sumter_us",
+   "characters": [
+    "abraham_lincoln",
+    "robert_anderson"
+   ]
+  },
+  {
+   "scene": "davis_order_us",
+   "characters": [
+    "jefferson_davis",
+    "beauregard"
+   ]
+  },
+  {
+   "scene": "sumter_bombard_us",
+   "characters": [
+    "beauregard",
+    "robert_anderson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

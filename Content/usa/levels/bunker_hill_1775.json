@@ -1,0 +1,65 @@
+{
+ "id": "bunker_hill_1775",
+ "order": 350,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_battle",
+ "cover": "whites_eyes_us",
+ "panels": 3,
+ "scenes": [
+  "fortify_hill_us",
+  "fire_early_us",
+  "whites_eyes_us",
+  "third_assault_us"
+ ],
+ "characters": [
+  "prescott_w",
+  "joseph_warren",
+  "howe_w",
+  "peter_salem"
+ ],
+ "initialState": {
+  "flags": {
+   "howe_w": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "howe_w",
+     "is": "pyrrhic_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fortify_hill_us",
+   "characters": [
+    "prescott_w"
+   ]
+  },
+  {
+   "scene": "whites_eyes_us",
+   "characters": [
+    "prescott_w",
+    "howe_w"
+   ]
+  },
+  {
+   "scene": "third_assault_us",
+   "characters": [
+    "howe_w",
+    "joseph_warren"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

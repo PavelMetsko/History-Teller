@@ -1,0 +1,69 @@
+{
+ "id": "rip_van_winkle",
+ "order": 20,
+ "epoch": "usa",
+ "act": "Акт I · Легенды",
+ "music": "usa_romance",
+ "cover": "ninepins_us",
+ "panels": 3,
+ "scenes": [
+  "henpecked_us",
+  "ninepins_us",
+  "return_village_us",
+  "toast_king_us"
+ ],
+ "characters": [
+  "rip_van_winkle",
+  "dame_van_winkle",
+  "hudson_ghost",
+  "vedder"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rip_van_winkle",
+     "is": "citizen_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "rip_van_winkle",
+      "is": "mobbed_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "henpecked_us",
+   "characters": [
+    "dame_van_winkle",
+    "rip_van_winkle"
+   ]
+  },
+  {
+   "scene": "ninepins_us",
+   "characters": [
+    "hudson_ghost",
+    "rip_van_winkle"
+   ]
+  },
+  {
+   "scene": "return_village_us",
+   "characters": [
+    "rip_van_winkle",
+    "vedder"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

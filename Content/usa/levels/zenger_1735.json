@@ -1,0 +1,66 @@
+{
+ "id": "zenger_1735",
+ "order": 240,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "jury_truth_us",
+ "panels": 3,
+ "scenes": [
+  "weekly_journal_us",
+  "seditious_libel_us",
+  "apology_us",
+  "jury_truth_us"
+ ],
+ "characters": [
+  "zenger",
+  "andrew_hamilton",
+  "cosby",
+  "lewis_morris"
+ ],
+ "initialState": {
+  "flags": {
+   "cosby": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "zenger",
+     "is": "acquitted_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "weekly_journal_us",
+   "characters": [
+    "zenger",
+    "lewis_morris"
+   ]
+  },
+  {
+   "scene": "seditious_libel_us",
+   "characters": [
+    "cosby",
+    "zenger"
+   ]
+  },
+  {
+   "scene": "jury_truth_us",
+   "characters": [
+    "andrew_hamilton",
+    "zenger"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

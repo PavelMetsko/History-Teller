@@ -1,0 +1,67 @@
+{
+ "id": "cotton_gin_1793",
+ "order": 510,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_tension",
+ "cover": "cotton_kingdom_us",
+ "panels": 3,
+ "scenes": [
+  "mulberry_grove_us",
+  "patent_us",
+  "cotton_kingdom_us",
+  "sell_rights_us"
+ ],
+ "characters": [
+  "eli_whitney",
+  "catharine_greene",
+  "phineas_miller",
+  "jefferson"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "eli_whitney",
+     "is": "patent_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "phineas_miller",
+     "is": "cotton_boom_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mulberry_grove_us",
+   "characters": [
+    "catharine_greene",
+    "eli_whitney"
+   ]
+  },
+  {
+   "scene": "patent_us",
+   "characters": [
+    "eli_whitney",
+    "jefferson"
+   ]
+  },
+  {
+   "scene": "cotton_kingdom_us",
+   "characters": [
+    "phineas_miller",
+    "eli_whitney"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "id": "war_1812",
+ "order": 590,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_battle",
+ "cover": "fort_mchenry_us",
+ "panels": 3,
+ "scenes": [
+  "dolley_portrait_us",
+  "fort_mchenry_us",
+  "new_orleans_us",
+  "wait_peace_news_us"
+ ],
+ "characters": [
+  "madison",
+  "dolley_madison",
+  "francis_scott_key",
+  "andrew_jackson"
+ ],
+ "initialState": {
+  "flags": {
+   "madison": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dolley_madison",
+     "is": "saved_portrait_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "francis_scott_key",
+     "is": "anthem_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "andrew_jackson",
+     "is": "new_orleans_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dolley_portrait_us",
+   "characters": [
+    "dolley_madison",
+    "madison"
+   ]
+  },
+  {
+   "scene": "fort_mchenry_us",
+   "characters": [
+    "francis_scott_key"
+   ]
+  },
+  {
+   "scene": "new_orleans_us",
+   "characters": [
+    "andrew_jackson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

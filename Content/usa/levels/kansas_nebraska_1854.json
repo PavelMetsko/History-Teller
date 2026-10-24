@@ -1,0 +1,71 @@
+{
+ "id": "kansas_nebraska_1854",
+ "order": 810,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_tension",
+ "cover": "popular_sovereignty_us",
+ "panels": 3,
+ "scenes": [
+  "popular_sovereignty_us",
+  "keep_line_us",
+  "anti_nebraska_us",
+  "emigrant_aid_us"
+ ],
+ "characters": [
+  "stephen_douglas",
+  "abraham_lincoln",
+  "salmon_chase",
+  "charles_robinson"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "stephen_douglas",
+     "is": "kn_act_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "republican_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles_robinson",
+     "is": "free_staters_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "popular_sovereignty_us",
+   "characters": [
+    "stephen_douglas"
+   ]
+  },
+  {
+   "scene": "anti_nebraska_us",
+   "characters": [
+    "salmon_chase",
+    "abraham_lincoln"
+   ]
+  },
+  {
+   "scene": "emigrant_aid_us",
+   "characters": [
+    "charles_robinson"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

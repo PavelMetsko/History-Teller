@@ -1,0 +1,61 @@
+{
+  "id": "major_ridge",
+  "name": "Мейджор Ридж",
+  "skin": "#c68a5e",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a8a8a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a8a8a"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "turban",
+      "col": "#a8312f",
+      "jewel": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#2f4a7a",
+      "fur": "#a8312f",
+      "rope": "#7a5232"
+    },
+    "sleeves": {
+      "type": "bare"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#2f4a7a"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a5232",
+      "top": "#7a5232"
+    }
+  }
+}

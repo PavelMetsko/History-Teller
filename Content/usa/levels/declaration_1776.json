@@ -1,0 +1,67 @@
+{
+ "id": "declaration_1776",
+ "order": 360,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_ceremony",
+ "cover": "draft_declaration_us",
+ "panels": 3,
+ "scenes": [
+  "common_sense_us",
+  "wait_reconcile_us",
+  "draft_declaration_us",
+  "remember_ladies_us"
+ ],
+ "characters": [
+  "thomas_paine",
+  "jefferson",
+  "dickinson",
+  "abigail_adams",
+  "john_adams"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jefferson",
+     "is": "declaration_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_adams",
+     "is": "ladies_letter_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "common_sense_us",
+   "characters": [
+    "thomas_paine"
+   ]
+  },
+  {
+   "scene": "draft_declaration_us",
+   "characters": [
+    "jefferson",
+    "thomas_paine"
+   ]
+  },
+  {
+   "scene": "remember_ladies_us",
+   "characters": [
+    "abigail_adams",
+    "john_adams"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

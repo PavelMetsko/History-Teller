@@ -1,0 +1,61 @@
+{
+ "id": "seneca_falls_1848",
+ "order": 780,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_ceremony",
+ "cover": "douglass_vote_us",
+ "panels": 3,
+ "scenes": [
+  "london_snub_us",
+  "sentiments_us",
+  "drop_vote_us",
+  "douglass_vote_us"
+ ],
+ "characters": [
+  "elizabeth_stanton",
+  "lucretia_mott",
+  "frederick_douglass",
+  "martha_wright"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "elizabeth_stanton",
+     "is": "suffrage_resolution_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "london_snub_us",
+   "characters": [
+    "lucretia_mott",
+    "elizabeth_stanton"
+   ]
+  },
+  {
+   "scene": "sentiments_us",
+   "characters": [
+    "elizabeth_stanton",
+    "martha_wright"
+   ]
+  },
+  {
+   "scene": "douglass_vote_us",
+   "characters": [
+    "frederick_douglass",
+    "elizabeth_stanton"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

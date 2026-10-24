@@ -1,0 +1,65 @@
+{
+ "id": "mexican_war_1846",
+ "order": 770,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_battle",
+ "cover": "guadalupe_us",
+ "panels": 3,
+ "scenes": [
+  "annex_texas_us",
+  "oregon_fight_us",
+  "rio_grande_us",
+  "guadalupe_us"
+ ],
+ "characters": [
+  "james_polk",
+  "santa_anna",
+  "winfield_scott",
+  "john_fremont"
+ ],
+ "initialState": {
+  "flags": {
+   "santa_anna": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "winfield_scott",
+     "is": "cession_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "annex_texas_us",
+   "characters": [
+    "james_polk"
+   ]
+  },
+  {
+   "scene": "rio_grande_us",
+   "characters": [
+    "james_polk",
+    "winfield_scott"
+   ]
+  },
+  {
+   "scene": "guadalupe_us",
+   "characters": [
+    "winfield_scott",
+    "santa_anna"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

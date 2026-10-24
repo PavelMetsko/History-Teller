@@ -1,0 +1,66 @@
+{
+ "id": "shays_1786",
+ "order": 430,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_tension",
+ "cover": "springfield_us",
+ "panels": 3,
+ "scenes": [
+  "foreclosure_us",
+  "forgive_debts_us",
+  "springfield_us",
+  "washington_alarm_us"
+ ],
+ "characters": [
+  "daniel_shays",
+  "bowdoin",
+  "benjamin_lincoln",
+  "washington"
+ ],
+ "initialState": {
+  "flags": {
+   "bowdoin": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "washington",
+     "is": "to_convention_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "foreclosure_us",
+   "characters": [
+    "bowdoin",
+    "daniel_shays"
+   ]
+  },
+  {
+   "scene": "springfield_us",
+   "characters": [
+    "benjamin_lincoln",
+    "daniel_shays"
+   ]
+  },
+  {
+   "scene": "washington_alarm_us",
+   "characters": [
+    "washington",
+    "daniel_shays"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

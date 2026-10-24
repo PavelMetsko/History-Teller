@@ -1,0 +1,84 @@
+{
+ "id": "gettysburg_1863",
+ "order": 890,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_battle",
+ "cover": "picketts_charge_us",
+ "panels": 3,
+ "scenes": [
+  "picketts_charge_us",
+  "vicksburg_siege_us",
+  "gettysburg_address_us",
+  "lee_invades_again_us"
+ ],
+ "characters": [
+  "george_meade",
+  "ulysses_grant",
+  "abraham_lincoln",
+  "robert_lee"
+ ],
+ "initialState": {
+  "flags": {
+   "robert_lee": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "robert_lee",
+     "is": "repulsed_g_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "ulysses_grant",
+     "is": "vicksburg_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "abraham_lincoln",
+     "is": "address_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "robert_lee",
+      "is": "army_destroyed_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "picketts_charge_us",
+   "characters": [
+    "robert_lee",
+    "george_meade"
+   ]
+  },
+  {
+   "scene": "vicksburg_siege_us",
+   "characters": [
+    "ulysses_grant"
+   ]
+  },
+  {
+   "scene": "gettysburg_address_us",
+   "characters": [
+    "abraham_lincoln"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

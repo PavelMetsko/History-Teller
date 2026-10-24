@@ -1,0 +1,76 @@
+{
+ "id": "empire_1898",
+ "order": 1060,
+ "epoch": "usa",
+ "act": "Акт VII · Позолоченный век",
+ "music": "usa_battle",
+ "cover": "maine_explodes_us",
+ "panels": 3,
+ "scenes": [
+  "hawaii_coup_us",
+  "maine_explodes_us",
+  "annex_hawaii_us",
+  "philippine_war_us"
+ ],
+ "characters": [
+  "liliuokalani",
+  "mckinley",
+  "aguinaldo",
+  "mark_twain"
+ ],
+ "initialState": {
+  "flags": {
+   "mckinley": [
+    "standing",
+    "reigns"
+   ],
+   "liliuokalani": [
+    "standing",
+    "reigns",
+    "crowned"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "liliuokalani",
+     "is": "annexed_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "aguinaldo",
+     "is": "ph_war_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "maine_explodes_us",
+   "characters": [
+    "mckinley"
+   ]
+  },
+  {
+   "scene": "annex_hawaii_us",
+   "characters": [
+    "mckinley",
+    "liliuokalani"
+   ]
+  },
+  {
+   "scene": "philippine_war_us",
+   "characters": [
+    "mckinley",
+    "aguinaldo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

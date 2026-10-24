@@ -1,0 +1,61 @@
+{
+  "id": "cockacoeske",
+  "name": "Кокакоэске, царица памунки",
+  "skin": "#c68a5e",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#7a5232"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#a8794e",
+      "trim": "#2f9a8a",
+      "mantle": "#7a5232",
+      "shoes": "#7a5232"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8794e",
+      "cuff": "#a8794e"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

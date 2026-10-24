@@ -1,0 +1,71 @@
+{
+ "id": "bleeding_kansas_1856",
+ "order": 820,
+ "epoch": "usa",
+ "act": "Акт VI · Раскол и Реконструкция",
+ "music": "usa_battle",
+ "cover": "senate_caning_us",
+ "panels": 3,
+ "scenes": [
+  "sack_lawrence_us",
+  "pottawatomie_us",
+  "senate_caning_us",
+  "peaceful_vote_us"
+ ],
+ "characters": [
+  "john_brown",
+  "charles_sumner",
+  "preston_brooks",
+  "sheriff_jones"
+ ],
+ "initialState": {
+  "flags": {
+   "sheriff_jones": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles_sumner",
+     "is": "caned_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_brown",
+     "is": "pottawatomie_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sack_lawrence_us",
+   "characters": [
+    "sheriff_jones",
+    "john_brown"
+   ]
+  },
+  {
+   "scene": "pottawatomie_us",
+   "characters": [
+    "john_brown"
+   ]
+  },
+  {
+   "scene": "senate_caning_us",
+   "characters": [
+    "preston_brooks",
+    "charles_sumner"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

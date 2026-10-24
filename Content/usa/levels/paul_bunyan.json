@@ -1,0 +1,58 @@
+{
+ "id": "paul_bunyan",
+ "order": 60,
+ "epoch": "usa",
+ "act": "Акт I · Легенды",
+ "music": "usa_ceremony",
+ "cover": "crooked_river_us",
+ "panels": 3,
+ "scenes": [
+  "blue_snow_us",
+  "pancake_griddle_us",
+  "crooked_river_us",
+  "ledger_us"
+ ],
+ "characters": [
+  "paul_bunyan",
+  "inkslinger",
+  "sourdough_sam"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "paul_bunyan",
+     "is": "river_straight_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "blue_snow_us",
+   "characters": [
+    "paul_bunyan"
+   ]
+  },
+  {
+   "scene": "pancake_griddle_us",
+   "characters": [
+    "sourdough_sam",
+    "paul_bunyan"
+   ]
+  },
+  {
+   "scene": "crooked_river_us",
+   "characters": [
+    "paul_bunyan"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

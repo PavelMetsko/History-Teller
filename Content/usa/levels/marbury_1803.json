@@ -1,0 +1,65 @@
+{
+ "id": "marbury_1803",
+ "order": 550,
+ "epoch": "usa",
+ "act": "Акт IV · Молодая республика",
+ "music": "usa_ceremony",
+ "cover": "judicial_review_us",
+ "panels": 3,
+ "scenes": [
+  "withheld_commission_us",
+  "marbury_sues_us",
+  "issue_mandamus_us",
+  "judicial_review_us"
+ ],
+ "characters": [
+  "john_marshall",
+  "marbury",
+  "madison",
+  "jefferson"
+ ],
+ "initialState": {
+  "flags": {
+   "jefferson": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "john_marshall",
+     "is": "judicial_review_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "withheld_commission_us",
+   "characters": [
+    "madison",
+    "marbury"
+   ]
+  },
+  {
+   "scene": "marbury_sues_us",
+   "characters": [
+    "marbury",
+    "john_marshall"
+   ]
+  },
+  {
+   "scene": "judicial_review_us",
+   "characters": [
+    "john_marshall"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

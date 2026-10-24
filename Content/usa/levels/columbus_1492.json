@@ -1,0 +1,70 @@
+{
+ "id": "columbus_1492",
+ "order": 120,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_tension",
+ "cover": "tierra_us",
+ "panels": 3,
+ "scenes": [
+  "tierra_us",
+  "guaca_gifts_us",
+  "navidad_us",
+  "great_khan_us"
+ ],
+ "characters": [
+  "columbus",
+  "guacanagari",
+  "rodrigo_triana",
+  "luis_torres"
+ ],
+ "initialState": {
+  "flags": {
+   "columbus": [
+    "standing",
+    "strong"
+   ],
+   "guacanagari": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "columbus",
+     "is": "navidad_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tierra_us",
+   "characters": [
+    "rodrigo_triana",
+    "columbus"
+   ]
+  },
+  {
+   "scene": "guaca_gifts_us",
+   "characters": [
+    "columbus",
+    "guacanagari"
+   ]
+  },
+  {
+   "scene": "navidad_us",
+   "characters": [
+    "columbus",
+    "guacanagari"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

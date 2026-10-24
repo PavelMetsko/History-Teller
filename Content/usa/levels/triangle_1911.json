@@ -1,0 +1,71 @@
+{
+ "id": "triangle_1911",
+ "order": 1260,
+ "epoch": "usa",
+ "act": "Акт VIII · Прогрессивная эра",
+ "music": "usa_tension",
+ "cover": "locked_doors_us",
+ "panels": 3,
+ "scenes": [
+  "uprising_20000_us",
+  "locked_doors_us",
+  "unlock_doors_us",
+  "perkins_witness_us"
+ ],
+ "characters": [
+  "clara_lemlich",
+  "frances_perkins",
+  "max_blanck",
+  "isaac_harris"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "max_blanck",
+     "is": "triangle_fire_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "frances_perkins",
+     "is": "safety_laws_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "clara_lemlich",
+     "is": "strike_1909_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "uprising_20000_us",
+   "characters": [
+    "clara_lemlich"
+   ]
+  },
+  {
+   "scene": "locked_doors_us",
+   "characters": [
+    "max_blanck",
+    "isaac_harris"
+   ]
+  },
+  {
+   "scene": "perkins_witness_us",
+   "characters": [
+    "frances_perkins"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

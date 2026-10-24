@@ -1,0 +1,66 @@
+{
+ "id": "erie_lowell_1825",
+ "order": 700,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_ceremony",
+ "cover": "lowell_mills_us",
+ "panels": 3,
+ "scenes": [
+  "clinton_ditch_us",
+  "lowell_mills_us",
+  "wage_cut_us",
+  "ten_hour_petition_us"
+ ],
+ "characters": [
+  "dewitt_clinton",
+  "kirk_boott",
+  "sarah_bagley",
+  "samuel_slater"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dewitt_clinton",
+     "is": "canal_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "sarah_bagley",
+     "is": "petition_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "clinton_ditch_us",
+   "characters": [
+    "dewitt_clinton"
+   ]
+  },
+  {
+   "scene": "lowell_mills_us",
+   "characters": [
+    "kirk_boott",
+    "sarah_bagley"
+   ]
+  },
+  {
+   "scene": "ten_hour_petition_us",
+   "characters": [
+    "sarah_bagley",
+    "dewitt_clinton"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

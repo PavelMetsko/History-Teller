@@ -1,0 +1,77 @@
+{
+ "id": "mayflower_1620",
+ "order": 170,
+ "epoch": "usa",
+ "act": "Акт II · До США: колонии",
+ "music": "usa_ceremony",
+ "cover": "compact_us",
+ "panels": 3,
+ "scenes": [
+  "north_landing_us",
+  "compact_us",
+  "strangers_leave_us",
+  "plymouth_rock_us"
+ ],
+ "characters": [
+  "bradford",
+  "carver",
+  "hopkins_s",
+  "standish"
+ ],
+ "initialState": {
+  "flags": {
+   "standish": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "carver",
+     "is": "governor_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "hopkins_s",
+     "is": "signed_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "bradford",
+     "is": "plymouth_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "north_landing_us",
+   "characters": [
+    "carver"
+   ]
+  },
+  {
+   "scene": "compact_us",
+   "characters": [
+    "carver",
+    "hopkins_s"
+   ]
+  },
+  {
+   "scene": "plymouth_rock_us",
+   "characters": [
+    "standish",
+    "bradford"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

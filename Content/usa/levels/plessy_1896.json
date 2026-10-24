@@ -1,0 +1,66 @@
+{
+ "id": "plessy_1896",
+ "order": 1050,
+ "epoch": "usa",
+ "act": "Акт VII · Позолоченный век",
+ "music": "usa_tension",
+ "cover": "whites_only_car_us",
+ "panels": 3,
+ "scenes": [
+  "whites_only_car_us",
+  "colored_car_us",
+  "separate_equal_us",
+  "color_blind_us"
+ ],
+ "characters": [
+  "homer_plessy",
+  "albion_tourgee",
+  "henry_brown_j",
+  "harlan_j"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry_brown_j",
+     "is": "separate_equal_us"
+    }
+   },
+   {
+    "flag": {
+     "char": "harlan_j",
+     "is": "dissent_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "whites_only_car_us",
+   "characters": [
+    "homer_plessy",
+    "albion_tourgee"
+   ]
+  },
+  {
+   "scene": "separate_equal_us",
+   "characters": [
+    "henry_brown_j",
+    "homer_plessy"
+   ]
+  },
+  {
+   "scene": "color_blind_us",
+   "characters": [
+    "harlan_j"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

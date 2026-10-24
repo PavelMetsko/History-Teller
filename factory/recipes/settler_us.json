@@ -1,0 +1,65 @@
+{
+  "id": "settler_us",
+  "name": "Переселенец",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#7a5232",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#7a6a52",
+      "fur": "#c9b08a",
+      "rope": "#5a3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a6a52",
+      "cuff": "#7a6a52"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

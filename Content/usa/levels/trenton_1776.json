@@ -1,0 +1,74 @@
+{
+ "id": "trenton_1776",
+ "order": 370,
+ "epoch": "usa",
+ "act": "Акт III · Революция",
+ "music": "usa_battle",
+ "cover": "glover_boats_us",
+ "panels": 3,
+ "scenes": [
+  "glover_boats_us",
+  "rall_note_us",
+  "rall_reads_us",
+  "trenton_attack_us"
+ ],
+ "characters": [
+  "washington",
+  "rall",
+  "glover",
+  "knox"
+ ],
+ "initialState": {
+  "flags": {
+   "washington": [
+    "standing"
+   ],
+   "rall": [
+    "standing",
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rall",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "washington",
+     "is": "victor"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "glover_boats_us",
+   "characters": [
+    "glover",
+    "washington"
+   ]
+  },
+  {
+   "scene": "rall_note_us",
+   "characters": [
+    "rall"
+   ]
+  },
+  {
+   "scene": "trenton_attack_us",
+   "characters": [
+    "washington",
+    "rall"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

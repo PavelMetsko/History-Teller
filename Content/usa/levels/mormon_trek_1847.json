@@ -1,0 +1,63 @@
+{
+ "id": "mormon_trek_1847",
+ "order": 760,
+ "epoch": "usa",
+ "act": "Акт V · Реформы и экспансия",
+ "music": "usa_romance",
+ "cover": "this_is_place_us",
+ "panels": 3,
+ "scenes": [
+  "extermination_order_us",
+  "nauvoo_stay_us",
+  "handcart_trek_us",
+  "this_is_place_us"
+ ],
+ "characters": [
+  "brigham_young",
+  "emma_smith",
+  "lilburn_boggs"
+ ],
+ "initialState": {
+  "flags": {
+   "lilburn_boggs": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "brigham_young",
+     "is": "utah_us"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "extermination_order_us",
+   "characters": [
+    "lilburn_boggs",
+    "brigham_young"
+   ]
+  },
+  {
+   "scene": "handcart_trek_us",
+   "characters": [
+    "brigham_young"
+   ]
+  },
+  {
+   "scene": "this_is_place_us",
+   "characters": [
+    "brigham_young"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

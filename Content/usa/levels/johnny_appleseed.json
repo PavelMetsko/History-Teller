@@ -1,0 +1,67 @@
+{
+ "id": "johnny_appleseed",
+ "order": 40,
+ "epoch": "usa",
+ "act": "Акт I · Легенды",
+ "music": "usa_romance",
+ "cover": "orchard_claim_us",
+ "panels": 3,
+ "scenes": [
+  "cider_seeds_us",
+  "nursery_us",
+  "orchard_claim_us",
+  "graft_us"
+ ],
+ "characters": [
+  "chapman",
+  "cider_miller",
+  "settler_us"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "settler_us",
+     "is": "claim_us"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "chapman",
+      "is": "grafted_us"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cider_seeds_us",
+   "characters": [
+    "cider_miller",
+    "chapman"
+   ]
+  },
+  {
+   "scene": "nursery_us",
+   "characters": [
+    "chapman"
+   ]
+  },
+  {
+   "scene": "orchard_claim_us",
+   "characters": [
+    "settler_us",
+    "chapman"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}
