@@ -1,0 +1,74 @@
+{
+ "id": "putney_1647",
+ "order": 650,
+ "epoch": "tudor",
+ "act": "Акт VIII · Стюарты и революция",
+ "music": "tension",
+ "cover": "st_marys_putney_en",
+ "panels": 3,
+ "scenes": [
+  "agreement_people_en",
+  "saffron_walden_en",
+  "st_marys_putney_en",
+  "corkbush_en"
+ ],
+ "characters": [
+  "cromwell_ol",
+  "ireton",
+  "rainsborough",
+  "sexby"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rainsborough",
+     "is": "poorest_he_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "ireton",
+     "is": "property_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "cromwell_ol",
+     "is": "order_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "agreement_people_en",
+   "characters": [
+    "sexby",
+    "rainsborough"
+   ]
+  },
+  {
+   "scene": "st_marys_putney_en",
+   "characters": [
+    "rainsborough",
+    "ireton",
+    "cromwell_ol"
+   ]
+  },
+  {
+   "scene": "corkbush_en",
+   "characters": [
+    "cromwell_ol",
+    "sexby"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

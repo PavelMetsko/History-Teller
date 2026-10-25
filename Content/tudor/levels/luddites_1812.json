@@ -1,0 +1,74 @@
+{
+ "id": "luddites_1812",
+ "order": 870,
+ "epoch": "tudor",
+ "act": "Акт IX · Великобритания",
+ "music": "tension",
+ "cover": "crosland_moor_en",
+ "panels": 3,
+ "scenes": [
+  "crosland_moor_en",
+  "rawfolds_en",
+  "ludd_oath_en",
+  "kings_evidence_en",
+  "york_assizes_en"
+ ],
+ "characters": [
+  "george_mellor",
+  "william_horsfall",
+  "william_cartwright",
+  "benjamin_walker",
+  "baron_thomson"
+ ],
+ "initialState": {
+  "flags": {
+   "george_mellor": [
+    "luddite_en"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "william_horsfall",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "george_mellor",
+     "is": "hanged_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "crosland_moor_en",
+   "characters": [
+    "george_mellor",
+    "william_horsfall"
+   ]
+  },
+  {
+   "scene": "kings_evidence_en",
+   "characters": [
+    "benjamin_walker",
+    "baron_thomson"
+   ]
+  },
+  {
+   "scene": "york_assizes_en",
+   "characters": [
+    "baron_thomson",
+    "george_mellor",
+    "benjamin_walker"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

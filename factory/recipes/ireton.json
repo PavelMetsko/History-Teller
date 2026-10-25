@@ -1,0 +1,62 @@
+{
+  "id": "ireton",
+  "name": "Генри Айртон",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#7a6a52",
+      "trim": "#a8312f",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a6a52",
+      "cuff": "#7a6a52"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b3a38"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#3b2a20"
+    }
+  }
+}

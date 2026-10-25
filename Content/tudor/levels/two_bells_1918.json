@@ -1,0 +1,75 @@
+{
+ "id": "two_bells_1918",
+ "order": 1050,
+ "epoch": "tudor",
+ "act": "Акт XI · Война и голоса",
+ "music": "theme",
+ "cover": "compiegne_en",
+ "panels": 3,
+ "scenes": [
+  "rpa_1918_en",
+  "equal_franchise_en",
+  "compiegne_en",
+  "election_1918_en"
+ ],
+ "characters": [
+  "lloyd_george",
+  "millicent_fawcett",
+  "ferdinand_foch",
+  "matthias_erzberger",
+  "constance_markievicz",
+  "wilhelm2"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "millicent_fawcett",
+     "is": "vote_30_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "ferdinand_foch",
+     "is": "armistice_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "constance_markievicz",
+     "is": "elected_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "rpa_1918_en",
+   "characters": [
+    "lloyd_george",
+    "millicent_fawcett"
+   ]
+  },
+  {
+   "scene": "compiegne_en",
+   "characters": [
+    "ferdinand_foch",
+    "matthias_erzberger"
+   ]
+  },
+  {
+   "scene": "election_1918_en",
+   "characters": [
+    "lloyd_george",
+    "constance_markievicz"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

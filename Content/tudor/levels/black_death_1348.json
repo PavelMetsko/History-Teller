@@ -1,0 +1,75 @@
+{
+ "id": "black_death_1348",
+ "order": 230,
+ "epoch": "tudor",
+ "act": "Акт III · Нормандцы и Плантагенеты",
+ "music": "tension",
+ "cover": "empty_fields_en",
+ "panels": 3,
+ "scenes": [
+  "melcombe_ship_en",
+  "empty_fields_en",
+  "ordinance_en",
+  "effrenata_en"
+ ],
+ "characters": [
+  "edward3",
+  "islip",
+  "knighton",
+  "reaper_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "reaper_en",
+     "is": "frozen_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "islip",
+     "is": "effrenata_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "knighton",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "empty_fields_en",
+   "characters": [
+    "knighton",
+    "reaper_en"
+   ]
+  },
+  {
+   "scene": "ordinance_en",
+   "characters": [
+    "edward3",
+    "reaper_en"
+   ]
+  },
+  {
+   "scene": "effrenata_en",
+   "characters": [
+    "islip",
+    "edward3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

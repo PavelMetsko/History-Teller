@@ -1,0 +1,70 @@
+{
+ "id": "peterloo_1819",
+ "order": 890,
+ "epoch": "tudor",
+ "act": "Акт X · Век реформ и империи",
+ "music": "tension",
+ "cover": "st_peters_field_en",
+ "panels": 3,
+ "scenes": [
+  "middleton_march_en",
+  "moor_drill_en",
+  "hunt_surrender_en",
+  "st_peters_field_en",
+  "regent_thanks_en"
+ ],
+ "characters": [
+  "henry_hunt",
+  "samuel_bamford",
+  "william_hulton",
+  "lord_sidmouth",
+  "peterloo_crowd"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "peterloo_crowd",
+     "is": "massacre_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "lord_sidmouth",
+     "is": "six_acts_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "middleton_march_en",
+   "characters": [
+    "samuel_bamford",
+    "peterloo_crowd"
+   ]
+  },
+  {
+   "scene": "st_peters_field_en",
+   "characters": [
+    "william_hulton",
+    "henry_hunt",
+    "peterloo_crowd"
+   ]
+  },
+  {
+   "scene": "regent_thanks_en",
+   "characters": [
+    "lord_sidmouth",
+    "william_hulton"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

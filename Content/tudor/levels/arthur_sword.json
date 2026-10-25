@@ -1,0 +1,68 @@
+{
+ "id": "arthur_sword",
+ "order": 10,
+ "epoch": "tudor",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "stone_anvil_en",
+ "panels": 3,
+ "scenes": [
+  "stone_anvil_en",
+  "kay_claim_en",
+  "merlin_reveal_en",
+  "arthur_crowned_en",
+  "arthur_wed_en"
+ ],
+ "characters": [
+  "arthur_en",
+  "merlin_en",
+  "kay_en",
+  "guinevere_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "arthur_en",
+     "is": "crowned_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "kay_en",
+      "is": "liar_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "stone_anvil_en",
+   "characters": [
+    "arthur_en"
+   ]
+  },
+  {
+   "scene": "merlin_reveal_en",
+   "characters": [
+    "merlin_en",
+    "arthur_en"
+   ]
+  },
+  {
+   "scene": "arthur_crowned_en",
+   "characters": [
+    "arthur_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

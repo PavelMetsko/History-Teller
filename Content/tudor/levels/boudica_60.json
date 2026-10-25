@@ -1,0 +1,67 @@
+{
+ "id": "boudica_60",
+ "order": 60,
+ "epoch": "tudor",
+ "act": "Акт II · Римляне, саксы и викинги",
+ "music": "tension",
+ "cover": "colonia_burns_en",
+ "panels": 3,
+ "scenes": [
+  "iceni_seize_en",
+  "colonia_burns_en",
+  "mona_en",
+  "watling_en",
+  "boudica_parley_en"
+ ],
+ "characters": [
+  "boudica_en",
+  "suetonius_en",
+  "catus_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "boudica_en",
+     "is": "last_stand_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "catus_en",
+     "is": "fled_gaul_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "iceni_seize_en",
+   "characters": [
+    "catus_en",
+    "boudica_en"
+   ]
+  },
+  {
+   "scene": "colonia_burns_en",
+   "characters": [
+    "boudica_en",
+    "catus_en"
+   ]
+  },
+  {
+   "scene": "watling_en",
+   "characters": [
+    "suetonius_en",
+    "boudica_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

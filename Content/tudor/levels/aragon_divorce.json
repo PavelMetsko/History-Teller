@@ -1,6 +1,6 @@
 {
  "id": "aragon_divorce",
- "order": 130,
+ "order": 370,
  "epoch": "tudor",
  "panels": 2,
  "scenes": [
@@ -74,5 +74,5 @@
  "factCard": {
   "accuracy": "fact"
  },
- "act": "Акт IV · Шесть жён"
+ "act": "Акт VI · Шесть жён"
 }

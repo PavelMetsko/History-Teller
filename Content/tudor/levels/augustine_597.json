@@ -1,0 +1,71 @@
+{
+ "id": "augustine_597",
+ "order": 70,
+ "epoch": "tudor",
+ "act": "Акт II · Римляне, саксы и викинги",
+ "music": "theme",
+ "cover": "st_martin_en",
+ "panels": 3,
+ "scenes": [
+  "gregory_send_en",
+  "kent_hall_en",
+  "thanet_open_air_en",
+  "st_martin_en",
+  "force_faith_en"
+ ],
+ "characters": [
+  "augustine_en",
+  "aethelberht_en",
+  "bertha_en",
+  "gregory_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "aethelberht_en",
+     "is": "baptized_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "aethelberht_en",
+      "is": "forced_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "gregory_send_en",
+   "characters": [
+    "gregory_en",
+    "augustine_en"
+   ]
+  },
+  {
+   "scene": "thanet_open_air_en",
+   "characters": [
+    "aethelberht_en",
+    "augustine_en"
+   ]
+  },
+  {
+   "scene": "st_martin_en",
+   "characters": [
+    "augustine_en",
+    "aethelberht_en",
+    "bertha_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

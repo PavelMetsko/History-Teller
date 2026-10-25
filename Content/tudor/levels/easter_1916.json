@@ -1,0 +1,79 @@
+{
+ "id": "easter_1916",
+ "order": 1030,
+ "epoch": "tudor",
+ "act": "Акт XI · Война и голоса",
+ "music": "tension",
+ "cover": "gpo_proclamation_en",
+ "panels": 3,
+ "scenes": [
+  "gpo_proclamation_en",
+  "rising_surrender_en",
+  "courts_martial_en",
+  "wait_home_rule_en"
+ ],
+ "characters": [
+  "patrick_pearse",
+  "james_connolly",
+  "constance_markievicz",
+  "john_maxwell",
+  "john_redmond"
+ ],
+ "initialState": {
+  "flags": {
+   "constance_markievicz": [
+    "rebel_en"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "patrick_pearse",
+     "is": "surrendered_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "james_connolly",
+     "is": "executed_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "constance_markievicz",
+     "is": "commuted_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "gpo_proclamation_en",
+   "characters": [
+    "patrick_pearse",
+    "james_connolly"
+   ]
+  },
+  {
+   "scene": "rising_surrender_en",
+   "characters": [
+    "patrick_pearse",
+    "john_maxwell"
+   ]
+  },
+  {
+   "scene": "courts_martial_en",
+   "characters": [
+    "john_maxwell",
+    "james_connolly",
+    "constance_markievicz"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

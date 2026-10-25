@@ -1,0 +1,71 @@
+{
+ "id": "chartists_1848",
+ "order": 930,
+ "epoch": "tudor",
+ "act": "Акт X · Век реформ и империи",
+ "music": "tension",
+ "cover": "kennington_en",
+ "panels": 3,
+ "scenes": [
+  "peoples_charter_en",
+  "kennington_en",
+  "march_westminster_en",
+  "cabs_commons_en",
+  "osborne_en"
+ ],
+ "characters": [
+  "feargus_oconnor",
+  "william_lovett",
+  "wellington",
+  "lord_john_russell",
+  "victoria"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lord_john_russell",
+     "is": "petition_rejected_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "feargus_oconnor",
+      "is": "dispersed_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "peoples_charter_en",
+   "characters": [
+    "william_lovett",
+    "feargus_oconnor"
+   ]
+  },
+  {
+   "scene": "kennington_en",
+   "characters": [
+    "feargus_oconnor",
+    "wellington"
+   ]
+  },
+  {
+   "scene": "cabs_commons_en",
+   "characters": [
+    "feargus_oconnor",
+    "lord_john_russell"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

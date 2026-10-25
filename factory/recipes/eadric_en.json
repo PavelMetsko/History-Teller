@@ -1,0 +1,63 @@
+{
+  "id": "eadric_en",
+  "name": "Эдрик Стреона",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#2a1a12"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#3b3a38"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#5a6b4a",
+      "trim": "#d4a63c",
+      "belt": "#6b4426"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a6b4a",
+      "cuff": "#5a6b4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5b3a22",
+      "top": "#5b3a22"
+    }
+  }
+}

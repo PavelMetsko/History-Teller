@@ -1,0 +1,67 @@
+{
+ "id": "drogheda_1649",
+ "order": 670,
+ "epoch": "tudor",
+ "act": "Акт VIII · Стюарты и революция",
+ "music": "tension",
+ "cover": "drogheda_breach_en",
+ "panels": 3,
+ "scenes": [
+  "ormond_leaves_en",
+  "summons_en",
+  "terms_en",
+  "drogheda_breach_en"
+ ],
+ "characters": [
+  "cromwell_ol",
+  "arthur_aston",
+  "ormond",
+  "ireton"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cromwell_ol",
+     "is": "drogheda_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "ormond",
+     "is": "away"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ormond_leaves_en",
+   "characters": [
+    "ormond",
+    "arthur_aston"
+   ]
+  },
+  {
+   "scene": "summons_en",
+   "characters": [
+    "cromwell_ol",
+    "arthur_aston"
+   ]
+  },
+  {
+   "scene": "drogheda_breach_en",
+   "characters": [
+    "cromwell_ol",
+    "arthur_aston"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

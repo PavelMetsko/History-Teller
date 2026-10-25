@@ -1,0 +1,69 @@
+{
+ "id": "united_irishmen_1798",
+ "order": 850,
+ "epoch": "tudor",
+ "act": "Акт IX · Великобритания",
+ "music": "tension",
+ "cover": "lough_swilly_en",
+ "panels": 3,
+ "scenes": [
+  "belfast_oath_en",
+  "lough_swilly_en",
+  "dublin_union_en",
+  "emancipation_en",
+  "antrim_en"
+ ],
+ "characters": [
+  "wolfe_tone",
+  "mccracken",
+  "cornwallis",
+  "castlereagh",
+  "george3"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "castlereagh",
+     "is": "union_act_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "wolfe_tone",
+     "is": "captured_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "belfast_oath_en",
+   "characters": [
+    "wolfe_tone",
+    "mccracken"
+   ]
+  },
+  {
+   "scene": "lough_swilly_en",
+   "characters": [
+    "wolfe_tone",
+    "cornwallis"
+   ]
+  },
+  {
+   "scene": "dublin_union_en",
+   "characters": [
+    "castlereagh",
+    "cornwallis"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

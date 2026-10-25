@@ -1,0 +1,66 @@
+{
+ "id": "famine_1845",
+ "order": 920,
+ "epoch": "tudor",
+ "act": "Акт X · Век реформ и империи",
+ "music": "tension",
+ "cover": "gregory_clause_en",
+ "panels": 3,
+ "scenes": [
+  "trust_market_en",
+  "maize_en",
+  "gregory_clause_en",
+  "coffin_ship_en",
+  "treason_felony_en"
+ ],
+ "characters": [
+  "lord_john_russell",
+  "charles_trevelyan",
+  "robert_peel",
+  "irish_tenants",
+  "john_mitchel"
+ ],
+ "initialState": {
+  "flags": {
+   "irish_tenants": [
+    "blight_en"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "irish_tenants",
+     "is": "emigrated_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "trust_market_en",
+   "characters": [
+    "lord_john_russell",
+    "charles_trevelyan"
+   ]
+  },
+  {
+   "scene": "gregory_clause_en",
+   "characters": [
+    "charles_trevelyan",
+    "irish_tenants"
+   ]
+  },
+  {
+   "scene": "coffin_ship_en",
+   "characters": [
+    "irish_tenants"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

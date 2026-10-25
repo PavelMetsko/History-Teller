@@ -1,0 +1,82 @@
+{
+ "id": "bannockburn_1314",
+ "order": 200,
+ "epoch": "tudor",
+ "act": "Акт III · Нормандцы и Плантагенеты",
+ "music": "tension",
+ "cover": "carse_en",
+ "panels": 3,
+ "scenes": [
+  "bohun_charge_en",
+  "schiltron_en",
+  "carse_en",
+  "open_field_en"
+ ],
+ "characters": [
+  "robert_bruce",
+  "thomas_randolph",
+  "henry_bohun",
+  "edward2"
+ ],
+ "initialState": {
+  "flags": {
+   "edward2": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "robert_bruce",
+    "edward2"
+   ],
+   [
+    "enemy_of",
+    "edward2",
+    "robert_bruce"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "robert_bruce",
+     "is": "victor_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "edward2",
+     "is": "fled_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bohun_charge_en",
+   "characters": [
+    "henry_bohun",
+    "robert_bruce"
+   ]
+  },
+  {
+   "scene": "schiltron_en",
+   "characters": [
+    "thomas_randolph"
+   ]
+  },
+  {
+   "scene": "carse_en",
+   "characters": [
+    "robert_bruce",
+    "thomas_randolph",
+    "edward2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

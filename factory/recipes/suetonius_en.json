@@ -1,0 +1,61 @@
+{
+  "id": "suetonius_en",
+  "name": "Светоний Паулин",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a5a5a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#5a5a5a"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "helmet",
+      "col": "#b9bfc6",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8262e"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "legion_tunic",
+      "col": "#a8312f",
+      "belt": "#6b4426",
+      "button": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "bare"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "sandals",
+      "strap": "#8a5a2a"
+    }
+  }
+}

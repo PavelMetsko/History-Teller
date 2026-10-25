@@ -1,0 +1,67 @@
+{
+ "id": "witan_1066",
+ "order": 100,
+ "epoch": "tudor",
+ "act": "Акт II · Римляне, саксы и викинги",
+ "music": "tension",
+ "cover": "witan_vote_en",
+ "panels": 3,
+ "scenes": [
+  "confessor_deathbed_en",
+  "witan_vote_en",
+  "relics_oath_en",
+  "norman_envoy_en",
+  "tostig_norway_en"
+ ],
+ "characters": [
+  "edward_conf_en",
+  "harold",
+  "william",
+  "hardrada"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "harold",
+     "is": "crowned_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "william",
+     "is": "claimant_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "confessor_deathbed_en",
+   "characters": [
+    "edward_conf_en",
+    "harold"
+   ]
+  },
+  {
+   "scene": "witan_vote_en",
+   "characters": [
+    "harold"
+   ]
+  },
+  {
+   "scene": "norman_envoy_en",
+   "characters": [
+    "william",
+    "harold"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

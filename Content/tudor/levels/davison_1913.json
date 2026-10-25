@@ -1,0 +1,74 @@
+{
+ "id": "davison_1913",
+ "order": 1010,
+ "epoch": "tudor",
+ "act": "Акт XI · Война и голоса",
+ "music": "tension",
+ "cover": "derby_en",
+ "panels": 3,
+ "scenes": [
+  "hunger_strike_en",
+  "derby_en",
+  "great_pilgrimage_en",
+  "window_smash_en"
+ ],
+ "characters": [
+  "emmeline_pankhurst",
+  "millicent_fawcett",
+  "emily_davison",
+  "herbert_asquith",
+  "george5"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "emmeline_pankhurst",
+     "is": "cat_mouse_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "emily_davison",
+     "is": "martyr_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "millicent_fawcett",
+     "is": "deputation_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hunger_strike_en",
+   "characters": [
+    "emmeline_pankhurst",
+    "herbert_asquith"
+   ]
+  },
+  {
+   "scene": "derby_en",
+   "characters": [
+    "emily_davison",
+    "george5"
+   ]
+  },
+  {
+   "scene": "great_pilgrimage_en",
+   "characters": [
+    "millicent_fawcett",
+    "herbert_asquith"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

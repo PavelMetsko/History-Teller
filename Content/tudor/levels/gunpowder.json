@@ -1,8 +1,8 @@
 {
  "id": "gunpowder",
- "order": 240,
+ "order": 600,
  "epoch": "tudor",
- "act": "Акт VI · Стюарты",
+ "act": "Акт VIII · Стюарты и революция",
  "music": "theme",
  "cover": "cellar_search",
  "panels": 3,

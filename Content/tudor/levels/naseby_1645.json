@@ -1,0 +1,68 @@
+{
+ "id": "naseby_1645",
+ "order": 640,
+ "epoch": "tudor",
+ "act": "Акт VIII · Стюарты и революция",
+ "music": "tension",
+ "cover": "ironsides_en",
+ "panels": 3,
+ "scenes": [
+  "rupert_charge_en",
+  "rupert_stays_en",
+  "ironsides_en",
+  "royal_baggage_en"
+ ],
+ "characters": [
+  "charles1",
+  "prince_rupert",
+  "fairfax",
+  "cromwell_ol"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "exposed_letters_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "cromwell_ol",
+     "is": "victor_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "rupert_charge_en",
+   "characters": [
+    "prince_rupert",
+    "charles1"
+   ]
+  },
+  {
+   "scene": "ironsides_en",
+   "characters": [
+    "cromwell_ol",
+    "fairfax",
+    "charles1"
+   ]
+  },
+  {
+   "scene": "royal_baggage_en",
+   "characters": [
+    "fairfax",
+    "charles1"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

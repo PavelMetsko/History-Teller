@@ -1,0 +1,63 @@
+{
+  "id": "george5",
+  "name": "Король Георг V",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#1e2a44",
+      "facing": "#1e2a44",
+      "trim": "#d4a63c",
+      "sash": "#2f4a9a",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e2a44",
+      "cuff": "#1e2a44"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#1e2a44"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+ "id": "cnut_1016",
+ "order": 90,
+ "epoch": "tudor",
+ "act": "Акт II · Римляне, саксы и викинги",
+ "music": "tension",
+ "cover": "assandun_en",
+ "panels": 3,
+ "scenes": [
+  "assandun_en",
+  "alney_en",
+  "cnut_murder_en",
+  "emma_wed_en"
+ ],
+ "characters": [
+  "cnut_en",
+  "edmund_ironside_en",
+  "eadric_en",
+  "emma_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cnut_en",
+     "is": "king_all_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "cnut_en",
+     "is": "wed_emma_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "assandun_en",
+   "characters": [
+    "cnut_en",
+    "edmund_ironside_en",
+    "eadric_en"
+   ]
+  },
+  {
+   "scene": "alney_en",
+   "characters": [
+    "cnut_en",
+    "edmund_ironside_en"
+   ]
+  },
+  {
+   "scene": "emma_wed_en",
+   "characters": [
+    "cnut_en",
+    "emma_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

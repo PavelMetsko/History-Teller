@@ -1,0 +1,64 @@
+{
+ "id": "whittington",
+ "order": 40,
+ "epoch": "tudor",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "whit_bells_en",
+ "panels": 3,
+ "scenes": [
+  "whit_cat_en",
+  "whit_bells_en",
+  "whit_ledger_en",
+  "whit_mayor_en",
+  "whit_wed_en"
+ ],
+ "characters": [
+  "whittington_en",
+  "fitzwarren_en",
+  "alice_fitz_en"
+ ],
+ "initialState": {
+  "flags": {
+   "whittington_en": [
+    "fleeing_en"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "whittington_en",
+     "is": "mayor_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "whit_cat_en",
+   "characters": [
+    "whittington_en",
+    "fitzwarren_en"
+   ]
+  },
+  {
+   "scene": "whit_bells_en",
+   "characters": [
+    "whittington_en"
+   ]
+  },
+  {
+   "scene": "whit_mayor_en",
+   "characters": [
+    "whittington_en",
+    "fitzwarren_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "id": "lamps_1914",
+ "order": 1020,
+ "epoch": "tudor",
+ "act": "Акт XI · Война и голоса",
+ "music": "tension",
+ "cover": "ultimatum_1914_en",
+ "panels": 3,
+ "scenes": [
+  "into_belgium_en",
+  "grey_speech_en",
+  "ultimatum_1914_en",
+  "cousins_telegram_en"
+ ],
+ "characters": [
+  "edward_grey",
+  "wilhelm2",
+  "lloyd_george",
+  "herbert_asquith",
+  "george5"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wilhelm2",
+     "is": "at_war_uk_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "lloyd_george",
+     "is": "convinced_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "into_belgium_en",
+   "characters": [
+    "wilhelm2",
+    "edward_grey"
+   ]
+  },
+  {
+   "scene": "grey_speech_en",
+   "characters": [
+    "edward_grey",
+    "lloyd_george"
+   ]
+  },
+  {
+   "scene": "ultimatum_1914_en",
+   "characters": [
+    "edward_grey",
+    "wilhelm2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

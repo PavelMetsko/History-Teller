@@ -1,0 +1,75 @@
+{
+ "id": "domesday_1086",
+ "order": 120,
+ "epoch": "tudor",
+ "act": "Акт III · Нормандцы и Плантагенеты",
+ "music": "theme",
+ "cover": "winchester_book_en",
+ "panels": 3,
+ "scenes": [
+  "gloucester_xmas_en",
+  "great_geld_en",
+  "hundred_jury_en",
+  "winchester_book_en"
+ ],
+ "characters": [
+  "william",
+  "st_calais",
+  "picot_en",
+  "thegn_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "william",
+     "is": "domesday_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "thegn_en",
+     "is": "sworn_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "thegn_en",
+      "is": "silenced_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "gloucester_xmas_en",
+   "characters": [
+    "william",
+    "st_calais"
+   ]
+  },
+  {
+   "scene": "hundred_jury_en",
+   "characters": [
+    "st_calais",
+    "thegn_en"
+   ]
+  },
+  {
+   "scene": "winchester_book_en",
+   "characters": [
+    "st_calais",
+    "william"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

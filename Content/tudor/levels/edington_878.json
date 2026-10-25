@@ -1,0 +1,72 @@
+{
+ "id": "edington_878",
+ "order": 80,
+ "epoch": "tudor",
+ "act": "Акт II · Римляне, саксы и викинги",
+ "music": "tension",
+ "cover": "edington_field_en",
+ "panels": 3,
+ "scenes": [
+  "egbert_stone_en",
+  "cakes_en",
+  "edington_field_en",
+  "aller_baptism_en",
+  "guthrum_kill_en"
+ ],
+ "characters": [
+  "alfred_en",
+  "guthrum_en",
+  "odda_en",
+  "ealhswith_en"
+ ],
+ "initialState": {
+  "flags": {
+   "alfred_en": [
+    "fled_en"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "guthrum_en",
+     "is": "baptized_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "alfred_en",
+     "is": "peace_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "egbert_stone_en",
+   "characters": [
+    "alfred_en",
+    "odda_en"
+   ]
+  },
+  {
+   "scene": "edington_field_en",
+   "characters": [
+    "alfred_en",
+    "guthrum_en"
+   ]
+  },
+  {
+   "scene": "aller_baptism_en",
+   "characters": [
+    "alfred_en",
+    "guthrum_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

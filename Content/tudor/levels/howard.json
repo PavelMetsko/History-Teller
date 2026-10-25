@@ -1,6 +1,6 @@
 {
  "id": "howard",
- "order": 170,
+ "order": 450,
  "epoch": "tudor",
  "panels": 3,
  "scenes": [
@@ -59,7 +59,7 @@
  "factCard": {
   "accuracy": "fact"
  },
- "act": "Акт IV · Шесть жён",
+ "act": "Акт VI · Шесть жён",
  "initialState": {
   "flags": {
    "cranmer": [

@@ -1,0 +1,82 @@
+{
+ "id": "montfort_1265",
+ "order": 170,
+ "epoch": "tudor",
+ "act": "Акт III · Нормандцы и Плантагенеты",
+ "music": "tension",
+ "cover": "parliament_1265_en",
+ "panels": 4,
+ "scenes": [
+  "lewes_en",
+  "parliament_1265_en",
+  "horse_race_en",
+  "evesham_en",
+  "parole_en"
+ ],
+ "characters": [
+  "simon_montfort",
+  "henry3",
+  "edward1",
+  "mortimer_wigmore"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "simon_montfort",
+     "is": "commons_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "simon_montfort",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "henry3",
+     "is": "freed_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "lewes_en",
+   "characters": [
+    "simon_montfort",
+    "henry3"
+   ]
+  },
+  {
+   "scene": "parliament_1265_en",
+   "characters": [
+    "simon_montfort",
+    "henry3"
+   ]
+  },
+  {
+   "scene": "horse_race_en",
+   "characters": [
+    "edward1",
+    "mortimer_wigmore"
+   ]
+  },
+  {
+   "scene": "evesham_en",
+   "characters": [
+    "edward1",
+    "simon_montfort",
+    "henry3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

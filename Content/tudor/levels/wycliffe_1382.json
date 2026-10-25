@@ -1,0 +1,66 @@
+{
+ "id": "wycliffe_1382",
+ "order": 250,
+ "epoch": "tudor",
+ "act": "Акт III · Нормандцы и Плантагенеты",
+ "music": "tension",
+ "cover": "blackfriars_en",
+ "panels": 3,
+ "scenes": [
+  "gaunt_silence_en",
+  "blackfriars_en",
+  "lutterworth_en",
+  "prague_students_en"
+ ],
+ "characters": [
+  "wycliffe",
+  "john_gaunt",
+  "courtenay",
+  "anne_bohemia"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "wycliffe",
+     "is": "condemned_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "anne_bohemia",
+     "is": "prague_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "blackfriars_en",
+   "characters": [
+    "courtenay",
+    "wycliffe"
+   ]
+  },
+  {
+   "scene": "lutterworth_en",
+   "characters": [
+    "wycliffe"
+   ]
+  },
+  {
+   "scene": "prague_students_en",
+   "characters": [
+    "anne_bohemia",
+    "wycliffe"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

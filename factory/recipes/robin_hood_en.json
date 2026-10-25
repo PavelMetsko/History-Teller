@@ -1,0 +1,64 @@
+{
+  "id": "robin_hood_en",
+  "name": "Робин Гуд",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "hood",
+      "col": "#2f6a4a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#2f6a4a",
+      "trim": "#7a5232",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#2f6a4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a6b4a"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5b3a22",
+      "top": "#5b3a22"
+    }
+  }
+}

@@ -9267,5 +9267,1125 @@
    "john_pershing"
   ],
   "emoji": "🎖️"
+ },
+ {
+  "id": "arthur_en",
+  "name": "Юный Артур",
+  "tags": [
+   "arthur_en"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "merlin_en",
+  "name": "Мерлин",
+  "tags": [
+   "merlin_en"
+  ],
+  "emoji": "🧙"
+ },
+ {
+  "id": "kay_en",
+  "name": "Сэр Кей",
+  "tags": [
+   "kay_en"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "guinevere_en",
+  "name": "Гвиневра",
+  "tags": [
+   "guinevere_en"
+  ],
+  "emoji": "🌹"
+ },
+ {
+  "id": "godiva_en",
+  "name": "Леди Годива",
+  "tags": [
+   "godiva_en"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "leofric_en",
+  "name": "Граф Леофрик",
+  "tags": [
+   "leofric_en"
+  ],
+  "emoji": "🪙"
+ },
+ {
+  "id": "peeping_tom_en",
+  "name": "Подглядывающий Том",
+  "tags": [
+   "peeping_tom_en"
+  ],
+  "emoji": "👀"
+ },
+ {
+  "id": "robin_hood_en",
+  "name": "Робин Гуд",
+  "tags": [
+   "robin_hood_en"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "little_john_en",
+  "name": "Маленький Джон",
+  "tags": [
+   "little_john_en"
+  ],
+  "emoji": "🪵"
+ },
+ {
+  "id": "sheriff_nott_en",
+  "name": "Шериф Ноттингемский",
+  "tags": [
+   "sheriff_nott_en"
+  ],
+  "emoji": "⚖️"
+ },
+ {
+  "id": "marian_en",
+  "name": "Дева Мэриан",
+  "tags": [
+   "marian_en"
+  ],
+  "emoji": "🌿"
+ },
+ {
+  "id": "whittington_en",
+  "name": "Дик Уиттингтон",
+  "tags": [
+   "whittington_en"
+  ],
+  "emoji": "🐈"
+ },
+ {
+  "id": "fitzwarren_en",
+  "name": "Купец Фицуорин",
+  "tags": [
+   "fitzwarren_en"
+  ],
+  "emoji": "⚓"
+ },
+ {
+  "id": "alice_fitz_en",
+  "name": "Алиса Фицуорин",
+  "tags": [
+   "alice_fitz_en"
+  ],
+  "emoji": "💐"
+ },
+ {
+  "id": "plautius_en",
+  "name": "Авл Плавтий",
+  "tags": [
+   "plautius_en"
+  ],
+  "emoji": "🦅"
+ },
+ {
+  "id": "caratacus_en",
+  "name": "Каратак",
+  "tags": [
+   "caratacus_en"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "togodumnus_en",
+  "name": "Тогодумн",
+  "tags": [
+   "togodumnus_en"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "boudica_en",
+  "name": "Боудикка",
+  "tags": [
+   "boudica_en"
+  ],
+  "emoji": "🔥"
+ },
+ {
+  "id": "suetonius_en",
+  "name": "Светоний Паулин",
+  "tags": [
+   "suetonius_en"
+  ],
+  "emoji": "🦅"
+ },
+ {
+  "id": "catus_en",
+  "name": "Прокуратор Кат Дециан",
+  "tags": [
+   "catus_en"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "augustine_en",
+  "name": "Августин",
+  "tags": [
+   "augustine_en"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "aethelberht_en",
+  "name": "Король Этельберт",
+  "tags": [
+   "aethelberht_en"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "bertha_en",
+  "name": "Королева Берта",
+  "tags": [
+   "bertha_en"
+  ],
+  "emoji": "🕯️"
+ },
+ {
+  "id": "gregory_en",
+  "name": "Папа Григорий Великий",
+  "tags": [
+   "gregory_en"
+  ],
+  "emoji": "📿"
+ },
+ {
+  "id": "alfred_en",
+  "name": "Альфред Великий",
+  "tags": [
+   "alfred_en"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "guthrum_en",
+  "name": "Гутрум",
+  "tags": [
+   "guthrum_en"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "odda_en",
+  "name": "Олдермен Одда",
+  "tags": [
+   "odda_en"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "ealhswith_en",
+  "name": "Королева Эалсвита",
+  "tags": [
+   "ealhswith_en"
+  ],
+  "emoji": "🕯️"
+ },
+ {
+  "id": "cnut_en",
+  "name": "Кнуд",
+  "tags": [
+   "cnut_en"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "edmund_ironside_en",
+  "name": "Эдмунд Железнобокий",
+  "tags": [
+   "edmund_ironside_en"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "eadric_en",
+  "name": "Эдрик Стреона",
+  "tags": [
+   "eadric_en"
+  ],
+  "emoji": "🐍"
+ },
+ {
+  "id": "emma_en",
+  "name": "Эмма Нормандская",
+  "tags": [
+   "emma_en"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "edward_conf_en",
+  "name": "Эдуард Исповедник",
+  "tags": [
+   "edward_conf_en"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "st_calais",
+  "name": "Епископ Вильгельм де Сен-Кале",
+  "tags": [
+   "st_calais"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "picot_en",
+  "name": "Шериф Пико Кембриджский",
+  "tags": [
+   "picot_en"
+  ],
+  "emoji": "🦁"
+ },
+ {
+  "id": "thegn_en",
+  "name": "Тэн-держатель",
+  "tags": [
+   "thegn_en"
+  ],
+  "emoji": "🌾"
+ },
+ {
+  "id": "matilda_emp",
+  "name": "Императрица Матильда",
+  "tags": [
+   "matilda_emp"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "stephen_king",
+  "name": "Король Стефан",
+  "tags": [
+   "stephen_king"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "robert_gloucester",
+  "name": "Роберт Глостерский",
+  "tags": [
+   "robert_gloucester"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "henry_blois",
+  "name": "Епископ Генрих Блуаский",
+  "tags": [
+   "henry_blois"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "simon_montfort",
+  "name": "Симон де Монфор",
+  "tags": [
+   "simon_montfort"
+  ],
+  "emoji": "🦁"
+ },
+ {
+  "id": "henry3",
+  "name": "Генрих III",
+  "tags": [
+   "henry3"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "mortimer_wigmore",
+  "name": "Роджер Мортимер из Вигмора",
+  "tags": [
+   "mortimer_wigmore"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "llywelyn_ap",
+  "name": "Лливелин ап Грифид",
+  "tags": [
+   "llywelyn_ap"
+  ],
+  "emoji": "🐉"
+ },
+ {
+  "id": "dafydd_ap",
+  "name": "Давид ап Грифид",
+  "tags": [
+   "dafydd_ap"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "pecham",
+  "name": "Архиепископ Джон Пекхэм",
+  "tags": [
+   "pecham"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "robert_bruce",
+  "name": "Роберт Брюс",
+  "tags": [
+   "robert_bruce"
+  ],
+  "emoji": "🦁"
+ },
+ {
+  "id": "thomas_randolph",
+  "name": "Томас Рэндольф",
+  "tags": [
+   "thomas_randolph"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "henry_bohun",
+  "name": "Сэр Генри де Богун",
+  "tags": [
+   "henry_bohun"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "islip",
+  "name": "Архиепископ Симон Ислип",
+  "tags": [
+   "islip"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "knighton",
+  "name": "Хронист Генри Найтон",
+  "tags": [
+   "knighton"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "reaper_en",
+  "name": "Жнец-подёнщик",
+  "tags": [
+   "reaper_en"
+  ],
+  "emoji": "🌾"
+ },
+ {
+  "id": "wycliffe",
+  "name": "Джон Уиклиф",
+  "tags": [
+   "wycliffe"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "john_gaunt",
+  "name": "Джон Гонт",
+  "tags": [
+   "john_gaunt"
+  ],
+  "emoji": "🦁"
+ },
+ {
+  "id": "courtenay",
+  "name": "Архиепископ Уильям Куртене",
+  "tags": [
+   "courtenay"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "anne_bohemia",
+  "name": "Анна Богемская",
+  "tags": [
+   "anne_bohemia"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "buckingham_v",
+  "name": "Джордж Вильерс, герцог Бекингем",
+  "tags": [
+   "buckingham_v"
+  ],
+  "emoji": "💎"
+ },
+ {
+  "id": "john_eliot",
+  "name": "Сэр Джон Элиот",
+  "tags": [
+   "john_eliot"
+  ],
+  "emoji": "🗣️"
+ },
+ {
+  "id": "john_felton",
+  "name": "Лейтенант Джон Фелтон",
+  "tags": [
+   "john_felton"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "prince_rupert",
+  "name": "Принц Руперт",
+  "tags": [
+   "prince_rupert"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "fairfax",
+  "name": "Сэр Томас Фэрфакс",
+  "tags": [
+   "fairfax"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "ireton",
+  "name": "Генри Айртон",
+  "tags": [
+   "ireton"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "rainsborough",
+  "name": "Полковник Томас Рейнсборо",
+  "tags": [
+   "rainsborough"
+  ],
+  "emoji": "🗣️"
+ },
+ {
+  "id": "sexby",
+  "name": "Агитатор Эдвард Сексби",
+  "tags": [
+   "sexby"
+  ],
+  "emoji": "📣"
+ },
+ {
+  "id": "arthur_aston",
+  "name": "Сэр Артур Астон",
+  "tags": [
+   "arthur_aston"
+  ],
+  "emoji": "🦵"
+ },
+ {
+  "id": "ormond",
+  "name": "Маркиз Ормонд",
+  "tags": [
+   "ormond"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "newton",
+  "name": "Исаак Ньютон",
+  "tags": [
+   "newton"
+  ],
+  "emoji": "🍎"
+ },
+ {
+  "id": "hooke",
+  "name": "Роберт Гук",
+  "tags": [
+   "hooke"
+  ],
+  "emoji": "🔬"
+ },
+ {
+  "id": "halley",
+  "name": "Эдмонд Галлей",
+  "tags": [
+   "halley"
+  ],
+  "emoji": "☄️"
+ },
+ {
+  "id": "flamsteed",
+  "name": "Королевский астроном Джон Флемстид",
+  "tags": [
+   "flamsteed"
+  ],
+  "emoji": "🔭"
+ },
+ {
+  "id": "charles_darwin",
+  "name": "Чарльз Дарвин",
+  "tags": [
+   "charles_darwin"
+  ],
+  "emoji": "🐢"
+ },
+ {
+  "id": "alfred_wallace",
+  "name": "Альфред Рассел Уоллес",
+  "tags": [
+   "alfred_wallace"
+  ],
+  "emoji": "🦋"
+ },
+ {
+  "id": "thomas_huxley",
+  "name": "Томас Гексли",
+  "tags": [
+   "thomas_huxley"
+  ],
+  "emoji": "🐶"
+ },
+ {
+  "id": "samuel_wilberforce",
+  "name": "Епископ Сэмюэл Уилберфорс",
+  "tags": [
+   "samuel_wilberforce"
+  ],
+  "emoji": "⛪"
+ },
+ {
+  "id": "emma_darwin",
+  "name": "Эмма Дарвин",
+  "tags": [
+   "emma_darwin"
+  ],
+  "emoji": "🕯️"
+ },
+ {
+  "id": "charles_parnell",
+  "name": "Чарльз Стюарт Парнелл",
+  "tags": [
+   "charles_parnell"
+  ],
+  "emoji": "☘️"
+ },
+ {
+  "id": "joseph_chamberlain",
+  "name": "Джозеф Чемберлен",
+  "tags": [
+   "joseph_chamberlain"
+  ],
+  "emoji": "🧐"
+ },
+ {
+  "id": "randolph_churchill",
+  "name": "Лорд Рэндольф Черчилль",
+  "tags": [
+   "randolph_churchill"
+  ],
+  "emoji": "🟧"
+ },
+ {
+  "id": "kitchener",
+  "name": "Лорд Китченер",
+  "tags": [
+   "kitchener"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "louis_botha",
+  "name": "Генерал Луис Бота",
+  "tags": [
+   "louis_botha"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "emily_hobhouse",
+  "name": "Эмили Хобхаус",
+  "tags": [
+   "emily_hobhouse"
+  ],
+  "emoji": "📝"
+ },
+ {
+  "id": "sol_plaatje",
+  "name": "Сол Плаатье",
+  "tags": [
+   "sol_plaatje"
+  ],
+  "emoji": "🖋️"
+ },
+ {
+  "id": "paul_kruger",
+  "name": "Президент Пауль Крюгер",
+  "tags": [
+   "paul_kruger"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "emmeline_pankhurst",
+  "name": "Эммелин Панкхёрст",
+  "tags": [
+   "emmeline_pankhurst"
+  ],
+  "emoji": "🟣"
+ },
+ {
+  "id": "millicent_fawcett",
+  "name": "Миллисент Фосетт",
+  "tags": [
+   "millicent_fawcett"
+  ],
+  "emoji": "🟢"
+ },
+ {
+  "id": "emily_davison",
+  "name": "Эмили Дэвисон",
+  "tags": [
+   "emily_davison"
+  ],
+  "emoji": "🎗️"
+ },
+ {
+  "id": "herbert_asquith",
+  "name": "Премьер Герберт Асквит",
+  "tags": [
+   "herbert_asquith"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "george5",
+  "name": "Король Георг V",
+  "tags": [
+   "george5"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "edward_grey",
+  "name": "Сэр Эдвард Грей",
+  "tags": [
+   "edward_grey"
+  ],
+  "emoji": "🕯️"
+ },
+ {
+  "id": "wilhelm2",
+  "name": "Кайзер Вильгельм II",
+  "tags": [
+   "wilhelm2"
+  ],
+  "emoji": "🦅"
+ },
+ {
+  "id": "lloyd_george",
+  "name": "Дэвид Ллойд Джордж",
+  "tags": [
+   "lloyd_george"
+  ],
+  "emoji": "🐉"
+ },
+ {
+  "id": "patrick_pearse",
+  "name": "Патрик Пирс",
+  "tags": [
+   "patrick_pearse"
+  ],
+  "emoji": "📯"
+ },
+ {
+  "id": "james_connolly",
+  "name": "Джеймс Коннолли",
+  "tags": [
+   "james_connolly"
+  ],
+  "emoji": "🔨"
+ },
+ {
+  "id": "constance_markievicz",
+  "name": "Графиня Констанция Маркевич",
+  "tags": [
+   "constance_markievicz"
+  ],
+  "emoji": "🌹"
+ },
+ {
+  "id": "john_maxwell",
+  "name": "Генерал Джон Максвелл",
+  "tags": [
+   "john_maxwell"
+  ],
+  "emoji": "⚖️"
+ },
+ {
+  "id": "john_redmond",
+  "name": "Джон Редмонд",
+  "tags": [
+   "john_redmond"
+  ],
+  "emoji": "🏛️"
+ },
+ {
+  "id": "douglas_haig",
+  "name": "Генерал Дуглас Хейг",
+  "tags": [
+   "douglas_haig"
+  ],
+  "emoji": "🗺️"
+ },
+ {
+  "id": "henry_rawlinson",
+  "name": "Генерал Генри Роулинсон",
+  "tags": [
+   "henry_rawlinson"
+  ],
+  "emoji": "📯"
+ },
+ {
+  "id": "fritz_von_below",
+  "name": "Генерал Фриц фон Белов",
+  "tags": [
+   "fritz_von_below"
+  ],
+  "emoji": "🪖"
+ },
+ {
+  "id": "siegfried_sassoon",
+  "name": "Лейтенант Зигфрид Сассун",
+  "tags": [
+   "siegfried_sassoon"
+  ],
+  "emoji": "✒️"
+ },
+ {
+  "id": "ferdinand_foch",
+  "name": "Маршал Фердинанд Фош",
+  "tags": [
+   "ferdinand_foch"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "matthias_erzberger",
+  "name": "Маттиас Эрцбергер",
+  "tags": [
+   "matthias_erzberger"
+  ],
+  "emoji": "📄"
+ },
+ {
+  "id": "godolphin",
+  "name": "Лорд Годолфин",
+  "tags": [
+   "godolphin"
+  ],
+  "emoji": "💷"
+ },
+ {
+  "id": "queensberry",
+  "name": "Герцог Куинсберри",
+  "tags": [
+   "queensberry"
+  ],
+  "emoji": "🏴"
+ },
+ {
+  "id": "andrew_fletcher",
+  "name": "Эндрю Флетчер из Солтуна",
+  "tags": [
+   "andrew_fletcher"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "arkwright",
+  "name": "Ричард Аркрайт",
+  "tags": [
+   "arkwright"
+  ],
+  "emoji": "⚙️"
+ },
+ {
+  "id": "john_kay_clock",
+  "name": "Часовщик Джон Кей",
+  "tags": [
+   "john_kay_clock"
+  ],
+  "emoji": "🕰️"
+ },
+ {
+  "id": "thomas_highs",
+  "name": "Томас Хайс",
+  "tags": [
+   "thomas_highs"
+  ],
+  "emoji": "🧵"
+ },
+ {
+  "id": "jedediah_strutt",
+  "name": "Джедедайя Стратт",
+  "tags": [
+   "jedediah_strutt"
+  ],
+  "emoji": "🧦"
+ },
+ {
+  "id": "mill_children",
+  "name": "Фабричные дети",
+  "tags": [
+   "mill_children"
+  ],
+  "emoji": "👧"
+ },
+ {
+  "id": "luke_collingwood",
+  "name": "Капитан Люк Коллингвуд",
+  "tags": [
+   "luke_collingwood"
+  ],
+  "emoji": "⚓"
+ },
+ {
+  "id": "william_gregson",
+  "name": "Судовладелец Уильям Грегсон",
+  "tags": [
+   "william_gregson"
+  ],
+  "emoji": "💼"
+ },
+ {
+  "id": "granville_sharp",
+  "name": "Гранвилл Шарп",
+  "tags": [
+   "granville_sharp"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "equiano",
+  "name": "Олауда Эквиано",
+  "tags": [
+   "equiano"
+  ],
+  "emoji": "✒️"
+ },
+ {
+  "id": "lord_mansfield",
+  "name": "Лорд Мэнсфилд",
+  "tags": [
+   "lord_mansfield"
+  ],
+  "emoji": "⚖️"
+ },
+ {
+  "id": "wolfe_tone",
+  "name": "Теобальд Вулф Тон",
+  "tags": [
+   "wolfe_tone"
+  ],
+  "emoji": "☘️"
+ },
+ {
+  "id": "mccracken",
+  "name": "Генри Джой Маккракен",
+  "tags": [
+   "mccracken"
+  ],
+  "emoji": "🔱"
+ },
+ {
+  "id": "castlereagh",
+  "name": "Лорд Каслри",
+  "tags": [
+   "castlereagh"
+  ],
+  "emoji": "🖋️"
+ },
+ {
+  "id": "george_mellor",
+  "name": "Джордж Меллор",
+  "tags": [
+   "george_mellor"
+  ],
+  "emoji": "🔨"
+ },
+ {
+  "id": "william_horsfall",
+  "name": "Фабрикант Уильям Хорсфолл",
+  "tags": [
+   "william_horsfall"
+  ],
+  "emoji": "🏭"
+ },
+ {
+  "id": "william_cartwright",
+  "name": "Фабрикант Уильям Картрайт",
+  "tags": [
+   "william_cartwright"
+  ],
+  "emoji": "🔫"
+ },
+ {
+  "id": "benjamin_walker",
+  "name": "Бенджамин Уокер",
+  "tags": [
+   "benjamin_walker"
+  ],
+  "emoji": "🤐"
+ },
+ {
+  "id": "baron_thomson",
+  "name": "Судья казначейства барон Томсон",
+  "tags": [
+   "baron_thomson"
+  ],
+  "emoji": "⚖️"
+ },
+ {
+  "id": "henry_hunt",
+  "name": "Генри Хант",
+  "tags": [
+   "henry_hunt"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "samuel_bamford",
+  "name": "Сэмюэл Бэмфорд",
+  "tags": [
+   "samuel_bamford"
+  ],
+  "emoji": "🥁"
+ },
+ {
+  "id": "william_hulton",
+  "name": "Магистрат Уильям Халтон",
+  "tags": [
+   "william_hulton"
+  ],
+  "emoji": "📯"
+ },
+ {
+  "id": "lord_sidmouth",
+  "name": "Лорд Сидмут",
+  "tags": [
+   "lord_sidmouth"
+  ],
+  "emoji": "🏛️"
+ },
+ {
+  "id": "peterloo_crowd",
+  "name": "Толпа на поле Святого Петра",
+  "tags": [
+   "peterloo_crowd"
+  ],
+  "emoji": "👥"
+ },
+ {
+  "id": "robert_peel",
+  "name": "Роберт Пиль",
+  "tags": [
+   "robert_peel"
+  ],
+  "emoji": "🌽"
+ },
+ {
+  "id": "charles_trevelyan",
+  "name": "Чарльз Тревельян",
+  "tags": [
+   "charles_trevelyan"
+  ],
+  "emoji": "📊"
+ },
+ {
+  "id": "lord_john_russell",
+  "name": "Лорд Джон Рассел",
+  "tags": [
+   "lord_john_russell"
+  ],
+  "emoji": "🏛️"
+ },
+ {
+  "id": "irish_tenants",
+  "name": "Ирландские арендаторы",
+  "tags": [
+   "irish_tenants"
+  ],
+  "emoji": "🥔"
+ },
+ {
+  "id": "john_mitchel",
+  "name": "Джон Митчел",
+  "tags": [
+   "john_mitchel"
+  ],
+  "emoji": "🗞️"
+ },
+ {
+  "id": "feargus_oconnor",
+  "name": "Фергюс О'Коннор",
+  "tags": [
+   "feargus_oconnor"
+  ],
+  "emoji": "📣"
+ },
+ {
+  "id": "william_lovett",
+  "name": "Уильям Ловетт",
+  "tags": [
+   "william_lovett"
+  ],
+  "emoji": "✍️"
+ },
+ {
+  "id": "mangal_pandey",
+  "name": "Мангал Панди",
+  "tags": [
+   "mangal_pandey"
+  ],
+  "emoji": "🔥"
+ },
+ {
+  "id": "meerut_sepoys",
+  "name": "Сипаи из Мирута",
+  "tags": [
+   "meerut_sepoys"
+  ],
+  "emoji": "🪖"
+ },
+ {
+  "id": "bahadur_shah",
+  "name": "Бахадур-шах Зафар",
+  "tags": [
+   "bahadur_shah"
+  ],
+  "emoji": "🕌"
+ },
+ {
+  "id": "lakshmi_bai",
+  "name": "Рани Лакшми Бай",
+  "tags": [
+   "lakshmi_bai"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "lord_canning",
+  "name": "Лорд Каннинг",
+  "tags": [
+   "lord_canning"
+  ],
+  "emoji": "🏛️"
  }
 ]

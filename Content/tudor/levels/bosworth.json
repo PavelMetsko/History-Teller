@@ -1,8 +1,8 @@
 {
  "id": "bosworth",
- "order": 110,
+ "order": 330,
  "epoch": "tudor",
- "act": "Акт III · Восхождение Тюдоров",
+ "act": "Акт V · Восхождение Тюдоров",
  "panels": 3,
  "scenes": [
   "bosworth_turn",

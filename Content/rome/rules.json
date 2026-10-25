@@ -47358,5 +47358,6762 @@
     "flag": "fourteen_points_us"
    }
   ]
+ },
+ {
+  "id": "stone_anvil_en_sig",
+  "comment": "Мальчик-оруженосец легко вытаскивает меч, который не поддался ни одному барону",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_stone_anvil_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arthur_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pulled_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "has_sword_en"
+   }
+  ]
+ },
+ {
+  "id": "stone_anvil_en_sig_kay",
+  "comment": "Сэр Кей тянет меч изо всех сил — камень его не отпускает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_stone_anvil_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kay_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strained_en"
+   }
+  ]
+ },
+ {
+  "id": "kay_claim_en_sig",
+  "comment": "Кей узнаёт меч из камня, забирает его у брата и объявляет, что вытащил сам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kay_claim_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kay_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arthur_en"
+     ],
+     "flags": [
+      "has_sword_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "has_sword_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "has_sword_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "liar_en"
+   }
+  ]
+ },
+ {
+  "id": "merlin_reveal_en_sig",
+  "comment": "Мерлин открывает баронам: мальчик — сын короля Утера, которого тайно растил сэр Эктор",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_merlin_reveal_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "merlin_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arthur_en"
+     ],
+     "flags": [
+      "pulled_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "revealed_en"
+   }
+  ]
+ },
+ {
+  "id": "arthur_crowned_en_sig",
+  "comment": "Тот, кто вытащил меч и чьё рождение открыто, становится королём всей Британии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_arthur_crowned_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arthur_en"
+     ],
+     "flags": [
+      "has_sword_en",
+      "revealed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned_en"
+   }
+  ]
+ },
+ {
+  "id": "godiva_plea_en_sig",
+  "comment": "Графиня умоляет снять налог; граф смеётся: «Проедь нагой через рынок — тогда отменю»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_godiva_plea_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "godiva_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "leofric_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dared_en"
+   }
+  ]
+ },
+ {
+  "id": "godiva_shutters_en_sig",
+  "comment": "Горожане дают слово: в час её проезда все окна и двери будут закрыты",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_godiva_shutters_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "peeping_tom_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "shuttered_en"
+   }
+  ]
+ },
+ {
+  "id": "godiva_ride_en_sig",
+  "comment": "Укрытая лишь длинными волосами, графиня проезжает через пустую площадь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_godiva_ride_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "godiva_en"
+     ],
+     "flags": [
+      "dared_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rode_en"
+   }
+  ]
+ },
+ {
+  "id": "godiva_ride_en_sig_tom",
+  "comment": "Портной Том проделывает дырочку в ставне — и слепнет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_godiva_ride_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "godiva_en"
+     ],
+     "flags": [
+      "dared_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "peeping_tom_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "blinded_en"
+   }
+  ]
+ },
+ {
+  "id": "godiva_relief_en_sig",
+  "comment": "Граф держит слово и освобождает Ковентри от налога",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_godiva_relief_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "leofric_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "godiva_en"
+     ],
+     "flags": [
+      "rode_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "relieved_en"
+   }
+  ]
+ },
+ {
+  "id": "robin_bridge_en_sig",
+  "comment": "Великан сбрасывает Робина с бревна в ручей — и Робин зовёт его в свою шайку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_robin_bridge_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robin_hood_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "little_john_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "merry_man_en"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "robin_disguise_en_sig",
+  "comment": "Робин надевает лохмотья и повязку на глаз — родная шайка его не узнаёт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_robin_disguise_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robin_hood_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "disguised_en"
+   }
+  ]
+ },
+ {
+  "id": "robin_archery_en_sig",
+  "comment": "Безвестный оборванец расщепляет стрелу соперника и уносит золотую стрелу из-под носа шерифа",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_robin_archery_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robin_hood_en"
+     ],
+     "flags": [
+      "disguised_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sheriff_nott_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "golden_arrow_en"
+   }
+  ]
+ },
+ {
+  "id": "robin_archery_en_sig_caught",
+  "comment": "Шериф узнаёт лучшего лучника Англии — ловушка захлопывается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_robin_archery_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robin_hood_en"
+     ],
+     "notFlags": [
+      "disguised_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sheriff_nott_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "captured_en"
+   }
+  ]
+ },
+ {
+  "id": "whit_cat_en_sig",
+  "comment": "Нищему мальчику нечего вложить в плавание хозяина — кроме кошки, ловящей мышей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_whit_cat_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "whittington_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "fitzwarren_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "cat_sold_en"
+   }
+  ]
+ },
+ {
+  "id": "whit_bells_en_sig",
+  "comment": "На Хайгейтском холме колокола Боу звонят: «Вернись, Уиттингтон, трижды лорд-мэр Лондона!»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_whit_bells_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "whittington_en"
+     ],
+     "flags": [
+      "fleeing_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "fleeing_en"
+   }
+  ]
+ },
+ {
+  "id": "whit_ledger_en_sig",
+  "comment": "Купец записывает золото за кошку на свой счёт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_whit_ledger_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "fitzwarren_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "greedy_en"
+   }
+  ]
+ },
+ {
+  "id": "whit_mayor_en_sig",
+  "comment": "Честный купец отдаёт мальчику всё, что выручили за кошку в Берберии, — и сирота становится богачом, а потом лорд-мэром",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_whit_mayor_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "whittington_en"
+     ],
+     "notFlags": [
+      "fleeing_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "fitzwarren_en"
+     ],
+     "flags": [
+      "cat_sold_en"
+     ],
+     "notFlags": [
+      "greedy_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "mayor_en"
+   }
+  ]
+ },
+ {
+  "id": "medway_en_sig",
+  "comment": "Два дня боя на реке: Тогодумн погибает, Каратак уходит на запад продолжать войну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_medway_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "plautius_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "caratacus_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "togodumnus_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_west_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "elephants_en_sig",
+  "comment": "Легат останавливается у Темзы и шлёт за императором — победу должен увенчать сам Клавдий",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_elephants_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "princeps_r"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "plautius_en"
+     ],
+     "flags": [
+      "victor_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "arrived_en"
+   }
+  ]
+ },
+ {
+  "id": "camulodunum_en_sig",
+  "comment": "Клавдий входит в столицу бриттов и принимает покорность одиннадцати царей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_camulodunum_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "princeps_r"
+     ],
+     "flags": [
+      "arrived_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "triumph_en"
+   }
+  ]
+ },
+ {
+  "id": "caratacus_captured_en_sig",
+  "comment": "Вождя схватили сразу — у Рима нет врага на западе, но нет и истории Каратака",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_caratacus_captured_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "plautius_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "caratacus_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_en"
+   }
+  ]
+ },
+ {
+  "id": "iceni_seize_en_sig",
+  "comment": "Римские чиновники забирают царство иценов, царицу бичуют, её дочерей подвергают насилию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_iceni_seize_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "catus_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "boudica_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "wronged_en"
+   }
+  ]
+ },
+ {
+  "id": "colonia_burns_en_sig",
+  "comment": "Ицены и тринованты сжигают Камулодун, затем Лондиний и Веруламий",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_colonia_burns_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "boudica_en"
+     ],
+     "flags": [
+      "wronged_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "revolt_en"
+   }
+  ]
+ },
+ {
+  "id": "colonia_burns_en_sig_catus",
+  "comment": "Прокуратор, чья жадность разожгла восстание, бежит в Галлию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_colonia_burns_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "boudica_en"
+     ],
+     "flags": [
+      "wronged_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "catus_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_gaul_en"
+   }
+  ]
+ },
+ {
+  "id": "mona_en_sig",
+  "comment": "Наместник ведёт легионы на далёкий остров друидов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mona_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "suetonius_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "far_west_en"
+   }
+  ]
+ },
+ {
+  "id": "watling_en_sig",
+  "comment": "Десять тысяч римлян в узкой долине выдерживают натиск огромного войска — восстание разбито",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_watling_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "suetonius_en"
+     ],
+     "notFlags": [
+      "far_west_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "boudica_en"
+     ],
+     "flags": [
+      "revolt_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "last_stand_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "gregory_send_en_sig",
+  "comment": "Папа посылает приора Августина с сорока монахами обращать англов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gregory_send_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gregory_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "augustine_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mission_en"
+   }
+  ]
+ },
+ {
+  "id": "kent_hall_en_sig",
+  "comment": "Король боится колдовства чужеземцев: под крышей их чары будут сильнее — и он не верит ни слову",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kent_hall_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "aethelberht_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "augustine_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "wary_en"
+   }
+  ]
+ },
+ {
+  "id": "thanet_open_air_en_sig",
+  "comment": "На острове Танет король слушает монахов под открытым небом и разрешает им проповедовать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_thanet_open_air_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "aethelberht_en"
+     ],
+     "notFlags": [
+      "wary_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "augustine_en"
+     ],
+     "flags": [
+      "mission_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "heard_en"
+   }
+  ]
+ },
+ {
+  "id": "st_martin_en_sig",
+  "comment": "В старой римской церкви, где молится королева-франкская христианка, король принимает крещение",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_st_martin_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "augustine_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "aethelberht_en"
+     ],
+     "flags": [
+      "heard_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "bertha_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "baptized_en"
+   }
+  ]
+ },
+ {
+  "id": "force_faith_en_sig",
+  "comment": "Король велит крестить всех — веру навязывают силой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_force_faith_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "aethelberht_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "forced_en"
+   }
+  ]
+ },
+ {
+  "id": "egbert_stone_en_sig",
+  "comment": "Из болот Этелни король зовёт ополчение Сомерсета, Уилтшира и Гэмпшира — и люди приходят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_egbert_stone_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alfred_en"
+     ],
+     "flags": [
+      "fled_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "odda_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "army_en"
+   }
+  ]
+ },
+ {
+  "id": "cakes_en_sig",
+  "comment": "Задумавшийся беглец сжигает лепёшки — и получает нагоняй от хозяйки",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cakes_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alfred_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "scolded_en"
+   }
+  ]
+ },
+ {
+  "id": "edington_field_en_sig",
+  "comment": "Стена щитов против стены щитов — датчане бегут и две недели сидят в осаде",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_edington_field_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alfred_en"
+     ],
+     "flags": [
+      "army_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "guthrum_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated_en"
+   },
+   {
+    "type": "addRelation",
+    "rel": "enemy_of",
+    "from": "A",
+    "to": "B"
+   }
+  ]
+ },
+ {
+  "id": "aller_baptism_en_sig",
+  "comment": "Побеждённый вождь крестится, и король сам становится его крёстным отцом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_aller_baptism_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alfred_en"
+     ],
+     "flags": [
+      "victor_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "guthrum_en"
+     ],
+     "flags": [
+      "defeated_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "baptized_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "peace_en"
+   }
+  ]
+ },
+ {
+  "id": "assandun_en_sig",
+  "comment": "В разгар битвы Эдрик со своими людьми покидает поле — английское войско разбито",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_assandun_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cnut_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "edmund_ironside_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "eadric_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "deserter_en"
+   }
+  ]
+ },
+ {
+  "id": "alney_en_sig",
+  "comment": "Короли делят страну: Эдмунду — Уэссекс, Кнуду — всё к северу от Темзы, и кто переживёт другого, получит всё. Через месяц Эдмунд умирает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_alney_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cnut_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "edmund_ironside_en"
+     ],
+     "flags": [
+      "defeated_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "king_all_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "cnut_murder_en_sig",
+  "comment": "Кнуд подсылает убийц — на нём кровь соперника",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cnut_murder_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cnut_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "edmund_ironside_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "kinslayer_en"
+   }
+  ]
+ },
+ {
+  "id": "emma_wed_en_sig",
+  "comment": "Вдова прежнего короля выходит за нового — с условием, что наследником станет их общий сын",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emma_wed_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cnut_en"
+     ],
+     "flags": [
+      "king_all_en"
+     ],
+     "notFlags": [
+      "kinslayer_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emma_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "wed_emma_en"
+   }
+  ]
+ },
+ {
+  "id": "confessor_deathbed_en_sig",
+  "comment": "Умирающий король протягивает руку графу Гарольду и поручает ему королевство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_confessor_deathbed_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "edward_conf_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "commended_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "witan_vote_en_sig",
+  "comment": "Совет мудрых избирает Гарольда, и в день похорон Эдуарда его коронуют в Вестминстере",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_witan_vote_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "flags": [
+      "commended_en"
+     ],
+     "notFlags": [
+      "yielded_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned_en"
+   }
+  ]
+ },
+ {
+  "id": "relics_oath_en_sig",
+  "comment": "Вильгельм напоминает: два года назад в Нормандии Гарольд поклялся на мощах поддержать его — и граф уступает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_relics_oath_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "norman",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "notFlags": [
+      "crowned_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "yielded_en"
+   }
+  ]
+ },
+ {
+  "id": "norman_envoy_en_sig",
+  "comment": "Герцог объявляет коронованного клятвопреступником и начинает строить флот",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_norman_envoy_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "norman",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "flags": [
+      "crowned_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "claimant_en"
+   }
+  ]
+ },
+ {
+  "id": "tostig_norway_en_sig",
+  "comment": "Изгнанный брат Гарольда уговаривает норвежского короля вспомнить старый договор о наследстве",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tostig_norway_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "norse",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "claimant_en"
+   }
+  ]
+ },
+ {
+  "id": "gloucester_xmas_en_sig",
+  "comment": "На Рождество король «долго и глубоко совещается» — и рассылает по графствам комиссаров",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gloucester_xmas_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "norman",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "st_calais"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "survey_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "commissioner_en"
+   }
+  ]
+ },
+ {
+  "id": "gloucester_xmas_en_picot",
+  "comment": "Король назначает комиссаром шерифа, который сам захватывал чужие земли",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gloucester_xmas_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "norman",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "picot_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "survey_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "commissioner_en"
+   }
+  ]
+ },
+ {
+  "id": "great_geld_en_sig",
+  "comment": "Король берёт по шесть шиллингов с гайды — тэн разорён и спешит укрыться за могущественного барона",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_great_geld_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "norman",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "thegn_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "ruined_en"
+   }
+  ]
+ },
+ {
+  "id": "hundred_jury_en_sig",
+  "comment": "Под присягой соседи называют, кто держал землю при короле Эдуарде, кто держит теперь и сколько она стоит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hundred_jury_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "st_calais"
+     ],
+     "flags": [
+      "commissioner_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "thegn_en"
+     ],
+     "notFlags": [
+      "ruined_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sworn_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "returns_en"
+   }
+  ]
+ },
+ {
+  "id": "hundred_jury_en_picot",
+  "comment": "Шериф-захватчик сам ведёт опрос — присяжные молчат о землях, которые он отнял",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hundred_jury_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "picot_en"
+     ],
+     "flags": [
+      "commissioner_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "thegn_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "silenced_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "returns_en"
+   }
+  ]
+ },
+ {
+  "id": "winchester_book_en_sig",
+  "comment": "Записи всех графств сводят в одну книгу на латыни — «не осталось ни быка, ни коровы, ни свиньи»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_winchester_book_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "st_calais"
+     ],
+     "flags": [
+      "returns_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "norman",
+      "king"
+     ],
+     "flags": [
+      "survey_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "domesday_en"
+   }
+  ]
+ },
+ {
+  "id": "oxford_siege_en_sig",
+  "comment": "Король три месяца держит императрицу в замке Оксфорда — в городе уже кончается хлеб",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oxford_siege_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "stephen_king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "matilda_emp"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "besieger_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "besieged_en"
+   }
+  ]
+ },
+ {
+  "id": "white_cloaks_en_sig",
+  "comment": "В белых плащах на белом снегу императрица и три рыцаря спускаются со стены и идут по замёрзшей Темзе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_white_cloaks_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matilda_emp"
+     ],
+     "flags": [
+      "besieged_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "escaped_en"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "besieged_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "oxford_surrender_en_sig",
+  "comment": "Императрица сдаётся — и спор о короне решён в пользу Стефана",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oxford_surrender_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matilda_emp"
+     ],
+     "flags": [
+      "besieged_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "stephen_king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "captured_en"
+   }
+  ]
+ },
+ {
+  "id": "wallingford_en_sig",
+  "comment": "В Уоллингфорде её встречает брат Роберт, только что вернувшийся из Нормандии, — дело императрицы живо",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wallingford_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matilda_emp"
+     ],
+     "flags": [
+      "escaped_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "robert_gloucester"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "safe_en"
+   }
+  ]
+ },
+ {
+  "id": "wallingford_en_blois",
+  "comment": "Беглянка доверяется епископу, который уже дважды менял сторону, — и он выдаёт её королю-брату",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wallingford_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matilda_emp"
+     ],
+     "flags": [
+      "escaped_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "henry_blois"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "captured_en"
+   }
+  ]
+ },
+ {
+  "id": "wallingford_en_king",
+  "comment": "Беглянка выходит прямо к королю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wallingford_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matilda_emp"
+     ],
+     "flags": [
+      "escaped_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "stephen_king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "captured_en"
+   }
+  ]
+ },
+ {
+  "id": "lewes_en_sig",
+  "comment": "Бароны Монфора разбивают королевское войско — король и принц Эдуард в плену",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lewes_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "simon_montfort"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "henry3"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ruler_en"
+   }
+  ]
+ },
+ {
+  "id": "parliament_1265_en_sig",
+  "comment": "От имени короля-пленника граф зовёт в парламент не только баронов, но и по два рыцаря от графства и по два горожанина от города",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_parliament_1265_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "simon_montfort"
+     ],
+     "flags": [
+      "ruler_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "henry3"
+     ],
+     "flags": [
+      "captive_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "commons_en"
+   }
+  ]
+ },
+ {
+  "id": "horse_race_en_sig",
+  "comment": "Принц предлагает стражам скачки, загоняет их коней — и уходит на свежем к Мортимеру",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_horse_race_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "notFlags": [
+      "paroled_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mortimer_wigmore"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "escaped_en"
+   }
+  ]
+ },
+ {
+  "id": "parole_en_sig",
+  "comment": "Граф берёт с принца клятву не воевать — и тот остаётся при дворе заложником собственного слова",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_parole_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "simon_montfort"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "paroled_en"
+   }
+  ]
+ },
+ {
+  "id": "evesham_en_sig",
+  "comment": "Принц, выучивший уроки Льюиса, запирает графа в петле реки; Монфора убивают, а раненый король кричит: «Я Генрих, ваш король!»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_evesham_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "flags": [
+      "escaped_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "simon_montfort"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "henry3"
+     ],
+     "flags": [
+      "captive_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "removeFlag",
+    "target": "C",
+    "flag": "captive_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "freed_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_en"
+   }
+  ]
+ },
+ {
+  "id": "hawarden_en_sig",
+  "comment": "Давид, брат князя, в Вербное воскресенье нападает на английский замок Хоуарден — война начинается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hawarden_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dafydd_ap"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rising_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "at_war_en"
+   }
+  ]
+ },
+ {
+  "id": "brothers_en_sig",
+  "comment": "Князь, связанный унизительным миром 1277 года, присоединяется к восстанию брата",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_brothers_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "llywelyn_ap"
+     ],
+     "notFlags": [
+      "earldom_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dafydd_ap"
+     ],
+     "flags": [
+      "rising_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rising_en"
+   }
+  ]
+ },
+ {
+  "id": "pecham_offer_en_sig",
+  "comment": "Князь принимает поместье в Англии в обмен на Уэльс — и уезжает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pecham_offer_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pecham"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "llywelyn_ap"
+     ],
+     "notFlags": [
+      "rising_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "earldom_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "pecham_offer_en_refuse",
+  "comment": "Князь отвергает английское имение: его народ не станет «отрекаться от своего языка и законов»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pecham_offer_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pecham"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "llywelyn_ap"
+     ],
+     "flags": [
+      "rising_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "refused_en"
+   }
+  ]
+ },
+ {
+  "id": "cilmeri_en_sig",
+  "comment": "Князь отходит от войска с горсткой людей — у моста английский солдат пронзает его копьём, не узнав",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cilmeri_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "llywelyn_ap"
+     ],
+     "flags": [
+      "rising_en"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "shrewsbury_en_sig",
+  "comment": "Пойманного Давида судит парламент в Шрусбери — его казнят как изменника",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_shrewsbury_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "flags": [
+      "at_war_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dafydd_ap"
+     ],
+     "flags": [
+      "rising_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "executed_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "conquest_en"
+   }
+  ]
+ },
+ {
+  "id": "bohun_charge_en_sig",
+  "comment": "Английский рыцарь узнаёт короля скоттов и мчится на него с копьём — Брюс уклоняется и раскалывает ему шлем топором",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bohun_charge_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "henry_bohun"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "robert_bruce"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "inspired_en"
+   }
+  ]
+ },
+ {
+  "id": "schiltron_en_sig",
+  "comment": "Отряд Рэндольфа, ощетинившись копьями, отбивает английскую конницу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_schiltron_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "thomas_randolph"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "held_en"
+   }
+  ]
+ },
+ {
+  "id": "carse_en_sig",
+  "comment": "Шилтроны идут вперёд и прижимают огромное войско к ручью — король Эдуард бежит с поля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_carse_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robert_bruce"
+     ],
+     "flags": [
+      "inspired_en"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "thomas_randolph"
+     ],
+     "flags": [
+      "held_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "fled_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_en"
+   }
+  ]
+ },
+ {
+  "id": "melcombe_ship_en_sig",
+  "comment": "Из гасконского корабля сходит на берег чума — встречающий умирает за три дня",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_melcombe_ship_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "empty_fields_en_sig",
+  "comment": "Половина деревни в могилах: хлеб гниёт на корню, и выжившие жнецы просят за день втрое больше",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_empty_fields_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "knighton"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "reaper_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "high_wage_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "recorded_en"
+   }
+  ]
+ },
+ {
+  "id": "ordinance_en_sig",
+  "comment": "Король запрещает платить больше, чем до мора, и обязывает каждого здорового работать на того, кто позовёт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ordinance_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "reaper_en"
+     ],
+     "flags": [
+      "high_wage_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "frozen_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ordinance_en"
+   }
+  ]
+ },
+ {
+  "id": "effrenata_en_sig",
+  "comment": "Вслед за королём архиепископ клеймит «необузданную жадность» священников, требующих втрое за заупокойные мессы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_effrenata_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "islip"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "flags": [
+      "ordinance_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "effrenata_en"
+   }
+  ]
+ },
+ {
+  "id": "gaunt_silence_en_sig",
+  "comment": "Герцог, после восстания 1381 года уставший от смутьянов, велит богослову замолчать — и тот замолкает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gaunt_silence_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_gaunt"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wycliffe"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "silenced_en"
+   }
+  ]
+ },
+ {
+  "id": "blackfriars_en_sig",
+  "comment": "Едва собор открывается, Лондон трясёт землетрясение — и двадцать четыре тезиса Уиклифа объявлены ересью и заблуждением",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_blackfriars_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "courtenay"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wycliffe"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "condemned_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "synod_en"
+   }
+  ]
+ },
+ {
+  "id": "lutterworth_en_sig",
+  "comment": "Изгнанный из Оксфорда, он уходит в свой приход — и ученики продолжают переводить Писание на английский",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lutterworth_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wycliffe"
+     ],
+     "flags": [
+      "condemned_en"
+     ],
+     "notFlags": [
+      "silenced_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "bible_en"
+   }
+  ]
+ },
+ {
+  "id": "prague_students_en_sig",
+  "comment": "Брак короля с чешской принцессой открывает дорогу: студенты переписывают книги Уиклифа и везут их в Прагу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prague_students_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "anne_bohemia"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wycliffe"
+     ],
+     "flags": [
+      "bible_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "prague_en"
+   }
+  ]
+ },
+ {
+  "id": "ile_de_re_en_sig",
+  "comment": "Герцог проваливает десант на Ре, а лейтенанта Фелтона обходят повышением и не платят ему жалованья",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ile_de_re_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "buckingham_v"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "john_felton"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "grievance_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "failed_en"
+   }
+  ]
+ },
+ {
+  "id": "petition_right_en_sig",
+  "comment": "Без денег парламента король не может воевать — и соглашается: никаких налогов без парламента, никаких арестов без суда",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_petition_right_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_eliot"
+     ],
+     "notFlags": [
+      "jailed_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "petition_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "remonstrance_en"
+   }
+  ]
+ },
+ {
+  "id": "dissolve_en_sig",
+  "comment": "Король распускает палату, а дерзкого оратора — в Тауэр",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dissolve_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "john_eliot"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "jailed_en"
+   }
+  ]
+ },
+ {
+  "id": "greyhound_inn_en_sig",
+  "comment": "Наслушавшись, что герцог — «причина всех бед», лейтенант покупает нож за десять пенсов и ждёт в прихожей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_greyhound_inn_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_felton"
+     ],
+     "flags": [
+      "grievance_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "buckingham_v"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "killer_en"
+   }
+  ]
+ },
+ {
+  "id": "rupert_charge_en_sig",
+  "comment": "Конница принца сметает фланг противника — и уносится за ним до самого обоза, оставив короля без кавалерии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rupert_charge_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prince_rupert"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exposed_en"
+   }
+  ]
+ },
+ {
+  "id": "rupert_stays_en_sig",
+  "comment": "Принц держит конницу при короле — но так и не вводит её в бой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rupert_stays_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prince_rupert"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "notFlags": [
+      "exposed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "guarded_en"
+   }
+  ]
+ },
+ {
+  "id": "ironsides_en_sig",
+  "comment": "Конница Кромвеля разбивает свой фланг и, не увлекаясь погоней, разворачивается на королевскую пехоту",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ironsides_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "general"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "fairfax"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "flags": [
+      "exposed_en"
+     ],
+     "notFlags": [
+      "guarded_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "defeated"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "victor_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_en"
+   }
+  ]
+ },
+ {
+  "id": "royal_baggage_en_sig",
+  "comment": "В брошенной карете — личные письма короля: он просил войска у ирландских католиков и у иностранных государей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_royal_baggage_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "fairfax"
+     ],
+     "flags": [
+      "victor_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ],
+     "flags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exposed_letters_en"
+   }
+  ]
+ },
+ {
+  "id": "agreement_people_en_sig",
+  "comment": "Солдатские агитаторы приносят проект: власть — у народа, голос — у гораздо большего числа мужчин",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_agreement_people_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sexby"
+     ],
+     "notFlags": [
+      "pacified_en",
+      "crushed_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rainsborough"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "champion_en"
+   }
+  ]
+ },
+ {
+  "id": "saffron_walden_en_sig",
+  "comment": "Генерал уговаривает агитатора подождать — проект соглашения так и не приносят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saffron_walden_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "general"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sexby"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pacified_en"
+   }
+  ]
+ },
+ {
+  "id": "st_marys_putney_en_sig",
+  "comment": "«Беднейший в Англии имеет жизнь, как и величайший», — говорит полковник; голос — только у тех, у кого есть земля, — отвечает зять Кромвеля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_st_marys_putney_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rainsborough"
+     ],
+     "flags": [
+      "champion_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ireton"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "english",
+      "general"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "poorest_he_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "property_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "debated_en"
+   }
+  ]
+ },
+ {
+  "id": "corkbush_en_sig",
+  "comment": "Генерал скачет вдоль строя мятежных полков, срывает листки «Соглашения» со шляп — зачинщика расстреливают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_corkbush_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "general"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sexby"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crushed_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "order_en"
+   }
+  ]
+ },
+ {
+  "id": "ormond_leaves_en_sig",
+  "comment": "Наместник короля оставляет в Дроэде лучшие полки: город должен держаться до зимы, пока болезни не съедят армию Кромвеля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ormond_leaves_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ormond"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arthur_aston"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "garrison_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "summons_en_sig",
+  "comment": "Комендант отказывается: по законам войны того времени отказ сдаться перед штурмом лишал гарнизон права на пощаду",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_summons_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "general"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arthur_aston"
+     ],
+     "flags": [
+      "garrison_en"
+     ],
+     "notFlags": [
+      "surrendered_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "refused_en"
+   }
+  ]
+ },
+ {
+  "id": "terms_en_sig",
+  "comment": "Комендант открывает ворота на условиях — гарнизон уходит, город цел",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_terms_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arthur_aston"
+     ],
+     "notFlags": [
+      "refused_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "general"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "surrendered_en"
+   }
+  ]
+ },
+ {
+  "id": "drogheda_breach_en_sig",
+  "comment": "После третьего штурма через пролом генерал запрещает щадить вооружённых — гибнут гарнизон, священники и многие горожане",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_drogheda_breach_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "general"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arthur_aston"
+     ],
+     "flags": [
+      "refused_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "drogheda_en"
+   }
+  ]
+ },
+ {
+  "id": "cambridge_visit_en_sig",
+  "comment": "«По какой кривой пошла бы планета?» — «По эллипсу, я это вычислил», — но расчёт куда-то задевался, и профессор садится писать заново",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cambridge_visit_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "halley"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "newton"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "de_motu_en"
+   }
+  ]
+ },
+ {
+  "id": "royal_society_en_sig",
+  "comment": "Общество потратило деньги на «Историю рыб» и платит секретарю экземплярами — Галлей печатает книгу на свои",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_royal_society_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "halley"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "paid_en"
+   }
+  ]
+ },
+ {
+  "id": "hooke_claim_en_sig",
+  "comment": "Гук требует признать, что закон обратных квадратов придумал он, — Ньютон в ярости грозит выбросить третью книгу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hooke_claim_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hooke"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "newton"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "furious_en"
+   }
+  ]
+ },
+ {
+  "id": "greenwich_en_sig",
+  "comment": "Королевский астроном делится наблюдениями комет и Луны",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_greenwich_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "flamsteed"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "newton"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "data_en"
+   }
+  ]
+ },
+ {
+  "id": "principia_press_en_sig",
+  "comment": "В июле 1687 года выходят «Математические начала натуральной философии»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_principia_press_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "halley"
+     ],
+     "flags": [
+      "paid_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "newton"
+     ],
+     "flags": [
+      "de_motu_en"
+     ],
+     "notFlags": [
+      "furious_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "principia_en"
+   }
+  ]
+ },
+ {
+  "id": "linnean_en_sig",
+  "comment": "Друзья Дарвина оглашают его записки вместе со статьёй Уоллеса — открытие делят двое",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_linnean_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_darwin"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alfred_wallace"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "spurred_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "codiscoverer_en"
+   }
+  ]
+ },
+ {
+  "id": "down_house_en_sig",
+  "comment": "Дарвин боится огорчить набожную жену и снова прячет теорию в стол",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_down_house_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emma_darwin"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_darwin"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "hesitant_en"
+   }
+  ]
+ },
+ {
+  "id": "print_origin_en_sig",
+  "comment": "Подстёгнутый письмом Уоллеса, Дарвин за год пишет «краткое изложение» — книга выходит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_print_origin_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_darwin"
+     ],
+     "flags": [
+      "spurred_en"
+     ],
+     "notFlags": [
+      "hesitant_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "origin_en"
+   }
+  ]
+ },
+ {
+  "id": "print_origin_en_reader_sig",
+  "comment": "Гексли читает книгу и становится её самым яростным защитником",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_print_origin_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_darwin"
+     ],
+     "flags": [
+      "spurred_en"
+     ],
+     "notFlags": [
+      "hesitant_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "thomas_huxley"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "convinced_en"
+   }
+  ]
+ },
+ {
+  "id": "print_origin_en_bishop_sig",
+  "comment": "Епископ читает книгу — и садится писать разгромную рецензию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_print_origin_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_darwin"
+     ],
+     "flags": [
+      "spurred_en"
+     ],
+     "notFlags": [
+      "hesitant_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "samuel_wilberforce"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "hostile_review_en"
+   }
+  ]
+ },
+ {
+  "id": "oxford_debate_en_sig",
+  "comment": "Гексли отвечает епископу: лучше обезьяна в предках, чем человек, который прячет правду за остроумием",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oxford_debate_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "thomas_huxley"
+     ],
+     "flags": [
+      "convinced_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "samuel_wilberforce"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "answered_en"
+   }
+  ]
+ },
+ {
+  "id": "hawarden_kite_en_sig",
+  "comment": "Сын премьера выдаёт газетам: Гладстон за самоуправление Ирландии — 86 депутатов Парнелла переходят к нему",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hawarden_kite_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "minister_t"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_parnell"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "converted_en"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "ulster_exclusion_en_sig",
+  "comment": "Премьер предлагает оставить протестантский Ольстер вне ирландского парламента — Парнелл рвёт союз",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ulster_exclusion_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "minister_t"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_parnell"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "abandoned_en"
+   }
+  ]
+ },
+ {
+  "id": "home_rule_bill_en_sig",
+  "comment": "Гладстон три с половиной часа говорит в палате: у Ирландии будет свой парламент в Дублине",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_home_rule_bill_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "minister_t"
+     ],
+     "flags": [
+      "converted_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "bill_en"
+   }
+  ]
+ },
+ {
+  "id": "commons_vote_en_sig",
+  "comment": "Чемберлен уводит 93 либерала голосовать против — законопроект падает, партия раскалывается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_commons_vote_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "joseph_chamberlain"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "minister_t"
+     ],
+     "flags": [
+      "bill_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "unionist_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bill_defeated_en"
+   }
+  ]
+ },
+ {
+  "id": "commons_vote_en_tory_sig",
+  "comment": "Тори голосуют против — но они и так были против: без раскола либералов у премьера большинство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_commons_vote_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "randolph_churchill"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "minister_t"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "orange_card_en"
+   }
+  ]
+ },
+ {
+  "id": "pretoria_falls_en_sig",
+  "comment": "Британцы берут столицы бурских республик — президент уезжает в Европу просить помощи, а война не кончается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pretoria_falls_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kitchener"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "paul_kruger"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exile_en"
+   }
+  ]
+ },
+ {
+  "id": "scorched_earth_en_sig",
+  "comment": "Против партизан-командо Китченер жжёт фермы, а женщин и детей свозит в лагеря",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_scorched_earth_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kitchener"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_botha"
+     ],
+     "flags": [
+      "commando_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "camps_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bitter_end_en"
+   }
+  ]
+ },
+ {
+  "id": "camps_visit_en_sig",
+  "comment": "Англичанка объезжает лагеря и привозит в Лондон отчёт о голоде и тифе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_camps_visit_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emily_hobhouse"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kitchener"
+     ],
+     "flags": [
+      "camps_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "report_en"
+   }
+  ]
+ },
+ {
+  "id": "vereeniging_en_sig",
+  "comment": "Измотанные командо сдаются: республики становятся британскими колониями",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vereeniging_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kitchener"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_botha"
+     ],
+     "flags": [
+      "bitter_end_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "peace_en"
+   }
+  ]
+ },
+ {
+  "id": "vereeniging_en_clause8_sig",
+  "comment": "Пункт восьмой: вопрос о праве голоса для африканцев откладывают — мир белых заключают без чёрных",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vereeniging_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kitchener"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_botha"
+     ],
+     "flags": [
+      "bitter_end_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "sol_plaatje"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "excluded_en"
+   }
+  ]
+ },
+ {
+  "id": "hunger_strike_en_sig",
+  "comment": "Узница голодает — правительство принимает закон «кошки и мышки»: отпустить истощённую, потом арестовать снова",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hunger_strike_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emmeline_pankhurst"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "herbert_asquith"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "cat_mouse_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "cat_mouse_act_en"
+   }
+  ]
+ },
+ {
+  "id": "window_smash_en_sig",
+  "comment": "Суфражистка бьёт витрины — значит, отныне она в лагере «воинствующих»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_window_smash_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "millicent_fawcett"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "militant_en"
+   }
+  ]
+ },
+ {
+  "id": "derby_en_sig",
+  "comment": "Эмили Дэвисон выходит на дорожку перед королевским конём Анмером и через четыре дня умирает от ран",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_derby_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emily_davison"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "george5"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "martyr_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "great_pilgrimage_en_sig",
+  "comment": "Десятки тысяч мирных суфражисток сходятся в Гайд-парк — и Асквит соглашается принять их делегацию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_great_pilgrimage_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "millicent_fawcett"
+     ],
+     "notFlags": [
+      "militant_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "herbert_asquith"
+     ],
+     "flags": [
+      "cat_mouse_act_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "deputation_en"
+   }
+  ]
+ },
+ {
+  "id": "into_belgium_en_sig",
+  "comment": "Германия требует пропустить армию через нейтральную Бельгию — Британия гарантировала её нейтралитет ещё в 1839 году",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_into_belgium_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wilhelm2"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "edward_grey"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "belgium_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "belgium_violated_en"
+   }
+  ]
+ },
+ {
+  "id": "cousins_telegram_en_sig",
+  "comment": "Король и кайзер обмениваются тёплыми телеграммами — армии тем временем уже на марше",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cousins_telegram_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "george5"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wilhelm2"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "telegram_en"
+   }
+  ]
+ },
+ {
+  "id": "grey_speech_en_sig",
+  "comment": "Грей говорит о чести и Бельгии — колеблющийся Ллойд Джордж остаётся в кабинете",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_grey_speech_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "edward_grey"
+     ],
+     "flags": [
+      "belgium_violated_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lloyd_george"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "convinced_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "mandate_en"
+   }
+  ]
+ },
+ {
+  "id": "ultimatum_1914_en_sig",
+  "comment": "В 11 вечера по Лондону ответа нет: Британия в войне — «лампы гаснут по всей Европе»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ultimatum_1914_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "edward_grey"
+     ],
+     "flags": [
+      "mandate_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wilhelm2"
+     ],
+     "flags": [
+      "belgium_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "at_war_uk_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lamps_en"
+   }
+  ]
+ },
+ {
+  "id": "wait_home_rule_en_sig",
+  "comment": "Редмонд уговаривает: закон о гомруле уже принят — подождите конца войны",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_home_rule_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_redmond"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "patrick_pearse"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "waits_en"
+   }
+  ]
+ },
+ {
+  "id": "gpo_proclamation_en_sig",
+  "comment": "Пасхальный понедельник: Пирс читает у почтамта провозглашение Ирландской республики",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gpo_proclamation_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "patrick_pearse"
+     ],
+     "notFlags": [
+      "waits_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "james_connolly"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "republic_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "republic_en"
+   }
+  ]
+ },
+ {
+  "id": "rising_surrender_en_sig",
+  "comment": "Через шесть дней, чтобы остановить гибель горожан, Пирс сдаётся без условий",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rising_surrender_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "patrick_pearse"
+     ],
+     "flags": [
+      "republic_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "john_maxwell"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "surrendered_en"
+   }
+  ]
+ },
+ {
+  "id": "courts_martial_en_sig",
+  "comment": "Закрытый военный суд и расстрел на рассвете",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_courts_martial_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_maxwell"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "flags": [
+      "republic_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "executed_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "courts_martial_en_commute_sig",
+  "comment": "Графине смертный приговор заменяют пожизненным — «только из-за пола осуждённой»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_courts_martial_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_maxwell"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "constance_markievicz"
+     ],
+     "flags": [
+      "rebel_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "commuted_en"
+   }
+  ]
+ },
+ {
+  "id": "bombardment_en_sig",
+  "comment": "Полтора миллиона снарядов за неделю — но германцы пережидают в блиндажах на десятиметровой глубине",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bombardment_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "henry_rawlinson"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "fritz_von_below"
+     ],
+     "flags": [
+      "deep_dugouts_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "barrage_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "survived_en"
+   }
+  ]
+ },
+ {
+  "id": "wait_tanks_en_sig",
+  "comment": "Главнокомандующий ждёт секретное оружие — а французы под Верденом ждать не могут",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_tanks_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "douglas_haig"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waits_tanks_en"
+   }
+  ]
+ },
+ {
+  "id": "haig_plan_en_sig",
+  "comment": "Решено: после такой артподготовки пехота пойдёт ровными цепями, шагом — проволока, мол, порвана",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_haig_plan_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "douglas_haig"
+     ],
+     "notFlags": [
+      "waits_tanks_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "henry_rawlinson"
+     ],
+     "flags": [
+      "barrage_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "walk_over_en"
+   }
+  ]
+ },
+ {
+  "id": "july1_en_sig",
+  "comment": "Свистки в 7:30: пулемёты, уцелевшие в блиндажах, косят цепи — 57 тысяч британских потерь за день",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_july1_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "henry_rawlinson"
+     ],
+     "flags": [
+      "walk_over_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "fritz_von_below"
+     ],
+     "flags": [
+      "survived_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "first_day_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "held_en"
+   }
+  ]
+ },
+ {
+  "id": "july1_en_witness_sig",
+  "comment": "Молодой офицер смотрит на атаку из окопа под Фрикуром и запоминает всё",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_july1_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "henry_rawlinson"
+     ],
+     "flags": [
+      "walk_over_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "siegfried_sassoon"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "witness_en"
+   }
+  ]
+ },
+ {
+  "id": "equal_franchise_en_sig",
+  "comment": "Союз требует голоса для всех женщин наравне с мужчинами — хрупкий компромисс Спикерской конференции рассыпается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_equal_franchise_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "millicent_fawcett"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lloyd_george"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "no_deal_en"
+   }
+  ]
+ },
+ {
+  "id": "rpa_1918_en_sig",
+  "comment": "Компромисс: голос всем мужчинам с 21 года и женщинам с 30 — с имущественным цензом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rpa_1918_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lloyd_george"
+     ],
+     "notFlags": [
+      "no_deal_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "millicent_fawcett"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "act_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "vote_30_en"
+   }
+  ]
+ },
+ {
+  "id": "compiegne_en_sig",
+  "comment": "В 5:12 утра в штабном вагоне подписано перемирие — огонь прекратится в 11 часов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_compiegne_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferdinand_foch"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "matthias_erzberger"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "armistice_en"
+   }
+  ]
+ },
+ {
+  "id": "election_1918_en_sig",
+  "comment": "Первые выборы, где голосуют женщины: узница Холлоуэя становится первой женщиной, избранной в палату общин",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_election_1918_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lloyd_george"
+     ],
+     "flags": [
+      "act_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "constance_markievicz"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "elected_en"
+   }
+  ]
+ },
+ {
+  "id": "alien_act_en_sig",
+  "comment": "Английский парламент грозит: не начнёте переговоры — шотландцы станут иностранцами, а их скот, уголь и полотно не пустят в Англию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_alien_act_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "godolphin"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "queensberry"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pressed_en"
+   }
+  ]
+ },
+ {
+  "id": "equivalent_en_sig",
+  "comment": "Договор обещает Шотландии «Эквивалент» — почти 400 тысяч фунтов, из которых вернут вклады разорённых дарьенских акционеров",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_equivalent_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "godolphin"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "queensberry"
+     ],
+     "flags": [
+      "pressed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "equivalent_en"
+   }
+  ]
+ },
+ {
+  "id": "limitations_en_sig",
+  "comment": "Комиссар соглашается на «ограничения» Флетчера — федерация вместо унии, переговоры заходят в тупик",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_limitations_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "andrew_fletcher"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "queensberry"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "limited_en"
+   }
+  ]
+ },
+ {
+  "id": "royal_decree_en_sig",
+  "comment": "Унию объявляют указом через голову парламента — в Эдинбурге и Глазго бунтуют толпы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_royal_decree_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lady",
+      "english"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "queensberry"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "riots_en"
+   }
+  ]
+ },
+ {
+  "id": "edinburgh_vote_en_sig",
+  "comment": "Шотландский парламент 110 голосами против 69 ратифицирует договор: с 1 мая 1707 года — Великобритания",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_edinburgh_vote_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "queensberry"
+     ],
+     "flags": [
+      "equivalent_en"
+     ],
+     "notFlags": [
+      "limited_en",
+      "riots_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "andrew_fletcher"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "union_en"
+   }
+  ]
+ },
+ {
+  "id": "clockmaker_en_sig",
+  "comment": "Часовщик Кей собирает для Аркрайта прядильную машину, которую раньше мастерил вместе с Хайсом, — Аркрайт берёт патент на своё имя",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_clockmaker_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_kay_clock"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arkwright"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "frame_en"
+   }
+  ]
+ },
+ {
+  "id": "clockmaker_en_highs",
+  "comment": "Сам Хайс узнаёт свою машину — спор о первенстве начинается раньше фабрики, и патент уже не чист",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_clockmaker_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "thomas_highs"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arkwright"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "patent_void_en"
+   }
+  ]
+ },
+ {
+  "id": "hosiers_en_sig",
+  "comment": "Чулочник из Дерби Стратт вкладывает деньги в машину — его чулкам нужна крепкая нить",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hosiers_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jedediah_strutt"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "arkwright"
+     ],
+     "flags": [
+      "frame_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "funded_en"
+   }
+  ]
+ },
+ {
+  "id": "cottage_spin_en_sig",
+  "comment": "Детям раздают пряжу на дом, как сто лет назад — работа остаётся у семейных прялок",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cottage_spin_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arkwright"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mill_children"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "cottage_en"
+   }
+  ]
+ },
+ {
+  "id": "cromford_mill_en_sig",
+  "comment": "Водяное колесо крутит сотни веретён, рабочие и дети с семи лет выходят в две смены — рождается фабричная система",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cromford_mill_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arkwright"
+     ],
+     "flags": [
+      "funded_en"
+     ],
+     "notFlags": [
+      "patent_void_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mill_children"
+     ],
+     "notFlags": [
+      "cottage_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "factory_en"
+   }
+  ]
+ },
+ {
+  "id": "guildhall_en_sig",
+  "comment": "Присяжные Гилдхолла решают: выброшенные за борт люди — «груз», страховщики должны заплатить по 30 фунтов за каждого",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_guildhall_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "william_gregson"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_mansfield"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "won_claim_en"
+   }
+  ]
+ },
+ {
+  "id": "equiano_news_en_sig",
+  "comment": "Освобождённый африканец Эквиано приносит Шарпу весть о «Зонге»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_equiano_news_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "equiano"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "granville_sharp"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "informed_en"
+   }
+  ]
+ },
+ {
+  "id": "murder_charge_en_sig",
+  "comment": "Шарп требует судить команду за убийство — генеральный солиситор и суд отвечают, что речь об имуществе, и отказывают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_murder_charge_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "granville_sharp"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_mansfield"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rebuffed_en"
+   }
+  ]
+ },
+ {
+  "id": "kings_bench_en_sig",
+  "comment": "Мэнсфилд сравнивает дело с выброшенными лошадьми, но назначает новый суд — а Шарп, слушавший в зале, превращает страховой спор в скандал",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kings_bench_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lord_mansfield"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "william_gregson"
+     ],
+     "flags": [
+      "won_claim_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "granville_sharp"
+     ],
+     "flags": [
+      "informed_en"
+     ],
+     "notFlags": [
+      "rebuffed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "retrial_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "scandal_en"
+   }
+  ]
+ },
+ {
+  "id": "belfast_oath_en_sig",
+  "comment": "В Белфасте протестант Тон и пресвитерианин Маккракен клянутся объединить «католиков, протестантов и диссентеров» под общим именем ирландца",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_belfast_oath_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wolfe_tone"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mccracken"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "united_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "united_en"
+   }
+  ]
+ },
+ {
+  "id": "lough_swilly_en_sig",
+  "comment": "Тон возвращается с французской эскадрой, но её перехватывают; Тона в форме французского офицера узнают и берут в плен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lough_swilly_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wolfe_tone"
+     ],
+     "flags": [
+      "united_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "general",
+      "english"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "captured_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rising_crushed_en"
+   }
+  ]
+ },
+ {
+  "id": "antrim_en_sig",
+  "comment": "Маккракен ведёт ольстерских повстанцев на Антрим — их разбивают, а его самого вешают в Белфасте",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_antrim_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mccracken"
+     ],
+     "flags": [
+      "united_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "general",
+      "english"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hanged_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rising_crushed_en"
+   }
+  ]
+ },
+ {
+  "id": "emancipation_en_sig",
+  "comment": "Король отвечает, что коронационная клятва не позволяет дать католикам равные права, — секретарь уходит в отставку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emancipation_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "castlereagh"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "king",
+      "english"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "resigned_en"
+   }
+  ]
+ },
+ {
+  "id": "dublin_union_en_sig",
+  "comment": "Пэрствами, местами и деньгами Каслри проводит унию через ирландский парламент: с 1801 года — Соединённое королевство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dublin_union_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "castlereagh"
+     ],
+     "notFlags": [
+      "resigned_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "general",
+      "english"
+     ],
+     "flags": [
+      "rising_crushed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "union_act_en"
+   }
+  ]
+ },
+ {
+  "id": "crosland_moor_en_sig",
+  "comment": "Из-за стены у дороги стреляют в фабриканта, который грозил «скакать по подпруги в крови луддитов»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_crosland_moor_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "george_mellor"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "william_horsfall"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "killer_en"
+   }
+  ]
+ },
+ {
+  "id": "rawfolds_en_sig",
+  "comment": "Сотня ломателей идёт на фабрику Картрайта, но её охраняют солдаты: двое луддитов смертельно ранены, атака отбита",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rawfolds_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "george_mellor"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "william_cartwright"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defended_en"
+   }
+  ]
+ },
+ {
+  "id": "ludd_oath_en_sig",
+  "comment": "Товарищ даёт страшную клятву молчания — и держит её",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ludd_oath_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "george_mellor"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "benjamin_walker"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sworn_en"
+   }
+  ]
+ },
+ {
+  "id": "kings_evidence_en_sig",
+  "comment": "Ради помилования Уокер становится свидетелем обвинения",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kings_evidence_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "benjamin_walker"
+     ],
+     "notFlags": [
+      "sworn_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "baron_thomson"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "evidence_en"
+   }
+  ]
+ },
+ {
+  "id": "york_assizes_en_sig",
+  "comment": "Показания соучастника решают дело: Меллора с двумя товарищами вешают в Йорке",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_york_assizes_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "baron_thomson"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "george_mellor"
+     ],
+     "flags": [
+      "killer_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "benjamin_walker"
+     ],
+     "flags": [
+      "evidence_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "hanged_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "middleton_march_en_sig",
+  "comment": "Бэмфорд выводит своих ткачей «чисто, трезво и в порядке» — без палок и оружия, с жёнами и детьми",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_middleton_march_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "samuel_bamford"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "peterloo_crowd"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "orderly_en"
+   }
+  ]
+ },
+ {
+  "id": "moor_drill_en_sig",
+  "comment": "Учения превращаются в вооружённые отряды — магистраты получают доказательство «бунта»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_moor_drill_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "samuel_bamford"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "peterloo_crowd"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "armed_en"
+   }
+  ]
+ },
+ {
+  "id": "hunt_surrender_en_sig",
+  "comment": "Хант сдаётся до митинга — оратора нет, и толпа мирно расходится",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hunt_surrender_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "henry_hunt"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "william_hulton"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "arrested_early_en"
+   }
+  ]
+ },
+ {
+  "id": "st_peters_field_en_sig",
+  "comment": "Магистраты велят арестовать Ханта прямо на трибуне; йоменская кавалерия врубается в мирную толпу саблями",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_st_peters_field_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "william_hulton"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "henry_hunt"
+     ],
+     "notFlags": [
+      "arrested_early_en"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "peterloo_crowd"
+     ],
+     "flags": [
+      "orderly_en"
+     ],
+     "notFlags": [
+      "armed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "arrested_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "massacre_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ordered_charge_en"
+   }
+  ]
+ },
+ {
+  "id": "regent_thanks_en_sig",
+  "comment": "Министр передаёт магистратам благодарность принца-регента, а в декабре проводит «Шесть актов» против митингов и радикальной печати",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_regent_thanks_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lord_sidmouth"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "william_hulton"
+     ],
+     "flags": [
+      "ordered_charge_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "six_acts_en"
+   }
+  ]
+ },
+ {
+  "id": "trust_market_en_sig",
+  "comment": "Новое правительство решает не вмешиваться в торговлю зерном — вывоз еды из Ирландии продолжается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_trust_market_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lord_john_russell"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_trevelyan"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "laissez_faire_en"
+   }
+  ]
+ },
+ {
+  "id": "maize_en_sig",
+  "comment": "Пиль тайно закупает американскую кукурузу и продаёт её по низкой цене — голод отступает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_maize_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robert_peel"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "irish_tenants"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fed_en"
+   }
+  ]
+ },
+ {
+  "id": "gregory_clause_en_sig",
+  "comment": "Помощь по закону о бедных дают лишь тем, у кого не больше четверти акра земли, — семьи сносят свои хижины ради похлёбки",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gregory_clause_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_trevelyan"
+     ],
+     "flags": [
+      "laissez_faire_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "irish_tenants"
+     ],
+     "notFlags": [
+      "fed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "evicted_en"
+   }
+  ]
+ },
+ {
+  "id": "coffin_ship_en_sig",
+  "comment": "Выселенные семьи грузятся на переполненные суда — тысячи умирают от тифа в пути и на карантинном острове Гросс-Иль",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_coffin_ship_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "irish_tenants"
+     ],
+     "flags": [
+      "evicted_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "emigrated_en"
+   }
+  ]
+ },
+ {
+  "id": "treason_felony_en_sig",
+  "comment": "Митчела, призывавшего не отдавать зерно, осуждают на 14 лет каторги и ссылают за океан",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_treason_felony_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_mitchel"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_john_russell"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "transported_en"
+   }
+  ]
+ },
+ {
+  "id": "peoples_charter_en_sig",
+  "comment": "Столяр Ловетт записывает шесть пунктов: голос каждому мужчине, тайное голосование, плата депутатам…",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_peoples_charter_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "william_lovett"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "feargus_oconnor"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "charter_en"
+   }
+  ]
+ },
+ {
+  "id": "kennington_en_sig",
+  "comment": "Под дождём, перед констеблями и войсками герцога, О'Коннор уговаривает толпу разойтись и не идти к парламенту",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kennington_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "feargus_oconnor"
+     ],
+     "flags": [
+      "charter_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "coalition"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "no_march_en"
+   }
+  ]
+ },
+ {
+  "id": "march_westminster_en_sig",
+  "comment": "Толпа идёт на мосты — их держат войска и 85 тысяч специальных констеблей; шествие разогнано, хартия брошена",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_march_westminster_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "feargus_oconnor"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "coalition"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dispersed_en"
+   }
+  ]
+ },
+ {
+  "id": "osborne_en_sig",
+  "comment": "Королевская семья уезжает из Лондона в Осборн",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_osborne_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lady",
+      "english"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away"
+   }
+  ]
+ },
+ {
+  "id": "cabs_commons_en_sig",
+  "comment": "Петицию везут в парламент в трёх кэбах; клерки насчитывают не 5,7 миллиона подписей, а около двух — среди них «Королева Виктория» и «Мистер Панч»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cabs_commons_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "feargus_oconnor"
+     ],
+     "flags": [
+      "charter_en",
+      "no_march_en"
+     ],
+     "notFlags": [
+      "dispersed_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_john_russell"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "petition_rejected_en"
+   }
+  ]
+ },
+ {
+  "id": "greased_cartridges_en_sig",
+  "comment": "По полкам ползёт слух: новые патроны смазаны коровьим и свиным жиром — их надо надкусывать, и индусы с мусульманами отказываются",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_greased_cartridges_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "meerut_sepoys"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rising_en"
+   }
+  ]
+ },
+ {
+  "id": "barrackpore_en_sig",
+  "comment": "Сипай нападает на британских офицеров на плацу — его вешают, а полк расформировывают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_barrackpore_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mangal_pandey"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hanged_en"
+   }
+  ]
+ },
+ {
+  "id": "clemency_en_sig",
+  "comment": "Генерал-губернатор обещает пощаду сложившим оружие — восставшие полки остаются в казармах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_clemency_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lord_canning"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "meerut_sepoys"
+     ],
+     "notFlags": [
+      "in_delhi_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pardoned_en"
+   }
+  ]
+ },
+ {
+  "id": "red_fort_en_sig",
+  "comment": "Сипаи из Мирута скачут в Дели и провозглашают старого могольского императора главой восстания",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_red_fort_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "meerut_sepoys"
+     ],
+     "flags": [
+      "rising_en"
+     ],
+     "notFlags": [
+      "pardoned_en"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bahadur_shah"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_delhi_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "proclaimed_en"
+   }
+  ]
+ },
+ {
+  "id": "jhansi_en_sig",
+  "comment": "Рани Джханси, у которой Компания отняла княжество, встаёт во главе обороны — и гибнет в бою под Гвалиором",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_jhansi_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lakshmi_bai"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_canning"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fallen_rani_en"
+   }
+  ]
+ },
+ {
+  "id": "crown_rule_en_sig",
+  "comment": "Дели берут штурмом, императора судят и ссылают в Рангун; Ост-Индскую компанию лишают власти — Индией правит корона",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_crown_rule_en"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lord_canning"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bahadur_shah"
+     ],
+     "flags": [
+      "proclaimed_en"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exiled_en"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "viceroy_en"
+   }
+  ]
  }
 ]

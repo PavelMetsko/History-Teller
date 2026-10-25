@@ -1,0 +1,76 @@
+{
+ "id": "claudius_43",
+ "order": 50,
+ "epoch": "tudor",
+ "act": "Акт II · Римляне, саксы и викинги",
+ "music": "tension",
+ "cover": "medway_en",
+ "panels": 3,
+ "scenes": [
+  "medway_en",
+  "elephants_en",
+  "camulodunum_en",
+  "caratacus_captured_en",
+  "claudius_parley_en"
+ ],
+ "characters": [
+  "claudius",
+  "plautius_en",
+  "caratacus_en",
+  "togodumnus_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "claudius",
+     "is": "triumph_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "caratacus_en",
+     "is": "fled_west_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "caratacus_en",
+      "is": "captured_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "medway_en",
+   "characters": [
+    "plautius_en",
+    "caratacus_en",
+    "togodumnus_en"
+   ]
+  },
+  {
+   "scene": "elephants_en",
+   "characters": [
+    "claudius",
+    "plautius_en"
+   ]
+  },
+  {
+   "scene": "camulodunum_en",
+   "characters": [
+    "claudius"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

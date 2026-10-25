@@ -1,0 +1,74 @@
+{
+ "id": "robin_hood",
+ "order": 30,
+ "epoch": "tudor",
+ "act": "Акт I · Легенды",
+ "music": "tension",
+ "cover": "robin_archery_en",
+ "panels": 3,
+ "scenes": [
+  "robin_bridge_en",
+  "robin_disguise_en",
+  "robin_archery_en",
+  "robin_wed_en"
+ ],
+ "characters": [
+  "robin_hood_en",
+  "little_john_en",
+  "sheriff_nott_en",
+  "marian_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "robin_hood_en",
+     "is": "golden_arrow_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "robin_hood_en",
+      "is": "captured_en"
+     }
+    }
+   },
+   {
+    "flag": {
+     "char": "little_john_en",
+     "is": "merry_man_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "robin_bridge_en",
+   "characters": [
+    "robin_hood_en",
+    "little_john_en"
+   ]
+  },
+  {
+   "scene": "robin_disguise_en",
+   "characters": [
+    "robin_hood_en"
+   ]
+  },
+  {
+   "scene": "robin_archery_en",
+   "characters": [
+    "robin_hood_en",
+    "sheriff_nott_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

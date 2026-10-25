@@ -1,0 +1,70 @@
+{
+ "id": "cromford_1771",
+ "order": 800,
+ "epoch": "tudor",
+ "act": "Акт IX · Великобритания",
+ "music": "theme",
+ "cover": "cromford_mill_en",
+ "panels": 3,
+ "scenes": [
+  "clockmaker_en",
+  "hosiers_en",
+  "cromford_mill_en",
+  "cottage_spin_en"
+ ],
+ "characters": [
+  "arkwright",
+  "john_kay_clock",
+  "thomas_highs",
+  "jedediah_strutt",
+  "mill_children"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "arkwright",
+     "is": "factory_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "arkwright",
+      "is": "patent_void_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "clockmaker_en",
+   "characters": [
+    "john_kay_clock",
+    "arkwright"
+   ]
+  },
+  {
+   "scene": "hosiers_en",
+   "characters": [
+    "jedediah_strutt",
+    "arkwright"
+   ]
+  },
+  {
+   "scene": "cromford_mill_en",
+   "characters": [
+    "arkwright",
+    "mill_children"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

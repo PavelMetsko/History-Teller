@@ -1,0 +1,73 @@
+{
+ "id": "felton_1628",
+ "order": 620,
+ "epoch": "tudor",
+ "act": "Акт VIII · Стюарты и революция",
+ "music": "tension",
+ "cover": "greyhound_inn_en",
+ "panels": 3,
+ "scenes": [
+  "ile_de_re_en",
+  "petition_right_en",
+  "dissolve_en",
+  "greyhound_inn_en"
+ ],
+ "characters": [
+  "charles1",
+  "buckingham_v",
+  "john_eliot",
+  "john_felton"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles1",
+     "is": "petition_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "buckingham_v",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "john_felton",
+     "is": "killer_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ile_de_re_en",
+   "characters": [
+    "buckingham_v",
+    "john_felton"
+   ]
+  },
+  {
+   "scene": "petition_right_en",
+   "characters": [
+    "john_eliot",
+    "charles1"
+   ]
+  },
+  {
+   "scene": "greyhound_inn_en",
+   "characters": [
+    "john_felton",
+    "buckingham_v"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

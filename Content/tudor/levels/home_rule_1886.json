@@ -1,0 +1,74 @@
+{
+ "id": "home_rule_1886",
+ "order": 990,
+ "epoch": "tudor",
+ "act": "Акт X · Век реформ и империи",
+ "music": "tension",
+ "cover": "commons_vote_en",
+ "panels": 3,
+ "scenes": [
+  "hawarden_kite_en",
+  "home_rule_bill_en",
+  "commons_vote_en",
+  "ulster_exclusion_en"
+ ],
+ "characters": [
+  "gladstone",
+  "charles_parnell",
+  "joseph_chamberlain",
+  "randolph_churchill"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "gladstone",
+     "is": "bill_defeated_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "joseph_chamberlain",
+     "is": "unionist_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "charles_parnell",
+      "is": "abandoned_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hawarden_kite_en",
+   "characters": [
+    "gladstone",
+    "charles_parnell"
+   ]
+  },
+  {
+   "scene": "home_rule_bill_en",
+   "characters": [
+    "gladstone"
+   ]
+  },
+  {
+   "scene": "commons_vote_en",
+   "characters": [
+    "joseph_chamberlain",
+    "gladstone"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "id": "matilda_1142",
+ "order": 130,
+ "epoch": "tudor",
+ "act": "Акт III · Нормандцы и Плантагенеты",
+ "music": "tension",
+ "cover": "white_cloaks_en",
+ "panels": 3,
+ "scenes": [
+  "oxford_siege_en",
+  "white_cloaks_en",
+  "wallingford_en",
+  "oxford_surrender_en"
+ ],
+ "characters": [
+  "matilda_emp",
+  "stephen_king",
+  "robert_gloucester",
+  "henry_blois"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "matilda_emp",
+     "is": "safe_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "stephen_king",
+     "is": "besieger_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "matilda_emp",
+      "is": "captured_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "oxford_siege_en",
+   "characters": [
+    "stephen_king",
+    "matilda_emp"
+   ]
+  },
+  {
+   "scene": "white_cloaks_en",
+   "characters": [
+    "matilda_emp"
+   ]
+  },
+  {
+   "scene": "wallingford_en",
+   "characters": [
+    "matilda_emp",
+    "robert_gloucester"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

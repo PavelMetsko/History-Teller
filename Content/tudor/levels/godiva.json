@@ -1,0 +1,67 @@
+{
+ "id": "godiva",
+ "order": 20,
+ "epoch": "tudor",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "godiva_ride_en",
+ "panels": 3,
+ "scenes": [
+  "godiva_plea_en",
+  "godiva_ride_en",
+  "godiva_shutters_en",
+  "godiva_relief_en"
+ ],
+ "characters": [
+  "godiva_en",
+  "leofric_en",
+  "peeping_tom_en"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "leofric_en",
+     "is": "relieved_en"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "peeping_tom_en",
+      "is": "blinded_en"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "godiva_plea_en",
+   "characters": [
+    "godiva_en",
+    "leofric_en"
+   ]
+  },
+  {
+   "scene": "godiva_ride_en",
+   "characters": [
+    "godiva_en"
+   ]
+  },
+  {
+   "scene": "godiva_relief_en",
+   "characters": [
+    "leofric_en",
+    "godiva_en"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

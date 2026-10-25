@@ -1,0 +1,73 @@
+{
+ "id": "zong_1781",
+ "order": 830,
+ "epoch": "tudor",
+ "act": "Акт IX · Великобритания",
+ "music": "tension",
+ "cover": "kings_bench_en",
+ "panels": 3,
+ "scenes": [
+  "guildhall_en",
+  "equiano_news_en",
+  "kings_bench_en",
+  "murder_charge_en"
+ ],
+ "characters": [
+  "luke_collingwood",
+  "william_gregson",
+  "granville_sharp",
+  "equiano",
+  "lord_mansfield"
+ ],
+ "initialState": {
+  "flags": {
+   "luke_collingwood": [
+    "dead"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lord_mansfield",
+     "is": "retrial_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "granville_sharp",
+     "is": "scandal_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "guildhall_en",
+   "characters": [
+    "william_gregson",
+    "lord_mansfield"
+   ]
+  },
+  {
+   "scene": "equiano_news_en",
+   "characters": [
+    "equiano",
+    "granville_sharp"
+   ]
+  },
+  {
+   "scene": "kings_bench_en",
+   "characters": [
+    "lord_mansfield",
+    "william_gregson",
+    "granville_sharp"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "id": "union_1707",
+ "order": 750,
+ "epoch": "tudor",
+ "act": "Акт IX · Великобритания",
+ "music": "theme",
+ "cover": "edinburgh_vote_en",
+ "panels": 3,
+ "scenes": [
+  "alien_act_en",
+  "equivalent_en",
+  "edinburgh_vote_en",
+  "limitations_en",
+  "royal_decree_en"
+ ],
+ "characters": [
+  "queen_anne",
+  "godolphin",
+  "queensberry",
+  "andrew_fletcher"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "queensberry",
+     "is": "union_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "alien_act_en",
+   "characters": [
+    "godolphin",
+    "queensberry"
+   ]
+  },
+  {
+   "scene": "equivalent_en",
+   "characters": [
+    "godolphin",
+    "queensberry"
+   ]
+  },
+  {
+   "scene": "edinburgh_vote_en",
+   "characters": [
+    "queensberry",
+    "andrew_fletcher"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

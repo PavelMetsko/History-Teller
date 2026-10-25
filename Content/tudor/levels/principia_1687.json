@@ -1,0 +1,61 @@
+{
+ "id": "principia_1687",
+ "order": 720,
+ "epoch": "tudor",
+ "act": "Акт VIII · Стюарты и революция",
+ "music": "theme",
+ "cover": "principia_press_en",
+ "panels": 3,
+ "scenes": [
+  "cambridge_visit_en",
+  "royal_society_en",
+  "hooke_claim_en",
+  "greenwich_en",
+  "principia_press_en"
+ ],
+ "characters": [
+  "newton",
+  "hooke",
+  "halley",
+  "flamsteed"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "newton",
+     "is": "principia_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cambridge_visit_en",
+   "characters": [
+    "halley",
+    "newton"
+   ]
+  },
+  {
+   "scene": "royal_society_en",
+   "characters": [
+    "halley"
+   ]
+  },
+  {
+   "scene": "principia_press_en",
+   "characters": [
+    "halley",
+    "newton"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

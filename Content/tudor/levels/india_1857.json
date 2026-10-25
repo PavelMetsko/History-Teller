@@ -1,0 +1,69 @@
+{
+ "id": "india_1857",
+ "order": 950,
+ "epoch": "tudor",
+ "act": "Акт X · Век реформ и империи",
+ "music": "tension",
+ "cover": "red_fort_en",
+ "panels": 3,
+ "scenes": [
+  "greased_cartridges_en",
+  "barrackpore_en",
+  "red_fort_en",
+  "clemency_en",
+  "crown_rule_en",
+  "jhansi_en"
+ ],
+ "characters": [
+  "mangal_pandey",
+  "meerut_sepoys",
+  "bahadur_shah",
+  "lakshmi_bai",
+  "lord_canning"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "bahadur_shah",
+     "is": "exiled_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "lord_canning",
+     "is": "viceroy_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "greased_cartridges_en",
+   "characters": [
+    "meerut_sepoys"
+   ]
+  },
+  {
+   "scene": "red_fort_en",
+   "characters": [
+    "meerut_sepoys",
+    "bahadur_shah"
+   ]
+  },
+  {
+   "scene": "crown_rule_en",
+   "characters": [
+    "lord_canning",
+    "bahadur_shah"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

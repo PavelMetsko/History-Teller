@@ -1,0 +1,79 @@
+{
+ "id": "boer_1900",
+ "order": 1000,
+ "epoch": "tudor",
+ "act": "Акт X · Век реформ и империи",
+ "music": "tension",
+ "cover": "scorched_earth_en",
+ "panels": 3,
+ "scenes": [
+  "pretoria_falls_en",
+  "scorched_earth_en",
+  "camps_visit_en",
+  "vereeniging_en"
+ ],
+ "characters": [
+  "kitchener",
+  "louis_botha",
+  "emily_hobhouse",
+  "sol_plaatje",
+  "paul_kruger"
+ ],
+ "initialState": {
+  "flags": {
+   "louis_botha": [
+    "commando_en"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "emily_hobhouse",
+     "is": "report_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis_botha",
+     "is": "peace_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "sol_plaatje",
+     "is": "excluded_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "scorched_earth_en",
+   "characters": [
+    "kitchener",
+    "louis_botha"
+   ]
+  },
+  {
+   "scene": "camps_visit_en",
+   "characters": [
+    "emily_hobhouse",
+    "kitchener"
+   ]
+  },
+  {
+   "scene": "vereeniging_en",
+   "characters": [
+    "kitchener",
+    "louis_botha",
+    "sol_plaatje"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

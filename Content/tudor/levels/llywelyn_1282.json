@@ -1,0 +1,80 @@
+{
+ "id": "llywelyn_1282",
+ "order": 180,
+ "epoch": "tudor",
+ "act": "Акт III · Нормандцы и Плантагенеты",
+ "music": "tension",
+ "cover": "cilmeri_en",
+ "panels": 4,
+ "scenes": [
+  "hawarden_en",
+  "brothers_en",
+  "pecham_offer_en",
+  "cilmeri_en",
+  "shrewsbury_en"
+ ],
+ "characters": [
+  "edward1",
+  "llywelyn_ap",
+  "dafydd_ap",
+  "pecham"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "llywelyn_ap",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "dafydd_ap",
+     "is": "executed_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "edward1",
+     "is": "conquest_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hawarden_en",
+   "characters": [
+    "dafydd_ap",
+    "edward1"
+   ]
+  },
+  {
+   "scene": "brothers_en",
+   "characters": [
+    "llywelyn_ap",
+    "dafydd_ap"
+   ]
+  },
+  {
+   "scene": "cilmeri_en",
+   "characters": [
+    "llywelyn_ap"
+   ]
+  },
+  {
+   "scene": "shrewsbury_en",
+   "characters": [
+    "edward1",
+    "dafydd_ap"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

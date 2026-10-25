@@ -1,0 +1,74 @@
+{
+ "id": "darwin_1859",
+ "order": 960,
+ "epoch": "tudor",
+ "act": "Акт X · Век реформ и империи",
+ "music": "theme",
+ "cover": "print_origin_en",
+ "panels": 3,
+ "scenes": [
+  "linnean_en",
+  "print_origin_en",
+  "oxford_debate_en",
+  "down_house_en"
+ ],
+ "characters": [
+  "charles_darwin",
+  "alfred_wallace",
+  "thomas_huxley",
+  "samuel_wilberforce",
+  "emma_darwin"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles_darwin",
+     "is": "origin_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "alfred_wallace",
+     "is": "codiscoverer_en"
+    }
+   },
+   {
+    "flag": {
+     "char": "samuel_wilberforce",
+     "is": "answered_en"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "linnean_en",
+   "characters": [
+    "charles_darwin",
+    "alfred_wallace"
+   ]
+  },
+  {
+   "scene": "print_origin_en",
+   "characters": [
+    "charles_darwin",
+    "thomas_huxley"
+   ]
+  },
+  {
+   "scene": "oxford_debate_en",
+   "characters": [
+    "thomas_huxley",
+    "samuel_wilberforce"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}
