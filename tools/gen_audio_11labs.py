@@ -57,6 +57,20 @@ MUSIC = {
                                   f"arranged for orchestra: solo violin and cello duet over soft "
                                   f"strings, rubato feel, gentle harp, nostalgic and longing, quiet. "
                                   f"Loops seamlessly.", "ms": 60000},
+    # глава «США»: американский колорит — фолк, спиричуэлс, фифы и барабаны, Копленд
+    "usa_tension":  {"prompt": f"{STYLE} Early American frontier suspense: low strings drone in E minor, solo "
+                               f"fiddle with an Appalachian folk modal melody, sparse banjo-like harp plucks, soft "
+                               f"bass drum heartbeat. Uneasy, open-prairie loneliness, never loud. Loops seamlessly.",
+                     "ms": 60000},
+    "usa_battle":   {"prompt": f"{STYLE} American Revolution and Civil War battle march: fife-like piccolo and "
+                               f"field snare rudiments over driving strings in D minor, brass calls, timpani, "
+                               f"determined and urgent, no drum kit. Loops seamlessly.", "ms": 60000},
+    "usa_ceremony": {"prompt": f"{STYLE} Stately American ceremonial theme, mid-century concert-hall style: open "
+                               f"fifths, broad brass chorale in C major, bright strings, wide landscape feeling, "
+                               f"hopeful and dignified. Loops seamlessly.", "ms": 60000},
+    "usa_romance":  {"prompt": f"{STYLE} Tender American folk ballad, Shenandoah-like: solo cello and warm "
+                               f"strings, gentle harp, a quiet fiddle answer, nostalgic and longing, slow. "
+                               f"Loops seamlessly.", "ms": 60000},
 }
 
 SFX = {

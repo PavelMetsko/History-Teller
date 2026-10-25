@@ -28,5 +28,25 @@
   "skip": 1024,
   "frames": 2394630,
   "sampleRate": 44100
+ },
+ "usa_battle": {
+  "skip": 1867,
+  "frames": 1903797,
+  "sampleRate": 44100
+ },
+ "usa_ceremony": {
+  "skip": 1227,
+  "frames": 2186037,
+  "sampleRate": 44100
+ },
+ "usa_romance": {
+  "skip": 1191,
+  "frames": 2103129,
+  "sampleRate": 44100
+ },
+ "usa_tension": {
+  "skip": 1719,
+  "frames": 2265417,
+  "sampleRate": 44100
  }
 }
