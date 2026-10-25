@@ -1,0 +1,82 @@
+{
+ "id": "kyiv_882",
+ "order": 50,
+ "epoch": "empire",
+ "act": "Акт II · Ранняя Русь",
+ "music": "tension",
+ "cover": "heir_shown_ru",
+ "panels": 3,
+ "scenes": [
+  "hide_boats_ru",
+  "merchants_call_ru",
+  "heir_shown_ru",
+  "storm_kyiv_ru"
+ ],
+ "characters": [
+  "oleg_ru",
+  "igor_ru",
+  "askold_ru",
+  "dir_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "askold_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "oleg_ru",
+    "askold_ru"
+   ],
+   [
+    "enemy_of",
+    "askold_ru",
+    "oleg_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "oleg_ru",
+     "is": "kyiv_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "askold_ru",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hide_boats_ru",
+   "characters": [
+    "oleg_ru"
+   ]
+  },
+  {
+   "scene": "merchants_call_ru",
+   "characters": [
+    "oleg_ru",
+    "askold_ru"
+   ]
+  },
+  {
+   "scene": "heir_shown_ru",
+   "characters": [
+    "oleg_ru",
+    "igor_ru",
+    "askold_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

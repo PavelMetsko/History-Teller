@@ -1,0 +1,84 @@
+{
+ "id": "tokhtamysh_1382",
+ "order": 190,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "kremlin_gates_ru",
+ "panels": 4,
+ "scenes": [
+  "oka_fords_ru",
+  "to_kostroma_ru",
+  "defend_kremlin_ru",
+  "kremlin_gates_ru",
+  "tribute_again_ru",
+  "oka_battle_ru"
+ ],
+ "characters": [
+  "tokhtamysh_ru",
+  "dmitry_donskoy_ru",
+  "oleg_ryazan_ru",
+  "ostey_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "tokhtamysh_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "dmitry_donskoy_ru",
+    "tokhtamysh_ru"
+   ],
+   [
+    "enemy_of",
+    "tokhtamysh_ru",
+    "dmitry_donskoy_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dmitry_donskoy_ru",
+     "is": "tributary_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "oka_fords_ru",
+   "characters": [
+    "oleg_ryazan_ru",
+    "tokhtamysh_ru"
+   ]
+  },
+  {
+   "scene": "to_kostroma_ru",
+   "characters": [
+    "dmitry_donskoy_ru"
+   ]
+  },
+  {
+   "scene": "kremlin_gates_ru",
+   "characters": [
+    "tokhtamysh_ru",
+    "ostey_ru"
+   ]
+  },
+  {
+   "scene": "tribute_again_ru",
+   "characters": [
+    "dmitry_donskoy_ru",
+    "tokhtamysh_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

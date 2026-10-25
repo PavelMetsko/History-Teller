@@ -1,0 +1,80 @@
+{
+ "id": "salt_riot_1648",
+ "order": 410,
+ "epoch": "empire",
+ "act": "Акт VII · XVII век: закон, раскол, казаки",
+ "music": "tension",
+ "cover": "give_up_judge_ru",
+ "panels": 3,
+ "scenes": [
+  "salt_tax_ru",
+  "give_up_judge_ru",
+  "give_up_morozov_ru",
+  "ulozhenie_ru"
+ ],
+ "characters": [
+  "alexei_mikh_ru",
+  "morozov_ru",
+  "pleshcheev_ru",
+  "odoevsky_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "alexei_mikh_ru": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexei_mikh_ru",
+     "is": "code_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "morozov_ru",
+     "is": "exiled_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "morozov_ru",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "salt_tax_ru",
+   "characters": [
+    "morozov_ru"
+   ]
+  },
+  {
+   "scene": "give_up_judge_ru",
+   "characters": [
+    "alexei_mikh_ru",
+    "pleshcheev_ru",
+    "morozov_ru"
+   ]
+  },
+  {
+   "scene": "ulozhenie_ru",
+   "characters": [
+    "alexei_mikh_ru",
+    "odoevsky_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

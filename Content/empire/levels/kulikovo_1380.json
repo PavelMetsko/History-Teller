@@ -1,0 +1,94 @@
+{
+ "id": "kulikovo_1380",
+ "order": 180,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "kulikovo_field_ru",
+ "panels": 3,
+ "scenes": [
+  "don_crossing_ru",
+  "oka_wait_ru",
+  "oak_grove_ru",
+  "kulikovo_field_ru",
+  "trinity_blessing_ru",
+  "reserve_charge_ru"
+ ],
+ "characters": [
+  "dmitry_donskoy_ru",
+  "mamai_ru",
+  "vladimir_serpukhov_ru",
+  "sergius_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "mamai_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "vladimir_serpukhov_ru",
+    "mamai_ru"
+   ],
+   [
+    "enemy_of",
+    "mamai_ru",
+    "vladimir_serpukhov_ru"
+   ],
+   [
+    "enemy_of",
+    "dmitry_donskoy_ru",
+    "mamai_ru"
+   ],
+   [
+    "enemy_of",
+    "mamai_ru",
+    "dmitry_donskoy_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mamai_ru",
+     "is": "routed_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "dmitry_donskoy_ru",
+     "is": "victor_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "don_crossing_ru",
+   "characters": [
+    "dmitry_donskoy_ru"
+   ]
+  },
+  {
+   "scene": "oak_grove_ru",
+   "characters": [
+    "vladimir_serpukhov_ru",
+    "dmitry_donskoy_ru"
+   ]
+  },
+  {
+   "scene": "kulikovo_field_ru",
+   "characters": [
+    "dmitry_donskoy_ru",
+    "mamai_ru",
+    "vladimir_serpukhov_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

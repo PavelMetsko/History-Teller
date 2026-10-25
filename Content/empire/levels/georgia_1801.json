@@ -1,0 +1,72 @@
+{
+ "id": "georgia_1801",
+ "order": 700,
+ "epoch": "empire",
+ "act": "Акт X · От Павла до Николая I",
+ "music": "tension",
+ "cover": "manifesto_1801_ru",
+ "panels": 3,
+ "scenes": [
+  "georgian_plea_ru",
+  "king_dies_ru",
+  "protectorate_ru",
+  "manifesto_1801_ru"
+ ],
+ "characters": [
+  "george12_ru",
+  "darejan_ru",
+  "alexander1",
+  "tsitsianov_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander1": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander1",
+     "is": "annexed_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "tsitsianov_ru",
+     "is": "governor_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "georgian_plea_ru",
+   "characters": [
+    "george12_ru"
+   ]
+  },
+  {
+   "scene": "king_dies_ru",
+   "characters": [
+    "george12_ru",
+    "darejan_ru"
+   ]
+  },
+  {
+   "scene": "manifesto_1801_ru",
+   "characters": [
+    "alexander1",
+    "tsitsianov_ru",
+    "darejan_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

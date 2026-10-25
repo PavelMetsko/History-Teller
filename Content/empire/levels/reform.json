@@ -1,8 +1,8 @@
 {
  "id": "reform",
- "order": 110,
+ "order": 610,
  "epoch": "empire",
- "act": "Акт V · Екатерина Великая",
+ "act": "Акт IX · Перевороты и Екатерина",
  "panels": 2,
  "scenes": [
   "salon_c",

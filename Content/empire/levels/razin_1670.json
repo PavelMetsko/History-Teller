@@ -1,0 +1,60 @@
+{
+ "id": "razin_1670",
+ "order": 440,
+ "epoch": "empire",
+ "act": "Акт VII · XVII век: закон, раскол, казаки",
+ "music": "tension",
+ "cover": "up_volga_ru",
+ "panels": 3,
+ "scenes": [
+  "up_volga_ru",
+  "persia_again_ru",
+  "simbirsk_ru",
+  "kagalnik_ru"
+ ],
+ "characters": [
+  "razin_ru",
+  "frol_razin_ru",
+  "baryatinsky_ru",
+  "kornila_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "razin_ru",
+     "is": "captive_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "up_volga_ru",
+   "characters": [
+    "razin_ru"
+   ]
+  },
+  {
+   "scene": "simbirsk_ru",
+   "characters": [
+    "baryatinsky_ru",
+    "razin_ru"
+   ]
+  },
+  {
+   "scene": "kagalnik_ru",
+   "characters": [
+    "kornila_ru",
+    "razin_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

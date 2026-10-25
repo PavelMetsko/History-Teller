@@ -1,0 +1,68 @@
+{
+ "id": "shamil_1859",
+ "order": 780,
+ "epoch": "empire",
+ "act": "Акт XI · Реформы, общество и окраины",
+ "music": "tension",
+ "cover": "gunib_ru",
+ "panels": 3,
+ "scenes": [
+  "naib_quarrel_ru",
+  "punitive_raid_ru",
+  "forest_cutting_ru",
+  "gunib_ru"
+ ],
+ "characters": [
+  "shamil_ru",
+  "hadji_murad_ru",
+  "baryatinsky_a_ru",
+  "ermolov_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "shamil_ru",
+     "is": "surrendered_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "shamil_ru",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "naib_quarrel_ru",
+   "characters": [
+    "shamil_ru",
+    "hadji_murad_ru"
+   ]
+  },
+  {
+   "scene": "forest_cutting_ru",
+   "characters": [
+    "baryatinsky_a_ru"
+   ]
+  },
+  {
+   "scene": "gunib_ru",
+   "characters": [
+    "baryatinsky_a_ru",
+    "shamil_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

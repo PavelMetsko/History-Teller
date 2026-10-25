@@ -1,0 +1,65 @@
+{
+  "id": "frol_razin_ru",
+  "name": "Фрол Разин",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short_sides",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#5a4434",
+      "fur": "#3b2a20"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "kontusz",
+      "zupan": "#e9d8a8",
+      "kontusz": "#5a4434",
+      "sash": "#a8312f",
+      "sash2": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a4434",
+      "cuff": "#5a4434"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#a8312f"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#a8312f"
+    }
+  }
+}

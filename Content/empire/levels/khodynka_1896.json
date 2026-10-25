@@ -1,0 +1,67 @@
+{
+ "id": "khodynka_1896",
+ "order": 870,
+ "epoch": "empire",
+ "act": "Акт XII · Закат империи и революции",
+ "music": "tension",
+ "cover": "crush_ru",
+ "panels": 3,
+ "scenes": [
+  "gifts_ru",
+  "crush_ru",
+  "cancel_ru",
+  "ball_ru"
+ ],
+ "characters": [
+  "nicholas2",
+  "alexandra",
+  "sergei_ru",
+  "gilyarovsky_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "gilyarovsky_ru",
+     "is": "witness_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "nicholas2",
+     "is": "ball_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "gifts_ru",
+   "characters": [
+    "sergei_ru",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "crush_ru",
+   "characters": [
+    "gilyarovsky_ru",
+    "sergei_ru"
+   ]
+  },
+  {
+   "scene": "ball_ru",
+   "characters": [
+    "nicholas2",
+    "alexandra"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

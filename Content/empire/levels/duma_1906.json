@@ -1,0 +1,75 @@
+{
+ "id": "duma_1906",
+ "order": 900,
+ "epoch": "empire",
+ "act": "Акт XII · Закат империи и революции",
+ "music": "tension",
+ "cover": "khutor_ru",
+ "panels": 3,
+ "scenes": [
+  "kadet_cabinet_ru",
+  "dissolve_ru",
+  "vyborg_ru",
+  "field_courts_ru",
+  "khutor_ru"
+ ],
+ "characters": [
+  "nicholas2",
+  "stolypin_ru",
+  "milyukov_ru",
+  "khutor_peasant_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "milyukov_ru",
+     "is": "dissolved_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "stolypin_ru",
+     "is": "repression_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "khutor_peasant_ru",
+     "is": "khutor_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dissolve_ru",
+   "characters": [
+    "nicholas2",
+    "stolypin_ru",
+    "milyukov_ru"
+   ]
+  },
+  {
+   "scene": "field_courts_ru",
+   "characters": [
+    "stolypin_ru",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "khutor_ru",
+   "characters": [
+    "stolypin_ru",
+    "khutor_peasant_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

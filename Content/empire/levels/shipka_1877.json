@@ -1,0 +1,77 @@
+{
+ "id": "shipka_1877",
+ "order": 830,
+ "epoch": "empire",
+ "act": "Акт XI · Реформы, общество и окраины",
+ "music": "tension",
+ "cover": "stones_ru",
+ "panels": 3,
+ "scenes": [
+  "eagle_nest_ru",
+  "stones_ru",
+  "valley_ru",
+  "plevna_ru",
+  "relief_ru"
+ ],
+ "characters": [
+  "stoletov_ru",
+  "opalchentsi_ru",
+  "suleiman_ru",
+  "osman_pasha_ru",
+  "radetzky_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "opalchentsi_ru",
+     "is": "held_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "suleiman_ru",
+     "is": "repulsed_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "opalchentsi_ru",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "eagle_nest_ru",
+   "characters": [
+    "stoletov_ru",
+    "opalchentsi_ru"
+   ]
+  },
+  {
+   "scene": "stones_ru",
+   "characters": [
+    "opalchentsi_ru",
+    "suleiman_ru"
+   ]
+  },
+  {
+   "scene": "relief_ru",
+   "characters": [
+    "radetzky_ru",
+    "suleiman_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "askold_ru",
+  "name": "Аскольд",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8b070",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#d8b070"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#d8b070"
+    },
+    "hat": {
+      "type": "nasal",
+      "col": "#a9b0b8",
+      "trim": "#8a6a2a"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#5a4434"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#a9b0b8",
+      "surcoat": "#7a2a2a",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5b3a22",
+      "top": "#5b3a22"
+    }
+  }
+}

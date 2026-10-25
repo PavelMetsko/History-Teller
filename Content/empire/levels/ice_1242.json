@@ -1,0 +1,84 @@
+{
+ "id": "ice_1242",
+ "order": 150,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "peipus_ice_ru",
+ "panels": 3,
+ "scenes": [
+  "suzdal_aid_ru",
+  "peipus_ice_ru",
+  "polynya_ru",
+  "peace_order_ru",
+  "pskov_field_ru"
+ ],
+ "characters": [
+  "alexander_nevsky_ru",
+  "andrey_yaroslavich_ru",
+  "hermann_dorpat_ru",
+  "order_knights_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "order_knights_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "alexander_nevsky_ru",
+    "order_knights_ru"
+   ],
+   [
+    "enemy_of",
+    "order_knights_ru",
+    "alexander_nevsky_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hermann_dorpat_ru",
+     "is": "renounced_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "order_knights_ru",
+     "is": "exchanged_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "suzdal_aid_ru",
+   "characters": [
+    "alexander_nevsky_ru",
+    "andrey_yaroslavich_ru"
+   ]
+  },
+  {
+   "scene": "peipus_ice_ru",
+   "characters": [
+    "alexander_nevsky_ru",
+    "order_knights_ru"
+   ]
+  },
+  {
+   "scene": "peace_order_ru",
+   "characters": [
+    "alexander_nevsky_ru",
+    "hermann_dorpat_ru",
+    "order_knights_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

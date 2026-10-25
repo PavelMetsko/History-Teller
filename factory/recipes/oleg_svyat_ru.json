@@ -1,0 +1,66 @@
+{
+  "id": "oleg_svyat_ru",
+  "name": "Олег Святославич",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b9672e",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#b9672e"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#b9672e"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#2f6a4a",
+      "fur": "#6b4a2a"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#2f6a4a"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#7a2a2a",
+      "trim": "#d4a63c",
+      "belt": "#6b4426"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a2a2a",
+      "cuff": "#7a2a2a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a2a2a",
+      "top": "#7a2a2a"
+    }
+  }
+}

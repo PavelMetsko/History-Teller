@@ -1,0 +1,69 @@
+{
+ "id": "rurik_862",
+ "order": 10,
+ "epoch": "empire",
+ "act": "Акт I · Легенды и былины",
+ "music": "theme",
+ "cover": "call_princes_ru",
+ "panels": 3,
+ "scenes": [
+  "expel_varangians_ru",
+  "clan_strife_ru",
+  "call_princes_ru",
+  "come_with_sword_ru",
+  "veche_alone_ru"
+ ],
+ "characters": [
+  "rurik_ru",
+  "sineus_ru",
+  "truvor_ru",
+  "gostomysl_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rurik_ru",
+     "is": "prince_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "rurik_ru",
+      "is": "conqueror_ru"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "expel_varangians_ru",
+   "characters": [
+    "gostomysl_ru",
+    "rurik_ru"
+   ]
+  },
+  {
+   "scene": "clan_strife_ru",
+   "characters": [
+    "gostomysl_ru"
+   ]
+  },
+  {
+   "scene": "call_princes_ru",
+   "characters": [
+    "gostomysl_ru",
+    "rurik_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

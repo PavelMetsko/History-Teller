@@ -1,0 +1,61 @@
+{
+  "id": "elena_glinskaya_ru",
+  "name": "Елена Глинская",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#f4f1ea",
+      "band": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#a8312f",
+      "trim": "#d4a63c",
+      "mantle": "#5a2a6b",
+      "shoes": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

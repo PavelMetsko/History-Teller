@@ -1,0 +1,76 @@
+{
+ "id": "kyiv_sack_1169",
+ "order": 110,
+ "epoch": "empire",
+ "act": "Акт III · Удельная Русь и степь",
+ "music": "tension",
+ "cover": "kyiv_sack_ru",
+ "panels": 3,
+ "scenes": [
+  "coalition_ru",
+  "kyiv_sack_ru",
+  "give_kyiv_ru",
+  "sit_kyiv_ru",
+  "parley_kyiv_ru"
+ ],
+ "characters": [
+  "bogolyubsky_ru",
+  "mstislav_iz_ru",
+  "gleb_yur_ru",
+  "roman_rost_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "gleb_yur_ru",
+     "is": "kyiv_prince_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "bogolyubsky_ru",
+     "is": "vladimir_seat_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "bogolyubsky_ru",
+      "is": "in_kyiv_ru"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "coalition_ru",
+   "characters": [
+    "bogolyubsky_ru",
+    "roman_rost_ru"
+   ]
+  },
+  {
+   "scene": "kyiv_sack_ru",
+   "characters": [
+    "bogolyubsky_ru",
+    "mstislav_iz_ru"
+   ]
+  },
+  {
+   "scene": "give_kyiv_ru",
+   "characters": [
+    "bogolyubsky_ru",
+    "gleb_yur_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

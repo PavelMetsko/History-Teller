@@ -1,0 +1,66 @@
+{
+  "id": "konstantin_nik_ru",
+  "name": "Великий князь Константин Николаевич",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#1e2a44",
+      "fur": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#1e2a44",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e2a44",
+      "cuff": "#1e2a44"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#1e1e22"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

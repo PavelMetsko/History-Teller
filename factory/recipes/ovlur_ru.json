@@ -1,0 +1,64 @@
+{
+  "id": "ovlur_ru",
+  "name": "Половчанин Овлур",
+  "skin": "#e8b290",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "mongol",
+      "fur": "#6b4a2a",
+      "top": "#7a5232"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "fur_tunic",
+      "col": "#7a6a52",
+      "fur": "#c9b08a",
+      "rope": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a6a52",
+      "cuff": "#7a6a52"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

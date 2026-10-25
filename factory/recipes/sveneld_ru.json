@@ -1,0 +1,65 @@
+{
+  "id": "sveneld_ru",
+  "name": "Воевода Свенельд",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#b8b4c0"
+    },
+    "hat": {
+      "type": "nasal",
+      "col": "#a9b0b8",
+      "trim": "#8a6a2a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#a9b0b8",
+      "surcoat": "#5a2a6b",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#5b3a22",
+      "top": "#5b3a22"
+    }
+  }
+}

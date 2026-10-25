@@ -1,0 +1,83 @@
+{
+ "id": "dark_war_1446",
+ "order": 200,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "trinity_seized_ru",
+ "panels": 4,
+ "scenes": [
+  "golden_belt_ru",
+  "blinding_kosoy_ru",
+  "trinity_seized_ru",
+  "return_dark_ru",
+  "yield_uncle_ru",
+  "kill_shemyaka_ru"
+ ],
+ "characters": [
+  "vasily2_ru",
+  "vasily_kosoy_ru",
+  "shemyaka_ru",
+  "sofia_vitovtovna_ru",
+  "iona_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": [
+   [
+    "enemy_of",
+    "vasily2_ru",
+    "shemyaka_ru"
+   ],
+   [
+    "enemy_of",
+    "shemyaka_ru",
+    "vasily2_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "vasily2_ru",
+     "is": "restored_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "golden_belt_ru",
+   "characters": [
+    "sofia_vitovtovna_ru",
+    "vasily_kosoy_ru"
+   ]
+  },
+  {
+   "scene": "blinding_kosoy_ru",
+   "characters": [
+    "vasily2_ru",
+    "vasily_kosoy_ru",
+    "shemyaka_ru"
+   ]
+  },
+  {
+   "scene": "trinity_seized_ru",
+   "characters": [
+    "shemyaka_ru",
+    "vasily2_ru"
+   ]
+  },
+  {
+   "scene": "return_dark_ru",
+   "characters": [
+    "iona_ru",
+    "vasily2_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

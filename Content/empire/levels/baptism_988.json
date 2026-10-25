@@ -1,0 +1,62 @@
+{
+ "id": "baptism_988",
+ "order": 80,
+ "epoch": "empire",
+ "act": "Акт II · Ранняя Русь",
+ "music": "theme",
+ "cover": "korsun_font_ru",
+ "panels": 3,
+ "scenes": [
+  "aid_troops_ru",
+  "korsun_siege_ru",
+  "korsun_font_ru",
+  "pagan_pantheon_ru",
+  "pagan_wedding_ru"
+ ],
+ "characters": [
+  "vladimir",
+  "basil2",
+  "anna_byz",
+  "dobrynya_hist_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "vladimir",
+     "is": "baptized_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "aid_troops_ru",
+   "characters": [
+    "vladimir",
+    "basil2"
+   ]
+  },
+  {
+   "scene": "korsun_siege_ru",
+   "characters": [
+    "vladimir",
+    "dobrynya_hist_ru"
+   ]
+  },
+  {
+   "scene": "korsun_font_ru",
+   "characters": [
+    "vladimir",
+    "anna_byz"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

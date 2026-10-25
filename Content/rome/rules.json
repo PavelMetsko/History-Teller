@@ -61933,5 +61933,7534 @@
     "flag": "plebiscite_fr"
    }
   ]
+ },
+ {
+  "id": "council_alaska_ru_sig",
+  "comment": "Брат царя доказывает: после Крымской войны далёкую колонию не удержать и не защитить — лучше продать, пока её не взяли силой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_council_alaska_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "konstantin_nik_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "decided_sell_ru"
+   }
+  ]
+ },
+ {
+  "id": "london_offer_ru_sig",
+  "comment": "Посланник заводит речь о продаже вчерашнему врагу — и в Петербурге его не поймут",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_london_offer_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "stoeckl_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "talks_london_ru"
+   }
+  ]
+ },
+ {
+  "id": "instructions_ru_sig",
+  "comment": "Император даёт посланнику полномочия: продать Русскую Америку Соединённым Штатам не дешевле пяти миллионов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_instructions_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "decided_sell_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "stoeckl_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "instructed_ru"
+   }
+  ]
+ },
+ {
+  "id": "lease_ru_sig",
+  "comment": "Аренда вместо продажи — красивая легенда, но так не договориться: ни Конгресс, ни царь на это не пойдут",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lease_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "stoeckl_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "seward_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lease_myth_ru"
+   }
+  ]
+ },
+ {
+  "id": "sign_alaska_ru_sig",
+  "comment": "Сьюард не ждёт утра: договор подписывают ночью — 7,2 миллиона долларов золотом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sign_alaska_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "stoeckl_ru"
+     ],
+     "flags": [
+      "instructed_ru"
+     ],
+     "notFlags": [
+      "talks_london_ru",
+      "lease_myth_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "seward_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sold_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bought_ru"
+   }
+  ]
+ },
+ {
+  "id": "eagle_nest_ru_sig",
+  "comment": "Генерал ставит на перевал болгарские дружины и русский полк — единственная дорога через Балканы закрыта",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_eagle_nest_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "stoletov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "opalchentsi_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "holding_ru"
+   }
+  ]
+ },
+ {
+  "id": "stones_ru_sig",
+  "comment": "Патроны кончились — ополченцы бросают камни и тела убитых, но перевал не отдают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_stones_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "opalchentsi_ru"
+     ],
+     "flags": [
+      "holding_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "suleiman_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "held_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "stalled_ru"
+   }
+  ]
+ },
+ {
+  "id": "valley_ru_sig",
+  "comment": "Без укрытий, против втрое сильнейшей армии — отряд погибает в долине",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_valley_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "opalchentsi_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "suleiman_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "plevna_ru_sig",
+  "comment": "Резерв бросают на неприступную Плевну — штурм захлёбывается, а на Шипку идти уже некому",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_plevna_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "radetzky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "osman_pasha_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "bogged_ru"
+   }
+  ]
+ },
+ {
+  "id": "relief_ru_sig",
+  "comment": "На пятый день боёв на перевал врывается резерв Радецкого — Сулейман отходит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_relief_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "radetzky_ru"
+     ],
+     "notFlags": [
+      "bogged_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "suleiman_ru"
+     ],
+     "flags": [
+      "stalled_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "repulsed_ru"
+   }
+  ]
+ },
+ {
+  "id": "railway_ru_sig",
+  "comment": "От Каспия в пустыню тянут рельсы и верблюжьи караваны — у армии впервые есть снаряды и вода для долгой осады",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_railway_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "skobelev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "grodekov_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "supplied_ru"
+   }
+  ]
+ },
+ {
+  "id": "frontal_ru_sig",
+  "comment": "Как Ломакин в 1879-м: штурм без осадной артиллерии — и отряд откатывается от стен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_frontal_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "skobelev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tykma_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repulsed_ru"
+   }
+  ]
+ },
+ {
+  "id": "mine_ru_sig",
+  "comment": "Сапёры подводят мину под стену; взрыв — и в пролом идут штурмовые колонны",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mine_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "skobelev_ru"
+     ],
+     "flags": [
+      "supplied_ru"
+     ],
+     "notFlags": [
+      "repulsed_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tykma_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fallen_ru"
+   }
+  ]
+ },
+ {
+  "id": "pursuit_ru_sig",
+  "comment": "Кавалерию пускают за бегущими — в пустыне гибнут тысячи, и мириться уже не с кем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pursuit_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "skobelev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tykma_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "submission_ru_sig",
+  "comment": "Крепость пала, сопротивляться больше нечем: сердар выбирает переговоры и едет к новому царю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_submission_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tykma_ru"
+     ],
+     "flags": [
+      "fallen_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "skobelev_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "submitted_ru"
+   }
+  ]
+ },
+ {
+  "id": "circular_ru_sig",
+  "comment": "Министр объявляет причиной погромов не погромщиков, а «эксплуатацию» местных жителей евреями",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_circular_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ignatyev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "blame_victims_ru"
+   }
+  ]
+ },
+ {
+  "id": "protect_ru_sig",
+  "comment": "Царь требует судить громил и защищать подданных — «временным правилам» неоткуда взяться",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_protect_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ignatyev_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "protect_ru"
+   }
+  ]
+ },
+ {
+  "id": "may_rules_ru_sig",
+  "comment": "«Временные правила»: евреям запрещено селиться в деревнях и покупать землю за чертой — они продержатся до 1917 года",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_may_rules_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ignatyev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "blame_victims_ru"
+     ],
+     "notFlags": [
+      "protect_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "may_rules_ru"
+   }
+  ]
+ },
+ {
+  "id": "reform_hope_ru_sig",
+  "comment": "Одесский врач по-прежнему верит: просвещение и терпение принесут равноправие",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_reform_hope_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pinsker_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waits_ru"
+   }
+  ]
+ },
+ {
+  "id": "autoemancipation_ru_sig",
+  "comment": "Увидев погромы и закон, который наказал жертв, врач пишет: свободу евреям не подарят — её надо добыть самим",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_autoemancipation_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pinsker_ru"
+     ],
+     "notFlags": [
+      "waits_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "may_rules_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "wrote_ru"
+   }
+  ]
+ },
+ {
+  "id": "gifts_ru_sig",
+  "comment": "На коронацию обещают народное гулянье: кружка, пряник, колбаса — полмиллиона человек идут на изрытое поле",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gifts_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sergei_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "organized_ru"
+   }
+  ]
+ },
+ {
+  "id": "crush_ru_sig",
+  "comment": "В пять утра пронёсся слух, что гостинцев не хватит, — толпа хлынула, и в рвах и колодцах задавили больше тысячи человек",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_crush_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gilyarovsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sergei_ru"
+     ],
+     "flags": [
+      "organized_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "witness_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "blamed_ru"
+   }
+  ]
+ },
+ {
+  "id": "cancel_ru_sig",
+  "comment": "Императрица уговаривает мужа отменить вечерний бал и объявить траур",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cancel_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "empress_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mourning_ru"
+   }
+  ]
+ },
+ {
+  "id": "ball_ru_sig",
+  "comment": "Дядья убеждают: обидеть Францию нельзя — вечером император открывает бал",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ball_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ],
+     "notFlags": [
+      "mourning_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "empress_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ball_ru"
+   }
+  ]
+ },
+ {
+  "id": "receive_ru_sig",
+  "comment": "Царь выходит к шествию и принимает петицию — стрелять никому не приходится",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_receive_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gapon_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "received_ru"
+   }
+  ]
+ },
+ {
+  "id": "petition_ru_sig",
+  "comment": "Царя в Зимнем нет, у застав войска стреляют в шествие с иконами — доверие к «батюшке-царю» убито",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_petition_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gapon_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "notFlags": [
+      "received_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fled_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "trust_lost_ru"
+   }
+  ]
+ },
+ {
+  "id": "dictatorship_ru_sig",
+  "comment": "Генерал предлагает ответить на всеобщую стачку диктатурой — и царь склоняется к силе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dictatorship_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "trepov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dictatorship_ru"
+   }
+  ]
+ },
+ {
+  "id": "memo_ru_sig",
+  "comment": "Страна стоит, поезда не ходят: Витте кладёт на стол выбор — военная диктатура или конституционные свободы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_memo_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "minister_r"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "trust_lost_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "memo_ru"
+   }
+  ]
+ },
+ {
+  "id": "manifesto_ru_sig",
+  "comment": "Под давлением революции царь подписывает манифест: свободы и законодательная Дума — а Витте возглавляет правительство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_manifesto_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "memo_ru"
+     ],
+     "notFlags": [
+      "dictatorship_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "minister_r"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "manifesto_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "premier_ru"
+   }
+  ]
+ },
+ {
+  "id": "kadet_cabinet_ru_sig",
+  "comment": "Кадеты требуют правительства, ответственного перед Думой, и отчуждения помещичьих земель — царь склоняется к уступке",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kadet_cabinet_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "milyukov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "kadet_cabinet_ru"
+   }
+  ]
+ },
+ {
+  "id": "dissolve_ru_sig",
+  "comment": "Царь разгоняет Думу «народного гнева» и в тот же день назначает премьером саратовского губернатора",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dissolve_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ],
+     "notFlags": [
+      "kadet_cabinet_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "stolypin_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "milyukov_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "premier_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dissolved_ru"
+   }
+  ]
+ },
+ {
+  "id": "vyborg_ru_sig",
+  "comment": "Депутаты из Выборга зовут не платить налогов и не давать рекрутов — их отдадут под суд",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vyborg_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "milyukov_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "vyborg_ru"
+   }
+  ]
+ },
+ {
+  "id": "field_courts_ru_sig",
+  "comment": "Против террора — военно-полевые суды: приговор за двое суток, казнь за сутки",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_field_courts_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "stolypin_ru"
+     ],
+     "flags": [
+      "premier_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repression_ru"
+   }
+  ]
+ },
+ {
+  "id": "khutor_ru_sig",
+  "comment": "Крестьянин получает право выйти из общины с наделом в собственность — «ставка на сильных»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_khutor_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "stolypin_ru"
+     ],
+     "flags": [
+      "premier_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "khutor_peasant_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "khutor_ru"
+   }
+  ]
+ },
+ {
+  "id": "telegrams_ru_sig",
+  "comment": "Кузен просит остановиться — и царь отменяет всеобщую мобилизацию, оставив частичную",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_telegrams_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wilhelm2"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "halted_ru"
+   }
+  ]
+ },
+ {
+  "id": "mobilize_ru_sig",
+  "comment": "Министр убеждает: частичная мобилизация сорвёт все планы — царь объявляет всеобщую",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mobilize_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sazonov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "notFlags": [
+      "halted_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mobilized_ru"
+   }
+  ]
+ },
+ {
+  "id": "ultimatum_ru_sig",
+  "comment": "Германия требует отменить мобилизацию за двенадцать часов — и 1 августа объявляет войну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ultimatum_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "wilhelm2"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "mobilized_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "at_war_ru"
+   }
+  ]
+ },
+ {
+  "id": "narrow_ru_sig",
+  "comment": "Прорыв в одном месте — и противник успевает стянуть туда все резервы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_narrow_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "brusilov_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "narrow_ru"
+   }
+  ]
+ },
+ {
+  "id": "brusilov_ru_sig",
+  "comment": "Генерал наносит удары сразу на всём фронте — австрийцы не знают, где главный, и фронт рушится",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_brusilov_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "brusilov_ru"
+     ],
+     "notFlags": [
+      "narrow_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "at_war_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "breakthrough_ru"
+   }
+  ]
+ },
+ {
+  "id": "wait_ca_ru_sig",
+  "comment": "Каменев убеждает: Учредительное собрание через месяц — зачем рисковать восстанием? Ленин соглашается ждать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_ca_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kamenev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lenin_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "waits_ru"
+   }
+  ]
+ },
+ {
+  "id": "cc_ru_sig",
+  "comment": "Ленин, тайно вернувшийся в Петроград, добивается решения о восстании: десять против двух — Каменева и Зиновьева",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cc_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lenin_ru"
+     ],
+     "notFlags": [
+      "waits_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kamenev_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "uprising_vote_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dissent_ru"
+   }
+  ]
+ },
+ {
+  "id": "front_troops_ru_sig",
+  "comment": "Премьер вовремя вызывает с фронта верные части — гарнизон столицы под охраной",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_front_troops_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kerensky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "troops_ru"
+   }
+  ]
+ },
+ {
+  "id": "mrc_ru_sig",
+  "comment": "Через комитет Петроградского совета Троцкий забирает у штаба гарнизон: полки слушают Смольный, а не правительство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mrc_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "trotsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lenin_ru"
+     ],
+     "flags": [
+      "uprising_vote_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "garrison_ru"
+   }
+  ]
+ },
+ {
+  "id": "winter_ru_sig",
+  "comment": "Мосты и вокзалы заняты, Керенский уехал за войсками, министров арестовывают в Зимнем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_winter_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "trotsky_ru"
+     ],
+     "flags": [
+      "garrison_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kerensky_ru"
+     ],
+     "notFlags": [
+      "troops_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "power_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_ru"
+   }
+  ]
+ },
+ {
+  "id": "recognize_ru_sig",
+  "comment": "Ленин признаёт собрание, где большинство у эсеров, и отдаёт ему власть",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_recognize_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lenin_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "chernov_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "recognized_ru"
+   }
+  ]
+ },
+ {
+  "id": "assembly_ru_sig",
+  "comment": "Председателя собрания перебивает матрос: «Караул устал» — наутро двери закрыты, собрание распущено",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_assembly_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "chernov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lenin_ru"
+     ],
+     "notFlags": [
+      "recognized_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dispersed_ru"
+   }
+  ]
+ },
+ {
+  "id": "neither_ru_sig",
+  "comment": "Троцкий объявляет: войну прекращаем, мир не подписываем — и уезжает. Немцы отвечают наступлением",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_neither_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "trotsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hoffmann_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "offensive_ru"
+   }
+  ]
+ },
+ {
+  "id": "revwar_ru_sig",
+  "comment": "Нарком встаёт за «революционную войну» — и голоса за мир в ЦК уже не набрать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_revwar_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "trotsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hoffmann_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "war_party_ru"
+   }
+  ]
+ },
+ {
+  "id": "sign_brest_ru_sig",
+  "comment": "Ленин грозит уйти в отставку, Троцкий воздерживается — и Советская Россия принимает германские условия",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sign_brest_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lenin_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "trotsky_ru"
+     ],
+     "notFlags": [
+      "war_party_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "hoffmann_ru"
+     ],
+     "flags": [
+      "offensive_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "treaty_ru"
+   }
+  ]
+ },
+ {
+  "id": "ipatiev_ru_sig",
+  "comment": "Бывшего царя с семьёй и слугами держат в доме инженера Ипатьева; охрану ведёт новый комендант",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ipatiev_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "yurovsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "imprisoned_ru"
+   }
+  ]
+ },
+ {
+  "id": "evacuate_ru_sig",
+  "comment": "Семью увозят в Москву, подальше от фронта",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_evacuate_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "yurovsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "evacuated_ru"
+   }
+  ]
+ },
+ {
+  "id": "trial_ru_sig",
+  "comment": "В Москве говорят об открытом процессе над бывшим царём — пока его готовят, ничего не решают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_trial_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sverdlov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "trial_planned_ru"
+   }
+  ]
+ },
+ {
+  "id": "decision_ru_sig",
+  "comment": "Белочехи в нескольких днях от города; Уралсовет решает убить узников — с какой санкцией Москвы, спорят до сих пор",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_decision_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sverdlov_ru"
+     ],
+     "notFlags": [
+      "trial_planned_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "yurovsky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "order_ru"
+   }
+  ]
+ },
+ {
+  "id": "cellar_ru_sig",
+  "comment": "Ночью узников будят и ведут в подвал",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cellar_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "yurovsky_ru"
+     ],
+     "flags": [
+      "order_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ],
+     "flags": [
+      "imprisoned_ru"
+     ],
+     "notFlags": [
+      "evacuated_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "empress_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "expel_varangians_ru_sig",
+  "comment": "Словене, кривичи и чудь перестают платить дань и прогоняют варягов за море",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_expel_varangians_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gostomysl_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rurik_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "free_ru"
+   }
+  ]
+ },
+ {
+  "id": "clan_strife_ru_sig",
+  "comment": "Без общей власти «встал род на род» — начались усобицы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_clan_strife_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gostomysl_ru"
+     ],
+     "flags": [
+      "free_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "strife_ru"
+   }
+  ]
+ },
+ {
+  "id": "call_princes_ru_sig",
+  "comment": "«Земля наша велика и обильна, а порядка в ней нет» — старейшины зовут князя из-за моря",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_call_princes_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gostomysl_ru"
+     ],
+     "flags": [
+      "strife_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rurik_ru"
+     ],
+     "notFlags": [
+      "conqueror_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "prince_ru"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "A",
+    "to": "B"
+   }
+  ]
+ },
+ {
+  "id": "come_with_sword_ru_sig",
+  "comment": "Варяг возвращается силой — он завоеватель, а не призванный князь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_come_with_sword_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rurik_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gostomysl_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "conqueror_ru"
+   }
+  ]
+ },
+ {
+  "id": "prophecy_ru_sig",
+  "comment": "«Примешь ты смерть от коня своего», — говорит князю кудесник",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prophecy_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "volkhv_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "oleg_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "foretold_ru"
+   }
+  ]
+ },
+ {
+  "id": "send_steed_ru_sig",
+  "comment": "Князь клянётся никогда не садиться на любимого коня и отдаёт его конюшему — кормить до смерти",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_send_steed_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ru"
+     ],
+     "flags": [
+      "foretold_ru"
+     ],
+     "notFlags": [
+      "rode_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "groom_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "parted_ru"
+   }
+  ]
+ },
+ {
+  "id": "ride_again_ru_sig",
+  "comment": "Князь не верит волхвам и снова скачет на любимом коне — пророчество так и висит над ним",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ride_again_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "groom_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rode_ru"
+   }
+  ]
+ },
+ {
+  "id": "bones_ru_sig",
+  "comment": "Через годы князь узнаёт, что конь умер, и смеётся над волхвом — из черепа выползает змея",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bones_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ru"
+     ],
+     "flags": [
+      "parted_ru"
+     ],
+     "notFlags": [
+      "rode_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fulfilled_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "seize_volkhv_ru_sig",
+  "comment": "Князь казнит прорицателя — пророчества больше некому сказать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_seize_volkhv_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "volkhv_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "kaliki_heal_ru_sig",
+  "comment": "Тридцать три года сидел Илья сиднем — калики дают ему испить, и он встаёт богатырём",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kaliki_heal_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kaliki_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ilya_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "healed_ru"
+   }
+  ]
+ },
+ {
+  "id": "straight_road_ru_sig",
+  "comment": "Богатырь едет прямой дорогой, где тридцать лет никто не ездил, и стрелой выбивает разбойнику глаз",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_straight_road_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ilya_ru"
+     ],
+     "flags": [
+      "healed_ru"
+     ],
+     "notFlags": [
+      "detour_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "solovei_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hero_ru"
+   }
+  ]
+ },
+ {
+  "id": "detour_ru_sig",
+  "comment": "Илья едет в объезд — дорога безопасна, но разбойник остаётся в лесу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_detour_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ilya_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "detour_ru"
+   }
+  ]
+ },
+ {
+  "id": "feast_boast_ru_sig",
+  "comment": "Незнакомец хвалится, что приехал прямоезжей дорогой, — бояре смеются: «Деревенщина врёт»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_feast_boast_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ilya_ru"
+     ],
+     "notFlags": [
+      "hero_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "boaster_ru"
+   }
+  ]
+ },
+ {
+  "id": "court_proof_ru_sig",
+  "comment": "Пленный Соловей по приказу свистит — терем шатается, князь верит, а Илья казнит разбойника",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_court_proof_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ilya_ru"
+     ],
+     "flags": [
+      "hero_ru"
+     ],
+     "notFlags": [
+      "boaster_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "solovei_ru"
+     ],
+     "flags": [
+      "captive_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "believes_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "sea_throne_ru_sig",
+  "comment": "Корабль встал среди моря — Садко спускается на дно и играет; царь пляшет, и наверху бушует буря",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sea_throne_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sadko_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sea_tsar_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "below_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dancing_ru"
+   }
+  ]
+ },
+ {
+  "id": "nikola_advice_ru_sig",
+  "comment": "Старец шепчет: порви струны — пляска кончится, корабли перестанут тонуть",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_nikola_advice_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nikola_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sadko_ru"
+     ],
+     "flags": [
+      "below_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "strings_broken_ru"
+   }
+  ]
+ },
+ {
+  "id": "pick_bride_ru_sig",
+  "comment": "По совету старца Садко выбирает последнюю, Чернаву, — и просыпается на берегу реки Волхов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pick_bride_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sadko_ru"
+     ],
+     "flags": [
+      "strings_broken_ru"
+     ],
+     "notFlags": [
+      "stays_below_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "chernava_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "home_ru"
+   }
+  ]
+ },
+ {
+  "id": "pick_bride_ru_sig_princess",
+  "comment": "Гусляр выбирает красавицу-царевну — и навсегда остаётся на дне",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pick_bride_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sadko_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sea_princess_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "stays_below_ru"
+   }
+  ]
+ },
+ {
+  "id": "gold_tribute_ru_sig",
+  "comment": "Купец бросает в море бочку золота — море не утихает: царь хочет живую голову",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gold_tribute_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sadko_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sea_tsar_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "tried_gold_ru"
+   }
+  ]
+ },
+ {
+  "id": "hide_boats_ru_sig",
+  "comment": "Олег прячет воинов в ладьях и подходит к Киеву как мирный караван",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hide_boats_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "disguised_ru"
+   }
+  ]
+ },
+ {
+  "id": "merchants_call_ru_sig",
+  "comment": "«Мы купцы, идём к грекам от Олега и Игоря — приходите к нам, к родичам своим»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_merchants_call_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ru"
+     ],
+     "flags": [
+      "disguised_ru"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "askold_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "lured_ru"
+   }
+  ]
+ },
+ {
+  "id": "heir_shown_ru_sig",
+  "comment": "«Вы не князья и не княжеского рода, а я княжеского, а вот сын Рюриков» — и Аскольда убивают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_heir_shown_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ru"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "igor_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "askold_ru"
+     ],
+     "flags": [
+      "lured_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "kyiv_ru"
+   }
+  ]
+ },
+ {
+  "id": "second_tribute_ru_sig",
+  "comment": "Князь вернулся за данью с малой дружиной: «Если повадится волк к овцам — вынесет всё стадо» — и древляне его убили",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_second_tribute_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "igor_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mal_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rebel_ru"
+   }
+  ]
+ },
+ {
+  "id": "mal_matchmaking_ru_sig",
+  "comment": "Вдова соглашается на сватовство древлянского князя — Киев отдаёт себя убийцам мужа",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mal_matchmaking_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mal_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "olga_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "wed_mal_ru"
+   }
+  ]
+ },
+ {
+  "id": "olga_revenge_ru_sig",
+  "comment": "Ольга мстит древлянам и сжигает Искоростень — власть Киева над ними восстановлена",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_olga_revenge_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "olga_ru"
+     ],
+     "notFlags": [
+      "wed_mal_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mal_ru"
+     ],
+     "flags": [
+      "rebel_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ruler_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "subdued_ru"
+   }
+  ]
+ },
+ {
+  "id": "pogosts_ru_sig",
+  "comment": "Княгиня объезжает земли и вводит «уставы и уроки» — твёрдый размер дани — и погосты, где её собирают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pogosts_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "olga_ru"
+     ],
+     "flags": [
+      "ruler_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sveneld_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lessons_ru"
+   }
+  ]
+ },
+ {
+  "id": "i_come_ru_sig",
+  "comment": "Князь шлёт врагу короткое «Хочу на вы идти» — честь требует предупредить",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_i_come_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "svyatoslav_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "joseph_khazar_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "warned_ru"
+   }
+  ]
+ },
+ {
+  "id": "sarkel_ru_sig",
+  "comment": "Святослав разбивает хазар и берёт их крепость Саркел — каганат больше не держит степь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sarkel_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "svyatoslav_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "joseph_khazar_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "khazaria_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fallen_ru"
+   }
+  ]
+ },
+ {
+  "id": "danube_ru_sig",
+  "comment": "«Не любо мне сидеть в Киеве» — князь уходит воевать на Дунай, к болгарам и грекам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_danube_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "svyatoslav_ru"
+     ],
+     "flags": [
+      "khazaria_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sveneld_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "on_danube_ru"
+   }
+  ]
+ },
+ {
+  "id": "steppe_pact_ru_sig",
+  "comment": "Князь и хан мирятся — на этот раз печенеги не ждут у порогов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_steppe_pact_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "svyatoslav_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kurya_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pact_ru"
+   }
+  ]
+ },
+ {
+  "id": "rapids_ru_sig",
+  "comment": "Свенельд советует обойти пороги конями; князь плывёт в ладьях — и у порогов его ждёт Куря",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rapids_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kurya_ru"
+     ],
+     "notFlags": [
+      "pact_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "svyatoslav_ru"
+     ],
+     "flags": [
+      "on_danube_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "skull_cup_ru"
+   }
+  ]
+ },
+ {
+  "id": "aid_troops_ru_sig",
+  "comment": "Василий II в беде — мятеж Варды Фоки; за помощь Руси обещана его сестра Анна",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_aid_troops_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "basileus"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "promised_anna_ru"
+   }
+  ]
+ },
+ {
+  "id": "korsun_siege_ru_sig",
+  "comment": "Империя тянет с обещанием — Владимир осаждает и берёт Корсунь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_korsun_siege_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus",
+      "king"
+     ],
+     "flags": [
+      "promised_anna_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dobrynya_hist_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "korsun_ru"
+   }
+  ]
+ },
+ {
+  "id": "korsun_siege_ru_sig_raid",
+  "comment": "Князь грабит греческий город без всякого уговора — это просто набег",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_korsun_siege_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus",
+      "king"
+     ],
+     "notFlags": [
+      "promised_anna_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dobrynya_hist_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "raider_ru"
+   }
+  ]
+ },
+ {
+  "id": "korsun_font_ru_sig",
+  "comment": "Владимир крестится и венчается с порфирородной Анной, а Корсунь возвращает «за вено»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_korsun_font_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus",
+      "king"
+     ],
+     "flags": [
+      "korsun_ru"
+     ],
+     "notFlags": [
+      "raider_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "porphyrogenita"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "baptized_ru"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "pagan_pantheon_ru_sig",
+  "comment": "Князь ставит на холме Перуна и других кумиров — старая вера ещё сильна",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pagan_pantheon_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rus",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pantheon_ru"
+   }
+  ]
+ },
+ {
+  "id": "boris_tent_ru_sig",
+  "comment": "Дружина ушла; Борис не поднял руки на старшего брата — и убийцы Святополка закололи его в шатре",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_boris_tent_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "boris_ru"
+     ],
+     "notFlags": [
+      "rival_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "svyatopolk_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "martyr_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "accursed_ru"
+   }
+  ]
+ },
+ {
+  "id": "druzhina_kyiv_ru_sig",
+  "comment": "Борис слушает дружину отца и идёт на Киев — он теперь соперник, а не мученик",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_druzhina_kyiv_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "boris_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rival_ru"
+   }
+  ]
+ },
+ {
+  "id": "novgorod_host_ru_sig",
+  "comment": "Ярослав собирает новгородцев и нанимает варягов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_novgorod_host_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "yaroslav_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "army_ru"
+   }
+  ]
+ },
+ {
+  "id": "alta_ru_sig",
+  "comment": "Ярослав мстит за братьев: Святополк разбит на Альте и бежит, «окаянный»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_alta_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "yaroslav_ru"
+     ],
+     "flags": [
+      "army_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "svyatopolk_ru"
+     ],
+     "flags": [
+      "accursed_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "grand_prince_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_ru"
+   }
+  ]
+ },
+ {
+  "id": "monomakh_letter_ru_sig",
+  "comment": "Потеряв сына в войне с Олегом, Мономах пишет ему: «Не враг я тебе» — и зовёт на мир",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_monomakh_letter_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "monomakh_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "oleg_svyat_ru"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "reconciled_ru"
+   }
+  ]
+ },
+ {
+  "id": "lyubech_council_ru_sig",
+  "comment": "«Каждый да держит отчину свою»: князья целуют крест на мир",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lyubech_council_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "monomakh_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "svyatopolk2_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "oleg_svyat_ru"
+     ],
+     "flags": [
+      "reconciled_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lyubech_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "patrimony_ru"
+   }
+  ]
+ },
+ {
+  "id": "slander_blind_ru_sig",
+  "comment": "Давыд нашёптывает великому князю, что Василько замышляет против него, — Василька хватают и ослепляют",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_slander_blind_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "davyd_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "svyatopolk2_ru"
+     ],
+     "flags": [
+      "patrimony_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "vasilko_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "blinded_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "oath_broken_ru"
+   }
+  ]
+ },
+ {
+  "id": "coalition_ru_sig",
+  "comment": "Владимирский князь собирает против Киева одиннадцать князей, смоленских и других",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_coalition_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bogolyubsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "roman_rost_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "coalition_ru"
+   }
+  ]
+ },
+ {
+  "id": "kyiv_sack_ru_sig",
+  "comment": "Войско союзников берёт Киев; два дня грабят город, не щадя и церквей, — Мстислав бежит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kyiv_sack_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bogolyubsky_ru"
+     ],
+     "flags": [
+      "coalition_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mstislav_iz_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "kyiv_taken_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_ru"
+   }
+  ]
+ },
+ {
+  "id": "give_kyiv_ru_sig",
+  "comment": "Андрей не едет в Киев — отдаёт его брату Глебу, а сам остаётся во Владимире",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_give_kyiv_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bogolyubsky_ru"
+     ],
+     "flags": [
+      "kyiv_taken_ru"
+     ],
+     "notFlags": [
+      "in_kyiv_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gleb_yur_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "kyiv_prince_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "vladimir_seat_ru"
+   }
+  ]
+ },
+ {
+  "id": "sit_kyiv_ru_sig",
+  "comment": "Князь сам садится на киевский стол — как отец, Юрий Долгорукий",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sit_kyiv_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bogolyubsky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_kyiv_ru"
+   }
+  ]
+ },
+ {
+  "id": "single_coin_ru_sig",
+  "comment": "От имени трёхлетнего государя регентша вводит единую монету с всадником и копьём — «копейку»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_single_coin_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "elena_glinskaya_ru"
+     ],
+     "notFlags": [
+      "ceded_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ivan_boy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "coin_ru"
+   }
+  ]
+ },
+ {
+  "id": "uncle_jail_ru_sig",
+  "comment": "Дядя-опекун корит племянницу за фаворита — она заточает его, и правит одна",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_uncle_jail_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "elena_glinskaya_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mikhail_glinsky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "jailed_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sole_ru"
+   }
+  ]
+ },
+ {
+  "id": "boyar_care_ru_sig",
+  "comment": "Регентша уступает дела боярскому совету — реформа тонет в спорах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_boyar_care_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "elena_glinskaya_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ivan_shuisky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ceded_ru"
+   }
+  ]
+ },
+ {
+  "id": "sudden_death_ru_sig",
+  "comment": "Весной 1538 года регентша внезапно умирает — к власти приходят Шуйские",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sudden_death_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan_shuisky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "elena_glinskaya_ru"
+     ],
+     "flags": [
+      "coin_ru",
+      "sole_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "boyar_rule_ru"
+   }
+  ]
+ },
+ {
+  "id": "salt_tax_ru_sig",
+  "comment": "Чтобы пополнить казну, правительство Морозова заменяет прямые налоги огромной пошлиной на соль",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_salt_tax_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "morozov_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hated_ru"
+   }
+  ]
+ },
+ {
+  "id": "give_up_judge_ru_sig",
+  "comment": "Восставшая Москва требует выдать виновных: царь отдаёт судью Плещеева — его убивают, — а своего воспитателя Морозова со слезами отмаливает и прячет в монастыре",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_give_up_judge_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexei_mikh_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pleshcheev_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "morozov_ru"
+     ],
+     "flags": [
+      "hated_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "exiled_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "calmed_ru"
+   }
+  ]
+ },
+ {
+  "id": "give_up_morozov_ru_sig",
+  "comment": "Царь отдаёт толпе собственного воспитателя, а теперь и свояка",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_give_up_morozov_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexei_mikh_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "morozov_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "ulozhenie_ru_sig",
+  "comment": "Испуганное правительство созывает Земский собор: комиссия Одоевского пишет Соборное уложение — беглых крестьян теперь ищут бессрочно",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ulozhenie_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexei_mikh_ru"
+     ],
+     "flags": [
+      "calmed_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "odoevsky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "code_ru"
+   }
+  ]
+ },
+ {
+  "id": "plea_protection_ru_sig",
+  "comment": "Гетман шлёт в Москву письмо за письмом, а Земский собор решает принять Войско Запорожское «под высокую руку»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_plea_protection_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "khmel_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexei_mikh_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "requested_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "accepted_ru"
+   }
+  ]
+ },
+ {
+  "id": "king_talks_ru_sig",
+  "comment": "Гетман снова ищет мира с королём — и союз с Москвой откладывается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_king_talks_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "khmel_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vyhovsky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "turned_pl_ru"
+   }
+  ]
+ },
+ {
+  "id": "envoy_oath_ru_sig",
+  "comment": "Казаки требуют, чтобы посол поклялся за царя сохранить их вольности; посол отвечает, что царь подданным не присягает, — рада на грани срыва",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_envoy_oath_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "khmel_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "buturlin_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "deadlock_ru"
+   }
+  ]
+ },
+ {
+  "id": "pereyaslav_rada_ru_sig",
+  "comment": "8 января 1654 года на раде в Переяславе гетман и старшина присягают царю — без ответной клятвы посла",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pereyaslav_rada_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "khmel_pl"
+     ],
+     "flags": [
+      "requested_ru"
+     ],
+     "notFlags": [
+      "turned_pl_ru",
+      "deadlock_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "buturlin_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "vyhovsky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sworn_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "mandate_ru"
+   }
+  ]
+ },
+ {
+  "id": "march_articles_ru_sig",
+  "comment": "В Москве казацкие послы добиваются грамоты: свой гетман, суд, реестр в шестьдесят тысяч казаков и право принимать послов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_march_articles_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexei_mikh_ru"
+     ],
+     "flags": [
+      "accepted_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vyhovsky_ru"
+     ],
+     "flags": [
+      "mandate_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "articles_ru"
+   }
+  ]
+ },
+ {
+  "id": "three_fingers_ru_sig",
+  "comment": "Никон велит креститься тремя перстами и правит книги по греческим образцам; Аввакум отказывается и едет в сибирскую ссылку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_three_fingers_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nikon_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "avvakum_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reform_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "protest_ru"
+   }
+  ]
+ },
+ {
+  "id": "tsar_quarrel_ru_sig",
+  "comment": "Патриарх, назвавший себя «великим государем», ссорится с царём и уезжает в Новоиерусалимский монастырь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tsar_quarrel_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexei_mikh_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "nikon_ru"
+     ],
+     "flags": [
+      "reform_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "left_ru"
+   }
+  ]
+ },
+ {
+  "id": "tsar_offer_ru_sig",
+  "comment": "Царь зовёт вернувшегося протопопа в духовники и сулит деньги — Аввакум смиряется",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tsar_offer_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexei_mikh_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "avvakum_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "recanted_ru"
+   }
+  ]
+ },
+ {
+  "id": "great_council_ru_sig",
+  "comment": "Восточные патриархи на соборе лишают Никона сана — но его обрядовые исправления утверждают, а старый обряд проклинают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_great_council_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexei_mikh_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "paisius_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "nikon_ru"
+     ],
+     "flags": [
+      "left_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "deposed_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reform_kept_ru"
+   }
+  ]
+ },
+ {
+  "id": "persia_again_ru_sig",
+  "comment": "Атаман снова уходит грабить персидские берега — Волга остаётся в покое",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_persia_again_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "razin_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abroad_ru"
+   }
+  ]
+ },
+ {
+  "id": "up_volga_ru_sig",
+  "comment": "Разин берёт Царицын и Астрахань и рассылает «прелестные письма»: идёт против бояр и воевод «за великого государя»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_up_volga_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "razin_ru"
+     ],
+     "notFlags": [
+      "abroad_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rising_ru"
+   }
+  ]
+ },
+ {
+  "id": "simbirsk_ru_sig",
+  "comment": "Под Симбирском полки нового строя Барятинского разбивают войско восставших; раненый атаман бежит на Дон",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_simbirsk_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "baryatinsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "razin_ru"
+     ],
+     "flags": [
+      "rising_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "beaten_ru"
+   }
+  ]
+ },
+ {
+  "id": "kagalnik_ru_sig",
+  "comment": "Домовитые казаки во главе с крёстным отцом Разина берут его в Кагальнике и выдают Москве",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kagalnik_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kornila_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "razin_ru"
+     ],
+     "flags": [
+      "beaten_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_ru"
+   }
+  ]
+ },
+ {
+  "id": "red_porch_ru_sig",
+  "comment": "Стрельцам показывают живого и невредимого царевича Ивана — бунт затихает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_red_porch_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "khovansky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ivan5_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "calmed_ru"
+   }
+  ]
+ },
+ {
+  "id": "strangled_rumor_ru_sig",
+  "comment": "Слух, что Нарышкины задушили царевича Ивана, поднимает стрельцов: три дня в Кремле режут бояр",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_strangled_rumor_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "regent"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "khovansky_ru"
+     ],
+     "notFlags": [
+      "calmed_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mutiny_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "backed_ru"
+   }
+  ]
+ },
+ {
+  "id": "only_peter_ru_sig",
+  "comment": "Патриарх и бояре провозглашают единственным царём девятилетнего Петра",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_only_peter_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sole_tsar_ru"
+   }
+  ]
+ },
+ {
+  "id": "two_tsars_ru_sig",
+  "comment": "Под давлением стрельцов венчают двух царей сразу — Ивана и Петра, — а правит за них царевна Софья",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_two_tsars_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan5_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar",
+      "king"
+     ],
+     "notFlags": [
+      "sole_tsar_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "regent"
+     ],
+     "flags": [
+      "backed_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "regent_ru"
+   }
+  ]
+ },
+ {
+  "id": "vozdvizhenskoe_ru_sig",
+  "comment": "Хованский возомнил себя хозяином Москвы — Софья выманивает его в село Воздвиженское и казнит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vozdvizhenskoe_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "regent"
+     ],
+     "flags": [
+      "regent_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "khovansky_ru"
+     ],
+     "flags": [
+      "mutiny_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "kangxi_order_ru_sig",
+  "comment": "Император велит послам требовать весь Амур, но в крайнем случае уступить Нерчинск",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kangxi_order_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kangxi_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "songgotu_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mandate_ru"
+   }
+  ]
+ },
+ {
+  "id": "latin_talks_ru_sig",
+  "comment": "Ни одна сторона не знает языка другой — говорят по-латыни через иезуитов, и посольства сближают позиции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_latin_talks_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "golovin_ru"
+     ],
+     "notFlags": [
+      "war_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gerbillon_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "songgotu_ru"
+     ],
+     "flags": [
+      "mandate_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "talks_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "talks_ru"
+   }
+  ]
+ },
+ {
+  "id": "amur_war_ru_sig",
+  "comment": "Русский посол решает отстаивать Албазин оружием — под Нерчинском пятнадцать тысяч цинских солдат против полутора тысяч",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_amur_war_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "golovin_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "songgotu_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "war_ru"
+   }
+  ]
+ },
+ {
+  "id": "nerchinsk_treaty_ru_sig",
+  "comment": "27 августа 1689 года договор подписан: граница по Аргуни и горам, Албазин срыт, торговля разрешена",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_nerchinsk_treaty_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "golovin_ru"
+     ],
+     "flags": [
+      "talks_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "songgotu_ru"
+     ],
+     "flags": [
+      "talks_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "treaty_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "treaty_ru"
+   }
+  ]
+ },
+ {
+  "id": "kaynarca_ru_sig",
+  "comment": "После победы над Турцией граница империи уходит к Чёрному морю — Сечь больше не нужна как заслон",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kaynarca_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "empress_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "border_safe_ru"
+   }
+  ]
+ },
+ {
+  "id": "potemkin_note_ru_sig",
+  "comment": "Новороссийский генерал-губернатор Потёмкин убеждает императрицу: Сечь мешает заселять степь — пора её упразднить",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_potemkin_note_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "favorite"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "empress_ru"
+     ],
+     "flags": [
+      "border_safe_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "tekeli_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "decree_sich_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "orders_ru"
+   }
+  ]
+ },
+ {
+  "id": "beyond_danube_ru_sig",
+  "comment": "Кошевой уводит людей за Дунай, под руку султана",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_beyond_danube_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kalnyshevsky_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away_sich_ru"
+   }
+  ]
+ },
+ {
+  "id": "sich_fight_ru_sig",
+  "comment": "Старик-кошевой поднимает Сечь на бой с регулярной армией — и гибнет вместе с ней",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sich_fight_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kalnyshevsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tekeli_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "cannons_sich_ru_sig",
+  "comment": "Войска Текели окружают Сечь; кошевой, не желая крови, сдаётся без боя и отправлен в Соловецкий монастырь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cannons_sich_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tekeli_ru"
+     ],
+     "flags": [
+      "orders_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kalnyshevsky_ru"
+     ],
+     "notFlags": [
+      "away_sich_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exiled_ru"
+   }
+  ]
+ },
+ {
+  "id": "georgian_plea_ru_sig",
+  "comment": "Царь Картли-Кахетии, помня разорение Тбилиси персами, просит Петербург о подданстве — с сохранением династии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_georgian_plea_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "george12_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pleaded_ru"
+   }
+  ]
+ },
+ {
+  "id": "king_dies_ru_sig",
+  "comment": "Георгий XII умирает; его мачеха царица Дареджан требует трон для своих сыновей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_king_dies_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "george12_ru"
+     ],
+     "flags": [
+      "pleaded_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "darejan_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "claims_ru"
+   }
+  ]
+ },
+ {
+  "id": "protectorate_ru_sig",
+  "comment": "Император оставляет Грузии своих царей под русской защитой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_protectorate_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "darejan_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "protectorate_ru"
+   }
+  ]
+ },
+ {
+  "id": "manifesto_1801_ru_sig",
+  "comment": "Манифест Александра I упраздняет Картли-Кахетинское царство; Багратионов увозят в Россию, правит русский генерал",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_manifesto_1801_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tsar"
+     ],
+     "notFlags": [
+      "protectorate_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsitsianov_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "darejan_ru"
+     ],
+     "flags": [
+      "claims_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "annexed_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "governor_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "removed_ru"
+   }
+  ]
+ },
+ {
+  "id": "naib_quarrel_ru_sig",
+  "comment": "Имам подозревает славного наиба и хочет лишить его власти — Хаджи-Мурат уходит к русским; власть имамата слабеет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_naib_quarrel_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "shamil_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hadji_murad_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defected_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "isolated_ru"
+   }
+  ]
+ },
+ {
+  "id": "punitive_raid_ru_sig",
+  "comment": "Генерал жжёт аулы и вырубает сады — горцы только упорнее идут за имамом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_punitive_raid_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ermolov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "shamil_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "resists_ru"
+   }
+  ]
+ },
+ {
+  "id": "forest_cutting_ru_sig",
+  "comment": "После Крымской войны армия наместника не устраивает набегов, а медленно рубит просеки и строит укрепления",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_forest_cutting_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "baryatinsky_a_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "campaign_ru"
+   }
+  ]
+ },
+ {
+  "id": "gunib_ru_sig",
+  "comment": "Окружённый на горе Гуниб с горсткой мюридов, имам принимает почётную сдачу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gunib_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "baryatinsky_a_ru"
+     ],
+     "flags": [
+      "campaign_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "shamil_ru"
+     ],
+     "flags": [
+      "isolated_ru"
+     ],
+     "notFlags": [
+      "resists_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "surrendered_ru"
+   }
+  ]
+ },
+ {
+  "id": "osnova_ru_sig",
+  "comment": "В Петербурге выходит журнал «Основа», появляются украинские буквари и воскресные школы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_osnova_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kostomarov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kulish_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "movement_ru"
+   }
+  ]
+ },
+ {
+  "id": "polish_scare_ru_sig",
+  "comment": "После Январского восстания в Польше министр убеждает императора, что украинские книги — польская интрига",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_polish_scare_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "valuev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tsar"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "alarmed_ru"
+   }
+  ]
+ },
+ {
+  "id": "kostomarov_note_ru_sig",
+  "comment": "Историк доказывает министру, что книги для народа — не политика, и запрет откладывают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kostomarov_note_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kostomarov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "valuev_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "persuaded_ru"
+   }
+  ]
+ },
+ {
+  "id": "valuev_circular_ru_sig",
+  "comment": "Циркуляр запрещает печатать по-украински учебные и духовные книги — разрешена лишь изящная словесность",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_valuev_circular_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "valuev_ru"
+     ],
+     "flags": [
+      "alarmed_ru"
+     ],
+     "notFlags": [
+      "persuaded_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "kostomarov_ru"
+     ],
+     "flags": [
+      "movement_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "banned_books_ru"
+   }
+  ]
+ },
+ {
+  "id": "eclipse_ru_sig",
+  "comment": "Солнце меркнет, дружина ропщет, — но Игорь говорит: «Лучше убитым быть, чем полонённым» — и ведёт полки в степь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_eclipse_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "igor_sev_ru"
+     ],
+     "notFlags": [
+      "waited_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "marched_ru"
+   }
+  ]
+ },
+ {
+  "id": "wait_princes_ru_sig",
+  "comment": "Братья решают дождаться общего похода князей — и на свой страх в степь не идут",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_princes_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "igor_sev_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vsevolod_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waited_ru"
+   }
+  ]
+ },
+ {
+  "id": "kayala_ru_sig",
+  "comment": "Три дня бьются полки на Каяле, — Кончак и его союзники окружают северских князей и берут Игоря в плен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kayala_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "konchak_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "igor_sev_ru"
+     ],
+     "flags": [
+      "marched_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_ru"
+   }
+  ]
+ },
+ {
+  "id": "kayala_ru_vsevolod",
+  "comment": "Всеволод рубится до последнего — и тоже попадает в плен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kayala_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "konchak_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vsevolod_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_ru"
+   }
+  ]
+ },
+ {
+  "id": "lament_ru_sig",
+  "comment": "Ярославна плачет на городской стене, — но плач не открывает половецких веж",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lament_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "yaroslavna_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "igor_sev_ru"
+     ],
+     "flags": [
+      "captive_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lamented_ru"
+   }
+  ]
+ },
+ {
+  "id": "donets_escape_ru_sig",
+  "comment": "Крещёный половчанин Овлур ночью приводит коней — Игорь уходит через Донец на Русь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_donets_escape_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ovlur_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "igor_sev_ru"
+     ],
+     "flags": [
+      "captive_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "captive_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "escaped_ru"
+   }
+  ]
+ },
+ {
+  "id": "kiev_council_ru_sig",
+  "comment": "Тесть-половчанин просит: «Нашу землю ныне отняли, а вашу завтра возьмут», — князья идут в степь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kiev_council_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "kotyan_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mstislav_udatny_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "allied_polovtsy_ru"
+   }
+  ]
+ },
+ {
+  "id": "united_host_ru_sig",
+  "comment": "Князья сводят полки под одно начало — так бы поступил осторожный стратег",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_united_host_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mstislav_udatny_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mstislav_kiev_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "united_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "united_ru"
+   }
+  ]
+ },
+ {
+  "id": "lone_charge_ru_sig",
+  "comment": "Удатный с половцами бросается на монголов, не сказав киевскому князю, — половцы бегут и сминают своих",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lone_charge_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mstislav_udatny_ru"
+     ],
+     "flags": [
+      "allied_polovtsy_ru"
+     ],
+     "notFlags": [
+      "united_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "subutai_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "routed_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "victor_ru"
+   }
+  ]
+ },
+ {
+  "id": "hill_camp_ru_sig",
+  "comment": "Три дня киевляне держат укреплённый лагерь; бродник Плоскиня целует крест, что их отпустят, — и выдаёт князей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hill_camp_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "subutai_ru"
+     ],
+     "flags": [
+      "victor_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ploskinya_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "mstislav_kiev_ru"
+     ],
+     "notFlags": [
+      "united_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "betrayed_ru"
+   }
+  ]
+ },
+ {
+  "id": "hungary_mission_ru_sig",
+  "comment": "Даниил оставляет Киев тысяцкому Дмитру и едет к венгерскому королю просить помощи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hungary_mission_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "daniil_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dmitr_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "voivode_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abroad_ru"
+   }
+  ]
+ },
+ {
+  "id": "prince_stays_ru_sig",
+  "comment": "Князь остаётся в обречённом городе — и гибнет вместе с ним",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prince_stays_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "daniil_ru"
+     ],
+     "notFlags": [
+      "abroad_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "batu_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "kiev_walls_ru_sig",
+  "comment": "Пороки бьют день и ночь у Лядских ворот; Десятинная церковь рушится под тяжестью укрывшихся — 6 декабря Киев взят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kiev_walls_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "batu_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dmitr_ru"
+     ],
+     "flags": [
+      "voivode_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "wounded_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "kiev_taken_ru"
+   }
+  ]
+ },
+ {
+  "id": "captive_counsel_ru_sig",
+  "comment": "Батый щадит раненого Дмитра «мужества ради», а тот советует не медлить и идти на Венгрию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_captive_counsel_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "batu_ru"
+     ],
+     "flags": [
+      "kiev_taken_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dmitr_ru"
+     ],
+     "flags": [
+      "wounded_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "spared_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "west_ru"
+   }
+  ]
+ },
+ {
+  "id": "suzdal_aid_ru_sig",
+  "comment": "Брат Андрей приводит из Владимира низовские полки",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_suzdal_aid_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexander_nevsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "andrey_yaroslavich_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reinforced_ru"
+   }
+  ]
+ },
+ {
+  "id": "peipus_ice_ru_sig",
+  "comment": "Клин рыцарей врезается в строй, но вязнет; конница бьёт с флангов — немцев и чудь гонят по льду семь вёрст",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_peipus_ice_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexander_nevsky_ru"
+     ],
+     "flags": [
+      "reinforced_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "order_knights_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "beaten_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_ice_ru"
+   }
+  ]
+ },
+ {
+  "id": "polynya_ru_sig",
+  "comment": "Красивая сцена из позднейших легенд: лёд трещит и рыцари уходят на дно — пленных брать уже не у кого",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_polynya_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "order_knights_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "peace_order_ru_sig",
+  "comment": "Орден отказывается от захваченных земель и Пскова — пленных рыцарей меняют",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_peace_order_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexander_nevsky_ru"
+     ],
+     "flags": [
+      "victor_ice_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hermann_dorpat_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "order_knights_ru"
+     ],
+     "flags": [
+      "captive_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "renounced_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "exchanged_ru"
+   }
+  ]
+ },
+ {
+  "id": "sartak_camp_ru_sig",
+  "comment": "Александр едет к сыну Батыя Сартаку, — и вскоре на Русь выходит рать темника Неврюя",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sartak_camp_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexander_nevsky_ru"
+     ],
+     "notFlags": [
+      "rebel_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sartak_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "nevryuy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "favored_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "sent_ru"
+   }
+  ]
+ },
+ {
+  "id": "brothers_resist_ru_sig",
+  "comment": "Александр встаёт рядом с братом против Орды — теперь ярлыка ему не видать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_brothers_resist_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexander_nevsky_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "andrey_yaroslavich_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rebel_ru"
+   }
+  ]
+ },
+ {
+  "id": "pereslavl_ru_sig",
+  "comment": "Под Переяславлем рать Неврюя разбивает Андрея — князь бежит в Новгород, оттуда в Швецию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pereslavl_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nevryuy_ru"
+     ],
+     "flags": [
+      "sent_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "andrey_yaroslavich_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_sweden_ru"
+   }
+  ]
+ },
+ {
+  "id": "yarlyk_ru_sig",
+  "comment": "Сартак отдаёт Александру ярлык на Владимир — великий князь садится в столице с благословения Орды",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_yarlyk_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sartak_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexander_nevsky_ru"
+     ],
+     "flags": [
+      "favored_ru"
+     ],
+     "notFlags": [
+      "rebel_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "grand_prince_ru"
+   }
+  ]
+ },
+ {
+  "id": "cholkhan_arrives_ru_sig",
+  "comment": "Двоюродный брат хана с отрядом выгоняет князя с его двора — по городу ползут страшные слухи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cholkhan_arrives_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cholkhan_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexander_tver_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_tver_ru"
+   }
+  ]
+ },
+ {
+  "id": "tver_nabat_ru_sig",
+  "comment": "15 августа у дьякона Дюдко отнимают кобылу — ударил колокол, и тверичи истребляют ордынцев вместе с Чол-ханом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tver_nabat_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tverites_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexander_tver_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "cholkhan_ru"
+     ],
+     "flags": [
+      "in_tver_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "guilty_ru"
+   }
+  ]
+ },
+ {
+  "id": "repent_khan_ru_sig",
+  "comment": "Князь едет в Орду с повинной головой — и хан принимает раскаяние",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_repent_khan_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alexander_tver_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "uzbek_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "submitted_ru"
+   }
+  ]
+ },
+ {
+  "id": "uzbek_horde_ru_sig",
+  "comment": "Московский князь первым приезжает к Узбеку — и уходит с пятидесятитысячной ратью",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_uzbek_horde_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "uzbek_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ivan_kalita_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "army_ru"
+   }
+  ]
+ },
+ {
+  "id": "tver_ravaged_ru_sig",
+  "comment": "Ордынцы с москвичами жгут Тверь и Кашин, Александр бежит в Псков — а Иван получает ханскую милость",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tver_ravaged_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan_kalita_ru"
+     ],
+     "flags": [
+      "army_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexander_tver_ru"
+     ],
+     "flags": [
+      "guilty_ru"
+     ],
+     "notFlags": [
+      "submitted_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_pskov_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "favored_ru"
+   }
+  ]
+ },
+ {
+  "id": "oka_wait_ru_sig",
+  "comment": "Князь решает не рисковать и ждать, пока Мамай сцепится с ханом Тохтамышем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oka_wait_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waited_ru"
+   }
+  ]
+ },
+ {
+  "id": "don_crossing_ru_sig",
+  "comment": "Ночью 8 сентября полки переходят Дон — отступать теперь некуда",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_don_crossing_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ],
+     "notFlags": [
+      "waited_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crossed_ru"
+   }
+  ]
+ },
+ {
+  "id": "oak_grove_ru_sig",
+  "comment": "Двоюродный брат князя и воевода Боброк до поры прячут полк в Зелёной дубраве",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oak_grove_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "vladimir_serpukhov_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ambush_ru"
+   }
+  ]
+ },
+ {
+  "id": "trinity_blessing_ru_sig",
+  "comment": "Игумен благословляет князя — по позднему «Сказанию»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_trinity_blessing_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sergius_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "blessed_ru"
+   }
+  ]
+ },
+ {
+  "id": "kulikovo_field_ru_sig",
+  "comment": "Ордынцы прорывают левый фланг и уходят в тыл — и тут из дубравы бьёт засадный полк; Мамай бежит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kulikovo_field_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ],
+     "flags": [
+      "crossed_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mamai_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "vladimir_serpukhov_ru"
+     ],
+     "flags": [
+      "ambush_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "routed_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_ru"
+   }
+  ]
+ },
+ {
+  "id": "oka_fords_ru_sig",
+  "comment": "Рязанский князь, чтобы спасти свою землю, показывает хану броды через Оку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oka_fords_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oleg_ryazan_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tokhtamysh_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crossed_oka_ru"
+   }
+  ]
+ },
+ {
+  "id": "to_kostroma_ru_sig",
+  "comment": "Дмитрий не успевает собрать полки и уезжает на север, в Кострому",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_to_kostroma_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away_kostroma_ru"
+   }
+  ]
+ },
+ {
+  "id": "defend_kremlin_ru_sig",
+  "comment": "Князь запирается в Кремле с горстью людей — и гибнет вместе с городом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_defend_kremlin_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ],
+     "notFlags": [
+      "away_kostroma_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tokhtamysh_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "kremlin_gates_ru_sig",
+  "comment": "Через три дня осады ханские послы клянутся, что хан никого не тронет; Остей выходит с дарами — его убивают, город сжигают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kremlin_gates_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "tokhtamysh_ru"
+     ],
+     "flags": [
+      "crossed_oka_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ostey_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "moscow_burned_ru"
+   }
+  ]
+ },
+ {
+  "id": "tribute_again_ru_sig",
+  "comment": "Вернувшийся князь видит пепелище — и снова платит Орде «выход»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tribute_again_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dmitry_donskoy_ru"
+     ],
+     "flags": [
+      "away_kostroma_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tokhtamysh_ru"
+     ],
+     "flags": [
+      "moscow_burned_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "tributary_ru"
+   }
+  ]
+ },
+ {
+  "id": "golden_belt_ru_sig",
+  "comment": "На свадьбе великого князя мать жениха срывает с Косого золотой пояс — «чужой, из московской казны»; братья уезжают мстить",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_golden_belt_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sofia_vitovtovna_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily_kosoy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "insulted_ru"
+   }
+  ]
+ },
+ {
+  "id": "yield_uncle_ru_sig",
+  "comment": "Великий князь признаёт, что по старине стол переходит к старшему в роду, — и уходит в удел",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_yield_uncle_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "vasily2_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily_kosoy_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "yielded_ru"
+   }
+  ]
+ },
+ {
+  "id": "blinding_kosoy_ru_sig",
+  "comment": "Разбитого в бою Косого ослепляют в Москве — его брат Шемяка запомнит это",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_blinding_kosoy_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "vasily2_ru"
+     ],
+     "notFlags": [
+      "yielded_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily_kosoy_ru"
+     ],
+     "flags": [
+      "insulted_ru"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "shemyaka_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "blinded_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "vengeful_ru"
+   }
+  ]
+ },
+ {
+  "id": "trinity_seized_ru_sig",
+  "comment": "В феврале 1446 года Шемяка хватает Василия на молитве в Троице и ослепляет — отныне он Тёмный",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_trinity_seized_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "shemyaka_ru"
+     ],
+     "flags": [
+      "vengeful_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily2_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dark_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "usurper_ru"
+   }
+  ]
+ },
+ {
+  "id": "return_dark_ru_sig",
+  "comment": "Церковь и московские бояре встают за слепого князя — в 1447 году он снова в Москве",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_return_dark_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "iona_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily2_ru"
+     ],
+     "flags": [
+      "dark_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "restored_ru"
+   }
+  ]
+ },
+ {
+  "id": "union_liturgy_ru_sig",
+  "comment": "Исидор поминает папу и читает грамоту об унии — великий князь называет его еретиком и велит взять под стражу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_union_liturgy_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "isidore_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily2_ru"
+     ],
+     "notFlags": [
+      "unionist_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "arrested_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rejected_union_ru"
+   }
+  ]
+ },
+ {
+  "id": "accept_union_ru_sig",
+  "comment": "Великий князь принимает унию — Москва признаёт власть папы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_accept_union_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "isidore_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily2_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "unionist_ru"
+   }
+  ]
+ },
+ {
+  "id": "chudov_escape_ru_sig",
+  "comment": "Узника не стерегут слишком строго — Исидор бежит через Литву в Рим",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_chudov_escape_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "isidore_ru"
+     ],
+     "flags": [
+      "arrested_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fled_rome_ru"
+   }
+  ]
+ },
+ {
+  "id": "ask_emperor_ru_sig",
+  "comment": "Князь просит у Константинополя нового митрополита — но патриархия там за унию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ask_emperor_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "vasily2_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "basileus"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waiting_greek_ru"
+   }
+  ]
+ },
+ {
+  "id": "bishops_council_ru_sig",
+  "comment": "Собор русских епископов ставит митрополитом Иону — без благословения Константинополя",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bishops_council_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "iona_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "vasily2_ru"
+     ],
+     "flags": [
+      "rejected_union_ru"
+     ],
+     "notFlags": [
+      "waiting_greek_ru",
+      "unionist_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "metropolitan_ru"
+   }
+  ]
+ },
+ {
+  "id": "lithuanian_prince_ru_sig",
+  "comment": "Партия Борецких зовёт из Киева князя Михаила Олельковича и ищет защиты у короля Казимира",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lithuanian_prince_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "marfa_boretskaya_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mikhail_olelkovich_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pro_lithuania_ru"
+   }
+  ]
+ },
+ {
+  "id": "shelon_ru_sig",
+  "comment": "Московские полки разбивают новгородцев на Шелони — Москва говорит о «латинской измене»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_shelon_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan3_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "marfa_boretskaya_ru"
+     ],
+     "flags": [
+      "pro_lithuania_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "casus_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "shelon_lost_ru"
+   }
+  ]
+ },
+ {
+  "id": "old_ways_ru_sig",
+  "comment": "Великий князь клянётся хранить новгородскую старину — и связан своим словом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_old_ways_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan3_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "feofil_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sworn_liberties_ru"
+   }
+  ]
+ },
+ {
+  "id": "sovereign_ru_sig",
+  "comment": "«Вечу и колоколу не быть, посаднику не быть, а государство нам своё держать» — Новгород сдаётся",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sovereign_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan3_ru"
+     ],
+     "flags": [
+      "casus_ru"
+     ],
+     "notFlags": [
+      "sworn_liberties_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "feofil_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sovereign_ru"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "submitted_ru"
+   }
+  ]
+ },
+ {
+  "id": "veche_bell_ru_sig",
+  "comment": "Вечевой колокол везут в Москву, Марфу Борецкую — в ссылку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_veche_bell_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan3_ru"
+     ],
+     "flags": [
+      "sovereign_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "marfa_boretskaya_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exiled_ru"
+   }
+  ]
+ },
+ {
+  "id": "crimean_raid_ru_sig",
+  "comment": "Союзник Москвы Менгли-Гирей бьёт по литовским землям — Казимир не придёт на помощь Ахмату",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_crimean_raid_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mengli_giray_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "akhmat_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "no_ally_ru"
+   }
+  ]
+ },
+ {
+  "id": "recall_son_ru_sig",
+  "comment": "Сомневающийся отец зовёт сына в Москву — и тот подчиняется",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_recall_son_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan_molodoy_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ivan3_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "left_ugra_ru"
+   }
+  ]
+ },
+ {
+  "id": "son_holds_ru_sig",
+  "comment": "«Лучше мне здесь умереть, чем к отцу ехать», — отвечает наследник и держит броды",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_son_holds_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ivan_molodoy_ru"
+     ],
+     "notFlags": [
+      "left_ugra_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ivan3_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "holds_ugra_ru"
+   }
+  ]
+ },
+ {
+  "id": "treasury_north_ru_sig",
+  "comment": "Великая княгиня с казной уезжает на Белоозеро",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_treasury_north_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sophia_paleolog_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "north_ru"
+   }
+  ]
+ },
+ {
+  "id": "ugra_standoff_ru_sig",
+  "comment": "Недели перестрелок через реку, лёд, морозы — и 11 ноября Ахмат уводит войско",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ugra_standoff_ru"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "akhmat_ru"
+     ],
+     "flags": [
+      "no_ally_ru"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ivan_molodoy_ru"
+     ],
+     "flags": [
+      "holds_ugra_ru"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "retreated_ru"
+   }
+  ]
  }
 ]

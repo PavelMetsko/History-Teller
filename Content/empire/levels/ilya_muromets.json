@@ -1,0 +1,72 @@
+{
+ "id": "ilya_muromets",
+ "order": 30,
+ "epoch": "empire",
+ "act": "Акт I · Легенды и былины",
+ "music": "theme",
+ "cover": "court_proof_ru",
+ "panels": 3,
+ "scenes": [
+  "kaliki_heal_ru",
+  "straight_road_ru",
+  "detour_ru",
+  "feast_boast_ru",
+  "court_proof_ru"
+ ],
+ "characters": [
+  "ilya_ru",
+  "vladimir",
+  "solovei_ru",
+  "kaliki_ru",
+  "dobrynya_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "vladimir",
+     "is": "believes_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "ilya_ru",
+      "is": "boaster_ru"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kaliki_heal_ru",
+   "characters": [
+    "kaliki_ru",
+    "ilya_ru"
+   ]
+  },
+  {
+   "scene": "straight_road_ru",
+   "characters": [
+    "ilya_ru",
+    "solovei_ru"
+   ]
+  },
+  {
+   "scene": "court_proof_ru",
+   "characters": [
+    "vladimir",
+    "ilya_ru",
+    "solovei_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

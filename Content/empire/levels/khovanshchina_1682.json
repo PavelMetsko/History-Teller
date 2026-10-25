@@ -1,0 +1,81 @@
+{
+ "id": "khovanshchina_1682",
+ "order": 450,
+ "epoch": "empire",
+ "act": "Акт VII · XVII век: закон, раскол, казаки",
+ "music": "tension",
+ "cover": "two_tsars_ru",
+ "panels": 3,
+ "scenes": [
+  "strangled_rumor_ru",
+  "red_porch_ru",
+  "only_peter_ru",
+  "two_tsars_ru",
+  "vozdvizhenskoe_ru"
+ ],
+ "characters": [
+  "sophia",
+  "peter",
+  "ivan5_ru",
+  "khovansky_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ivan5_ru",
+     "is": "crowned_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "peter",
+     "is": "crowned_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "sophia",
+     "is": "regent_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "khovansky_ru",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "strangled_rumor_ru",
+   "characters": [
+    "sophia",
+    "khovansky_ru"
+   ]
+  },
+  {
+   "scene": "two_tsars_ru",
+   "characters": [
+    "ivan5_ru",
+    "peter",
+    "sophia"
+   ]
+  },
+  {
+   "scene": "vozdvizhenskoe_ru",
+   "characters": [
+    "sophia",
+    "khovansky_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

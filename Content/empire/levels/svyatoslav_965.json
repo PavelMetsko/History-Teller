@@ -1,0 +1,68 @@
+{
+ "id": "svyatoslav_965",
+ "order": 70,
+ "epoch": "empire",
+ "act": "Акт II · Ранняя Русь",
+ "music": "tension",
+ "cover": "sarkel_ru",
+ "panels": 3,
+ "scenes": [
+  "i_come_ru",
+  "sarkel_ru",
+  "danube_ru",
+  "rapids_ru",
+  "steppe_pact_ru"
+ ],
+ "characters": [
+  "svyatoslav_ru",
+  "joseph_khazar_ru",
+  "sveneld_ru",
+  "kurya_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "svyatoslav_ru",
+     "is": "khazaria_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "kurya_ru",
+     "is": "skull_cup_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sarkel_ru",
+   "characters": [
+    "svyatoslav_ru",
+    "joseph_khazar_ru"
+   ]
+  },
+  {
+   "scene": "danube_ru",
+   "characters": [
+    "svyatoslav_ru",
+    "sveneld_ru"
+   ]
+  },
+  {
+   "scene": "rapids_ru",
+   "characters": [
+    "kurya_ru",
+    "svyatoslav_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "odoevsky_ru",
+  "name": "Князь Никита Одоевский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a7a6a"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#5a3a22",
+      "top": "#a8312f"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#5a2a6b",
+      "trim": "#d4a63c",
+      "belt": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a6b",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a2a6b"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#a8312f"
+    }
+  }
+}

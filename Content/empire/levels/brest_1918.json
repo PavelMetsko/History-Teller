@@ -1,0 +1,69 @@
+{
+ "id": "brest_1918",
+ "order": 950,
+ "epoch": "empire",
+ "act": "Акт XII · Закат империи и революции",
+ "music": "tension",
+ "cover": "sign_brest_ru",
+ "panels": 3,
+ "scenes": [
+  "recognize_ru",
+  "assembly_ru",
+  "neither_ru",
+  "revwar_ru",
+  "sign_brest_ru"
+ ],
+ "characters": [
+  "lenin_ru",
+  "trotsky_ru",
+  "chernov_ru",
+  "hoffmann_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "chernov_ru",
+     "is": "dispersed_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "lenin_ru",
+     "is": "treaty_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "assembly_ru",
+   "characters": [
+    "chernov_ru",
+    "lenin_ru"
+   ]
+  },
+  {
+   "scene": "neither_ru",
+   "characters": [
+    "trotsky_ru",
+    "hoffmann_ru"
+   ]
+  },
+  {
+   "scene": "sign_brest_ru",
+   "characters": [
+    "lenin_ru",
+    "trotsky_ru",
+    "hoffmann_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

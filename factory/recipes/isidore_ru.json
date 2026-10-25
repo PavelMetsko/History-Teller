@@ -1,0 +1,62 @@
+{
+  "id": "isidore_ru",
+  "name": "Митрополит Исидор",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "hat": {
+      "type": "mitre",
+      "col": "#f1ece2",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "cross",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#a8312f",
+      "rope": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

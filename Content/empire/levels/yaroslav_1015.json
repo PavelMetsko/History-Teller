@@ -1,0 +1,67 @@
+{
+ "id": "yaroslav_1015",
+ "order": 90,
+ "epoch": "empire",
+ "act": "Акт II · Ранняя Русь",
+ "music": "tension",
+ "cover": "alta_ru",
+ "panels": 3,
+ "scenes": [
+  "boris_tent_ru",
+  "druzhina_kyiv_ru",
+  "novgorod_host_ru",
+  "alta_ru",
+  "brothers_peace_ru"
+ ],
+ "characters": [
+  "yaroslav_ru",
+  "svyatopolk_ru",
+  "boris_ru",
+  "gleb_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "yaroslav_ru",
+     "is": "grand_prince_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "boris_ru",
+     "is": "martyr_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "boris_tent_ru",
+   "characters": [
+    "boris_ru",
+    "svyatopolk_ru"
+   ]
+  },
+  {
+   "scene": "novgorod_host_ru",
+   "characters": [
+    "yaroslav_ru"
+   ]
+  },
+  {
+   "scene": "alta_ru",
+   "characters": [
+    "yaroslav_ru",
+    "svyatopolk_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

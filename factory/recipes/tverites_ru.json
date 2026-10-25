@@ -1,0 +1,63 @@
+{
+  "id": "tverites_ru",
+  "name": "Тверичи",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "pickaxe",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "sukmana",
+      "col": "#f4f1ea",
+      "trim": "#a8312f",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a4434"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a5232",
+      "top": "#7a5232"
+    }
+  }
+}

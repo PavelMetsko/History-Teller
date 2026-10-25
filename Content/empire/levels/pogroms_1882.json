@@ -1,0 +1,67 @@
+{
+ "id": "pogroms_1882",
+ "order": 860,
+ "epoch": "empire",
+ "act": "Акт XI · Реформы, общество и окраины",
+ "music": "tension",
+ "cover": "may_rules_ru",
+ "panels": 3,
+ "scenes": [
+  "circular_ru",
+  "protect_ru",
+  "may_rules_ru",
+  "reform_hope_ru",
+  "autoemancipation_ru"
+ ],
+ "characters": [
+  "alexander3",
+  "ignatyev_ru",
+  "pinsker_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander3",
+     "is": "may_rules_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "pinsker_ru",
+     "is": "wrote_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "circular_ru",
+   "characters": [
+    "ignatyev_ru",
+    "alexander3"
+   ]
+  },
+  {
+   "scene": "may_rules_ru",
+   "characters": [
+    "ignatyev_ru",
+    "alexander3"
+   ]
+  },
+  {
+   "scene": "autoemancipation_ru",
+   "characters": [
+    "pinsker_ru",
+    "alexander3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

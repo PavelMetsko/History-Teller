@@ -1,0 +1,70 @@
+{
+ "id": "nerchinsk_1689",
+ "order": 460,
+ "epoch": "empire",
+ "act": "Акт VII · XVII век: закон, раскол, казаки",
+ "music": "theme",
+ "cover": "nerchinsk_treaty_ru",
+ "panels": 3,
+ "scenes": [
+  "kangxi_order_ru",
+  "latin_talks_ru",
+  "amur_war_ru",
+  "nerchinsk_treaty_ru"
+ ],
+ "characters": [
+  "golovin_ru",
+  "songgotu_ru",
+  "gerbillon_ru",
+  "kangxi_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "golovin_ru",
+     "is": "treaty_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "golovin_ru",
+      "is": "war_ru"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kangxi_order_ru",
+   "characters": [
+    "kangxi_ru",
+    "songgotu_ru"
+   ]
+  },
+  {
+   "scene": "latin_talks_ru",
+   "characters": [
+    "golovin_ru",
+    "gerbillon_ru",
+    "songgotu_ru"
+   ]
+  },
+  {
+   "scene": "nerchinsk_treaty_ru",
+   "characters": [
+    "golovin_ru",
+    "songgotu_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

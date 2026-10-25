@@ -1,0 +1,70 @@
+{
+ "id": "olga_945",
+ "order": 60,
+ "epoch": "empire",
+ "act": "Акт II · Ранняя Русь",
+ "music": "tension",
+ "cover": "pogosts_ru",
+ "panels": 3,
+ "scenes": [
+  "second_tribute_ru",
+  "mal_matchmaking_ru",
+  "olga_revenge_ru",
+  "pogosts_ru",
+  "old_tribute_ru"
+ ],
+ "characters": [
+  "igor_ru",
+  "olga_ru",
+  "mal_ru",
+  "sveneld_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "olga_ru",
+     "is": "lessons_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "olga_ru",
+      "is": "wed_mal_ru"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "second_tribute_ru",
+   "characters": [
+    "igor_ru",
+    "mal_ru"
+   ]
+  },
+  {
+   "scene": "olga_revenge_ru",
+   "characters": [
+    "olga_ru",
+    "mal_ru"
+   ]
+  },
+  {
+   "scene": "pogosts_ru",
+   "characters": [
+    "olga_ru",
+    "sveneld_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

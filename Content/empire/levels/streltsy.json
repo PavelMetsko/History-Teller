@@ -1,8 +1,8 @@
 {
  "id": "streltsy",
- "order": 50,
+ "order": 480,
  "epoch": "empire",
- "act": "Акт III · Пётр Великий",
+ "act": "Акт VIII · Пётр Великий",
  "panels": 2,
  "scenes": [
   "revolt_s",

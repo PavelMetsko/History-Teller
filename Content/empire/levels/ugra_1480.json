@@ -1,0 +1,79 @@
+{
+ "id": "ugra_1480",
+ "order": 230,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "ugra_standoff_ru",
+ "panels": 3,
+ "scenes": [
+  "crimean_raid_ru",
+  "son_holds_ru",
+  "recall_son_ru",
+  "ugra_standoff_ru",
+  "treasury_north_ru",
+  "cross_ugra_ru"
+ ],
+ "characters": [
+  "ivan3_ru",
+  "akhmat_ru",
+  "ivan_molodoy_ru",
+  "sophia_paleolog_ru",
+  "mengli_giray_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "akhmat_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "ivan_molodoy_ru",
+    "akhmat_ru"
+   ],
+   [
+    "enemy_of",
+    "akhmat_ru",
+    "ivan_molodoy_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "akhmat_ru",
+     "is": "retreated_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "crimean_raid_ru",
+   "characters": [
+    "mengli_giray_ru",
+    "akhmat_ru"
+   ]
+  },
+  {
+   "scene": "son_holds_ru",
+   "characters": [
+    "ivan_molodoy_ru",
+    "ivan3_ru"
+   ]
+  },
+  {
+   "scene": "ugra_standoff_ru",
+   "characters": [
+    "akhmat_ru",
+    "ivan_molodoy_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

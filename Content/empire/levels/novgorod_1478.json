@@ -1,0 +1,91 @@
+{
+ "id": "novgorod_1478",
+ "order": 220,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "veche_bell_ru",
+ "panels": 4,
+ "scenes": [
+  "lithuanian_prince_ru",
+  "shelon_ru",
+  "sovereign_ru",
+  "veche_bell_ru",
+  "old_ways_ru",
+  "novgorod_walls_ru"
+ ],
+ "characters": [
+  "ivan3_ru",
+  "marfa_boretskaya_ru",
+  "feofil_ru",
+  "mikhail_olelkovich_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "ivan3_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "ivan3_ru",
+    "marfa_boretskaya_ru"
+   ],
+   [
+    "enemy_of",
+    "marfa_boretskaya_ru",
+    "ivan3_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "marfa_boretskaya_ru",
+     "is": "exiled_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "ivan3_ru",
+     "is": "sovereign_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "lithuanian_prince_ru",
+   "characters": [
+    "marfa_boretskaya_ru",
+    "mikhail_olelkovich_ru"
+   ]
+  },
+  {
+   "scene": "shelon_ru",
+   "characters": [
+    "ivan3_ru",
+    "marfa_boretskaya_ru"
+   ]
+  },
+  {
+   "scene": "sovereign_ru",
+   "characters": [
+    "ivan3_ru",
+    "feofil_ru"
+   ]
+  },
+  {
+   "scene": "veche_bell_ru",
+   "characters": [
+    "ivan3_ru",
+    "marfa_boretskaya_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "id": "metropolitan_1448",
+ "order": 210,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "theme",
+ "cover": "bishops_council_ru",
+ "panels": 3,
+ "scenes": [
+  "union_liturgy_ru",
+  "accept_union_ru",
+  "chudov_escape_ru",
+  "ask_emperor_ru",
+  "bishops_council_ru"
+ ],
+ "characters": [
+  "isidore_ru",
+  "vasily2_ru",
+  "iona_ru",
+  "constantine11"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "iona_ru",
+     "is": "metropolitan_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "isidore_ru",
+     "is": "fled_rome_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "union_liturgy_ru",
+   "characters": [
+    "isidore_ru",
+    "vasily2_ru"
+   ]
+  },
+  {
+   "scene": "chudov_escape_ru",
+   "characters": [
+    "isidore_ru"
+   ]
+  },
+  {
+   "scene": "bishops_council_ru",
+   "characters": [
+    "iona_ru",
+    "vasily2_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

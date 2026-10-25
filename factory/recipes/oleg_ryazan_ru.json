@@ -1,0 +1,65 @@
+{
+  "id": "oleg_ryazan_ru",
+  "name": "Олег Рязанский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#6b4a2a",
+      "top": "#2f4a7a"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#2f4a7a"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#5a4434",
+      "trim": "#d4a63c",
+      "belt": "#6b4426"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a4434",
+      "cuff": "#5a4434"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a3a22",
+      "top": "#7a3a22"
+    }
+  }
+}

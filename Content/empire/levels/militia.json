@@ -1,8 +1,8 @@
 {
  "id": "militia",
- "order": 46,
+ "order": 380,
  "epoch": "empire",
- "act": "Акт II · Смута",
+ "act": "Акт VI · Смута",
  "music": "tension",
  "cover": "moscow_1612",
  "panels": 3,

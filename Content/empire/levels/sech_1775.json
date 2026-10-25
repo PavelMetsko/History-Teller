@@ -1,0 +1,81 @@
+{
+ "id": "sech_1775",
+ "order": 640,
+ "epoch": "empire",
+ "act": "Акт IX · Перевороты и Екатерина",
+ "music": "tension",
+ "cover": "cannons_sich_ru",
+ "panels": 3,
+ "scenes": [
+  "kaynarca_ru",
+  "potemkin_note_ru",
+  "cannons_sich_ru",
+  "sich_fight_ru",
+  "beyond_danube_ru"
+ ],
+ "characters": [
+  "catherine",
+  "potemkin",
+  "kalnyshevsky_ru",
+  "tekeli_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "catherine": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "catherine",
+     "is": "decree_sich_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "kalnyshevsky_ru",
+     "is": "exiled_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "kalnyshevsky_ru",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kaynarca_ru",
+   "characters": [
+    "catherine"
+   ]
+  },
+  {
+   "scene": "potemkin_note_ru",
+   "characters": [
+    "potemkin",
+    "catherine",
+    "tekeli_ru"
+   ]
+  },
+  {
+   "scene": "cannons_sich_ru",
+   "characters": [
+    "tekeli_ru",
+    "kalnyshevsky_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

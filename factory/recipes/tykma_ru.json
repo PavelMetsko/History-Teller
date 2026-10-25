@@ -1,0 +1,61 @@
+{
+  "id": "tykma_ru",
+  "name": "Тыкма-сердар",
+  "skin": "#e8b290",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#1e1a18"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#f4f1ea",
+      "fur": "#e6e0d6"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#a8312f",
+      "rope": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

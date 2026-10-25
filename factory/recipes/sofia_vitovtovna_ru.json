@@ -1,0 +1,61 @@
+{
+  "id": "sofia_vitovtovna_ru",
+  "name": "Софья Витовтовна",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "veil",
+      "col": "#f4f1ea",
+      "band": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#a8312f",
+      "trim": "#d4a63c",
+      "mantle": "#5a2a6b",
+      "shoes": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+ "id": "yarlyk_1252",
+ "order": 160,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "yarlyk_ru",
+ "panels": 3,
+ "scenes": [
+  "sartak_camp_ru",
+  "pereslavl_ru",
+  "yarlyk_ru",
+  "brothers_resist_ru",
+  "meet_nevryuy_ru"
+ ],
+ "characters": [
+  "alexander_nevsky_ru",
+  "andrey_yaroslavich_ru",
+  "sartak_ru",
+  "nevryuy_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "nevryuy_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "nevryuy_ru",
+    "andrey_yaroslavich_ru"
+   ],
+   [
+    "enemy_of",
+    "andrey_yaroslavich_ru",
+    "nevryuy_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander_nevsky_ru",
+     "is": "grand_prince_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "andrey_yaroslavich_ru",
+     "is": "fled_sweden_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sartak_camp_ru",
+   "characters": [
+    "alexander_nevsky_ru",
+    "sartak_ru",
+    "nevryuy_ru"
+   ]
+  },
+  {
+   "scene": "pereslavl_ru",
+   "characters": [
+    "nevryuy_ru",
+    "andrey_yaroslavich_ru"
+   ]
+  },
+  {
+   "scene": "yarlyk_ru",
+   "characters": [
+    "sartak_ru",
+    "alexander_nevsky_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

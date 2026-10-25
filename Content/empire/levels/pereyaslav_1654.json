@@ -1,0 +1,74 @@
+{
+ "id": "pereyaslav_1654",
+ "order": 420,
+ "epoch": "empire",
+ "act": "Акт VII · XVII век: закон, раскол, казаки",
+ "music": "theme",
+ "cover": "pereyaslav_rada_ru",
+ "panels": 3,
+ "scenes": [
+  "plea_protection_ru",
+  "pereyaslav_rada_ru",
+  "envoy_oath_ru",
+  "king_talks_ru",
+  "march_articles_ru"
+ ],
+ "characters": [
+  "khmelnytsky",
+  "vyhovsky_ru",
+  "buturlin_ru",
+  "alexei_mikh_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "alexei_mikh_ru": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "khmelnytsky",
+     "is": "sworn_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "vyhovsky_ru",
+     "is": "articles_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "plea_protection_ru",
+   "characters": [
+    "khmelnytsky",
+    "alexei_mikh_ru"
+   ]
+  },
+  {
+   "scene": "pereyaslav_rada_ru",
+   "characters": [
+    "khmelnytsky",
+    "buturlin_ru",
+    "vyhovsky_ru"
+   ]
+  },
+  {
+   "scene": "march_articles_ru",
+   "characters": [
+    "alexei_mikh_ru",
+    "vyhovsky_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

@@ -1,0 +1,85 @@
+{
+ "id": "kalka_1223",
+ "order": 130,
+ "epoch": "empire",
+ "act": "Акт III · Удельная Русь и степь",
+ "music": "tension",
+ "cover": "lone_charge_ru",
+ "panels": 3,
+ "scenes": [
+  "kiev_council_ru",
+  "united_host_ru",
+  "lone_charge_ru",
+  "hill_camp_ru",
+  "kalka_field_ru"
+ ],
+ "characters": [
+  "mstislav_udatny_ru",
+  "mstislav_kiev_ru",
+  "kotyan_ru",
+  "subutai_ru",
+  "ploskinya_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "subutai_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "mstislav_udatny_ru",
+    "subutai_ru"
+   ],
+   [
+    "enemy_of",
+    "subutai_ru",
+    "mstislav_udatny_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mstislav_udatny_ru",
+     "is": "routed_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "mstislav_kiev_ru",
+     "is": "betrayed_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kiev_council_ru",
+   "characters": [
+    "kotyan_ru",
+    "mstislav_udatny_ru"
+   ]
+  },
+  {
+   "scene": "lone_charge_ru",
+   "characters": [
+    "mstislav_udatny_ru",
+    "subutai_ru"
+   ]
+  },
+  {
+   "scene": "hill_camp_ru",
+   "characters": [
+    "subutai_ru",
+    "ploskinya_ru",
+    "mstislav_kiev_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

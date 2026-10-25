@@ -1,0 +1,60 @@
+{
+  "id": "sergius_ru",
+  "name": "Сергий Радонежский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "hood",
+      "col": "#2a2a2e"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "cross",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#2a2a2e",
+      "rope": "#5a4434"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2a2a2e",
+      "cuff": "#2a2a2e"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+ "id": "batu_1240",
+ "order": 140,
+ "epoch": "empire",
+ "act": "Акт III · Удельная Русь и степь",
+ "music": "tension",
+ "cover": "kiev_walls_ru",
+ "panels": 3,
+ "scenes": [
+  "hungary_mission_ru",
+  "kiev_walls_ru",
+  "captive_counsel_ru",
+  "prince_stays_ru",
+  "execute_voivode_ru",
+  "flee_west_ru"
+ ],
+ "characters": [
+  "batu_ru",
+  "dmitr_ru",
+  "daniil_ru",
+  "mikhail_chern_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": [
+   [
+    "enemy_of",
+    "batu_ru",
+    "dmitr_ru"
+   ],
+   [
+    "enemy_of",
+    "dmitr_ru",
+    "batu_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dmitr_ru",
+     "is": "spared_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "batu_ru",
+     "is": "west_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "daniil_ru",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hungary_mission_ru",
+   "characters": [
+    "daniil_ru",
+    "dmitr_ru"
+   ]
+  },
+  {
+   "scene": "kiev_walls_ru",
+   "characters": [
+    "batu_ru",
+    "dmitr_ru"
+   ]
+  },
+  {
+   "scene": "captive_counsel_ru",
+   "characters": [
+    "batu_ru",
+    "dmitr_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

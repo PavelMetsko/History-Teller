@@ -1,0 +1,69 @@
+{
+ "id": "ekaterinburg_1918",
+ "order": 960,
+ "epoch": "empire",
+ "act": "Акт XII · Закат империи и революции",
+ "music": "tension",
+ "cover": "ipatiev_ru",
+ "panels": 3,
+ "scenes": [
+  "ipatiev_ru",
+  "evacuate_ru",
+  "trial_ru",
+  "decision_ru",
+  "cellar_ru"
+ ],
+ "characters": [
+  "nicholas2",
+  "alexandra",
+  "yurovsky_ru",
+  "sverdlov_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nicholas2",
+     "is": "dead"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexandra",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ipatiev_ru",
+   "characters": [
+    "yurovsky_ru",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "decision_ru",
+   "characters": [
+    "sverdlov_ru",
+    "yurovsky_ru"
+   ]
+  },
+  {
+   "scene": "cellar_ru",
+   "characters": [
+    "yurovsky_ru",
+    "nicholas2",
+    "alexandra"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

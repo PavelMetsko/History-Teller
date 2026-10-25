@@ -1,0 +1,61 @@
+{
+ "id": "geok_tepe_1881",
+ "order": 840,
+ "epoch": "empire",
+ "act": "Акт XI · Реформы, общество и окраины",
+ "music": "tension",
+ "cover": "mine_ru",
+ "panels": 3,
+ "scenes": [
+  "railway_ru",
+  "frontal_ru",
+  "mine_ru",
+  "pursuit_ru",
+  "submission_ru"
+ ],
+ "characters": [
+  "skobelev_ru",
+  "tykma_ru",
+  "grodekov_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "tykma_ru",
+     "is": "submitted_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "railway_ru",
+   "characters": [
+    "skobelev_ru",
+    "grodekov_ru"
+   ]
+  },
+  {
+   "scene": "mine_ru",
+   "characters": [
+    "skobelev_ru",
+    "tykma_ru"
+   ]
+  },
+  {
+   "scene": "submission_ru",
+   "characters": [
+    "tykma_ru",
+    "skobelev_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

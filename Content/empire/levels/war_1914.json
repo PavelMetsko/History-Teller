@@ -1,0 +1,68 @@
+{
+ "id": "war_1914",
+ "order": 910,
+ "epoch": "empire",
+ "act": "Акт XII · Закат империи и революции",
+ "music": "tension",
+ "cover": "brusilov_ru",
+ "panels": 3,
+ "scenes": [
+  "telegrams_ru",
+  "mobilize_ru",
+  "ultimatum_ru",
+  "narrow_ru",
+  "brusilov_ru"
+ ],
+ "characters": [
+  "nicholas2",
+  "sazonov_ru",
+  "wilhelm2",
+  "brusilov_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nicholas2",
+     "is": "at_war_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "brusilov_ru",
+     "is": "breakthrough_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mobilize_ru",
+   "characters": [
+    "sazonov_ru",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "ultimatum_ru",
+   "characters": [
+    "wilhelm2",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "brusilov_ru",
+   "characters": [
+    "brusilov_ru",
+    "nicholas2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

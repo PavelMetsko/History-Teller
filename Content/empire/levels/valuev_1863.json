@@ -1,0 +1,66 @@
+{
+ "id": "valuev_1863",
+ "order": 800,
+ "epoch": "empire",
+ "act": "Акт XI · Реформы, общество и окраины",
+ "music": "tension",
+ "cover": "valuev_circular_ru",
+ "panels": 3,
+ "scenes": [
+  "osnova_ru",
+  "polish_scare_ru",
+  "kostomarov_note_ru",
+  "valuev_circular_ru"
+ ],
+ "characters": [
+  "valuev_ru",
+  "alexander2",
+  "kostomarov_ru",
+  "kulish_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "alexander2": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "kostomarov_ru",
+     "is": "banned_books_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "osnova_ru",
+   "characters": [
+    "kostomarov_ru",
+    "kulish_ru"
+   ]
+  },
+  {
+   "scene": "polish_scare_ru",
+   "characters": [
+    "valuev_ru",
+    "alexander2"
+   ]
+  },
+  {
+   "scene": "valuev_circular_ru",
+   "characters": [
+    "valuev_ru",
+    "kostomarov_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -11643,5 +11643,1213 @@
    "baudin"
   ],
   "emoji": "🧱"
+ },
+ {
+  "id": "konstantin_nik_ru",
+  "name": "Великий князь Константин Николаевич",
+  "tags": [
+   "konstantin_nik_ru"
+  ],
+  "emoji": "⚓"
+ },
+ {
+  "id": "stoeckl_ru",
+  "name": "Посланник Эдуард Стекль",
+  "tags": [
+   "stoeckl_ru"
+  ],
+  "emoji": "🎩"
+ },
+ {
+  "id": "seward_ru",
+  "name": "Госсекретарь Уильям Сьюард",
+  "tags": [
+   "seward_ru"
+  ],
+  "emoji": "🦅"
+ },
+ {
+  "id": "stoletov_ru",
+  "name": "Генерал Николай Столетов",
+  "tags": [
+   "stoletov_ru"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "opalchentsi_ru",
+  "name": "Болгарские ополченцы",
+  "tags": [
+   "opalchentsi_ru"
+  ],
+  "emoji": "🦁"
+ },
+ {
+  "id": "suleiman_ru",
+  "name": "Сулейман-паша",
+  "tags": [
+   "suleiman_ru"
+  ],
+  "emoji": "🌙"
+ },
+ {
+  "id": "osman_pasha_ru",
+  "name": "Осман-паша",
+  "tags": [
+   "osman_pasha_ru"
+  ],
+  "emoji": "🏰"
+ },
+ {
+  "id": "radetzky_ru",
+  "name": "Генерал Фёдор Радецкий",
+  "tags": [
+   "radetzky_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "skobelev_ru",
+  "name": "Генерал Михаил Скобелев",
+  "tags": [
+   "skobelev_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "tykma_ru",
+  "name": "Тыкма-сердар",
+  "tags": [
+   "tykma_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "grodekov_ru",
+  "name": "Полковник Николай Гродеков",
+  "tags": [
+   "grodekov_ru"
+  ],
+  "emoji": "🗺️"
+ },
+ {
+  "id": "ignatyev_ru",
+  "name": "Министр Николай Игнатьев",
+  "tags": [
+   "ignatyev_ru"
+  ],
+  "emoji": "📋"
+ },
+ {
+  "id": "pinsker_ru",
+  "name": "Доктор Лев Пинскер",
+  "tags": [
+   "pinsker_ru"
+  ],
+  "emoji": "🩺"
+ },
+ {
+  "id": "sergei_ru",
+  "name": "Великий князь Сергей Александрович",
+  "tags": [
+   "sergei_ru"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "gilyarovsky_ru",
+  "name": "Репортёр Владимир Гиляровский",
+  "tags": [
+   "gilyarovsky_ru"
+  ],
+  "emoji": "📰"
+ },
+ {
+  "id": "gapon_ru",
+  "name": "Священник Георгий Гапон",
+  "tags": [
+   "gapon_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "trepov_ru",
+  "name": "Генерал Дмитрий Трепов",
+  "tags": [
+   "trepov_ru"
+  ],
+  "emoji": "🪖"
+ },
+ {
+  "id": "stolypin_ru",
+  "name": "Пётр Столыпин",
+  "tags": [
+   "stolypin_ru"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "milyukov_ru",
+  "name": "Павел Милюков",
+  "tags": [
+   "milyukov_ru"
+  ],
+  "emoji": "🎓"
+ },
+ {
+  "id": "khutor_peasant_ru",
+  "name": "Хуторянин",
+  "tags": [
+   "khutor_peasant_ru"
+  ],
+  "emoji": "🌾"
+ },
+ {
+  "id": "sazonov_ru",
+  "name": "Министр Сергей Сазонов",
+  "tags": [
+   "sazonov_ru"
+  ],
+  "emoji": "🗂️"
+ },
+ {
+  "id": "brusilov_ru",
+  "name": "Генерал Алексей Брусилов",
+  "tags": [
+   "brusilov_ru"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "lenin_ru",
+  "name": "Владимир Ленин",
+  "tags": [
+   "lenin_ru"
+  ],
+  "emoji": "🧢"
+ },
+ {
+  "id": "trotsky_ru",
+  "name": "Лев Троцкий",
+  "tags": [
+   "trotsky_ru"
+  ],
+  "emoji": "👓"
+ },
+ {
+  "id": "kerensky_ru",
+  "name": "Министр-председатель Александр Керенский",
+  "tags": [
+   "kerensky_ru"
+  ],
+  "emoji": "🎙️"
+ },
+ {
+  "id": "kamenev_ru",
+  "name": "Лев Каменев",
+  "tags": [
+   "kamenev_ru"
+  ],
+  "emoji": "📰"
+ },
+ {
+  "id": "chernov_ru",
+  "name": "Виктор Чернов",
+  "tags": [
+   "chernov_ru"
+  ],
+  "emoji": "🧑‍🌾"
+ },
+ {
+  "id": "hoffmann_ru",
+  "name": "Генерал Макс Гофман",
+  "tags": [
+   "hoffmann_ru"
+  ],
+  "emoji": "🪖"
+ },
+ {
+  "id": "yurovsky_ru",
+  "name": "Комендант Яков Юровский",
+  "tags": [
+   "yurovsky_ru"
+  ],
+  "emoji": "🔑"
+ },
+ {
+  "id": "sverdlov_ru",
+  "name": "Яков Свердлов",
+  "tags": [
+   "sverdlov_ru"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "rurik_ru",
+  "name": "Рюрик",
+  "tags": [
+   "rurik_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "sineus_ru",
+  "name": "Синеус",
+  "tags": [
+   "sineus_ru"
+  ],
+  "emoji": "⚓"
+ },
+ {
+  "id": "truvor_ru",
+  "name": "Трувор",
+  "tags": [
+   "truvor_ru"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "gostomysl_ru",
+  "name": "Старейшина Гостомысл",
+  "tags": [
+   "gostomysl_ru"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "oleg_ru",
+  "name": "Вещий Олег",
+  "tags": [
+   "oleg_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "volkhv_ru",
+  "name": "Кудесник-волхв",
+  "tags": [
+   "volkhv_ru"
+  ],
+  "emoji": "🔮"
+ },
+ {
+  "id": "groom_ru",
+  "name": "Старый конюший",
+  "tags": [
+   "groom_ru"
+  ],
+  "emoji": "🐴"
+ },
+ {
+  "id": "igor_ru",
+  "name": "Князь Игорь",
+  "tags": [
+   "igor_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "ilya_ru",
+  "name": "Илья Муромец",
+  "tags": [
+   "ilya_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "solovei_ru",
+  "name": "Соловей-разбойник",
+  "tags": [
+   "solovei_ru"
+  ],
+  "emoji": "🎶"
+ },
+ {
+  "id": "kaliki_ru",
+  "name": "Калики перехожие",
+  "tags": [
+   "kaliki_ru"
+  ],
+  "emoji": "🚶"
+ },
+ {
+  "id": "dobrynya_ru",
+  "name": "Добрыня Никитич",
+  "tags": [
+   "dobrynya_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "sadko_ru",
+  "name": "Садко",
+  "tags": [
+   "sadko_ru"
+  ],
+  "emoji": "🎶"
+ },
+ {
+  "id": "sea_tsar_ru",
+  "name": "Царь Морской",
+  "tags": [
+   "sea_tsar_ru"
+  ],
+  "emoji": "🌊"
+ },
+ {
+  "id": "nikola_ru",
+  "name": "Никола Можайский",
+  "tags": [
+   "nikola_ru"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "chernava_ru",
+  "name": "Чернава",
+  "tags": [
+   "chernava_ru"
+  ],
+  "emoji": "💧"
+ },
+ {
+  "id": "sea_princess_ru",
+  "name": "Морская царевна",
+  "tags": [
+   "sea_princess_ru"
+  ],
+  "emoji": "🐚"
+ },
+ {
+  "id": "askold_ru",
+  "name": "Аскольд",
+  "tags": [
+   "askold_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "dir_ru",
+  "name": "Дир",
+  "tags": [
+   "dir_ru"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "olga_ru",
+  "name": "Княгиня Ольга",
+  "tags": [
+   "olga_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "mal_ru",
+  "name": "Древлянский князь Мал",
+  "tags": [
+   "mal_ru"
+  ],
+  "emoji": "🌲"
+ },
+ {
+  "id": "sveneld_ru",
+  "name": "Воевода Свенельд",
+  "tags": [
+   "sveneld_ru"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "svyatoslav_ru",
+  "name": "Князь Святослав",
+  "tags": [
+   "svyatoslav_ru"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "joseph_khazar_ru",
+  "name": "Хазарский царь Иосиф",
+  "tags": [
+   "joseph_khazar_ru"
+  ],
+  "emoji": "🏯"
+ },
+ {
+  "id": "kurya_ru",
+  "name": "Печенежский хан Куря",
+  "tags": [
+   "kurya_ru"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "dobrynya_hist_ru",
+  "name": "Воевода Добрыня",
+  "tags": [
+   "dobrynya_hist_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "yaroslav_ru",
+  "name": "Ярослав Мудрый",
+  "tags": [
+   "yaroslav_ru"
+  ],
+  "emoji": "📚"
+ },
+ {
+  "id": "svyatopolk_ru",
+  "name": "Святополк Окаянный",
+  "tags": [
+   "svyatopolk_ru"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "boris_ru",
+  "name": "Князь Борис",
+  "tags": [
+   "boris_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "gleb_ru",
+  "name": "Князь Глеб",
+  "tags": [
+   "gleb_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "monomakh_ru",
+  "name": "Владимир Мономах",
+  "tags": [
+   "monomakh_ru"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "svyatopolk2_ru",
+  "name": "Святополк Изяславич",
+  "tags": [
+   "svyatopolk2_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "oleg_svyat_ru",
+  "name": "Олег Святославич",
+  "tags": [
+   "oleg_svyat_ru"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "davyd_ru",
+  "name": "Давыд Игоревич",
+  "tags": [
+   "davyd_ru"
+  ],
+  "emoji": "🐍"
+ },
+ {
+  "id": "vasilko_ru",
+  "name": "Василько Теребовльский",
+  "tags": [
+   "vasilko_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "bogolyubsky_ru",
+  "name": "Андрей Боголюбский",
+  "tags": [
+   "bogolyubsky_ru"
+  ],
+  "emoji": "🏰"
+ },
+ {
+  "id": "mstislav_iz_ru",
+  "name": "Мстислав Изяславич",
+  "tags": [
+   "mstislav_iz_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "gleb_yur_ru",
+  "name": "Глеб Юрьевич",
+  "tags": [
+   "gleb_yur_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "roman_rost_ru",
+  "name": "Роман Ростиславич",
+  "tags": [
+   "roman_rost_ru"
+  ],
+  "emoji": "🤝"
+ },
+ {
+  "id": "elena_glinskaya_ru",
+  "name": "Елена Глинская",
+  "tags": [
+   "elena_glinskaya_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "ivan_boy_ru",
+  "name": "Малолетний Иван IV",
+  "tags": [
+   "ivan_boy_ru"
+  ],
+  "emoji": "🧒"
+ },
+ {
+  "id": "mikhail_glinsky_ru",
+  "name": "Князь Михаил Глинский",
+  "tags": [
+   "mikhail_glinsky_ru"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "ivan_shuisky_ru",
+  "name": "Князь Иван Шуйский",
+  "tags": [
+   "ivan_shuisky_ru"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "alexei_mikh_ru",
+  "name": "Царь Алексей Михайлович",
+  "tags": [
+   "alexei_mikh_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "morozov_ru",
+  "name": "Боярин Борис Морозов",
+  "tags": [
+   "morozov_ru"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "pleshcheev_ru",
+  "name": "Судья Леонтий Плещеев",
+  "tags": [
+   "pleshcheev_ru"
+  ],
+  "emoji": "⚖️"
+ },
+ {
+  "id": "odoevsky_ru",
+  "name": "Князь Никита Одоевский",
+  "tags": [
+   "odoevsky_ru"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "vyhovsky_ru",
+  "name": "Генеральный писарь Иван Выговский",
+  "tags": [
+   "vyhovsky_ru"
+  ],
+  "emoji": "✒️"
+ },
+ {
+  "id": "buturlin_ru",
+  "name": "Боярин Василий Бутурлин",
+  "tags": [
+   "buturlin_ru"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "nikon_ru",
+  "name": "Патриарх Никон",
+  "tags": [
+   "nikon_ru"
+  ],
+  "emoji": "☦️"
+ },
+ {
+  "id": "avvakum_ru",
+  "name": "Протопоп Аввакум",
+  "tags": [
+   "avvakum_ru"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "paisius_ru",
+  "name": "Патриарх Паисий Александрийский",
+  "tags": [
+   "paisius_ru"
+  ],
+  "emoji": "🕍"
+ },
+ {
+  "id": "morozova_ru",
+  "name": "Боярыня Феодосия Морозова",
+  "tags": [
+   "morozova_ru"
+  ],
+  "emoji": "✌️"
+ },
+ {
+  "id": "razin_ru",
+  "name": "Атаман Степан Разин",
+  "tags": [
+   "razin_ru"
+  ],
+  "emoji": "⛵"
+ },
+ {
+  "id": "frol_razin_ru",
+  "name": "Фрол Разин",
+  "tags": [
+   "frol_razin_ru"
+  ],
+  "emoji": "🧔"
+ },
+ {
+  "id": "baryatinsky_ru",
+  "name": "Воевода Юрий Барятинский",
+  "tags": [
+   "baryatinsky_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "kornila_ru",
+  "name": "Войсковой атаман Корнила Яковлев",
+  "tags": [
+   "kornila_ru"
+  ],
+  "emoji": "🧓"
+ },
+ {
+  "id": "ivan5_ru",
+  "name": "Царь Иван V",
+  "tags": [
+   "ivan5_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "khovansky_ru",
+  "name": "Князь Иван Хованский",
+  "tags": [
+   "khovansky_ru"
+  ],
+  "emoji": "🪓"
+ },
+ {
+  "id": "golovin_ru",
+  "name": "Посол Фёдор Головин",
+  "tags": [
+   "golovin_ru"
+  ],
+  "emoji": "🧭"
+ },
+ {
+  "id": "songgotu_ru",
+  "name": "Князь Сонготу",
+  "tags": [
+   "songgotu_ru"
+  ],
+  "emoji": "🏯"
+ },
+ {
+  "id": "gerbillon_ru",
+  "name": "Иезуит Жан-Франсуа Жербийон",
+  "tags": [
+   "gerbillon_ru"
+  ],
+  "emoji": "📜"
+ },
+ {
+  "id": "kangxi_ru",
+  "name": "Император Канси",
+  "tags": [
+   "kangxi_ru"
+  ],
+  "emoji": "🐉"
+ },
+ {
+  "id": "kalnyshevsky_ru",
+  "name": "Кошевой атаман Пётр Калнышевский",
+  "tags": [
+   "kalnyshevsky_ru"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "tekeli_ru",
+  "name": "Генерал Пётр Текели",
+  "tags": [
+   "tekeli_ru"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "george12_ru",
+  "name": "Царь Георгий XII",
+  "tags": [
+   "george12_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "darejan_ru",
+  "name": "Царица Дареджан",
+  "tags": [
+   "darejan_ru"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "tsitsianov_ru",
+  "name": "Генерал Павел Цицианов",
+  "tags": [
+   "tsitsianov_ru"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "shamil_ru",
+  "name": "Имам Шамиль",
+  "tags": [
+   "shamil_ru"
+  ],
+  "emoji": "🕌"
+ },
+ {
+  "id": "hadji_murad_ru",
+  "name": "Наиб Хаджи-Мурат",
+  "tags": [
+   "hadji_murad_ru"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "baryatinsky_a_ru",
+  "name": "Наместник Александр Барятинский",
+  "tags": [
+   "baryatinsky_a_ru"
+  ],
+  "emoji": "🎖️"
+ },
+ {
+  "id": "ermolov_ru",
+  "name": "Генерал Алексей Ермолов",
+  "tags": [
+   "ermolov_ru"
+  ],
+  "emoji": "💣"
+ },
+ {
+  "id": "valuev_ru",
+  "name": "Министр Пётр Валуев",
+  "tags": [
+   "valuev_ru"
+  ],
+  "emoji": "🖋️"
+ },
+ {
+  "id": "kostomarov_ru",
+  "name": "Историк Николай Костомаров",
+  "tags": [
+   "kostomarov_ru"
+  ],
+  "emoji": "📚"
+ },
+ {
+  "id": "kulish_ru",
+  "name": "Писатель Пантелеймон Кулиш",
+  "tags": [
+   "kulish_ru"
+  ],
+  "emoji": "📖"
+ },
+ {
+  "id": "igor_sev_ru",
+  "name": "Князь Игорь Святославич",
+  "tags": [
+   "igor_sev_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "vsevolod_ru",
+  "name": "Буй-тур Всеволод",
+  "tags": [
+   "vsevolod_ru"
+  ],
+  "emoji": "🐂"
+ },
+ {
+  "id": "konchak_ru",
+  "name": "Хан Кончак",
+  "tags": [
+   "konchak_ru"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "yaroslavna_ru",
+  "name": "Ефросинья Ярославна",
+  "tags": [
+   "yaroslavna_ru"
+  ],
+  "emoji": "🕊️"
+ },
+ {
+  "id": "ovlur_ru",
+  "name": "Половчанин Овлур",
+  "tags": [
+   "ovlur_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "mstislav_udatny_ru",
+  "name": "Мстислав Удатный",
+  "tags": [
+   "mstislav_udatny_ru"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "mstislav_kiev_ru",
+  "name": "Мстислав Романович Киевский",
+  "tags": [
+   "mstislav_kiev_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "kotyan_ru",
+  "name": "Хан Котян",
+  "tags": [
+   "kotyan_ru"
+  ],
+  "emoji": "🏹"
+ },
+ {
+  "id": "subutai_ru",
+  "name": "Субэдэй",
+  "tags": [
+   "subutai_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "ploskinya_ru",
+  "name": "Бродник Плоскиня",
+  "tags": [
+   "ploskinya_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "batu_ru",
+  "name": "Хан Батый",
+  "tags": [
+   "batu_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "dmitr_ru",
+  "name": "Тысяцкий Дмитр",
+  "tags": [
+   "dmitr_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "daniil_ru",
+  "name": "Князь Даниил Романович",
+  "tags": [
+   "daniil_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "mikhail_chern_ru",
+  "name": "Михаил Черниговский",
+  "tags": [
+   "mikhail_chern_ru"
+  ],
+  "emoji": "🏃"
+ },
+ {
+  "id": "alexander_nevsky_ru",
+  "name": "Князь Александр Невский",
+  "tags": [
+   "alexander_nevsky_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "andrey_yaroslavich_ru",
+  "name": "Князь Андрей Ярославич",
+  "tags": [
+   "andrey_yaroslavich_ru"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "hermann_dorpat_ru",
+  "name": "Епископ Герман Дерптский",
+  "tags": [
+   "hermann_dorpat_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "order_knights_ru",
+  "name": "Рыцари Ордена и дерптцы",
+  "tags": [
+   "order_knights_ru"
+  ],
+  "emoji": "🐗"
+ },
+ {
+  "id": "sartak_ru",
+  "name": "Царевич Сартак",
+  "tags": [
+   "sartak_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "nevryuy_ru",
+  "name": "Темник Неврюй",
+  "tags": [
+   "nevryuy_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "alexander_tver_ru",
+  "name": "Князь Александр Тверской",
+  "tags": [
+   "alexander_tver_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "ivan_kalita_ru",
+  "name": "Иван Калита",
+  "tags": [
+   "ivan_kalita_ru"
+  ],
+  "emoji": "💰"
+ },
+ {
+  "id": "cholkhan_ru",
+  "name": "Чол-хан (Щелкан)",
+  "tags": [
+   "cholkhan_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "uzbek_ru",
+  "name": "Хан Узбек",
+  "tags": [
+   "uzbek_ru"
+  ],
+  "emoji": "🌙"
+ },
+ {
+  "id": "tverites_ru",
+  "name": "Тверичи",
+  "tags": [
+   "tverites_ru"
+  ],
+  "emoji": "🔔"
+ },
+ {
+  "id": "dmitry_donskoy_ru",
+  "name": "Князь Дмитрий Иванович",
+  "tags": [
+   "dmitry_donskoy_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "mamai_ru",
+  "name": "Беклярибек Мамай",
+  "tags": [
+   "mamai_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "vladimir_serpukhov_ru",
+  "name": "Владимир Серпуховской",
+  "tags": [
+   "vladimir_serpukhov_ru"
+  ],
+  "emoji": "🌲"
+ },
+ {
+  "id": "sergius_ru",
+  "name": "Сергий Радонежский",
+  "tags": [
+   "sergius_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "tokhtamysh_ru",
+  "name": "Хан Тохтамыш",
+  "tags": [
+   "tokhtamysh_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "oleg_ryazan_ru",
+  "name": "Олег Рязанский",
+  "tags": [
+   "oleg_ryazan_ru"
+  ],
+  "emoji": "🗺️"
+ },
+ {
+  "id": "ostey_ru",
+  "name": "Литовский князь Остей",
+  "tags": [
+   "ostey_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "vasily2_ru",
+  "name": "Великий князь Василий II",
+  "tags": [
+   "vasily2_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "vasily_kosoy_ru",
+  "name": "Василий Косой",
+  "tags": [
+   "vasily_kosoy_ru"
+  ],
+  "emoji": "🗡️"
+ },
+ {
+  "id": "shemyaka_ru",
+  "name": "Дмитрий Шемяка",
+  "tags": [
+   "shemyaka_ru"
+  ],
+  "emoji": "⚔️"
+ },
+ {
+  "id": "sofia_vitovtovna_ru",
+  "name": "Софья Витовтовна",
+  "tags": [
+   "sofia_vitovtovna_ru"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "iona_ru",
+  "name": "Епископ Иона",
+  "tags": [
+   "iona_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "isidore_ru",
+  "name": "Митрополит Исидор",
+  "tags": [
+   "isidore_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "ivan3_ru",
+  "name": "Великий князь Иван III",
+  "tags": [
+   "ivan3_ru"
+  ],
+  "emoji": "👑"
+ },
+ {
+  "id": "marfa_boretskaya_ru",
+  "name": "Марфа Борецкая",
+  "tags": [
+   "marfa_boretskaya_ru"
+  ],
+  "emoji": "🔔"
+ },
+ {
+  "id": "feofil_ru",
+  "name": "Архиепископ Феофил",
+  "tags": [
+   "feofil_ru"
+  ],
+  "emoji": "✝️"
+ },
+ {
+  "id": "mikhail_olelkovich_ru",
+  "name": "Князь Михаил Олелькович",
+  "tags": [
+   "mikhail_olelkovich_ru"
+  ],
+  "emoji": "🏰"
+ },
+ {
+  "id": "akhmat_ru",
+  "name": "Хан Ахмат",
+  "tags": [
+   "akhmat_ru"
+  ],
+  "emoji": "🐎"
+ },
+ {
+  "id": "ivan_molodoy_ru",
+  "name": "Иван Молодой",
+  "tags": [
+   "ivan_molodoy_ru"
+  ],
+  "emoji": "🛡️"
+ },
+ {
+  "id": "sophia_paleolog_ru",
+  "name": "Софья Палеолог",
+  "tags": [
+   "sophia_paleolog_ru"
+  ],
+  "emoji": "👸"
+ },
+ {
+  "id": "mengli_giray_ru",
+  "name": "Хан Менгли-Гирей",
+  "tags": [
+   "mengli_giray_ru"
+  ],
+  "emoji": "🌙"
  }
 ]

@@ -33941,5 +33941,3298 @@
   "roles": [
    "президент"
   ]
+ },
+ {
+  "id": "council_alaska_ru",
+  "name": "Особое совещание во дворце",
+  "tags": [
+   "sig_council_alaska_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "решить продать",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "великий князь",
+   "император"
+  ]
+ },
+ {
+  "id": "london_offer_ru",
+  "name": "Предложить колонию Лондону",
+  "tags": [
+   "sig_london_offer_ru"
+  ],
+  "slots": 2,
+  "emoji": "🇬🇧",
+  "action": "предложить британцам",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "посланник",
+   "император"
+  ]
+ },
+ {
+  "id": "instructions_ru",
+  "name": "Инструкции посланнику",
+  "tags": [
+   "sig_instructions_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "дать полномочия",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "император",
+   "посланник"
+  ]
+ },
+ {
+  "id": "lease_ru",
+  "name": "Аренда на 99 лет",
+  "tags": [
+   "sig_lease_ru"
+  ],
+  "slots": 2,
+  "emoji": "📃",
+  "action": "сдать в аренду",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "посланник",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "sign_alaska_ru",
+  "name": "Подпись в четыре утра",
+  "tags": [
+   "sig_sign_alaska_ru"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать договор",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "посланник",
+   "госсекретарь"
+  ]
+ },
+ {
+  "id": "eagle_nest_ru",
+  "name": "Орлиное гнездо на Шипке",
+  "tags": [
+   "sig_eagle_nest_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛰️",
+  "action": "занять перевал",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал",
+   "ополченцы"
+  ]
+ },
+ {
+  "id": "stones_ru",
+  "name": "Камни вместо патронов",
+  "tags": [
+   "sig_stones_ru"
+  ],
+  "slots": 2,
+  "emoji": "🪨",
+  "action": "держать перевал",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "защитники",
+   "паша"
+  ]
+ },
+ {
+  "id": "valley_ru",
+  "name": "Спуститься в долину",
+  "tags": [
+   "sig_valley_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "атаковать в долине",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "защитники",
+   "паша"
+  ]
+ },
+ {
+  "id": "plevna_ru",
+  "name": "Штурм Плевны",
+  "tags": [
+   "sig_plevna_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "штурмовать крепость",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "паша"
+  ]
+ },
+ {
+  "id": "relief_ru",
+  "name": "Подкрепление Радецкого",
+  "tags": [
+   "sig_relief_ru"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "привести резерв",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал резерва",
+   "паша"
+  ]
+ },
+ {
+  "id": "railway_ru",
+  "name": "Закаспийская железная дорога",
+  "tags": [
+   "sig_railway_ru"
+  ],
+  "slots": 2,
+  "emoji": "🛤️",
+  "action": "подвезти снаряды",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал",
+   "штабист"
+  ]
+ },
+ {
+  "id": "frontal_ru",
+  "name": "Штурм с ходу",
+  "tags": [
+   "sig_frontal_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "штурмовать сразу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "сердар"
+  ]
+ },
+ {
+  "id": "mine_ru",
+  "name": "Подкоп под стену",
+  "tags": [
+   "sig_mine_ru"
+  ],
+  "slots": 2,
+  "emoji": "💥",
+  "action": "взорвать стену",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "сердар"
+  ]
+ },
+ {
+  "id": "pursuit_ru",
+  "name": "Гнать бегущих",
+  "tags": [
+   "sig_pursuit_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏜️",
+  "action": "преследовать в пустыне",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "сердар"
+  ]
+ },
+ {
+  "id": "submission_ru",
+  "name": "Поездка к царю",
+  "tags": [
+   "sig_submission_ru"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "принять подданство",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "сердар",
+   "генерал"
+  ]
+ },
+ {
+  "id": "circular_ru",
+  "name": "Циркуляр министра",
+  "tags": [
+   "sig_circular_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "свалить вину на жертв",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "министр",
+   "император"
+  ]
+ },
+ {
+  "id": "protect_ru",
+  "name": "Защитить по закону",
+  "tags": [
+   "sig_protect_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "наказать погромщиков",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "император",
+   "министр"
+  ]
+ },
+ {
+  "id": "may_rules_ru",
+  "name": "Временные правила 3 мая",
+  "tags": [
+   "sig_may_rules_ru"
+  ],
+  "slots": 2,
+  "emoji": "🖋️",
+  "action": "ограничить права",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "министр",
+   "император"
+  ]
+ },
+ {
+  "id": "reform_hope_ru",
+  "name": "Ждать эмансипации сверху",
+  "tags": [
+   "sig_reform_hope_ru"
+  ],
+  "slots": 2,
+  "emoji": "📚",
+  "action": "надеяться на реформы",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "врач",
+   "император"
+  ]
+ },
+ {
+  "id": "autoemancipation_ru",
+  "name": "«Автоэмансипация»",
+  "tags": [
+   "sig_autoemancipation_ru"
+  ],
+  "slots": 2,
+  "emoji": "✒️",
+  "action": "написать воззвание",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "врач",
+   "император"
+  ]
+ },
+ {
+  "id": "gifts_ru",
+  "name": "Царские гостинцы",
+  "tags": [
+   "sig_gifts_ru"
+  ],
+  "slots": 2,
+  "emoji": "🎁",
+  "action": "объявить раздачу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал-губернатор",
+   "император"
+  ]
+ },
+ {
+  "id": "crush_ru",
+  "name": "Ходынское поле на рассвете",
+  "tags": [
+   "sig_crush_ru"
+  ],
+  "slots": 2,
+  "emoji": "💀",
+  "action": "стоять в толпе",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "репортёр",
+   "генерал-губернатор"
+  ]
+ },
+ {
+  "id": "cancel_ru",
+  "name": "Отменить торжества",
+  "tags": [
+   "sig_cancel_ru"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "объявить траур",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "императрица",
+   "император"
+  ]
+ },
+ {
+  "id": "ball_ru",
+  "name": "Бал у французского посла",
+  "tags": [
+   "sig_ball_ru"
+  ],
+  "slots": 2,
+  "emoji": "💃",
+  "action": "открыть бал",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "императрица"
+  ]
+ },
+ {
+  "id": "receive_ru",
+  "name": "Выйти к рабочим",
+  "tags": [
+   "sig_receive_ru"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "принять петицию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "император",
+   "священник"
+  ]
+ },
+ {
+  "id": "petition_ru",
+  "name": "Шествие к Зимнему",
+  "tags": [
+   "sig_petition_ru"
+  ],
+  "slots": 2,
+  "emoji": "🩸",
+  "action": "идти с петицией",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "священник",
+   "император"
+  ]
+ },
+ {
+  "id": "dictatorship_ru",
+  "name": "«Патронов не жалеть»",
+  "tags": [
+   "sig_dictatorship_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔫",
+  "action": "подавить силой",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "император"
+  ]
+ },
+ {
+  "id": "memo_ru",
+  "name": "Записка Витте",
+  "tags": [
+   "sig_memo_ru"
+  ],
+  "slots": 2,
+  "emoji": "📝",
+  "action": "выбрать уступки",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "премьер",
+   "император"
+  ]
+ },
+ {
+  "id": "manifesto_ru",
+  "name": "Манифест 17 октября",
+  "tags": [
+   "sig_manifesto_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "подписать манифест",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "премьер"
+  ]
+ },
+ {
+  "id": "kadet_cabinet_ru",
+  "name": "Министерство Думы",
+  "tags": [
+   "sig_kadet_cabinet_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "отдать власть Думе",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "депутат",
+   "император"
+  ]
+ },
+ {
+  "id": "dissolve_ru",
+  "name": "Разгон первой Думы",
+  "tags": [
+   "sig_dissolve_ru"
+  ],
+  "slots": 3,
+  "emoji": "🔒",
+  "action": "распустить Думу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "император",
+   "новый премьер",
+   "депутат"
+  ]
+ },
+ {
+  "id": "vyborg_ru",
+  "name": "Выборгское воззвание",
+  "tags": [
+   "sig_vyborg_ru"
+  ],
+  "slots": 1,
+  "emoji": "📄",
+  "action": "призвать не платить налоги",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "депутат"
+  ]
+ },
+ {
+  "id": "field_courts_ru",
+  "name": "Военно-полевые суды",
+  "tags": [
+   "sig_field_courts_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "ввести суды",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "премьер",
+   "император"
+  ]
+ },
+ {
+  "id": "khutor_ru",
+  "name": "Указ 9 ноября: выход из общины",
+  "tags": [
+   "sig_khutor_ru"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "выйти на хутор",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "премьер",
+   "крестьянин"
+  ]
+ },
+ {
+  "id": "telegrams_ru",
+  "name": "Телеграммы «Вилли» и «Ники»",
+  "tags": [
+   "sig_telegrams_ru"
+  ],
+  "slots": 2,
+  "emoji": "📨",
+  "action": "переписываться с кузеном",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кайзер",
+   "император"
+  ]
+ },
+ {
+  "id": "mobilize_ru",
+  "name": "Всеобщая мобилизация",
+  "tags": [
+   "sig_mobilize_ru"
+  ],
+  "slots": 2,
+  "emoji": "🚂",
+  "action": "мобилизовать армию",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "министр",
+   "император"
+  ]
+ },
+ {
+  "id": "ultimatum_ru",
+  "name": "Ультиматум из Берлина",
+  "tags": [
+   "sig_ultimatum_ru"
+  ],
+  "slots": 2,
+  "emoji": "📯",
+  "action": "объявить войну",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "кайзер",
+   "император"
+  ]
+ },
+ {
+  "id": "narrow_ru",
+  "name": "Удар в одной точке",
+  "tags": [
+   "sig_narrow_ru"
+  ],
+  "slots": 1,
+  "emoji": "🎯",
+  "action": "бить кулаком",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "brusilov_ru",
+  "name": "Прорыв на широком фронте",
+  "tags": [
+   "sig_brusilov_ru"
+  ],
+  "slots": 2,
+  "emoji": "💥",
+  "action": "наступать повсюду",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "император"
+  ]
+ },
+ {
+  "id": "wait_ca_ru",
+  "name": "Ждать Учредительного собрания",
+  "tags": [
+   "sig_wait_ca_ru"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "ждать выборов",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "противник",
+   "вождь"
+  ]
+ },
+ {
+  "id": "cc_ru",
+  "name": "Тайное заседание ЦК, 10 октября",
+  "tags": [
+   "sig_cc_ru"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "проголосовать за восстание",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "вождь",
+   "противник"
+  ]
+ },
+ {
+  "id": "front_troops_ru",
+  "name": "Войска с фронта",
+  "tags": [
+   "sig_front_troops_ru"
+  ],
+  "slots": 1,
+  "emoji": "🚂",
+  "action": "вызвать войска",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "премьер"
+  ]
+ },
+ {
+  "id": "mrc_ru",
+  "name": "Военно-революционный комитет",
+  "tags": [
+   "sig_mrc_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔴",
+  "action": "взять гарнизон",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "председатель",
+   "вождь"
+  ]
+ },
+ {
+  "id": "winter_ru",
+  "name": "Ночь на 26 октября",
+  "tags": [
+   "sig_winter_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "занять дворец",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "комитет",
+   "премьер"
+  ]
+ },
+ {
+  "id": "recognize_ru",
+  "name": "Признать Учредительное",
+  "tags": [
+   "sig_recognize_ru"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "уступить власть",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вождь",
+   "председатель"
+  ]
+ },
+ {
+  "id": "assembly_ru",
+  "name": "«Караул устал»",
+  "tags": [
+   "sig_assembly_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔒",
+  "action": "разогнать собрание",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "председатель",
+   "вождь"
+  ]
+ },
+ {
+  "id": "neither_ru",
+  "name": "Ни мира, ни войны",
+  "tags": [
+   "sig_neither_ru"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "уйти с переговоров",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "нарком",
+   "генерал"
+  ]
+ },
+ {
+  "id": "revwar_ru",
+  "name": "Революционная война",
+  "tags": [
+   "sig_revwar_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "звать к войне",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нарком",
+   "генерал"
+  ]
+ },
+ {
+  "id": "sign_brest_ru",
+  "name": "Подписать «похабный мир»",
+  "tags": [
+   "sig_sign_brest_ru"
+  ],
+  "slots": 3,
+  "emoji": "✍️",
+  "action": "принять условия",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "вождь",
+   "нарком",
+   "генерал"
+  ]
+ },
+ {
+  "id": "ipatiev_ru",
+  "name": "Дом особого назначения",
+  "tags": [
+   "sig_ipatiev_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏠",
+  "action": "держать под охраной",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "комендант",
+   "узник"
+  ]
+ },
+ {
+  "id": "evacuate_ru",
+  "name": "Увезти в Москву",
+  "tags": [
+   "sig_evacuate_ru"
+  ],
+  "slots": 2,
+  "emoji": "🚂",
+  "action": "вывезти семью",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "комендант",
+   "узник"
+  ]
+ },
+ {
+  "id": "trial_ru",
+  "name": "Открытый суд",
+  "tags": [
+   "sig_trial_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "готовить процесс",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "председатель",
+   "узник"
+  ]
+ },
+ {
+  "id": "decision_ru",
+  "name": "Решение Уралсовета",
+  "tags": [
+   "sig_decision_ru"
+  ],
+  "slots": 2,
+  "emoji": "📨",
+  "action": "принять решение",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "председатель",
+   "комендант"
+  ]
+ },
+ {
+  "id": "cellar_ru",
+  "name": "Ночь на 17 июля",
+  "tags": [
+   "sig_cellar_ru"
+  ],
+  "slots": 3,
+  "emoji": "🕯️",
+  "action": "расстрелять",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "комендант",
+   "узник",
+   "узница"
+  ]
+ },
+ {
+  "id": "expel_varangians_ru",
+  "name": "Варягов — за море",
+  "tags": [
+   "sig_expel_varangians_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛵",
+  "action": "изгнать за море",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "старейшина",
+   "варяг"
+  ]
+ },
+ {
+  "id": "clan_strife_ru",
+  "name": "Встал род на род",
+  "tags": [
+   "sig_clan_strife_ru"
+  ],
+  "slots": 1,
+  "emoji": "🔥",
+  "action": "рассориться",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "старейшина"
+  ]
+ },
+ {
+  "id": "call_princes_ru",
+  "name": "«Придите княжить и владеть нами»",
+  "tags": [
+   "sig_call_princes_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "призвать князя",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "старейшина",
+   "князь"
+  ]
+ },
+ {
+  "id": "come_with_sword_ru",
+  "name": "Прийти с мечом",
+  "tags": [
+   "sig_come_with_sword_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "взять город силой",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "варяг",
+   "старейшина"
+  ]
+ },
+ {
+  "id": "veche_alone_ru",
+  "name": "Вече без князя",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "prophecy_ru",
+  "name": "Слово кудесника",
+  "tags": [
+   "sig_prophecy_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔮",
+  "action": "спросить о судьбе",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "кудесник",
+   "князь"
+  ]
+ },
+ {
+  "id": "send_steed_ru",
+  "name": "Коня — с глаз долой",
+  "tags": [
+   "sig_send_steed_ru"
+  ],
+  "slots": 2,
+  "emoji": "🐴",
+  "action": "отдать коня",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "конюший"
+  ]
+ },
+ {
+  "id": "ride_again_ru",
+  "name": "Снова в седло",
+  "tags": [
+   "sig_ride_again_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏇",
+  "action": "сесть на любимого коня",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "конюший"
+  ]
+ },
+ {
+  "id": "bones_ru",
+  "name": "Кости коня",
+  "tags": [
+   "sig_bones_ru"
+  ],
+  "slots": 1,
+  "emoji": "💀",
+  "action": "взглянуть на кости",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "seize_volkhv_ru",
+  "name": "Казнить кудесника",
+  "tags": [
+   "sig_seize_volkhv_ru"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "казнить за дерзость",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "кудесник"
+  ]
+ },
+ {
+  "id": "kaliki_heal_ru",
+  "name": "Калики у ворот",
+  "tags": [
+   "sig_kaliki_heal_ru"
+  ],
+  "slots": 2,
+  "emoji": "🍶",
+  "action": "напоить и исцелить",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "странники",
+   "сидень"
+  ]
+ },
+ {
+  "id": "straight_road_ru",
+  "name": "Прямоезжая дорога",
+  "tags": [
+   "sig_straight_road_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏹",
+  "action": "сбить стрелой",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "богатырь",
+   "разбойник"
+  ]
+ },
+ {
+  "id": "detour_ru",
+  "name": "Окольный путь",
+  "tags": [
+   "sig_detour_ru"
+  ],
+  "slots": 1,
+  "emoji": "↩️",
+  "action": "объехать лес",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "богатырь"
+  ]
+ },
+ {
+  "id": "feast_boast_ru",
+  "name": "Похвальба на пиру",
+  "tags": [
+   "sig_feast_boast_ru"
+  ],
+  "slots": 2,
+  "emoji": "🍷",
+  "action": "похвалиться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь",
+   "богатырь"
+  ]
+ },
+ {
+  "id": "court_proof_ru",
+  "name": "Двор князя Владимира",
+  "tags": [
+   "sig_court_proof_ru"
+  ],
+  "slots": 3,
+  "emoji": "👑",
+  "action": "показать пленника",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "богатырь",
+   "пленник"
+  ]
+ },
+ {
+  "id": "sea_throne_ru",
+  "name": "Палаты Царя Морского",
+  "tags": [
+   "sig_sea_throne_ru"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "играть на гуслях",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "гусляр",
+   "царь"
+  ]
+ },
+ {
+  "id": "nikola_advice_ru",
+  "name": "Совет старца",
+  "tags": [
+   "sig_nikola_advice_ru"
+  ],
+  "slots": 2,
+  "emoji": "🧓",
+  "action": "порвать струны",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "старец",
+   "гусляр"
+  ]
+ },
+ {
+  "id": "pick_bride_ru",
+  "name": "Выбор невесты",
+  "tags": [
+   "sig_pick_bride_ru"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "выбрать невесту",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "гусляр",
+   "невеста"
+  ]
+ },
+ {
+  "id": "gold_tribute_ru",
+  "name": "Бочка золота за борт",
+  "tags": [
+   "sig_gold_tribute_ru"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "откупиться золотом",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "купец",
+   "царь"
+  ]
+ },
+ {
+  "id": "hide_boats_ru",
+  "name": "Воины под палубой",
+  "tags": [
+   "sig_hide_boats_ru"
+  ],
+  "slots": 1,
+  "emoji": "🛶",
+  "action": "спрятать дружину",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "merchants_call_ru",
+  "name": "«Мы купцы, идём к грекам»",
+  "tags": [
+   "sig_merchants_call_ru"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "выманить на берег",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "пришелец",
+   "князь Киева"
+  ]
+ },
+ {
+  "id": "heir_shown_ru",
+  "name": "«Вот сын Рюриков»",
+  "tags": [
+   "sig_heir_shown_ru"
+  ],
+  "slots": 3,
+  "emoji": "👶",
+  "action": "показать наследника",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "воевода",
+   "наследник",
+   "князь Киева"
+  ]
+ },
+ {
+  "id": "storm_kyiv_ru",
+  "name": "Штурм киевских гор",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "second_tribute_ru",
+  "name": "Дань второй раз",
+  "tags": [
+   "sig_second_tribute_ru"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "вернуться за данью",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "древлянин"
+  ]
+ },
+ {
+  "id": "mal_matchmaking_ru",
+  "name": "Сватовство Мала",
+  "tags": [
+   "sig_mal_matchmaking_ru"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "посвататься к вдове",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "жених",
+   "вдова"
+  ]
+ },
+ {
+  "id": "olga_revenge_ru",
+  "name": "Месть княгини",
+  "tags": [
+   "sig_olga_revenge_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "отомстить",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "княгиня",
+   "древлянин"
+  ]
+ },
+ {
+  "id": "pogosts_ru",
+  "name": "Уставы и уроки",
+  "tags": [
+   "sig_pogosts_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "установить уроки",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "княгиня",
+   "воевода"
+  ]
+ },
+ {
+  "id": "old_tribute_ru",
+  "name": "Полюдье по-старому",
+  "tags": [
+   "v_bribe"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "подкуп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "сборщик",
+   "данник"
+  ]
+ },
+ {
+  "id": "i_come_ru",
+  "name": "«Хочу на вы идти»",
+  "tags": [
+   "sig_i_come_ru"
+  ],
+  "slots": 2,
+  "emoji": "📨",
+  "action": "предупредить врага",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "враг"
+  ]
+ },
+ {
+  "id": "sarkel_ru",
+  "name": "Белая Вежа",
+  "tags": [
+   "sig_sarkel_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏯",
+  "action": "разбить каганат",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "царь"
+  ]
+ },
+ {
+  "id": "danube_ru",
+  "name": "Переяславец на Дунае",
+  "tags": [
+   "sig_danube_ru"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "уйти на Дунай",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "воевода"
+  ]
+ },
+ {
+  "id": "rapids_ru",
+  "name": "Днепровские пороги",
+  "tags": [
+   "sig_rapids_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏹",
+  "action": "устроить засаду",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "хан",
+   "князь"
+  ]
+ },
+ {
+  "id": "steppe_pact_ru",
+  "name": "Мир со степью",
+  "tags": [
+   "sig_steppe_pact_ru"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "заключить мир с ханом",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "хан"
+  ]
+ },
+ {
+  "id": "aid_troops_ru",
+  "name": "Шесть тысяч воинов для императора",
+  "tags": [
+   "sig_aid_troops_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "послать войско",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "император"
+  ]
+ },
+ {
+  "id": "korsun_siege_ru",
+  "name": "Осада Корсуни",
+  "tags": [
+   "sig_korsun_siege_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "взять Херсонес",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "воевода"
+  ]
+ },
+ {
+  "id": "korsun_font_ru",
+  "name": "Крещение в Корсуни",
+  "tags": [
+   "sig_korsun_font_ru"
+  ],
+  "slots": 2,
+  "emoji": "✝️",
+  "action": "креститься и венчаться",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "царевна"
+  ]
+ },
+ {
+  "id": "pagan_pantheon_ru",
+  "name": "Идолы на холме",
+  "tags": [
+   "sig_pagan_pantheon_ru"
+  ],
+  "slots": 1,
+  "emoji": "🗿",
+  "action": "поставить кумиров",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "pagan_wedding_ru",
+  "name": "Свадьба без крещения",
+  "tags": [
+   "v_wed"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "свадьба",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "жених",
+   "невеста"
+  ]
+ },
+ {
+  "id": "boris_tent_ru",
+  "name": "Шатёр на Альте",
+  "tags": [
+   "sig_boris_tent_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛺",
+  "action": "не поднять меч на брата",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "брат"
+  ]
+ },
+ {
+  "id": "druzhina_kyiv_ru",
+  "name": "«Иди, сядь в Киеве»",
+  "tags": [
+   "sig_druzhina_kyiv_ru"
+  ],
+  "slots": 1,
+  "emoji": "🛡️",
+  "action": "повести дружину на Киев",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "novgorod_host_ru",
+  "name": "Новгородцы и варяги",
+  "tags": [
+   "sig_novgorod_host_ru"
+  ],
+  "slots": 1,
+  "emoji": "⛵",
+  "action": "собрать войско",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "alta_ru",
+  "name": "Битва на Альте",
+  "tags": [
+   "sig_alta_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "разбить брата",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "мститель",
+   "убийца"
+  ]
+ },
+ {
+  "id": "brothers_peace_ru",
+  "name": "Поделить отцовы земли",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "monomakh_letter_ru",
+  "name": "Письмо Мономаха",
+  "tags": [
+   "sig_monomakh_letter_ru"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "написать сопернику",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "соперник"
+  ]
+ },
+ {
+  "id": "lyubech_council_ru",
+  "name": "Съезд в Любече",
+  "tags": [
+   "sig_lyubech_council_ru"
+  ],
+  "slots": 3,
+  "emoji": "✝️",
+  "action": "целовать крест",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "великий князь",
+   "соперник"
+  ]
+ },
+ {
+  "id": "slander_blind_ru",
+  "name": "Навет и ослепление",
+  "tags": [
+   "sig_slander_blind_ru"
+  ],
+  "slots": 3,
+  "emoji": "🩸",
+  "action": "оклеветать",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "клеветник",
+   "великий князь",
+   "жертва"
+  ]
+ },
+ {
+  "id": "finish_oleg_ru",
+  "name": "Добить Олега",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "coalition_ru",
+  "name": "Одиннадцать князей",
+  "tags": [
+   "sig_coalition_ru"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "собрать союз",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "организатор",
+   "союзник"
+  ]
+ },
+ {
+  "id": "kyiv_sack_ru",
+  "name": "Два дня грабежа",
+  "tags": [
+   "sig_kyiv_sack_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "взять Киев",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "организатор",
+   "князь Киева"
+  ]
+ },
+ {
+  "id": "give_kyiv_ru",
+  "name": "Киев — младшему брату",
+  "tags": [
+   "sig_give_kyiv_ru"
+  ],
+  "slots": 2,
+  "emoji": "🎁",
+  "action": "отдать стол",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "брат"
+  ]
+ },
+ {
+  "id": "sit_kyiv_ru",
+  "name": "Сесть в Киеве самому",
+  "tags": [
+   "sig_sit_kyiv_ru"
+  ],
+  "slots": 1,
+  "emoji": "👑",
+  "action": "сесть на киевский стол",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "parley_kyiv_ru",
+  "name": "Договориться с Киевом",
+  "tags": [
+   "v_parley"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "переговоры",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто требует",
+   "кто уступает"
+  ]
+ },
+ {
+  "id": "single_coin_ru",
+  "name": "Единая копейка",
+  "tags": [
+   "sig_single_coin_ru"
+  ],
+  "slots": 2,
+  "emoji": "🪙",
+  "action": "отчеканить новую монету",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "регентша",
+   "государь"
+  ]
+ },
+ {
+  "id": "uncle_jail_ru",
+  "name": "Опала дяди",
+  "tags": [
+   "sig_uncle_jail_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "заточить советника",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "регентша",
+   "дядя"
+  ]
+ },
+ {
+  "id": "boyar_care_ru",
+  "name": "Боярская опека",
+  "tags": [
+   "sig_boyar_care_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "отдать дела боярам",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "регентша",
+   "боярин"
+  ]
+ },
+ {
+  "id": "sudden_death_ru",
+  "name": "Внезапная смерть регентши",
+  "tags": [
+   "sig_sudden_death_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚱️",
+  "action": "взять власть",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "боярин",
+   "регентша"
+  ]
+ },
+ {
+  "id": "salt_tax_ru",
+  "name": "Соляная пошлина",
+  "tags": [
+   "sig_salt_tax_ru"
+  ],
+  "slots": 1,
+  "emoji": "🧂",
+  "action": "обложить соль",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "боярин"
+  ]
+ },
+ {
+  "id": "give_up_judge_ru",
+  "name": "Выдать судью толпе",
+  "tags": [
+   "sig_give_up_judge_ru"
+  ],
+  "slots": 3,
+  "emoji": "🔥",
+  "action": "успокоить Москву",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "царь",
+   "судья",
+   "боярин"
+  ]
+ },
+ {
+  "id": "give_up_morozov_ru",
+  "name": "Выдать Морозова",
+  "tags": [
+   "sig_give_up_morozov_ru"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "отдать воспитателя",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "царь",
+   "боярин"
+  ]
+ },
+ {
+  "id": "ulozhenie_ru",
+  "name": "Собор и Уложение",
+  "tags": [
+   "sig_ulozhenie_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "написать новый закон",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "царь",
+   "князь"
+  ]
+ },
+ {
+  "id": "plea_protection_ru",
+  "name": "Просьба о покровительстве",
+  "tags": [
+   "sig_plea_protection_ru"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "просить защиты царя",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "гетман",
+   "царь"
+  ]
+ },
+ {
+  "id": "pereyaslav_rada_ru",
+  "name": "Рада в Переяславе",
+  "tags": [
+   "sig_pereyaslav_rada_ru"
+  ],
+  "slots": 3,
+  "emoji": "🤝",
+  "action": "принести присягу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "гетман",
+   "посол",
+   "писарь"
+  ]
+ },
+ {
+  "id": "envoy_oath_ru",
+  "name": "Требовать присяги от посла",
+  "tags": [
+   "sig_envoy_oath_ru"
+  ],
+  "slots": 2,
+  "emoji": "✋",
+  "action": "потребовать клятвы",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "гетман",
+   "посол"
+  ]
+ },
+ {
+  "id": "king_talks_ru",
+  "name": "Переговоры с королём",
+  "tags": [
+   "sig_king_talks_ru"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "вернуться к Речи Посполитой",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "гетман",
+   "писарь"
+  ]
+ },
+ {
+  "id": "march_articles_ru",
+  "name": "Мартовские статьи",
+  "tags": [
+   "sig_march_articles_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "записать права Войска",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "царь",
+   "писарь"
+  ]
+ },
+ {
+  "id": "three_fingers_ru",
+  "name": "Троеперстие",
+  "tags": [
+   "sig_three_fingers_ru"
+  ],
+  "slots": 2,
+  "emoji": "✋",
+  "action": "исправить обряд",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "патриарх",
+   "протопоп"
+  ]
+ },
+ {
+  "id": "tsar_quarrel_ru",
+  "name": "Ссора с царём",
+  "tags": [
+   "sig_tsar_quarrel_ru"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "оставить кафедру",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "царь",
+   "патриарх"
+  ]
+ },
+ {
+  "id": "great_council_ru",
+  "name": "Большой Московский собор",
+  "tags": [
+   "sig_great_council_ru"
+  ],
+  "slots": 3,
+  "emoji": "⚖️",
+  "action": "судить патриарха",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "царь",
+   "восточный патриарх",
+   "обвиняемый"
+  ]
+ },
+ {
+  "id": "tsar_offer_ru",
+  "name": "Уговоры царя",
+  "tags": [
+   "sig_tsar_offer_ru"
+  ],
+  "slots": 2,
+  "emoji": "🎁",
+  "action": "предложить место при дворе",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "царь",
+   "протопоп"
+  ]
+ },
+ {
+  "id": "up_volga_ru",
+  "name": "Вверх по Волге",
+  "tags": [
+   "sig_up_volga_ru"
+  ],
+  "slots": 1,
+  "emoji": "⛵",
+  "action": "поднять Поволжье",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "атаман"
+  ]
+ },
+ {
+  "id": "persia_again_ru",
+  "name": "Снова за море",
+  "tags": [
+   "sig_persia_again_ru"
+  ],
+  "slots": 1,
+  "emoji": "🌊",
+  "action": "идти за добычей в Персию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "атаман"
+  ]
+ },
+ {
+  "id": "simbirsk_ru",
+  "name": "Под Симбирском",
+  "tags": [
+   "sig_simbirsk_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "дать бой",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "воевода",
+   "атаман"
+  ]
+ },
+ {
+  "id": "kagalnik_ru",
+  "name": "Кагальницкий городок",
+  "tags": [
+   "sig_kagalnik_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "схватить атамана",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "войсковой атаман",
+   "беглец"
+  ]
+ },
+ {
+  "id": "strangled_rumor_ru",
+  "name": "Слух о задушенном царевиче",
+  "tags": [
+   "sig_strangled_rumor_ru"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "поднять стрельцов",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "царевна",
+   "стрелецкий начальник"
+  ]
+ },
+ {
+  "id": "red_porch_ru",
+  "name": "Царевич на Красном крыльце",
+  "tags": [
+   "sig_red_porch_ru"
+  ],
+  "slots": 2,
+  "emoji": "🧍",
+  "action": "показать живого царевича",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "стрелецкий начальник",
+   "царевич"
+  ]
+ },
+ {
+  "id": "only_peter_ru",
+  "name": "Один царь — Пётр",
+  "tags": [
+   "sig_only_peter_ru"
+  ],
+  "slots": 1,
+  "emoji": "👑",
+  "action": "посадить на трон одного",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "царь"
+  ]
+ },
+ {
+  "id": "two_tsars_ru",
+  "name": "Два царя на одном троне",
+  "tags": [
+   "sig_two_tsars_ru"
+  ],
+  "slots": 3,
+  "emoji": "👑",
+  "action": "венчать двух царей",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "старший царь",
+   "младший царь",
+   "правительница"
+  ]
+ },
+ {
+  "id": "vozdvizhenskoe_ru",
+  "name": "Воздвиженское",
+  "tags": [
+   "sig_vozdvizhenskoe_ru"
+  ],
+  "slots": 2,
+  "emoji": "🪓",
+  "action": "казнить князя",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "правительница",
+   "князь"
+  ]
+ },
+ {
+  "id": "kangxi_order_ru",
+  "name": "Указ богдыхана",
+  "tags": [
+   "sig_kangxi_order_ru"
+  ],
+  "slots": 2,
+  "emoji": "🐉",
+  "action": "дать послу полномочия",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "посол"
+  ]
+ },
+ {
+  "id": "latin_talks_ru",
+  "name": "Переговоры на латыни",
+  "tags": [
+   "sig_latin_talks_ru"
+  ],
+  "slots": 3,
+  "emoji": "🗣️",
+  "action": "договориться через переводчика",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "посол царя",
+   "иезуит",
+   "посол богдыхана"
+  ]
+ },
+ {
+  "id": "amur_war_ru",
+  "name": "Воевать за Амур",
+  "tags": [
+   "sig_amur_war_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "отстаивать Албазин силой",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "nerchinsk_treaty_ru",
+  "name": "Договор у Нерчинска",
+  "tags": [
+   "sig_nerchinsk_treaty_ru"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать границу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "посол царя",
+   "посол богдыхана"
+  ]
+ },
+ {
+  "id": "kaynarca_ru",
+  "name": "Кючук-Кайнарджийский мир",
+  "tags": [
+   "sig_kaynarca_ru"
+  ],
+  "slots": 1,
+  "emoji": "🕊️",
+  "action": "отодвинуть турецкую границу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "императрица"
+  ]
+ },
+ {
+  "id": "potemkin_note_ru",
+  "name": "Записка Потёмкина",
+  "tags": [
+   "sig_potemkin_note_ru"
+  ],
+  "slots": 3,
+  "emoji": "✒️",
+  "action": "решить судьбу Сечи",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "фаворит",
+   "императрица",
+   "генерал"
+  ]
+ },
+ {
+  "id": "cannons_sich_ru",
+  "name": "Пушки вокруг Сечи",
+  "tags": [
+   "sig_cannons_sich_ru"
+  ],
+  "slots": 2,
+  "emoji": "💣",
+  "action": "окружить Сечь",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "кошевой"
+  ]
+ },
+ {
+  "id": "sich_fight_ru",
+  "name": "Выйти на бой",
+  "tags": [
+   "sig_sich_fight_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "оборонять Сечь",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "кошевой",
+   "генерал"
+  ]
+ },
+ {
+  "id": "beyond_danube_ru",
+  "name": "Уйти за Дунай",
+  "tags": [
+   "sig_beyond_danube_ru"
+  ],
+  "slots": 1,
+  "emoji": "🛶",
+  "action": "увести казаков к султану",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кошевой"
+  ]
+ },
+ {
+  "id": "georgian_plea_ru",
+  "name": "Просьба о подданстве",
+  "tags": [
+   "sig_georgian_plea_ru"
+  ],
+  "slots": 1,
+  "emoji": "✉️",
+  "action": "просить Петербург о защите",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "царь"
+  ]
+ },
+ {
+  "id": "king_dies_ru",
+  "name": "Смерть царя и спор наследников",
+  "tags": [
+   "sig_king_dies_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚱️",
+  "action": "предъявить права",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "царь",
+   "вдова Ираклия"
+  ]
+ },
+ {
+  "id": "protectorate_ru",
+  "name": "Оставить протекторат",
+  "tags": [
+   "sig_protectorate_ru"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "сохранить Багратионов",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "император",
+   "царица"
+  ]
+ },
+ {
+  "id": "manifesto_1801_ru",
+  "name": "Манифест 1801 года",
+  "tags": [
+   "sig_manifesto_1801_ru"
+  ],
+  "slots": 3,
+  "emoji": "📜",
+  "action": "упразднить царство",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "генерал",
+   "царица"
+  ]
+ },
+ {
+  "id": "naib_quarrel_ru",
+  "name": "Ссора имама с наибом",
+  "tags": [
+   "sig_naib_quarrel_ru"
+  ],
+  "slots": 2,
+  "emoji": "💢",
+  "action": "лишить наиба доверия",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "имам",
+   "наиб"
+  ]
+ },
+ {
+  "id": "punitive_raid_ru",
+  "name": "Карательная экспедиция",
+  "tags": [
+   "sig_punitive_raid_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "жечь аулы",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "имам"
+  ]
+ },
+ {
+  "id": "forest_cutting_ru",
+  "name": "Просеки и кольцо",
+  "tags": [
+   "sig_forest_cutting_ru"
+  ],
+  "slots": 1,
+  "emoji": "🪓",
+  "action": "сжимать горы методично",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "наместник"
+  ]
+ },
+ {
+  "id": "gunib_ru",
+  "name": "Гуниб",
+  "tags": [
+   "sig_gunib_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏔️",
+  "action": "предложить почётную сдачу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "наместник",
+   "имам"
+  ]
+ },
+ {
+  "id": "osnova_ru",
+  "name": "Журнал «Основа»",
+  "tags": [
+   "sig_osnova_ru"
+  ],
+  "slots": 2,
+  "emoji": "📰",
+  "action": "печатать по-украински",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "историк",
+   "писатель"
+  ]
+ },
+ {
+  "id": "polish_scare_ru",
+  "name": "Страх после польского восстания",
+  "tags": [
+   "sig_polish_scare_ru"
+  ],
+  "slots": 2,
+  "emoji": "😨",
+  "action": "увидеть заговор",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "министр",
+   "император"
+  ]
+ },
+ {
+  "id": "kostomarov_note_ru",
+  "name": "Записка Костомарова",
+  "tags": [
+   "sig_kostomarov_note_ru"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "переубедить министра",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "историк",
+   "министр"
+  ]
+ },
+ {
+  "id": "valuev_circular_ru",
+  "name": "Циркуляр 18 июля",
+  "tags": [
+   "sig_valuev_circular_ru"
+  ],
+  "slots": 2,
+  "emoji": "✂️",
+  "action": "запретить книги",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "министр",
+   "историк"
+  ]
+ },
+ {
+  "id": "eclipse_ru",
+  "name": "Затмение над Донцом",
+  "tags": [
+   "sig_eclipse_ru"
+  ],
+  "slots": 1,
+  "emoji": "🌘",
+  "action": "не повернуть назад",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "wait_princes_ru",
+  "name": "Ждать союза князей",
+  "tags": [
+   "sig_wait_princes_ru"
+  ],
+  "slots": 2,
+  "emoji": "⏳",
+  "action": "отложить поход",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "брат"
+  ]
+ },
+ {
+  "id": "kayala_ru",
+  "name": "Река Каяла",
+  "tags": [
+   "sig_kayala_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏹",
+  "action": "окружить русские полки",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "хан",
+   "князь"
+  ]
+ },
+ {
+  "id": "lament_ru",
+  "name": "Плач на стене Путивля",
+  "tags": [
+   "sig_lament_ru"
+  ],
+  "slots": 2,
+  "emoji": "😢",
+  "action": "звать мужа из плена",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "княгиня",
+   "пленник"
+  ]
+ },
+ {
+  "id": "donets_escape_ru",
+  "name": "Побег за Донец",
+  "tags": [
+   "sig_donets_escape_ru"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "бежать из плена",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "проводник",
+   "пленник"
+  ]
+ },
+ {
+  "id": "kiev_council_ru",
+  "name": "Совет князей в Киеве",
+  "tags": [
+   "sig_kiev_council_ru"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "помочь половцам",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "хан",
+   "князь"
+  ]
+ },
+ {
+  "id": "united_host_ru",
+  "name": "Единое командование",
+  "tags": [
+   "sig_united_host_ru"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "договориться о плане",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "князь"
+  ]
+ },
+ {
+  "id": "lone_charge_ru",
+  "name": "Удар без киевлян",
+  "tags": [
+   "sig_lone_charge_ru"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "атаковать первым",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "полководец"
+  ]
+ },
+ {
+  "id": "hill_camp_ru",
+  "name": "Лагерь на холме",
+  "tags": [
+   "sig_hill_camp_ru"
+  ],
+  "slots": 3,
+  "emoji": "⛺",
+  "action": "сдаться на крестное целование",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "полководец",
+   "посредник",
+   "князь"
+  ]
+ },
+ {
+  "id": "kalka_field_ru",
+  "name": "Бой всем войском",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "hungary_mission_ru",
+  "name": "Посольство в Угры",
+  "tags": [
+   "sig_hungary_mission_ru"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "оставить город воеводе и ехать за помощью",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "воевода"
+  ]
+ },
+ {
+  "id": "kiev_walls_ru",
+  "name": "Штурм Киева",
+  "tags": [
+   "sig_kiev_walls_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "пробить стены пороками",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "хан",
+   "воевода"
+  ]
+ },
+ {
+  "id": "captive_counsel_ru",
+  "name": "Совет пленного воеводы",
+  "tags": [
+   "sig_captive_counsel_ru"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "пощадить храбреца",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "хан",
+   "пленник"
+  ]
+ },
+ {
+  "id": "prince_stays_ru",
+  "name": "Князь сам садится в осаду",
+  "tags": [
+   "sig_prince_stays_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "оборонять Киев лично",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "хан"
+  ]
+ },
+ {
+  "id": "execute_voivode_ru",
+  "name": "Казнить пленного",
+  "tags": [
+   "v_kill"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "убийство",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "палач",
+   "пленник"
+  ]
+ },
+ {
+  "id": "flee_west_ru",
+  "name": "Бежать в Венгрию",
+  "tags": [
+   "v_flee"
+  ],
+  "slots": 1,
+  "emoji": "🚪",
+  "action": "уход",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кто бежит"
+  ]
+ },
+ {
+  "id": "suzdal_aid_ru",
+  "name": "Суздальские полки",
+  "tags": [
+   "sig_suzdal_aid_ru"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "привести низовские полки",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "брат"
+  ]
+ },
+ {
+  "id": "peipus_ice_ru",
+  "name": "Лёд у Вороньего камня",
+  "tags": [
+   "sig_peipus_ice_ru"
+  ],
+  "slots": 2,
+  "emoji": "🧊",
+  "action": "встретить «свинью» на льду",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "рыцари"
+  ]
+ },
+ {
+  "id": "polynya_ru",
+  "name": "Полынья",
+  "tags": [
+   "sig_polynya_ru"
+  ],
+  "slots": 1,
+  "emoji": "🕳️",
+  "action": "утопить рыцарей",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "рыцари"
+  ]
+ },
+ {
+  "id": "peace_order_ru",
+  "name": "Мир с Орденом",
+  "tags": [
+   "sig_peace_order_ru"
+  ],
+  "slots": 3,
+  "emoji": "✍️",
+  "action": "обменять пленных",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "епископ",
+   "рыцари"
+  ]
+ },
+ {
+  "id": "pskov_field_ru",
+  "name": "Бой под Псковом",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "sartak_camp_ru",
+  "name": "Ставка Сартака",
+  "tags": [
+   "sig_sartak_camp_ru"
+  ],
+  "slots": 3,
+  "emoji": "⛺",
+  "action": "ехать в Орду",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь",
+   "царевич",
+   "темник"
+  ]
+ },
+ {
+  "id": "pereslavl_ru",
+  "name": "Неврюева рать",
+  "tags": [
+   "sig_pereslavl_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "разбить у Переяславля",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "темник",
+   "князь"
+  ]
+ },
+ {
+  "id": "yarlyk_ru",
+  "name": "Ярлык на великое княжение",
+  "tags": [
+   "sig_yarlyk_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "выдать ярлык",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "царевич",
+   "князь"
+  ]
+ },
+ {
+  "id": "brothers_resist_ru",
+  "name": "Братья против Орды",
+  "tags": [
+   "sig_brothers_resist_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "восстать вместе",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь",
+   "брат"
+  ]
+ },
+ {
+  "id": "meet_nevryuy_ru",
+  "name": "Встретить Неврюя в поле",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "cholkhan_arrives_ru",
+  "name": "Щелкан в Твери",
+  "tags": [
+   "sig_cholkhan_arrives_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "сесть на княжий двор",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "посол",
+   "князь"
+  ]
+ },
+ {
+  "id": "tver_nabat_ru",
+  "name": "Набат",
+  "tags": [
+   "sig_tver_nabat_ru"
+  ],
+  "slots": 3,
+  "emoji": "🔔",
+  "action": "бить в колокол",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "горожане",
+   "князь",
+   "посол"
+  ]
+ },
+ {
+  "id": "uzbek_horde_ru",
+  "name": "В ставке Узбека",
+  "tags": [
+   "sig_uzbek_horde_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛺",
+  "action": "получить войско",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "хан",
+   "князь"
+  ]
+ },
+ {
+  "id": "tver_ravaged_ru",
+  "name": "Федорчукова рать",
+  "tags": [
+   "sig_tver_ravaged_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "разорить Тверь",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "соперник"
+  ]
+ },
+ {
+  "id": "repent_khan_ru",
+  "name": "Покаяться перед ханом",
+  "tags": [
+   "sig_repent_khan_ru"
+  ],
+  "slots": 2,
+  "emoji": "🙇",
+  "action": "ехать в Орду с повинной",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь",
+   "хан"
+  ]
+ },
+ {
+  "id": "kill_envoy_ru",
+  "name": "Казнить посла",
+  "tags": [
+   "v_kill"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "убийство",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "посол"
+  ]
+ },
+ {
+  "id": "don_crossing_ru",
+  "name": "Переправа через Дон",
+  "tags": [
+   "sig_don_crossing_ru"
+  ],
+  "slots": 1,
+  "emoji": "🌉",
+  "action": "сжечь мосты за собой",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "oka_wait_ru",
+  "name": "Ждать за Окой",
+  "tags": [
+   "sig_oka_wait_ru"
+  ],
+  "slots": 1,
+  "emoji": "⏳",
+  "action": "переждать ордынскую смуту",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "oak_grove_ru",
+  "name": "Засадный полк в дубраве",
+  "tags": [
+   "sig_oak_grove_ru"
+  ],
+  "slots": 2,
+  "emoji": "🌳",
+  "action": "спрятать полк в засаде",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "воевода",
+   "князь"
+  ]
+ },
+ {
+  "id": "kulikovo_field_ru",
+  "name": "Куликово поле",
+  "tags": [
+   "sig_kulikovo_field_ru"
+  ],
+  "slots": 3,
+  "emoji": "⚔️",
+  "action": "ударить из засады",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "противник",
+   "засада"
+  ]
+ },
+ {
+  "id": "trinity_blessing_ru",
+  "name": "Благословение в Троице",
+  "tags": [
+   "sig_trinity_blessing_ru"
+  ],
+  "slots": 2,
+  "emoji": "🙏",
+  "action": "благословить на битву",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "игумен",
+   "князь"
+  ]
+ },
+ {
+  "id": "reserve_charge_ru",
+  "name": "Бросить резерв сразу",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "oka_fords_ru",
+  "name": "Броды на Оке",
+  "tags": [
+   "sig_oka_fords_ru"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "показать броды",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "князь",
+   "хан"
+  ]
+ },
+ {
+  "id": "to_kostroma_ru",
+  "name": "За войском в Кострому",
+  "tags": [
+   "sig_to_kostroma_ru"
+  ],
+  "slots": 1,
+  "emoji": "🐎",
+  "action": "уехать собирать полки",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "князь"
+  ]
+ },
+ {
+  "id": "defend_kremlin_ru",
+  "name": "Князь в осаде",
+  "tags": [
+   "sig_defend_kremlin_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "оборонять Кремль самому",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "князь",
+   "хан"
+  ]
+ },
+ {
+  "id": "kremlin_gates_ru",
+  "name": "Обещание у ворот",
+  "tags": [
+   "sig_kremlin_gates_ru"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "открыть ворота с дарами",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "хан",
+   "воевода"
+  ]
+ },
+ {
+  "id": "tribute_again_ru",
+  "name": "Дань снова",
+  "tags": [
+   "sig_tribute_again_ru"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "платить «выход»",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "хан"
+  ]
+ },
+ {
+  "id": "oka_battle_ru",
+  "name": "Встретить хана на Оке",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "golden_belt_ru",
+  "name": "Пояс на свадьбе",
+  "tags": [
+   "sig_golden_belt_ru"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "сорвать золотой пояс",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "великая княгиня",
+   "гость"
+  ]
+ },
+ {
+  "id": "blinding_kosoy_ru",
+  "name": "Ослепление Косого",
+  "tags": [
+   "sig_blinding_kosoy_ru"
+  ],
+  "slots": 3,
+  "emoji": "🩸",
+  "action": "ослепить пленного",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "великий князь",
+   "пленник",
+   "брат"
+  ]
+ },
+ {
+  "id": "trinity_seized_ru",
+  "name": "Захват в Троице",
+  "tags": [
+   "sig_trinity_seized_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "схватить у гроба Сергия",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "мятежник",
+   "великий князь"
+  ]
+ },
+ {
+  "id": "return_dark_ru",
+  "name": "Возвращение Тёмного",
+  "tags": [
+   "sig_return_dark_ru"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "вернуть стол слепому князю",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "епископ",
+   "великий князь"
+  ]
+ },
+ {
+  "id": "yield_uncle_ru",
+  "name": "Уступить дяде по старшинству",
+  "tags": [
+   "sig_yield_uncle_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "отдать стол по лествице",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "великий князь",
+   "родич"
+  ]
+ },
+ {
+  "id": "kill_shemyaka_ru",
+  "name": "Казнить Шемяку",
+  "tags": [
+   "v_kill"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "убийство",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "палач",
+   "пленник"
+  ]
+ },
+ {
+  "id": "union_liturgy_ru",
+  "name": "Литургия с именем папы",
+  "tags": [
+   "sig_union_liturgy_ru"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "отвергнуть унию",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "митрополит",
+   "великий князь"
+  ]
+ },
+ {
+  "id": "accept_union_ru",
+  "name": "Принять Флорентийскую унию",
+  "tags": [
+   "sig_accept_union_ru"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "признать власть папы",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "митрополит",
+   "великий князь"
+  ]
+ },
+ {
+  "id": "chudov_escape_ru",
+  "name": "Бегство из Чудова монастыря",
+  "tags": [
+   "sig_chudov_escape_ru"
+  ],
+  "slots": 1,
+  "emoji": "🌙",
+  "action": "бежать в Рим",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "узник"
+  ]
+ },
+ {
+  "id": "ask_emperor_ru",
+  "name": "Просить митрополита у императора",
+  "tags": [
+   "sig_ask_emperor_ru"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "ждать нового грека",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "великий князь",
+   "император"
+  ]
+ },
+ {
+  "id": "bishops_council_ru",
+  "name": "Собор русских епископов",
+  "tags": [
+   "sig_bishops_council_ru"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "избрать своего митрополита",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "епископ",
+   "великий князь"
+  ]
+ },
+ {
+  "id": "lithuanian_prince_ru",
+  "name": "Князь из Литвы",
+  "tags": [
+   "sig_lithuanian_prince_ru"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "позвать литовского князя",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "вдова посадника",
+   "князь"
+  ]
+ },
+ {
+  "id": "shelon_ru",
+  "name": "Шелонь",
+  "tags": [
+   "sig_shelon_ru"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "разбить новгородское ополчение",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "великий князь",
+   "противник"
+  ]
+ },
+ {
+  "id": "sovereign_ru",
+  "name": "Государь, а не господин",
+  "tags": [
+   "sig_sovereign_ru"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "потребовать полной власти",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "великий князь",
+   "архиепископ"
+  ]
+ },
+ {
+  "id": "veche_bell_ru",
+  "name": "Вечевой колокол",
+  "tags": [
+   "sig_veche_bell_ru"
+  ],
+  "slots": 2,
+  "emoji": "🔔",
+  "action": "увезти колокол в Москву",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "великий князь",
+   "вдова посадника"
+  ]
+ },
+ {
+  "id": "old_ways_ru",
+  "name": "Крестоцелование «по старине»",
+  "tags": [
+   "sig_old_ways_ru"
+  ],
+  "slots": 2,
+  "emoji": "✝️",
+  "action": "поклясться хранить вольности",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "великий князь",
+   "архиепископ"
+  ]
+ },
+ {
+  "id": "novgorod_walls_ru",
+  "name": "Бой у стен Новгорода",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "crimean_raid_ru",
+  "name": "Крымский удар по Подолии",
+  "tags": [
+   "sig_crimean_raid_ru"
+  ],
+  "slots": 2,
+  "emoji": "🏹",
+  "action": "связать короля Казимира",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "крымский хан",
+   "хан Орды"
+  ]
+ },
+ {
+  "id": "son_holds_ru",
+  "name": "Сын не уходит с Угры",
+  "tags": [
+   "sig_son_holds_ru"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "остаться с войском",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "наследник",
+   "отец"
+  ]
+ },
+ {
+  "id": "recall_son_ru",
+  "name": "Приказ вернуться в Москву",
+  "tags": [
+   "sig_recall_son_ru"
+  ],
+  "slots": 2,
+  "emoji": "📨",
+  "action": "отозвать сына",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "наследник",
+   "отец"
+  ]
+ },
+ {
+  "id": "ugra_standoff_ru",
+  "name": "Стояние на Угре",
+  "tags": [
+   "sig_ugra_standoff_ru"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "стоять и стрелять через реку",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "хан",
+   "наследник"
+  ]
+ },
+ {
+  "id": "treasury_north_ru",
+  "name": "Казна на Белоозеро",
+  "tags": [
+   "sig_treasury_north_ru"
+  ],
+  "slots": 1,
+  "emoji": "📦",
+  "action": "увезти семью и казну",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "великая княгиня"
+  ]
+ },
+ {
+  "id": "cross_ugra_ru",
+  "name": "Переправиться и дать бой",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
  }
 ]

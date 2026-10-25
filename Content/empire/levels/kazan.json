@@ -1,8 +1,8 @@
 {
  "id": "kazan",
- "order": 20,
+ "order": 270,
  "epoch": "empire",
- "act": "Акт I · Иван Грозный",
+ "act": "Акт V · Иван Грозный",
  "panels": 2,
  "scenes": [
   "sobor",

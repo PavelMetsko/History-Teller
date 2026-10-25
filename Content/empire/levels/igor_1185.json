@@ -1,0 +1,62 @@
+{
+ "id": "igor_1185",
+ "order": 120,
+ "epoch": "empire",
+ "act": "Акт III · Удельная Русь и степь",
+ "music": "tension",
+ "cover": "kayala_ru",
+ "panels": 3,
+ "scenes": [
+  "eclipse_ru",
+  "wait_princes_ru",
+  "kayala_ru",
+  "lament_ru",
+  "donets_escape_ru"
+ ],
+ "characters": [
+  "igor_sev_ru",
+  "vsevolod_ru",
+  "konchak_ru",
+  "yaroslavna_ru",
+  "ovlur_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "igor_sev_ru",
+     "is": "escaped_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "eclipse_ru",
+   "characters": [
+    "igor_sev_ru"
+   ]
+  },
+  {
+   "scene": "kayala_ru",
+   "characters": [
+    "konchak_ru",
+    "igor_sev_ru"
+   ]
+  },
+  {
+   "scene": "donets_escape_ru",
+   "characters": [
+    "ovlur_ru",
+    "igor_sev_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,61 @@
+{
+ "id": "oleg_horse",
+ "order": 20,
+ "epoch": "empire",
+ "act": "Акт I · Легенды и былины",
+ "music": "tension",
+ "cover": "bones_ru",
+ "panels": 3,
+ "scenes": [
+  "prophecy_ru",
+  "send_steed_ru",
+  "ride_again_ru",
+  "bones_ru",
+  "seize_volkhv_ru"
+ ],
+ "characters": [
+  "oleg_ru",
+  "volkhv_ru",
+  "groom_ru",
+  "igor_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "oleg_ru",
+     "is": "fulfilled_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prophecy_ru",
+   "characters": [
+    "volkhv_ru",
+    "oleg_ru"
+   ]
+  },
+  {
+   "scene": "send_steed_ru",
+   "characters": [
+    "oleg_ru",
+    "groom_ru"
+   ]
+  },
+  {
+   "scene": "bones_ru",
+   "characters": [
+    "oleg_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

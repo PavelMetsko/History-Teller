@@ -1,0 +1,61 @@
+{
+  "id": "nikon_ru",
+  "name": "Патриарх Никон",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "hood",
+      "col": "#f4f1ea"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#5a2a6b"
+    },
+    "held": {
+      "type": "cross",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#1e1e22",
+      "rope": "#d8c7a0"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e1e22",
+      "cuff": "#1e1e22"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

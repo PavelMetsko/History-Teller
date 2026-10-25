@@ -1,0 +1,59 @@
+{
+  "id": "sea_princess_ru",
+  "name": "Морская царевна",
+  "skin": "#d8eae6",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#6fb5a8",
+      "iris": "#2f6a6a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#6fb5a8"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "mermaid",
+      "col": "#3f8a8a",
+      "fin": "#6fb5a8",
+      "top": "#e9e0cc"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a4434",
+      "cuff": "#5a4434"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

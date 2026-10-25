@@ -1,0 +1,61 @@
+{
+  "id": "sea_tsar_ru",
+  "name": "Царь Морской",
+  "skin": "#9fc4c0",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3f8a8a",
+      "iris": "#2f6a6a",
+      "bushy": true
+    },
+    "hair": {
+      "type": "long",
+      "col": "#3f8a8a"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#6fb5a8"
+    },
+    "hat": {
+      "type": "crown",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#2f6a6a",
+      "gold": "#d8ad3c",
+      "mantle": "#1f4a5a"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a6a",
+      "cuff": "#2f6a6a"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

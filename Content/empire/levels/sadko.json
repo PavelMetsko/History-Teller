@@ -1,0 +1,70 @@
+{
+ "id": "sadko",
+ "order": 40,
+ "epoch": "empire",
+ "act": "Акт I · Легенды и былины",
+ "music": "theme",
+ "cover": "sea_throne_ru",
+ "panels": 3,
+ "scenes": [
+  "sea_throne_ru",
+  "nikola_advice_ru",
+  "pick_bride_ru",
+  "gold_tribute_ru"
+ ],
+ "characters": [
+  "sadko_ru",
+  "sea_tsar_ru",
+  "nikola_ru",
+  "chernava_ru",
+  "sea_princess_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sadko_ru",
+     "is": "home_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "sadko_ru",
+      "is": "stays_below_ru"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "sea_throne_ru",
+   "characters": [
+    "sadko_ru",
+    "sea_tsar_ru"
+   ]
+  },
+  {
+   "scene": "nikola_advice_ru",
+   "characters": [
+    "nikola_ru",
+    "sadko_ru"
+   ]
+  },
+  {
+   "scene": "pick_bride_ru",
+   "characters": [
+    "sadko_ru",
+    "chernava_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

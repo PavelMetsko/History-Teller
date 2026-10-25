@@ -1,0 +1,68 @@
+{
+ "id": "october_1917",
+ "order": 940,
+ "epoch": "empire",
+ "act": "Акт XII · Закат империи и революции",
+ "music": "tension",
+ "cover": "winter_ru",
+ "panels": 3,
+ "scenes": [
+  "wait_ca_ru",
+  "cc_ru",
+  "front_troops_ru",
+  "mrc_ru",
+  "winter_ru"
+ ],
+ "characters": [
+  "lenin_ru",
+  "trotsky_ru",
+  "kerensky_ru",
+  "kamenev_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "trotsky_ru",
+     "is": "power_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "kerensky_ru",
+     "is": "fled_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cc_ru",
+   "characters": [
+    "lenin_ru",
+    "kamenev_ru"
+   ]
+  },
+  {
+   "scene": "mrc_ru",
+   "characters": [
+    "trotsky_ru",
+    "lenin_ru"
+   ]
+  },
+  {
+   "scene": "winter_ru",
+   "characters": [
+    "trotsky_ru",
+    "kerensky_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

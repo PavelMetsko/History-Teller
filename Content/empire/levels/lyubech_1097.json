@@ -1,0 +1,85 @@
+{
+ "id": "lyubech_1097",
+ "order": 100,
+ "epoch": "empire",
+ "act": "Акт III · Удельная Русь и степь",
+ "music": "tension",
+ "cover": "lyubech_council_ru",
+ "panels": 3,
+ "scenes": [
+  "monomakh_letter_ru",
+  "lyubech_council_ru",
+  "slander_blind_ru",
+  "finish_oleg_ru"
+ ],
+ "characters": [
+  "monomakh_ru",
+  "svyatopolk2_ru",
+  "oleg_svyat_ru",
+  "davyd_ru",
+  "vasilko_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "monomakh_ru": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "monomakh_ru",
+    "oleg_svyat_ru"
+   ],
+   [
+    "enemy_of",
+    "oleg_svyat_ru",
+    "monomakh_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "monomakh_ru",
+     "is": "lyubech_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "vasilko_ru",
+     "is": "blinded_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "monomakh_letter_ru",
+   "characters": [
+    "monomakh_ru",
+    "oleg_svyat_ru"
+   ]
+  },
+  {
+   "scene": "lyubech_council_ru",
+   "characters": [
+    "monomakh_ru",
+    "svyatopolk2_ru",
+    "oleg_svyat_ru"
+   ]
+  },
+  {
+   "scene": "slander_blind_ru",
+   "characters": [
+    "davyd_ru",
+    "svyatopolk2_ru",
+    "vasilko_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

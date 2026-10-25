@@ -1,0 +1,89 @@
+{
+ "id": "tver_1327",
+ "order": 170,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "tver_nabat_ru",
+ "panels": 4,
+ "scenes": [
+  "cholkhan_arrives_ru",
+  "tver_nabat_ru",
+  "uzbek_horde_ru",
+  "tver_ravaged_ru",
+  "repent_khan_ru",
+  "kill_envoy_ru"
+ ],
+ "characters": [
+  "alexander_tver_ru",
+  "ivan_kalita_ru",
+  "cholkhan_ru",
+  "uzbek_ru",
+  "tverites_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": [
+   [
+    "enemy_of",
+    "alexander_tver_ru",
+    "cholkhan_ru"
+   ],
+   [
+    "enemy_of",
+    "cholkhan_ru",
+    "alexander_tver_ru"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alexander_tver_ru",
+     "is": "fled_pskov_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "ivan_kalita_ru",
+     "is": "favored_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cholkhan_arrives_ru",
+   "characters": [
+    "cholkhan_ru",
+    "alexander_tver_ru"
+   ]
+  },
+  {
+   "scene": "tver_nabat_ru",
+   "characters": [
+    "tverites_ru",
+    "alexander_tver_ru",
+    "cholkhan_ru"
+   ]
+  },
+  {
+   "scene": "uzbek_horde_ru",
+   "characters": [
+    "uzbek_ru",
+    "ivan_kalita_ru"
+   ]
+  },
+  {
+   "scene": "tver_ravaged_ru",
+   "characters": [
+    "ivan_kalita_ru",
+    "alexander_tver_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

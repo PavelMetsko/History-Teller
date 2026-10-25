@@ -1,0 +1,59 @@
+{
+  "id": "ivan5_ru",
+  "name": "Царь Иван V",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b97a45",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#b97a45"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#f4f1ea",
+      "gold": "#d8ad3c",
+      "mantle": "#d8ad3c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#d8ad3c"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

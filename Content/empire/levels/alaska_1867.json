@@ -1,0 +1,68 @@
+{
+ "id": "alaska_1867",
+ "order": 820,
+ "epoch": "empire",
+ "act": "Акт XI · Реформы, общество и окраины",
+ "music": "theme",
+ "cover": "sign_alaska_ru",
+ "panels": 3,
+ "scenes": [
+  "council_alaska_ru",
+  "london_offer_ru",
+  "instructions_ru",
+  "lease_ru",
+  "sign_alaska_ru"
+ ],
+ "characters": [
+  "alexander2",
+  "konstantin_nik_ru",
+  "stoeckl_ru",
+  "seward_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "stoeckl_ru",
+     "is": "sold_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "seward_ru",
+     "is": "bought_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "council_alaska_ru",
+   "characters": [
+    "konstantin_nik_ru",
+    "alexander2"
+   ]
+  },
+  {
+   "scene": "instructions_ru",
+   "characters": [
+    "alexander2",
+    "stoeckl_ru"
+   ]
+  },
+  {
+   "scene": "sign_alaska_ru",
+   "characters": [
+    "stoeckl_ru",
+    "seward_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

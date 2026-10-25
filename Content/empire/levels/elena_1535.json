@@ -1,0 +1,67 @@
+{
+ "id": "elena_1535",
+ "order": 240,
+ "epoch": "empire",
+ "act": "Акт IV · Орда, Новгород и Москва",
+ "music": "tension",
+ "cover": "single_coin_ru",
+ "panels": 3,
+ "scenes": [
+  "single_coin_ru",
+  "uncle_jail_ru",
+  "boyar_care_ru",
+  "sudden_death_ru"
+ ],
+ "characters": [
+  "elena_glinskaya_ru",
+  "ivan_boy_ru",
+  "mikhail_glinsky_ru",
+  "ivan_shuisky_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "elena_glinskaya_ru",
+     "is": "coin_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "ivan_shuisky_ru",
+     "is": "boyar_rule_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "single_coin_ru",
+   "characters": [
+    "elena_glinskaya_ru",
+    "ivan_boy_ru"
+   ]
+  },
+  {
+   "scene": "uncle_jail_ru",
+   "characters": [
+    "elena_glinskaya_ru",
+    "mikhail_glinsky_ru"
+   ]
+  },
+  {
+   "scene": "sudden_death_ru",
+   "characters": [
+    "ivan_shuisky_ru",
+    "elena_glinskaya_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

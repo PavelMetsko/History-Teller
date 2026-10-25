@@ -1,8 +1,8 @@
 {
  "id": "coronation",
- "order": 10,
+ "order": 250,
  "epoch": "empire",
- "act": "Акт I · Иван Грозный",
+ "act": "Акт V · Иван Грозный",
  "panels": 2,
  "scenes": [
   "duma_b",

@@ -1,0 +1,65 @@
+{
+  "id": "ivan3_ru",
+  "name": "Великий князь Иван III",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#6b4a2a",
+      "top": "#d8ad3c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#d8ad3c"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#a8312f",
+      "trim": "#d4a63c",
+      "belt": "#6b4426"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a3a22",
+      "top": "#7a3a22"
+    }
+  }
+}

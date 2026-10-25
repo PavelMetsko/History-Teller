@@ -1,8 +1,8 @@
 {
  "id": "coup",
- "order": 90,
+ "order": 600,
  "epoch": "empire",
- "act": "Акт V · Екатерина Великая",
+ "act": "Акт IX · Перевороты и Екатерина",
  "panels": 2,
  "scenes": [
   "guard_c",

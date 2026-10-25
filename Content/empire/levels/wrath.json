@@ -1,8 +1,8 @@
 {
  "id": "wrath",
- "order": 40,
+ "order": 310,
  "epoch": "empire",
- "act": "Акт I · Иван Грозный",
+ "act": "Акт V · Иван Грозный",
  "panels": 2,
  "scenes": [
   "palaty",

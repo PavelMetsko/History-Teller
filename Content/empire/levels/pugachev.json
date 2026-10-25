@@ -1,8 +1,8 @@
 {
  "id": "pugachev",
- "order": 120,
+ "order": 620,
  "epoch": "empire",
- "act": "Акт V · Екатерина Великая",
+ "act": "Акт IX · Перевороты и Екатерина",
  "panels": 2,
  "scenes": [
   "uprising_c",

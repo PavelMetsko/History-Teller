@@ -1,8 +1,8 @@
 {
  "id": "oprichnina",
- "order": 30,
+ "order": 290,
  "epoch": "empire",
- "act": "Акт I · Иван Грозный",
+ "act": "Акт V · Иван Грозный",
  "panels": 2,
  "scenes": [
   "duma_b",

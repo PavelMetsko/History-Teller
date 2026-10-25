@@ -1,0 +1,68 @@
+{
+ "id": "revolution_1905",
+ "order": 890,
+ "epoch": "empire",
+ "act": "Акт XII · Закат империи и революции",
+ "music": "tension",
+ "cover": "petition_ru",
+ "panels": 3,
+ "scenes": [
+  "receive_ru",
+  "petition_ru",
+  "dictatorship_ru",
+  "memo_ru",
+  "manifesto_ru"
+ ],
+ "characters": [
+  "nicholas2",
+  "gapon_ru",
+  "witte",
+  "trepov_ru"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nicholas2",
+     "is": "manifesto_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "witte",
+     "is": "premier_ru"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "petition_ru",
+   "characters": [
+    "gapon_ru",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "memo_ru",
+   "characters": [
+    "witte",
+    "nicholas2"
+   ]
+  },
+  {
+   "scene": "manifesto_ru",
+   "characters": [
+    "nicholas2",
+    "witte"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

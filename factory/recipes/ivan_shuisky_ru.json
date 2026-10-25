@@ -1,0 +1,64 @@
+{
+  "id": "ivan_shuisky_ru",
+  "name": "Князь Иван Шуйский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#5a3a22",
+      "top": "#2f6a4a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#5a6b4a",
+      "trim": "#d4a63c",
+      "belt": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a6b4a",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#5a6b4a"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#a8312f"
+    }
+  }
+}

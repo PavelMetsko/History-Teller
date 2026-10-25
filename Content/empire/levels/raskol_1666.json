@@ -1,0 +1,88 @@
+{
+ "id": "raskol_1666",
+ "order": 430,
+ "epoch": "empire",
+ "act": "Акт VII · XVII век: закон, раскол, казаки",
+ "music": "tension",
+ "cover": "great_council_ru",
+ "panels": 3,
+ "scenes": [
+  "three_fingers_ru",
+  "tsar_quarrel_ru",
+  "great_council_ru",
+  "tsar_offer_ru"
+ ],
+ "characters": [
+  "nikon_ru",
+  "avvakum_ru",
+  "alexei_mikh_ru",
+  "paisius_ru",
+  "morozova_ru"
+ ],
+ "initialState": {
+  "flags": {
+   "alexei_mikh_ru": [
+    "standing",
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "nikon_ru",
+     "is": "deposed_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "alexei_mikh_ru",
+     "is": "reform_kept_ru"
+    }
+   },
+   {
+    "flag": {
+     "char": "avvakum_ru",
+     "is": "protest_ru"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "avvakum_ru",
+      "is": "recanted_ru"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "three_fingers_ru",
+   "characters": [
+    "nikon_ru",
+    "avvakum_ru"
+   ]
+  },
+  {
+   "scene": "tsar_quarrel_ru",
+   "characters": [
+    "alexei_mikh_ru",
+    "nikon_ru"
+   ]
+  },
+  {
+   "scene": "great_council_ru",
+   "characters": [
+    "alexei_mikh_ru",
+    "paisius_ru",
+    "nikon_ru"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "khovansky_ru",
+  "name": "Князь Иван Хованский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": true
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a7a6a"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "hat": {
+      "type": "kolpak",
+      "fur": "#5a3a22",
+      "top": "#a8312f"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#a8312f",
+      "trim": "#d4a63c",
+      "belt": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#d4a63c"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#a8312f"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#a8312f"
+    }
+  }
+}
