@@ -1,10 +1,10 @@
 [
   {"id": "rome", "number": 1, "cover": "forum", "icon": "building.columns.fill", "free": true, "minAppVersion": "1.0"},
-  {"id": "poland", "number": 2, "cover": "eagle_nest_pl", "icon": "shield.fill", "free": false, "minAppVersion": "1.0"},
+  {"id": "usa", "number": 2, "cover": "boston_tea_us", "icon": "star.fill", "free": false, "minAppVersion": "1.0"},
   {"id": "tudor", "number": 3, "cover": "tower", "icon": "crown.fill", "free": false, "minAppVersion": "1.0"},
-  {"id": "revolution", "number": 4, "cover": "guillotine", "icon": "flame.fill", "free": false, "minAppVersion": "1.0"},
-  {"id": "empire", "number": 5, "cover": "sobor", "icon": "seal.fill", "free": false, "minAppVersion": "1.0"},
-  {"id": "borgia", "number": 6, "cover": "curia", "icon": "flame.fill", "free": false, "minAppVersion": "1.0"},
-  {"id": "byzantium", "number": 7, "cover": "hagia", "icon": "cross.fill", "free": false, "minAppVersion": "1.0"},
-  {"id": "usa", "number": 8, "cover": "boston_tea_us", "icon": "star.fill", "free": false, "minAppVersion": "1.0"}
+  {"id": "poland", "number": 4, "cover": "eagle_nest_pl", "icon": "shield.fill", "free": false, "minAppVersion": "1.0"},
+  {"id": "revolution", "number": 5, "cover": "guillotine", "icon": "flame.fill", "free": false, "minAppVersion": "1.0"},
+  {"id": "empire", "number": 6, "cover": "sobor", "icon": "seal.fill", "free": false, "minAppVersion": "1.0"},
+  {"id": "borgia", "number": 7, "cover": "curia", "icon": "flame.fill", "free": false, "minAppVersion": "1.0"},
+  {"id": "byzantium", "number": 8, "cover": "hagia", "icon": "cross.fill", "free": false, "minAppVersion": "1.0"}
 ]
