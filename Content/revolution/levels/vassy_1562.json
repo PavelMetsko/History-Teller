@@ -1,0 +1,70 @@
+{
+ "id": "vassy_1562",
+ "order": 330,
+ "epoch": "revolution",
+ "act": "Акт VI · Ренессанс и религиозный раскол",
+ "music": "tension",
+ "cover": "wassy_barn_fr",
+ "panels": 3,
+ "scenes": [
+  "january_edict_fr",
+  "wassy_barn_fr",
+  "orleans_muster_fr",
+  "talcy_parley_fr"
+ ],
+ "characters": [
+  "guise",
+  "catherine_medici",
+  "louis_conde_fr",
+  "wassy_flock_fr",
+  "coligny"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louis_conde_fr",
+     "is": "war_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "coligny",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "january_edict_fr",
+   "characters": [
+    "catherine_medici",
+    "wassy_flock_fr"
+   ]
+  },
+  {
+   "scene": "wassy_barn_fr",
+   "characters": [
+    "guise",
+    "wassy_flock_fr"
+   ]
+  },
+  {
+   "scene": "orleans_muster_fr",
+   "characters": [
+    "louis_conde_fr",
+    "guise"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

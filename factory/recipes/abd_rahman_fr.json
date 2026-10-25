@@ -1,0 +1,65 @@
+{
+  "id": "abd_rahman_fr",
+  "name": "Абд ар-Рахман аль-Гафики",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#1e1a18"
+    },
+    "hat": {
+      "type": "turban",
+      "col": "#f4f1ea",
+      "jewel": "#2f9a8a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#2f6a4a",
+      "trim": "#d4a63c",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#2f6a4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a6a52"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a5232",
+      "top": "#7a5232"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "clermont_1095",
+ "order": 150,
+ "epoch": "revolution",
+ "act": "Акт IV · Феодальная Франция и Капетинги",
+ "music": "theme",
+ "cover": "clermont_field_fr",
+ "panels": 3,
+ "scenes": [
+  "clermont_field_fr",
+  "toulouse_envoys_fr",
+  "le_puy_march_fr",
+  "peoples_march_fr"
+ ],
+ "characters": [
+  "urban2_fr",
+  "adhemar_fr",
+  "raymond_toulouse_fr",
+  "peter_hermit_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "adhemar_fr",
+     "is": "legate_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "raymond_toulouse_fr",
+     "is": "departed_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "raymond_toulouse_fr",
+      "is": "ambushed_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "clermont_field_fr",
+   "characters": [
+    "urban2_fr",
+    "adhemar_fr"
+   ]
+  },
+  {
+   "scene": "toulouse_envoys_fr",
+   "characters": [
+    "urban2_fr",
+    "raymond_toulouse_fr"
+   ]
+  },
+  {
+   "scene": "le_puy_march_fr",
+   "characters": [
+    "adhemar_fr",
+    "raymond_toulouse_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

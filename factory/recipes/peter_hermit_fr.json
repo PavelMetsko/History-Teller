@@ -1,0 +1,59 @@
+{
+  "id": "peter_hermit_fr",
+  "name": "Пётр Пустынник",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#8a7a6a"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "staff",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#7a6a52",
+      "rope": "#7a5232"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#7a6a52",
+      "cuff": "#7a6a52"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

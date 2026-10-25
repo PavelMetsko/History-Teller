@@ -1,0 +1,67 @@
+{
+ "id": "compiegne_1918",
+ "order": 960,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "theme",
+ "cover": "rethondes_fr",
+ "panels": 3,
+ "scenes": [
+  "je_fais_la_guerre_fr",
+  "armistice_terms_fr",
+  "rethondes_fr",
+  "fourteen_points_fr"
+ ],
+ "characters": [
+  "clemenceau_fr",
+  "ferdinand_foch",
+  "matthias_erzberger",
+  "wilson"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "clemenceau_fr",
+     "is": "hard_terms_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "matthias_erzberger",
+     "is": "signed_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "je_fais_la_guerre_fr",
+   "characters": [
+    "clemenceau_fr",
+    "ferdinand_foch"
+   ]
+  },
+  {
+   "scene": "armistice_terms_fr",
+   "characters": [
+    "clemenceau_fr",
+    "ferdinand_foch"
+   ]
+  },
+  {
+   "scene": "rethondes_fr",
+   "characters": [
+    "ferdinand_foch",
+    "matthias_erzberger"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "turanshah_fr",
+  "name": "Султан Туран-шах",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#1e1a18"
+    },
+    "hat": {
+      "type": "turban",
+      "col": "#f4f1ea",
+      "jewel": "#2f9a8a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#2f6a4a",
+      "trim": "#d4a63c",
+      "belt": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#2f6a4a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#a8312f",
+      "top": "#a8312f"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
  "id": "danton",
- "order": 250,
+ "order": 590,
  "epoch": "revolution",
- "act": "Акт III · Революция",
+ "act": "Акт VIII · Революция",
  "panels": 3,
  "scenes": [
   "guillotine",

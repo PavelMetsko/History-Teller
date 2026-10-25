@@ -1,0 +1,67 @@
+{
+ "id": "nantes_1598",
+ "order": 370,
+ "epoch": "revolution",
+ "act": "Акт VI · Ренессанс и религиозный раскол",
+ "music": "theme",
+ "cover": "nantes_signing_fr",
+ "panels": 3,
+ "scenes": [
+  "mercoeur_submit_fr",
+  "nantes_signing_fr",
+  "full_equality_fr",
+  "parlement_fr"
+ ],
+ "characters": [
+  "henry_navarre",
+  "mercoeur_fr",
+  "duplessis_mornay_fr",
+  "harlay_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "duplessis_mornay_fr",
+     "is": "edict_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "harlay_fr",
+     "is": "registered_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mercoeur_submit_fr",
+   "characters": [
+    "henry_navarre",
+    "mercoeur_fr"
+   ]
+  },
+  {
+   "scene": "nantes_signing_fr",
+   "characters": [
+    "henry_navarre",
+    "duplessis_mornay_fr"
+   ]
+  },
+  {
+   "scene": "parlement_fr",
+   "characters": [
+    "henry_navarre",
+    "harlay_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

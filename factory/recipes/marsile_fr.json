@@ -1,0 +1,65 @@
+{
+  "id": "marsile_fr",
+  "name": "Царь Марсилий",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#8a8a8a"
+    },
+    "hat": {
+      "type": "turban",
+      "col": "#f4f1ea",
+      "jewel": "#2f9a8a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "coat",
+      "col": "#5a2a6b",
+      "trim": "#d4a63c",
+      "belt": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a2a6b",
+      "cuff": "#5a2a6b"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a6a52"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#7a5232",
+      "top": "#7a5232"
+    }
+  }
+}

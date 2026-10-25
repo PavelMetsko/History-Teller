@@ -1,0 +1,71 @@
+{
+ "id": "haiti_1804",
+ "order": 660,
+ "epoch": "revolution",
+ "act": "Акт IX · Консульство и Империя",
+ "music": "tension",
+ "cover": "vertieres_fr",
+ "panels": 3,
+ "scenes": [
+  "emancipation_fr",
+  "leclerc_arrest_fr",
+  "vertieres_fr",
+  "gonaives_fr",
+  "constitution_1801_fr",
+  "lay_down_arms_fr"
+ ],
+ "characters": [
+  "toussaint",
+  "dessalines",
+  "sonthonax",
+  "leclerc_fr",
+  "rochambeau_fils"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rochambeau_fils",
+     "is": "defeated_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "toussaint",
+     "is": "abolition_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "emancipation_fr",
+   "characters": [
+    "sonthonax",
+    "toussaint"
+   ]
+  },
+  {
+   "scene": "leclerc_arrest_fr",
+   "characters": [
+    "leclerc_fr",
+    "toussaint",
+    "dessalines"
+   ]
+  },
+  {
+   "scene": "vertieres_fr",
+   "characters": [
+    "dessalines",
+    "rochambeau_fils"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

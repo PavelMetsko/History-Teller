@@ -1,0 +1,68 @@
+{
+ "id": "coup_1851",
+ "order": 850,
+ "epoch": "revolution",
+ "act": "Акт X · Реставрации, революции и Вторая империя",
+ "music": "tension",
+ "cover": "saint_antoine_fr",
+ "panels": 3,
+ "scenes": [
+  "rubicon_decree_fr",
+  "junta_fr",
+  "leave_on_time_fr",
+  "saint_antoine_fr",
+  "plebiscite_1851_fr"
+ ],
+ "characters": [
+  "louis_napoleon",
+  "morny",
+  "baudin",
+  "victor_hugo"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louis_napoleon",
+     "is": "plebiscite_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "victor_hugo",
+     "is": "exile_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "rubicon_decree_fr",
+   "characters": [
+    "louis_napoleon",
+    "morny"
+   ]
+  },
+  {
+   "scene": "saint_antoine_fr",
+   "characters": [
+    "morny",
+    "baudin",
+    "victor_hugo"
+   ]
+  },
+  {
+   "scene": "plebiscite_1851_fr",
+   "characters": [
+    "louis_napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

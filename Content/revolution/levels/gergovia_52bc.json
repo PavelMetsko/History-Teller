@@ -1,0 +1,72 @@
+{
+ "id": "gergovia_52bc",
+ "order": 50,
+ "epoch": "revolution",
+ "act": "Акт II · Галлия и римское наследие",
+ "music": "tension",
+ "cover": "roman_assault_fr",
+ "panels": 3,
+ "scenes": [
+  "gergovia_heights_fr",
+  "litaviccus_lie_fr",
+  "caesar_aedui_fr",
+  "roman_assault_fr",
+  "plain_battle_fr"
+ ],
+ "characters": [
+  "vercingetorix",
+  "caesar",
+  "litaviccus_fr",
+  "convictolitavis_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "caesar": [
+    "strong",
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "vercingetorix",
+     "is": "gergovia_won_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "convictolitavis_fr",
+     "is": "defects_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "gergovia_heights_fr",
+   "characters": [
+    "vercingetorix"
+   ]
+  },
+  {
+   "scene": "litaviccus_lie_fr",
+   "characters": [
+    "litaviccus_fr",
+    "convictolitavis_fr"
+   ]
+  },
+  {
+   "scene": "roman_assault_fr",
+   "characters": [
+    "caesar",
+    "vercingetorix"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

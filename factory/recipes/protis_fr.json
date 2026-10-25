@@ -1,0 +1,60 @@
+{
+  "id": "protis_fr",
+  "name": "Протис",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "curly",
+      "col": "#2a1a12"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#2a1a12"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "toga",
+      "cloth": "#f7ede2",
+      "band": "#2f4a7a",
+      "gold": "#d8ad3c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f7ede2",
+      "cuff": "#f7ede2"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "sandals",
+      "strap": "#8a5a2a"
+    }
+  }
+}

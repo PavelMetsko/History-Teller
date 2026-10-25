@@ -1,0 +1,84 @@
+{
+ "id": "gaillard_1204",
+ "order": 170,
+ "epoch": "revolution",
+ "act": "Акт IV · Феодальная Франция и Капетинги",
+ "music": "tension",
+ "cover": "gaillard_siege_fr",
+ "panels": 3,
+ "scenes": [
+  "gaillard_siege_fr",
+  "rouen_envoys_fr",
+  "rouen_gate_fr",
+  "seine_relief_fr"
+ ],
+ "characters": [
+  "philip_augustus",
+  "john_lackland",
+  "roger_lacy_fr",
+  "pierre_preaux_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "philip_augustus": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "philip_augustus",
+    "john_lackland"
+   ],
+   [
+    "enemy_of",
+    "john_lackland",
+    "philip_augustus"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "philip_augustus",
+     "is": "normandy_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pierre_preaux_fr",
+      "is": "oathbreaker_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "gaillard_siege_fr",
+   "characters": [
+    "philip_augustus",
+    "roger_lacy_fr"
+   ]
+  },
+  {
+   "scene": "rouen_envoys_fr",
+   "characters": [
+    "pierre_preaux_fr",
+    "john_lackland"
+   ]
+  },
+  {
+   "scene": "rouen_gate_fr",
+   "characters": [
+    "philip_augustus",
+    "pierre_preaux_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "id": "castillon_1453",
+ "order": 280,
+ "epoch": "revolution",
+ "act": "Акт V · Валуа и Столетняя война",
+ "music": "tension",
+ "cover": "park_assault_fr",
+ "panels": 3,
+ "scenes": [
+  "artillery_park_fr",
+  "dust_news_fr",
+  "wait_infantry_fr",
+  "park_assault_fr",
+  "castillon_field_fr"
+ ],
+ "characters": [
+  "jean_bureau_fr",
+  "talbot_fr",
+  "castillon_scout_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "talbot_fr": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "talbot_fr",
+    "jean_bureau_fr"
+   ],
+   [
+    "enemy_of",
+    "jean_bureau_fr",
+    "talbot_fr"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jean_bureau_fr",
+     "is": "victor_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "talbot_fr",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "artillery_park_fr",
+   "characters": [
+    "jean_bureau_fr"
+   ]
+  },
+  {
+   "scene": "dust_news_fr",
+   "characters": [
+    "castillon_scout_fr",
+    "talbot_fr"
+   ]
+  },
+  {
+   "scene": "park_assault_fr",
+   "characters": [
+    "talbot_fr",
+    "jean_bureau_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "id": "eleanor_1152",
+ "order": 160,
+ "epoch": "revolution",
+ "act": "Акт IV · Феодальная Франция и Капетинги",
+ "music": "theme",
+ "cover": "poitiers_wedding_fr",
+ "panels": 3,
+ "scenes": [
+  "bernard_counsel_fr",
+  "beaugency_fr",
+  "blois_road_fr",
+  "poitiers_wedding_fr",
+  "pledge_wed_fr"
+ ],
+ "characters": [
+  "eleanor",
+  "louis7_fr",
+  "henry2",
+  "bernard_clairvaux_fr",
+  "theobald_blois_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "eleanor",
+     "is": "angevin_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "eleanor",
+      "is": "captured_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bernard_counsel_fr",
+   "characters": [
+    "bernard_clairvaux_fr",
+    "louis7_fr"
+   ]
+  },
+  {
+   "scene": "beaugency_fr",
+   "characters": [
+    "louis7_fr",
+    "eleanor"
+   ]
+  },
+  {
+   "scene": "poitiers_wedding_fr",
+   "characters": [
+    "eleanor",
+    "henry2"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

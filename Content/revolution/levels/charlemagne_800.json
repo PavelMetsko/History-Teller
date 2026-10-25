@@ -1,0 +1,70 @@
+{
+ "id": "charlemagne_800",
+ "order": 110,
+ "epoch": "revolution",
+ "act": "Акт III · Франки и Каролинги",
+ "music": "theme",
+ "cover": "christmas_crown_fr",
+ "panels": 3,
+ "scenes": [
+  "paderborn_fr",
+  "judge_pope_fr",
+  "purge_oath_fr",
+  "christmas_crown_fr",
+  "irene_wed_fr"
+ ],
+ "characters": [
+  "charlemagne_fr",
+  "leo3_fr",
+  "irene",
+  "einhard_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charlemagne_fr",
+     "is": "emperor_fr"
+    }
+   },
+   {
+    "not": {
+     "relation": {
+      "rel": "wed",
+      "from": "charlemagne_fr",
+      "to": "irene"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "paderborn_fr",
+   "characters": [
+    "leo3_fr",
+    "charlemagne_fr"
+   ]
+  },
+  {
+   "scene": "purge_oath_fr",
+   "characters": [
+    "leo3_fr"
+   ]
+  },
+  {
+   "scene": "christmas_crown_fr",
+   "characters": [
+    "leo3_fr",
+    "charlemagne_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

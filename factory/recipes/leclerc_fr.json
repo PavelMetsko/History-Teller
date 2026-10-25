@@ -1,0 +1,64 @@
+{
+  "id": "leclerc_fr",
+  "name": "Генерал Леклерк",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8b070",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#d8b070"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "bicorne",
+      "col": "#1e1e22",
+      "cockade": "#2f4a7a"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "uniform",
+      "col": "#2f4a7a",
+      "facing": "#a8312f",
+      "trim": "#d4a63c",
+      "sash": "",
+      "epaulettes": true
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#2f4a7a"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#f4f1ea"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#1e1e22"
+    }
+  }
+}

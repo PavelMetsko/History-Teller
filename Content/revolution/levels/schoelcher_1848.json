@@ -1,0 +1,69 @@
+{
+ "id": "schoelcher_1848",
+ "order": 840,
+ "epoch": "revolution",
+ "act": "Акт X · Реставрации, революции и Вторая империя",
+ "music": "theme",
+ "cover": "immediate_fr",
+ "panels": 3,
+ "scenes": [
+  "immediate_fr",
+  "gradual_fr",
+  "saint_pierre_fr",
+  "wait_decree_fr",
+  "guadeloupe_vote_fr",
+  "planters_pay_fr"
+ ],
+ "characters": [
+  "schoelcher",
+  "francois_arago",
+  "martinique_rebels",
+  "louisy_mathieu",
+  "cyrille_bissette"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louisy_mathieu",
+     "is": "deputy_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "martinique_rebels",
+     "is": "freed_themselves_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "immediate_fr",
+   "characters": [
+    "francois_arago",
+    "schoelcher"
+   ]
+  },
+  {
+   "scene": "saint_pierre_fr",
+   "characters": [
+    "martinique_rebels"
+   ]
+  },
+  {
+   "scene": "guadeloupe_vote_fr",
+   "characters": [
+    "louisy_mathieu",
+    "schoelcher"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "id": "mansurah_1250",
+ "order": 200,
+ "epoch": "revolution",
+ "act": "Акт IV · Феодальная Франция и Капетинги",
+ "music": "tension",
+ "cover": "ransom_fr",
+ "panels": 3,
+ "scenes": [
+  "artois_charge_fr",
+  "fariskur_fr",
+  "damietta_hold_fr",
+  "ransom_fr",
+  "flee_damietta_fr"
+ ],
+ "characters": [
+  "louis9_fr",
+  "marguerite_provence_fr",
+  "joinville_fr",
+  "turanshah_fr",
+  "robert_artois_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louis9_fr",
+     "is": "ransomed_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fariskur_fr",
+   "characters": [
+    "turanshah_fr",
+    "louis9_fr"
+   ]
+  },
+  {
+   "scene": "damietta_hold_fr",
+   "characters": [
+    "marguerite_provence_fr"
+   ]
+  },
+  {
+   "scene": "ransom_fr",
+   "characters": [
+    "turanshah_fr",
+    "louis9_fr",
+    "marguerite_provence_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

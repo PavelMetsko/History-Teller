@@ -1,0 +1,67 @@
+{
+ "id": "beziers_1209",
+ "order": 180,
+ "epoch": "revolution",
+ "act": "Акт IV · Феодальная Франция и Капетинги",
+ "music": "tension",
+ "cover": "beziers_walls_fr",
+ "panels": 3,
+ "scenes": [
+  "trencavel_plea_fr",
+  "leave_beziers_fr",
+  "beziers_walls_fr",
+  "carcassonne_tent_fr"
+ ],
+ "characters": [
+  "arnaud_amalric_fr",
+  "trencavel_fr",
+  "bishop_renaud_fr",
+  "simon4_montfort_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "trencavel_fr",
+     "is": "captured_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "simon4_montfort_fr",
+     "is": "viscount_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "leave_beziers_fr",
+   "characters": [
+    "trencavel_fr"
+   ]
+  },
+  {
+   "scene": "beziers_walls_fr",
+   "characters": [
+    "arnaud_amalric_fr",
+    "bishop_renaud_fr"
+   ]
+  },
+  {
+   "scene": "carcassonne_tent_fr",
+   "characters": [
+    "arnaud_amalric_fr",
+    "trencavel_fr",
+    "simon4_montfort_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

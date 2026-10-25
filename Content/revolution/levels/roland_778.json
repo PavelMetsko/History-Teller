@@ -1,0 +1,62 @@
+{
+ "id": "roland_778",
+ "order": 40,
+ "epoch": "revolution",
+ "act": "Акт I · Легенды",
+ "music": "tension",
+ "cover": "oliphant_fr",
+ "panels": 3,
+ "scenes": [
+  "saragossa_fr",
+  "oliphant_fr",
+  "roland_pride_fr",
+  "aachen_trial_fr"
+ ],
+ "characters": [
+  "roland_fr",
+  "charlemagne_fr",
+  "ganelon_fr",
+  "marsile_fr",
+  "oliver_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charlemagne_fr",
+     "is": "avenged_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "saragossa_fr",
+   "characters": [
+    "ganelon_fr",
+    "marsile_fr"
+   ]
+  },
+  {
+   "scene": "oliphant_fr",
+   "characters": [
+    "roland_fr",
+    "charlemagne_fr"
+   ]
+  },
+  {
+   "scene": "aachen_trial_fr",
+   "characters": [
+    "charlemagne_fr",
+    "ganelon_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

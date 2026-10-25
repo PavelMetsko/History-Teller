@@ -1,0 +1,62 @@
+{
+  "id": "urban2_fr",
+  "name": "Папа Урбан II",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "mitre",
+      "col": "#f4f1ea",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#d8ad3c"
+    },
+    "held": {
+      "type": "cross",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#f4f1ea",
+      "rope": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

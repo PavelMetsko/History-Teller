@@ -1,0 +1,67 @@
+{
+ "id": "verdun_1916",
+ "order": 940,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "tension",
+ "cover": "douaumont_fr",
+ "panels": 3,
+ "scenes": [
+  "verdun_shelling_fr",
+  "voie_sacree_fr",
+  "douaumont_fr",
+  "may_attack_fr"
+ ],
+ "characters": [
+  "petain_fr",
+  "nivelle_fr",
+  "falkenhayn_fr",
+  "mangin_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "falkenhayn_fr",
+     "is": "stalled_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "mangin_fr",
+     "is": "douaumont_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "verdun_shelling_fr",
+   "characters": [
+    "falkenhayn_fr",
+    "petain_fr"
+   ]
+  },
+  {
+   "scene": "voie_sacree_fr",
+   "characters": [
+    "petain_fr"
+   ]
+  },
+  {
+   "scene": "douaumont_fr",
+   "characters": [
+    "petain_fr",
+    "mangin_fr",
+    "falkenhayn_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

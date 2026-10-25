@@ -1,0 +1,77 @@
+{
+ "id": "pepin_751",
+ "order": 100,
+ "epoch": "revolution",
+ "act": "Акт III · Франки и Каролинги",
+ "music": "theme",
+ "cover": "soissons_anoint_fr",
+ "panels": 3,
+ "scenes": [
+  "ask_pope_fr",
+  "tonsure_fr",
+  "soissons_anoint_fr",
+  "kill_merovingian_fr"
+ ],
+ "characters": [
+  "pepin_fr",
+  "childeric3_fr",
+  "zachary_fr",
+  "boniface_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pepin_fr",
+     "is": "anointed_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pepin_fr",
+      "is": "usurper_fr"
+     }
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pepin_fr",
+      "is": "killer"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ask_pope_fr",
+   "characters": [
+    "pepin_fr",
+    "zachary_fr"
+   ]
+  },
+  {
+   "scene": "tonsure_fr",
+   "characters": [
+    "pepin_fr",
+    "childeric3_fr"
+   ]
+  },
+  {
+   "scene": "soissons_anoint_fr",
+   "characters": [
+    "boniface_fr",
+    "pepin_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

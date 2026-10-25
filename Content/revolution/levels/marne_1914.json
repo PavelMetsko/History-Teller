@@ -1,0 +1,62 @@
+{
+ "id": "marne_1914",
+ "order": 930,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "tension",
+ "cover": "marne_counter_fr",
+ "panels": 3,
+ "scenes": [
+  "great_retreat_fr",
+  "ourcq_fr",
+  "marne_counter_fr",
+  "taxis_fr"
+ ],
+ "characters": [
+  "joffre_fr",
+  "gallieni_fr",
+  "ferdinand_foch",
+  "moltke_younger_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "moltke_younger_fr",
+     "is": "withdraws_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "great_retreat_fr",
+   "characters": [
+    "moltke_younger_fr",
+    "joffre_fr"
+   ]
+  },
+  {
+   "scene": "ourcq_fr",
+   "characters": [
+    "gallieni_fr",
+    "moltke_younger_fr"
+   ]
+  },
+  {
+   "scene": "marne_counter_fr",
+   "characters": [
+    "joffre_fr",
+    "ferdinand_foch",
+    "moltke_younger_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

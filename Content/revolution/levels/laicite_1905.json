@@ -1,0 +1,61 @@
+{
+ "id": "laicite_1905",
+ "order": 920,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "theme",
+ "cover": "law_1905_fr",
+ "panels": 3,
+ "scenes": [
+  "vatican_break_fr",
+  "briand_report_fr",
+  "law_1905_fr",
+  "combes_draft_fr"
+ ],
+ "characters": [
+  "briand_fr",
+  "combes_fr",
+  "jaures_fr",
+  "pius10_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "briand_fr",
+     "is": "law1905_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "vatican_break_fr",
+   "characters": [
+    "combes_fr",
+    "pius10_fr"
+   ]
+  },
+  {
+   "scene": "briand_report_fr",
+   "characters": [
+    "briand_fr",
+    "jaures_fr"
+   ]
+  },
+  {
+   "scene": "law_1905_fr",
+   "characters": [
+    "briand_fr",
+    "combes_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

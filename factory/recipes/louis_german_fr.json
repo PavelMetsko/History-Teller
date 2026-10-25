@@ -1,0 +1,60 @@
+{
+  "id": "louis_german_fr",
+  "name": "Людовик Немецкий",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a5a34",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a5a34"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#8a5a34"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#5a6b4a",
+      "gold": "#d8ad3c",
+      "mantle": "#a8262e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a6b4a",
+      "cuff": "#5a6b4a"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

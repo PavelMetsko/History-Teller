@@ -123,22 +123,26 @@ def main():
     if len(sys.argv) > 1:
         recipes = [r for r in recipes if r["id"] in sys.argv[1:]]
     built = [catalog.build(r) for r in recipes]
-    final = {}
+    final, failed = {}, []
     for i in range(0, len(built), 2):            # Chrome тяжело снимает большие листы — рендерим по 2 персонажа
-        for attempt in range(3):                 # сбой Chrome под нагрузкой — повторяем
+        for attempt in range(5):                 # сбой Chrome под нагрузкой — повторяем
             try:
                 tiles = render_sheet(built[i:i + 2])
                 break
             except subprocess.SubprocessError as e:
                 print(f"retry {attempt + 1}: {type(e).__name__}", file=sys.stderr)
-        else:
-            raise SystemExit(f"Chrome не отрисовал {[b['id'] for b in built[i:i + 2]]}")
+        else:                                    # не валим весь прогон: остальные пары дорисуем, сбойные — в отчёт
+            failed += [b["id"] for b in built[i:i + 2]]
+            continue
         for rec in built[i:i + 2]:               # сохраняем сразу: прерванный прогон не теряет готовое
             rid = rec["id"]
             final[rid] = normalize({p: tiles[rid, p] for p in rig.POSE_ORDER})
             save_sprites(rid, final[rid])
-    contact(final, {r["id"]: r.get("old_ref", "hetman") for r in recipes}).save(OUT / "sheet.png")
+    if final:
+        contact(final, {r["id"]: r.get("old_ref", "hetman") for r in recipes}).save(OUT / "sheet.png")
     print("ok:", ", ".join(final), "->", OUT_ART.relative_to(ROOT), "+", (OUT / "sheet.png").relative_to(ROOT))
+    if failed:
+        raise SystemExit(f"Chrome не отрисовал {failed} — запусти ещё раз с этими id")
 
 
 if __name__ == "__main__":

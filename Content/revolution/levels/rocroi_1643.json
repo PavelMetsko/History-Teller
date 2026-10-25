@@ -1,0 +1,69 @@
+{
+ "id": "rocroi_1643",
+ "order": 390,
+ "epoch": "revolution",
+ "act": "Акт VII · Бурбоны: государство, вера, Атлантика",
+ "music": "tension",
+ "cover": "tercio_square_fr",
+ "panels": 3,
+ "scenes": [
+  "kings_death_fr",
+  "old_marshal_fr",
+  "wait_beck_fr",
+  "cavalry_wing_fr",
+  "tercio_square_fr",
+  "regency_fr"
+ ],
+ "characters": [
+  "conde",
+  "lhopital_fr",
+  "francisco_melo",
+  "anne_austria",
+  "mazarin"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francisco_melo",
+     "is": "surrendered_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "conde",
+     "is": "victor_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "kings_death_fr",
+   "characters": [
+    "conde"
+   ]
+  },
+  {
+   "scene": "cavalry_wing_fr",
+   "characters": [
+    "conde",
+    "francisco_melo"
+   ]
+  },
+  {
+   "scene": "tercio_square_fr",
+   "characters": [
+    "conde",
+    "francisco_melo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

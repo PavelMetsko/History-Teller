@@ -1,8 +1,8 @@
 {
  "id": "oath",
- "order": 210,
+ "order": 470,
  "epoch": "revolution",
- "act": "Акт III · Революция",
+ "act": "Акт VIII · Революция",
  "panels": 2,
  "scenes": [
   "hall_o",

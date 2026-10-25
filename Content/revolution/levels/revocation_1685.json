@@ -1,0 +1,69 @@
+{
+ "id": "revocation_1685",
+ "order": 420,
+ "epoch": "revolution",
+ "act": "Акт VII · Бурбоны: государство, вера, Атлантика",
+ "music": "tension",
+ "cover": "fontainebleau_fr",
+ "panels": 3,
+ "scenes": [
+  "dragonnade_fr",
+  "fontainebleau_fr",
+  "desert_exodus_fr",
+  "abjure_fr",
+  "code_noir_fr"
+ ],
+ "characters": [
+  "louis14",
+  "louvois",
+  "claude_brousson",
+  "huguenot_family"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louis14",
+     "is": "revoked_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "huguenot_family",
+     "is": "refugees_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "dragonnade_fr",
+   "characters": [
+    "louvois",
+    "huguenot_family"
+   ]
+  },
+  {
+   "scene": "fontainebleau_fr",
+   "characters": [
+    "louis14",
+    "louvois",
+    "claude_brousson"
+   ]
+  },
+  {
+   "scene": "desert_exodus_fr",
+   "characters": [
+    "claude_brousson",
+    "huguenot_family"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

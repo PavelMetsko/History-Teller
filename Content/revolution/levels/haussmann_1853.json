@@ -1,0 +1,67 @@
+{
+ "id": "haussmann_1853",
+ "order": 860,
+ "epoch": "revolution",
+ "act": "Акт X · Реставрации, революции и Вторая империя",
+ "music": "theme",
+ "cover": "boulevards_fr",
+ "panels": 3,
+ "scenes": [
+  "prefect_seine_fr",
+  "boulevards_fr",
+  "aqueducts_fr",
+  "fantastic_accounts_fr"
+ ],
+ "characters": [
+  "napoleon3",
+  "haussmann_fr",
+  "belgrand_fr",
+  "jules_ferry_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "haussmann_fr",
+     "is": "boulevards_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "belgrand_fr",
+     "is": "water_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prefect_seine_fr",
+   "characters": [
+    "napoleon3",
+    "haussmann_fr"
+   ]
+  },
+  {
+   "scene": "boulevards_fr",
+   "characters": [
+    "haussmann_fr",
+    "napoleon3"
+   ]
+  },
+  {
+   "scene": "aqueducts_fr",
+   "characters": [
+    "belgrand_fr",
+    "haussmann_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

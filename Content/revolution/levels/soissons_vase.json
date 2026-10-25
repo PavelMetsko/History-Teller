@@ -1,0 +1,73 @@
+{
+ "id": "soissons_vase",
+ "order": 30,
+ "epoch": "revolution",
+ "act": "Акт I · Легенды",
+ "music": "tension",
+ "cover": "loot_share_fr",
+ "panels": 3,
+ "scenes": [
+  "remigius_plea_fr",
+  "loot_share_fr",
+  "loot_lots_fr",
+  "march_field_fr",
+  "strike_now_fr"
+ ],
+ "characters": [
+  "clovis_fr",
+  "frank_warrior_fr",
+  "remigius_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "clovis_fr": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "clovis_fr",
+     "is": "feared_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "clovis_fr",
+      "is": "killer"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "remigius_plea_fr",
+   "characters": [
+    "remigius_fr",
+    "clovis_fr"
+   ]
+  },
+  {
+   "scene": "loot_share_fr",
+   "characters": [
+    "clovis_fr",
+    "frank_warrior_fr"
+   ]
+  },
+  {
+   "scene": "march_field_fr",
+   "characters": [
+    "clovis_fr",
+    "frank_warrior_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

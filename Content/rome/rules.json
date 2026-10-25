@@ -54115,5 +54115,7823 @@
     "flag": "viceroy_en"
    }
   ]
+ },
+ {
+  "id": "nann_welcome_fr_sig",
+  "comment": "Царь сегобригов радушно принимает греков-фокейцев — как раз в день сватовства дочери",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_nann_welcome_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nannus_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "protis_fr"
+     ],
+     "notFlags": [
+      "armed_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "guest_fr"
+   }
+  ]
+ },
+ {
+  "id": "armed_landing_fr_sig",
+  "comment": "Греки сходят на берег с оружием — царь видит в них не гостей, а захватчиков",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_armed_landing_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "protis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "nannus_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "armed_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "wary_fr"
+   }
+  ]
+ },
+ {
+  "id": "cup_feast_fr_sig",
+  "comment": "Гиптис обходит женихов и подаёт чашу с водой чужеземцу-гостю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cup_feast_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gyptis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "protis_fr"
+     ],
+     "flags": [
+      "guest_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "chosen_fr"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "cup_feast_fr_sig_gaul",
+  "comment": "Гиптис подаёт чашу своему, галльскому жениху — грекам здесь больше нечего ждать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cup_feast_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gyptis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gaul_suitor_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "chosen_fr"
+   }
+  ]
+ },
+ {
+  "id": "lacydon_gift_fr_sig",
+  "comment": "Царь признаёт выбор дочери и дарит зятю бухту — там встанет Массалия",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lacydon_gift_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nannus_fr"
+     ],
+     "notFlags": [
+      "wary_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "protis_fr"
+     ],
+     "flags": [
+      "chosen_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "founded_fr"
+   }
+  ]
+ },
+ {
+  "id": "thirst_spring_fr_sig",
+  "comment": "У лесного источника прекрасная дама обещает рыцарю богатство и род — если он никогда не будет искать её по субботам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_thirst_spring_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "melusine_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "raymondin_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "promised_fr"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "lusignan_build_fr_sig",
+  "comment": "За одну ночь Мелюзина поднимает замок Лузиньян",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lusignan_build_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "melusine_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "raymondin_fr"
+     ],
+     "flags": [
+      "promised_fr"
+     ],
+     "notFlags": [
+      "broken_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "lusignan_fr"
+   }
+  ]
+ },
+ {
+  "id": "lusignan_sons_fr_sig",
+  "comment": "Рождаются десять сыновей — будущие короли Кипра и Армении",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lusignan_sons_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "melusine_fr"
+     ],
+     "notFlags": [
+      "flown_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "raymondin_fr"
+     ],
+     "flags": [
+      "lusignan_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dynasty_fr"
+   }
+  ]
+ },
+ {
+  "id": "forez_rumor_fr_sig",
+  "comment": "Брат шепчет: по субботам жена прячется не просто так — у неё любовник",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_forez_rumor_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "forez_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "raymondin_fr"
+     ],
+     "flags": [
+      "promised_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "suspicious_fr"
+   }
+  ]
+ },
+ {
+  "id": "saturday_door_fr_sig",
+  "comment": "Рыцарь протыкает дверь мечом и видит в купальне жену со змеиным хвостом — клятва нарушена",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saturday_door_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "raymondin_fr"
+     ],
+     "flags": [
+      "suspicious_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "broken_fr"
+   }
+  ]
+ },
+ {
+  "id": "saturday_door_fr_sig_fly",
+  "comment": "Мелюзина сама застаёт мужа у двери — и улетает крылатым змеем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saturday_door_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "melusine_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "flown_fr"
+   }
+  ]
+ },
+ {
+  "id": "remigius_plea_fr_sig",
+  "comment": "Епископ просит вернуть его церкви драгоценную вазу; король обещает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_remigius_plea_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "remigius_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "clovis_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "vase_promised_fr"
+   }
+  ]
+ },
+ {
+  "id": "loot_share_fr_sig",
+  "comment": "Король просит вазу сверх своей доли — воин разбивает её секирой: «Получишь только то, что даст жребий»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_loot_share_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clovis_fr"
+     ],
+     "flags": [
+      "vase_promised_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "frank_warrior_fr"
+     ],
+     "notFlags": [
+      "content_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "insolent_fr"
+   }
+  ]
+ },
+ {
+  "id": "loot_lots_fr_sig",
+  "comment": "Король не спорит с обычаем — ваза уходит по жребию, воин доволен, епископ ни с чем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_loot_lots_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clovis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "frank_warrior_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "content_fr"
+   }
+  ]
+ },
+ {
+  "id": "march_field_fr_sig",
+  "comment": "Через год на смотре король находит у воина «плохое оружие» и раскалывает ему голову: «Так ты поступил с вазой в Суассоне»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_march_field_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clovis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "frank_warrior_fr"
+     ],
+     "flags": [
+      "insolent_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "feared_fr"
+   }
+  ]
+ },
+ {
+  "id": "saragossa_fr_sig",
+  "comment": "Посол Карла сговаривается с Марсилием: арьергард во главе с Роландом пойдёт последним — бейте по нему",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saragossa_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ganelon_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "marsile_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "traitor_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "ambush_fr"
+   }
+  ]
+ },
+ {
+  "id": "roland_pride_fr_sig",
+  "comment": "Оливье трижды просит протрубить; Роланд отвечает: «Не опозорю милой Франции»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_roland_pride_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "roland_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "oliver_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "proud_fr"
+   }
+  ]
+ },
+ {
+  "id": "oliphant_fr_sig_gan",
+  "comment": "Ганелон рядом с императором: «Он просто охотится на зайцев» — Карл не поворачивает",
+  "priority": 20,
+  "trigger": {
+   "sceneTags": [
+    "sig_oliphant_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "roland_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charlemagne_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "ganelon_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "deceived_fr"
+   }
+  ]
+ },
+ {
+  "id": "oliphant_fr_sig",
+  "comment": "Умирающий Роланд трубит так, что у него лопаются виски, — император слышит за тридцать лиг и поворачивает войско",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oliphant_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "roland_fr"
+     ],
+     "notFlags": [
+      "proud_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charlemagne_fr"
+     ],
+     "notFlags": [
+      "deceived_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "alerted_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "aachen_trial_fr_sig",
+  "comment": "Император, видевший Ронсеваль, судит предателя — Ганелона разрывают конями",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_aachen_trial_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charlemagne_fr"
+     ],
+     "flags": [
+      "alerted_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ganelon_fr"
+     ],
+     "flags": [
+      "traitor_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "avenged_fr"
+   }
+  ]
+ },
+ {
+  "id": "gergovia_heights_fr_sig",
+  "comment": "Вождь арвернов ставит лагерь на крутых высотах над городом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gergovia_heights_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gaul",
+      "chieftain_g"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "heights_fr"
+   }
+  ]
+ },
+ {
+  "id": "litaviccus_lie_fr_sig",
+  "comment": "Литавикк рассказывает эдуям, будто римляне перебили их знать, — союзники Цезаря колеблются",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_litaviccus_lie_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "litaviccus_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "convictolitavis_fr"
+     ],
+     "notFlags": [
+      "loyal_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defects_fr"
+   }
+  ]
+ },
+ {
+  "id": "caesar_aedui_fr_sig",
+  "comment": "Проконсул лично показывает эдуям живых «убитых» — и возвращает их на свою сторону",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_caesar_aedui_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "convictolitavis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ruler",
+      "roman"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "loyal_fr"
+   }
+  ]
+ },
+ {
+  "id": "roman_assault_fr_sig",
+  "comment": "Легионеры увлекаются, лезут на стены вопреки сигналу отступления — и галлы сбрасывают их с высот",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_roman_assault_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ruler",
+      "roman"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gaul",
+      "chieftain_g"
+     ],
+     "flags": [
+      "heights_fr"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repulsed_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "gergovia_won_fr"
+   }
+  ]
+ },
+ {
+  "id": "lyon_forum_fr_sig",
+  "comment": "Рабыня Бландина под пытками повторяет одно: «Я христианка, у нас нет ничего дурного»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lyon_forum_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "blandina_fr"
+     ],
+     "notFlags": [
+      "denied_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "legatus_lyon_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "confessor_fr"
+   }
+  ]
+ },
+ {
+  "id": "lyon_forum_fr_sig_ir",
+  "comment": "Пресвитера хватают на допросе вместе с остальными — некому будет рассказать о Лионе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lyon_forum_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "irenaeus_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "legatus_lyon_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "arrested_fr"
+   }
+  ]
+ },
+ {
+  "id": "lyon_denial_fr_sig",
+  "comment": "Сломленная пыткой, Бландина отрекается — её отпускают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lyon_denial_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "blandina_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "legatus_lyon_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "denied_fr"
+   }
+  ]
+ },
+ {
+  "id": "lyon_prison_fr_sig",
+  "comment": "Девяностолетний Потин умирает в темнице, успев отправить пресвитера с поручением",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lyon_prison_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pothinus_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "irenaeus_fr"
+     ],
+     "notFlags": [
+      "arrested_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "messenger_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "lyon_rescript_fr_sig",
+  "comment": "Император отвечает: римских граждан обезглавить, отрёкшихся отпустить",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lyon_rescript_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "legatus_lyon_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "stoic_m"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rescript_fr"
+   }
+  ]
+ },
+ {
+  "id": "lyon_letter_fr_sig",
+  "comment": "Ириней увозит письмо исповедников — рассказ о Бландине дойдёт до всех церквей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lyon_letter_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "irenaeus_fr"
+     ],
+     "flags": [
+      "messenger_fr"
+     ],
+     "notFlags": [
+      "arrested_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "blandina_fr"
+     ],
+     "flags": [
+      "confessor_fr"
+     ],
+     "notFlags": [
+      "denied_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "letter_fr"
+   }
+  ]
+ },
+ {
+  "id": "soissons_battle_fr_sig",
+  "comment": "Франки громят последнее римское государство в Галлии; Сиагрий бежит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_soissons_battle_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clovis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "syagrius_fr"
+     ],
+     "notFlags": [
+      "conceded"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "beaten_fr"
+   }
+  ]
+ },
+ {
+  "id": "toulouse_refuge_fr_sig",
+  "comment": "Король вестготов принимает беглеца при своём дворе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_toulouse_refuge_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "syagrius_fr"
+     ],
+     "flags": [
+      "beaten_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alaric2_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "refuge_fr"
+   }
+  ]
+ },
+ {
+  "id": "extradition_fr_sig",
+  "comment": "Аларих не хочет войны с франками и выдаёт гостя в цепях — Сиагрия тайно казнят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_extradition_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clovis_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alaric2_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "syagrius_fr"
+     ],
+     "flags": [
+      "refuge_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "extradited_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "master_fr"
+   }
+  ]
+ },
+ {
+  "id": "remigius_letter_fr_sig",
+  "comment": "Епископ советует молодому королю чтить священников и слушать их советы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_remigius_letter_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "remigius_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "clovis_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "advised_fr"
+   }
+  ]
+ },
+ {
+  "id": "clotilde_plea_fr_sig",
+  "comment": "Бургундская принцесса-католичка годами уговаривает мужа отказаться от идолов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_clotilde_plea_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clotilde_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "clovis_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "inclined_fr"
+   }
+  ]
+ },
+ {
+  "id": "arian_font_fr_sig",
+  "comment": "Король принимает арианство, как вестготы и бургунды, — галло-римские епископы видят в нём еретика",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_arian_font_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alaric2_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "clovis_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "arian_fr"
+   }
+  ]
+ },
+ {
+  "id": "reims_font_fr_sig",
+  "comment": "«Смиренно склони шею, сикамбр: поклонись тому, что сжигал, сожги то, чему поклонялся»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_reims_font_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "remigius_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "clovis_fr"
+     ],
+     "flags": [
+      "inclined_fr"
+     ],
+     "notFlags": [
+      "arian_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "baptized_fr"
+   }
+  ]
+ },
+ {
+  "id": "vouille_fr_sig",
+  "comment": "С благословения католических епископов франки бьют вестготов; Хлодвиг своей рукой убивает Алариха",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vouille_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clovis_fr"
+     ],
+     "flags": [
+      "baptized_fr"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alaric2_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "aquitaine_fr"
+   }
+  ]
+ },
+ {
+  "id": "garonne_fr_sig",
+  "comment": "Наместник аль-Андалуса громит герцога Аквитании и жжёт Бордо",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_garonne_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "abd_rahman_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "eudes_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "beaten_fr"
+   }
+  ]
+ },
+ {
+  "id": "munuza_pact_fr_sig",
+  "comment": "Эд ищет союза с соседом-мусульманином — франки начинают видеть в нём изменника",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_munuza_pact_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "eudes_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "abd_rahman_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "suspect_fr"
+   }
+  ]
+ },
+ {
+  "id": "eudes_plea_fr_sig",
+  "comment": "Разбитый герцог едет к майордому франков и признаёт его старшинство — Карл ведёт войско на юг",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_eudes_plea_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "eudes_fr"
+     ],
+     "flags": [
+      "beaten_fr"
+     ],
+     "notFlags": [
+      "suspect_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_martel_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "summoned_fr"
+   }
+  ]
+ },
+ {
+  "id": "shield_wall_fr_sig",
+  "comment": "Пешие франки стоят «как ледяная стена», эмир гибнет, ночью его войско уходит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_shield_wall_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_martel_fr"
+     ],
+     "flags": [
+      "summoned_fr"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "abd_rahman_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hammer_fr"
+   }
+  ]
+ },
+ {
+  "id": "ask_pope_fr_sig",
+  "comment": "Послы спрашивают папу: кто должен быть королём — тот, у кого власть, или тот, у кого титул? Папа отвечает: тот, у кого власть",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ask_pope_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pepin_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "zachary_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sanctioned_fr"
+   }
+  ]
+ },
+ {
+  "id": "tonsure_fr_sig",
+  "comment": "С благословения Рима последнего Меровинга стригут и отправляют в монастырь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tonsure_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pepin_fr"
+     ],
+     "flags": [
+      "sanctioned_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "childeric3_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "tonsured_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "throne_free_fr"
+   }
+  ]
+ },
+ {
+  "id": "tonsure_fr_sig_raw",
+  "comment": "Майордом сам стрижёт короля — без папы это просто захват трона",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tonsure_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pepin_fr"
+     ],
+     "notFlags": [
+      "sanctioned_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "childeric3_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "tonsured_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "usurper_fr"
+   }
+  ]
+ },
+ {
+  "id": "soissons_anoint_fr_sig",
+  "comment": "Франки избирают Пипина, епископы помазывают его священным елеем, как царей Израиля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_soissons_anoint_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "boniface_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pepin_fr"
+     ],
+     "flags": [
+      "throne_free_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "anointed_fr"
+   }
+  ]
+ },
+ {
+  "id": "paderborn_fr_sig",
+  "comment": "Избитый римской знатью папа бежит через Альпы к королю франков — тот берёт его под защиту",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_paderborn_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "leo3_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charlemagne_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "protected_fr"
+   }
+  ]
+ },
+ {
+  "id": "judge_pope_fr_sig",
+  "comment": "Король судит наместника Петра как подсудимого — «первый престол никем не судим», папа унижен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_judge_pope_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charlemagne_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "leo3_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "humiliated_fr"
+   }
+  ]
+ },
+ {
+  "id": "purge_oath_fr_sig",
+  "comment": "Папа сам, без суда, клянётся на Евангелии в своей невиновности",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_purge_oath_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "leo3_fr"
+     ],
+     "flags": [
+      "protected_fr"
+     ],
+     "notFlags": [
+      "humiliated_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "cleared_fr"
+   }
+  ]
+ },
+ {
+  "id": "christmas_crown_fr_sig",
+  "comment": "Во время рождественской мессы папа возлагает корону, и римляне кричат: «Карлу Августу — жизнь и победа!»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_christmas_crown_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "leo3_fr"
+     ],
+     "flags": [
+      "cleared_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charlemagne_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "emperor_fr"
+   }
+  ]
+ },
+ {
+  "id": "fontenoy_fr_sig",
+  "comment": "Двое младших братьев вместе бьют старшего — одна из самых кровавых битв века",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fontenoy_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_bald_fr"
+     ],
+     "notFlags": [
+      "submitted_fr",
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_german_fr"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "lothair_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "won_fontenoy_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "won_fontenoy_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "beaten_fr"
+   }
+  ]
+ },
+ {
+  "id": "submit_lothair_fr_sig",
+  "comment": "Карл признаёт старшего брата сюзереном всей империи — о своём королевстве можно забыть",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_submit_lothair_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lothair_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_bald_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "submitted_fr"
+   }
+  ]
+ },
+ {
+  "id": "strasbourg_oaths_fr_sig",
+  "comment": "Братья клянутся перед войсками — Людовик по-романски, Карл по-тевтонски, чтобы поняли чужие солдаты",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_strasbourg_oaths_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_bald_fr"
+     ],
+     "flags": [
+      "won_fontenoy_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_german_fr"
+     ],
+     "flags": [
+      "won_fontenoy_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sworn_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sworn_fr"
+   }
+  ]
+ },
+ {
+  "id": "verdun_treaty_fr_sig",
+  "comment": "Империю делят на три полосы: западную, восточную и срединную",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_verdun_treaty_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_bald_fr"
+     ],
+     "flags": [
+      "sworn_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_german_fr"
+     ],
+     "flags": [
+      "sworn_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "lothair_fr"
+     ],
+     "flags": [
+      "beaten_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "west_francia_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "east_francia_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "middle_kingdom_fr"
+   }
+  ]
+ },
+ {
+  "id": "prefect_seine_fr_sig",
+  "comment": "Император ищет человека, который не побоится сломать старый Париж, — и находит префекта из Бордо",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prefect_seine_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "french",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "haussmann_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "prefect_fr"
+   }
+  ]
+ },
+ {
+  "id": "boulevards_fr_sig",
+  "comment": "С карты императора — в камень: прямые бульвары режут средневековые улицы, бедноту вытесняют на окраины",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_boulevards_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "haussmann_fr"
+     ],
+     "flags": [
+      "prefect_fr"
+     ],
+     "notFlags": [
+      "exposed_debts_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "french",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "boulevards_fr"
+   }
+  ]
+ },
+ {
+  "id": "aqueducts_fr_sig",
+  "comment": "Префект зовёт инженера из провинции: чистая вода из далёких источников и сотни километров канализации",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_aqueducts_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "belgrand_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "haussmann_fr"
+     ],
+     "flags": [
+      "prefect_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "water_fr"
+   }
+  ]
+ },
+ {
+  "id": "fantastic_accounts_fr_sig",
+  "comment": "Молодой адвокат высмеивает тайные займы префекта — палата требует отчёта, стройка встаёт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fantastic_accounts_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jules_ferry_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "haussmann_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exposed_debts_fr"
+   }
+  ]
+ },
+ {
+  "id": "ems_dispatch_fr_sig",
+  "comment": "Канцлер сокращает депешу из Эмса так, что она звучит пощёчиной, — Париж объявляет войну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ems_dispatch_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bismarck_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "french",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "at_war_fr"
+   }
+  ]
+ },
+ {
+  "id": "sedan_ring_fr_sig",
+  "comment": "Немецкие армии замыкают кольцо: раненый маршал, сто тысяч солдат и сам император в плену",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sedan_ring_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "moltke_elder_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "macmahon_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "french",
+      "king"
+     ],
+     "flags": [
+      "at_war_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "captured_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "wounded_fr"
+   }
+  ]
+ },
+ {
+  "id": "breakout_fr_sig",
+  "comment": "Отчаянный прорыв из котла захлёбывается под огнём с высот",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_breakout_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "macmahon_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "moltke_elder_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "routed_fr"
+   }
+  ]
+ },
+ {
+  "id": "hotel_de_ville_fr_sig",
+  "comment": "Узнав о плене императора, Париж выходит на улицы — Гамбетта провозглашает республику",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hotel_de_ville_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gambetta_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "french",
+      "king"
+     ],
+     "flags": [
+      "captured_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "republic_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "deposed_fr"
+   }
+  ]
+ },
+ {
+  "id": "montmartre_guns_fr_sig",
+  "comment": "Войска Тьера приходят за пушками — женщины Монмартра и национальные гвардейцы окружают солдат, те не стреляют",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_montmartre_guns_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "thiers_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louise_michel_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "versailles_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rising_fr"
+   }
+  ]
+ },
+ {
+  "id": "commune_vote_fr_sig",
+  "comment": "Восставший Париж выбирает свою Коммуну — рабочие, журналисты, ремесленники",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_commune_vote_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louise_michel_fr"
+     ],
+     "flags": [
+      "rising_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "varlin_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "valles_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "communard_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "communard_fr"
+   }
+  ]
+ },
+ {
+  "id": "mediators_fr_sig",
+  "comment": "Тьер отвечает посредникам: никаких переговоров с мятежниками",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mediators_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "thiers_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "refused_talks_fr"
+   }
+  ]
+ },
+ {
+  "id": "bloody_week_fr_sig",
+  "comment": "Версальская армия входит в Париж: неделя уличных боёв, расстрелы у стен и в парках",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bloody_week_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "thiers_fr"
+     ],
+     "flags": [
+      "versailles_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "flags": [
+      "communard_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_fr"
+   }
+  ]
+ },
+ {
+  "id": "bloody_week_fr_michel_sig",
+  "comment": "Луизу Мишель берут на баррикаде — суд, а потом ссылка на другой конец света",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bloody_week_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "thiers_fr"
+     ],
+     "flags": [
+      "versailles_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louise_michel_fr"
+     ],
+     "flags": [
+      "rising_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "deported_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_fr"
+   }
+  ]
+ },
+ {
+  "id": "free_school_fr_sig",
+  "comment": "Закон 16 июня 1881 года: в начальной школе больше не платят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_free_school_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jules_ferry_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "paul_bert_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "free_fr"
+   }
+  ]
+ },
+ {
+  "id": "catechism_fr_sig",
+  "comment": "Епископ уговаривает министра оставить закон Божий в расписании — школа остаётся наполовину церковной",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_catechism_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "freppel_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jules_ferry_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "compromised_fr"
+   }
+  ]
+ },
+ {
+  "id": "laic_school_fr_sig",
+  "comment": "Закон 28 марта 1882 года: учиться обязаны все дети от 6 до 13 лет, а вместо закона Божьего — гражданская мораль",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_laic_school_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jules_ferry_fr"
+     ],
+     "flags": [
+      "free_fr"
+     ],
+     "notFlags": [
+      "compromised_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "paul_bert_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "laic_fr"
+   }
+  ]
+ },
+ {
+  "id": "girls_lycee_fr_sig",
+  "comment": "Закон Камиля Се: государственные лицеи и коллежи для девушек",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_girls_lycee_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "camille_see_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jules_ferry_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "girls_fr"
+   }
+  ]
+ },
+ {
+  "id": "tonkin_fleet_fr_sig",
+  "comment": "Премьер шлёт адмирала на войну с Китаем за Тонкин — без объявления войны и под небольшие кредиты",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tonkin_fleet_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jules_ferry_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "courbet_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "expansion_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "at_war_fr"
+   }
+  ]
+ },
+ {
+  "id": "lang_son_fr_sig",
+  "comment": "Приходит паническая депеша об отступлении из Лангшона — Клемансо бросает: «Мы больше вас не знаем», кабинет падает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lang_son_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clemenceau_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jules_ferry_fr"
+     ],
+     "flags": [
+      "expansion_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fallen_fr"
+   }
+  ]
+ },
+ {
+  "id": "higher_races_fr_sig",
+  "comment": "Премьер объясняет палате «долг высших рас» — оппозиция возмущена, но кабинет сохраняет большинство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_higher_races_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jules_ferry_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "clemenceau_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "praised_fr"
+   }
+  ]
+ },
+ {
+  "id": "can_vuong_fr_sig",
+  "comment": "Регент уводит юного императора Хам Нги из Хюэ в горы и зовёт страну на помощь королю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_can_vuong_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ton_that_thuyet_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "resistance_fr"
+   }
+  ]
+ },
+ {
+  "id": "bordereau_fr_sig",
+  "comment": "В корзине немецкого посольства находят записку — генштаб решает, что предатель еврей-артиллерист",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bordereau_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "esterhazy_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dreyfus_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "convicted_fr"
+   }
+  ]
+ },
+ {
+  "id": "army_honour_fr_sig",
+  "comment": "Начальники велят разведчику забыть о сомнениях и отправляют его подальше, в Тунис",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_army_honour_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "picquart_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "silenced_fr"
+   }
+  ]
+ },
+ {
+  "id": "petit_bleu_fr_sig",
+  "comment": "Новый глава разведки находит письмо майора Эстерхази — почерк тот же, что на записке",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_petit_bleu_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "picquart_fr"
+     ],
+     "notFlags": [
+      "silenced_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "esterhazy_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "knows_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exposed_fr"
+   }
+  ]
+ },
+ {
+  "id": "jaccuse_fr_sig",
+  "comment": "Знаменитый писатель на первой полосе обвиняет генералов в сокрытии правды",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_jaccuse_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "zola_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "picquart_fr"
+     ],
+     "flags": [
+      "knows_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "jaccuse_fr"
+   }
+  ]
+ },
+ {
+  "id": "vatican_break_fr_sig",
+  "comment": "Ссора из-за визита президента в Рим и назначений епископов — Франция отзывает посла из Ватикана",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vatican_break_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "combes_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pius10_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rupture_fr"
+   }
+  ]
+ },
+ {
+  "id": "combes_draft_fr_sig",
+  "comment": "Премьер вносит проект, где церковь остаётся под надзором полиции, — католики в ярости, социалисты не верят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_combes_draft_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "combes_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "briand_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "harsh_fr"
+   }
+  ]
+ },
+ {
+  "id": "briand_report_fr_sig",
+  "comment": "Жорес поддерживает компромисс: церковное имущество перейдёт объединениям верующих, устроенным по правилам их церкви",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_briand_report_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "briand_fr"
+     ],
+     "notFlags": [
+      "harsh_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jaures_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "liberal_text_fr"
+   }
+  ]
+ },
+ {
+  "id": "law_1905_fr_sig",
+  "comment": "Республика не признаёт, не оплачивает и не субсидирует ни один культ — и гарантирует свободу совести",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_law_1905_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "briand_fr"
+     ],
+     "flags": [
+      "liberal_text_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "combes_fr"
+     ],
+     "flags": [
+      "rupture_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "law1905_fr"
+   }
+  ]
+ },
+ {
+  "id": "great_retreat_fr_sig",
+  "comment": "Французы отступают, сохраняя армию, — немецкие колонны, гонясь за ними, сворачивают мимо Парижа",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_great_retreat_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "moltke_younger_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "joffre_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "overstretched_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "regrouped_fr"
+   }
+  ]
+ },
+ {
+  "id": "ourcq_fr_sig",
+  "comment": "Губернатор Парижа видит, что правый фланг немцев открыт, — армия Монури бьёт с реки Урк",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ourcq_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gallieni_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "moltke_younger_fr"
+     ],
+     "flags": [
+      "overstretched_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "flank_exposed_fr"
+   }
+  ]
+ },
+ {
+  "id": "marne_counter_fr_sig",
+  "comment": "Вся линия от Парижа до Вердена переходит в наступление — в разрыв между немецкими армиями входят французы и британцы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_marne_counter_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "joffre_fr"
+     ],
+     "flags": [
+      "regrouped_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ferdinand_foch"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "moltke_younger_fr"
+     ],
+     "flags": [
+      "flank_exposed_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "withdraws_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_fr"
+   }
+  ]
+ },
+ {
+  "id": "taxis_fr_sig",
+  "comment": "Шестьсот парижских такси везут к фронту несколько тысяч солдат — красиво, но исход решают не они",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_taxis_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gallieni_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "taxis_fr"
+   }
+  ]
+ },
+ {
+  "id": "verdun_shelling_fr_sig",
+  "comment": "Тысяча двести орудий бьют по Вердену — форт Дуомон падает через четыре дня",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_verdun_shelling_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "falkenhayn_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "petain_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "offensive_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "in_command_fr"
+   }
+  ]
+ },
+ {
+  "id": "voie_sacree_fr_sig",
+  "comment": "Командующий налаживает «нории»: по единственной дороге день и ночь идут грузовики, дивизии сменяются, не сгорая целиком",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_voie_sacree_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "petain_fr"
+     ],
+     "flags": [
+      "in_command_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "noria_fr"
+   }
+  ]
+ },
+ {
+  "id": "may_attack_fr_sig",
+  "comment": "Генерал бросает дивизию на форт без подготовки — атака отбита, потери страшные",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_may_attack_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mangin_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "falkenhayn_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repulsed_fr"
+   }
+  ]
+ },
+ {
+  "id": "douaumont_fr_sig",
+  "comment": "Осенью, после месяцев обороны, тщательно подготовленный удар возвращает форт Дуомон",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_douaumont_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "petain_fr"
+     ],
+     "flags": [
+      "noria_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mangin_fr"
+     ],
+     "notFlags": [
+      "repulsed_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "falkenhayn_fr"
+     ],
+     "flags": [
+      "offensive_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "stalled_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "douaumont_fr"
+   }
+  ]
+ },
+ {
+  "id": "chemin_des_dames_fr_sig",
+  "comment": "Генерал обещал прорыв за двое суток — прорыва нет, потери огромны, полки отказываются идти в атаку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_chemin_des_dames_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nivelle_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "poilus_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "failed_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mutiny_fr"
+   }
+  ]
+ },
+ {
+  "id": "change_command_fr_sig",
+  "comment": "Министр снимает автора провала и ставит генерала, который бережёт людей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_change_command_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "painleve_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "nivelle_fr"
+     ],
+     "flags": [
+      "failed_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "petain_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dismissed_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "commander_fr"
+   }
+  ]
+ },
+ {
+  "id": "reforms_fr_sig",
+  "comment": "Новый главнокомандующий ездит по дивизиям: регулярные отпуска, горячая еда, отдых — и никаких бессмысленных атак",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_reforms_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "petain_fr"
+     ],
+     "flags": [
+      "commander_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "poilus_fr"
+     ],
+     "flags": [
+      "mutiny_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "calmed_fr"
+   }
+  ]
+ },
+ {
+  "id": "decimate_fr_sig",
+  "comment": "Массовые расстрелы — армия, и так на грани, ломается окончательно",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_decimate_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "petain_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "poilus_fr"
+     ],
+     "flags": [
+      "mutiny_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "je_fais_la_guerre_fr_sig",
+  "comment": "Старый Тигр становится премьером: «Внутренняя политика? Я веду войну» — и добивается для Фоша единого командования",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_je_fais_la_guerre_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clemenceau_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ferdinand_foch"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "tiger_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "supreme_fr"
+   }
+  ]
+ },
+ {
+  "id": "fourteen_points_fr_sig",
+  "comment": "Премьер соглашается на мягкий мир по программе американского президента — без гарантий для Франции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fourteen_points_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "president_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "clemenceau_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "soft_fr"
+   }
+  ]
+ },
+ {
+  "id": "armistice_terms_fr_sig",
+  "comment": "Условия такие, чтобы Германия не могла продолжать войну: Эльзас-Лотарингия, левый берег Рейна, пушки и флот",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_armistice_terms_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "clemenceau_fr"
+     ],
+     "flags": [
+      "tiger_fr"
+     ],
+     "notFlags": [
+      "soft_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ferdinand_foch"
+     ],
+     "flags": [
+      "supreme_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hard_terms_fr"
+   }
+  ]
+ },
+ {
+  "id": "rethondes_fr_sig",
+  "comment": "В пять утра в салон-вагоне маршала немецкий делегат подписывает перемирие — в 11 часов орудия смолкают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rethondes_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferdinand_foch"
+     ],
+     "flags": [
+      "supreme_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "matthias_erzberger"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "signed_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "armistice_fr"
+   }
+  ]
+ },
+ {
+  "id": "chartres_walls_fr_sig",
+  "comment": "Маркиз Роберт и бургундцы отбивают викингов от Шартра — Роллон впервые разбит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_chartres_walls_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robert_neustria_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rollo_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "checked_fr"
+   }
+  ]
+ },
+ {
+  "id": "seine_raid_fr_sig",
+  "comment": "Викинги снова жгут монастыри по Сене — о мире с ними никто больше не заговорит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_seine_raid_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rollo_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "raider_fr"
+   }
+  ]
+ },
+ {
+  "id": "franco_mission_fr_sig",
+  "comment": "Архиепископ Руана уговаривает разбитого вождя: земля и крещение лучше новых набегов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_franco_mission_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "franco_rouen_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rollo_fr"
+     ],
+     "flags": [
+      "checked_fr"
+     ],
+     "notFlags": [
+      "raider_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "willing_fr"
+   }
+  ]
+ },
+ {
+  "id": "epte_treaty_fr_sig",
+  "comment": "Король отдаёт викингу земли в низовьях Сены — Роллон крестится и обещает защищать реку от других норманнов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_epte_treaty_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_simple_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rollo_fr"
+     ],
+     "flags": [
+      "willing_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "duke_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "seine_safe_fr"
+   }
+  ]
+ },
+ {
+  "id": "senlis_trial_fr_sig",
+  "comment": "Гуго председательствует на суде и снимает с архиепископа обвинение в измене",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_senlis_trial_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hugh_capet_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "adalberon_fr"
+     ],
+     "flags": [
+      "accused_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "accused_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "free_fr"
+   }
+  ]
+ },
+ {
+  "id": "blood_claim_fr_sig",
+  "comment": "Последний Каролинг напоминает архиепископу о своей крови — и тот связывает себя обещанием",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_blood_claim_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_lorraine_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "adalberon_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bound_carolingian_fr"
+   }
+  ]
+ },
+ {
+  "id": "senlis_assembly_fr_sig",
+  "comment": "«Трон не приобретается по наследственному праву» — архиепископ предлагает собранию Гуго",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_senlis_assembly_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "adalberon_fr"
+     ],
+     "flags": [
+      "free_fr"
+     ],
+     "notFlags": [
+      "bound_carolingian_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hugh_capet_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "elected_fr"
+   }
+  ]
+ },
+ {
+  "id": "senlis_assembly_fr_charles",
+  "comment": "Архиепископ отводит Карла: тот служит чужому, германскому королю",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_senlis_assembly_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "adalberon_fr"
+     ],
+     "flags": [
+      "free_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_lorraine_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rejected_fr"
+   }
+  ]
+ },
+ {
+  "id": "noyon_crown_fr_sig",
+  "comment": "Архиепископ помазывает избранного — на троне новая династия",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_noyon_crown_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "adalberon_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hugh_capet_fr"
+     ],
+     "flags": [
+      "elected_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crowned_fr"
+   }
+  ]
+ },
+ {
+  "id": "clermont_field_fr_sig",
+  "comment": "Толпа кричит «Так хочет Бог!» — первым крест принимает епископ Адемар, и папа делает его легатом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_clermont_field_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "urban2_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "adhemar_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "preached_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "legate_fr"
+   }
+  ]
+ },
+ {
+  "id": "toulouse_envoys_fr_sig",
+  "comment": "На следующий день послы Раймунда объявляют: граф Тулузский идёт со своим войском",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_toulouse_envoys_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "urban2_fr"
+     ],
+     "flags": [
+      "preached_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "raymond_toulouse_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crossed_fr"
+   }
+  ]
+ },
+ {
+  "id": "peoples_march_fr_sig",
+  "comment": "Толпы бедняков уходят за проповедником на восток раньше срока — и гибнут под Цивитотом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_peoples_march_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "peter_hermit_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "ambushed_fr"
+   }
+  ]
+ },
+ {
+  "id": "le_puy_march_fr_sig",
+  "comment": "Легат и граф ведут войско юга — в срок, назначенный папой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_le_puy_march_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "adhemar_fr"
+     ],
+     "flags": [
+      "legate_fr"
+     ],
+     "notFlags": [
+      "ambushed_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "raymond_toulouse_fr"
+     ],
+     "flags": [
+      "crossed_fr"
+     ],
+     "notFlags": [
+      "ambushed_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "departed_fr"
+   }
+  ]
+ },
+ {
+  "id": "bernard_counsel_fr_sig",
+  "comment": "Аббат напоминает королю: его брак заключён в запретной степени родства",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bernard_counsel_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bernard_clairvaux_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis7_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "doubts_fr"
+   }
+  ]
+ },
+ {
+  "id": "beaugency_fr_sig",
+  "comment": "Епископы объявляют брак недействительным — Алиенора свободна, и Аквитания остаётся за ней",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_beaugency_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis7_fr"
+     ],
+     "flags": [
+      "doubts_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "matron_r"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "free_fr"
+   }
+  ]
+ },
+ {
+  "id": "blois_road_fr_sig",
+  "comment": "Граф Блуаский перехватывает богатую невесту по дороге и силой берёт её в жёны",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_blois_road_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "theobald_blois_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "matron_r"
+     ],
+     "flags": [
+      "free_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_fr"
+   }
+  ]
+ },
+ {
+  "id": "poitiers_wedding_fr_sig",
+  "comment": "Через восемь недель после развода герцогиня выходит за молодого Генриха Анжуйского",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_poitiers_wedding_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matron_r"
+     ],
+     "flags": [
+      "free_fr"
+     ],
+     "notFlags": [
+      "captured_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "angevin_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "aquitaine_fr"
+   }
+  ]
+ },
+ {
+  "id": "gaillard_siege_fr_sig",
+  "comment": "Французы пробираются в замок через окно часовни — «прекрасная дочь» Ричарда пала",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gaillard_siege_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "french",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "roger_lacy_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "gaillard_fr"
+   }
+  ]
+ },
+ {
+  "id": "rouen_envoys_fr_sig",
+  "comment": "Король Иоанн отвечает гонцам, что помочь не может, — комендант свободен от присяги",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rouen_envoys_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pierre_preaux_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "english",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "released_fr"
+   }
+  ]
+ },
+ {
+  "id": "rouen_gate_fr_sig",
+  "comment": "Руан открывает ворота — Нормандия переходит к королю Франции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rouen_gate_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "french",
+      "king"
+     ],
+     "flags": [
+      "gaillard_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pierre_preaux_fr"
+     ],
+     "flags": [
+      "released_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "normandy_fr"
+   }
+  ]
+ },
+ {
+  "id": "rouen_gate_fr_oath",
+  "comment": "Комендант сдаёт город, не спросив своего сеньора, — для рыцарей он клятвопреступник",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rouen_gate_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "french",
+      "king"
+     ],
+     "flags": [
+      "gaillard_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pierre_preaux_fr"
+     ],
+     "notFlags": [
+      "released_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "normandy_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "oathbreaker_fr"
+   }
+  ]
+ },
+ {
+  "id": "trencavel_plea_fr_sig",
+  "comment": "Легат не принимает покорности юного виконта — пусть защищается как знает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_trencavel_plea_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arnaud_amalric_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "trencavel_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rebuffed_fr"
+   }
+  ]
+ },
+ {
+  "id": "leave_beziers_fr_sig",
+  "comment": "Виконт уезжает из Безье готовить к обороне Каркассон",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_leave_beziers_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "trencavel_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "carcassonne_fr"
+   }
+  ]
+ },
+ {
+  "id": "beziers_walls_fr_sig",
+  "comment": "Горожане отказываются выдать еретиков по списку епископа — крестоносцы врываются в город, начинается резня",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_beziers_walls_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arnaud_amalric_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bishop_renaud_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "beziers_fr"
+   }
+  ]
+ },
+ {
+  "id": "beziers_walls_fr_trencavel",
+  "comment": "Виконт остался в обречённом городе — и гибнет в резне",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_beziers_walls_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arnaud_amalric_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "trencavel_fr"
+     ],
+     "notFlags": [
+      "carcassonne_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "beziers_fr"
+   }
+  ]
+ },
+ {
+  "id": "carcassonne_tent_fr_sig",
+  "comment": "Виконт приходит на переговоры — его задерживают, город сдаётся, а земли получает Симон де Монфор",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_carcassonne_tent_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "arnaud_amalric_fr"
+     ],
+     "flags": [
+      "beziers_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "trencavel_fr"
+     ],
+     "flags": [
+      "carcassonne_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "simon4_montfort_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "viscount_fr"
+   }
+  ]
+ },
+ {
+  "id": "artois_charge_fr_sig",
+  "comment": "Брат короля, не дождавшись войска, врывается в Мансуру — и погибает в узких улицах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_artois_charge_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robert_artois_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "artois_charge_fr_king",
+  "comment": "Король бросается за братом в город — и гибнет вместе с ним",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_artois_charge_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "robert_artois_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis9_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "fariskur_fr_sig",
+  "comment": "Больное войско отступает к Дамьетте — король попадает в плен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fariskur_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "turanshah_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis9_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_fr"
+   }
+  ]
+ },
+ {
+  "id": "damietta_hold_fr_sig",
+  "comment": "Через три дня после родов королева уговаривает пизанцев и генуэзцев не бросать город",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_damietta_hold_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "marguerite_provence_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "holds_fr"
+   }
+  ]
+ },
+ {
+  "id": "ransom_fr_sig",
+  "comment": "Дамьетта — цена жизни короля: город возвращён, выкуп обещан, король свободен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ransom_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "turanshah_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis9_fr"
+     ],
+     "flags": [
+      "captive_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "marguerite_provence_fr"
+     ],
+     "flags": [
+      "holds_fr"
+     ],
+     "notFlags": [
+      "away"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "ransomed_fr"
+   }
+  ]
+ },
+ {
+  "id": "beauvaisis_fr_sig",
+  "comment": "Крестьяне, у которых отнимают последнее, выбирают вожака — Гильома Каля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_beauvaisis_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "guillaume_cale_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "leader_fr"
+   }
+  ]
+ },
+ {
+  "id": "nobles_call_fr_sig",
+  "comment": "Дворяне Бовези зовут Карла Наваррского — и он, ища их поддержки, ведёт рыцарей на восставших",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_nobles_call_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_navarre_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "noble_cause_fr"
+   }
+  ]
+ },
+ {
+  "id": "hostages_fr_sig",
+  "comment": "Каль требует заложников — без них к королю Наварры не пойдёт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hostages_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "guillaume_cale_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_navarre_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "wary_fr"
+   }
+  ]
+ },
+ {
+  "id": "mello_truce_fr_sig",
+  "comment": "Каль приходит на переговоры под честное слово — его хватают, а войско без вожака изрублено",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mello_truce_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_navarre_fr"
+     ],
+     "flags": [
+      "noble_cause_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "guillaume_cale_fr"
+     ],
+     "flags": [
+      "leader_fr"
+     ],
+     "notFlags": [
+      "wary_fr",
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_fr"
+   }
+  ]
+ },
+ {
+  "id": "artillery_park_fr_sig",
+  "comment": "Мастер артиллерии окружает лагерь рвом и валом и ставит за ним сотни пушек",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_artillery_park_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "jean_bureau_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fortified_fr"
+   }
+  ]
+ },
+ {
+  "id": "dust_news_fr_sig",
+  "comment": "Гонец видит облако пыли над французским лагерем: «Они бегут!» — и старый полководец спешит в атаку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dust_news_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "castillon_scout_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "talbot_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rash_fr"
+   }
+  ]
+ },
+ {
+  "id": "wait_infantry_fr_sig",
+  "comment": "Толбот ждёт свою пехоту — атаки сегодня не будет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_infantry_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "talbot_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "cautious_fr"
+   }
+  ]
+ },
+ {
+  "id": "park_assault_fr_sig",
+  "comment": "Англичане идут на вал — пушки бьют в упор, Толбот убит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_park_assault_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "talbot_fr"
+     ],
+     "flags": [
+      "rash_fr"
+     ],
+     "notFlags": [
+      "cautious_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "jean_bureau_fr"
+     ],
+     "flags": [
+      "fortified_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "victor_fr"
+   }
+  ]
+ },
+ {
+  "id": "latin_verdicts_fr_sig",
+  "comment": "Канцлер слышит жалобы: приговоры на латыни, и тяжущиеся не понимают, за что их осудили",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_latin_verdicts_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "poyet_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "drafter_fr"
+   }
+  ]
+ },
+ {
+  "id": "cotterets_fr_sig",
+  "comment": "Король подписывает ордонанс: суды и акты — «на родном французском языке и никак иначе»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cotterets_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "french",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "poyet_fr"
+     ],
+     "flags": [
+      "drafter_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "french_law_fr"
+   }
+  ]
+ },
+ {
+  "id": "parish_book_fr_sig",
+  "comment": "Каждый кюре отныне записывает крещения с датой — так начинается французская запись актов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_parish_book_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "french",
+      "king"
+     ],
+     "flags": [
+      "french_law_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cure_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "registers_fr"
+   }
+  ]
+ },
+ {
+  "id": "one_tongue_fr_sig",
+  "comment": "Король запрещает говорить на бретонском и окситанском — такого ордонанса никогда не было",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_one_tongue_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "french",
+      "king"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ban_fr"
+   }
+  ]
+ },
+ {
+  "id": "january_edict_fr_sig",
+  "comment": "Регентша разрешает реформатам молиться — но только за городскими стенами",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_january_edict_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matron_r"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wassy_flock_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "tolerated_fr"
+   }
+  ]
+ },
+ {
+  "id": "wassy_barn_fr_sig",
+  "comment": "Свита герцога натыкается на гугенотов, молящихся в амбаре внутри города, — десятки убиты",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wassy_barn_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "league_l"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "wassy_flock_fr"
+     ],
+     "flags": [
+      "tolerated_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "wassy_fr"
+   }
+  ]
+ },
+ {
+  "id": "wassy_barn_fr_coligny",
+  "comment": "Герцог и адмирал сталкиваются лицом к лицу — Колиньи убит на десять лет раньше",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wassy_barn_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "league_l"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "admiral",
+      "huguenot"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "orleans_muster_fr_sig",
+  "comment": "Конде занимает Орлеан и зовёт протестантов к оружию — начинается первая религиозная война",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_orleans_muster_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis_conde_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "league_l"
+     ],
+     "flags": [
+      "wassy_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "war_fr"
+   }
+  ]
+ },
+ {
+  "id": "mercoeur_submit_fr_sig",
+  "comment": "Последний вождь Католической лиги покоряется — Бретань снова королевская",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mercoeur_submit_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "huguenot",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mercoeur_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "peace_fr"
+   }
+  ]
+ },
+ {
+  "id": "nantes_signing_fr_sig",
+  "comment": "Свобода совести, богослужение в оговорённых местах, крепости-убежища — мир без доверия",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_nantes_signing_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "huguenot",
+      "king"
+     ],
+     "flags": [
+      "peace_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "duplessis_mornay_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "edict_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "edict_fr"
+   }
+  ]
+ },
+ {
+  "id": "full_equality_fr_sig",
+  "comment": "Король обещает гугенотам служить где угодно и где угодно — католики в ярости",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_full_equality_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "huguenot",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "duplessis_mornay_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "overreach_fr"
+   }
+  ]
+ },
+ {
+  "id": "parlement_fr_sig",
+  "comment": "«Я король и говорю как король» — парламент регистрирует эдикт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_parlement_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "huguenot",
+      "king"
+     ],
+     "flags": [
+      "edict_fr"
+     ],
+     "notFlags": [
+      "overreach_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "harlay_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "registered_fr"
+   }
+  ]
+ },
+ {
+  "id": "parlement_fr_defiant",
+  "comment": "Парламент отказывается регистрировать то, что считает унижением католической веры",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_parlement_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "huguenot",
+      "king"
+     ],
+     "flags": [
+      "overreach_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "harlay_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defiant_fr"
+   }
+  ]
+ },
+ {
+  "id": "kings_death_fr_sig",
+  "comment": "Людовик XIII умер пять дней назад — герцог Энгиенский прячет депешу от армии и решает драться, пока Бек не подошёл",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kings_death_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prince_f"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "resolved_fr"
+   }
+  ]
+ },
+ {
+  "id": "old_marshal_fr_sig",
+  "comment": "Маршал Л'Опиталь уговаривает двадцатилетнего командующего не рисковать армией нового короля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_old_marshal_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lhopital_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prince_f"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "cautious_fr"
+   }
+  ]
+ },
+ {
+  "id": "wait_beck_fr_sig",
+  "comment": "Испанский командующий ждёт корпус генерала Бека — и получает ещё шесть тысяч солдат",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_beck_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "francisco_melo"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reinforced_fr"
+   }
+  ]
+ },
+ {
+  "id": "cavalry_wing_fr_sig",
+  "comment": "На рассвете 19 мая французская конница опрокидывает левое крыло испанцев",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cavalry_wing_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prince_f"
+     ],
+     "flags": [
+      "resolved_fr"
+     ],
+     "notFlags": [
+      "cautious_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "francisco_melo"
+     ],
+     "notFlags": [
+      "reinforced_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "wing_broken_fr"
+   }
+  ]
+ },
+ {
+  "id": "tercio_square_fr_sig",
+  "comment": "Без конницы испанская пехота стоит в каре под пушками — после нескольких атак остатки терций сдаются",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tercio_square_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "prince_f"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "francisco_melo"
+     ],
+     "flags": [
+      "wing_broken_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "surrendered_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_fr"
+   }
+  ]
+ },
+ {
+  "id": "regency_fr_sig",
+  "comment": "Парламент отдаёт регентство королеве, а она — власть кардиналу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_regency_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "anne_austria"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "minister_f"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "regent_minister_fr"
+   }
+  ]
+ },
+ {
+  "id": "dragonnade_fr_sig",
+  "comment": "Драгун селят в протестантские дома, пока хозяева не «обратятся» — интенданты шлют в Версаль списки тысяч новообращённых",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dragonnade_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louvois"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "huguenot_family"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "converted_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "lists_fr"
+   }
+  ]
+ },
+ {
+  "id": "fontainebleau_fr_sig",
+  "comment": "Король верит спискам: раз протестантов почти не осталось, Нантский эдикт не нужен — храмы снести, пасторам выехать за 15 дней",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fontainebleau_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "king",
+      "french"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louvois"
+     ],
+     "flags": [
+      "lists_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "claude_brousson"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "revoked_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "outlawed_fr"
+   }
+  ]
+ },
+ {
+  "id": "abjure_fr_sig",
+  "comment": "Пастор отрекается от веры — и уже не поведёт свою паству",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_abjure_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "claude_brousson"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abjured_fr"
+   }
+  ]
+ },
+ {
+  "id": "desert_exodus_fr_sig",
+  "comment": "Пастор Пустыни тайно проповедует и выводит семьи в Женеву и Голландию — уезжать мирянам запрещено, за это галеры",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_desert_exodus_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "claude_brousson"
+     ],
+     "flags": [
+      "outlawed_fr"
+     ],
+     "notFlags": [
+      "abjured_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "huguenot_family"
+     ],
+     "flags": [
+      "converted_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "refugees_fr"
+   }
+  ]
+ },
+ {
+  "id": "code_noir_fr_sig",
+  "comment": "В марте того же года король подписывает кодекс для рабов на островах — рабство получает свой закон",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_code_noir_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "king",
+      "french"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "code_noir_fr"
+   }
+  ]
+ },
+ {
+  "id": "preface_fr_sig",
+  "comment": "Д'Аламбер пишет «Предварительное рассуждение» — древо всех знаний, где богословие лишь одна из ветвей",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_preface_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dalembert"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "philosophe"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "volume_fr"
+   }
+  ]
+ },
+ {
+  "id": "hide_papers_fr_sig",
+  "comment": "Сам главный цензор предупреждает об обыске и прячет рукописи у себя дома",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hide_papers_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "malesherbes"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "philosophe"
+     ],
+     "flags": [
+      "volume_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "papers_safe_fr"
+   }
+  ]
+ },
+ {
+  "id": "quit_project_fr_sig",
+  "comment": "Дидро бросает работу — тома так и остаются в рукописях",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_quit_project_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "philosophe"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "quit_fr"
+   }
+  ]
+ },
+ {
+  "id": "quit_project_fr_dal",
+  "comment": "Д'Аламбер устал от травли и уходит — но Дидро продолжает один",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_quit_project_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dalembert"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "left_fr"
+   }
+  ]
+ },
+ {
+  "id": "proofs_fr_sig",
+  "comment": "Издатель тайком вырезает из гранок самые смелые места",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_proofs_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "le_breton"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "censored_fr"
+   }
+  ]
+ },
+ {
+  "id": "secret_volumes_fr_sig",
+  "comment": "Под чужим адресом, без королевской привилегии, выходят последние десять томов текста",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_secret_volumes_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "philosophe"
+     ],
+     "flags": [
+      "papers_safe_fr"
+     ],
+     "notFlags": [
+      "quit_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "le_breton"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "encyclopedie_fr"
+   }
+  ]
+ },
+ {
+  "id": "sugar_or_snow_fr_sig",
+  "comment": "Шуазёль выбирает Гваделупу и Мартинику с их сахаром и рабами — Канаду отдают «несколько арпанов снега»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sugar_or_snow_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "choiseul"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_bute"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "islands_fr"
+   }
+  ]
+ },
+ {
+  "id": "keep_canada_fr_sig",
+  "comment": "Франция торгуется за Канаду — британцы требуют за неё сахарные острова, переговоры встают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_keep_canada_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "choiseul"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_bute"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "deadlock_fr"
+   }
+  ]
+ },
+ {
+  "id": "paris_treaty_fr_sig",
+  "comment": "10 февраля 1763 года подписан мир: Канада и восток Луизианы — британцам, острова — Франции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_paris_treaty_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "choiseul"
+     ],
+     "flags": [
+      "islands_fr"
+     ],
+     "notFlags": [
+      "deadlock_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_bute"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "treaty_fr"
+   }
+  ]
+ },
+ {
+  "id": "louisiana_gift_fr_sig",
+  "comment": "Король тайно уступает союзнице Испании Новый Орлеан и Луизиану к западу от Миссисипи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_louisiana_gift_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis15"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "choiseul"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "louisiana_fr"
+   }
+  ]
+ },
+ {
+  "id": "wait_french_fr_sig",
+  "comment": "Вождь ждёт, что французский король вернётся и снова будет одаривать союзников",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_french_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pontiac"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waiting_fr"
+   }
+  ]
+ },
+ {
+  "id": "pontiac_war_fr_sig",
+  "comment": "Народы Великих озёр, которых никто не спросил, берут британские форты — и Лондону приходится запретить поселенцам идти за горы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pontiac_war_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pontiac"
+     ],
+     "notFlags": [
+      "waiting_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lord_bute"
+     ],
+     "flags": [
+      "treaty_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "resists_fr"
+   }
+  ]
+ },
+ {
+  "id": "draft_rights_fr_sig",
+  "comment": "Лафайет приносит проект «Декларации прав», обсуждённый с американцем Джефферсоном",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_draft_rights_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lafayette"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "mounier"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "draft_fr"
+   }
+  ]
+ },
+ {
+  "id": "vote_articles_fr_sig",
+  "comment": "С 20 по 26 августа Собрание голосует 17 статей: люди рождаются свободными и равными в правах, источник власти — нация",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vote_articles_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sieyes"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lafayette"
+     ],
+     "flags": [
+      "draft_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "declaration_fr"
+   }
+  ]
+ },
+ {
+  "id": "absolute_veto_fr_sig",
+  "comment": "Мунье уговаривает короля: без абсолютного вето монархия погибнет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_absolute_veto_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mounier"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "monarch_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "absolute_veto_fr"
+   }
+  ]
+ },
+ {
+  "id": "troops_fr_sig",
+  "comment": "Король вызывает в Версаль Фландрский полк — банкет офицеров с топтанием трёхцветных кокард злит Париж",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_troops_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "monarch_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "troops_fr"
+   }
+  ]
+ },
+ {
+  "id": "march_versailles_fr_sig",
+  "comment": "5 октября тысячи парижанок идут под дождём в Версаль за хлебом — король соглашается утвердить Декларацию и едет в Париж",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_march_versailles_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "market_women"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "monarch_fr"
+     ],
+     "notFlags": [
+      "absolute_veto_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sanctioned_fr"
+   }
+  ]
+ },
+ {
+  "id": "emancipation_fr_sig",
+  "comment": "Комиссару, у которого нет армии против испанцев и англичан, нужны восставшие — он объявляет их свободными, и Туссен переходит на сторону Республики",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emancipation_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sonthonax"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "toussaint"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "abolition_fr"
+   }
+  ]
+ },
+ {
+  "id": "constitution_1801_fr_sig",
+  "comment": "Туссен пишет свою конституцию и делает себя пожизненным губернатором — Бонапарт в ярости",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_constitution_1801_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "toussaint"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "governor_fr"
+   }
+  ]
+ },
+ {
+  "id": "lay_down_arms_fr_sig",
+  "comment": "Дессалин сдаётся экспедиции и сам ведёт её колонны",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lay_down_arms_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "leclerc_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "dessalines"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "submitted_fr"
+   }
+  ]
+ },
+ {
+  "id": "leclerc_arrest_fr_sig",
+  "comment": "Туссена зовут на переговоры и в кандалах увозят во Францию; на Гваделупе уже восстановили рабство — Дессалин поднимает войну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_leclerc_arrest_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "leclerc_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "toussaint"
+     ],
+     "flags": [
+      "abolition_fr"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "dessalines"
+     ],
+     "notFlags": [
+      "submitted_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "deported_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "revolt_fr"
+   }
+  ]
+ },
+ {
+  "id": "vertieres_fr_sig",
+  "comment": "18 ноября 1803 года армия Дессалина берёт штурмом укрепления Вертьера — Рошамбо капитулирует",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vertieres_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dessalines"
+     ],
+     "flags": [
+      "revolt_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rochambeau_fils"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_fr"
+   }
+  ]
+ },
+ {
+  "id": "gonaives_fr_sig",
+  "comment": "В Гонаиве Дессалин объявляет независимость и возвращает острову имя таино — Гаити",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gonaives_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dessalines"
+     ],
+     "flags": [
+      "victor_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "independence_fr"
+   }
+  ]
+ },
+ {
+  "id": "commission_four_fr_sig",
+  "comment": "За четыре месяца Порталис, Тронше, Биго де Преамене и Мальвиль сводят римское право юга и обычаи севера в один проект",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_commission_four_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "portalis"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tronchet"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "draft_fr"
+   }
+  ]
+ },
+ {
+  "id": "conseil_etat_fr_sig",
+  "comment": "Первый консул сам ведёт больше половины заседаний: собственность священна, все мужчины равны перед законом, жена обязана мужу послушанием",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_conseil_etat_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "portalis"
+     ],
+     "flags": [
+      "draft_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "articles_fr"
+   }
+  ]
+ },
+ {
+  "id": "tribunat_fr_sig",
+  "comment": "Трибуны во главе с Констаном отвергают первые разделы — проект застревает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tribunat_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "benjamin_constant"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rejected_fr"
+   }
+  ]
+ },
+ {
+  "id": "divorce_clause_fr_sig",
+  "comment": "Консул настаивает: развод по взаимному согласию останется в кодексе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_divorce_clause_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "lady_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "divorce_kept_fr"
+   }
+  ]
+ },
+ {
+  "id": "promulgate_fr_sig",
+  "comment": "21 марта 1804 года 36 законов сведены в «Гражданский кодекс французов» — 2281 статья",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_promulgate_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ],
+     "flags": [
+      "articles_fr"
+     ],
+     "notFlags": [
+      "rejected_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cambaceres"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "code_fr"
+   }
+  ]
+ },
+ {
+  "id": "saint_cloud_fr_sig",
+  "comment": "25 июля Полиньяк приносит ордонансы: печать без разрешения запрещена, палата распущена, избирателей вчетверо меньше",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saint_cloud_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles10"
+     ],
+     "notFlags": [
+      "abdicated_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "polignac"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ordinances_fr"
+   }
+  ]
+ },
+ {
+  "id": "abdicate_grandson_fr_sig",
+  "comment": "Король уходит, не дождавшись бури, — ордонансов не будет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_abdicate_grandson_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles10"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abdicated_fr"
+   }
+  ]
+ },
+ {
+  "id": "barricades_1830_fr_sig",
+  "comment": "27–29 июля типографы, студенты и рабочие строят баррикады, войска переходят на сторону толпы — Карл X бежит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_barricades_1830_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "parisians_1830"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles10"
+     ],
+     "flags": [
+      "ordinances_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victory_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_fr"
+   }
+  ]
+ },
+ {
+  "id": "republic_1830_fr_sig",
+  "comment": "Старый генерал поддаётся республиканцам — либералы-банкиры пугаются, Франция расколота",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_republic_1830_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lafayette"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "parisians_1830"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "republic_fr"
+   }
+  ]
+ },
+ {
+  "id": "hotel_ville_fr_sig",
+  "comment": "Лафайет обнимает герцога Орлеанского под трёхцветным знаменем — «лучшая из республик» становится монархией",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hotel_ville_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lafayette"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_philippe"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "parisians_1830"
+     ],
+     "flags": [
+      "victory_fr"
+     ],
+     "notFlags": [
+      "republic_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "king_french_fr"
+   }
+  ]
+ },
+ {
+  "id": "fly_whisk_fr_sig",
+  "comment": "Дей в споре о старом долге бьёт французского консула опахалом от мух — у Франции есть повод",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fly_whisk_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hussein_dey"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pierre_deval"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "insult_fr"
+   }
+  ]
+ },
+ {
+  "id": "prestige_war_fr_sig",
+  "comment": "Непопулярному Карлу X нужна победа перед выборами — флот везёт 37 тысяч солдат",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prestige_war_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles10"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bourmont"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "expedition_fr"
+   }
+  ]
+ },
+ {
+  "id": "sidi_ferruch_fr_sig",
+  "comment": "Высадка у Сиди-Ферруша, бой при Ставели, крепость взорвана — 5 июля дей сдаёт Алжир и уезжает в изгнание",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sidi_ferruch_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bourmont"
+     ],
+     "flags": [
+      "expedition_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hussein_dey"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exiled_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "algiers_taken_fr"
+   }
+  ]
+ },
+ {
+  "id": "emir_oath_fr_sig",
+  "comment": "Племена запада избирают молодого учёного эмиром — начинается пятнадцатилетнее сопротивление",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emir_oath_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "abd_al_qadir"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bourmont"
+     ],
+     "flags": [
+      "algiers_taken_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "emir_fr"
+   }
+  ]
+ },
+ {
+  "id": "scorched_fr_sig",
+  "comment": "Колонны маршала жгут посевы и сады, чтобы лишить эмира опоры, — в 1847 году он сдаётся",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_scorched_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bugeaud"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "abd_al_qadir"
+     ],
+     "flags": [
+      "emir_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "surrendered_fr"
+   }
+  ]
+ },
+ {
+  "id": "banquet_ban_fr_sig",
+  "comment": "Гизо запрещает реформистский банкет 22 февраля — «Обогащайтесь!», а не расширяйте избирательное право",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_banquet_ban_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "guizot"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ledru_rollin"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "protest_fr"
+   }
+  ]
+ },
+ {
+  "id": "capucines_fr_sig",
+  "comment": "Солдаты стреляют в толпу у министерства, погибают десятки людей — за ночь Париж покрывается баррикадами, король отрекается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_capucines_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis_philippe"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ledru_rollin"
+     ],
+     "flags": [
+      "protest_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abdicated_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "barricades_fr"
+   }
+  ]
+ },
+ {
+  "id": "regency_1848_fr_sig",
+  "comment": "Ламартин склоняется к регентству при маленьком графе Парижском — толпа врывается в палату и рвёт планы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_regency_1848_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lamartine"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "duchess_orleans"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "regency_fr"
+   }
+  ]
+ },
+ {
+  "id": "red_flag_fr_sig",
+  "comment": "Радикалы поднимают красный флаг — знамя республики теперь не общее",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_red_flag_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ledru_rollin"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "red_flag_fr"
+   }
+  ]
+ },
+ {
+  "id": "hotel_ville_1848_fr_sig",
+  "comment": "Ламартин с балкона Ратуши провозглашает республику, Ледрю-Роллен объявляет всеобщее мужское голосование",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hotel_ville_1848_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lamartine"
+     ],
+     "notFlags": [
+      "regency_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ledru_rollin"
+     ],
+     "flags": [
+      "barricades_fr"
+     ],
+     "notFlags": [
+      "red_flag_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "republic_fr"
+   }
+  ]
+ },
+ {
+  "id": "immediate_fr_sig",
+  "comment": "Араго подписывает, Шёльшер настаивает: никаких переходных сроков — свобода через два месяца после объявления",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_immediate_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "francois_arago"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "schoelcher"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "decree_fr"
+   }
+  ]
+ },
+ {
+  "id": "gradual_fr_grad",
+  "comment": "Комиссия соглашается на «подготовку» к свободе — ещё десять лет рабства",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gradual_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "francois_arago"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "schoelcher"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "gradual_fr"
+   }
+  ]
+ },
+ {
+  "id": "wait_decree_fr_sig",
+  "comment": "На Мартинике решают ждать, пока декрет доплывёт через океан",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_decree_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "martinique_rebels"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waiting_fr"
+   }
+  ]
+ },
+ {
+  "id": "saint_pierre_fr_sig",
+  "comment": "После ареста раба Ромена тысячи людей поднимаются в Сен-Пьере — губернатор сам объявляет отмену рабства, не дождавшись декрета",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saint_pierre_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "martinique_rebels"
+     ],
+     "notFlags": [
+      "waiting_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "freed_themselves_fr"
+   }
+  ]
+ },
+ {
+  "id": "planters_pay_fr_sig",
+  "comment": "Возмещение получают хозяева — за потерю «собственности»; бывшие рабы не получают ничего",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_planters_pay_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cyrille_bissette"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "francois_arago"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "indemnity_fr"
+   }
+  ]
+ },
+ {
+  "id": "guadeloupe_vote_fr_sig",
+  "comment": "Бывший раб, столяр Луизи Матьё, избран депутатом Национального собрания",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_guadeloupe_vote_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louisy_mathieu"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "schoelcher"
+     ],
+     "flags": [
+      "decree_fr"
+     ],
+     "notFlags": [
+      "gradual_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "deputy_fr"
+   }
+  ]
+ },
+ {
+  "id": "leave_on_time_fr_sig",
+  "comment": "Президент подчиняется конституции и не идёт на второй срок",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_leave_on_time_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis_napoleon"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "steps_down_fr"
+   }
+  ]
+ },
+ {
+  "id": "rubicon_decree_fr_sig",
+  "comment": "Ночью 2 декабря, в годовщину Аустерлица, войска занимают Париж: собрание распущено, всеобщее голосование восстановлено",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rubicon_decree_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis_napoleon"
+     ],
+     "notFlags": [
+      "steps_down_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "morny"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "decree_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "coup_orders_fr"
+   }
+  ]
+ },
+ {
+  "id": "junta_fr_junta",
+  "comment": "Переворот держится на одних штыках — без обращения к народу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_junta_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis_napoleon"
+     ],
+     "notFlags": [
+      "steps_down_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "morny"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "junta_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "coup_orders_fr"
+   }
+  ]
+ },
+ {
+  "id": "saint_antoine_fr_sig",
+  "comment": "Депутат Боден гибнет на баррикаде, Гюго ищет сопротивления — и бежит в изгнание",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saint_antoine_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "morny"
+     ],
+     "flags": [
+      "coup_orders_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "baudin"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "victor_hugo"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fallen_fr"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "exile_fr"
+   }
+  ]
+ },
+ {
+  "id": "plebiscite_1851_fr_sig",
+  "comment": "21 декабря 7,4 миллиона французов голосуют «да» — переворот получает одобрение",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_plebiscite_1851_fr"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "louis_napoleon"
+     ],
+     "flags": [
+      "decree_fr"
+     ],
+     "notFlags": [
+      "junta_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "plebiscite_fr"
+   }
+  ]
  }
 ]

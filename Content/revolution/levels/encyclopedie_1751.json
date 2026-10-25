@@ -1,0 +1,70 @@
+{
+ "id": "encyclopedie_1751",
+ "order": 430,
+ "epoch": "revolution",
+ "act": "Акт VII · Бурбоны: государство, вера, Атлантика",
+ "music": "theme",
+ "cover": "secret_volumes_fr",
+ "panels": 3,
+ "scenes": [
+  "preface_fr",
+  "hide_papers_fr",
+  "secret_volumes_fr",
+  "quit_project_fr",
+  "proofs_fr"
+ ],
+ "characters": [
+  "diderot",
+  "dalembert",
+  "malesherbes",
+  "le_breton"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "diderot",
+     "is": "encyclopedie_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "le_breton",
+      "is": "censored_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "preface_fr",
+   "characters": [
+    "dalembert",
+    "diderot"
+   ]
+  },
+  {
+   "scene": "hide_papers_fr",
+   "characters": [
+    "malesherbes",
+    "diderot"
+   ]
+  },
+  {
+   "scene": "secret_volumes_fr",
+   "characters": [
+    "diderot",
+    "le_breton"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

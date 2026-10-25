@@ -1,0 +1,59 @@
+{
+  "id": "melusine_fr",
+  "name": "Мелюзина",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b9672e",
+      "iris": "#2f8a6a",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#b9672e"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "mermaid",
+      "col": "#2f6a4a",
+      "fin": "#6fb5a8",
+      "top": "#e9e0cc"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#5a4434",
+      "cuff": "#5a4434"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

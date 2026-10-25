@@ -1,0 +1,69 @@
+{
+ "id": "february_1848",
+ "order": 830,
+ "epoch": "revolution",
+ "act": "Акт X · Реставрации, революции и Вторая империя",
+ "music": "theme",
+ "cover": "hotel_ville_1848_fr",
+ "panels": 3,
+ "scenes": [
+  "banquet_ban_fr",
+  "capucines_fr",
+  "hotel_ville_1848_fr",
+  "regency_1848_fr",
+  "red_flag_fr"
+ ],
+ "characters": [
+  "guizot",
+  "louis_philippe",
+  "ledru_rollin",
+  "lamartine",
+  "duchess_orleans"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "lamartine",
+     "is": "republic_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis_philippe",
+     "is": "abdicated_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "banquet_ban_fr",
+   "characters": [
+    "guizot",
+    "ledru_rollin"
+   ]
+  },
+  {
+   "scene": "capucines_fr",
+   "characters": [
+    "louis_philippe",
+    "ledru_rollin"
+   ]
+  },
+  {
+   "scene": "hotel_ville_1848_fr",
+   "characters": [
+    "lamartine",
+    "ledru_rollin"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

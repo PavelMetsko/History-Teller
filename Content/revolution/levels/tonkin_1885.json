@@ -1,0 +1,74 @@
+{
+ "id": "tonkin_1885",
+ "order": 900,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "tension",
+ "cover": "lang_son_fr",
+ "panels": 3,
+ "scenes": [
+  "tonkin_fleet_fr",
+  "lang_son_fr",
+  "can_vuong_fr",
+  "higher_races_fr"
+ ],
+ "characters": [
+  "jules_ferry_fr",
+  "clemenceau_fr",
+  "courbet_fr",
+  "ton_that_thuyet_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jules_ferry_fr",
+     "is": "fallen_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "ton_that_thuyet_fr",
+     "is": "resistance_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "jules_ferry_fr",
+      "is": "praised_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tonkin_fleet_fr",
+   "characters": [
+    "jules_ferry_fr",
+    "courbet_fr"
+   ]
+  },
+  {
+   "scene": "lang_son_fr",
+   "characters": [
+    "clemenceau_fr",
+    "jules_ferry_fr"
+   ]
+  },
+  {
+   "scene": "can_vuong_fr",
+   "characters": [
+    "ton_that_thuyet_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

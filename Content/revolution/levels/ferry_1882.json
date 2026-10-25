@@ -1,0 +1,67 @@
+{
+ "id": "ferry_1882",
+ "order": 890,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "theme",
+ "cover": "laic_school_fr",
+ "panels": 3,
+ "scenes": [
+  "free_school_fr",
+  "laic_school_fr",
+  "girls_lycee_fr",
+  "catechism_fr"
+ ],
+ "characters": [
+  "jules_ferry_fr",
+  "paul_bert_fr",
+  "camille_see_fr",
+  "freppel_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "jules_ferry_fr",
+     "is": "laic_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "camille_see_fr",
+     "is": "girls_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "girls_lycee_fr",
+   "characters": [
+    "camille_see_fr",
+    "jules_ferry_fr"
+   ]
+  },
+  {
+   "scene": "free_school_fr",
+   "characters": [
+    "jules_ferry_fr",
+    "paul_bert_fr"
+   ]
+  },
+  {
+   "scene": "laic_school_fr",
+   "characters": [
+    "jules_ferry_fr",
+    "paul_bert_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

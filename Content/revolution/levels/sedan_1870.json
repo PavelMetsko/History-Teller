@@ -1,0 +1,69 @@
+{
+ "id": "sedan_1870",
+ "order": 870,
+ "epoch": "revolution",
+ "act": "Акт X · Реставрации, революции и Вторая империя",
+ "music": "tension",
+ "cover": "sedan_ring_fr",
+ "panels": 3,
+ "scenes": [
+  "ems_dispatch_fr",
+  "sedan_ring_fr",
+  "breakout_fr",
+  "hotel_de_ville_fr"
+ ],
+ "characters": [
+  "napoleon3",
+  "bismarck_fr",
+  "moltke_elder_fr",
+  "macmahon_fr",
+  "gambetta_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon3",
+     "is": "captured_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "gambetta_fr",
+     "is": "republic_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ems_dispatch_fr",
+   "characters": [
+    "bismarck_fr",
+    "napoleon3"
+   ]
+  },
+  {
+   "scene": "sedan_ring_fr",
+   "characters": [
+    "moltke_elder_fr",
+    "macmahon_fr",
+    "napoleon3"
+   ]
+  },
+  {
+   "scene": "hotel_de_ville_fr",
+   "characters": [
+    "gambetta_fr",
+    "napoleon3"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

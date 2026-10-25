@@ -1,0 +1,74 @@
+{
+ "id": "villers_1539",
+ "order": 310,
+ "epoch": "revolution",
+ "act": "Акт VI · Ренессанс и религиозный раскол",
+ "music": "theme",
+ "cover": "cotterets_fr",
+ "panels": 3,
+ "scenes": [
+  "latin_verdicts_fr",
+  "cotterets_fr",
+  "parish_book_fr",
+  "one_tongue_fr"
+ ],
+ "characters": [
+  "francis1",
+  "poyet_fr",
+  "cure_fr",
+  "marguerite_navarre_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "francis1",
+     "is": "french_law_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "cure_fr",
+     "is": "registers_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "francis1",
+      "is": "ban_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "latin_verdicts_fr",
+   "characters": [
+    "poyet_fr"
+   ]
+  },
+  {
+   "scene": "cotterets_fr",
+   "characters": [
+    "francis1",
+    "poyet_fr"
+   ]
+  },
+  {
+   "scene": "parish_book_fr",
+   "characters": [
+    "francis1",
+    "cure_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

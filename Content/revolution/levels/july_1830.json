@@ -1,0 +1,70 @@
+{
+ "id": "july_1830",
+ "order": 810,
+ "epoch": "revolution",
+ "act": "Акт X · Реставрации, революции и Вторая империя",
+ "music": "tension",
+ "cover": "barricades_1830_fr",
+ "panels": 3,
+ "scenes": [
+  "saint_cloud_fr",
+  "abdicate_grandson_fr",
+  "barricades_1830_fr",
+  "hotel_ville_fr",
+  "republic_1830_fr"
+ ],
+ "characters": [
+  "charles10",
+  "polignac",
+  "parisians_1830",
+  "lafayette",
+  "louis_philippe"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "louis_philippe",
+     "is": "king_french_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles10",
+     "is": "fled_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "saint_cloud_fr",
+   "characters": [
+    "charles10",
+    "polignac"
+   ]
+  },
+  {
+   "scene": "barricades_1830_fr",
+   "characters": [
+    "parisians_1830",
+    "charles10"
+   ]
+  },
+  {
+   "scene": "hotel_ville_fr",
+   "characters": [
+    "lafayette",
+    "louis_philippe",
+    "parisians_1830"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

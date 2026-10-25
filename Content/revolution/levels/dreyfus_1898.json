@@ -1,0 +1,73 @@
+{
+ "id": "dreyfus_1898",
+ "order": 910,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "tension",
+ "cover": "jaccuse_fr",
+ "panels": 3,
+ "scenes": [
+  "bordereau_fr",
+  "petit_bleu_fr",
+  "jaccuse_fr",
+  "army_honour_fr"
+ ],
+ "characters": [
+  "dreyfus_fr",
+  "zola_fr",
+  "picquart_fr",
+  "esterhazy_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "dreyfus_fr",
+     "is": "convicted_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "esterhazy_fr",
+     "is": "exposed_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "zola_fr",
+     "is": "jaccuse_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bordereau_fr",
+   "characters": [
+    "esterhazy_fr",
+    "dreyfus_fr"
+   ]
+  },
+  {
+   "scene": "petit_bleu_fr",
+   "characters": [
+    "picquart_fr",
+    "esterhazy_fr"
+   ]
+  },
+  {
+   "scene": "jaccuse_fr",
+   "characters": [
+    "zola_fr",
+    "picquart_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

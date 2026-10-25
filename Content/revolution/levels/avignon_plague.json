@@ -1,8 +1,8 @@
 {
  "id": "avignon_plague",
- "order": 20,
+ "order": 230,
  "epoch": "revolution",
- "act": "Акт I · Капетинги и Валуа",
+ "act": "Акт V · Валуа и Столетняя война",
  "music": "tension",
  "cover": "braziers_room",
  "panels": 3,

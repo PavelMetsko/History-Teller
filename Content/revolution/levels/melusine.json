@@ -1,0 +1,69 @@
+{
+ "id": "melusine",
+ "order": 20,
+ "epoch": "revolution",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "thirst_spring_fr",
+ "panels": 3,
+ "scenes": [
+  "thirst_spring_fr",
+  "lusignan_build_fr",
+  "lusignan_sons_fr",
+  "forez_rumor_fr",
+  "saturday_door_fr"
+ ],
+ "characters": [
+  "melusine_fr",
+  "raymondin_fr",
+  "forez_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "raymondin_fr",
+     "is": "dynasty_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "raymondin_fr",
+      "is": "broken_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "thirst_spring_fr",
+   "characters": [
+    "melusine_fr",
+    "raymondin_fr"
+   ]
+  },
+  {
+   "scene": "lusignan_build_fr",
+   "characters": [
+    "melusine_fr",
+    "raymondin_fr"
+   ]
+  },
+  {
+   "scene": "lusignan_sons_fr",
+   "characters": [
+    "melusine_fr",
+    "raymondin_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

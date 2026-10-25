@@ -1,0 +1,64 @@
+{
+ "id": "civil_code_1804",
+ "order": 670,
+ "epoch": "revolution",
+ "act": "Акт IX · Консульство и Империя",
+ "music": "theme",
+ "cover": "promulgate_fr",
+ "panels": 3,
+ "scenes": [
+  "commission_four_fr",
+  "conseil_etat_fr",
+  "promulgate_fr",
+  "tribunat_fr",
+  "divorce_clause_fr"
+ ],
+ "characters": [
+  "napoleon",
+  "portalis",
+  "tronchet",
+  "cambaceres",
+  "benjamin_constant",
+  "josephine"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "napoleon",
+     "is": "code_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "commission_four_fr",
+   "characters": [
+    "portalis",
+    "tronchet"
+   ]
+  },
+  {
+   "scene": "conseil_etat_fr",
+   "characters": [
+    "napoleon",
+    "portalis"
+   ]
+  },
+  {
+   "scene": "promulgate_fr",
+   "characters": [
+    "napoleon",
+    "cambaceres"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

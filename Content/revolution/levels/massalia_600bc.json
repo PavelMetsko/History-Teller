@@ -1,0 +1,70 @@
+{
+ "id": "massalia_600bc",
+ "order": 10,
+ "epoch": "revolution",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "cup_feast_fr",
+ "panels": 3,
+ "scenes": [
+  "nann_welcome_fr",
+  "armed_landing_fr",
+  "cup_feast_fr",
+  "lacydon_gift_fr",
+  "coast_raid_fr"
+ ],
+ "characters": [
+  "protis_fr",
+  "gyptis_fr",
+  "nannus_fr",
+  "gaul_suitor_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "protis_fr",
+     "is": "founded_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "gaul_suitor_fr",
+      "is": "chosen_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "nann_welcome_fr",
+   "characters": [
+    "nannus_fr",
+    "protis_fr"
+   ]
+  },
+  {
+   "scene": "cup_feast_fr",
+   "characters": [
+    "gyptis_fr",
+    "protis_fr"
+   ]
+  },
+  {
+   "scene": "lacydon_gift_fr",
+   "characters": [
+    "nannus_fr",
+    "protis_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

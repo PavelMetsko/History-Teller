@@ -1,0 +1,73 @@
+{
+ "id": "capet_987",
+ "order": 140,
+ "epoch": "revolution",
+ "act": "Акт IV · Феодальная Франция и Капетинги",
+ "music": "theme",
+ "cover": "noyon_crown_fr",
+ "panels": 3,
+ "scenes": [
+  "senlis_trial_fr",
+  "blood_claim_fr",
+  "senlis_assembly_fr",
+  "noyon_crown_fr"
+ ],
+ "characters": [
+  "hugh_capet_fr",
+  "adalberon_fr",
+  "charles_lorraine_fr",
+  "gerbert_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "adalberon_fr": [
+    "accused_fr"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hugh_capet_fr",
+     "is": "crowned_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "adalberon_fr",
+      "is": "bound_carolingian_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "senlis_trial_fr",
+   "characters": [
+    "hugh_capet_fr",
+    "adalberon_fr"
+   ]
+  },
+  {
+   "scene": "senlis_assembly_fr",
+   "characters": [
+    "adalberon_fr",
+    "hugh_capet_fr"
+   ]
+  },
+  {
+   "scene": "noyon_crown_fr",
+   "characters": [
+    "adalberon_fr",
+    "hugh_capet_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

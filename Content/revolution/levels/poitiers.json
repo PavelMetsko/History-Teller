@@ -1,8 +1,8 @@
 {
  "id": "poitiers",
- "order": 22,
+ "order": 240,
  "epoch": "revolution",
- "act": "Акт I · Капетинги и Валуа",
+ "act": "Акт V · Валуа и Столетняя война",
  "music": "tension",
  "cover": "poitiers_field",
  "panels": 3,

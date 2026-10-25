@@ -1,8 +1,8 @@
 {
  "id": "marat",
- "order": 240,
+ "order": 560,
  "epoch": "revolution",
- "act": "Акт III · Революция",
+ "act": "Акт VIII · Революция",
  "panels": 2,
  "scenes": [
   "guillotine",

@@ -1,0 +1,59 @@
+{
+  "id": "legatus_lyon_fr",
+  "name": "Наместник Лугдунской Галлии",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8262e"
+    },
+    "held": {
+      "type": "scroll",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "legion_tunic",
+      "col": "#5a2a6b",
+      "belt": "#6b4426",
+      "button": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "bare"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "sandals",
+      "strap": "#8a5a2a"
+    }
+  }
+}

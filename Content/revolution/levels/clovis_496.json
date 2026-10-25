@@ -1,0 +1,66 @@
+{
+ "id": "clovis_496",
+ "order": 80,
+ "epoch": "revolution",
+ "act": "Акт III · Франки и Каролинги",
+ "music": "theme",
+ "cover": "reims_font_fr",
+ "panels": 3,
+ "scenes": [
+  "clotilde_plea_fr",
+  "arian_font_fr",
+  "reims_font_fr",
+  "vouille_fr",
+  "pagan_march_fr"
+ ],
+ "characters": [
+  "clovis_fr",
+  "clotilde_fr",
+  "remigius_fr",
+  "alaric2_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "alaric2_fr": [
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "clovis_fr",
+     "is": "aquitaine_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "clotilde_plea_fr",
+   "characters": [
+    "clotilde_fr",
+    "clovis_fr"
+   ]
+  },
+  {
+   "scene": "reims_font_fr",
+   "characters": [
+    "remigius_fr",
+    "clovis_fr"
+   ]
+  },
+  {
+   "scene": "vouille_fr",
+   "characters": [
+    "clovis_fr",
+    "alaric2_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

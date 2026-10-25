@@ -1,0 +1,78 @@
+{
+ "id": "algeria_1830",
+ "order": 820,
+ "epoch": "revolution",
+ "act": "Акт X · Реставрации, революции и Вторая империя",
+ "music": "tension",
+ "cover": "sidi_ferruch_fr",
+ "panels": 3,
+ "scenes": [
+  "fly_whisk_fr",
+  "prestige_war_fr",
+  "sidi_ferruch_fr",
+  "emir_oath_fr",
+  "scorched_fr"
+ ],
+ "characters": [
+  "charles10",
+  "bourmont",
+  "hussein_dey",
+  "pierre_deval",
+  "abd_al_qadir",
+  "bugeaud"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "hussein_dey",
+     "is": "exiled_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "abd_al_qadir",
+     "is": "emir_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "abd_al_qadir",
+      "is": "surrendered_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prestige_war_fr",
+   "characters": [
+    "charles10",
+    "bourmont"
+   ]
+  },
+  {
+   "scene": "sidi_ferruch_fr",
+   "characters": [
+    "bourmont",
+    "hussein_dey"
+   ]
+  },
+  {
+   "scene": "emir_oath_fr",
+   "characters": [
+    "abd_al_qadir",
+    "bourmont"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

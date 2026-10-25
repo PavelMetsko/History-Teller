@@ -1,0 +1,73 @@
+{
+ "id": "syagrius_486",
+ "order": 70,
+ "epoch": "revolution",
+ "act": "Акт III · Франки и Каролинги",
+ "music": "tension",
+ "cover": "soissons_battle_fr",
+ "panels": 3,
+ "scenes": [
+  "soissons_battle_fr",
+  "toulouse_refuge_fr",
+  "extradition_fr",
+  "remigius_letter_fr",
+  "share_gaul_fr"
+ ],
+ "characters": [
+  "clovis_fr",
+  "syagrius_fr",
+  "alaric2_fr",
+  "remigius_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "clovis_fr": [
+    "standing"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "clovis_fr",
+     "is": "master_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "syagrius_fr",
+     "is": "extradited_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "soissons_battle_fr",
+   "characters": [
+    "clovis_fr",
+    "syagrius_fr"
+   ]
+  },
+  {
+   "scene": "toulouse_refuge_fr",
+   "characters": [
+    "syagrius_fr",
+    "alaric2_fr"
+   ]
+  },
+  {
+   "scene": "extradition_fr",
+   "characters": [
+    "clovis_fr",
+    "alaric2_fr",
+    "syagrius_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

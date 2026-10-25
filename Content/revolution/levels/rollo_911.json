@@ -1,0 +1,75 @@
+{
+ "id": "rollo_911",
+ "order": 130,
+ "epoch": "revolution",
+ "act": "Акт IV · Феодальная Франция и Капетинги",
+ "music": "tension",
+ "cover": "epte_treaty_fr",
+ "panels": 3,
+ "scenes": [
+  "chartres_walls_fr",
+  "seine_raid_fr",
+  "franco_mission_fr",
+  "epte_treaty_fr"
+ ],
+ "characters": [
+  "rollo_fr",
+  "charles_simple_fr",
+  "franco_rouen_fr",
+  "robert_neustria_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "rollo_fr",
+     "is": "duke_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles_simple_fr",
+     "is": "seine_safe_fr"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "rollo_fr",
+      "is": "raider_fr"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "chartres_walls_fr",
+   "characters": [
+    "robert_neustria_fr",
+    "rollo_fr"
+   ]
+  },
+  {
+   "scene": "franco_mission_fr",
+   "characters": [
+    "franco_rouen_fr",
+    "rollo_fr"
+   ]
+  },
+  {
+   "scene": "epte_treaty_fr",
+   "characters": [
+    "charles_simple_fr",
+    "rollo_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

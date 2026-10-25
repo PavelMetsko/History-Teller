@@ -1,8 +1,8 @@
 {
  "id": "paris_mass",
- "order": 36,
+ "order": 360,
  "epoch": "revolution",
- "act": "Акт II · Религиозные войны и Бурбоны",
+ "act": "Акт VI · Ренессанс и религиозный раскол",
  "music": "theme",
  "cover": "saint_denis_mass",
  "panels": 3,

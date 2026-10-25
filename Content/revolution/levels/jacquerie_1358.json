@@ -1,0 +1,80 @@
+{
+ "id": "jacquerie_1358",
+ "order": 250,
+ "epoch": "revolution",
+ "act": "Акт V · Валуа и Столетняя война",
+ "music": "tension",
+ "cover": "mello_truce_fr",
+ "panels": 3,
+ "scenes": [
+  "beauvaisis_fr",
+  "nobles_call_fr",
+  "hostages_fr",
+  "mello_truce_fr",
+  "mello_field_fr"
+ ],
+ "characters": [
+  "guillaume_cale_fr",
+  "charles_navarre_fr",
+  "etienne_marcel_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "charles_navarre_fr": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "guillaume_cale_fr",
+    "charles_navarre_fr"
+   ],
+   [
+    "enemy_of",
+    "charles_navarre_fr",
+    "guillaume_cale_fr"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "guillaume_cale_fr",
+     "is": "captured_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles_navarre_fr",
+     "is": "noble_cause_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "beauvaisis_fr",
+   "characters": [
+    "guillaume_cale_fr"
+   ]
+  },
+  {
+   "scene": "nobles_call_fr",
+   "characters": [
+    "charles_navarre_fr"
+   ]
+  },
+  {
+   "scene": "mello_truce_fr",
+   "characters": [
+    "charles_navarre_fr",
+    "guillaume_cale_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

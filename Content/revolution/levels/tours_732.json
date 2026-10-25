@@ -1,0 +1,65 @@
+{
+ "id": "tours_732",
+ "order": 90,
+ "epoch": "revolution",
+ "act": "Акт III · Франки и Каролинги",
+ "music": "tension",
+ "cover": "shield_wall_fr",
+ "panels": 3,
+ "scenes": [
+  "garonne_fr",
+  "munuza_pact_fr",
+  "eudes_plea_fr",
+  "shield_wall_fr",
+  "cavalry_field_fr"
+ ],
+ "characters": [
+  "charles_martel_fr",
+  "abd_rahman_fr",
+  "eudes_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "abd_rahman_fr": [
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles_martel_fr",
+     "is": "hammer_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "garonne_fr",
+   "characters": [
+    "abd_rahman_fr",
+    "eudes_fr"
+   ]
+  },
+  {
+   "scene": "eudes_plea_fr",
+   "characters": [
+    "eudes_fr",
+    "charles_martel_fr"
+   ]
+  },
+  {
+   "scene": "shield_wall_fr",
+   "characters": [
+    "charles_martel_fr",
+    "abd_rahman_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

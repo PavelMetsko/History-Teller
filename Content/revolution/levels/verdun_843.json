@@ -1,0 +1,74 @@
+{
+ "id": "verdun_843",
+ "order": 120,
+ "epoch": "revolution",
+ "act": "Акт III · Франки и Каролинги",
+ "music": "tension",
+ "cover": "verdun_treaty_fr",
+ "panels": 3,
+ "scenes": [
+  "fontenoy_fr",
+  "submit_lothair_fr",
+  "strasbourg_oaths_fr",
+  "verdun_treaty_fr",
+  "finish_lothair_fr"
+ ],
+ "characters": [
+  "lothair_fr",
+  "louis_german_fr",
+  "charles_bald_fr",
+  "nithard_fr"
+ ],
+ "initialState": {
+  "flags": {
+   "lothair_fr": [
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles_bald_fr",
+     "is": "west_francia_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis_german_fr",
+     "is": "east_francia_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fontenoy_fr",
+   "characters": [
+    "charles_bald_fr",
+    "louis_german_fr",
+    "lothair_fr"
+   ]
+  },
+  {
+   "scene": "strasbourg_oaths_fr",
+   "characters": [
+    "charles_bald_fr",
+    "louis_german_fr"
+   ]
+  },
+  {
+   "scene": "verdun_treaty_fr",
+   "characters": [
+    "charles_bald_fr",
+    "louis_german_fr",
+    "lothair_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

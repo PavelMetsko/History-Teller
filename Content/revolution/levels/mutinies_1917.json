@@ -1,0 +1,68 @@
+{
+ "id": "mutinies_1917",
+ "order": 950,
+ "epoch": "revolution",
+ "act": "Акт XI · Третья республика и Великая война",
+ "music": "tension",
+ "cover": "chemin_des_dames_fr",
+ "panels": 3,
+ "scenes": [
+  "chemin_des_dames_fr",
+  "change_command_fr",
+  "reforms_fr",
+  "decimate_fr"
+ ],
+ "characters": [
+  "nivelle_fr",
+  "petain_fr",
+  "painleve_fr",
+  "poilus_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "poilus_fr",
+     "is": "calmed_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "nivelle_fr",
+     "is": "dismissed_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "chemin_des_dames_fr",
+   "characters": [
+    "nivelle_fr",
+    "poilus_fr"
+   ]
+  },
+  {
+   "scene": "change_command_fr",
+   "characters": [
+    "painleve_fr",
+    "nivelle_fr",
+    "petain_fr"
+   ]
+  },
+  {
+   "scene": "reforms_fr",
+   "characters": [
+    "petain_fr",
+    "poilus_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

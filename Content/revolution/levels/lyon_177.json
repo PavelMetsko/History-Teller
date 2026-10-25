@@ -1,0 +1,63 @@
+{
+ "id": "lyon_177",
+ "order": 60,
+ "epoch": "revolution",
+ "act": "Акт II · Галлия и римское наследие",
+ "music": "tension",
+ "cover": "lyon_forum_fr",
+ "panels": 3,
+ "scenes": [
+  "lyon_forum_fr",
+  "lyon_denial_fr",
+  "lyon_prison_fr",
+  "lyon_rescript_fr",
+  "lyon_letter_fr"
+ ],
+ "characters": [
+  "blandina_fr",
+  "pothinus_fr",
+  "irenaeus_fr",
+  "legatus_lyon_fr",
+  "marcus"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "irenaeus_fr",
+     "is": "letter_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "lyon_forum_fr",
+   "characters": [
+    "blandina_fr",
+    "legatus_lyon_fr"
+   ]
+  },
+  {
+   "scene": "lyon_prison_fr",
+   "characters": [
+    "pothinus_fr",
+    "irenaeus_fr"
+   ]
+  },
+  {
+   "scene": "lyon_letter_fr",
+   "characters": [
+    "irenaeus_fr",
+    "blandina_fr"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

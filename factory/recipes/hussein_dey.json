@@ -1,0 +1,61 @@
+{
+  "id": "hussein_dey",
+  "name": "Хусейн-дей",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "none"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "turban",
+      "col": "#f4f1ea",
+      "jewel": "#a8312f"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "flag",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#2f6a4a",
+      "rope": "#d8ad3c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f6a4a",
+      "cuff": "#2f6a4a"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

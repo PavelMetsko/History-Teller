@@ -1,0 +1,69 @@
+{
+ "id": "rights_1789",
+ "order": 500,
+ "epoch": "revolution",
+ "act": "Акт VIII · Революция",
+ "music": "theme",
+ "cover": "vote_articles_fr",
+ "panels": 3,
+ "scenes": [
+  "draft_rights_fr",
+  "vote_articles_fr",
+  "absolute_veto_fr",
+  "march_versailles_fr",
+  "troops_fr"
+ ],
+ "characters": [
+  "lafayette",
+  "sieyes",
+  "mounier",
+  "market_women",
+  "louis"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "sieyes",
+     "is": "declaration_fr"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis",
+     "is": "sanctioned_fr"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "draft_rights_fr",
+   "characters": [
+    "lafayette",
+    "mounier"
+   ]
+  },
+  {
+   "scene": "vote_articles_fr",
+   "characters": [
+    "sieyes",
+    "lafayette"
+   ]
+  },
+  {
+   "scene": "march_versailles_fr",
+   "characters": [
+    "market_women",
+    "louis"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}
