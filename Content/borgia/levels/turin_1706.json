@@ -1,0 +1,69 @@
+{
+ "id": "turin_1706",
+ "order": 650,
+ "epoch": "borgia",
+ "act": "Акт IX · Савойя, Бурбоны и Просвещение",
+ "music": "tension",
+ "cover": "relief_battle_it",
+ "panels": 3,
+ "scenes": [
+  "switch_sides_it",
+  "stay_french_it",
+  "honourable_surrender_it",
+  "mine_gallery_it",
+  "relief_battle_it"
+ ],
+ "characters": [
+  "victor_amadeus_it",
+  "eugene_savoy_it",
+  "feuillade_it",
+  "micca_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "feuillade_it",
+     "is": "defeated_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "micca_it",
+     "is": "hero_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "switch_sides_it",
+   "characters": [
+    "victor_amadeus_it",
+    "eugene_savoy_it"
+   ]
+  },
+  {
+   "scene": "mine_gallery_it",
+   "characters": [
+    "micca_it",
+    "feuillade_it"
+   ]
+  },
+  {
+   "scene": "relief_battle_it",
+   "characters": [
+    "eugene_savoy_it",
+    "victor_amadeus_it",
+    "feuillade_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

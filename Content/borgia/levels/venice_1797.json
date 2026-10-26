@@ -1,0 +1,67 @@
+{
+ "id": "venice_1797",
+ "order": 700,
+ "epoch": "borgia",
+ "act": "Акт X · Революции, Наполеон и Реставрация",
+ "music": "tension",
+ "cover": "last_council_it",
+ "panels": 3,
+ "scenes": [
+  "ultimatum_it",
+  "last_council_it",
+  "campo_formio_it",
+  "pesaro_resist_it"
+ ],
+ "characters": [
+  "manin_it",
+  "napoleon",
+  "pesaro_it",
+  "cobenzl_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "manin_it",
+     "is": "abdicated_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "cobenzl_it",
+     "is": "venice_austrian_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ultimatum_it",
+   "characters": [
+    "napoleon",
+    "manin_it"
+   ]
+  },
+  {
+   "scene": "last_council_it",
+   "characters": [
+    "manin_it",
+    "napoleon"
+   ]
+  },
+  {
+   "scene": "campo_formio_it",
+   "characters": [
+    "napoleon",
+    "cobenzl_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

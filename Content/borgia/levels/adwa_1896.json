@@ -1,0 +1,76 @@
+{
+ "id": "adwa_1896",
+ "order": 890,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "tension",
+ "cover": "adwa_battle_it",
+ "panels": 4,
+ "scenes": [
+  "wuchale_it",
+  "italian_text_it",
+  "article17_it",
+  "phthisis_it",
+  "entrench_it",
+  "adwa_battle_it"
+ ],
+ "characters": [
+  "crispi_it",
+  "baratieri_it",
+  "menelik_it",
+  "taytu_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "menelik_it",
+     "is": "victor_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "baratieri_it",
+     "is": "defeated_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "wuchale_it",
+   "characters": [
+    "menelik_it",
+    "crispi_it"
+   ]
+  },
+  {
+   "scene": "article17_it",
+   "characters": [
+    "taytu_it",
+    "menelik_it"
+   ]
+  },
+  {
+   "scene": "phthisis_it",
+   "characters": [
+    "crispi_it",
+    "baratieri_it"
+   ]
+  },
+  {
+   "scene": "adwa_battle_it",
+   "characters": [
+    "baratieri_it",
+    "menelik_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

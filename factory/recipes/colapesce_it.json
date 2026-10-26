@@ -1,0 +1,56 @@
+{
+  "id": "colapesce_it",
+  "name": "Кола-Рыба",
+  "skin": "#e8b290",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "curly",
+      "col": "#2a1a12"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "none"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "mermaid",
+      "col": "#3f8a8a",
+      "fin": "#6fb5a8",
+      "top": "#e9e0cc"
+    },
+    "sleeves": {
+      "type": "bare"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

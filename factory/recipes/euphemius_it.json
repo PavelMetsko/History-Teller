@@ -1,0 +1,62 @@
+{
+  "id": "euphemius_it",
+  "name": "Турмарх Евфимий",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "helmet",
+      "col": "#b9bfc6",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#2f4a7a",
+      "gold": "#d8ad3c",
+      "mantle": "#a8262e"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#2f4a7a"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

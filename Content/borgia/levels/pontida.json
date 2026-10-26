@@ -1,0 +1,69 @@
+{
+ "id": "pontida",
+ "order": 30,
+ "epoch": "borgia",
+ "act": "Акт I · Легенды",
+ "music": "tension",
+ "cover": "oath_pontida_it",
+ "panels": 3,
+ "scenes": [
+  "exiles_plea_it",
+  "cremona_revenge_it",
+  "oath_pontida_it",
+  "company_death_it",
+  "imperial_oath_it"
+ ],
+ "characters": [
+  "alberto_it",
+  "milan_exiles_it",
+  "cremona_it",
+  "pontida_abbot_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "cremona_it",
+     "is": "league_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "alberto_it",
+     "is": "company_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "exiles_plea_it",
+   "characters": [
+    "milan_exiles_it",
+    "cremona_it"
+   ]
+  },
+  {
+   "scene": "oath_pontida_it",
+   "characters": [
+    "pontida_abbot_it",
+    "cremona_it",
+    "milan_exiles_it"
+   ]
+  },
+  {
+   "scene": "company_death_it",
+   "characters": [
+    "alberto_it",
+    "milan_exiles_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

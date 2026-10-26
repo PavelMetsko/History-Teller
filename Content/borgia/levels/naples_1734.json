@@ -1,0 +1,62 @@
+{
+ "id": "naples_1734",
+ "order": 670,
+ "epoch": "borgia",
+ "act": "Акт IX · Савойя, Бурбоны и Просвещение",
+ "music": "theme",
+ "cover": "naples_entry_1734_it",
+ "panels": 3,
+ "scenes": [
+  "mother_plan_it",
+  "bitonto_it",
+  "naples_entry_1734_it",
+  "parma_stay_it",
+  "trade_naples_it"
+ ],
+ "characters": [
+  "charles_bourbon_it",
+  "elisabetta_farnese_it",
+  "montemar_it",
+  "charles6_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles_bourbon_it",
+     "is": "king_naples_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mother_plan_it",
+   "characters": [
+    "elisabetta_farnese_it",
+    "charles_bourbon_it"
+   ]
+  },
+  {
+   "scene": "bitonto_it",
+   "characters": [
+    "montemar_it",
+    "charles6_it"
+   ]
+  },
+  {
+   "scene": "naples_entry_1734_it",
+   "characters": [
+    "charles_bourbon_it",
+    "charles6_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,8 +1,8 @@
 {
  "id": "downfall",
- "order": 130,
+ "order": 490,
  "epoch": "borgia",
- "act": "Акт IV · Государь",
+ "act": "Акт VI · Борджиа и Итальянские войны",
  "panels": 2,
  "scenes": [
   "arrest_d",

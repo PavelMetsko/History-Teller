@@ -1,8 +1,8 @@
 {
  "id": "julius",
- "order": 120,
+ "order": 480,
  "epoch": "borgia",
- "act": "Акт IV · Государь",
+ "act": "Акт VI · Борджиа и Итальянские войны",
  "panels": 2,
  "scenes": [
   "faction_j",

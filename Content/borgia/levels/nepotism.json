@@ -1,8 +1,8 @@
 {
  "id": "nepotism",
- "order": 20,
+ "order": 350,
  "epoch": "borgia",
- "act": "Акт II · Восхождение Борджиа",
+ "act": "Акт VI · Борджиа и Итальянские войны",
  "panels": 2,
  "scenes": [
   "curia",

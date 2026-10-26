@@ -1,0 +1,79 @@
+{
+ "id": "roman_republic_1849",
+ "order": 780,
+ "epoch": "borgia",
+ "act": "Акт XI · Рисорджименто",
+ "music": "tension",
+ "cover": "janiculum_it",
+ "panels": 4,
+ "scenes": [
+  "gaeta_flight_it",
+  "triumvirate_it",
+  "pope_appeal_it",
+  "janiculum_it",
+  "lay_down_it"
+ ],
+ "characters": [
+  "mazzini_it",
+  "garibaldi",
+  "pius9",
+  "louis_napoleon"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mazzini_it",
+     "is": "triumvir_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "garibaldi",
+     "is": "defended_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "louis_napoleon",
+     "is": "rome_taken_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "gaeta_flight_it",
+   "characters": [
+    "pius9"
+   ]
+  },
+  {
+   "scene": "triumvirate_it",
+   "characters": [
+    "mazzini_it"
+   ]
+  },
+  {
+   "scene": "pope_appeal_it",
+   "characters": [
+    "pius9",
+    "louis_napoleon"
+   ]
+  },
+  {
+   "scene": "janiculum_it",
+   "characters": [
+    "garibaldi",
+    "louis_napoleon"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

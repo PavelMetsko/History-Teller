@@ -1,0 +1,70 @@
+{
+ "id": "statuto_1848",
+ "order": 760,
+ "epoch": "borgia",
+ "act": "Акт XI · Рисорджименто",
+ "music": "theme",
+ "cover": "statuto_sign_it",
+ "panels": 3,
+ "scenes": [
+  "pius_reforms_it",
+  "risorgimento_paper_it",
+  "statuto_sign_it",
+  "confessor_it"
+ ],
+ "characters": [
+  "charles_albert_it",
+  "balbo_it",
+  "cavour",
+  "pius9"
+ ],
+ "initialState": {
+  "flags": {
+   "charles_albert_it": [
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pius9",
+     "is": "liberal_hope_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles_albert_it",
+     "is": "statuto_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pius_reforms_it",
+   "characters": [
+    "pius9"
+   ]
+  },
+  {
+   "scene": "risorgimento_paper_it",
+   "characters": [
+    "cavour",
+    "balbo_it"
+   ]
+  },
+  {
+   "scene": "statuto_sign_it",
+   "characters": [
+    "charles_albert_it",
+    "cavour"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

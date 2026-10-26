@@ -1,0 +1,66 @@
+{
+ "id": "trent_1563",
+ "order": 570,
+ "epoch": "borgia",
+ "act": "Акт VIII · Контрреформация и барокко",
+ "music": "theme",
+ "cover": "closing_session_it",
+ "panels": 3,
+ "scenes": [
+  "borromeo_letters_it",
+  "residence_compromise_it",
+  "suspend_council_it",
+  "index_hurry_it",
+  "closing_session_it"
+ ],
+ "characters": [
+  "pius4_it",
+  "carlo_borromeo_it",
+  "madruzzo_it",
+  "lainez_it"
+ ],
+ "initialState": {
+  "flags": {
+   "madruzzo_it": [
+    "deadlock_it"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pius4_it",
+     "is": "closed_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "borromeo_letters_it",
+   "characters": [
+    "carlo_borromeo_it",
+    "pius4_it"
+   ]
+  },
+  {
+   "scene": "residence_compromise_it",
+   "characters": [
+    "lainez_it",
+    "madruzzo_it"
+   ]
+  },
+  {
+   "scene": "closing_session_it",
+   "characters": [
+    "pius4_it",
+    "madruzzo_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

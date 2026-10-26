@@ -1,0 +1,65 @@
+{
+  "id": "morosini_it",
+  "name": "Подеста Альбертино Морозини",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#5a3a22"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#a8312f",
+      "fur": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#a9b0b8",
+      "surcoat": "#2f4a7a",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a7f86"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

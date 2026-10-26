@@ -1,0 +1,69 @@
+{
+ "id": "roger_1130",
+ "order": 130,
+ "epoch": "borgia",
+ "act": "Акт III · Папы, императоры и коммуны",
+ "music": "theme",
+ "cover": "palermo_crown_it",
+ "panels": 3,
+ "scenes": [
+  "anacletus_bull_it",
+  "palermo_crown_it",
+  "submit_innocent_it",
+  "bernard_sermon_it",
+  "galluccio_it"
+ ],
+ "characters": [
+  "roger2_it",
+  "anacletus_it",
+  "innocent2_it",
+  "bernard_clairvaux_fr"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "roger2_it",
+     "is": "recognized_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "roger2_it",
+      "is": "submitted_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "anacletus_bull_it",
+   "characters": [
+    "anacletus_it",
+    "roger2_it"
+   ]
+  },
+  {
+   "scene": "palermo_crown_it",
+   "characters": [
+    "roger2_it"
+   ]
+  },
+  {
+   "scene": "galluccio_it",
+   "characters": [
+    "roger2_it",
+    "innocent2_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

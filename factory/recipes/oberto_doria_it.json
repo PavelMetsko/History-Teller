@@ -1,0 +1,65 @@
+{
+  "id": "oberto_doria_it",
+  "name": "Адмирал Оберто Дориа",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#5a3a22",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#5a3a22"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#d8d4dc"
+    },
+    "hat": {
+      "type": "beret",
+      "col": "#2a2a2e",
+      "feather": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#a9b0b8",
+      "surcoat": "#f4f1ea",
+      "belt": "#5b3a22"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a9b0b8",
+      "cuff": "#a9b0b8"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#7a7f86"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+ "id": "fasci_1893",
+ "order": 880,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "tension",
+ "cover": "state_of_siege_it",
+ "panels": 3,
+ "scenes": [
+  "corleone_pacts_it",
+  "dissolve_fasci_it",
+  "troops_now_it",
+  "banca_romana_it",
+  "state_of_siege_it"
+ ],
+ "characters": [
+  "barbato_it",
+  "verro_it",
+  "giolitti_it",
+  "crispi_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "crispi_it",
+     "is": "siege_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "barbato_it",
+     "is": "condemned_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "giolitti_it",
+      "is": "repressed_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "corleone_pacts_it",
+   "characters": [
+    "verro_it",
+    "barbato_it"
+   ]
+  },
+  {
+   "scene": "banca_romana_it",
+   "characters": [
+    "giolitti_it",
+    "crispi_it"
+   ]
+  },
+  {
+   "scene": "state_of_siege_it",
+   "characters": [
+    "crispi_it",
+    "barbato_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

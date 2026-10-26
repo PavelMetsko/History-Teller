@@ -1,0 +1,71 @@
+{
+ "id": "young_italy_1831",
+ "order": 750,
+ "epoch": "borgia",
+ "act": "Акт X · Революции, Наполеон и Реставрация",
+ "music": "tension",
+ "cover": "marseille_it",
+ "panels": 3,
+ "scenes": [
+  "modena_plot_it",
+  "marseille_it",
+  "letter_king_it",
+  "oath_garibaldi_it",
+  "genoa_mutiny_it"
+ ],
+ "characters": [
+  "mazzini_it",
+  "menotti_it",
+  "charles_albert_it",
+  "garibaldi"
+ ],
+ "initialState": {
+  "flags": {
+   "charles_albert_it": [
+    "reigns"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "mazzini_it",
+     "is": "young_italy_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "garibaldi",
+     "is": "exile_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "marseille_it",
+   "characters": [
+    "mazzini_it"
+   ]
+  },
+  {
+   "scene": "oath_garibaldi_it",
+   "characters": [
+    "mazzini_it",
+    "garibaldi"
+   ]
+  },
+  {
+   "scene": "genoa_mutiny_it",
+   "characters": [
+    "garibaldi",
+    "charles_albert_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

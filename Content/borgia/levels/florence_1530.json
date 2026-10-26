@@ -1,0 +1,69 @@
+{
+ "id": "florence_1530",
+ "order": 550,
+ "epoch": "borgia",
+ "act": "Акт VII · Высокое Возрождение",
+ "music": "tension",
+ "cover": "capitulation_it",
+ "panels": 3,
+ "scenes": [
+  "bologna_pact_it",
+  "gavinana_it",
+  "last_stand_it",
+  "republic_deal_it",
+  "capitulation_it"
+ ],
+ "characters": [
+  "clement7",
+  "charles5_emp_it",
+  "ferruccio_it",
+  "malatesta_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "clement7",
+     "is": "medici_restored_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "ferruccio_it",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bologna_pact_it",
+   "characters": [
+    "clement7",
+    "charles5_emp_it"
+   ]
+  },
+  {
+   "scene": "gavinana_it",
+   "characters": [
+    "ferruccio_it",
+    "charles5_emp_it"
+   ]
+  },
+  {
+   "scene": "capitulation_it",
+   "characters": [
+    "malatesta_it",
+    "clement7",
+    "charles5_emp_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

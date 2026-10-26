@@ -1,0 +1,62 @@
+{
+  "id": "menelik_it",
+  "name": "Император Менелик II",
+  "skin": "#8f5a3a",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "curly",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "full",
+      "col": "#1e1a18"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#1e1e22",
+      "feather": ""
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#2f4a7a"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "robe",
+      "col": "#f4f1ea",
+      "rope": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

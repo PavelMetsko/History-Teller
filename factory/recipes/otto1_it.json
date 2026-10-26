@@ -1,0 +1,65 @@
+{
+  "id": "otto1_it",
+  "name": "Оттон I",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b97a45",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#b97a45"
+    },
+    "beard": {
+      "type": "long",
+      "col": "#b97a45"
+    },
+    "hat": {
+      "type": "crown",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#5a2a6b"
+    },
+    "held": {
+      "type": "sword",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#a8312f",
+      "trim": "#d4a63c",
+      "belt": "#6b4426"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#a8312f",
+      "cuff": "#a8312f"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

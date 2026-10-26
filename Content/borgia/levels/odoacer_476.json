@@ -1,0 +1,76 @@
+{
+ "id": "odoacer_476",
+ "order": 50,
+ "epoch": "borgia",
+ "act": "Акт II · После Империи: короли Италии",
+ "music": "tension",
+ "cover": "regalia_it",
+ "panels": 3,
+ "scenes": [
+  "placentia_it",
+  "lucullanum_it",
+  "regalia_it",
+  "kill_boy_it",
+  "self_purple_it"
+ ],
+ "characters": [
+  "odoacer",
+  "romulus_aug",
+  "orestes_it",
+  "zeno_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "odoacer",
+     "is": "patrician_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "romulus_aug",
+     "is": "pensioned_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "odoacer",
+      "is": "tyrant_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "placentia_it",
+   "characters": [
+    "odoacer",
+    "orestes_it"
+   ]
+  },
+  {
+   "scene": "lucullanum_it",
+   "characters": [
+    "odoacer",
+    "romulus_aug"
+   ]
+  },
+  {
+   "scene": "regalia_it",
+   "characters": [
+    "odoacer",
+    "zeno_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

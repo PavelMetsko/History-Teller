@@ -1,0 +1,70 @@
+{
+ "id": "caporetto_1917",
+ "order": 940,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "tension",
+ "cover": "piave_line_it",
+ "panels": 3,
+ "scenes": [
+  "fog_gas_it",
+  "cowardice_myth_it",
+  "new_command_it",
+  "tagliamento_it",
+  "piave_line_it"
+ ],
+ "characters": [
+  "cadorna_luigi_it",
+  "otto_below_it",
+  "boroevic_it",
+  "diaz_it",
+  "fanti_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "boroevic_it",
+     "is": "stopped_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "cadorna_luigi_it",
+     "is": "removed_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fog_gas_it",
+   "characters": [
+    "otto_below_it",
+    "cadorna_luigi_it"
+   ]
+  },
+  {
+   "scene": "new_command_it",
+   "characters": [
+    "cadorna_luigi_it",
+    "diaz_it"
+   ]
+  },
+  {
+   "scene": "piave_line_it",
+   "characters": [
+    "diaz_it",
+    "fanti_it",
+    "boroevic_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

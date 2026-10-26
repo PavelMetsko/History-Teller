@@ -1,0 +1,82 @@
+{
+ "id": "carbonari_1820",
+ "order": 740,
+ "epoch": "borgia",
+ "act": "Акт X · Революции, Наполеон и Реставрация",
+ "music": "tension",
+ "cover": "nola_it",
+ "panels": 4,
+ "scenes": [
+  "nola_it",
+  "laibach_it",
+  "turin_regency_it",
+  "novara_it",
+  "keep_oath_it"
+ ],
+ "characters": [
+  "pepe_it",
+  "ferdinand_bourbon_it",
+  "santarosa_it",
+  "charles_albert_it",
+  "metternich"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ferdinand_bourbon_it",
+     "is": "recanted_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "santarosa_it",
+     "is": "exiled_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "charles_albert_it",
+     "is": "wavered_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "nola_it",
+   "characters": [
+    "pepe_it",
+    "ferdinand_bourbon_it"
+   ]
+  },
+  {
+   "scene": "laibach_it",
+   "characters": [
+    "ferdinand_bourbon_it",
+    "metternich"
+   ]
+  },
+  {
+   "scene": "turin_regency_it",
+   "characters": [
+    "santarosa_it",
+    "charles_albert_it"
+   ]
+  },
+  {
+   "scene": "novara_it",
+   "characters": [
+    "charles_albert_it",
+    "santarosa_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

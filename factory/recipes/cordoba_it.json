@@ -1,0 +1,66 @@
+{
+  "id": "cordoba_it",
+  "name": "Губернатор Гонсало де Кордоба",
+  "skin": "#dcae88",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "shoulder",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "goatee",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "wide",
+      "col": "#1e1e22",
+      "feather": "#a8312f"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "ruff",
+      "col": "#f4f1ea"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "doublet",
+      "col": "#1e1e22",
+      "trim": "#f4f1ea",
+      "chain": false
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#1e1e22",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#1e1e22"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    }
+  }
+}

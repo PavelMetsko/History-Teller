@@ -1,0 +1,70 @@
+{
+ "id": "lodi_1454",
+ "order": 290,
+ "epoch": "borgia",
+ "act": "Акт V · Равновесие Ренессанса",
+ "music": "theme",
+ "cover": "lodi_peace_it",
+ "panels": 3,
+ "scenes": [
+  "cosimo_switch_it",
+  "call_french_it",
+  "new_war_it",
+  "lodi_peace_it",
+  "italic_league_it"
+ ],
+ "characters": [
+  "francesco_sforza_it",
+  "cosimo",
+  "foscari_it",
+  "nicholas5_it",
+  "alfonso5_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "alfonso5_it",
+     "is": "league_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "foscari_it",
+     "is": "peace_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "cosimo_switch_it",
+   "characters": [
+    "cosimo",
+    "francesco_sforza_it"
+   ]
+  },
+  {
+   "scene": "lodi_peace_it",
+   "characters": [
+    "francesco_sforza_it",
+    "foscari_it"
+   ]
+  },
+  {
+   "scene": "italic_league_it",
+   "characters": [
+    "nicholas5_it",
+    "francesco_sforza_it",
+    "alfonso5_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "id": "kingdom_1805",
+ "order": 720,
+ "epoch": "borgia",
+ "act": "Акт X · Революции, Наполеон и Реставрация",
+ "music": "theme",
+ "cover": "iron_crown_it",
+ "panels": 3,
+ "scenes": [
+  "iron_crown_it",
+  "viceroy_it",
+  "prina_taxes_it",
+  "keep_republic_it"
+ ],
+ "characters": [
+  "napoleon",
+  "eugene_it",
+  "melzi_it",
+  "prina_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "eugene_it",
+     "is": "viceroy_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "prina_it",
+     "is": "taxes_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "iron_crown_it",
+   "characters": [
+    "napoleon",
+    "melzi_it"
+   ]
+  },
+  {
+   "scene": "viceroy_it",
+   "characters": [
+    "napoleon",
+    "eugene_it"
+   ]
+  },
+  {
+   "scene": "prina_taxes_it",
+   "characters": [
+    "eugene_it",
+    "prina_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

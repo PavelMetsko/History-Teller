@@ -1,0 +1,72 @@
+{
+ "id": "loreto",
+ "order": 40,
+ "epoch": "borgia",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "road_light_it",
+ "panels": 3,
+ "scenes": [
+  "laurel_grove_it",
+  "brothers_field_it",
+  "road_light_it",
+  "keep_grove_it",
+  "sell_offerings_it"
+ ],
+ "characters": [
+  "angels_it",
+  "laureta_it",
+  "recanati_brothers_it",
+  "hermit_paul_it"
+ ],
+ "initialState": {
+  "flags": {
+   "angels_it": [
+    "carried_it"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "angels_it",
+     "is": "settled_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "hermit_paul_it",
+     "is": "witness_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "laurel_grove_it",
+   "characters": [
+    "angels_it",
+    "laureta_it"
+   ]
+  },
+  {
+   "scene": "brothers_field_it",
+   "characters": [
+    "angels_it",
+    "recanati_brothers_it"
+   ]
+  },
+  {
+   "scene": "road_light_it",
+   "characters": [
+    "hermit_paul_it",
+    "angels_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

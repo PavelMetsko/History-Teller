@@ -1,8 +1,8 @@
 {
  "id": "giulia",
- "order": 30,
+ "order": 360,
  "epoch": "borgia",
- "act": "Акт II · Восхождение Борджиа",
+ "act": "Акт VI · Борджиа и Итальянские войны",
  "panels": 2,
  "scenes": [
   "tryst_g",

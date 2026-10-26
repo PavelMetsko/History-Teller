@@ -1,0 +1,80 @@
+{
+ "id": "parthenopean_1799",
+ "order": 710,
+ "epoch": "borgia",
+ "act": "Акт X · Революции, Наполеон и Реставрация",
+ "music": "tension",
+ "cover": "annul_it",
+ "panels": 4,
+ "scenes": [
+  "monitore_it",
+  "holy_faith_it",
+  "capitulation_1799_it",
+  "annul_it",
+  "king_mercy_it"
+ ],
+ "characters": [
+  "pimentel_it",
+  "ruffo_it",
+  "ferdinand_bourbon_it",
+  "nelson"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ruffo_it",
+     "is": "army_faith_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "nelson",
+     "is": "annulled_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "pimentel_it",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "monitore_it",
+   "characters": [
+    "pimentel_it"
+   ]
+  },
+  {
+   "scene": "holy_faith_it",
+   "characters": [
+    "ruffo_it",
+    "ferdinand_bourbon_it"
+   ]
+  },
+  {
+   "scene": "capitulation_1799_it",
+   "characters": [
+    "ruffo_it",
+    "pimentel_it"
+   ]
+  },
+  {
+   "scene": "annul_it",
+   "characters": [
+    "nelson",
+    "pimentel_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

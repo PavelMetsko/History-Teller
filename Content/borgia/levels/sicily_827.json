@@ -1,0 +1,77 @@
+{
+ "id": "sicily_827",
+ "order": 90,
+ "epoch": "borgia",
+ "act": "Акт II · После Империи: короли Италии",
+ "music": "tension",
+ "cover": "mazara_landing_it",
+ "panels": 3,
+ "scenes": [
+  "euphemius_revolt_it",
+  "kairouan_council_it",
+  "mazara_landing_it",
+  "beg_pardon_it",
+  "straight_syracuse_it"
+ ],
+ "characters": [
+  "euphemius_it",
+  "ziyadat_it",
+  "asad_it",
+  "theodotus_it"
+ ],
+ "initialState": {
+  "flags": {
+   "theodotus_it": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "asad_it",
+    "theodotus_it"
+   ],
+   [
+    "enemy_of",
+    "theodotus_it",
+    "asad_it"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "asad_it",
+     "is": "landed_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "euphemius_revolt_it",
+   "characters": [
+    "euphemius_it"
+   ]
+  },
+  {
+   "scene": "kairouan_council_it",
+   "characters": [
+    "ziyadat_it",
+    "asad_it",
+    "euphemius_it"
+   ]
+  },
+  {
+   "scene": "mazara_landing_it",
+   "characters": [
+    "asad_it",
+    "theodotus_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

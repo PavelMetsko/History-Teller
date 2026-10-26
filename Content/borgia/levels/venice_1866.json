@@ -1,0 +1,69 @@
+{
+ "id": "venice_1866",
+ "order": 840,
+ "epoch": "borgia",
+ "act": "Акт XI · Рисорджименто",
+ "music": "tension",
+ "cover": "venetia_via_paris_it",
+ "panels": 3,
+ "scenes": [
+  "prussian_pact_it",
+  "vienna_offer_it",
+  "custoza_it",
+  "bezzecca_it",
+  "venetia_via_paris_it"
+ ],
+ "characters": [
+  "victor_emmanuel",
+  "bismarck_fr",
+  "lamarmora_it",
+  "franz_joseph",
+  "garibaldi"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "victor_emmanuel",
+     "is": "venice_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "lamarmora_it",
+     "is": "defeated_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "prussian_pact_it",
+   "characters": [
+    "victor_emmanuel",
+    "bismarck_fr"
+   ]
+  },
+  {
+   "scene": "custoza_it",
+   "characters": [
+    "lamarmora_it",
+    "franz_joseph"
+   ]
+  },
+  {
+   "scene": "venetia_via_paris_it",
+   "characters": [
+    "franz_joseph",
+    "victor_emmanuel"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

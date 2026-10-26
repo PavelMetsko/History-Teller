@@ -1,0 +1,68 @@
+{
+ "id": "charles8_1494",
+ "order": 370,
+ "epoch": "borgia",
+ "act": "Акт VI · Борджиа и Итальянские войны",
+ "music": "tension",
+ "cover": "naples_entry_it",
+ "panels": 3,
+ "scenes": [
+  "invite_french_it",
+  "sarzana_keys_it",
+  "hold_forts_it",
+  "pope_bars_it",
+  "naples_entry_it"
+ ],
+ "characters": [
+  "charles8_it",
+  "ludovico",
+  "piero_medici_it",
+  "rodrigo"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charles8_it",
+     "is": "naples_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "piero_medici_it",
+     "is": "exiled_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "invite_french_it",
+   "characters": [
+    "ludovico",
+    "charles8_it"
+   ]
+  },
+  {
+   "scene": "sarzana_keys_it",
+   "characters": [
+    "piero_medici_it",
+    "charles8_it"
+   ]
+  },
+  {
+   "scene": "naples_entry_it",
+   "characters": [
+    "charles8_it",
+    "rodrigo"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

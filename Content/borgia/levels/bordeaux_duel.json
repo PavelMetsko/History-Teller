@@ -1,8 +1,8 @@
 {
  "id": "bordeaux_duel",
- "order": 5,
+ "order": 200,
  "epoch": "borgia",
- "act": "Акт I · Гвельфы и гибеллины",
+ "act": "Акт IV · Купцы, города и кризисы",
  "music": "tension",
  "cover": "lists_bordeaux",
  "panels": 3,

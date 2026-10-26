@@ -1,0 +1,76 @@
+{
+ "id": "bava_1898",
+ "order": 900,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "tension",
+ "cover": "cannons_milan_it",
+ "panels": 3,
+ "scenes": [
+  "milan_command_it",
+  "grain_duty_it",
+  "barricade_call_it",
+  "cannons_milan_it",
+  "royal_cross_it"
+ ],
+ "characters": [
+  "rudini_it",
+  "bava_it",
+  "turati_it",
+  "umberto_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "turati_it",
+     "is": "arrested_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "umberto_it",
+     "is": "rewarded_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "turati_it",
+      "is": "insurgent_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "milan_command_it",
+   "characters": [
+    "rudini_it",
+    "bava_it"
+   ]
+  },
+  {
+   "scene": "cannons_milan_it",
+   "characters": [
+    "bava_it",
+    "turati_it"
+   ]
+  },
+  {
+   "scene": "royal_cross_it",
+   "characters": [
+    "umberto_it",
+    "bava_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

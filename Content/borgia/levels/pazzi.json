@@ -1,8 +1,8 @@
 {
  "id": "pazzi",
- "order": 12,
+ "order": 300,
  "epoch": "borgia",
- "act": "Акт I · Гвельфы и гибеллины",
+ "act": "Акт V · Равновесие Ренессанса",
  "music": "tension",
  "cover": "duomo_mass",
  "panels": 3,

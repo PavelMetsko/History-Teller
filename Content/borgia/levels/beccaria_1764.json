@@ -1,0 +1,70 @@
+{
+ "id": "beccaria_1764",
+ "order": 690,
+ "epoch": "borgia",
+ "act": "Акт IX · Савойя, Бурбоны и Просвещение",
+ "music": "theme",
+ "cover": "livorno_print_it",
+ "panels": 3,
+ "scenes": [
+  "pugni_it",
+  "livorno_print_it",
+  "milan_chair_it",
+  "sign_name_it",
+  "give_up_it"
+ ],
+ "characters": [
+  "beccaria_it",
+  "pietro_verri_it",
+  "alessandro_verri_it",
+  "maria_theresa"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "beccaria_it",
+     "is": "professor_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "beccaria_it",
+      "is": "denounced_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pugni_it",
+   "characters": [
+    "pietro_verri_it",
+    "beccaria_it"
+   ]
+  },
+  {
+   "scene": "livorno_print_it",
+   "characters": [
+    "beccaria_it",
+    "alessandro_verri_it"
+   ]
+  },
+  {
+   "scene": "milan_chair_it",
+   "characters": [
+    "maria_theresa",
+    "beccaria_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

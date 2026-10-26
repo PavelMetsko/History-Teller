@@ -1,0 +1,67 @@
+{
+ "id": "emigration_1901",
+ "order": 910,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "theme",
+ "cover": "new_york_it",
+ "panels": 3,
+ "scenes": [
+  "fiat_it",
+  "emigration_law_it",
+  "agent_ticket_it",
+  "factory_turin_it",
+  "new_york_it"
+ ],
+ "characters": [
+  "agnelli_it",
+  "bodio_it",
+  "cabrini_it",
+  "emigrant_family_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "agnelli_it",
+     "is": "fiat_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "emigrant_family_it",
+     "is": "settled_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "fiat_it",
+   "characters": [
+    "agnelli_it"
+   ]
+  },
+  {
+   "scene": "emigration_law_it",
+   "characters": [
+    "bodio_it",
+    "emigrant_family_it"
+   ]
+  },
+  {
+   "scene": "new_york_it",
+   "characters": [
+    "cabrini_it",
+    "emigrant_family_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

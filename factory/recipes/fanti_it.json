@@ -1,0 +1,64 @@
+{
+  "id": "fanti_it",
+  "name": "Пехотинцы 2-й армии",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#3b2a20"
+    },
+    "hat": {
+      "type": "helmet",
+      "col": "#6e7458",
+      "trim": "#6e7458"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "legion_tunic",
+      "col": "#6e7458",
+      "belt": "#5a3a22",
+      "button": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#6e7458",
+      "cuff": "#6e7458"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#6e7458"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#3b2a20"
+    }
+  }
+}

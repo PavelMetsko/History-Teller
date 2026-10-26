@@ -1,0 +1,83 @@
+{
+ "id": "pavia_774",
+ "order": 80,
+ "epoch": "borgia",
+ "act": "Акт II · После Империи: короли Италии",
+ "music": "tension",
+ "cover": "pavia_nine_months_it",
+ "panels": 3,
+ "scenes": [
+  "pope_envoy_it",
+  "chiuse_flank_it",
+  "pavia_nine_months_it",
+  "gold_offer_it",
+  "storm_chiuse_it"
+ ],
+ "characters": [
+  "charlemagne_fr",
+  "desiderius_it",
+  "adelchis_it",
+  "hadrian1_it"
+ ],
+ "initialState": {
+  "flags": {
+   "desiderius_it": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "charlemagne_fr",
+    "desiderius_it"
+   ],
+   [
+    "enemy_of",
+    "desiderius_it",
+    "charlemagne_fr"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "charlemagne_fr",
+     "is": "rex_lang_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "desiderius_it",
+     "is": "captive_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "pope_envoy_it",
+   "characters": [
+    "hadrian1_it",
+    "charlemagne_fr"
+   ]
+  },
+  {
+   "scene": "chiuse_flank_it",
+   "characters": [
+    "charlemagne_fr",
+    "adelchis_it"
+   ]
+  },
+  {
+   "scene": "pavia_nine_months_it",
+   "characters": [
+    "charlemagne_fr",
+    "desiderius_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

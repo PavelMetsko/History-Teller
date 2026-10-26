@@ -1,0 +1,66 @@
+{
+ "id": "five_days_1848",
+ "order": 770,
+ "epoch": "borgia",
+ "act": "Акт XI · Рисорджименто",
+ "music": "tension",
+ "cover": "barricades_it",
+ "panels": 3,
+ "scenes": [
+  "barricades_it",
+  "war_council_it",
+  "withdraw_it",
+  "casati_truce_it"
+ ],
+ "characters": [
+  "cattaneo_it",
+  "casati_it",
+  "radetzky_it",
+  "manara_it"
+ ],
+ "initialState": {
+  "flags": {
+   "radetzky_it": [
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "radetzky_it",
+     "is": "withdrawn_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "barricades_it",
+   "characters": [
+    "manara_it",
+    "cattaneo_it"
+   ]
+  },
+  {
+   "scene": "war_council_it",
+   "characters": [
+    "cattaneo_it",
+    "casati_it"
+   ]
+  },
+  {
+   "scene": "withdraw_it",
+   "characters": [
+    "radetzky_it",
+    "manara_it",
+    "cattaneo_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "id": "plague_1630",
+ "order": 620,
+ "epoch": "borgia",
+ "act": "Акт VIII · Контрреформация и барокко",
+ "music": "tension",
+ "cover": "procession_it",
+ "panels": 3,
+ "scenes": [
+  "ignore_warning_it",
+  "quarantine_it",
+  "refuse_procession_it",
+  "procession_it",
+  "untori_trial_it"
+ ],
+ "characters": [
+  "federico_borromeo_it",
+  "cordoba_it",
+  "tadino_it",
+  "piazza_it",
+  "caterina_rosa_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "federico_borromeo_it",
+     "is": "procession_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "piazza_it",
+     "is": "condemned_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "cordoba_it",
+      "is": "closed_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ignore_warning_it",
+   "characters": [
+    "cordoba_it",
+    "tadino_it"
+   ]
+  },
+  {
+   "scene": "procession_it",
+   "characters": [
+    "federico_borromeo_it",
+    "cordoba_it"
+   ]
+  },
+  {
+   "scene": "untori_trial_it",
+   "characters": [
+    "caterina_rosa_it",
+    "piazza_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

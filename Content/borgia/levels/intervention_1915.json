@@ -1,0 +1,68 @@
+{
+ "id": "intervention_1915",
+ "order": 930,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "tension",
+ "cover": "war_powers_it",
+ "panels": 3,
+ "scenes": [
+  "vienna_concessions_it",
+  "london_pact_it",
+  "giolitti_called_it",
+  "resignation_refused_it",
+  "war_powers_it"
+ ],
+ "characters": [
+  "salandra_it",
+  "sonnino_it",
+  "giolitti_it",
+  "ve3_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "salandra_it",
+     "is": "war_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "giolitti_it",
+     "is": "outvoted_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "london_pact_it",
+   "characters": [
+    "sonnino_it",
+    "salandra_it"
+   ]
+  },
+  {
+   "scene": "resignation_refused_it",
+   "characters": [
+    "ve3_it",
+    "salandra_it"
+   ]
+  },
+  {
+   "scene": "war_powers_it",
+   "characters": [
+    "salandra_it",
+    "giolitti_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

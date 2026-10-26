@@ -1,8 +1,8 @@
 {
  "id": "juan",
- "order": 40,
+ "order": 380,
  "epoch": "borgia",
- "act": "Акт II · Восхождение Борджиа",
+ "act": "Акт VI · Борджиа и Итальянские войны",
  "panels": 1,
  "scenes": [
   "curia"

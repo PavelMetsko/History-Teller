@@ -1,0 +1,74 @@
+{
+ "id": "legnano_1176",
+ "order": 140,
+ "epoch": "borgia",
+ "act": "Акт III · Папы, императоры и коммуны",
+ "music": "tension",
+ "cover": "legnano_field_it",
+ "panels": 3,
+ "scenes": [
+  "league_oath_it",
+  "chiavenna_it",
+  "pay_emperor_it",
+  "legnano_field_it",
+  "burn_milan_it"
+ ],
+ "characters": [
+  "barbarossa_it",
+  "alexander3_it",
+  "guido_landriano_it",
+  "henry_lion_it"
+ ],
+ "initialState": {
+  "flags": {
+   "barbarossa_it": [
+    "strong"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "barbarossa_it",
+     "is": "defeated_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "guido_landriano_it",
+      "is": "submitted_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "league_oath_it",
+   "characters": [
+    "guido_landriano_it",
+    "alexander3_it"
+   ]
+  },
+  {
+   "scene": "chiavenna_it",
+   "characters": [
+    "barbarossa_it",
+    "henry_lion_it"
+   ]
+  },
+  {
+   "scene": "legnano_field_it",
+   "characters": [
+    "guido_landriano_it",
+    "barbarossa_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

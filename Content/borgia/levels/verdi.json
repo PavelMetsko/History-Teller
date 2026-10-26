@@ -1,8 +1,8 @@
 {
  "id": "verdi",
- "order": 164,
+ "order": 800,
  "epoch": "borgia",
- "act": "Акт VII · Рисорджименто",
+ "act": "Акт XI · Рисорджименто",
  "music": "theme",
  "cover": "nabucco_chorus",
  "panels": 3,

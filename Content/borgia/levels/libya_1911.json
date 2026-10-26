@@ -1,0 +1,67 @@
+{
+ "id": "libya_1911",
+ "order": 920,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "tension",
+ "cover": "derna_camp_it",
+ "panels": 3,
+ "scenes": [
+  "tripoli_ultimatum_it",
+  "derna_camp_it",
+  "ouchy_it",
+  "bribe_sheikhs_it"
+ ],
+ "characters": [
+  "giolitti_it",
+  "san_giuliano_it",
+  "enver_it",
+  "omar_mukhtar_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "giolitti_it",
+     "is": "ouchy_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "omar_mukhtar_it",
+     "is": "resistance_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "tripoli_ultimatum_it",
+   "characters": [
+    "san_giuliano_it",
+    "giolitti_it"
+   ]
+  },
+  {
+   "scene": "derna_camp_it",
+   "characters": [
+    "enver_it",
+    "omar_mukhtar_it"
+   ]
+  },
+  {
+   "scene": "ouchy_it",
+   "characters": [
+    "giolitti_it",
+    "enver_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

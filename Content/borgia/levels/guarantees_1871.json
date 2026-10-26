@@ -1,0 +1,81 @@
+{
+ "id": "guarantees_1871",
+ "order": 860,
+ "epoch": "borgia",
+ "act": "Акт XI · Рисорджименто",
+ "music": "tension",
+ "cover": "ubi_nos_it",
+ "panels": 3,
+ "scenes": [
+  "rome_capital_it",
+  "guarantee_law_it",
+  "ubi_nos_it",
+  "pope_exile_it",
+  "concordat_it"
+ ],
+ "characters": [
+  "victor_emmanuel",
+  "pius9",
+  "lanza_it",
+  "sella_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "victor_emmanuel",
+     "is": "capital_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "lanza_it",
+     "is": "law_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "pius9",
+     "is": "refuses_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "pius9",
+      "is": "reconciled_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "rome_capital_it",
+   "characters": [
+    "sella_it",
+    "victor_emmanuel"
+   ]
+  },
+  {
+   "scene": "guarantee_law_it",
+   "characters": [
+    "lanza_it",
+    "pius9"
+   ]
+  },
+  {
+   "scene": "ubi_nos_it",
+   "characters": [
+    "pius9"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

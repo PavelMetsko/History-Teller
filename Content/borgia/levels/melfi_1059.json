@@ -1,0 +1,84 @@
+{
+ "id": "melfi_1059",
+ "order": 110,
+ "epoch": "borgia",
+ "act": "Акт III · Папы, императоры и коммуны",
+ "music": "theme",
+ "cover": "melfi_synod_it",
+ "panels": 3,
+ "scenes": [
+  "hildebrand_mission_it",
+  "melfi_synod_it",
+  "galeria_it",
+  "emperor_oath_it",
+  "civitate_again_it"
+ ],
+ "characters": [
+  "nicholas2_pope_it",
+  "guiscard_it",
+  "richard_aversa_it",
+  "hildebrand_it"
+ ],
+ "initialState": {
+  "flags": {
+   "guiscard_it": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "guiscard_it",
+    "nicholas2_pope_it"
+   ],
+   [
+    "enemy_of",
+    "nicholas2_pope_it",
+    "guiscard_it"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "guiscard_it",
+     "is": "duke_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "nicholas2_pope_it",
+     "is": "secure_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hildebrand_mission_it",
+   "characters": [
+    "hildebrand_it",
+    "richard_aversa_it"
+   ]
+  },
+  {
+   "scene": "melfi_synod_it",
+   "characters": [
+    "nicholas2_pope_it",
+    "guiscard_it",
+    "richard_aversa_it"
+   ]
+  },
+  {
+   "scene": "galeria_it",
+   "characters": [
+    "richard_aversa_it",
+    "nicholas2_pope_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

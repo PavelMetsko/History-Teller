@@ -37234,5 +37234,3476 @@
    "нападающий",
    "защитник"
   ]
+ },
+ {
+  "id": "anacletus_bull_it",
+  "name": "Булла Анаклета",
+  "tags": [
+   "sig_anacletus_bull_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "пожаловать корону",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "граф"
+  ]
+ },
+ {
+  "id": "palermo_crown_it",
+  "name": "Рождество в Палермо",
+  "tags": [
+   "sig_palermo_crown_it"
+  ],
+  "slots": 1,
+  "emoji": "👑",
+  "action": "короноваться",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "submit_innocent_it",
+  "name": "Поклониться Иннокентию",
+  "tags": [
+   "sig_submit_innocent_it"
+  ],
+  "slots": 2,
+  "emoji": "🙇",
+  "action": "признать папу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "граф",
+   "папа"
+  ]
+ },
+ {
+  "id": "bernard_sermon_it",
+  "name": "Проповедь Бернара",
+  "tags": [
+   "sig_bernard_sermon_it"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "агитировать за папу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "аббат",
+   "папа"
+  ]
+ },
+ {
+  "id": "galluccio_it",
+  "name": "Засада у Галлуччо",
+  "tags": [
+   "sig_galluccio_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "взять папу в плен",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "папа"
+  ]
+ },
+ {
+  "id": "league_oath_it",
+  "name": "Ломбардская лига",
+  "tags": [
+   "sig_league_oath_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "заключить союз городов",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "консул",
+   "папа"
+  ]
+ },
+ {
+  "id": "chiavenna_it",
+  "name": "Встреча в Кьявенне",
+  "tags": [
+   "sig_chiavenna_it"
+  ],
+  "slots": 2,
+  "emoji": "🙏",
+  "action": "просить войск",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "император",
+   "герцог"
+  ]
+ },
+ {
+  "id": "pay_emperor_it",
+  "name": "Платить императору",
+  "tags": [
+   "sig_pay_emperor_it"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "покориться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "консул",
+   "император"
+  ]
+ },
+ {
+  "id": "legnano_field_it",
+  "name": "Карроччо у Леньяно",
+  "tags": [
+   "sig_legnano_field_it"
+  ],
+  "slots": 2,
+  "emoji": "🐂",
+  "action": "отстоять повозку-знамя",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "консул",
+   "император"
+  ]
+ },
+ {
+  "id": "burn_milan_it",
+  "name": "Снова сжечь Милан",
+  "tags": [
+   "sig_burn_milan_it"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "карать город",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "император",
+   "консул"
+  ]
+ },
+ {
+  "id": "challenge_pisa_it",
+  "name": "Генуэзцы у Порто-Пизано",
+  "tags": [
+   "sig_challenge_pisa_it"
+  ],
+  "slots": 2,
+  "emoji": "⚓",
+  "action": "выманить пизанский флот",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "адмирал",
+   "подеста"
+  ]
+ },
+ {
+  "id": "hidden_squadron_it",
+  "name": "Резерв за мысом",
+  "tags": [
+   "sig_hidden_squadron_it"
+  ],
+  "slots": 2,
+  "emoji": "🌫️",
+  "action": "спрятать эскадру",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "адмирал",
+   "капитан"
+  ]
+ },
+ {
+  "id": "storm_harbor_it",
+  "name": "Штурм гавани",
+  "tags": [
+   "sig_storm_harbor_it"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "атаковать порт",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "адмирал",
+   "граф"
+  ]
+ },
+ {
+  "id": "meloria_battle_it",
+  "name": "Скалы Мелории",
+  "tags": [
+   "sig_meloria_battle_it"
+  ],
+  "slots": 3,
+  "emoji": "⚔️",
+  "action": "ударить с фланга",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "капитан",
+   "подеста",
+   "граф"
+  ]
+ },
+ {
+  "id": "ordinances_it",
+  "name": "Законы против грандов",
+  "tags": [
+   "sig_ordinances_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "провести реформу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "гонфалоньер",
+   "советник"
+  ]
+ },
+ {
+  "id": "burn_houses_it",
+  "name": "Пожары в богатых кварталах",
+  "tags": [
+   "sig_burn_houses_it"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "жечь дома",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "чесальщик",
+   "гонфалоньер"
+  ]
+ },
+ {
+  "id": "palazzo_storm_it",
+  "name": "Чомпи в Палаццо",
+  "tags": [
+   "sig_palazzo_storm_it"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "взять дворец синьории",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "чесальщик",
+   "гонфалоньер"
+  ]
+ },
+ {
+  "id": "new_guilds_it",
+  "name": "Три новых цеха",
+  "tags": [
+   "sig_new_guilds_it"
+  ],
+  "slots": 2,
+  "emoji": "🧵",
+  "action": "дать бедным право голоса",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "гонфалоньер",
+   "вожак"
+  ]
+ },
+ {
+  "id": "wait_alberti_it",
+  "name": "Ждать компромисса",
+  "tags": [
+   "sig_wait_alberti_it"
+  ],
+  "slots": 2,
+  "emoji": "⏳",
+  "action": "отложить реформу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "советник",
+   "гонфалоньер"
+  ]
+ },
+ {
+  "id": "free_pisani_it",
+  "name": "Пизани из тюрьмы",
+  "tags": [
+   "sig_free_pisani_it"
+  ],
+  "slots": 2,
+  "emoji": "🔓",
+  "action": "освободить адмирала",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "дож",
+   "адмирал"
+  ]
+ },
+ {
+  "id": "sink_hulks_it",
+  "name": "Затопить каналы",
+  "tags": [
+   "sig_sink_hulks_it"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "запереть генуэзцев",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "адмирал",
+   "генуэзец"
+  ]
+ },
+ {
+  "id": "zeno_returns_it",
+  "name": "Эскадра Дзено",
+  "tags": [
+   "sig_zeno_returns_it"
+  ],
+  "slots": 2,
+  "emoji": "⛵",
+  "action": "добить осаждённых",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "капитан",
+   "генуэзец"
+  ]
+ },
+ {
+  "id": "sue_peace_it",
+  "name": "Просить мира",
+  "tags": [
+   "sig_sue_peace_it"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "уступить Генуе",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "дож",
+   "генуэзец"
+  ]
+ },
+ {
+  "id": "storm_chioggia_it",
+  "name": "Штурм Кьоджи",
+  "tags": [
+   "sig_storm_chioggia_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "атаковать в лоб",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "адмирал",
+   "генуэзец"
+  ]
+ },
+ {
+  "id": "cosimo_switch_it",
+  "name": "Банк Медичи меняет сторону",
+  "tags": [
+   "sig_cosimo_switch_it"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "финансировать герцога",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "банкир",
+   "герцог"
+  ]
+ },
+ {
+  "id": "call_french_it",
+  "name": "Позвать Рене Анжуйского",
+  "tags": [
+   "sig_call_french_it"
+  ],
+  "slots": 2,
+  "emoji": "⚜️",
+  "action": "звать французов",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "герцог",
+   "банкир"
+  ]
+ },
+ {
+  "id": "new_war_it",
+  "name": "Ещё одна война за Ломбардию",
+  "tags": [
+   "sig_new_war_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "наступать на Брешию",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "дож",
+   "герцог"
+  ]
+ },
+ {
+  "id": "lodi_peace_it",
+  "name": "Мир в Лоди",
+  "tags": [
+   "sig_lodi_peace_it"
+  ],
+  "slots": 2,
+  "emoji": "🕊️",
+  "action": "подписать мир",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "герцог",
+   "дож"
+  ]
+ },
+ {
+  "id": "italic_league_it",
+  "name": "Италийская лига",
+  "tags": [
+   "sig_italic_league_it"
+  ],
+  "slots": 3,
+  "emoji": "📜",
+  "action": "скрепить союз",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "герцог",
+   "король"
+  ]
+ },
+ {
+  "id": "invite_french_it",
+  "name": "Приглашение из Милана",
+  "tags": [
+   "sig_invite_french_it"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "позвать короля",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "герцог",
+   "король"
+  ]
+ },
+ {
+  "id": "sarzana_keys_it",
+  "name": "Ключи Сарцаны",
+  "tags": [
+   "sig_sarzana_keys_it"
+  ],
+  "slots": 2,
+  "emoji": "🔑",
+  "action": "сдать крепости",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "Медичи",
+   "король"
+  ]
+ },
+ {
+  "id": "hold_forts_it",
+  "name": "Держать крепости",
+  "tags": [
+   "sig_hold_forts_it"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "закрыть дорогу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "Медичи",
+   "король"
+  ]
+ },
+ {
+  "id": "pope_bars_it",
+  "name": "Папа закрывает Рим",
+  "tags": [
+   "sig_pope_bars_it"
+  ],
+  "slots": 2,
+  "emoji": "⛔",
+  "action": "не пропустить",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "папа",
+   "король"
+  ]
+ },
+ {
+  "id": "naples_entry_it",
+  "name": "Въезд в Неаполь",
+  "tags": [
+   "sig_naples_entry_it"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "войти без боя",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "папа"
+  ]
+ },
+ {
+  "id": "senate_debate_it",
+  "name": "Спор в Сенате",
+  "tags": [
+   "sig_senate_debate_it"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "обсудить, где жить евреям",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "дож",
+   "хронист"
+  ]
+ },
+ {
+  "id": "lenten_sermon_it",
+  "name": "Великопостная проповедь",
+  "tags": [
+   "sig_lenten_sermon_it"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "требовать изгнания",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "проповедник",
+   "дож"
+  ]
+ },
+ {
+  "id": "expel_it",
+  "name": "Изгнать из Венеции",
+  "tags": [
+   "sig_expel_it"
+  ],
+  "slots": 2,
+  "emoji": "🚪",
+  "action": "выслать общину",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "дож",
+   "банкир"
+  ]
+ },
+ {
+  "id": "ghetto_decree_it",
+  "name": "Остров Гетто Нуово",
+  "tags": [
+   "sig_ghetto_decree_it"
+  ],
+  "slots": 2,
+  "emoji": "🔒",
+  "action": "запереть на ночь",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "дож",
+   "банкир"
+  ]
+ },
+ {
+  "id": "condotta_it",
+  "name": "Кондотта",
+  "tags": [
+   "sig_condotta_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "выторговать условия",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "банкир",
+   "дож"
+  ]
+ },
+ {
+  "id": "bologna_pact_it",
+  "name": "Коронация в Болонье",
+  "tags": [
+   "sig_bologna_pact_it"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "заключить союз",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "император"
+  ]
+ },
+ {
+  "id": "gavinana_it",
+  "name": "Гавинана",
+  "tags": [
+   "sig_gavinana_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "прорываться к городу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "капитан",
+   "император"
+  ]
+ },
+ {
+  "id": "last_stand_it",
+  "name": "Оборона до конца",
+  "tags": [
+   "sig_last_stand_it"
+  ],
+  "slots": 2,
+  "emoji": "🛡️",
+  "action": "стоять насмерть",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кондотьер",
+   "капитан"
+  ]
+ },
+ {
+  "id": "republic_deal_it",
+  "name": "Республика просит императора",
+  "tags": [
+   "sig_republic_deal_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "договориться без папы",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "капитан",
+   "император"
+  ]
+ },
+ {
+  "id": "capitulation_it",
+  "name": "Капитуляция Флоренции",
+  "tags": [
+   "sig_capitulation_it"
+  ],
+  "slots": 3,
+  "emoji": "🏳️",
+  "action": "открыть ворота",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "кондотьер",
+   "папа",
+   "император"
+  ]
+ },
+ {
+  "id": "borromeo_letters_it",
+  "name": "Письма из Рима",
+  "tags": [
+   "sig_borromeo_letters_it"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "торопить собор",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кардинал",
+   "папа"
+  ]
+ },
+ {
+  "id": "residence_compromise_it",
+  "name": "Спор о резиденции епископов",
+  "tags": [
+   "sig_residence_compromise_it"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "найти формулу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "иезуит",
+   "кардинал"
+  ]
+ },
+ {
+  "id": "suspend_council_it",
+  "name": "Снова отложить собор",
+  "tags": [
+   "sig_suspend_council_it"
+  ],
+  "slots": 2,
+  "emoji": "⏸️",
+  "action": "приостановить",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "папа",
+   "кардинал"
+  ]
+ },
+ {
+  "id": "index_hurry_it",
+  "name": "Сначала Индекс",
+  "tags": [
+   "sig_index_hurry_it"
+  ],
+  "slots": 2,
+  "emoji": "📕",
+  "action": "запрещать книги",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "иезуит",
+   "папа"
+  ]
+ },
+ {
+  "id": "closing_session_it",
+  "name": "Последняя сессия",
+  "tags": [
+   "sig_closing_session_it"
+  ],
+  "slots": 2,
+  "emoji": "🔔",
+  "action": "закрыть собор",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "хозяин собора"
+  ]
+ },
+ {
+  "id": "ignore_warning_it",
+  "name": "Осада Казале важнее",
+  "tags": [
+   "sig_ignore_warning_it"
+  ],
+  "slots": 2,
+  "emoji": "📯",
+  "action": "отмахнуться от врача",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "губернатор",
+   "врач"
+  ]
+ },
+ {
+  "id": "quarantine_it",
+  "name": "Закрыть ворота",
+  "tags": [
+   "sig_quarantine_it"
+  ],
+  "slots": 2,
+  "emoji": "🚧",
+  "action": "ввести карантин",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "губернатор",
+   "врач"
+  ]
+ },
+ {
+  "id": "refuse_procession_it",
+  "name": "Кардинал против процессии",
+  "tags": [
+   "sig_refuse_procession_it"
+  ],
+  "slots": 1,
+  "emoji": "✋",
+  "action": "запретить шествие",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кардинал"
+  ]
+ },
+ {
+  "id": "procession_it",
+  "name": "Процессия с мощами",
+  "tags": [
+   "sig_procession_it"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "пронести мощи по городу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "кардинал",
+   "губернатор"
+  ]
+ },
+ {
+  "id": "untori_trial_it",
+  "name": "Донос из окна",
+  "tags": [
+   "sig_untori_trial_it"
+  ],
+  "slots": 2,
+  "emoji": "🪟",
+  "action": "обвинить «мазальщика»",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "доносчица",
+   "обвиняемый"
+  ]
+ },
+ {
+  "id": "switch_sides_it",
+  "name": "Смена союзника",
+  "tags": [
+   "sig_switch_sides_it"
+  ],
+  "slots": 2,
+  "emoji": "🔄",
+  "action": "перейти к Великому союзу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "герцог",
+   "принц"
+  ]
+ },
+ {
+  "id": "stay_french_it",
+  "name": "Верность Людовику",
+  "tags": [
+   "sig_stay_french_it"
+  ],
+  "slots": 2,
+  "emoji": "⚜️",
+  "action": "остаться с Францией",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "герцог",
+   "маршал"
+  ]
+ },
+ {
+  "id": "honourable_surrender_it",
+  "name": "Почётная сдача",
+  "tags": [
+   "sig_honourable_surrender_it"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "сдать Турин",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "герцог",
+   "маршал"
+  ]
+ },
+ {
+  "id": "mine_gallery_it",
+  "name": "Подземная галерея",
+  "tags": [
+   "sig_mine_gallery_it"
+  ],
+  "slots": 2,
+  "emoji": "🧨",
+  "action": "взорвать мину",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "минёр",
+   "маршал"
+  ]
+ },
+ {
+  "id": "relief_battle_it",
+  "name": "Битва под Турином",
+  "tags": [
+   "sig_relief_battle_it"
+  ],
+  "slots": 3,
+  "emoji": "⚔️",
+  "action": "ударить по осаждающим",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "принц",
+   "герцог",
+   "маршал"
+  ]
+ },
+ {
+  "id": "vision_galgano_it",
+  "name": "Видение архангела",
+  "tags": [
+   "sig_vision_galgano_it"
+  ],
+  "slots": 2,
+  "emoji": "✨",
+  "action": "позвать за собой",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "архангел",
+   "рыцарь"
+  ]
+ },
+ {
+  "id": "mother_match_it",
+  "name": "Мать сватает сына",
+  "tags": [
+   "sig_mother_match_it"
+  ],
+  "slots": 2,
+  "emoji": "👵",
+  "action": "уговорить жениться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "мать",
+   "сын"
+  ]
+ },
+ {
+  "id": "horse_refuses_it",
+  "name": "Конь не идёт к невесте",
+  "tags": [
+   "sig_horse_refuses_it"
+  ],
+  "slots": 2,
+  "emoji": "🐎",
+  "action": "ехать к невесте",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "рыцарь",
+   "невеста"
+  ]
+ },
+ {
+  "id": "sword_stone_it",
+  "name": "Меч в камень",
+  "tags": [
+   "sig_sword_stone_it"
+  ],
+  "slots": 1,
+  "emoji": "🗡️",
+  "action": "вонзить меч в скалу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "рыцарь"
+  ]
+ },
+ {
+  "id": "chiusdino_wedding_it",
+  "name": "Свадьба в Кьюздино",
+  "tags": [
+   "v_wed"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "свадьба",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "жених",
+   "невеста"
+  ]
+ },
+ {
+  "id": "mother_curse_it",
+  "name": "«Чтоб ты рыбой стал!»",
+  "tags": [
+   "sig_mother_curse_it"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "проклясть в сердцах",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "мать",
+   "сын"
+  ]
+ },
+ {
+  "id": "cup_dive_it",
+  "name": "Кубок в пучину",
+  "tags": [
+   "sig_cup_dive_it"
+  ],
+  "slots": 2,
+  "emoji": "🏆",
+  "action": "бросить кубок в море",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король",
+   "ныряльщик"
+  ]
+ },
+ {
+  "id": "last_dive_it",
+  "name": "Последний нырок",
+  "tags": [
+   "sig_last_dive_it"
+  ],
+  "slots": 2,
+  "emoji": "🌀",
+  "action": "нырнуть за короной",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "ныряльщик"
+  ]
+ },
+ {
+  "id": "stay_ashore_it",
+  "name": "Остаться на берегу",
+  "tags": [
+   "sig_stay_ashore_it"
+  ],
+  "slots": 2,
+  "emoji": "🏠",
+  "action": "удержать сына дома",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "мать",
+   "сын"
+  ]
+ },
+ {
+  "id": "king_reward_it",
+  "name": "Золото короля",
+  "tags": [
+   "v_bribe"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "подкуп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король",
+   "ныряльщик"
+  ]
+ },
+ {
+  "id": "exiles_plea_it",
+  "name": "Изгнанники у ворот Кремоны",
+  "tags": [
+   "sig_exiles_plea_it"
+  ],
+  "slots": 2,
+  "emoji": "🏚️",
+  "action": "просить о союзе",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "изгнанник",
+   "консул"
+  ]
+ },
+ {
+  "id": "cremona_revenge_it",
+  "name": "Припомнить 1162 год",
+  "tags": [
+   "sig_cremona_revenge_it"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "отомстить Кремоне",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "изгнанник",
+   "консул"
+  ]
+ },
+ {
+  "id": "oath_pontida_it",
+  "name": "Клятва в Понтиде",
+  "tags": [
+   "sig_oath_pontida_it"
+  ],
+  "slots": 3,
+  "emoji": "✋",
+  "action": "поклясться друг другу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "аббат",
+   "консул",
+   "изгнанник"
+  ]
+ },
+ {
+  "id": "company_death_it",
+  "name": "Рота смерти",
+  "tags": [
+   "sig_company_death_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "собрать роту смерти",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "рыцарь",
+   "город"
+  ]
+ },
+ {
+  "id": "imperial_oath_it",
+  "name": "Присяга императору",
+  "tags": [
+   "sig_imperial_oath_it"
+  ],
+  "slots": 1,
+  "emoji": "🦅",
+  "action": "остаться верным императору",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "консул"
+  ]
+ },
+ {
+  "id": "laurel_grove_it",
+  "name": "Лавровая роща Лореты",
+  "tags": [
+   "sig_laurel_grove_it"
+  ],
+  "slots": 2,
+  "emoji": "🌿",
+  "action": "опустить Дом в роще",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "ангелы",
+   "хозяйка"
+  ]
+ },
+ {
+  "id": "brothers_field_it",
+  "name": "Поле двух братьев",
+  "tags": [
+   "sig_brothers_field_it"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "перенести Дом на поле",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "ангелы",
+   "братья"
+  ]
+ },
+ {
+  "id": "road_light_it",
+  "name": "Свет над дорогой",
+  "tags": [
+   "sig_road_light_it"
+  ],
+  "slots": 2,
+  "emoji": "🕯️",
+  "action": "увидеть свет",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "отшельник",
+   "ангелы"
+  ]
+ },
+ {
+  "id": "keep_grove_it",
+  "name": "Оставить Дом в роще",
+  "tags": [
+   "sig_keep_grove_it"
+  ],
+  "slots": 2,
+  "emoji": "🌳",
+  "action": "охранять рощу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "хозяйка",
+   "ангелы"
+  ]
+ },
+ {
+  "id": "sell_offerings_it",
+  "name": "Поделить дары паломников",
+  "tags": [
+   "v_bribe"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "подкуп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "братья",
+   "хозяйка"
+  ]
+ },
+ {
+  "id": "placentia_it",
+  "name": "Пьяченца",
+  "tags": [
+   "sig_placentia_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "разбить патриция",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вождь",
+   "патриций"
+  ]
+ },
+ {
+  "id": "lucullanum_it",
+  "name": "Вилла Лукулла",
+  "tags": [
+   "sig_lucullanum_it"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "отправить на покой",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король",
+   "мальчик"
+  ]
+ },
+ {
+  "id": "regalia_it",
+  "name": "Регалии — в Константинополь",
+  "tags": [
+   "sig_regalia_it"
+  ],
+  "slots": 2,
+  "emoji": "📦",
+  "action": "отослать знаки власти",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "император"
+  ]
+ },
+ {
+  "id": "kill_boy_it",
+  "name": "Покончить с последним императором",
+  "tags": [
+   "sig_kill_boy_it"
+  ],
+  "slots": 2,
+  "emoji": "🗡️",
+  "action": "казнить мальчика",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "мальчик"
+  ]
+ },
+ {
+  "id": "self_purple_it",
+  "name": "Надеть пурпур самому",
+  "tags": [
+   "sig_self_purple_it"
+  ],
+  "slots": 1,
+  "emoji": "👑",
+  "action": "объявить себя императором",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "вождь"
+  ]
+ },
+ {
+  "id": "ravenna_siege_it",
+  "name": "Три года у Равенны",
+  "tags": [
+   "sig_ravenna_siege_it"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "обложить город",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "осаждающий",
+   "осаждённый"
+  ]
+ },
+ {
+  "id": "bishop_treaty_it",
+  "name": "Договор епископа",
+  "tags": [
+   "sig_bishop_treaty_it"
+  ],
+  "slots": 3,
+  "emoji": "🤝",
+  "action": "поделить Италию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "епископ",
+   "гот",
+   "король"
+  ]
+ },
+ {
+  "id": "lauretum_feast_it",
+  "name": "Пир в Лавретуме",
+  "tags": [
+   "sig_lauretum_feast_it"
+  ],
+  "slots": 2,
+  "emoji": "🍷",
+  "action": "позвать на пир",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "хозяин",
+   "гость"
+  ]
+ },
+ {
+  "id": "storm_marshes_it",
+  "name": "Штурм через болота",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "king_mountain_it",
+  "name": "С Королевской горы",
+  "tags": [
+   "sig_king_mountain_it"
+  ],
+  "slots": 2,
+  "emoji": "⛰️",
+  "action": "оставить заслон у Альп",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король",
+   "племянник"
+  ]
+ },
+ {
+  "id": "pavia_three_years_it",
+  "name": "Три года под Павией",
+  "tags": [
+   "sig_pavia_three_years_it"
+  ],
+  "slots": 1,
+  "emoji": "🏰",
+  "action": "взять Павию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "ravenna_holds_it",
+  "name": "Равенна держится",
+  "tags": [
+   "sig_ravenna_holds_it"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "поделить полуостров",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "префект",
+   "король"
+  ]
+ },
+ {
+  "id": "skull_cup_it",
+  "name": "Кубок из черепа",
+  "tags": [
+   "sig_skull_cup_it"
+  ],
+  "slots": 2,
+  "emoji": "💀",
+  "action": "пить из кубка",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "королева"
+  ]
+ },
+ {
+  "id": "storm_ravenna_it",
+  "name": "Штурм Равенны",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "pope_envoy_it",
+  "name": "Посол папы",
+  "tags": [
+   "sig_pope_envoy_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "просить защиты",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "папа",
+   "король франков"
+  ]
+ },
+ {
+  "id": "chiuse_flank_it",
+  "name": "Обход у Кьюз",
+  "tags": [
+   "sig_chiuse_flank_it"
+  ],
+  "slots": 2,
+  "emoji": "🏔️",
+  "action": "обойти заслон горами",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король франков",
+   "королевич"
+  ]
+ },
+ {
+  "id": "pavia_nine_months_it",
+  "name": "Девять месяцев под Павией",
+  "tags": [
+   "sig_pavia_nine_months_it"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "взять столицу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "осаждающий",
+   "король"
+  ]
+ },
+ {
+  "id": "gold_offer_it",
+  "name": "Четырнадцать тысяч солидов",
+  "tags": [
+   "sig_gold_offer_it"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "откупиться золотом",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "король франков",
+   "король"
+  ]
+ },
+ {
+  "id": "storm_chiuse_it",
+  "name": "Штурм Кьюз в лоб",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "euphemius_revolt_it",
+  "name": "Мятеж турмарха",
+  "tags": [
+   "sig_euphemius_revolt_it"
+  ],
+  "slots": 1,
+  "emoji": "🔥",
+  "action": "поднять мятеж",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "мятежник"
+  ]
+ },
+ {
+  "id": "kairouan_council_it",
+  "name": "Совет в Кайруане",
+  "tags": [
+   "sig_kairouan_council_it"
+  ],
+  "slots": 3,
+  "emoji": "🕌",
+  "action": "решить о походе",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "эмир",
+   "кади",
+   "мятежник"
+  ]
+ },
+ {
+  "id": "mazara_landing_it",
+  "name": "Высадка в Мазаре",
+  "tags": [
+   "sig_mazara_landing_it"
+  ],
+  "slots": 2,
+  "emoji": "⛵",
+  "action": "высадиться на Сицилии",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кади",
+   "стратиг"
+  ]
+ },
+ {
+  "id": "beg_pardon_it",
+  "name": "Просить прощения у императора",
+  "tags": [
+   "sig_beg_pardon_it"
+  ],
+  "slots": 2,
+  "emoji": "🙏",
+  "action": "покаяться",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "мятежник",
+   "стратиг"
+  ]
+ },
+ {
+  "id": "straight_syracuse_it",
+  "name": "Сразу на Сиракузы",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "garda_escape_it",
+  "name": "Побег из замка Гарда",
+  "tags": [
+   "sig_garda_escape_it"
+  ],
+  "slots": 1,
+  "emoji": "🌙",
+  "action": "бежать из плена",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "пленница"
+  ]
+ },
+ {
+  "id": "pavia_wedding_it",
+  "name": "Свадьба в Павии",
+  "tags": [
+   "sig_pavia_wedding_it"
+  ],
+  "slots": 2,
+  "emoji": "💍",
+  "action": "взять в жёны",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "королева"
+  ]
+ },
+ {
+  "id": "rome_crown_962_it",
+  "name": "Коронация в Риме",
+  "tags": [
+   "sig_rome_crown_962_it"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "короновать императором",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "король"
+  ]
+ },
+ {
+  "id": "adalbert_match_it",
+  "name": "Выйти за сына Беренгара",
+  "tags": [
+   "sig_adalbert_match_it"
+  ],
+  "slots": 2,
+  "emoji": "⛓️",
+  "action": "принудить к браку",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "королева",
+   "король"
+  ]
+ },
+ {
+  "id": "fight_berengar_it",
+  "name": "Война с Беренгаром",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "hildebrand_mission_it",
+  "name": "Посольство Гильдебранда",
+  "tags": [
+   "sig_hildebrand_mission_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "просить войска против антипапы",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "архидиакон",
+   "князь"
+  ]
+ },
+ {
+  "id": "melfi_synod_it",
+  "name": "Собор в Мельфи",
+  "tags": [
+   "sig_melfi_synod_it"
+  ],
+  "slots": 3,
+  "emoji": "⛪",
+  "action": "принять присягу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "герцог",
+   "князь"
+  ]
+ },
+ {
+  "id": "galeria_it",
+  "name": "Поход на Галерию",
+  "tags": [
+   "sig_galeria_it"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "изгнать антипапу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "князь",
+   "папа"
+  ]
+ },
+ {
+  "id": "emperor_oath_it",
+  "name": "Присяга императору",
+  "tags": [
+   "sig_emperor_oath_it"
+  ],
+  "slots": 1,
+  "emoji": "🦅",
+  "action": "искать титула у императора",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "герцог"
+  ]
+ },
+ {
+  "id": "civitate_again_it",
+  "name": "Второй Чивитате",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "winter_alps_it",
+  "name": "Зимний перевал",
+  "tags": [
+   "sig_winter_alps_it"
+  ],
+  "slots": 1,
+  "emoji": "❄️",
+  "action": "идти через Альпы зимой",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "godfather_plea_it",
+  "name": "Крёстный и хозяйка замка",
+  "tags": [
+   "sig_godfather_plea_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "уговорить папу",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "хозяйка",
+   "аббат"
+  ]
+ },
+ {
+  "id": "three_days_it",
+  "name": "Три дня у ворот",
+  "tags": [
+   "sig_three_days_it"
+  ],
+  "slots": 3,
+  "emoji": "🚪",
+  "action": "снять отлучение",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "хозяйка",
+   "папа"
+  ]
+ },
+ {
+  "id": "augsburg_it",
+  "name": "Ехать на суд князей в Аугсбург",
+  "tags": [
+   "sig_augsburg_it"
+  ],
+  "slots": 1,
+  "emoji": "🐎",
+  "action": "судить короля в Германии",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "папа"
+  ]
+ },
+ {
+  "id": "march_rome_it",
+  "name": "С войском на Рим",
+  "tags": [
+   "v_battle"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "битва",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "нападающий",
+   "защитник"
+  ]
+ },
+ {
+  "id": "alberoni_gamble_it",
+  "name": "Высадка на Сицилии",
+  "tags": [
+   "sig_alberoni_gamble_it"
+  ],
+  "slots": 2,
+  "emoji": "⛵",
+  "action": "вернуть Испании Италию",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "министр",
+   "король"
+  ]
+ },
+ {
+  "id": "quadruple_it",
+  "name": "Четверной союз",
+  "tags": [
+   "sig_quadruple_it"
+  ],
+  "slots": 3,
+  "emoji": "🤝",
+  "action": "заставить Испанию отступить",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "король",
+   "министр"
+  ]
+ },
+ {
+  "id": "hague_swap_it",
+  "name": "Обмен в Гааге",
+  "tags": [
+   "sig_hague_swap_it"
+  ],
+  "slots": 2,
+  "emoji": "🔁",
+  "action": "поменять остров на остров",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "герцог"
+  ]
+ },
+ {
+  "id": "keep_sicily_it",
+  "name": "Держаться за Сицилию",
+  "tags": [
+   "sig_keep_sicily_it"
+  ],
+  "slots": 1,
+  "emoji": "🏰",
+  "action": "не отдавать корону",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "герцог"
+  ]
+ },
+ {
+  "id": "mother_plan_it",
+  "name": "Материнский замысел",
+  "tags": [
+   "sig_mother_plan_it"
+  ],
+  "slots": 2,
+  "emoji": "♟️",
+  "action": "послать сына на юг",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "королева",
+   "инфант"
+  ]
+ },
+ {
+  "id": "bitonto_it",
+  "name": "Битонто",
+  "tags": [
+   "sig_bitonto_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "разбить австрийцев",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "император"
+  ]
+ },
+ {
+  "id": "naples_entry_1734_it",
+  "name": "Въезд в Неаполь",
+  "tags": [
+   "sig_naples_entry_1734_it"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "занять трон",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "инфант",
+   "император"
+  ]
+ },
+ {
+  "id": "parma_stay_it",
+  "name": "Остаться в Парме",
+  "tags": [
+   "sig_parma_stay_it"
+  ],
+  "slots": 1,
+  "emoji": "🏡",
+  "action": "довольствоваться герцогством",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "инфант"
+  ]
+ },
+ {
+  "id": "trade_naples_it",
+  "name": "Сделка за спиной сына",
+  "tags": [
+   "sig_trade_naples_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "уступить юг ради мира",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "королева",
+   "император"
+  ]
+ },
+ {
+  "id": "pugni_it",
+  "name": "Академия кулаков",
+  "tags": [
+   "sig_pugni_it"
+  ],
+  "slots": 2,
+  "emoji": "👊",
+  "action": "спорить о законах",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вдохновитель",
+   "автор"
+  ]
+ },
+ {
+  "id": "livorno_print_it",
+  "name": "Анонимный тираж в Ливорно",
+  "tags": [
+   "sig_livorno_print_it"
+  ],
+  "slots": 2,
+  "emoji": "🖨️",
+  "action": "напечатать без имени",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "автор",
+   "редактор"
+  ]
+ },
+ {
+  "id": "milan_chair_it",
+  "name": "Кафедра в Милане",
+  "tags": [
+   "sig_milan_chair_it"
+  ],
+  "slots": 2,
+  "emoji": "🎓",
+  "action": "дать философу кафедру",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "императрица",
+   "автор"
+  ]
+ },
+ {
+  "id": "sign_name_it",
+  "name": "Подписать своим именем",
+  "tags": [
+   "sig_sign_name_it"
+  ],
+  "slots": 1,
+  "emoji": "🖊️",
+  "action": "выйти из тени",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "автор"
+  ]
+ },
+ {
+  "id": "give_up_it",
+  "name": "Бросить рукопись",
+  "tags": [
+   "sig_give_up_it"
+  ],
+  "slots": 1,
+  "emoji": "🛋️",
+  "action": "отложить работу",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "автор"
+  ]
+ },
+ {
+  "id": "ultimatum_it",
+  "name": "Ультиматум Бонапарта",
+  "tags": [
+   "sig_ultimatum_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "пригрозить войной",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "генерал",
+   "дож"
+  ]
+ },
+ {
+  "id": "last_council_it",
+  "name": "Последний Большой совет",
+  "tags": [
+   "sig_last_council_it"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "проголосовать за конец республики",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "дож",
+   "генерал"
+  ]
+ },
+ {
+  "id": "campo_formio_it",
+  "name": "Кампо-Формио",
+  "tags": [
+   "sig_campo_formio_it"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "отдать Венецию Австрии",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "дипломат"
+  ]
+ },
+ {
+  "id": "pesaro_resist_it",
+  "name": "Пезаро зовёт к оружию",
+  "tags": [
+   "sig_pesaro_resist_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "защищать лагуну",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "сенатор",
+   "дож"
+  ]
+ },
+ {
+  "id": "monitore_it",
+  "name": "Газета «Monitore Napoletano»",
+  "tags": [
+   "sig_monitore_it"
+  ],
+  "slots": 1,
+  "emoji": "📰",
+  "action": "говорить с народом",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "редактор"
+  ]
+ },
+ {
+  "id": "holy_faith_it",
+  "name": "Армия Святой веры",
+  "tags": [
+   "sig_holy_faith_it"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "поднять Калабрию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "кардинал",
+   "король"
+  ]
+ },
+ {
+  "id": "capitulation_1799_it",
+  "name": "Почётная капитуляция",
+  "tags": [
+   "sig_capitulation_1799_it"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "сдать крепости под гарантию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "кардинал",
+   "республиканка"
+  ]
+ },
+ {
+  "id": "annul_it",
+  "name": "Капитуляция отменена",
+  "tags": [
+   "sig_annul_it"
+  ],
+  "slots": 2,
+  "emoji": "⚓",
+  "action": "отменить обещание",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "адмирал",
+   "пленница"
+  ]
+ },
+ {
+  "id": "king_mercy_it",
+  "name": "Королевская амнистия",
+  "tags": [
+   "sig_king_mercy_it"
+  ],
+  "slots": 2,
+  "emoji": "🕊️",
+  "action": "простить побеждённых",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король",
+   "пленница"
+  ]
+ },
+ {
+  "id": "iron_crown_it",
+  "name": "Железная корона",
+  "tags": [
+   "sig_iron_crown_it"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "короноваться в Милане",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "вице-президент"
+  ]
+ },
+ {
+  "id": "viceroy_it",
+  "name": "Вице-король Италии",
+  "tags": [
+   "sig_viceroy_it"
+  ],
+  "slots": 2,
+  "emoji": "🎖️",
+  "action": "назначить пасынка",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "пасынок"
+  ]
+ },
+ {
+  "id": "prina_taxes_it",
+  "name": "Налоги Прины",
+  "tags": [
+   "sig_prina_taxes_it"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "собрать деньги и рекрутов",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "вице-король",
+   "министр"
+  ]
+ },
+ {
+  "id": "keep_republic_it",
+  "name": "Сохранить республику",
+  "tags": [
+   "sig_keep_republic_it"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "оставить итальянцам их республику",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вице-президент",
+   "император"
+  ]
+ },
+ {
+  "id": "lombardy_venetia_it",
+  "name": "Ломбардо-Венецианское королевство",
+  "tags": [
+   "sig_lombardy_venetia_it"
+  ],
+  "slots": 2,
+  "emoji": "🗺️",
+  "action": "взять север и поделиться Генуей",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "канцлер",
+   "король Сардинии"
+  ]
+ },
+ {
+  "id": "papal_return_it",
+  "name": "Возвращение папы",
+  "tags": [
+   "sig_papal_return_it"
+  ],
+  "slots": 2,
+  "emoji": "⛪",
+  "action": "вернуть Папское государство",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "канцлер"
+  ]
+ },
+ {
+  "id": "two_sicilies_it",
+  "name": "Королевство Обеих Сицилий",
+  "tags": [
+   "sig_two_sicilies_it"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "объединить Неаполь и Сицилию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "канцлер"
+  ]
+ },
+ {
+  "id": "murat_kept_it",
+  "name": "Мюрат сохраняет Неаполь",
+  "tags": [
+   "sig_murat_kept_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "оставить маршалу его трон",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "канцлер",
+   "король"
+  ]
+ },
+ {
+  "id": "constitution_it",
+  "name": "Обещать конституцию",
+  "tags": [
+   "sig_constitution_it"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "пообещать подданным права",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "nola_it",
+  "name": "Восстание в Ноле",
+  "tags": [
+   "sig_nola_it"
+  ],
+  "slots": 2,
+  "emoji": "🔥",
+  "action": "потребовать конституцию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "король"
+  ]
+ },
+ {
+  "id": "laibach_it",
+  "name": "Конгресс в Лайбахе",
+  "tags": [
+   "sig_laibach_it"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "позвать австрийские штыки",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "король",
+   "канцлер"
+  ]
+ },
+ {
+  "id": "turin_regency_it",
+  "name": "Регентство в Турине",
+  "tags": [
+   "sig_turin_regency_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "провозгласить конституцию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "заговорщик",
+   "регент"
+  ]
+ },
+ {
+  "id": "novara_it",
+  "name": "Новара",
+  "tags": [
+   "sig_novara_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "отречься от революции",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "регент",
+   "заговорщик"
+  ]
+ },
+ {
+  "id": "keep_oath_it",
+  "name": "Сдержать слово",
+  "tags": [
+   "sig_keep_oath_it"
+  ],
+  "slots": 1,
+  "emoji": "🤞",
+  "action": "остаться верным присяге",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "modena_plot_it",
+  "name": "Довериться герцогу Модены",
+  "tags": [
+   "sig_modena_plot_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "поднять Модену",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "заговорщик",
+   "союзник"
+  ]
+ },
+ {
+  "id": "marseille_it",
+  "name": "«Молодая Италия»",
+  "tags": [
+   "sig_marseille_it"
+  ],
+  "slots": 1,
+  "emoji": "🕯️",
+  "action": "основать общество в изгнании",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "изгнанник"
+  ]
+ },
+ {
+  "id": "letter_king_it",
+  "name": "Письмо Карлу Альберту",
+  "tags": [
+   "sig_letter_king_it"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "ждать короля-освободителя",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "изгнанник",
+   "король"
+  ]
+ },
+ {
+  "id": "oath_garibaldi_it",
+  "name": "Клятва моряка",
+  "tags": [
+   "sig_oath_garibaldi_it"
+  ],
+  "slots": 2,
+  "emoji": "⚓",
+  "action": "принять в общество",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "основатель",
+   "моряк"
+  ]
+ },
+ {
+  "id": "genoa_mutiny_it",
+  "name": "Генуя, 1834",
+  "tags": [
+   "sig_genoa_mutiny_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "поднять флот",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "заговорщик",
+   "король"
+  ]
+ },
+ {
+  "id": "pius_reforms_it",
+  "name": "Папа-реформатор",
+  "tags": [
+   "sig_pius_reforms_it"
+  ],
+  "slots": 1,
+  "emoji": "🕊️",
+  "action": "объявить амнистию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "папа"
+  ]
+ },
+ {
+  "id": "risorgimento_paper_it",
+  "name": "Газета «Il Risorgimento»",
+  "tags": [
+   "sig_risorgimento_paper_it"
+  ],
+  "slots": 2,
+  "emoji": "📰",
+  "action": "потребовать конституцию",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "издатель",
+   "соиздатель"
+  ]
+ },
+ {
+  "id": "statuto_sign_it",
+  "name": "Статут Альбертино",
+  "tags": [
+   "sig_statuto_sign_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "даровать конституцию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "издатель"
+  ]
+ },
+ {
+  "id": "confessor_it",
+  "name": "Совет духовника",
+  "tags": [
+   "sig_confessor_it"
+  ],
+  "slots": 1,
+  "emoji": "🙏",
+  "action": "колебаться",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "король"
+  ]
+ },
+ {
+  "id": "barricades_it",
+  "name": "Баррикады",
+  "tags": [
+   "sig_barricades_it"
+  ],
+  "slots": 2,
+  "emoji": "🪵",
+  "action": "перегородить улицы",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "командир",
+   "организатор"
+  ]
+ },
+ {
+  "id": "war_council_it",
+  "name": "Военный совет",
+  "tags": [
+   "sig_war_council_it"
+  ],
+  "slots": 2,
+  "emoji": "🗺️",
+  "action": "взять восстание в руки",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "организатор",
+   "подеста"
+  ]
+ },
+ {
+  "id": "withdraw_it",
+  "name": "Уход в Четырёхугольник",
+  "tags": [
+   "sig_withdraw_it"
+  ],
+  "slots": 3,
+  "emoji": "🚶",
+  "action": "оставить город",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "маршал",
+   "командир",
+   "организатор"
+  ]
+ },
+ {
+  "id": "casati_truce_it",
+  "name": "Перемирие Казати",
+  "tags": [
+   "sig_casati_truce_it"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "договориться о передышке",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "подеста",
+   "маршал"
+  ]
+ },
+ {
+  "id": "gaeta_flight_it",
+  "name": "Бегство в Гаэту",
+  "tags": [
+   "sig_gaeta_flight_it"
+  ],
+  "slots": 1,
+  "emoji": "🕯️",
+  "action": "покинуть Рим",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "папа"
+  ]
+ },
+ {
+  "id": "triumvirate_it",
+  "name": "Триумвират и конституция",
+  "tags": [
+   "sig_triumvirate_it"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "провозгласить республику",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "триумвир"
+  ]
+ },
+ {
+  "id": "pope_appeal_it",
+  "name": "Призыв к католическим державам",
+  "tags": [
+   "sig_pope_appeal_it"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "позвать на помощь",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "папа",
+   "президент"
+  ]
+ },
+ {
+  "id": "janiculum_it",
+  "name": "Оборона Яникула",
+  "tags": [
+   "sig_janiculum_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "держать стены",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "президент"
+  ]
+ },
+ {
+  "id": "lay_down_it",
+  "name": "Сдать Рим без боя",
+  "tags": [
+   "sig_lay_down_it"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "сложить оружие",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "триумвир",
+   "генерал"
+  ]
+ },
+ {
+  "id": "bourbon_letters_it",
+  "name": "Письма из Рима",
+  "tags": [
+   "sig_bourbon_letters_it"
+  ],
+  "slots": 2,
+  "emoji": "✉️",
+  "action": "обещать возвращение Бурбонов",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "посланец",
+   "вожак"
+  ]
+ },
+ {
+  "id": "vulture_woods_it",
+  "name": "Леса Вультуре",
+  "tags": [
+   "sig_vulture_woods_it"
+  ],
+  "slots": 2,
+  "emoji": "🌲",
+  "action": "поднять отряды",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "вожак",
+   "посланец"
+  ]
+ },
+ {
+  "id": "land_reform_it",
+  "name": "Раздать общинные земли",
+  "tags": [
+   "sig_land_reform_it"
+  ],
+  "slots": 2,
+  "emoji": "🌾",
+  "action": "дать крестьянам землю",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "премьер",
+   "вожак"
+  ]
+ },
+ {
+  "id": "pica_law_it",
+  "name": "Закон Пики",
+  "tags": [
+   "sig_pica_law_it"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "ввести военные суды",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "вожак"
+  ]
+ },
+ {
+  "id": "shoot_on_spot_it",
+  "name": "Расстрел на месте",
+  "tags": [
+   "sig_shoot_on_spot_it"
+  ],
+  "slots": 2,
+  "emoji": "💥",
+  "action": "расстрелять без суда",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "вожак"
+  ]
+ },
+ {
+  "id": "prussian_pact_it",
+  "name": "Союз с Пруссией",
+  "tags": [
+   "sig_prussian_pact_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "заключить союз",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "король",
+   "канцлер"
+  ]
+ },
+ {
+  "id": "vienna_offer_it",
+  "name": "Предложение Вены",
+  "tags": [
+   "sig_vienna_offer_it"
+  ],
+  "slots": 2,
+  "emoji": "📨",
+  "action": "обменять нейтралитет на Венецию",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "император",
+   "король"
+  ]
+ },
+ {
+  "id": "custoza_it",
+  "name": "Кустоца",
+  "tags": [
+   "sig_custoza_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "дать бой",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "император"
+  ]
+ },
+ {
+  "id": "bezzecca_it",
+  "name": "Беццекка",
+  "tags": [
+   "sig_bezzecca_it"
+  ],
+  "slots": 1,
+  "emoji": "🏔️",
+  "action": "победить в горах",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "волонтёр"
+  ]
+ },
+ {
+  "id": "venetia_via_paris_it",
+  "name": "Венеция через Париж",
+  "tags": [
+   "sig_venetia_via_paris_it"
+  ],
+  "slots": 2,
+  "emoji": "🗝️",
+  "action": "получить Венецию",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "король"
+  ]
+ },
+ {
+  "id": "rome_capital_it",
+  "name": "Рим — столица",
+  "tags": [
+   "sig_rome_capital_it"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "перенести столицу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "министр",
+   "король"
+  ]
+ },
+ {
+  "id": "guarantee_law_it",
+  "name": "Закон о гарантиях",
+  "tags": [
+   "sig_guarantee_law_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "предложить гарантии",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "премьер",
+   "папа"
+  ]
+ },
+ {
+  "id": "ubi_nos_it",
+  "name": "Энциклика «Ubi nos»",
+  "tags": [
+   "sig_ubi_nos_it"
+  ],
+  "slots": 1,
+  "emoji": "🗝️",
+  "action": "отвергнуть закон",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "папа"
+  ]
+ },
+ {
+  "id": "pope_exile_it",
+  "name": "Уехать на Мальту",
+  "tags": [
+   "sig_pope_exile_it"
+  ],
+  "slots": 1,
+  "emoji": "⛵",
+  "action": "покинуть Рим",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "папа"
+  ]
+ },
+ {
+  "id": "concordat_it",
+  "name": "Примирение с королём",
+  "tags": [
+   "sig_concordat_it"
+  ],
+  "slots": 2,
+  "emoji": "🕊️",
+  "action": "заключить мир",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "папа",
+   "король"
+  ]
+ },
+ {
+  "id": "massawa_it",
+  "name": "Гарнизоны в Массауа и Саати",
+  "tags": [
+   "sig_massawa_it"
+  ],
+  "slots": 2,
+  "emoji": "⚓",
+  "action": "выдвинуть гарнизоны",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "премьер",
+   "полковник"
+  ]
+ },
+ {
+  "id": "negus_order_it",
+  "name": "Приказ императора",
+  "tags": [
+   "sig_negus_order_it"
+  ],
+  "slots": 2,
+  "emoji": "📯",
+  "action": "поручить границу",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "император",
+   "рас"
+  ]
+ },
+ {
+  "id": "withdraw_saati_it",
+  "name": "Уйти из Саати",
+  "tags": [
+   "sig_withdraw_saati_it"
+  ],
+  "slots": 2,
+  "emoji": "🏳️",
+  "action": "отвести гарнизон",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "премьер",
+   "рас"
+  ]
+ },
+ {
+  "id": "saati_assault_it",
+  "name": "Штурм форта Саати",
+  "tags": [
+   "sig_saati_assault_it"
+  ],
+  "slots": 2,
+  "emoji": "🏰",
+  "action": "атаковать форт",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "рас",
+   "полковник"
+  ]
+ },
+ {
+  "id": "dogali_it",
+  "name": "Колонна у Догали",
+  "tags": [
+   "sig_dogali_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "перехватить колонну",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "рас",
+   "полковник"
+  ]
+ },
+ {
+  "id": "corleone_pacts_it",
+  "name": "Договоры Корлеоне",
+  "tags": [
+   "sig_corleone_pacts_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "требовать новых договоров",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "вожак",
+   "врач"
+  ]
+ },
+ {
+  "id": "dissolve_fasci_it",
+  "name": "Распустить союзы",
+  "tags": [
+   "sig_dissolve_fasci_it"
+  ],
+  "slots": 1,
+  "emoji": "🏠",
+  "action": "разойтись по домам",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "врач"
+  ]
+ },
+ {
+  "id": "troops_now_it",
+  "name": "Войска против забастовщиков",
+  "tags": [
+   "sig_troops_now_it"
+  ],
+  "slots": 2,
+  "emoji": "💥",
+  "action": "стрелять сразу",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "премьер",
+   "врач"
+  ]
+ },
+ {
+  "id": "banca_romana_it",
+  "name": "Скандал Банка Романа",
+  "tags": [
+   "sig_banca_romana_it"
+  ],
+  "slots": 2,
+  "emoji": "🏦",
+  "action": "уйти в отставку",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "премьер",
+   "преемник"
+  ]
+ },
+ {
+  "id": "state_of_siege_it",
+  "name": "Осадное положение на Сицилии",
+  "tags": [
+   "sig_state_of_siege_it"
+  ],
+  "slots": 2,
+  "emoji": "⚖️",
+  "action": "ввести военные суды",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "премьер",
+   "врач"
+  ]
+ },
+ {
+  "id": "wuchale_it",
+  "name": "Учиальский договор",
+  "tags": [
+   "sig_wuchale_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "подписать договор",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "император",
+   "премьер"
+  ]
+ },
+ {
+  "id": "italian_text_it",
+  "name": "Итальянский текст статьи 17",
+  "tags": [
+   "sig_italian_text_it"
+  ],
+  "slots": 2,
+  "emoji": "🖋️",
+  "action": "принять протекторат",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "император",
+   "премьер"
+  ]
+ },
+ {
+  "id": "article17_it",
+  "name": "Два текста статьи 17",
+  "tags": [
+   "sig_article17_it"
+  ],
+  "slots": 2,
+  "emoji": "🗣️",
+  "action": "отвергнуть протекторат",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "императрица",
+   "император"
+  ]
+ },
+ {
+  "id": "phthisis_it",
+  "name": "Телеграмма о «военной чахотке»",
+  "tags": [
+   "sig_phthisis_it"
+  ],
+  "slots": 2,
+  "emoji": "📨",
+  "action": "потребовать победы",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "премьер",
+   "генерал"
+  ]
+ },
+ {
+  "id": "entrench_it",
+  "name": "Ждать в лагере",
+  "tags": [
+   "sig_entrench_it"
+  ],
+  "slots": 1,
+  "emoji": "⛺",
+  "action": "ждать в укреплениях",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "генерал"
+  ]
+ },
+ {
+  "id": "adwa_battle_it",
+  "name": "Адуа",
+  "tags": [
+   "sig_adwa_battle_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "дать сражение",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "император"
+  ]
+ },
+ {
+  "id": "milan_command_it",
+  "name": "Осадное положение в Милане",
+  "tags": [
+   "sig_milan_command_it"
+  ],
+  "slots": 2,
+  "emoji": "🏛️",
+  "action": "передать город армии",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "премьер",
+   "генерал"
+  ]
+ },
+ {
+  "id": "grain_duty_it",
+  "name": "Отменить пошлину на зерно",
+  "tags": [
+   "sig_grain_duty_it"
+  ],
+  "slots": 1,
+  "emoji": "🌾",
+  "action": "снизить цену хлеба",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "премьер"
+  ]
+ },
+ {
+  "id": "barricade_call_it",
+  "name": "Призыв к баррикадам",
+  "tags": [
+   "sig_barricade_call_it"
+  ],
+  "slots": 1,
+  "emoji": "🧱",
+  "action": "звать на баррикады",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "социалист"
+  ]
+ },
+ {
+  "id": "cannons_milan_it",
+  "name": "Пушки на корсо Венеция",
+  "tags": [
+   "sig_cannons_milan_it"
+  ],
+  "slots": 2,
+  "emoji": "💥",
+  "action": "стрелять по толпе",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "генерал",
+   "социалист"
+  ]
+ },
+ {
+  "id": "royal_cross_it",
+  "name": "Крест Савойского ордена",
+  "tags": [
+   "sig_royal_cross_it"
+  ],
+  "slots": 2,
+  "emoji": "🎖️",
+  "action": "наградить генерала",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "генерал"
+  ]
+ },
+ {
+  "id": "fiat_it",
+  "name": "Fabbrica Italiana Automobili Torino",
+  "tags": [
+   "sig_fiat_it"
+  ],
+  "slots": 1,
+  "emoji": "🏭",
+  "action": "основать завод",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "промышленник"
+  ]
+ },
+ {
+  "id": "emigration_law_it",
+  "name": "Закон об эмиграции",
+  "tags": [
+   "sig_emigration_law_it"
+  ],
+  "slots": 2,
+  "emoji": "📜",
+  "action": "защитить уезжающих",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "комиссар",
+   "семья"
+  ]
+ },
+ {
+  "id": "agent_ticket_it",
+  "name": "Билет у вербовщика",
+  "tags": [
+   "sig_agent_ticket_it"
+  ],
+  "slots": 1,
+  "emoji": "🎟️",
+  "action": "купить билет у агента",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "семья"
+  ]
+ },
+ {
+  "id": "factory_turin_it",
+  "name": "Работа в Турине",
+  "tags": [
+   "sig_factory_turin_it"
+  ],
+  "slots": 2,
+  "emoji": "🔧",
+  "action": "остаться на заводе",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "промышленник",
+   "семья"
+  ]
+ },
+ {
+  "id": "new_york_it",
+  "name": "Миссия в Нью-Йорке",
+  "tags": [
+   "sig_new_york_it"
+  ],
+  "slots": 2,
+  "emoji": "🗽",
+  "action": "устроиться в Америке",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "монахиня",
+   "семья"
+  ]
+ },
+ {
+  "id": "tripoli_ultimatum_it",
+  "name": "Ультиматум Османской империи",
+  "tags": [
+   "sig_tripoli_ultimatum_it"
+  ],
+  "slots": 2,
+  "emoji": "📨",
+  "action": "объявить войну",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "министр",
+   "премьер"
+  ]
+ },
+ {
+  "id": "derna_camp_it",
+  "name": "Лагерь под Дерной",
+  "tags": [
+   "sig_derna_camp_it"
+  ],
+  "slots": 2,
+  "emoji": "⛺",
+  "action": "организовать сопротивление",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "офицер",
+   "шейх"
+  ]
+ },
+ {
+  "id": "ouchy_it",
+  "name": "Мир в Уши",
+  "tags": [
+   "sig_ouchy_it"
+  ],
+  "slots": 2,
+  "emoji": "✍️",
+  "action": "подписать мир",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "премьер",
+   "офицер"
+  ]
+ },
+ {
+  "id": "bribe_sheikhs_it",
+  "name": "Подкупить шейхов",
+  "tags": [
+   "sig_bribe_sheikhs_it"
+  ],
+  "slots": 2,
+  "emoji": "💰",
+  "action": "купить лояльность",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "премьер",
+   "шейх"
+  ]
+ },
+ {
+  "id": "vienna_concessions_it",
+  "name": "Уступки Вены",
+  "tags": [
+   "sig_vienna_concessions_it"
+  ],
+  "slots": 1,
+  "emoji": "📨",
+  "action": "принять Трентино за нейтралитет",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "министр"
+  ]
+ },
+ {
+  "id": "london_pact_it",
+  "name": "Лондонский договор",
+  "tags": [
+   "sig_london_pact_it"
+  ],
+  "slots": 2,
+  "emoji": "🤫",
+  "action": "тайно подписать договор",
+  "actionIcon": "icon_ally",
+  "roles": [
+   "министр",
+   "премьер"
+  ]
+ },
+ {
+  "id": "giolitti_called_it",
+  "name": "Король зовёт Джолитти",
+  "tags": [
+   "sig_giolitti_called_it"
+  ],
+  "slots": 2,
+  "emoji": "🤝",
+  "action": "поручить правительство",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "король",
+   "лидер большинства"
+  ]
+ },
+ {
+  "id": "resignation_refused_it",
+  "name": "Отставка не принята",
+  "tags": [
+   "sig_resignation_refused_it"
+  ],
+  "slots": 2,
+  "emoji": "👑",
+  "action": "оставить премьера",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "король",
+   "премьер"
+  ]
+ },
+ {
+  "id": "war_powers_it",
+  "name": "Голосование 20 мая",
+  "tags": [
+   "sig_war_powers_it"
+  ],
+  "slots": 2,
+  "emoji": "🗳️",
+  "action": "дать полномочия на войну",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "премьер",
+   "оппозиция"
+  ]
+ },
+ {
+  "id": "fog_gas_it",
+  "name": "Туман и газ у Капоретто",
+  "tags": [
+   "sig_fog_gas_it"
+  ],
+  "slots": 2,
+  "emoji": "🌫️",
+  "action": "прорвать фронт",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "атакующий",
+   "главнокомандующий"
+  ]
+ },
+ {
+  "id": "cowardice_myth_it",
+  "name": "Миф о трусости",
+  "tags": [
+   "sig_cowardice_myth_it"
+  ],
+  "slots": 1,
+  "emoji": "📣",
+  "action": "обвинить солдат",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "солдаты"
+  ]
+ },
+ {
+  "id": "new_command_it",
+  "name": "Новый главнокомандующий",
+  "tags": [
+   "sig_new_command_it"
+  ],
+  "slots": 2,
+  "emoji": "🔁",
+  "action": "сменить командующего",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "бывший командующий",
+   "преемник"
+  ]
+ },
+ {
+  "id": "tagliamento_it",
+  "name": "Стоять на Тальяменто",
+  "tags": [
+   "sig_tagliamento_it"
+  ],
+  "slots": 2,
+  "emoji": "🌊",
+  "action": "держать реку",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "главнокомандующий",
+   "фельдмаршал"
+  ]
+ },
+ {
+  "id": "piave_line_it",
+  "name": "Линия Пьяве",
+  "tags": [
+   "sig_piave_line_it"
+  ],
+  "slots": 3,
+  "emoji": "🛡️",
+  "action": "остановить наступление",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "командующий",
+   "солдаты",
+   "фельдмаршал"
+  ]
+ },
+ {
+  "id": "peoples_manifesto_it",
+  "name": "Манифест «К моим верным народам»",
+  "tags": [
+   "sig_peoples_manifesto_it"
+  ],
+  "slots": 1,
+  "emoji": "📜",
+  "action": "обещать федерацию",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "император"
+  ]
+ },
+ {
+  "id": "summer_attack_it",
+  "name": "Наступать летом",
+  "tags": [
+   "sig_summer_attack_it"
+  ],
+  "slots": 1,
+  "emoji": "☀️",
+  "action": "атаковать раньше времени",
+  "actionIcon": "icon_dead",
+  "roles": [
+   "командующий"
+  ]
+ },
+ {
+  "id": "abdicate_it",
+  "name": "Отречение",
+  "tags": [
+   "sig_abdicate_it"
+  ],
+  "slots": 1,
+  "emoji": "🚪",
+  "action": "оставить трон",
+  "actionIcon": "icon_plot",
+  "roles": [
+   "император"
+  ]
+ },
+ {
+  "id": "vittorio_veneto_it",
+  "name": "Витторио-Венето",
+  "tags": [
+   "sig_vittorio_veneto_it"
+  ],
+  "slots": 2,
+  "emoji": "⚔️",
+  "action": "наступать через Пьяве",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "командующий",
+   "император"
+  ]
+ },
+ {
+  "id": "villa_giusti_it",
+  "name": "Вилла Джусти",
+  "tags": [
+   "sig_villa_giusti_it"
+  ],
+  "slots": 3,
+  "emoji": "✍️",
+  "action": "подписать перемирие",
+  "actionIcon": "icon_crown",
+  "roles": [
+   "генерал",
+   "генерал противника",
+   "император"
+  ]
  }
 ]

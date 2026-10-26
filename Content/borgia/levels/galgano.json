@@ -1,0 +1,69 @@
+{
+ "id": "galgano",
+ "order": 10,
+ "epoch": "borgia",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "sword_stone_it",
+ "panels": 3,
+ "scenes": [
+  "vision_galgano_it",
+  "mother_match_it",
+  "horse_refuses_it",
+  "sword_stone_it",
+  "chiusdino_wedding_it"
+ ],
+ "characters": [
+  "galgano_it",
+  "michael_it",
+  "dionisia_it",
+  "polissena_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "galgano_it",
+     "is": "hermit_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "galgano_it",
+      "is": "married"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "vision_galgano_it",
+   "characters": [
+    "michael_it",
+    "galgano_it"
+   ]
+  },
+  {
+   "scene": "horse_refuses_it",
+   "characters": [
+    "galgano_it",
+    "polissena_it"
+   ]
+  },
+  {
+   "scene": "sword_stone_it",
+   "characters": [
+    "galgano_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

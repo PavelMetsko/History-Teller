@@ -69462,5 +69462,8025 @@
     "flag": "retreated_ru"
    }
   ]
+ },
+ {
+  "id": "anacletus_bull_it_sig",
+  "comment": "Антипапа, которому нужны союзники, жалует графу Сицилии королевский титул",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_anacletus_bull_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "anacletus_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "roger2_it"
+     ],
+     "notFlags": [
+      "submitted_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bull_it"
+   }
+  ]
+ },
+ {
+  "id": "palermo_crown_it_sig",
+  "comment": "На Рождество 1130 года в соборе Палермо Рожера венчают королём Сицилии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_palermo_crown_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "roger2_it"
+     ],
+     "flags": [
+      "bull_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "crowned_it"
+   }
+  ]
+ },
+ {
+  "id": "submit_innocent_it_sig",
+  "comment": "Рожер склоняется перед Иннокентием раньше времени — и короны из рук антипапы уже не примет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_submit_innocent_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "roger2_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "innocent2_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "submitted_it"
+   }
+  ]
+ },
+ {
+  "id": "bernard_sermon_it_sig",
+  "comment": "Бернар объезжает Европу и собирает королей за Иннокентия — но Сицилия от этого не дрогнет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bernard_sermon_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bernard_clairvaux_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "innocent2_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "backed_it"
+   }
+  ]
+ },
+ {
+  "id": "galluccio_it_sig",
+  "comment": "В 1139 году войско Рожера окружает папу у Галлуччо — и пленник признаёт его королём",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_galluccio_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "roger2_it"
+     ],
+     "flags": [
+      "crowned_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "innocent2_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "recognized_it"
+   }
+  ]
+ },
+ {
+  "id": "league_oath_it_sig",
+  "comment": "Миланцы, кремонцы, веронцы и другие города клянутся стоять заодно — папа благословляет лигу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_league_oath_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "guido_landriano_it"
+     ],
+     "notFlags": [
+      "submitted_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alexander3_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "league_it"
+   }
+  ]
+ },
+ {
+  "id": "chiavenna_it_sig",
+  "comment": "Барбаросса, говорят, даже склоняется перед кузеном, — но Генрих Лев отказывает в войсках",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_chiavenna_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "barbarossa_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "henry_lion_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "alone_it"
+   }
+  ]
+ },
+ {
+  "id": "pay_emperor_it_sig",
+  "comment": "Город платит имперский налог и принимает подесту императора — о союзе можно забыть",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pay_emperor_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "guido_landriano_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "barbarossa_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "submitted_it"
+   }
+  ]
+ },
+ {
+  "id": "legnano_field_it_sig",
+  "comment": "Пехота лиги держится у карроччо, кавалерия возвращается — и рыцари императора бегут",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_legnano_field_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "guido_landriano_it"
+     ],
+     "flags": [
+      "league_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "barbarossa_it"
+     ],
+     "flags": [
+      "alone_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated_it"
+   }
+  ]
+ },
+ {
+  "id": "burn_milan_it_sig",
+  "comment": "Император карает город, как в 1162 году, — и навсегда превращает его в врага",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_burn_milan_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "barbarossa_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "guido_landriano_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hated_it"
+   }
+  ]
+ },
+ {
+  "id": "challenge_pisa_it_sig",
+  "comment": "Генуэзский флот встаёт у пизанской гавани — подеста выводит галеры навстречу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_challenge_pisa_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oberto_doria_it"
+     ],
+     "notFlags": [
+      "repulsed_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "morosini_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sallied_it"
+   }
+  ]
+ },
+ {
+  "id": "hidden_squadron_it_sig",
+  "comment": "Дзаккария прячет свою эскадру — пизанцы видят только часть генуэзского флота",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hidden_squadron_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oberto_doria_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "zaccaria_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "hidden_it"
+   }
+  ]
+ },
+ {
+  "id": "storm_harbor_it_sig",
+  "comment": "Генуэзцы лезут на укреплённую гавань — их отбивают, и флот Пизы не выходит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_storm_harbor_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "oberto_doria_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ugolino_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repulsed_it"
+   }
+  ]
+ },
+ {
+  "id": "meloria_battle_it_sig",
+  "comment": "В разгар боя резервная эскадра бьёт пизанцам во фланг — подеста попадает в плен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_meloria_battle_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "zaccaria_it"
+     ],
+     "flags": [
+      "hidden_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "morosini_it"
+     ],
+     "flags": [
+      "sallied_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_it"
+   }
+  ]
+ },
+ {
+  "id": "meloria_battle_it_ugolino",
+  "comment": "Граф Уголино уводит свои галеры с поля боя — и спасается; в Пизе его заподозрят в измене",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_meloria_battle_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "zaccaria_it"
+     ],
+     "flags": [
+      "hidden_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "ugolino_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "withdrew_it"
+   }
+  ]
+ },
+ {
+  "id": "ordinances_it_sig",
+  "comment": "Гонфалоньер Сальвестро Медичи проводит законы против грандов — город закипает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ordinances_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "salvestro_it"
+     ],
+     "notFlags": [
+      "stalled_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alberti_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reformer_it"
+   }
+  ]
+ },
+ {
+  "id": "burn_houses_it_sig",
+  "comment": "Толпа жжёт дома богачей — испуганный Сальвестро отворачивается от низов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_burn_houses_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "michele_lando_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "salvestro_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "turned_it"
+   }
+  ]
+ },
+ {
+  "id": "palazzo_storm_it_sig",
+  "comment": "В июле чомпи с знамёнами врываются во дворец — босого чесальщика Микеле поднимают гонфалоньером",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_palazzo_storm_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "michele_lando_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "salvestro_it"
+     ],
+     "flags": [
+      "reformer_it"
+     ],
+     "notFlags": [
+      "turned_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "gonfalonier_it"
+   }
+  ]
+ },
+ {
+  "id": "new_guilds_it_sig",
+  "comment": "Новый гонфалоньер создаёт три цеха — красильщиков, швейников и чомпи: впервые бедные в правительстве",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_new_guilds_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "michele_lando_it"
+     ],
+     "flags": [
+      "gonfalonier_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "scali_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "guild_it"
+   }
+  ]
+ },
+ {
+  "id": "wait_alberti_it_sig",
+  "comment": "Осторожный Альберти уговаривает отложить законы — реформа застревает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wait_alberti_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alberti_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "salvestro_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "stalled_it"
+   }
+  ]
+ },
+ {
+  "id": "free_pisani_it_sig",
+  "comment": "Народ отказывается грести без Пизани — дож выпускает опального адмирала из тюрьмы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_free_pisani_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "contarini_it"
+     ],
+     "notFlags": [
+      "conceded_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pisani_it"
+     ],
+     "flags": [
+      "jailed_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "jailed_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "freed_it"
+   }
+  ]
+ },
+ {
+  "id": "sink_hulks_it_sig",
+  "comment": "Пизани топит груженые барки в протоках — генуэзский флот заперт в лагуне",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sink_hulks_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pisani_it"
+     ],
+     "flags": [
+      "freed_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pietro_doria_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "trapped_it"
+   }
+  ]
+ },
+ {
+  "id": "zeno_returns_it_sig",
+  "comment": "С Леванта возвращается Карло Дзено — осаждённые в Кьодже генуэзцы сдаются",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_zeno_returns_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "carlo_zeno_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pietro_doria_it"
+     ],
+     "flags": [
+      "trapped_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "defeated_it"
+   }
+  ]
+ },
+ {
+  "id": "sue_peace_it_sig",
+  "comment": "Дож просит мира — генуэзец отвечает, что не уйдёт, пока не взнуздает бронзовых коней Сан-Марко",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sue_peace_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "contarini_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pietro_doria_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "conceded_it"
+   }
+  ]
+ },
+ {
+  "id": "storm_chioggia_it_sig",
+  "comment": "Лобовой штурм Кьоджи захлёбывается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_storm_chioggia_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pisani_it"
+     ],
+     "notFlags": [
+      "jailed_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pietro_doria_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repulsed_it"
+   }
+  ]
+ },
+ {
+  "id": "cosimo_switch_it_sig",
+  "comment": "Козимо рвёт старый союз с Венецией и даёт кредит бывшему кондотьеру, ставшему герцогом Милана",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cosimo_switch_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "florentine",
+      "banker"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "francesco_sforza_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "backed_it"
+   }
+  ]
+ },
+ {
+  "id": "call_french_it_sig",
+  "comment": "Сфорца зовёт французского принца — итальянские дела снова решают за Альпами",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_call_french_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "francesco_sforza_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "florentine",
+      "banker"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "french_it"
+   }
+  ]
+ },
+ {
+  "id": "new_war_it_sig",
+  "comment": "Венеция снова наступает — до мира далеко",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_new_war_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "foscari_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "francesco_sforza_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "at_war_it"
+   }
+  ]
+ },
+ {
+  "id": "lodi_peace_it_sig",
+  "comment": "Устав от войны и напуганные падением Константинополя, Милан и Венеция подписывают мир",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lodi_peace_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "francesco_sforza_it"
+     ],
+     "flags": [
+      "backed_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "foscari_it"
+     ],
+     "notFlags": [
+      "at_war_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "peace_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "peace_it"
+   }
+  ]
+ },
+ {
+  "id": "italic_league_it_sig",
+  "comment": "Папа и король Неаполя присоединяются: Италийская лига на двадцать пять лет обещает общий мир",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_italic_league_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nicholas5_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "francesco_sforza_it"
+     ],
+     "flags": [
+      "peace_it"
+     ],
+     "notFlags": [
+      "french_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "alfonso5_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "league_it"
+   }
+  ]
+ },
+ {
+  "id": "invite_french_it_sig",
+  "comment": "Лодовико Моро, боясь Неаполя, зовёт короля Франции вспомнить анжуйские права на неаполитанский трон",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_invite_french_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "milanese",
+      "duke_i"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles8_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "invited_it"
+   }
+  ]
+ },
+ {
+  "id": "sarzana_keys_it_sig",
+  "comment": "Пьеро без ведома республики сдаёт королю тосканские крепости — Флоренция изгоняет Медичи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sarzana_keys_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piero_medici_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles8_it"
+     ],
+     "flags": [
+      "invited_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "exiled_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "passage_it"
+   }
+  ]
+ },
+ {
+  "id": "hold_forts_it_sig",
+  "comment": "Флорентийские крепости держатся — армия короля застревает в Апеннинах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hold_forts_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piero_medici_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles8_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "stalled_it"
+   }
+  ]
+ },
+ {
+  "id": "pope_bars_it_sig",
+  "comment": "Папа велит закрыть ворота Рима — французам не пройти на юг",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pope_bars_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pontiff"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles8_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "barred_it"
+   }
+  ]
+ },
+ {
+  "id": "naples_entry_it_sig",
+  "comment": "Папа лавирует и пропускает короля через Рим — в феврале 1495 года Карл входит в Неаполь без боя",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_naples_entry_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles8_it"
+     ],
+     "flags": [
+      "passage_it"
+     ],
+     "notFlags": [
+      "stalled_it",
+      "barred_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pontiff"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "naples_it"
+   }
+  ]
+ },
+ {
+  "id": "senate_debate_it_sig",
+  "comment": "Санудо записывает спор: выслать евреев с Риальто нельзя — без их банков не обойтись; их решают селить отдельно",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_senate_debate_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "loredan_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "sanudo_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "debated_it"
+   }
+  ]
+ },
+ {
+  "id": "lenten_sermon_it_sig",
+  "comment": "Проповедник требует изгнать евреев из христианского города — дож колеблется",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lenten_sermon_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "friar_preacher_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "loredan_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "swayed_it"
+   }
+  ]
+ },
+ {
+  "id": "expel_it_sig",
+  "comment": "Дож уступает проповеднику — общину высылают из Венеции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_expel_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "loredan_it"
+     ],
+     "flags": [
+      "swayed_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "anselmo_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "expelled_it"
+   }
+  ]
+ },
+ {
+  "id": "ghetto_decree_it_sig",
+  "comment": "29 марта 1516 года: евреи должны жить на острове Гетто Нуово, ворота запираются на ночь",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ghetto_decree_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "loredan_it"
+     ],
+     "flags": [
+      "debated_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "anselmo_it"
+     ],
+     "notFlags": [
+      "expelled_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "decree_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "confined_it"
+   }
+  ]
+ },
+ {
+  "id": "condotta_it_sig",
+  "comment": "Община торгуется за кондотту: право держать ссудные банки, лавки старьёвщиков и врачей — и платит за стражу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_condotta_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "anselmo_it"
+     ],
+     "flags": [
+      "confined_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "loredan_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "condotta_it"
+   }
+  ]
+ },
+ {
+  "id": "bologna_pact_it_sig",
+  "comment": "Папа венчает Карла императорской короной — а взамен получает армию против Флоренции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bologna_pact_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "medici",
+      "pope_i"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles5_emp_it"
+     ],
+     "notFlags": [
+      "neutral_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "allied_it"
+   }
+  ]
+ },
+ {
+  "id": "gavinana_it_sig",
+  "comment": "Ферруччи прорывается на помощь городу, но у Гавинаны имперцы разбивают его отряд — раненого добивает Марамальдо",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gavinana_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferruccio_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles5_emp_it"
+     ],
+     "flags": [
+      "allied_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "relief_crushed_it"
+   }
+  ]
+ },
+ {
+  "id": "last_stand_it_sig",
+  "comment": "Кондотьер клянется Ферруччи держаться до последнего",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_last_stand_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "malatesta_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ferruccio_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "loyal_it"
+   }
+  ]
+ },
+ {
+  "id": "republic_deal_it_sig",
+  "comment": "Республиканцы шлют послов к императору — и тот медлит с осадой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_republic_deal_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferruccio_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles5_emp_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "neutral_it"
+   }
+  ]
+ },
+ {
+  "id": "capitulation_it_sig",
+  "comment": "Наёмный командир города договаривается с врагом — 12 августа 1530 года Флоренция сдаётся, Медичи возвращаются",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_capitulation_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "malatesta_it"
+     ],
+     "notFlags": [
+      "loyal_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "medici",
+      "pope_i"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "charles5_emp_it"
+     ],
+     "flags": [
+      "relief_crushed_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "medici_restored_it"
+   }
+  ]
+ },
+ {
+  "id": "borromeo_letters_it_sig",
+  "comment": "Молодой кардинал-племянник засыпает собор письмами: папа хочет закончить, а не спорить вечно",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_borromeo_letters_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "carlo_borromeo_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pius4_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "resolved_it"
+   }
+  ]
+ },
+ {
+  "id": "residence_compromise_it_sig",
+  "comment": "Лаинес спорит с испанцами о «божественном праве» — и собор находит формулу без раскола",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_residence_compromise_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lainez_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "madruzzo_it"
+     ],
+     "flags": [
+      "deadlock_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "B",
+    "flag": "deadlock_it"
+   }
+  ]
+ },
+ {
+  "id": "suspend_council_it_sig",
+  "comment": "Папа снова откладывает собор, как в 1552 году, — реформа повисает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_suspend_council_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pius4_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "carlo_borromeo_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "suspended_it"
+   }
+  ]
+ },
+ {
+  "id": "index_hurry_it_sig",
+  "comment": "Запреты книг идут вперёд реформы — собор только раздражается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_index_hurry_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lainez_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pius4_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "busy_it"
+   }
+  ]
+ },
+ {
+  "id": "closing_session_it_sig",
+  "comment": "4 декабря 1563 года отцы собора подписывают декреты — Тридентский собор закрыт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_closing_session_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pius4_it"
+     ],
+     "flags": [
+      "resolved_it"
+     ],
+     "notFlags": [
+      "suspended_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "madruzzo_it"
+     ],
+     "notFlags": [
+      "deadlock_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "closed_it"
+   }
+  ]
+ },
+ {
+  "id": "ignore_warning_it_sig",
+  "comment": "Тадино докладывает о чуме у ландскнехтов, но губернатор занят войной — город не закрыт",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ignore_warning_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cordoba_it"
+     ],
+     "notFlags": [
+      "closed_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tadino_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "careless_it"
+   }
+  ]
+ },
+ {
+  "id": "quarantine_it_q",
+  "comment": "Губернатор слушает врача и закрывает город — так было в Венеции и Флоренции, но не в Милане",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_quarantine_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cordoba_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "tadino_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "closed_it"
+   }
+  ]
+ },
+ {
+  "id": "refuse_procession_it_sig",
+  "comment": "Кардинал боится толпы и отказывает в процессии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_refuse_procession_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "federico_borromeo_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "refused_it"
+   }
+  ]
+ },
+ {
+  "id": "procession_it_sig",
+  "comment": "Под давлением города кардинал уступает: в июне 1630 года мощи Святого Карла несут через толпу — и зараза разлетается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_procession_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "federico_borromeo_it"
+     ],
+     "notFlags": [
+      "refused_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cordoba_it"
+     ],
+     "flags": [
+      "careless_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "procession_it"
+   }
+  ]
+ },
+ {
+  "id": "untori_trial_it_sig",
+  "comment": "Соседке показалось, что санитарный комиссар мажет стены, — под пыткой Пьяцца называет цирюльника, обоих казнят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_untori_trial_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "caterina_rosa_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "piazza_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "condemned_it"
+   }
+  ]
+ },
+ {
+  "id": "switch_sides_it_sig",
+  "comment": "В 1703 году герцог бросает французский союз — кузен Евгений обещает ему помощь Австрии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_switch_sides_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "victor_amadeus_it"
+     ],
+     "notFlags": [
+      "french_ally_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "eugene_savoy_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "allied_it"
+   }
+  ]
+ },
+ {
+  "id": "stay_french_it_sig",
+  "comment": "Герцог остаётся союзником Франции — Савойя так и будет младшим партнёром",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_stay_french_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "victor_amadeus_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "feuillade_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "french_ally_it"
+   }
+  ]
+ },
+ {
+  "id": "honourable_surrender_it_s",
+  "comment": "Турин сдаётся на почётных условиях — помощи ждать некому",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_honourable_surrender_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "victor_amadeus_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "feuillade_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "capitulated_it"
+   }
+  ]
+ },
+ {
+  "id": "mine_gallery_it_sig",
+  "comment": "Ночью французы врываются в подземную галерею — Микка поджигает мину короткой запалкой и гибнет, но проход завален",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mine_gallery_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "micca_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "feuillade_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hero_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "breach_failed_it"
+   }
+  ]
+ },
+ {
+  "id": "relief_battle_it_sig",
+  "comment": "7 сентября Евгений и герцог бьют осаждающих — французская армия бежит из Италии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_relief_battle_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "eugene_savoy_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "victor_amadeus_it"
+     ],
+     "flags": [
+      "allied_it"
+     ],
+     "notFlags": [
+      "capitulated_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "feuillade_it"
+     ],
+     "flags": [
+      "breach_failed_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "defeated_it"
+   }
+  ]
+ },
+ {
+  "id": "vision_galgano_it_sig",
+  "comment": "Архангел Михаил является рыцарю и зовёт его оставить меч и войну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vision_galgano_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "michael_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "galgano_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "called_it"
+   }
+  ]
+ },
+ {
+  "id": "mother_match_it_sig",
+  "comment": "Пока сын не слышал зова, мать уговаривает его жениться и осесть — и он даёт слово",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mother_match_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "dionisia_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "galgano_it"
+     ],
+     "notFlags": [
+      "called_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "promised_it"
+   }
+  ]
+ },
+ {
+  "id": "horse_refuses_it_sig",
+  "comment": "По дороге к невесте конь встаёт как вкопанный и сам поворачивает к холму Монтесьепи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_horse_refuses_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "galgano_it"
+     ],
+     "flags": [
+      "called_it"
+     ],
+     "notFlags": [
+      "promised_it",
+      "married"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "polissena_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "turned_back_it"
+   }
+  ]
+ },
+ {
+  "id": "sword_stone_it_sig",
+  "comment": "Рыцарь втыкает меч в скалу — клинок входит в камень, как в масло, и становится крестом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sword_stone_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "galgano_it"
+     ],
+     "flags": [
+      "turned_back_it"
+     ],
+     "notFlags": [
+      "promised_it",
+      "married"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "hermit_it"
+   }
+  ]
+ },
+ {
+  "id": "mother_curse_it_sig",
+  "comment": "Сын целыми днями пропадает в море, и мать в сердцах кричит: «Чтоб ты рыбой стал!» — и он становится полурыбой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mother_curse_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cola_mother_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "colapesce_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fish_it"
+   }
+  ]
+ },
+ {
+  "id": "stay_ashore_it_sig",
+  "comment": "Мать умоляет не нырять больше, и Кола остаётся дома",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_stay_ashore_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cola_mother_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "colapesce_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "stayed_it"
+   }
+  ]
+ },
+ {
+  "id": "cup_dive_it_sig",
+  "comment": "Король бросает в пролив золотой кубок; Кола достаёт его и рассказывает: остров держится на трёх колоннах, одна треснула",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cup_dive_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emperor_i",
+      "king"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "colapesce_it"
+     ],
+     "flags": [
+      "fish_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "seen_column_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "curious_it"
+   }
+  ]
+ },
+ {
+  "id": "last_dive_it_sig",
+  "comment": "Король бросает в пучину корону — Кола ныряет и не возвращается: он держит треснувшую колонну, чтобы Сицилия не утонула",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_last_dive_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emperor_i",
+      "king"
+     ],
+     "flags": [
+      "curious_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "colapesce_it"
+     ],
+     "flags": [
+      "seen_column_it"
+     ],
+     "notFlags": [
+      "stayed_it",
+      "bought"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "holds_island_it"
+   }
+  ]
+ },
+ {
+  "id": "exiles_plea_it_sig",
+  "comment": "Миланцы, чей город разрушен, просят вчерашних врагов о союзе — и Кремона, уставшая от имперских налогов, слушает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_exiles_plea_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "milan_exiles_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cremona_it"
+     ],
+     "notFlags": [
+      "offended_it",
+      "imperial_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "moved_it"
+   }
+  ]
+ },
+ {
+  "id": "cremona_revenge_it_sig",
+  "comment": "Миланцы припоминают Кремоне, что она помогала императору срыть их город, — и союз рушится",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cremona_revenge_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "milan_exiles_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cremona_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "offended_it"
+   }
+  ]
+ },
+ {
+  "id": "imperial_oath_it_sig",
+  "comment": "Консул решает, что надёжнее держаться императора",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_imperial_oath_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cremona_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "imperial_it"
+   }
+  ]
+ },
+ {
+  "id": "oath_pontida_it_sig",
+  "comment": "В аббатстве Понтида города клянутся стоять друг за друга и отстроить Милан",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oath_pontida_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pontida_abbot_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cremona_it"
+     ],
+     "flags": [
+      "moved_it"
+     ],
+     "notFlags": [
+      "offended_it",
+      "imperial_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "milan_exiles_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "league_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "league_it"
+   }
+  ]
+ },
+ {
+  "id": "company_death_it_sig",
+  "comment": "Рыцарь собирает девятьсот юношей, поклявшихся умереть, но не отступить от повозки-кароччо",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_company_death_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alberto_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "milan_exiles_it"
+     ],
+     "flags": [
+      "league_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "company_it"
+   }
+  ]
+ },
+ {
+  "id": "laurel_grove_it_sig",
+  "comment": "Ангелы опускают Дом Девы Марии в лавровой роще вдовы Лореты у Реканати",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_laurel_grove_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "angels_it"
+     ],
+     "flags": [
+      "carried_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "laureta_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_grove_it"
+   }
+  ]
+ },
+ {
+  "id": "keep_grove_it_sig",
+  "comment": "Хозяйка оставляет Дом в роще, где хозяйничают разбойники, — паломники боятся идти",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_keep_grove_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "laureta_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "angels_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "robbers_it"
+   }
+  ]
+ },
+ {
+  "id": "brothers_field_it_sig",
+  "comment": "Из-за разбойников Дом перелетает на поле двух братьев — и те ссорятся из-за даров паломников",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_brothers_field_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "angels_it"
+     ],
+     "flags": [
+      "in_grove_it"
+     ],
+     "notFlags": [
+      "robbers_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "recanati_brothers_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "to_road_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "quarrel_it"
+   }
+  ]
+ },
+ {
+  "id": "road_light_it_sig",
+  "comment": "Отшельник видит свет над дорогой: Дом стал посреди пути, ничьей земли — там он и стоит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_road_light_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hermit_paul_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "angels_it"
+     ],
+     "flags": [
+      "to_road_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "settled_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "witness_it"
+   }
+  ]
+ },
+ {
+  "id": "placentia_it_sig",
+  "comment": "Федераты провозглашают Одоакра королём; под Пьяченцей он разбивает и казнит Ореста",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_placentia_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "germanic"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "orestes_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_it"
+   }
+  ]
+ },
+ {
+  "id": "lucullanum_it_sig",
+  "comment": "Одоакр жалеет мальчика-императора: пенсия в шесть тысяч солидов и вилла под Неаполем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lucullanum_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "germanic"
+     ],
+     "flags": [
+      "victor_it"
+     ],
+     "notFlags": [
+      "usurper_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "roman",
+      "princeps_r"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pensioned_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ruler_it"
+   }
+  ]
+ },
+ {
+  "id": "kill_boy_it_sig",
+  "comment": "Победитель убивает последнего императора Запада — и становится в глазах Константинополя тираном",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kill_boy_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "germanic"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "roman",
+      "princeps_r"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "tyrant_it"
+   }
+  ]
+ },
+ {
+  "id": "self_purple_it_sig",
+  "comment": "Вождь сам надевает пурпур — на Востоке это мятеж против единственного императора",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_self_purple_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "germanic"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "usurper_it"
+   }
+  ]
+ },
+ {
+  "id": "regalia_it_sig",
+  "comment": "Сенат отсылает Зенону знаки императорской власти: Западу хватит одного императора, а Италией будет править Одоакр — патриций",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_regalia_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "germanic"
+     ],
+     "flags": [
+      "ruler_it"
+     ],
+     "notFlags": [
+      "usurper_it",
+      "tyrant_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "zeno_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "patrician_it"
+   }
+  ]
+ },
+ {
+  "id": "ravenna_siege_it_sig",
+  "comment": "Готы обкладывают Равенну с суши; город среди болот голодает, но не сдаётся",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ravenna_siege_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "theodoric_it"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "germanic"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "besieged_it"
+   }
+  ]
+ },
+ {
+  "id": "bishop_treaty_it_sig",
+  "comment": "Епископ Иоанн выводит стороны к договору: Одоакр и Теодорих будут править Италией вместе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bishop_treaty_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john_ravenna_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "theodoric_it"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "germanic"
+     ],
+     "flags": [
+      "besieged_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "coruler_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "coruler_it"
+   }
+  ]
+ },
+ {
+  "id": "lauretum_feast_it_sig",
+  "comment": "Через несколько недель на пиру Теодорих своей рукой убивает Одоакра: «У этого негодяя и костей-то нет»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lauretum_feast_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "theodoric_it"
+     ],
+     "flags": [
+      "coruler_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "germanic"
+     ],
+     "flags": [
+      "coruler_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sole_king_it"
+   }
+  ]
+ },
+ {
+  "id": "king_mountain_it_sig",
+  "comment": "С горы у Фриуля король смотрит на Италию и оставляет племянника герцогом первого лангобардского герцогства",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_king_mountain_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alboin_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "gisulf_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "duke_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "in_italy_it"
+   }
+  ]
+ },
+ {
+  "id": "pavia_three_years_it_sig",
+  "comment": "Павия держится три года — и становится столицей лангобардов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pavia_three_years_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alboin_it"
+     ],
+     "flags": [
+      "in_italy_it"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pavia_it"
+   }
+  ]
+ },
+ {
+  "id": "ravenna_holds_it_sig",
+  "comment": "Равенна и побережье остаются за Константинополем — Италия делится на лангобардскую и византийскую",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ravenna_holds_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "longinus_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alboin_it"
+     ],
+     "flags": [
+      "in_italy_it"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "border_it"
+   }
+  ]
+ },
+ {
+  "id": "skull_cup_it_sig",
+  "comment": "На пиру король заставляет жену пить из черепа её отца — Розамунда мстит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_skull_cup_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alboin_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "rosamund_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "pope_envoy_it_sig",
+  "comment": "Лангобарды забирают папские города, и Адриан I зовёт на помощь франкского короля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pope_envoy_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hadrian1_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charlemagne_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "summoned_it"
+   }
+  ]
+ },
+ {
+  "id": "gold_offer_it_sig",
+  "comment": "Карл предлагает золото за возвращение папских городов; король соглашается — и война не нужна",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gold_offer_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charlemagne_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "desiderius_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "paid_off_it"
+   }
+  ]
+ },
+ {
+  "id": "chiuse_flank_it_sig",
+  "comment": "Отряд франков обходит заслон горными тропами — лангобарды бегут, королевич уходит к грекам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_chiuse_flank_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charlemagne_fr"
+     ],
+     "flags": [
+      "summoned_it"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "adelchis_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fled_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "through_alps_it"
+   }
+  ]
+ },
+ {
+  "id": "pavia_nine_months_it_sig",
+  "comment": "Павия сдаётся после девяти месяцев осады; Карл — «король франков и лангобардов»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pavia_nine_months_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charlemagne_fr"
+     ],
+     "flags": [
+      "through_alps_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "desiderius_it"
+     ],
+     "notFlags": [
+      "paid_off_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captive_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rex_lang_it"
+   }
+  ]
+ },
+ {
+  "id": "euphemius_revolt_it_sig",
+  "comment": "Командир флота отказывается подчиниться приказу из Константинополя и провозглашает себя императором",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_euphemius_revolt_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "euphemius_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rebel_it"
+   }
+  ]
+ },
+ {
+  "id": "beg_pardon_it_sig",
+  "comment": "Мятежник кается и просит прощения — звать на помощь чужой флот ему больше незачем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_beg_pardon_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "euphemius_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "theodotus_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "pardoned_it"
+   }
+  ]
+ },
+ {
+  "id": "kairouan_council_it_sig",
+  "comment": "Эмир долго советуется с учёными и отдаёт флот под начало семидесятилетнего кади Асада",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_kairouan_council_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ziyadat_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "asad_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "euphemius_it"
+     ],
+     "flags": [
+      "rebel_it"
+     ],
+     "notFlags": [
+      "pardoned_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "fleet_it"
+   }
+  ]
+ },
+ {
+  "id": "mazara_landing_it_sig",
+  "comment": "Войско высаживается в Мазаре и разбивает стратига — начинается завоевание, которое растянется на семьдесят лет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mazara_landing_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "asad_it"
+     ],
+     "flags": [
+      "fleet_it"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "theodotus_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "landed_it"
+   }
+  ]
+ },
+ {
+  "id": "garda_escape_it_sig",
+  "comment": "Пленная вдова короля бежит из замка на озере Гарда — к ней едут союзники",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_garda_escape_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "adelaide_it"
+     ],
+     "flags": [
+      "captive_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "captive_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "free_it"
+   }
+  ]
+ },
+ {
+  "id": "adalbert_match_it_sig",
+  "comment": "Беренгар заставляет пленницу обещать руку его сыну — корону Италии он хочет оставить в своей семье",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_adalbert_match_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "adelaide_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "berengar2_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "forced_it"
+   }
+  ]
+ },
+ {
+  "id": "pavia_wedding_it_sig",
+  "comment": "Германский король женится на освобождённой королеве и становится королём Италии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pavia_wedding_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "otto1_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "adelaide_it"
+     ],
+     "flags": [
+      "free_it"
+     ],
+     "notFlags": [
+      "forced_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "king_italy_it"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "type": "addRelation",
+    "rel": "wed",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "rome_crown_962_it_sig",
+  "comment": "Папа, теснимый Беренгаром, коронует короля императором — и сразу начинает бояться его власти",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rome_crown_962_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "john12_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "otto1_it"
+     ],
+     "flags": [
+      "king_italy_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "emperor_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fears_it"
+   }
+  ]
+ },
+ {
+  "id": "hildebrand_mission_it_sig",
+  "comment": "Гильдебранд убеждает князя Капуи прислать воинов против антипапы и римской знати",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hildebrand_mission_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "hildebrand_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "richard_aversa_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "ally_pope_it"
+   }
+  ]
+ },
+ {
+  "id": "emperor_oath_it_sig",
+  "comment": "Норманн ищет титул у германского императора — папе он больше не нужен",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emperor_oath_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "guiscard_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "imperial_it"
+   }
+  ]
+ },
+ {
+  "id": "melfi_synod_it_sig",
+  "comment": "В Мельфи папа делает Роберта «герцогом Апулии, Калабрии и, с Божьей помощью, Сицилии», а Ричарда — князем Капуи; норманны присягают папе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_melfi_synod_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "nicholas2_pope_it"
+     ],
+     "notFlags": [
+      "defeated"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "guiscard_it"
+     ],
+     "notFlags": [
+      "imperial_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "richard_aversa_it"
+     ],
+     "flags": [
+      "ally_pope_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "duke_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "prince_it"
+   },
+   {
+    "type": "addRelation",
+    "rel": "ally_of",
+    "from": "B",
+    "to": "A"
+   }
+  ]
+ },
+ {
+  "id": "galeria_it_sig",
+  "comment": "Норманнские рыцари осаждают замок антипапы Бенедикта X — реформаторский папа прочно сидит в Риме",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_galeria_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "richard_aversa_it"
+     ],
+     "flags": [
+      "prince_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "nicholas2_pope_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "secure_it"
+   }
+  ]
+ },
+ {
+  "id": "winter_alps_it_sig",
+  "comment": "Отлучённый король в лютую зиму переходит Альпы: королеву спускают с перевала на бычьих шкурах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_winter_alps_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "henry4_it"
+     ],
+     "flags": [
+      "excommunicated_it"
+     ],
+     "notFlags": [
+      "at_war"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "at_gate_it"
+   }
+  ]
+ },
+ {
+  "id": "godfather_plea_it_sig",
+  "comment": "Матильда, хозяйка Каноссы, и аббат Гуго, крёстный короля, берутся уговорить папу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_godfather_plea_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "matilda_tus_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "hugh_cluny_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "mediating_it"
+   }
+  ]
+ },
+ {
+  "id": "augsburg_it_sig",
+  "comment": "Папа едет в Германию, чтобы на собрании князей судить короля",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_augsburg_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "gregory7_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "away_judge_it"
+   }
+  ]
+ },
+ {
+  "id": "three_days_it_sig",
+  "comment": "Король три дня стоит у ворот замка в покаянной рубахе; на заступничество Матильды папа снимает отлучение",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_three_days_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "henry4_it"
+     ],
+     "flags": [
+      "at_gate_it"
+     ],
+     "notFlags": [
+      "at_war"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "matilda_tus_it"
+     ],
+     "flags": [
+      "mediating_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "gregory7_it"
+     ],
+     "notFlags": [
+      "away_judge_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "absolved_it"
+   },
+   {
+    "type": "removeFlag",
+    "target": "A",
+    "flag": "excommunicated_it"
+   }
+  ]
+ },
+ {
+  "id": "alberoni_gamble_it_sig",
+  "comment": "Кардинал Альберони уговаривает короля: испанский флот высаживает армию на Сицилии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_alberoni_gamble_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "alberoni_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "philip5_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "invaded_it"
+   }
+  ]
+ },
+ {
+  "id": "quadruple_it_sig",
+  "comment": "Англия, Франция, Австрия и Голландия бьют Испанию: король сдаётся и отправляет Альберони в отставку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_quadruple_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles6_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "philip5_it"
+     ],
+     "flags": [
+      "invaded_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "alberoni_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "yielded_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "dismissed_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "sicily_it"
+   }
+  ]
+ },
+ {
+  "id": "hague_swap_it_sig",
+  "comment": "Император забирает Сицилию, а герцог Савойский получает Сардинию — и с ней королевский титул",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_hague_swap_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles6_it"
+     ],
+     "flags": [
+      "sicily_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "victor_amadeus_it"
+     ],
+     "notFlags": [
+      "defiant_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "king_sardinia_it"
+   }
+  ]
+ },
+ {
+  "id": "keep_sicily_it_sig",
+  "comment": "Герцог отказывается менять Сицилию — и великие державы больше с ним не торгуются",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_keep_sicily_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "victor_amadeus_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "defiant_it"
+   }
+  ]
+ },
+ {
+  "id": "mother_plan_it_sig",
+  "comment": "Королева, урождённая Фарнезе, хочет для сына собственную корону — и отправляет его с армией на юг",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_mother_plan_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "elisabetta_farnese_it"
+     ],
+     "notFlags": [
+      "dealt_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_bourbon_it"
+     ],
+     "notFlags": [
+      "parma_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sent_south_it"
+   }
+  ]
+ },
+ {
+  "id": "bitonto_it_sig",
+  "comment": "У Битонто испанская армия Монтемара разбивает имперские войска — Неаполь потерян для Габсбургов",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bitonto_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "montemar_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles6_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "lost_naples_it"
+   }
+  ]
+ },
+ {
+  "id": "naples_entry_1734_it_sig",
+  "comment": "Восемнадцатилетний инфант въезжает в Неаполь и становится королём",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_naples_entry_1734_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_bourbon_it"
+     ],
+     "flags": [
+      "sent_south_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles6_it"
+     ],
+     "flags": [
+      "lost_naples_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "king_naples_it"
+   }
+  ]
+ },
+ {
+  "id": "parma_stay_it_sig",
+  "comment": "Инфант остаётся маленьким герцогом Пармы — юг его не интересует",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_parma_stay_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_bourbon_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "parma_it"
+   }
+  ]
+ },
+ {
+  "id": "trade_naples_it_sig",
+  "comment": "Королева договаривается с императором о мире раньше, чем армия пришла на юг",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_trade_naples_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "elisabetta_farnese_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles6_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dealt_it"
+   }
+  ]
+ },
+ {
+  "id": "pugni_it_sig",
+  "comment": "В кружке братьев Верри застенчивому маркизу поручают тему — пытки и наказания",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pugni_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pietro_verri_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "beccaria_it"
+     ],
+     "notFlags": [
+      "abandoned_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "inspired_it"
+   }
+  ]
+ },
+ {
+  "id": "livorno_print_it_sig",
+  "comment": "Алессандро Верри переписывает и готовит рукопись — книга выходит в Ливорно без имени автора",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_livorno_print_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "beccaria_it"
+     ],
+     "flags": [
+      "inspired_it"
+     ],
+     "notFlags": [
+      "denounced_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "alessandro_verri_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "published_it"
+   }
+  ]
+ },
+ {
+  "id": "milan_chair_it_sig",
+  "comment": "Австрийская власть Ломбардии видит в авторе полезного реформатора — и даёт ему кафедру политической экономии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_milan_chair_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "austria_pl"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "beccaria_it"
+     ],
+     "flags": [
+      "published_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "professor_it"
+   }
+  ]
+ },
+ {
+  "id": "sign_name_it_sig",
+  "comment": "Автор ставит имя на книгу против пыток — и попадает под удар инквизиции раньше, чем его прочтут",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_sign_name_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "beccaria_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "denounced_it"
+   }
+  ]
+ },
+ {
+  "id": "give_up_it_sig",
+  "comment": "Ленивый и мнительный маркиз бросает тему, не начав",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_give_up_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "beccaria_it"
+     ],
+     "notFlags": [
+      "inspired_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abandoned_it"
+   }
+  ]
+ },
+ {
+  "id": "ultimatum_it_sig",
+  "comment": "После «Веронской Пасхи» Бонапарт объявляет Венеции войну и требует сменить правительство",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ultimatum_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "manin_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "threatened_it"
+   }
+  ]
+ },
+ {
+  "id": "last_council_it_sig",
+  "comment": "12 мая 1797 года Большой совет без кворума голосует за отречение — тысячелетняя республика кончается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_last_council_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "manin_it"
+     ],
+     "flags": [
+      "threatened_it"
+     ],
+     "notFlags": [
+      "resists_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "general_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abdicated_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "holds_venice_it"
+   }
+  ]
+ },
+ {
+  "id": "campo_formio_it_sig",
+  "comment": "Бонапарт отдаёт Венецию Австрии в обмен на Бельгию и признание Цизальпинской республики — республика, которую он «освобождал», становится разменной монетой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_campo_formio_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ],
+     "flags": [
+      "holds_venice_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cobenzl_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "venice_austrian_it"
+   }
+  ]
+ },
+ {
+  "id": "pesaro_resist_it_sig",
+  "comment": "Сенатор Пезаро требует вооружить флот и защищаться — дож колеблется, и голосование срывается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pesaro_resist_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pesaro_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "manin_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "resists_it"
+   }
+  ]
+ },
+ {
+  "id": "monitore_it_sig",
+  "comment": "Аристократка-поэтесса редактирует газету республики и пишет её на понятном языке — для бедноты",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_monitore_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pimentel_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "voice_it"
+   }
+  ]
+ },
+ {
+  "id": "holy_faith_it_sig",
+  "comment": "Беглый король посылает кардинала в Калабрию: крестьяне, священники и разбойники встают под знамёна «Святой веры»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_holy_faith_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ruffo_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "army_faith_it"
+   }
+  ]
+ },
+ {
+  "id": "capitulation_1799_it_sig",
+  "comment": "Кардинал обещает защитникам фортов жизнь и корабли во Францию — республиканцы сдаются",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_capitulation_1799_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ruffo_it"
+     ],
+     "flags": [
+      "army_faith_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pimentel_it"
+     ],
+     "flags": [
+      "voice_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "surrendered_it"
+   }
+  ]
+ },
+ {
+  "id": "annul_it_sig",
+  "comment": "Нельсон от имени короля объявляет капитуляцию недействительной — сдавшихся берут под стражу и судят",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_annul_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "english",
+      "admiral"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pimentel_it"
+     ],
+     "flags": [
+      "surrendered_it"
+     ],
+     "notFlags": [
+      "pardoned_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "annulled_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "king_mercy_it_sig",
+  "comment": "Король решает простить побеждённых — суда не будет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_king_mercy_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pimentel_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pardoned_it"
+   }
+  ]
+ },
+ {
+  "id": "iron_crown_it_sig",
+  "comment": "Император сам надевает Железную корону лангобардских королей: «Бог дал её мне — горе тому, кто её тронет»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_iron_crown_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ],
+     "notFlags": [
+      "republic_kept_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "melzi_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "king_italy_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sidelined_it"
+   }
+  ]
+ },
+ {
+  "id": "viceroy_it_sig",
+  "comment": "Править Италией в Милане будет двадцатитрёхлетний пасынок императора",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_viceroy_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "general_fr"
+     ],
+     "flags": [
+      "king_italy_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "eugene_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "viceroy_it"
+   }
+  ]
+ },
+ {
+  "id": "prina_taxes_it_sig",
+  "comment": "Министр финансов выжимает из королевства деньги и рекрутов для войн Наполеона",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prina_taxes_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "eugene_it"
+     ],
+     "flags": [
+      "viceroy_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "prina_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "taxes_it"
+   }
+  ]
+ },
+ {
+  "id": "keep_republic_it_sig",
+  "comment": "Мельци уговаривает Наполеона оставить Итальянскую республику с выборным президентом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_keep_republic_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "melzi_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "general_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "republic_kept_it"
+   }
+  ]
+ },
+ {
+  "id": "lombardy_venetia_it_sig",
+  "comment": "Австрия берёт себе Ломбардию и Венецию, а Сардинское королевство получает Геную — буфер против Франции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lombardy_venetia_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "austrian",
+      "minister_v"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "victor_emmanuel1_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "north_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "genoa_it"
+   }
+  ]
+ },
+ {
+  "id": "papal_return_it_sig",
+  "comment": "Папа возвращается в Рим, Папское государство восстановлено почти целиком",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_papal_return_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pius7_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "austrian",
+      "minister_v"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "restored_it"
+   }
+  ]
+ },
+ {
+  "id": "two_sicilies_it_sig",
+  "comment": "Бурбон возвращается в Неаполь и тайно обещает Вене никаких конституций — из двух королевств делают одно",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_two_sicilies_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ],
+     "notFlags": [
+      "exiled_it",
+      "constitution_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "austrian",
+      "minister_v"
+     ],
+     "flags": [
+      "north_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "two_sicilies_it"
+   }
+  ]
+ },
+ {
+  "id": "murat_kept_it_sig",
+  "comment": "Вена договаривается с маршалом Мюратом и оставляет ему Неаполь — Бурбону некуда возвращаться",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_murat_kept_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "austrian",
+      "minister_v"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exiled_it"
+   }
+  ]
+ },
+ {
+  "id": "constitution_it_sig",
+  "comment": "Король обещает подданным конституцию — Вена такого не простит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_constitution_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "constitution_it"
+   }
+  ]
+ },
+ {
+  "id": "nola_it_sig",
+  "comment": "Офицеры-карбонарии поднимают гарнизоны, генерал Пепе входит в Неаполь — и король присягает конституции",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_nola_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pepe_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "sworn_it"
+   }
+  ]
+ },
+ {
+  "id": "laibach_it_sig",
+  "comment": "Король едет на конгресс и просит Австрию «спасти» его от собственной присяги — австрийцы разбивают Пепе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_laibach_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ],
+     "flags": [
+      "sworn_it"
+     ],
+     "notFlags": [
+      "loyal_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "austrian",
+      "minister_v"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "recanted_it"
+   }
+  ]
+ },
+ {
+  "id": "turin_regency_it_sig",
+  "comment": "Принц-регент Карл Альберт, уступая заговорщикам, провозглашает испанскую конституцию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_turin_regency_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "santarosa_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_albert_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "promised_it"
+   }
+  ]
+ },
+ {
+  "id": "novara_it_sig",
+  "comment": "Новый король приказывает регенту отречься — Карл Альберт покидает конституционистов, их разбивают у Новары, Сантароза бежит",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_novara_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_albert_it"
+     ],
+     "flags": [
+      "promised_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "santarosa_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "wavered_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "exiled_it"
+   }
+  ]
+ },
+ {
+  "id": "keep_oath_it_sig",
+  "comment": "Король решает остаться верным конституции, которой присягнул",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_keep_oath_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ferdinand_bourbon_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "loyal_it"
+   }
+  ]
+ },
+ {
+  "id": "modena_plot_it_sig",
+  "comment": "Заговорщик верит, что герцог Модены возглавит восстание, — а герцог арестовывает и его, и того, кто рядом",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_modena_plot_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "menotti_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dead"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "caught_it"
+   }
+  ]
+ },
+ {
+  "id": "marseille_it_sig",
+  "comment": "Высланный из Пьемонта генуэзец основывает в Марселе «Молодую Италию»: единая, свободная, республиканская",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_marseille_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mazzini_it"
+     ],
+     "notFlags": [
+      "caught_it",
+      "waits_king_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "young_italy_it"
+   }
+  ]
+ },
+ {
+  "id": "letter_king_it_sig",
+  "comment": "Мадзини пишет новому королю: возглавьте Италию! — и ждёт ответа, которого не будет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_letter_king_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mazzini_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_albert_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "waits_king_it"
+   }
+  ]
+ },
+ {
+  "id": "oath_garibaldi_it_sig",
+  "comment": "Молодой моряк из Ниццы клянётся «Молодой Италии» под именем Боррель",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_oath_garibaldi_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mazzini_it"
+     ],
+     "flags": [
+      "young_italy_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "italian",
+      "rebel"
+     ],
+     "notFlags": [
+      "caught_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mazzinian_it"
+   }
+  ]
+ },
+ {
+  "id": "genoa_mutiny_it_sig",
+  "comment": "Мятеж во флоте проваливается: моряка заочно приговаривают к смерти, он бежит в Южную Америку",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_genoa_mutiny_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "italian",
+      "rebel"
+     ],
+     "flags": [
+      "mazzinian_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "charles_albert_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "exile_it"
+   }
+  ]
+ },
+ {
+  "id": "pius_reforms_it_sig",
+  "comment": "Новый папа объявляет амнистию политическим узникам — Италия видит в нём либеральную надежду",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pius_reforms_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "liberal_hope_it"
+   }
+  ]
+ },
+ {
+  "id": "risorgimento_paper_it_sig",
+  "comment": "Издатели новой туринской газеты первыми публично требуют от короля конституцию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_risorgimento_paper_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "piedmontese"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "balbo_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "demands_it"
+   }
+  ]
+ },
+ {
+  "id": "statuto_sign_it_sig",
+  "comment": "Король, напуганный волнениями от Палермо до Парижа, подписывает Статут — двухпалатный парламент и права подданных",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_statuto_sign_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_albert_it"
+     ],
+     "notFlags": [
+      "scruples_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "piedmontese"
+     ],
+     "flags": [
+      "demands_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "statuto_it"
+   }
+  ]
+ },
+ {
+  "id": "confessor_it_sig",
+  "comment": "Король мучается: он клялся не ограничивать власть — и духовник советует не уступать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_confessor_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "charles_albert_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "scruples_it"
+   }
+  ]
+ },
+ {
+  "id": "barricades_it_sig",
+  "comment": "За ночь горожане строят сотни баррикад; студенты и ремесленники учатся воевать на ходу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_barricades_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "manara_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cattaneo_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "barricades_it"
+   }
+  ]
+ },
+ {
+  "id": "war_council_it_sig",
+  "comment": "Республиканец Каттанео создаёт военный совет и сводит отряды воедино, хотя умеренные хотели переговоров",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_war_council_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cattaneo_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "casati_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "council_it"
+   }
+  ]
+ },
+ {
+  "id": "withdraw_it_sig",
+  "comment": "На пятый день маршал выводит гарнизон из Милана к крепостям Четырёхугольника",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_withdraw_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "radetzky_it"
+     ],
+     "notFlags": [
+      "reinforced_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "manara_it"
+     ],
+     "flags": [
+      "barricades_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "cattaneo_it"
+     ],
+     "flags": [
+      "council_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "withdrawn_it"
+   }
+  ]
+ },
+ {
+  "id": "casati_truce_it_sig",
+  "comment": "Подеста соглашается на перемирие — маршал получает время подтянуть войска",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_casati_truce_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "casati_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "radetzky_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "reinforced_it"
+   }
+  ]
+ },
+ {
+  "id": "gaeta_flight_it_sig",
+  "comment": "После убийства министра Росси папа тайно бежит из Рима в неаполитанскую Гаэту",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_gaeta_flight_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "gaeta_it"
+   }
+  ]
+ },
+ {
+  "id": "triumvirate_it_sig",
+  "comment": "Избранное собрание провозглашает Римскую республику; правит триумвират с Мадзини во главе",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_triumvirate_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mazzini_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "triumvir_it"
+   }
+  ]
+ },
+ {
+  "id": "pope_appeal_it_sig",
+  "comment": "Из Гаэты папа просит католические державы вернуть ему Рим — Франция президента Луи-Наполеона откликается первой",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pope_appeal_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ],
+     "flags": [
+      "gaeta_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_napoleon"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "expedition_it"
+   }
+  ]
+ },
+ {
+  "id": "janiculum_it_sig",
+  "comment": "Гарибальди месяц держит холм Яникул против французского корпуса — но силы неравны, и Рим сдаётся",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_janiculum_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "italian",
+      "rebel"
+     ],
+     "notFlags": [
+      "laid_down_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "louis_napoleon"
+     ],
+     "flags": [
+      "expedition_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "defended_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "rome_taken_it"
+   }
+  ]
+ },
+ {
+  "id": "lay_down_it_sig",
+  "comment": "Триумвир уговаривает генерала не проливать кровь и открыть ворота",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_lay_down_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "mazzini_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "italian",
+      "rebel"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "laid_down_it"
+   }
+  ]
+ },
+ {
+  "id": "bourbon_letters_it_sig",
+  "comment": "Испанец Борхес приезжает от свергнутого Франциска II: Бурбоны вернутся, если Юг поднимется",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bourbon_letters_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "borjes_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "crocco_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bourbon_hope_it"
+   }
+  ]
+ },
+ {
+  "id": "land_reform_it_sig",
+  "comment": "Новое государство делит общинные земли между бедняками — и у отрядов не остаётся новобранцев",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_land_reform_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ricasoli_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "crocco_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pacified_it"
+   }
+  ]
+ },
+ {
+  "id": "vulture_woods_it_sig",
+  "comment": "Беглые солдаты Бурбонов, уклонисты от призыва и безземельные крестьяне уходят в леса к Крокко",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vulture_woods_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "crocco_it"
+     ],
+     "flags": [
+      "bourbon_hope_it"
+     ],
+     "notFlags": [
+      "pacified_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "borjes_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rising_it"
+   }
+  ]
+ },
+ {
+  "id": "pica_law_it_sig",
+  "comment": "Военные суды, ссылки, сожжённые сёла — отряды разгромлены, вожака берут живым",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pica_law_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cialdini_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "crocco_it"
+     ],
+     "flags": [
+      "rising_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "captured_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repression_it"
+   }
+  ]
+ },
+ {
+  "id": "shoot_on_spot_it_sig",
+  "comment": "Пленного расстреливают без суда — суда, приговора и показаний уже не будет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_shoot_on_spot_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cialdini_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "crocco_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "prussian_pact_it_sig",
+  "comment": "Италия обещает ударить по Австрии, если начнёт Пруссия, — в награду Венеция",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_prussian_pact_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "savoy"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bismarck_fr"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "allied_it"
+   }
+  ]
+ },
+ {
+  "id": "vienna_offer_it_sig",
+  "comment": "Австрия предлагает отдать Венецию за нейтралитет — король соглашается и рвёт с Пруссией",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vienna_offer_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "austrian"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "savoy"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "neutral_it"
+   }
+  ]
+ },
+ {
+  "id": "custoza_it_sig",
+  "comment": "Две итальянские армии действуют порознь — у Кустоцы австрийцы берут верх",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_custoza_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lamarmora_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "austrian"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "defeated_it"
+   }
+  ]
+ },
+ {
+  "id": "bezzecca_it_sig",
+  "comment": "Волонтёры Гарибальди побеждают в Трентино — «Obbedisco», и он отходит по приказу",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bezzecca_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "italian",
+      "rebel"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "obbedisco_it"
+   }
+  ]
+ },
+ {
+  "id": "venetia_via_paris_it_sig",
+  "comment": "Разбитая Пруссией при Садовой Австрия передаёт Венецию Наполеону III — а тот Италии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_venetia_via_paris_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "austrian"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "savoy"
+     ],
+     "flags": [
+      "allied_it"
+     ],
+     "notFlags": [
+      "neutral_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "venice_it"
+   }
+  ]
+ },
+ {
+  "id": "rome_capital_it_sig",
+  "comment": "Селла убеждает: у Италии может быть только одна столица — Рим",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_rome_capital_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sella_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "savoy"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "capital_it"
+   }
+  ]
+ },
+ {
+  "id": "guarantee_law_it_sig",
+  "comment": "Государство обещает папе неприкосновенность, Ватикан, послов и ежегодную ренту",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_guarantee_law_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "lanza_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "pope_i"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "law_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "offered_it"
+   }
+  ]
+ },
+ {
+  "id": "ubi_nos_it_sig",
+  "comment": "Папа отвергает закон, не берёт ни лиры и объявляет себя «узником Ватикана»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ubi_nos_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ],
+     "flags": [
+      "offered_it"
+     ],
+     "notFlags": [
+      "exiled_it",
+      "reconciled_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "refuses_it"
+   }
+  ]
+ },
+ {
+  "id": "pope_exile_it_sig",
+  "comment": "Папа покидает Рим — Ватикан пустеет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_pope_exile_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "exiled_it"
+   }
+  ]
+ },
+ {
+  "id": "concordat_it_sig",
+  "comment": "Папа и король мирятся — «римского вопроса» больше нет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_concordat_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "pope_i"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "savoy"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "reconciled_it"
+   }
+  ]
+ },
+ {
+  "id": "massawa_it_sig",
+  "comment": "Италия ставит гарнизоны у Красного моря и продвигается вглубь — к колодцам Саати",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_massawa_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "depretis_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "de_cristoforis_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "expansion_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "column_it"
+   }
+  ]
+ },
+ {
+  "id": "negus_order_it_sig",
+  "comment": "Йоханныс IV поручает расу Алуле удерживать северную границу Эфиопии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_negus_order_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "yohannes_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ras_alula_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "mandated_it"
+   }
+  ]
+ },
+ {
+  "id": "withdraw_saati_it_sig",
+  "comment": "Рим отводит гарнизон, как требует Алула, — стрелять незачем",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_withdraw_saati_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "depretis_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "ras_alula_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "satisfied_it"
+   }
+  ]
+ },
+ {
+  "id": "saati_assault_it_sig",
+  "comment": "Атака на укреплённый форт отбита — полковник остаётся за стенами",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_saati_assault_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ras_alula_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "de_cristoforis_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "inside_it"
+   }
+  ]
+ },
+ {
+  "id": "dogali_it_sig",
+  "comment": "Колонна, шедшая на помощь форту, попадает в окружение — из пятисот человек выживают немногие",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dogali_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ras_alula_it"
+     ],
+     "flags": [
+      "mandated_it"
+     ],
+     "notFlags": [
+      "satisfied_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "de_cristoforis_it"
+     ],
+     "flags": [
+      "column_it"
+     ],
+     "notFlags": [
+      "inside_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "dead"
+   }
+  ]
+ },
+ {
+  "id": "corleone_pacts_it_sig",
+  "comment": "Крестьянские союзы требуют честной доли урожая и отказываются работать по старым договорам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_corleone_pacts_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "verro_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "barbato_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "league_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "league_it"
+   }
+  ]
+ },
+ {
+  "id": "dissolve_fasci_it_sig",
+  "comment": "Союзы распускаются сами — преследовать некого",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_dissolve_fasci_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "barbato_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "dissolved_it"
+   }
+  ]
+ },
+ {
+  "id": "troops_now_it_sig",
+  "comment": "Премьер бросает войска на забастовки — и его осторожная линия кончается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_troops_now_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "giolitti_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "barbato_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "repressed_it"
+   }
+  ]
+ },
+ {
+  "id": "banca_romana_it_sig",
+  "comment": "Банковский скандал сносит правительство Джолитти — к власти возвращается Криспи",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_banca_romana_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "giolitti_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "crispi_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fallen_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "premier_it"
+   }
+  ]
+ },
+ {
+  "id": "state_of_siege_it_sig",
+  "comment": "Осадное положение, военные суды, роспуск союзов — вожаков приговаривают к двенадцати годам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_state_of_siege_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "crispi_it"
+     ],
+     "flags": [
+      "premier_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "barbato_it"
+     ],
+     "flags": [
+      "league_it"
+     ],
+     "notFlags": [
+      "dissolved_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "siege_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "condemned_it"
+   }
+  ]
+ },
+ {
+  "id": "wuchale_it_sig",
+  "comment": "Менелик и Италия подписывают договор о дружбе — в двух текстах, амхарском и итальянском",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_wuchale_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "menelik_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "crispi_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "treaty_it"
+   }
+  ]
+ },
+ {
+  "id": "italian_text_it_sig",
+  "comment": "Менелик соглашается вести дела с Европой только через Италию — то есть на протекторат",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_italian_text_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "menelik_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "crispi_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "protectorate_it"
+   }
+  ]
+ },
+ {
+  "id": "article17_it_sig",
+  "comment": "По-амхарски Эфиопия «может» обращаться через Италию, по-итальянски — «должна»: Таиту требует порвать договор",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_article17_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "taytu_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "menelik_it"
+     ],
+     "flags": [
+      "treaty_it"
+     ],
+     "notFlags": [
+      "protectorate_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "denounced_it"
+   }
+  ]
+ },
+ {
+  "id": "phthisis_it_sig",
+  "comment": "Криспи телеграфирует: это «военная чахотка», нужна победа — генерал идёт в наступление",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_phthisis_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "crispi_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "baratieri_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pressed_it"
+   }
+  ]
+ },
+ {
+  "id": "entrench_it_sig",
+  "comment": "Генерал ждёт за укреплениями, пока у эфиопской армии кончатся припасы",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_entrench_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "baratieri_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "entrenched_it"
+   }
+  ]
+ },
+ {
+  "id": "adwa_battle_it_sig",
+  "comment": "Четыре колонны ночью теряют связь в горах — армия Менелика разбивает их по одной",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_adwa_battle_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "baratieri_it"
+     ],
+     "flags": [
+      "pressed_it"
+     ],
+     "notFlags": [
+      "entrenched_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "menelik_it"
+     ],
+     "flags": [
+      "denounced_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "victor_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "defeated_it"
+   }
+  ]
+ },
+ {
+  "id": "milan_command_it_sig",
+  "comment": "Хлебные бунты по всей Италии — премьер отдаёт Милан генералу с чрезвычайными полномочиями",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_milan_command_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rudini_it"
+     ],
+     "notFlags": [
+      "duty_cut_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bava_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "command_it"
+   }
+  ]
+ },
+ {
+  "id": "grain_duty_it_sig",
+  "comment": "Пошлину на зерно снимают заранее — хлеб дешевеет, и город успокаивается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_grain_duty_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "rudini_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "duty_cut_it"
+   }
+  ]
+ },
+ {
+  "id": "barricade_call_it_sig",
+  "comment": "Социалист зовёт на баррикады — это и был бы заговор, который ему припишут",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_barricade_call_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "turati_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "insurgent_it"
+   }
+  ]
+ },
+ {
+  "id": "cannons_milan_it_sig",
+  "comment": "Артиллерия бьёт по толпе — десятки убитых; Турати, призывавшего к спокойствию, арестовывают",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cannons_milan_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bava_it"
+     ],
+     "flags": [
+      "command_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "turati_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fired_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "arrested_it"
+   }
+  ]
+ },
+ {
+  "id": "royal_cross_it_sig",
+  "comment": "Король награждает генерала «за великую услугу порядку»",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_royal_cross_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "umberto_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "bava_it"
+     ],
+     "flags": [
+      "fired_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "rewarded_it"
+   }
+  ]
+ },
+ {
+  "id": "fiat_it_sig",
+  "comment": "Бывший кавалерийский офицер с компаньонами открывает в Турине автомобильный завод",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fiat_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "agnelli_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fiat_it"
+   }
+  ]
+ },
+ {
+  "id": "emigration_law_it_sig",
+  "comment": "Новый закон: билет — только у лицензированных перевозчиков, контроль судов, помощь в портах",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_emigration_law_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "bodio_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emigrant_family_it"
+     ],
+     "notFlags": [
+      "cheated_it",
+      "stayed_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "protected_it"
+   }
+  ]
+ },
+ {
+  "id": "agent_ticket_it_sig",
+  "comment": "Вербовщик продаёт билет втридорога и обещает работу, которой нет",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_agent_ticket_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "emigrant_family_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "cheated_it"
+   }
+  ]
+ },
+ {
+  "id": "factory_turin_it_sig",
+  "comment": "Семья едет не за океан, а на север, на завод",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_factory_turin_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "agnelli_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emigrant_family_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "stayed_it"
+   }
+  ]
+ },
+ {
+  "id": "new_york_it_sig",
+  "comment": "Миссионерки Кабрини встречают земляков: школы, сиротские приюты, больница",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_new_york_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cabrini_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "emigrant_family_it"
+     ],
+     "flags": [
+      "protected_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "settled_it"
+   }
+  ]
+ },
+ {
+  "id": "tripoli_ultimatum_it_sig",
+  "comment": "Рим даёт Стамбулу сутки на передачу Триполитании — и высаживает войска",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tripoli_ultimatum_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "san_giuliano_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "giolitti_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "war_it"
+   }
+  ]
+ },
+ {
+  "id": "derna_camp_it_sig",
+  "comment": "Османский офицер и вожди сенуситов собирают арабские отряды — война в пустыне затягивается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_derna_camp_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "enver_it"
+     ],
+     "notFlags": [
+      "recalled_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "omar_mukhtar_it"
+     ],
+     "notFlags": [
+      "bought_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "resistance_it"
+   }
+  ]
+ },
+ {
+  "id": "ouchy_it_sig",
+  "comment": "Османы уступают провинции, их офицеры уезжают на Балканскую войну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_ouchy_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "giolitti_it"
+     ],
+     "flags": [
+      "war_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "enver_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "ouchy_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "recalled_it"
+   }
+  ]
+ },
+ {
+  "id": "bribe_sheikhs_it_sig",
+  "comment": "Деньги и обещания делают шейха союзником Италии",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_bribe_sheikhs_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "giolitti_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "omar_mukhtar_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "bought_it"
+   }
+  ]
+ },
+ {
+  "id": "vienna_concessions_it_sig",
+  "comment": "Министр соглашается на то, что предлагает Вена, — и обещания Антанте уже не дать",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vienna_concessions_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sonnino_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "vienna_deal_it"
+   }
+  ]
+ },
+ {
+  "id": "london_pact_it_sig",
+  "comment": "Тайно от парламента Италия обещает Антанте войну за Трентино, Триест и Далмацию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_london_pact_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "sonnino_it"
+     ],
+     "notFlags": [
+      "vienna_deal_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "salandra_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "pact_it"
+   }
+  ]
+ },
+ {
+  "id": "giolitti_called_it_sig",
+  "comment": "Король поручает правительство нейтралисту — и договор с Антантой повисает",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_giolitti_called_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ve3_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "giolitti_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "neutral_it"
+   }
+  ]
+ },
+ {
+  "id": "resignation_refused_it_sig",
+  "comment": "Король не принимает отставку Саландры — курс на войну подтверждён",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_resignation_refused_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "ve3_it"
+     ],
+     "notFlags": [
+      "neutral_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "salandra_it"
+     ],
+     "flags": [
+      "pact_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "confirmed_it"
+   }
+  ]
+ },
+ {
+  "id": "war_powers_it_sig",
+  "comment": "Нейтралистское большинство сдаётся — палата даёт правительству полномочия на войну",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_war_powers_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "salandra_it"
+     ],
+     "flags": [
+      "confirmed_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "giolitti_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "war_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "outvoted_it"
+   }
+  ]
+ },
+ {
+  "id": "fog_gas_it_sig",
+  "comment": "Штурмовые группы просачиваются по долинам в обход высот — фронт 2-й армии рушится",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_fog_gas_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "otto_below_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "cadorna_luigi_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "broken_it"
+   }
+  ]
+ },
+ {
+  "id": "cowardice_myth_it_sig",
+  "comment": "Солдат объявляют трусами — и они перестают верить командованию",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_cowardice_myth_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "fanti_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "fled_it"
+   }
+  ]
+ },
+ {
+  "id": "new_command_it_sig",
+  "comment": "Кадорну снимают, армию принимает Армандо Диас",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_new_command_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cadorna_luigi_it"
+     ],
+     "flags": [
+      "broken_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "diaz_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "commander_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "removed_it"
+   }
+  ]
+ },
+ {
+  "id": "tagliamento_it_sig",
+  "comment": "Тальяменто удержать не удаётся — реку переходят выше по течению",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_tagliamento_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "cadorna_luigi_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "boroevic_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "crossed_it"
+   }
+  ]
+ },
+ {
+  "id": "piave_line_it_sig",
+  "comment": "Новый командующий бережёт людей, а солдаты держат Пьяве — наступление остановлено",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_piave_line_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "diaz_it"
+     ],
+     "flags": [
+      "commander_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "fanti_it"
+     ],
+     "notFlags": [
+      "fled_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "boroevic_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "C",
+    "flag": "stopped_it"
+   }
+  ]
+ },
+ {
+  "id": "peoples_manifesto_it_sig",
+  "comment": "Император обещает превратить Австрию в союз народов — народы уходят сами",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_peoples_manifesto_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "karl1_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "federal_it"
+   }
+  ]
+ },
+ {
+  "id": "summer_attack_it_sig",
+  "comment": "Под давлением союзников армия идёт в наступление, пока не готова, и выдыхается",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_summer_attack_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "diaz_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "exhausted_it"
+   }
+  ]
+ },
+ {
+  "id": "abdicate_it_sig",
+  "comment": "Император уходит — подписать перемирие от имени монархии некому",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_abdicate_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "karl1_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "abdicated_it"
+   }
+  ]
+ },
+ {
+  "id": "vittorio_veneto_it_sig",
+  "comment": "Итальянцы форсируют Пьяве, когда австро-венгерская армия уже распадается по народам",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_vittorio_veneto_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "diaz_it"
+     ],
+     "notFlags": [
+      "exhausted_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "karl1_it"
+     ],
+     "flags": [
+      "federal_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "victor_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "collapsed_it"
+   }
+  ]
+ },
+ {
+  "id": "villa_giusti_it_sig",
+  "comment": "Под Падуей подписано перемирие: огонь прекращается на следующий день в три часа",
+  "priority": 10,
+  "trigger": {
+   "sceneTags": [
+    "sig_villa_giusti_it"
+   ],
+   "actors": [
+    {
+     "var": "A",
+     "slot": 0,
+     "tags": [
+      "badoglio_it"
+     ]
+    },
+    {
+     "var": "B",
+     "slot": 1,
+     "tags": [
+      "weber_it"
+     ]
+    },
+    {
+     "var": "C",
+     "slot": 2,
+     "tags": [
+      "karl1_it"
+     ],
+     "flags": [
+      "collapsed_it"
+     ],
+     "notFlags": [
+      "abdicated_it"
+     ]
+    }
+   ]
+  },
+  "effects": [
+   {
+    "type": "setFlag",
+    "target": "A",
+    "flag": "armistice_it"
+   },
+   {
+    "type": "setFlag",
+    "target": "B",
+    "flag": "signed_it"
+   }
+  ]
  }
 ]

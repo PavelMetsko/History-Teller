@@ -1,0 +1,74 @@
+{
+ "id": "chioggia_1380",
+ "order": 270,
+ "epoch": "borgia",
+ "act": "Акт IV · Купцы, города и кризисы",
+ "music": "tension",
+ "cover": "sink_hulks_it",
+ "panels": 3,
+ "scenes": [
+  "free_pisani_it",
+  "sink_hulks_it",
+  "zeno_returns_it",
+  "sue_peace_it",
+  "storm_chioggia_it"
+ ],
+ "characters": [
+  "contarini_it",
+  "pisani_it",
+  "pietro_doria_it",
+  "carlo_zeno_it"
+ ],
+ "initialState": {
+  "flags": {
+   "pisani_it": [
+    "jailed_it"
+   ]
+  },
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "pietro_doria_it",
+     "is": "defeated_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "contarini_it",
+      "is": "conceded_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "free_pisani_it",
+   "characters": [
+    "contarini_it",
+    "pisani_it"
+   ]
+  },
+  {
+   "scene": "sink_hulks_it",
+   "characters": [
+    "pisani_it",
+    "pietro_doria_it"
+   ]
+  },
+  {
+   "scene": "zeno_returns_it",
+   "characters": [
+    "carlo_zeno_it",
+    "pietro_doria_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

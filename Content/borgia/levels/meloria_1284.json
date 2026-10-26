@@ -1,0 +1,68 @@
+{
+ "id": "meloria_1284",
+ "order": 210,
+ "epoch": "borgia",
+ "act": "Акт IV · Купцы, города и кризисы",
+ "music": "tension",
+ "cover": "meloria_battle_it",
+ "panels": 3,
+ "scenes": [
+  "challenge_pisa_it",
+  "hidden_squadron_it",
+  "storm_harbor_it",
+  "meloria_battle_it"
+ ],
+ "characters": [
+  "oberto_doria_it",
+  "zaccaria_it",
+  "morosini_it",
+  "ugolino_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "morosini_it",
+     "is": "captured_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "ugolino_it",
+     "is": "withdrew_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "hidden_squadron_it",
+   "characters": [
+    "oberto_doria_it",
+    "zaccaria_it"
+   ]
+  },
+  {
+   "scene": "challenge_pisa_it",
+   "characters": [
+    "oberto_doria_it",
+    "morosini_it"
+   ]
+  },
+  {
+   "scene": "meloria_battle_it",
+   "characters": [
+    "zaccaria_it",
+    "morosini_it",
+    "ugolino_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "michael_it",
+  "name": "Архангел Михаил",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#d8b070",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "curly",
+      "col": "#d8b070"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "wings",
+      "col": "#e9e0cc",
+      "feather": "#f4f1ea"
+    },
+    "held": {
+      "type": "spear",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "chainmail",
+      "steel": "#d8d4dc",
+      "surcoat": "#f4f1ea",
+      "belt": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#d8d4dc",
+      "cuff": "#d8d4dc"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#e9e0cc"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#d4a63c",
+      "top": "#d4a63c"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
  "id": "poison",
- "order": 80,
+ "order": 460,
  "epoch": "borgia",
- "act": "Акт III · Яд и власть",
+ "act": "Акт VI · Борджиа и Итальянские войны",
  "panels": 2,
  "scenes": [
   "feast_p",

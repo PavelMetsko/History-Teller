@@ -1,0 +1,74 @@
+{
+ "id": "vienna_1815",
+ "order": 730,
+ "epoch": "borgia",
+ "act": "Акт X · Революции, Наполеон и Реставрация",
+ "music": "theme",
+ "cover": "lombardy_venetia_it",
+ "panels": 3,
+ "scenes": [
+  "lombardy_venetia_it",
+  "papal_return_it",
+  "two_sicilies_it",
+  "murat_kept_it",
+  "constitution_it"
+ ],
+ "characters": [
+  "metternich",
+  "pius7_it",
+  "victor_emmanuel1_it",
+  "ferdinand_bourbon_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "victor_emmanuel1_it",
+     "is": "genoa_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "pius7_it",
+     "is": "restored_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "ferdinand_bourbon_it",
+     "is": "two_sicilies_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "lombardy_venetia_it",
+   "characters": [
+    "metternich",
+    "victor_emmanuel1_it"
+   ]
+  },
+  {
+   "scene": "papal_return_it",
+   "characters": [
+    "pius7_it",
+    "metternich"
+   ]
+  },
+  {
+   "scene": "two_sicilies_it",
+   "characters": [
+    "ferdinand_bourbon_it",
+    "metternich"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

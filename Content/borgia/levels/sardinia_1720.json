@@ -1,0 +1,76 @@
+{
+ "id": "sardinia_1720",
+ "order": 660,
+ "epoch": "borgia",
+ "act": "Акт IX · Савойя, Бурбоны и Просвещение",
+ "music": "theme",
+ "cover": "hague_swap_it",
+ "panels": 3,
+ "scenes": [
+  "alberoni_gamble_it",
+  "quadruple_it",
+  "hague_swap_it",
+  "keep_sicily_it"
+ ],
+ "characters": [
+  "victor_amadeus_it",
+  "charles6_it",
+  "philip5_it",
+  "alberoni_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "victor_amadeus_it",
+     "is": "king_sardinia_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "alberoni_it",
+     "is": "dismissed_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "victor_amadeus_it",
+      "is": "defiant_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "alberoni_gamble_it",
+   "characters": [
+    "alberoni_it",
+    "philip5_it"
+   ]
+  },
+  {
+   "scene": "quadruple_it",
+   "characters": [
+    "charles6_it",
+    "philip5_it",
+    "alberoni_it"
+   ]
+  },
+  {
+   "scene": "hague_swap_it",
+   "characters": [
+    "charles6_it",
+    "victor_amadeus_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

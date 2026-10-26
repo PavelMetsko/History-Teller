@@ -1,0 +1,63 @@
+{
+  "id": "alfonso5_it",
+  "name": "Альфонсо Арагонский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#2a1a12",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "bowl",
+      "col": "#2a1a12"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown",
+      "gold": "#d4a63c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "tunic",
+      "col": "#d8ad3c",
+      "trim": "#d4a63c",
+      "belt": "#6b4426"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#d8ad3c",
+      "cuff": "#d8ad3c"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#3b2a20"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#3b2a20",
+      "top": "#3b2a20"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+ "id": "vittorio_1918",
+ "order": 950,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "theme",
+ "cover": "villa_giusti_it",
+ "panels": 3,
+ "scenes": [
+  "peoples_manifesto_it",
+  "summer_attack_it",
+  "abdicate_it",
+  "vittorio_veneto_it",
+  "villa_giusti_it"
+ ],
+ "characters": [
+  "diaz_it",
+  "badoglio_it",
+  "karl1_it",
+  "weber_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "diaz_it",
+     "is": "victor_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "weber_it",
+     "is": "signed_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "peoples_manifesto_it",
+   "characters": [
+    "karl1_it"
+   ]
+  },
+  {
+   "scene": "vittorio_veneto_it",
+   "characters": [
+    "diaz_it",
+    "karl1_it"
+   ]
+  },
+  {
+   "scene": "villa_giusti_it",
+   "characters": [
+    "badoglio_it",
+    "weber_it",
+    "karl1_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

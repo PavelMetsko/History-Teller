@@ -1,0 +1,63 @@
+{
+  "id": "ferdinand_bourbon_it",
+  "name": "Король Фердинанд Бурбон",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#ece8e2",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig",
+      "col": "#ece8e2"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "crown",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "frock",
+      "col": "#2f4a7a",
+      "vest": "#e9d8a8",
+      "trim": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#e9d8a8"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    }
+  }
+}

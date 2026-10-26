@@ -1,0 +1,61 @@
+{
+  "id": "taytu_it",
+  "name": "Императрица Таиту Бетул",
+  "skin": "#8f5a3a",
+  "slots": {
+    "body": {
+      "type": "female"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#1e1a18",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "long",
+      "col": "#1e1a18"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "circlet",
+      "gold": "#d8ad3c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#5a2a6b"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "gown",
+      "dress": "#f4f1ea",
+      "trim": "#d4a63c",
+      "mantle": "#5a2a6b",
+      "shoes": "#3b2a20"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#f4f1ea",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

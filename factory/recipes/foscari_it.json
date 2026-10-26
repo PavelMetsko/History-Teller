@@ -1,0 +1,60 @@
+{
+  "id": "foscari_it",
+  "name": "Дож Франческо Фоскари",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "old"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#b8b4c0",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "receding",
+      "col": "#b8b4c0"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#d8ad3c",
+      "fur": "#f4f1ea"
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "emperor",
+      "col": "#d8ad3c",
+      "gold": "#f4f1ea",
+      "mantle": "#a8312f"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#d8ad3c",
+      "cuff": "#d8ad3c"
+    },
+    "legs": {
+      "type": "none"
+    },
+    "boots": {
+      "type": "none"
+    }
+  }
+}

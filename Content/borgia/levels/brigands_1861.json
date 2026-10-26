@@ -1,0 +1,76 @@
+{
+ "id": "brigands_1861",
+ "order": 820,
+ "epoch": "borgia",
+ "act": "Акт XI · Рисорджименто",
+ "music": "tension",
+ "cover": "vulture_woods_it",
+ "panels": 3,
+ "scenes": [
+  "bourbon_letters_it",
+  "vulture_woods_it",
+  "land_reform_it",
+  "pica_law_it",
+  "shoot_on_spot_it"
+ ],
+ "characters": [
+  "crocco_it",
+  "borjes_it",
+  "cialdini_it",
+  "ricasoli_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "crocco_it",
+     "is": "captured_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "cialdini_it",
+     "is": "repression_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "crocco_it",
+      "is": "dead"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "bourbon_letters_it",
+   "characters": [
+    "borjes_it",
+    "crocco_it"
+   ]
+  },
+  {
+   "scene": "vulture_woods_it",
+   "characters": [
+    "crocco_it",
+    "borjes_it"
+   ]
+  },
+  {
+   "scene": "pica_law_it",
+   "characters": [
+    "cialdini_it",
+    "crocco_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "simplification"
+ }
+}

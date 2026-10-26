@@ -1,0 +1,63 @@
+{
+  "id": "ve3_it",
+  "name": "Король Виктор Эммануил III",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#8a7a6a",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "short",
+      "col": "#8a7a6a"
+    },
+    "beard": {
+      "type": "handlebar",
+      "col": "#8a7a6a"
+    },
+    "hat": {
+      "type": "cap",
+      "col": "#6e7458",
+      "fur": ""
+    },
+    "cape": {
+      "type": "none"
+    },
+    "held": {
+      "type": "none"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "legion_tunic",
+      "col": "#6e7458",
+      "belt": "#5a3a22",
+      "button": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#6e7458",
+      "cuff": "#6e7458"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#6e7458"
+    },
+    "boots": {
+      "type": "tall",
+      "col": "#3b2a20"
+    }
+  }
+}

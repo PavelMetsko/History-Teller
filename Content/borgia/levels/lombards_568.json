@@ -1,0 +1,88 @@
+{
+ "id": "lombards_568",
+ "order": 70,
+ "epoch": "borgia",
+ "act": "Акт II · После Империи: короли Италии",
+ "music": "tension",
+ "cover": "king_mountain_it",
+ "panels": 3,
+ "scenes": [
+  "king_mountain_it",
+  "pavia_three_years_it",
+  "ravenna_holds_it",
+  "skull_cup_it",
+  "storm_ravenna_it"
+ ],
+ "characters": [
+  "alboin_it",
+  "rosamund_it",
+  "gisulf_it",
+  "longinus_it"
+ ],
+ "initialState": {
+  "flags": {
+   "longinus_it": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "alboin_it",
+    "longinus_it"
+   ],
+   [
+    "enemy_of",
+    "longinus_it",
+    "alboin_it"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "gisulf_it",
+     "is": "duke_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "alboin_it",
+     "is": "pavia_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "alboin_it",
+     "is": "border_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "king_mountain_it",
+   "characters": [
+    "alboin_it",
+    "gisulf_it"
+   ]
+  },
+  {
+   "scene": "pavia_three_years_it",
+   "characters": [
+    "alboin_it"
+   ]
+  },
+  {
+   "scene": "ravenna_holds_it",
+   "characters": [
+    "longinus_it",
+    "alboin_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

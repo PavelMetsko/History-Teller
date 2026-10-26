@@ -1,0 +1,83 @@
+{
+ "id": "theodoric_493",
+ "order": 60,
+ "epoch": "borgia",
+ "act": "Акт II · После Империи: короли Италии",
+ "music": "tension",
+ "cover": "lauretum_feast_it",
+ "panels": 3,
+ "scenes": [
+  "ravenna_siege_it",
+  "bishop_treaty_it",
+  "lauretum_feast_it",
+  "storm_marshes_it"
+ ],
+ "characters": [
+  "theodoric_it",
+  "odoacer",
+  "john_ravenna_it",
+  "zeno_it"
+ ],
+ "initialState": {
+  "flags": {
+   "odoacer": [
+    "strong"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "theodoric_it",
+    "odoacer"
+   ],
+   [
+    "enemy_of",
+    "odoacer",
+    "theodoric_it"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "theodoric_it",
+     "is": "sole_king_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "odoacer",
+     "is": "dead"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ravenna_siege_it",
+   "characters": [
+    "theodoric_it",
+    "odoacer"
+   ]
+  },
+  {
+   "scene": "bishop_treaty_it",
+   "characters": [
+    "john_ravenna_it",
+    "theodoric_it",
+    "odoacer"
+   ]
+  },
+  {
+   "scene": "lauretum_feast_it",
+   "characters": [
+    "theodoric_it",
+    "odoacer"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

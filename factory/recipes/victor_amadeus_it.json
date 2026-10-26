@@ -1,0 +1,65 @@
+{
+  "id": "victor_amadeus_it",
+  "name": "Виктор Амадей II Савойский",
+  "skin": "#f3c4a6",
+  "slots": {
+    "body": {
+      "type": "male"
+    },
+    "age": {
+      "type": "young"
+    },
+    "face": {
+      "type": "std",
+      "brow": "#3b2a20",
+      "iris": "#6b3a1f",
+      "bushy": false
+    },
+    "hair": {
+      "type": "wig",
+      "col": "#3b2a20"
+    },
+    "beard": {
+      "type": "none"
+    },
+    "hat": {
+      "type": "tricorne",
+      "col": "#1e1e22",
+      "trim": "#d4a63c"
+    },
+    "cape": {
+      "type": "cape",
+      "col": "#a8312f"
+    },
+    "held": {
+      "type": "bulawa",
+      "hand": "hand_r"
+    },
+    "collar": {
+      "type": "none"
+    },
+    "glasses": {
+      "type": "none"
+    },
+    "outfit": {
+      "type": "frock",
+      "col": "#2f4a7a",
+      "vest": "#a8312f",
+      "trim": "#d4a63c"
+    },
+    "sleeves": {
+      "type": "std",
+      "col": "#2f4a7a",
+      "cuff": "#f4f1ea"
+    },
+    "legs": {
+      "type": "trousers",
+      "col": "#a8312f"
+    },
+    "boots": {
+      "type": "boots",
+      "col": "#1e1e22",
+      "top": "#1e1e22"
+    }
+  }
+}

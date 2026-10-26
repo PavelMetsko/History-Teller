@@ -1,0 +1,68 @@
+{
+ "id": "dogali_1887",
+ "order": 870,
+ "epoch": "borgia",
+ "act": "Акт XII · Либеральная Италия и Великая война",
+ "music": "tension",
+ "cover": "dogali_it",
+ "panels": 3,
+ "scenes": [
+  "massawa_it",
+  "negus_order_it",
+  "withdraw_saati_it",
+  "saati_assault_it",
+  "dogali_it"
+ ],
+ "characters": [
+  "depretis_it",
+  "de_cristoforis_it",
+  "ras_alula_it",
+  "yohannes_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "ras_alula_it",
+     "is": "victor_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "depretis_it",
+     "is": "expansion_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "massawa_it",
+   "characters": [
+    "depretis_it",
+    "de_cristoforis_it"
+   ]
+  },
+  {
+   "scene": "negus_order_it",
+   "characters": [
+    "yohannes_it",
+    "ras_alula_it"
+   ]
+  },
+  {
+   "scene": "dogali_it",
+   "characters": [
+    "ras_alula_it",
+    "de_cristoforis_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

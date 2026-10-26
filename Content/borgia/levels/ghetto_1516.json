@@ -1,0 +1,76 @@
+{
+ "id": "ghetto_1516",
+ "order": 530,
+ "epoch": "borgia",
+ "act": "Акт VII · Высокое Возрождение",
+ "music": "tension",
+ "cover": "ghetto_decree_it",
+ "panels": 3,
+ "scenes": [
+  "senate_debate_it",
+  "lenten_sermon_it",
+  "expel_it",
+  "ghetto_decree_it",
+  "condotta_it"
+ ],
+ "characters": [
+  "loredan_it",
+  "anselmo_it",
+  "sanudo_it",
+  "friar_preacher_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "loredan_it",
+     "is": "decree_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "anselmo_it",
+     "is": "condotta_it"
+    }
+   },
+   {
+    "not": {
+     "flag": {
+      "char": "anselmo_it",
+      "is": "expelled_it"
+     }
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "senate_debate_it",
+   "characters": [
+    "loredan_it",
+    "sanudo_it"
+   ]
+  },
+  {
+   "scene": "ghetto_decree_it",
+   "characters": [
+    "loredan_it",
+    "anselmo_it"
+   ]
+  },
+  {
+   "scene": "condotta_it",
+   "characters": [
+    "anselmo_it",
+    "loredan_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

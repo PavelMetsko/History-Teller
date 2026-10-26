@@ -1,0 +1,68 @@
+{
+ "id": "ciompi_1378",
+ "order": 260,
+ "epoch": "borgia",
+ "act": "Акт IV · Купцы, города и кризисы",
+ "music": "tension",
+ "cover": "palazzo_storm_it",
+ "panels": 3,
+ "scenes": [
+  "ordinances_it",
+  "burn_houses_it",
+  "palazzo_storm_it",
+  "new_guilds_it",
+  "wait_alberti_it"
+ ],
+ "characters": [
+  "michele_lando_it",
+  "salvestro_it",
+  "scali_it",
+  "alberti_it"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "michele_lando_it",
+     "is": "gonfalonier_it"
+    }
+   },
+   {
+    "flag": {
+     "char": "scali_it",
+     "is": "guild_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "ordinances_it",
+   "characters": [
+    "salvestro_it",
+    "alberti_it"
+   ]
+  },
+  {
+   "scene": "palazzo_storm_it",
+   "characters": [
+    "michele_lando_it",
+    "salvestro_it"
+   ]
+  },
+  {
+   "scene": "new_guilds_it",
+   "characters": [
+    "michele_lando_it",
+    "scali_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}

@@ -1,8 +1,8 @@
 {
  "id": "conclave",
- "order": 15,
+ "order": 340,
  "epoch": "borgia",
- "act": "Акт II · Восхождение Борджиа",
+ "act": "Акт VI · Борджиа и Итальянские войны",
  "panels": 2,
  "scenes": [
   "bribe_g",

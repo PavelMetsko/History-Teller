@@ -1,0 +1,61 @@
+{
+ "id": "colapesce",
+ "order": 20,
+ "epoch": "borgia",
+ "act": "Акт I · Легенды",
+ "music": "theme",
+ "cover": "last_dive_it",
+ "panels": 3,
+ "scenes": [
+  "mother_curse_it",
+  "cup_dive_it",
+  "last_dive_it",
+  "stay_ashore_it",
+  "king_reward_it"
+ ],
+ "characters": [
+  "colapesce_it",
+  "cola_mother_it",
+  "frederick2"
+ ],
+ "initialState": {
+  "flags": {},
+  "relations": []
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "colapesce_it",
+     "is": "holds_island_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "mother_curse_it",
+   "characters": [
+    "cola_mother_it",
+    "colapesce_it"
+   ]
+  },
+  {
+   "scene": "cup_dive_it",
+   "characters": [
+    "frederick2",
+    "colapesce_it"
+   ]
+  },
+  {
+   "scene": "last_dive_it",
+   "characters": [
+    "frederick2",
+    "colapesce_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "legend"
+ }
+}

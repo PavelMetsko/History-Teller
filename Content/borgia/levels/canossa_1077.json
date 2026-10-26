@@ -1,0 +1,77 @@
+{
+ "id": "canossa_1077",
+ "order": 120,
+ "epoch": "borgia",
+ "act": "Акт III · Папы, императоры и коммуны",
+ "music": "tension",
+ "cover": "three_days_it",
+ "panels": 3,
+ "scenes": [
+  "winter_alps_it",
+  "godfather_plea_it",
+  "three_days_it",
+  "augsburg_it",
+  "march_rome_it"
+ ],
+ "characters": [
+  "henry4_it",
+  "gregory7_it",
+  "matilda_tus_it",
+  "hugh_cluny_it"
+ ],
+ "initialState": {
+  "flags": {
+   "henry4_it": [
+    "excommunicated_it"
+   ]
+  },
+  "relations": [
+   [
+    "enemy_of",
+    "henry4_it",
+    "gregory7_it"
+   ],
+   [
+    "enemy_of",
+    "gregory7_it",
+    "henry4_it"
+   ]
+  ]
+ },
+ "goal": {
+  "all": [
+   {
+    "flag": {
+     "char": "henry4_it",
+     "is": "absolved_it"
+    }
+   }
+  ]
+ },
+ "solution": [
+  {
+   "scene": "winter_alps_it",
+   "characters": [
+    "henry4_it"
+   ]
+  },
+  {
+   "scene": "godfather_plea_it",
+   "characters": [
+    "matilda_tus_it",
+    "hugh_cluny_it"
+   ]
+  },
+  {
+   "scene": "three_days_it",
+   "characters": [
+    "henry4_it",
+    "matilda_tus_it",
+    "gregory7_it"
+   ]
+  }
+ ],
+ "factCard": {
+  "accuracy": "fact"
+ }
+}
