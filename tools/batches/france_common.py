@@ -56,8 +56,8 @@ CHAPTER_TEXTS = {
     **{f"act.revolution.{i}": a for i, a in enumerate(ACTS, 1)},
 }
 
-# своей музыки у Франции нет — общие темы (как у существующих 49 уровней)
-MUSIC = {"t": "tension", "b": "tension", "c": "theme", "r": "theme"}
+# своя музыка главы (ElevenLabs, tools/gen_audio_11labs.py): france_{tension,battle,ceremony,romance}
+MUSIC = {"t": "france_tension", "b": "france_battle", "c": "france_ceremony", "r": "france_romance"}
 
 
 def level(id, mood, cover, panels, scenes, chars, flags, rels, goal, solution, accuracy):

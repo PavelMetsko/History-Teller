@@ -57,8 +57,8 @@ CHAPTER_TEXTS = {
     **{f"act.borgia.{i}": a for i, a in enumerate(ACTS, 1)},
 }
 
-# своей музыки у Италии нет — общие темы (как у существующих 47 уровней)
-MUSIC = {"t": "tension", "b": "tension", "c": "theme", "r": "theme"}
+# своя музыка главы (ElevenLabs, tools/gen_audio_11labs.py): italy_{tension,battle,ceremony,romance}
+MUSIC = {"t": "italy_tension", "b": "italy_battle", "c": "italy_ceremony", "r": "italy_romance"}
 
 
 def level(id, mood, cover, panels, scenes, chars, flags, rels, goal, solution, accuracy):

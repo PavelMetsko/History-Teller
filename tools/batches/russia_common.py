@@ -57,8 +57,8 @@ CHAPTER_TEXTS = {
     **{f"act.empire.{i}": a for i, a in enumerate(ACTS, 1)},
 }
 
-# своей музыки у России нет — общие темы (как у существующих 51 уровня)
-MUSIC = {"t": "tension", "b": "tension", "c": "theme", "r": "theme"}
+# своя музыка главы (ElevenLabs, tools/gen_audio_11labs.py): russia_{tension,battle,ceremony,romance}
+MUSIC = {"t": "russia_tension", "b": "russia_battle", "c": "russia_ceremony", "r": "russia_romance"}
 
 
 def level(id, mood, cover, panels, scenes, chars, flags, rels, goal, solution, accuracy):

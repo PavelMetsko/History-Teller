@@ -71,6 +71,58 @@ MUSIC = {
     "usa_romance":  {"prompt": f"{STYLE} Tender American folk ballad, Shenandoah-like: solo cello and warm "
                                f"strings, gentle harp, a quiet fiddle answer, nostalgic and longing, slow. "
                                f"Loops seamlessly.", "ms": 60000},
+    # глава «Англия»: английский колорит — лютня, виолы, хорал, народные баллады, медь торжеств
+    "england_tension":  {"prompt": f"{STYLE} English historical intrigue: consort of viols in D minor, slow pavane rhythm, "
+                                   f"a solo lute melody in Dorian mode, distant cathedral bell, low drone. Courtly suspense, "
+                                   f"never loud. Loops seamlessly.", "ms": 60000},
+    "england_battle":   {"prompt": f"{STYLE} English medieval and early modern battle: martial tabor-like timpani pulse, "
+                                   f"horns and trumpets in fourths, driving low strings in E minor, a fife-like piccolo "
+                                   f"countermelody, determined, epic but controlled, no drum kit. Loops seamlessly.", "ms": 60000},
+    "england_ceremony": {"prompt": f"{STYLE} Stately English coronation ceremony: broad brass chorale and choir-like "
+                                   f"strings in D major, pealing church bells, processional tempo, Westminster Abbey pomp, "
+                                   f"dignified and bright. Loops seamlessly.", "ms": 60000},
+    "england_romance":  {"prompt": f"{STYLE} Tender English folk ballad, Greensleeves-like modal melancholy: solo lute and "
+                                   f"recorder over soft viols in A minor, gentle harp, longing and intimate, quiet. "
+                                   f"Loops seamlessly.", "ms": 60000},
+    # глава «Франция»: французский колорит — клавесин, гобой, барабан и марш, мюзет
+    "france_tension":   {"prompt": f"{STYLE} French court intrigue: harpsichord-like harp ostinato in C minor, slow "
+                                   f"sarabande rhythm, solo oboe melody, pizzicato low strings, a distant snare tap. Elegant "
+                                   f"suspense, never loud. Loops seamlessly.", "ms": 60000},
+    "france_battle":    {"prompt": f"{STYLE} French revolutionary and Napoleonic battle march: military snare rudiments, "
+                                   f"bold trumpets and horns in G minor, urgent strings, timpani, heroic and driving, no drum "
+                                   f"kit. Loops seamlessly.", "ms": 60000},
+    "france_ceremony":  {"prompt": f"{STYLE} Majestic French royal ceremony, Versailles grandeur: dotted French-overture "
+                                   f"rhythm in D major, trumpets and timpani, bright strings, harp flourishes, stately and "
+                                   f"festive. Loops seamlessly.", "ms": 60000},
+    "france_romance":   {"prompt": f"{STYLE} Tender French romance: solo flute and clarinet over soft strings in F major, "
+                                   f"gentle waltz-like lilt, delicate harp, wistful and intimate, quiet. Loops seamlessly.",
+                         "ms": 60000},
+    # глава «Россия»: русский колорит — колокола, хоровые гармонии, балалаечный щипок, глубокий минор
+    "russia_tension":   {"prompt": f"{STYLE} Russian historical suspense: deep cellos and basses drone in B minor, low "
+                                   f"Orthodox-chant-like horn chords, distant church bells, sparse plucked strings like a "
+                                   f"balalaika, solo bassoon phrase. Brooding, never loud. Loops seamlessly.", "ms": 60000},
+    "russia_battle":    {"prompt": f"{STYLE} Russian epic battle: heavy timpani, brass in unison, driving low strings in "
+                                   f"D minor, ringing bells, folk-modal horn calls, broad and powerful but controlled, no drum "
+                                   f"kit. Loops seamlessly.", "ms": 60000},
+    "russia_ceremony":  {"prompt": f"{STYLE} Russian coronation in the Kremlin: full peal of Orthodox church bells, majestic "
+                                   f"brass chorale and rich strings in E-flat major, choir-like sustained chords, solemn and "
+                                   f"grand. Loops seamlessly.", "ms": 60000},
+    "russia_romance":   {"prompt": f"{STYLE} Tender Russian romance: solo cello melody in G minor over soft strings, "
+                                   f"gentle harp, a clarinet answer with a folk song turn, melancholic and warm, quiet. "
+                                   f"Loops seamlessly.", "ms": 60000},
+    # глава «Италия»: итальянский колорит — мандолина, лютня, оперная кантилена, тарантелла
+    "italy_tension":    {"prompt": f"{STYLE} Italian Renaissance intrigue: plucked lute and mandolin ostinato in E minor, "
+                                   f"low strings, a solo cor anglais melody, distant Roman church bell, conspiratorial and "
+                                   f"quiet. Loops seamlessly.", "ms": 60000},
+    "italy_battle":     {"prompt": f"{STYLE} Italian Risorgimento battle: brisk march in A minor, bold trumpets and horns, "
+                                   f"driving strings with tarantella-like triplets, timpani, heroic and urgent, no drum kit. "
+                                   f"Loops seamlessly.", "ms": 60000},
+    "italy_ceremony":   {"prompt": f"{STYLE} Italian ceremonial grandeur, Venetian and papal pomp: antiphonal brass "
+                                   f"chorale in C major, bright strings, festive bells, stately and luminous. Loops seamlessly.",
+                         "ms": 60000},
+    "italy_romance":    {"prompt": f"{STYLE} Tender Italian romance, operatic bel canto feeling: solo violin cantilena in "
+                                   f"F major over soft strings, gentle mandolin tremolo and harp, warm and longing, quiet. "
+                                   f"Loops seamlessly.", "ms": 60000},
 }
 
 SFX = {

@@ -57,8 +57,8 @@ CHAPTER_TEXTS = {
     **{f"act.tudor.{i}": a for i, a in enumerate(ACTS, 1)},
 }
 
-# своей музыки у Англии пока нет — общие темы (как у существующих 66 уровней)
-MUSIC = {"t": "tension", "b": "tension", "c": "theme", "r": "theme"}
+# своя музыка главы (ElevenLabs, tools/gen_audio_11labs.py): england_{tension,battle,ceremony,romance}
+MUSIC = {"t": "england_tension", "b": "england_battle", "c": "england_ceremony", "r": "england_romance"}
 
 
 def level(id, mood, cover, panels, scenes, chars, flags, rels, goal, solution, accuracy):

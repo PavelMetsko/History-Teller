@@ -1,4 +1,64 @@
 {
+ "england_battle": {
+  "skip": 1479,
+  "frames": 2314809,
+  "sampleRate": 44100
+ },
+ "england_ceremony": {
+  "skip": 1318,
+  "frames": 2107098,
+  "sampleRate": 44100
+ },
+ "england_romance": {
+  "skip": 1484,
+  "frames": 2012724,
+  "sampleRate": 44100
+ },
+ "england_tension": {
+  "skip": 1525,
+  "frames": 2245131,
+  "sampleRate": 44100
+ },
+ "france_battle": {
+  "skip": 1197,
+  "frames": 2192211,
+  "sampleRate": 44100
+ },
+ "france_ceremony": {
+  "skip": 1929,
+  "frames": 2222199,
+  "sampleRate": 44100
+ },
+ "france_romance": {
+  "skip": 1708,
+  "frames": 2026836,
+  "sampleRate": 44100
+ },
+ "france_tension": {
+  "skip": 1826,
+  "frames": 2122974,
+  "sampleRate": 44100
+ },
+ "italy_battle": {
+  "skip": 1861,
+  "frames": 2266299,
+  "sampleRate": 44100
+ },
+ "italy_ceremony": {
+  "skip": 1972,
+  "frames": 2333772,
+  "sampleRate": 44100
+ },
+ "italy_romance": {
+  "skip": 1156,
+  "frames": 1959804,
+  "sampleRate": 44100
+ },
+ "italy_tension": {
+  "skip": 1709,
+  "frames": 1966419,
+  "sampleRate": 44100
+ },
  "poland_battle": {
   "skip": 1706,
   "frames": 2147670,
@@ -17,6 +77,26 @@
  "poland_tension": {
   "skip": 1336,
   "frames": 1922760,
+  "sampleRate": 44100
+ },
+ "russia_battle": {
+  "skip": 1251,
+  "frames": 2090781,
+  "sampleRate": 44100
+ },
+ "russia_ceremony": {
+  "skip": 1667,
+  "frames": 2246013,
+  "sampleRate": 44100
+ },
+ "russia_romance": {
+  "skip": 1874,
+  "frames": 1932462,
+  "sampleRate": 44100
+ },
+ "russia_tension": {
+  "skip": 1557,
+  "frames": 2118123,
   "sampleRate": 44100
  },
  "tension": {
