@@ -12,7 +12,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -30,16 +32,16 @@ import androidx.compose.ui.unit.sp
 import com.android.billingclient.api.*
 
 /**
- * Покупки (Google Play Billing 7). Рим бесплатен; остальные главы — либо разовая **поглавная**
- * покупка (INAPP, у каждой своя цена), либо **подписка** на весь контент (SUBS, месяц/год).
- * Источник истины — Play; кэш открытых эпох в SharedPreferences для оффлайна. Порт iOS Store.
+ * Покупки (Google Play Billing 8). С 4.0 все главы играются бесплатно, с рекламой. Каждая
+ * платная глава продаётся отдельно (INAPP) как «Без рекламы» в ней: ни интерстишелов, ни
+ * счёта подсказок ([Premium.adsFree]). Подписка (SUBS, месяц/год) больше не продаётся, но
+ * подписчики 3.x сохраняют всё. Источник истины — Play; кэш прав для оффлайна. Порт iOS Store.
  */
 object Billing {
     const val CHAPTER_PREFIX = "com.decima.historyteller.chapter."
     /**
      * Платные главы берём из манифеста: новая глава, выложенная в облако, сама попадёт в запрос
-     * продуктов — достаточно завести IAP в Play Console, релиз для этого не нужен.
-     * Вшитый список — фолбэк на случай, когда манифест ещё не скачан.
+     * продуктов — достаточно завести IAP в Play Console. Вшитый список — фолбэк без манифеста.
      */
     val PAID_EPOCHS: List<String>
         get() = ContentSync.availableChapters().filterNot { it.free }.map { it.id }
@@ -60,9 +62,8 @@ object Billing {
     /** Новая покупка, подтверждённая в Play (не восстановление) — для атрибуции (Tenjin). Ставит приложение. */
     var onPurchase: ((Purchase, ProductDetails?) -> Unit)? = null
 
-    fun isUnlocked(epoch: String): Boolean = epoch == "rome" || subscribed || epoch in unlockedEpochs
+    /** Цена главы из Play; пусто — продукт не загрузился (кнопку не показываем). */
     fun chapterPrice(epoch: String): String = prices[chapterProduct(epoch)] ?: ""
-    fun subPrice(productId: String): String = prices[productId] ?: ""
 
     fun init(ctx: Context) {
         if (client != null) return
@@ -153,8 +154,10 @@ object Billing {
             if (!p.isAcknowledged) client?.acknowledgePurchase(
                 AcknowledgePurchaseParams.newBuilder().setPurchaseToken(p.purchaseToken).build()) { r ->
                 // Неподтверждённая = ещё не учтённая: так каждая покупка уходит в атрибуцию ровно один раз.
-                if (r.responseCode == BillingClient.BillingResponseCode.OK)
+                if (r.responseCode == BillingClient.BillingResponseCode.OK) {
                     onPurchase?.invoke(p, p.products.firstOrNull()?.let { details[it] })
+                    Telemetry.track("purchase", p.products.firstOrNull())
+                }
             }
         }
         if (changed) {
@@ -165,75 +168,68 @@ object Billing {
 }
 
 /**
- * Пейволл главы: открыть эту главу (разовая) или подписка на всё. Порт iOS PaywallView.
- * С [levelId] это окно уровня: третий вариант — открыть один этот уровень за ролик.
+ * Окно «Глава без рекламы» — поглавная покупка 4.0. Входы: плашка на карте главы и окно
+ * «Подсказки закончились» (глава текущего уровня). Порт iOS PremiumView(epoch).
  */
 @Composable
-fun PaywallScreen(epoch: String, chapterTitle: String, levelId: String? = null,
-                  onClose: () -> Unit, onUnlocked: () -> Unit, onRewarded: () -> Unit = {}) {
+fun PremiumScreen(epoch: String, onClose: () -> Unit) {
     val ctx = LocalContext.current
     val activity = ctx as? Activity
-
-    LaunchedEffect(Billing.isUnlocked(epoch)) { if (Billing.isUnlocked(epoch)) onUnlocked() }
+    LaunchedEffect(Unit) { Telemetry.track("premium_open", null, epoch) }
 
     Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.5f)).clickable { onClose() },
         contentAlignment = Alignment.Center) {
         Box(contentAlignment = Alignment.TopEnd) {
             BookPage(Modifier.widthIn(max = 490.dp).clickable(enabled = false) {}) {
-                Column(Modifier.padding(start = 32.dp, end = 32.dp, top = 20.dp, bottom = 28.dp),
+                Column(Modifier.padding(start = 32.dp, end = 32.dp, top = 18.dp, bottom = 22.dp)
+                        .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally) {
                     Box(Modifier.size(56.dp).clip(CircleShape).background(Palette.maroon)
                         .border(2.dp, Palette.gold, CircleShape), contentAlignment = Alignment.Center) {
-                        Icon(Icons.Filled.Star, null, tint = Palette.gold, modifier = Modifier.size(26.dp))
+                        Text("👑", fontSize = 26.sp)
                     }
-                    Spacer(Modifier.height(10.dp))
-                    Text("«$chapterTitle»", color = Palette.ink, fontSize = 22.sp, fontWeight = FontWeight.Bold,
+                    Spacer(Modifier.height(8.dp))
+                    Text(L10n.s("ui.chapter_noads_title"), color = Palette.ink, fontSize = 24.sp, fontWeight = FontWeight.Bold,
                         fontFamily = Fonts.serif, textAlign = TextAlign.Center)
+                    Text("«${L10n.s("chapter.$epoch.title")}»", color = Palette.maroon, fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold, fontFamily = Fonts.serif, textAlign = TextAlign.Center)
                     Box(Modifier.padding(top = 6.dp).width(70.dp).height(3.dp).clip(RoundedCornerShape(2.dp)).background(Palette.gold))
                     Spacer(Modifier.height(10.dp))
-                    Text(L10n.s(if (levelId == null) "ui.paywall_sub" else "ui.level_gate_sub"), color = Palette.inkSoft, fontSize = 14.sp,
-                        fontFamily = Fonts.rounded, textAlign = TextAlign.Center)
+                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        for (b in listOf("ui.chapter_noads_b1", "ui.chapter_noads_b2", "ui.premium_b3")) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(Icons.Filled.Check, null, tint = Palette.success, modifier = Modifier.size(18.dp))
+                                Spacer(Modifier.width(8.dp))
+                                Text(L10n.s(b), color = Palette.ink, fontSize = 14.sp, fontFamily = Fonts.rounded)
+                            }
+                        }
+                    }
                     Spacer(Modifier.height(14.dp))
 
-                    // 1) эту главу
-                    val chPrice = Billing.chapterPrice(epoch)
-                    Row(Modifier.widthIn(min = 260.dp).clip(RoundedCornerShape(28.dp)).background(Palette.maroon)
-                        .border(2.5.dp, Palette.ink, RoundedCornerShape(28.dp))
-                        .clickable(enabled = !Billing.purchasing) { activity?.let { Billing.purchaseChapter(it, epoch) } }
-                        .padding(horizontal = 30.dp, vertical = 12.dp),
-                        horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
-                        if (Billing.purchasing) CircularProgressIndicator(color = Palette.paper, strokeWidth = 2.dp, modifier = Modifier.size(20.dp))
-                        else Text(if (chPrice.isEmpty()) L10n.s("ui.buy_chapter_cta") else "${L10n.s("ui.buy_chapter_cta")} — $chPrice",
-                            color = Palette.paper, fontSize = 17.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+                    if (Premium.adsFree(epoch)) {
+                        Text(L10n.s("ui.premium_active"), color = Palette.success, fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded, textAlign = TextAlign.Center)
+                    } else {
+                        // Цена не приехала из Play — кнопку не показываем.
+                        val price = Billing.chapterPrice(epoch)
+                        if (price.isNotEmpty()) {
+                            Row(Modifier.widthIn(min = 260.dp).clip(RoundedCornerShape(28.dp)).background(Palette.maroon)
+                                .border(2.5.dp, Palette.ink, RoundedCornerShape(28.dp))
+                                .clickable(enabled = !Billing.purchasing) { activity?.let { Billing.purchaseChapter(it, epoch) } }
+                                .padding(horizontal = 30.dp, vertical = 12.dp),
+                                horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
+                                if (Billing.purchasing) CircularProgressIndicator(color = Palette.paper, strokeWidth = 2.dp, modifier = Modifier.size(20.dp))
+                                else Text(L10n.s("ui.chapter_noads_cta", price),
+                                    color = Palette.paper, fontSize = 17.sp, fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
+                            }
+                        }
+                        Spacer(Modifier.height(10.dp))
+                        Text(L10n.s("ui.restore"), color = Palette.maroon, fontSize = 13.sp, fontFamily = Fonts.rounded,
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier.clickable { Billing.refreshEntitlements() }.padding(4.dp))
                     }
 
-                    Spacer(Modifier.height(12.dp))
-                    Text(L10n.s("ui.or").uppercase(), color = Palette.inkSoft, fontSize = 11.sp, fontFamily = Fonts.rounded)
-                    Spacer(Modifier.height(6.dp))
-                    Text(L10n.s("ui.sub_hint"), color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded)
-                    Spacer(Modifier.height(8.dp))
-
-                    // 2) подписка (месяц/год)
-                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                        val m = Billing.subPrice(Billing.SUB_MONTHLY)
-                        val y = Billing.subPrice(Billing.SUB_YEARLY)
-                        if (m.isNotEmpty()) SubButton(L10n.s("ui.sub_month", m)) { activity?.let { Billing.purchaseSubscription(it, Billing.SUB_MONTHLY) } }
-                        if (y.isNotEmpty()) SubButton(L10n.s("ui.sub_year", y)) { activity?.let { Billing.purchaseSubscription(it, Billing.SUB_YEARLY) } }
-                    }
-
-                    // 3) Один этот уровень — за ролик (только окно уровня, реклама включена).
-                    if (levelId != null && AdService.isEnabled) {
-                        Spacer(Modifier.height(12.dp))
-                        Text(L10n.s("ui.or").uppercase(), color = Palette.inkSoft, fontSize = 11.sp, fontFamily = Fonts.rounded)
-                        Spacer(Modifier.height(8.dp))
-                        AdButton { activity?.let { a -> AdService.show(a) { ok ->
-                            if (ok) { RewardedUnlocks.add(ctx, levelId); onRewarded() }
-                        } } }
-                    }
-
-                    // Обязательно для подписок (Google Play): рабочие ссылки на условия и приватность.
-                    // Restore на Android не нужен — Play восстанавливает покупки автоматически (refreshEntitlements при старте).
-                    Spacer(Modifier.height(16.dp))
+                    Spacer(Modifier.height(10.dp))
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
                         fun openUrl(url: String) = ctx.startActivity(
                             Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
@@ -258,27 +254,21 @@ fun PaywallScreen(epoch: String, chapterTitle: String, levelId: String? = null,
     }
 }
 
-/** Ролик не загрузился (нет сети/показа) или идёт кулдаун — кнопка неактивна с пояснением. */
+/**
+ * Кнопка «▶ ролик» (подсказка, возврат серии). Ролик не загрузился или идёт кулдаун — кнопка
+ * неактивна с пояснением «Ролик загружается…» / «Следующий ролик через N с».
+ */
 @Composable
-private fun AdButton(onClick: () -> Unit) {
-    val available = AdService.isReady && AdService.cooldownLeft == 0 && !AdService.isShowing
+fun AdButton(label: String, onClick: () -> Unit) {
+    val available = AdService.isEnabled && AdService.isReady && AdService.cooldownLeft == 0 && !AdService.isShowing
     val title = when {
         AdService.cooldownLeft > 0 -> L10n.s("ui.ad_cooldown", AdService.cooldownLeft)
-        available -> L10n.s("ui.watch_ad")
-        else -> L10n.s("ui.ad_unavailable")
+        available -> label
+        else -> L10n.s("ui.video_loading")
     }
     Box(Modifier.clip(RoundedCornerShape(24.dp)).background(Palette.panel)
         .border(2.dp, Palette.ink.copy(alpha = if (available) 0.5f else 0.2f), RoundedCornerShape(24.dp))
         .clickable(enabled = available) { onClick() }.padding(horizontal = 22.dp, vertical = 10.dp)) {
         Text("▶  $title", color = if (available) Palette.ink else Palette.inkSoft, fontSize = 15.sp, fontFamily = Fonts.rounded)
-    }
-}
-
-@Composable
-private fun SubButton(label: String, onClick: () -> Unit) {
-    Box(Modifier.clip(RoundedCornerShape(24.dp)).background(Palette.panel)
-        .border(2.dp, Palette.gold, RoundedCornerShape(24.dp))
-        .clickable(enabled = !Billing.purchasing) { onClick() }.padding(horizontal = 22.dp, vertical = 10.dp)) {
-        Text(label, color = Palette.ink, fontSize = 15.sp, fontFamily = Fonts.rounded)
     }
 }

@@ -73,6 +73,19 @@ object Haptics {
         } ?: return
         runCatching { vib.vibrate(VibrationEffect.createOneShot(12, VibrationEffect.DEFAULT_AMPLITUDE)) }
     }
+
+    /** «Тук-тук» на награду: повышение звания, печать главы. */
+    fun success(ctx: Context, enabled: Boolean) {
+        if (!enabled) return
+        val vib = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            (ctx.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager)?.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION") ctx.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+        } ?: return
+        runCatching {
+            vib.vibrate(VibrationEffect.createWaveform(longArrayOf(0, 18, 70, 30), intArrayOf(0, 160, 0, 255), -1))
+        }
+    }
 }
 
 private val langNames = linkedMapOf(

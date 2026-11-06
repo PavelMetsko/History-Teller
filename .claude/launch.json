@@ -1,0 +1,35 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "playable",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8090",
+        "--directory",
+        "dist/playable"
+      ],
+      "port": 8090
+    },
+    {
+      "name": "factory",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": [
+        "factory/server.py"
+      ],
+      "port": 8091
+    },
+    {
+      "name": "content-stand",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "tools/publish_content.py",
+        "--serve",
+        "8787"
+      ],
+      "port": 8787
+    }
+  ]
+}

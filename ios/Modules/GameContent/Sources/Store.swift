@@ -2,8 +2,9 @@ import Foundation
 import StoreKit
 import Observation
 
-/// Покупки (StoreKit 2). Модель: первая глава (Рим) бесплатна; остальные — либо разовая
-/// **поглавная** покупка (у каждой своя цена), либо **подписка** на весь контент (текущий и будущий).
+/// Покупки (StoreKit 2). С 4.0 все главы играются бесплатно с рекламой, а каждая глава по-прежнему
+/// продаётся отдельно: купленная глава — без интерстишелов и с безлимитом подсказок. Общей покупки
+/// нет; подписка осталась только у тех, кто оформил её раньше, — им без рекламы везде.
 /// Права проверяются через `Transaction.currentEntitlements`, поэтому переносятся между устройствами.
 @Observable
 public final class Store {
@@ -13,14 +14,13 @@ public final class Store {
     public static let chapterPrefix = "com.decima.historyteller.chapter."
     /// Платные главы берём из манифеста: новая глава, выложенная в облако, сама попадёт в запрос
     /// продуктов — достаточно завести IAP в App Store Connect, релиз для этого не нужен.
-    /// Вшитый список — фолбэк на случай, когда манифест ещё не скачан.
     public static var paidEpochs: [String] {
         let fromManifest = ContentSync.shared.availableChapters.filter { !$0.free }.map(\.id)
         return fromManifest.isEmpty ? ["tudor", "revolution", "empire", "borgia", "byzantium"] : fromManifest
     }
     public static func chapterProductID(_ epoch: String) -> String { chapterPrefix + epoch }
 
-    /// Подписка на всё (группа `all_access`). Месяц + год.
+    /// Подписка на всё (группа `all_access`) — больше не продаётся, но действующая работает.
     public static let monthlyID = "com.decima.historyteller.sub.monthly"
     public static let yearlyID  = "com.decima.historyteller.sub.yearly"
     public static var subscriptionIDs: [String] { [monthlyID, yearlyID] }
@@ -41,10 +41,8 @@ public final class Store {
         Task { await loadProducts(); await refreshEntitlements() }
     }
 
-    /// Открыта ли глава: Рим бесплатен, либо активна подписка, либо куплена именно эта глава.
-    public func isUnlocked(_ epoch: String) -> Bool {
-        epoch == "rome" || subscribed || unlockedEpochs.contains(epoch)
-    }
+    /// Глава без рекламы и с безлимитом подсказок: куплена именно она (или действует старая подписка).
+    public func adsFree(_ epoch: String) -> Bool { subscribed || unlockedEpochs.contains(epoch) }
 
     /// Только для скриншота ревью (env HT_DEMO_PRICES=1): подставляет демо-цены, т.к. в симуляторе
     /// StoreKit-конфиг не применяется. В проде флага нет — работают реальные цены.
@@ -53,11 +51,9 @@ public final class Store {
         if demoPrices { return "$2.99" }
         return products[Self.chapterProductID(epoch)]?.displayPrice ?? ""
     }
-    public var monthlyPrice: String { demoPrices ? "$4.99" : (products[Self.monthlyID]?.displayPrice ?? "") }
-    public var yearlyPrice: String { demoPrices ? "$14.99" : (products[Self.yearlyID]?.displayPrice ?? "") }
 
     public func loadProducts() async {
-        let ids = Self.paidEpochs.map { Self.chapterProductID($0) } + Self.subscriptionIDs
+        let ids = Self.paidEpochs.map { Self.chapterProductID($0) }
         let list = (try? await Product.products(for: ids)) ?? []
         var map: [String: Product] = [:]
         for p in list { map[p.id] = p }

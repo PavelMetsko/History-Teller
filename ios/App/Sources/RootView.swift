@@ -16,10 +16,20 @@ struct RootView: View {
     @State private var progress = ProgressStore()
     @State private var selectedEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "rome"
     @State private var store = Store.shared
-    @State private var showPaywall = false
-    @State private var pendingEpoch: String?
-    /// Уровень платной главы, на который нажали без доступа — окно «глава / подписка / ролик».
-    @State private var pendingLevel: String?
+    @State private var meta = Meta.shared
+    /// Окно «глава без рекламы» для этой главы.
+    @State private var premiumEpoch: String?
+    /// Подсказки кончились: что применить, если игрок досмотрит ролик.
+    @State private var hintRequest: HintRequest?
+    /// Первое решение эпизода ждёт экрана награды (показываем при уходе с доски).
+    @State private var pendingReward: PendingReward?
+    @State private var reward: PendingReward?
+    @State private var showGift = false
+    /// Эпизод дня, открытый из меню: за его решение — двойной опыт.
+    @State private var dailyActive: String?
+    /// Уровень, который открыть сразу, как только приедут описания главы (эпизод дня из меню).
+    @State private var levelAfterIndex: String?
+    @Environment(\.scenePhase) private var scenePhase
     @State private var sync = ContentSync.shared
     @State private var loadingEpoch: String?
     @State private var loadingLevel: String?
@@ -44,7 +54,20 @@ struct RootView: View {
         case menu
         case chapters
         case map
+        case album
+        case streak
         case level(String)
+    }
+
+    private struct HintRequest {
+        let levelId: String
+        let apply: () -> Void
+    }
+
+    private struct PendingReward {
+        let levelId: String
+        let epoch: String
+        let reward: Meta.SolveReward
     }
 
     var body: some View {
@@ -62,26 +85,44 @@ struct RootView: View {
                     .transition(.opacity)
             }
 
-            if showPaywall {
-                PaywallView(
-                    epoch: pendingEpoch ?? "",
-                    chapterTitle: L10n.s("chapter.\(pendingEpoch ?? "").title"),
-                    levelId: pendingLevel,
-                    onClose: { closePaywall() },
-                    onUnlocked: {
-                        let level = pendingLevel
-                        closePaywall()
-                        if let level { openLevel(level) } else if let e = pendingEpoch { openChapter(e) }
+            if let r = reward, let pack { rewardOverlay(r, pack).zIndex(25) }
+
+            if let req = hintRequest {
+                HintsOutView(
+                    onWatch: {
+                        AdService.shared.show { ok in
+                            guard ok else { return }
+                            meta.markHinted(req.levelId)
+                            req.apply()
+                            Telemetry.shared.track("hint_ad", level: req.levelId, chapter: selectedEpoch)
+                        }
+                        withAnimation(.easeOut(duration: 0.2)) { hintRequest = nil }
                     },
-                    onRewarded: {
-                        let level = pendingLevel
-                        if let level { Telemetry.shared.track("ad_unlock", level: level, chapter: pendingEpoch) }
-                        closePaywall()
-                        if let level { openLevel(level) }
-                    }
+                    onPremium: {
+                        withAnimation(.easeOut(duration: 0.2)) { hintRequest = nil }
+                        openPremium(selectedEpoch)
+                    },
+                    onClose: { withAnimation(.easeOut(duration: 0.2)) { hintRequest = nil } }
                 )
                 .transition(.opacity)
-                .zIndex(30)
+                .zIndex(28)
+            }
+
+            if let ep = premiumEpoch {
+                PremiumView(epoch: ep, chapterTitle: L10n.s("chapter.\(ep).title"),
+                            onClose: { withAnimation(.easeOut(duration: 0.2)) { premiumEpoch = nil } })
+                    .transition(.opacity)
+                    .zIndex(30)
+            }
+
+            if showGift {
+                GiftView(step: meta.nextGiftStep, gifts: Meta.gifts, onClaim: {
+                    let n = meta.claimGift()
+                    Telemetry.shared.track("gift_claim", level: "\(n)")
+                    withAnimation(.easeOut(duration: 0.25)) { showGift = false }
+                })
+                .transition(.opacity)
+                .zIndex(35)
             }
 
             if let ep = loadingEpoch, let pack {
@@ -96,7 +137,12 @@ struct RootView: View {
                         load()
                         selectedEpoch = ep
                         loadingEpoch = nil
-                        go(.map)
+                        if let id = levelAfterIndex {
+                            levelAfterIndex = nil
+                            openLevel(id)
+                        } else {
+                            go(.map)
+                        }
                     }
                 )
                 .transition(.opacity)
@@ -125,6 +171,7 @@ struct RootView: View {
                     onboarded = true
                     withAnimation(.easeOut(duration: 0.25)) { showOnboarding = false }
                     ConsentService.shared.start()
+                    maybeOfferGift()
                 })
                 .transition(.opacity)
                 .zIndex(50)
@@ -146,12 +193,17 @@ struct RootView: View {
         .onAppear {
             // Согласие спрашиваем после онбординга; кто его уже прошёл — сразу на старте.
             if onboarded { ConsentService.shared.start() }
-            if ProcessInfo.processInfo.environment["HT_PAYWALL"] == "1" {
-                pendingEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "tudor"
-                showPaywall = true
-            }
+            meta.bootstrap(solvedCount: progress.solvedCount)
+            AdService.shared.onFullscreenShown = { Meta.shared.noteFullscreenShown() }
+            if ProcessInfo.processInfo.environment["HT_PAYWALL"] == "1" { premiumEpoch = ProcessInfo.processInfo.environment["HT_EPOCH"] ?? "tudor" }
         }
-        .onChange(of: screen) { _, _ in updateMusic() }
+        .onChange(of: screen) { _, now in
+            updateMusic()
+            if now == .menu { maybeOfferGift() }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .background { rescheduleNotifications() }
+        }
         .onChange(of: langOverride) { _, _ in
             // Смена языка: пересобрать пак (контент локализуется на загрузке) и перерисовать UI.
             pack = nil; loadError = nil
@@ -184,16 +236,18 @@ struct RootView: View {
             switch screen {
             case .menu:
                 MenuView(
+                    meta: menuMeta(pack),
                     onPlay: { go(.chapters) },
-                    onReset: { progress.reset() }
+                    onReset: { progress.reset(); meta.reset() },
+                    onAlbum: { go(.album) },
+                    onDaily: { openDaily() },
+                    onStreak: { go(.streak) },
+                    onRestoreStreak: { restoreStreak() }
                 )
+                .onAppear { maybeOfferGift() }
             case .chapters:
                 ChapterSelectView(
                     chapters: chapters(pack),
-                    isUnlocked: { store.isUnlocked($0.id) || ProgressStore.unlockAll },
-                    priceText: { store.chapterPrice($0.id) },
-                    freeWithVideo: AdService.shared.isEnabled,
-                    // Главы открыты все: платность проверяется на уровне (см. requestLevel).
                     onSelect: { ch in
                         guard ch.available else { return }
                         openChapter(ch.id)
@@ -206,29 +260,54 @@ struct RootView: View {
                     levels: pack.levels(epoch: selectedEpoch),
                     db: pack.db,
                     progress: progress,
-                    unlockTitle: chapterOwned(selectedEpoch) ? nil : unlockTitle(selectedEpoch),
-                    onUnlock: {
-                        pendingEpoch = selectedEpoch
-                        pendingLevel = nil
-                        withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
-                    },
-                    onSelect: { requestLevel($0) },
+                    noAdsTitle: noAdsTitle(selectedEpoch),
+                    onNoAds: { openPremium(selectedEpoch) },
+                    onSelect: { dailyActive = nil; openLevel($0) },
                     onBack: { sync.cancelPrefetch(); go(.chapters) }
                 )
                 .onAppear { startPrefetch() }
+            case .album:
+                AlbumView(
+                    sections: sync.availableChapters.map {
+                        AlbumView.Section(id: $0.id, title: L10n.s("chapter.\($0.id).title"), levels: $0.levels)
+                    },
+                    initial: selectedEpoch,
+                    isCompleted: { progress.isCompleted($0) },
+                    cover: { id in pack.levels.first { $0.id == id }.flatMap { $0.cover ?? $0.scenes.first } },
+                    cast: { id in
+                        // Герои кадра — из эталона (кто реально в сцене), иначе из состава уровня.
+                        guard let lv = pack.levels.first(where: { $0.id == id }) else { return [] }
+                        var seen = Set<String>()
+                        let fromSolution = (lv.solution ?? []).flatMap(\.characters).filter { seen.insert($0).inserted }
+                        return fromSolution.isEmpty ? lv.characters : fromSolution
+                    },
+                    onClose: { go(.menu) }
+                )
+            case .streak:
+                StreakRoadView(streak: meta.currentStreak, best: meta.bestStreak, solvedToday: meta.solvedToday,
+                               brokenStreak: meta.brokenStreak, freeRestore: store.subscribed,
+                               onRestore: { restoreStreak() }, onClose: { go(.menu) })
             case .level(let id):
                 if let level = pack.levels.first(where: { $0.id == id }) {
                     LevelBoardView(
                         level: level,
                         db: pack.db,
-                        onSolved: {
-                            progress.markCompleted(id)
-                            RewardedUnlocks.consume(id)   // пройден — дальше открыт прогрессом
-                            Telemetry.shared.track("level_complete", level: id, chapter: level.epoch)
-                        },
-                        onExit: { go(.map); maybeAskForReview(pack) }
+                        hint: HintConfig(badge: store.adsFree(level.epoch) ? "∞" : "\(meta.hints)",
+                                         request: { apply in requestHint(id, apply) }),
+                        onSolved: { solved(level) },
+                        onExit: {
+                            if let r = pendingReward, r.levelId == id {
+                                pendingReward = nil
+                                withAnimation(.spring(response: 0.45, dampingFraction: 0.8)) { reward = r }
+                            } else {
+                                go(.map); maybeAskForReview(pack)
+                            }
+                        }
                     )
-                    .onAppear { Telemetry.shared.track("level_start", level: id, chapter: level.epoch) }
+                    .onAppear {
+                        meta.lastLevel = id
+                        Telemetry.shared.track("level_start", level: id, chapter: level.epoch)
+                    }
                     .id(id)
                 } else {
                     Color.clear.onAppear { go(.map) }
@@ -264,24 +343,23 @@ struct RootView: View {
             let done = ids.filter { progress.isCompleted($0) }.count
             return L10n.s("ui.progress", done, ids.count)
         }
-        func ch(_ id: String, _ n: Int, _ cover: String?, _ icon: String,
-                _ available: Bool, free: Bool = false) -> Chapter {
-            Chapter(id: id, number: n,
-                    title: L10n.s("chapter.\(id).title"),
-                    subtitle: L10n.s("chapter.\(id).subtitle"),
-                    coverSceneId: cover, icon: icon,
-                    available: available, free: free,
-                    progressText: available ? prog(id) : nil)
+        func ch(_ id: String, _ n: Int, _ cover: String?, _ icon: String, _ available: Bool) -> Chapter {
+            let ids = sync.availableChapters.first { $0.id == id }?.levels ?? pack.levels(epoch: id).map(\.id)
+            return Chapter(id: id, number: n,
+                           title: L10n.s("chapter.\(id).title"),
+                           subtitle: L10n.s("chapter.\(id).subtitle"),
+                           coverSceneId: cover, icon: icon,
+                           available: available,
+                           progressText: available ? prog(id) : nil,
+                           done: ids.filter { progress.isCompleted($0) }.count, total: ids.count)
         }
         // Список глав задаёт манифест — иначе глава, выложенная в облако, не появилась бы в меню.
         // Без манифеста (первый запуск офлайн) показываем то, что лежит в бандле.
         let fromManifest = ContentSync.shared.availableChapters
         guard !fromManifest.isEmpty else {
-            return [ch("rome", 1, "forum", "building.columns.fill", true, free: true)]
+            return [ch("rome", 1, "forum", "building.columns.fill", true)]
         }
-        return fromManifest.map {
-            ch($0.id, $0.number, $0.cover, $0.icon, true, free: $0.free)
-        }
+        return fromManifest.map { ch($0.id, $0.number, $0.cover, $0.icon, true) }
     }
 
     private func chapterTitle(_ epoch: String) -> String {
@@ -298,35 +376,181 @@ struct RootView: View {
         }
     }
 
-    /// Нажатие на уровень карты. Платная глава без покупки: пройденные эпизоды и открытые
-    /// за ролик играются, на остальные — окно «купить главу / подписка / ролик».
-    private func requestLevel(_ id: String) {
-        if canPlay(id) { openLevel(id); return }
-        pendingEpoch = selectedEpoch
-        pendingLevel = id
-        withAnimation(.easeIn(duration: 0.2)) { showPaywall = true }
+    // MARK: - Мета: решение, награда, реклама
+
+    /// Уровень решён. Первое решение копит экран награды — он откроется, когда игрок уйдёт с доски.
+    private func solved(_ level: LevelDef) {
+        let id = level.id
+        let first = !progress.isCompleted(id)
+        progress.markCompleted(id)
+        meta.noteLevelFinished()
+        let isDaily = dailyActive == id
+        let r = meta.recordSolve(levelId: id, firstSolve: first, isDaily: isDaily)
+        Telemetry.shared.track("level_complete", level: id, chapter: level.epoch)
+        if r.isDaily { Telemetry.shared.track("daily_done", level: id, chapter: level.epoch) }
+        if r.rankedUp { Telemetry.shared.track("rank_up", level: "\(r.levelAfter)") }
+        if first { pendingReward = PendingReward(levelId: id, epoch: level.epoch, reward: r) }
+        rescheduleNotifications()
     }
 
-    /// Первый эпизод платной главы — знакомство без ролика, пока реклама включена
-    /// (выключили рекламу удалённо — глава снова целиком за покупкой).
-    private func canPlay(_ id: String) -> Bool {
-        chapterOwned(selectedEpoch) || progress.isCompleted(id) || RewardedUnlocks.contains(id)
-            || (AdService.shared.isEnabled && pack?.levels(epoch: selectedEpoch).first?.id == id)
+    @ViewBuilder
+    private func rewardOverlay(_ r: PendingReward, _ pack: RomeContent.Pack) -> some View {
+        let levels = pack.levels(epoch: r.epoch)
+        let ids = sync.availableChapters.first { $0.id == r.epoch }?.levels ?? levels.map(\.id)
+        let level = levels.first { $0.id == r.levelId }
+        let next = nextLevel(after: r.levelId, epoch: r.epoch, pack)
+        RewardView(
+            reward: r.reward,
+            levelTitle: level?.title ?? r.levelId,
+            coverSceneId: level.flatMap { $0.cover ?? $0.scenes.first },
+            chapterTitle: L10n.s("chapter.\(r.epoch).title"),
+            chapterDone: ids.filter { progress.isCompleted($0) }.count,
+            chapterTotal: ids.count,
+            hasNext: next != nil,
+            onNext: { finishReward(next: next) },
+            onMap: { finishReward(next: nil) }
+        )
+        .transition(.opacity)
     }
 
-    private func chapterOwned(_ epoch: String) -> Bool {
-        store.isUnlocked(epoch) || ProgressStore.unlockAll
-            || sync.availableChapters.first { $0.id == epoch }?.free == true
+    /// Следующий эпизод главы, если он уже открыт прогрессом (после решённого — открыт всегда,
+    /// кроме эпизода дня, решённого вне очереди).
+    private func nextLevel(after id: String, epoch: String, _ pack: RomeContent.Pack) -> String? {
+        let ids = pack.levels(epoch: epoch).map(\.id)
+        guard let i = ids.firstIndex(of: id), i + 1 < ids.count else { return nil }
+        let next = ids[i + 1]
+        guard !sync.isLevelDisabled(next), progress.isUnlocked(levelId: next, orderedIds: ids) else { return nil }
+        return next
     }
 
-    private func unlockTitle(_ epoch: String) -> String {
+    private func finishReward(next: String?) {
+        withAnimation(.easeOut(duration: 0.2)) { reward = nil }
+        dailyActive = nil
+        maybeShowInterstitial {
+            if let next {
+                openLevel(next)
+            } else {
+                go(.map)
+                if let pack { maybeAskForReview(pack) }
+            }
+            Notifications.askOnce()
+        }
+    }
+
+    /// Интерстишел между эпизодами — по правилам из манифеста (`docs/f2p-patch-4.0.md` §1).
+    private func maybeShowInterstitial(then proceed: @escaping () -> Void) {
+        let ads = AdService.shared
+        let gap = Date().timeIntervalSince1970 - meta.lastFullscreen
+        guard !store.adsFree(selectedEpoch), sync.interstitialEnabled, ads.interstitialReady,
+              progress.solvedCount >= sync.interAfter,
+              meta.sinceInterstitial >= sync.interEvery,
+              gap >= Double(sync.interGapSec) else { return proceed() }
+        Telemetry.shared.track("inter_show", level: meta.lastLevel, chapter: selectedEpoch)
+        meta.noteInterstitialShown()
+        ads.showInterstitial(completion: proceed)
+    }
+
+    /// Подсказка: Premium — бесплатно, есть запас — тратим, нет — окно «за ролик».
+    private func requestHint(_ levelId: String, _ apply: @escaping () -> Void) {
+        if meta.spendHint(levelId: levelId, premium: store.adsFree(selectedEpoch)) {
+            apply()
+            Telemetry.shared.track("hint_use", level: levelId, chapter: selectedEpoch)
+        } else {
+            withAnimation(.easeIn(duration: 0.2)) { hintRequest = HintRequest(levelId: levelId, apply: apply) }
+        }
+    }
+
+    /// Кнопка «Убрать рекламу — цена» на карте: глава не куплена и продукт с ценой загрузился.
+    private func noAdsTitle(_ epoch: String) -> String? {
         let price = store.chapterPrice(epoch)
-        return price.isEmpty ? L10n.s("ui.buy_chapter_cta") : "\(L10n.s("ui.buy_chapter_cta")) — \(price)"
+        guard !store.adsFree(epoch), !price.isEmpty else { return nil }
+        return L10n.s("ui.chapter_noads_cta", price)
     }
 
-    private func closePaywall() {
-        withAnimation(.easeOut(duration: 0.2)) { showPaywall = false }
-        pendingLevel = nil
+    private func openPremium(_ epoch: String) {
+        Telemetry.shared.track("premium_open", chapter: epoch)
+        withAnimation(.easeIn(duration: 0.2)) { premiumEpoch = epoch }
+    }
+
+    private func restoreStreak() {
+        let done = {
+            meta.restoreStreak()
+            Telemetry.shared.track("streak_restore")
+        }
+        if store.subscribed { done() } else { AdService.shared.show { if $0 { done() } } }
+    }
+
+    /// Подарок дня — в меню, когда поверх ничего не открыто (язык, онбординг).
+    private func maybeOfferGift() {
+        guard pack != nil, onboarded, !showOnboarding, !showLanguagePicker,
+              screen == .menu, meta.giftAvailable, !showGift else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            guard screen == .menu, meta.giftAvailable else { return }
+            withAnimation(.spring(response: 0.45, dampingFraction: 0.8)) { showGift = true }
+        }
+    }
+
+    // MARK: - Эпизод дня
+
+    /// Эпизод дня. Выбор на сегодня запоминается: пул исключает пройденное, и без этого решённый
+    /// эпизод дня сразу сменился бы другим.
+    private func dailyPick(day: Int) -> (chapter: String, level: String)? {
+        let key = "ht.meta.dailyPick"
+        let parts = UserDefaults.standard.string(forKey: key)?.split(separator: "|").map(String.init) ?? []
+        if parts.count == 3, Int(parts[0]) == day { return (parts[1], parts[2]) }
+        guard let pick = Meta.dailyLevel(day: day,
+                                         chapters: sync.availableChapters.map { ($0.id, $0.levels) },
+                                         isCompleted: { progress.isCompleted($0) },
+                                         isDisabled: { sync.isLevelDisabled($0) }) else { return nil }
+        if day == meta.today { UserDefaults.standard.set("\(day)|\(pick.chapter)|\(pick.level)", forKey: key) }
+        return pick
+    }
+
+    private func menuMeta(_ pack: RomeContent.Pack) -> MenuMeta {
+        var daily: MenuMeta.Daily?
+        if let pick = dailyPick(day: meta.today) {
+            let lv = pack.levels.first { $0.id == pick.level }
+            let chCover = sync.availableChapters.first { $0.id == pick.chapter }?.cover
+            daily = MenuMeta.Daily(
+                title: lv?.title ?? L10n.opt("level.\(pick.level).title") ?? pick.level,
+                chapterTitle: L10n.s("chapter.\(pick.chapter).title"),
+                coverSceneId: lv.flatMap { $0.cover ?? $0.scenes.first } ?? chCover,
+                done: meta.dailyDoneToday)
+        }
+        return MenuMeta(level: meta.level,
+                        rankName: L10n.s(Meta.rankKey(meta.level)),
+                        xpProgress: Meta.levelProgress(meta.xp),
+                        streak: meta.currentStreak,
+                        flameTier: meta.flameTier,
+                        hintsBadge: store.subscribed ? "∞" : "\(meta.hints)",
+                        freeRestore: store.subscribed,
+                        daily: daily,
+                        brokenStreak: meta.brokenStreak)
+    }
+
+    /// Эпизод дня открывается мимо линейного замка главы; описания главы, если их нет, — догрузить.
+    private func openDaily() {
+        guard let pick = dailyPick(day: meta.today) else { return }
+        Telemetry.shared.track("daily_open", level: pick.level, chapter: pick.chapter)
+        dailyActive = meta.dailyDoneToday ? nil : pick.level
+        selectedEpoch = pick.chapter
+        if sync.isChapterIndexReady(pick.chapter) {
+            openLevel(pick.level)
+        } else {
+            levelAfterIndex = pick.level
+            withAnimation(.easeIn(duration: 0.2)) { loadingEpoch = pick.chapter }
+        }
+    }
+
+    private func rescheduleNotifications() {
+        let tomorrow = dailyPick(day: meta.today + 1).map { L10n.opt("level.\($0.level).title") ?? $0.level }
+        var last: String?
+        if let id = meta.lastLevel {
+            let next = pack.flatMap { p in p.levels.first { $0.id == id }.flatMap { nextLevel(after: id, epoch: $0.epoch, p) } }
+            let target = progress.isCompleted(id) ? (next ?? id) : id
+            last = L10n.opt("level.\(target).title") ?? pack?.levels.first { $0.id == target }?.title
+        }
+        Notifications.reschedule(tomorrowDaily: tomorrow, lastTitle: last)
     }
 
     /// Открыть уровень. Фоновая докачка обычно успевает раньше игрока, и экран загрузки

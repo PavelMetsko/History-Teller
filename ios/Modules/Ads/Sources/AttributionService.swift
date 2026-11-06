@@ -50,6 +50,7 @@ public final class AttributionService {
     /// Глава — разовая покупка (`transaction`), подписка — первое оформление (`purchasesManager`).
     /// Продления Tenjin получает с сервера App Store (ключ App Store Connect в кабинете Tenjin).
     private func trackPurchase(_ t: Transaction, _ product: Product, _ jws: String) {
+        Telemetry.shared.track("purchase", level: t.productID)
         guard connected else { return }
         if t.productType == .autoRenewable {
             TenjinSDK.purchasesManager().subscription(t)
@@ -66,11 +67,10 @@ public final class AttributionService {
     }
 
     /// Доход с показа ролика (ILRD) — Tenjin считает по нему ROAS закупки.
-    func trackAdRevenue(_ value: AdValue, ad: RewardedAd) {
+    func trackAdRevenue(_ value: AdValue, unitId: String, info: ResponseInfo) {
         guard connected else { return }
-        let info = ad.responseInfo
         let data: [String: Any] = [
-            "ad_unit_id": ad.adUnitID,
+            "ad_unit_id": unitId,
             // На iOS AdValue — в валюте, Tenjin ждёт микроединицы (как valueMicros на Android).
             "value_micros": value.value.multiplying(byPowerOf10: 6).int64Value,
             "currency_code": value.currencyCode,

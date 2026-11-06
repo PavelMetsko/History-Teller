@@ -11,39 +11,32 @@ public struct Chapter: Identifiable {
     public let coverSceneId: String?   // арт обложки (сцена из эпохи)
     public let icon: String            // SF Symbol для заглушки
     public let available: Bool         // контент существует
-    public let free: Bool              // бесплатная (иначе — за покупкой)
     public let progressText: String?
+    /// Пройдено / всего — для полоски и золотой печати собранной главы.
+    public let done: Int
+    public let total: Int
 
     public init(id: String, number: Int, title: String, subtitle: String,
                 coverSceneId: String?, icon: String, available: Bool,
-                free: Bool = false, progressText: String?) {
+                progressText: String?, done: Int = 0, total: Int = 0) {
         self.id = id; self.number = number; self.title = title; self.subtitle = subtitle
         self.coverSceneId = coverSceneId; self.icon = icon
-        self.available = available; self.free = free; self.progressText = progressText
+        self.available = available; self.progressText = progressText
+        self.done = done; self.total = total
     }
 
-    /// Заблокирована пейволлом: контент есть, не бесплатна и покупка не сделана.
-    public func locked(unlocked: Bool) -> Bool { available && !free && !unlocked }
+    public var complete: Bool { total > 0 && done >= total }
 }
 
 public struct ChapterSelectView: View {
     private let chapters: [Chapter]
-    private let isUnlocked: (Chapter) -> Bool
-    private let priceText: (Chapter) -> String
-    private let freeWithVideo: Bool
     private let onSelect: (Chapter) -> Void
     private let onBack: () -> Void
 
     public init(chapters: [Chapter],
-                isUnlocked: @escaping (Chapter) -> Bool = { _ in true },
-                priceText: @escaping (Chapter) -> String = { _ in "" },
-                freeWithVideo: Bool = false,
                 onSelect: @escaping (Chapter) -> Void,
                 onBack: @escaping () -> Void) {
         self.chapters = chapters
-        self.isUnlocked = isUnlocked
-        self.priceText = priceText
-        self.freeWithVideo = freeWithVideo
         self.onSelect = onSelect
         self.onBack = onBack
     }
@@ -64,10 +57,7 @@ public struct ChapterSelectView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             ForEach(chapters) { ch in
-                                ChapterCard(chapter: ch,
-                                            locked: ch.locked(unlocked: isUnlocked(ch)),
-                                            priceText: priceText(ch),
-                                            freeWithVideo: freeWithVideo) {
+                                ChapterCard(chapter: ch) {
                                     if ch.available { onSelect(ch) }
                                 }
                             }
@@ -90,10 +80,6 @@ public struct ChapterSelectView: View {
 
 private struct ChapterCard: View {
     let chapter: Chapter
-    var locked: Bool = false
-    var priceText: String = ""
-    /// Реклама включена: платная глава играется по ролику — вместо замка с ценой честная плашка.
-    var freeWithVideo: Bool = false
     let onTap: () -> Void
 
     var body: some View {
@@ -146,19 +132,18 @@ private struct ChapterCard: View {
                     Image(systemName: "lock.fill").font(.system(size: 26, weight: .bold))
                         .foregroundStyle(DS.Palette.ink.opacity(0.5))
                 }
-            } else if locked {
-                // платная глава: золотой замок (или «плей», если открыта за ролик) в углу обложки
+            } else if chapter.complete {
+                // глава собрана целиком — золотая печать в углу обложки
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
-                        Image(systemName: freeWithVideo ? "play.fill" : "lock.fill")
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundStyle(.white)
-                            .padding(7)
-                            .background(Circle().fill(DS.Palette.maroon))
-                            .overlay(Circle().strokeBorder(DS.Palette.gold, lineWidth: 1.5))
-                            .shadow(color: .black.opacity(0.3), radius: 2, y: 1)
+                        Image(systemName: "seal.fill")
+                            .font(.system(size: 26))
+                            .foregroundStyle(DS.Palette.gold)
+                            .overlay(Image(systemName: "checkmark").font(.system(size: 11, weight: .heavy))
+                                .foregroundStyle(DS.Palette.ink))
+                            .shadow(color: .black.opacity(0.35), radius: 2, y: 1)
                     }
                 }
                 .padding(8)
@@ -177,20 +162,11 @@ private struct ChapterCard: View {
                 .font(.dsCaption(10))
                 .foregroundStyle(DS.Palette.inkSoft)
                 .lineLimit(1)
-            if locked && freeWithVideo {
-                HStack(spacing: 4) {
-                    Image(systemName: "play.rectangle.fill").font(.system(size: 10, weight: .bold))
-                    Text(L10n.s("ui.free_with_video")).font(.dsCaption(11))
-                }
-                .foregroundStyle(DS.Palette.success)
-            } else if locked {
-                HStack(spacing: 4) {
-                    Image(systemName: "lock.fill").font(.system(size: 9, weight: .bold))
-                    Text(priceText.isEmpty ? L10n.s("ui.locked_hint") : priceText).font(.dsCaption(11))
-                }
-                .foregroundStyle(DS.Palette.maroon)
-            } else if chapter.available, let p = chapter.progressText {
+            if chapter.available, let p = chapter.progressText {
                 Text(p).font(.dsCaption(10)).foregroundStyle(DS.Palette.success)
+                ProgressView(value: Double(chapter.done), total: Double(max(1, chapter.total)))
+                    .tint(chapter.complete ? DS.Palette.gold : DS.Palette.success)
+                    .frame(width: 150)
             } else if !chapter.available {
                 Text(L10n.s("ui.soon")).font(.dsCaption(11)).foregroundStyle(DS.Palette.maroon)
             }

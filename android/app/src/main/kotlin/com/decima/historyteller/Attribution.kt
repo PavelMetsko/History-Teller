@@ -5,7 +5,7 @@ import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.google.android.gms.ads.AdValue
-import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.ResponseInfo
 import com.tenjin.android.TenjinSDK
 import org.json.JSONObject
 
@@ -39,12 +39,11 @@ object Attribution {
         tenjin?.let { applyConsent(it); it.connect() }
     }
 
-    /** Доход с показа ролика (ILRD) — Tenjin считает по нему ROAS закупки. */
-    fun trackAdRevenue(value: AdValue, ad: RewardedAd) {
+    /** Доход с показа (ILRD) ролика или интерстишела — Tenjin считает по нему ROAS закупки. */
+    fun trackAdRevenue(value: AdValue, adUnitId: String, info: ResponseInfo) {
         val t = tenjin ?: return
-        val info = ad.responseInfo
         t.eventAdImpressionAdMob(JSONObject().apply {
-            put("ad_unit_id", ad.adUnitId)
+            put("ad_unit_id", adUnitId)
             put("value_micros", value.valueMicros)
             put("currency_code", value.currencyCode)
             put("response_id", info.responseId)

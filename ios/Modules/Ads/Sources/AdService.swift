@@ -3,19 +3,21 @@ import Observation
 import GoogleMobileAds
 import GameContent
 
-/// Rewarded-реклама через Google AdMob: «посмотри ролик — открой один уровень платной главы».
-/// Интерстишелов нет. SDK стартует после формы согласия UMP, выключается флагом `ads.rewarded`
-/// в облачном манифесте. Доход с показов уходит в Tenjin.
+/// Реклама Google AdMob: rewarded — «ролик за подсказку» и возврат серии, интерстишел — между
+/// эпизодами (когда показывать, решает приложение по правилам из манифеста). SDK стартует после
+/// формы согласия UMP. Доход с показов уходит в Tenjin.
 @Observable
 public final class AdService: NSObject {
     public static let shared = AdService()
 
-    /// Rewarded-блок History Teller в AdMob; в отладке — тестовый блок Google (настоящие показы
+    /// Блоки History Teller в AdMob; в отладке — тестовые блоки Google (настоящие показы
     /// с устройства разработчика AdMob считает недействительным трафиком).
     #if DEBUG
     private static let rewardedUnitId = "ca-app-pub-3940256099942544/1712485313"
+    private static let interstitialUnitId = "ca-app-pub-3940256099942544/4411468910"
     #else
     private static let rewardedUnitId = "ca-app-pub-6335946344432887/7637221863"
+    private static let interstitialUnitId = "ca-app-pub-6335946344432887/1188467235"
     #endif
 
     /// Ролик загружен и его можно показать прямо сейчас.
@@ -24,16 +26,24 @@ public final class AdService: NSObject {
     /// Секунд до следующего ролика (кулдаун из манифеста). 0 — можно смотреть.
     public private(set) var cooldownLeft = 0
 
-    /// Показывать ли кнопку «за ролик» вообще (реклама не выключена в манифесте).
+    /// Показывать ли кнопки «за ролик» вообще (ролики не выключены в манифесте).
     public var isEnabled: Bool { ContentSync.shared.rewardedEnabled }
+    public var interstitialReady: Bool { interstitial != nil }
+
+    /// Любая полноэкранная реклама закрыта — для паузы между показами (ставит приложение).
+    public var onFullscreenShown: (() -> Void)?
 
     private var started = false
     private var sdkStarted = false
     private var loading = false
+    private var loadingInter = false
     private var rewardedAd: RewardedAd?
+    private var interstitial: InterstitialAd?
     private var retryAttempt = 0.0
+    private var interRetry = 0.0
     private var rewarded = false
     private var completion: ((Bool) -> Void)?
+    private var interCompletion: (() -> Void)?
     private var cooldownTimer: Timer?
 
     private override init() {}
@@ -57,11 +67,19 @@ public final class AdService: NSObject {
         ad.present(from: vc) { [weak self] in self?.rewarded = true }
     }
 
+    /// Показать интерстишел, если он загружен; иначе сразу `completion` — игрок не ждёт рекламу.
+    public func showInterstitial(completion: @escaping () -> Void) {
+        guard let ad = interstitial, let vc = ConsentService.topViewController() else { return completion() }
+        interCompletion = completion
+        isShowing = true
+        ad.present(from: vc)
+    }
+
     private func startSDK() {
         guard ConsentService.shared.canRequestAds else { return }
-        guard !sdkStarted else { return load() }
+        guard !sdkStarted else { load(); loadInterstitial(); return }
         sdkStarted = true
-        MobileAds.shared.start { [weak self] _ in self?.load() }
+        MobileAds.shared.start { [weak self] _ in self?.load(); self?.loadInterstitial() }
     }
 
     private func load() {
@@ -83,15 +101,47 @@ public final class AdService: NSObject {
             ad.fullScreenContentDelegate = self
             ad.paidEventHandler = { [weak ad] value in
                 guard let ad else { return }
-                AttributionService.shared.trackAdRevenue(value, ad: ad)
+                AttributionService.shared.trackAdRevenue(value, unitId: ad.adUnitID, info: ad.responseInfo)
             }
             self.rewardedAd = ad
             self.isReady = true
         }
     }
 
-    private func finishShow() {
+    private func loadInterstitial() {
+        guard sdkStarted, !loadingInter, interstitial == nil else { return }
+        loadingInter = true
+        InterstitialAd.load(with: Self.interstitialUnitId, request: Request()) { [weak self] ad, error in
+            guard let self else { return }
+            self.loadingInter = false
+            guard let ad else {
+                print("Interstitial load error: \(error?.localizedDescription ?? "?")")
+                self.interRetry += 1
+                let delay = pow(2.0, min(6.0, self.interRetry))
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in self?.loadInterstitial() }
+                return
+            }
+            self.interRetry = 0
+            ad.fullScreenContentDelegate = self
+            ad.paidEventHandler = { [weak ad] value in
+                guard let ad else { return }
+                AttributionService.shared.trackAdRevenue(value, unitId: ad.adUnitID, info: ad.responseInfo)
+            }
+            self.interstitial = ad
+        }
+    }
+
+    private func finishShow(_ ad: FullScreenPresentingAd) {
         isShowing = false
+        onFullscreenShown?()
+        if ad is InterstitialAd {
+            interstitial = nil
+            let done = interCompletion
+            interCompletion = nil
+            done?()
+            loadInterstitial()
+            return
+        }
         isReady = false
         rewardedAd = nil
         let done = completion
@@ -116,27 +166,10 @@ public final class AdService: NSObject {
 }
 
 extension AdService: FullScreenContentDelegate {
-    public func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) { finishShow() }
+    public func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) { finishShow(ad) }
 
     public func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         rewarded = false
-        finishShow()
-    }
-}
-
-/// Уровни платных глав, открытые за ролик. Хранятся на устройстве; уровень «сгорает», когда
-/// пройден, — дальше его открывает сам прогресс (пройденные переигрываются бесплатно).
-public enum RewardedUnlocks {
-    private static let key = "ht.rewardedLevels"
-
-    public static func contains(_ levelId: String) -> Bool { ids.contains(levelId) }
-
-    public static func add(_ levelId: String) { ids.insert(levelId) }
-
-    public static func consume(_ levelId: String) { ids.remove(levelId) }
-
-    private static var ids: Set<String> {
-        get { Set(UserDefaults.standard.stringArray(forKey: key) ?? []) }
-        set { UserDefaults.standard.set(Array(newValue), forKey: key) }
+        finishShow(ad)
     }
 }

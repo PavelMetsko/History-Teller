@@ -149,6 +149,54 @@ public final class LevelBoardModel {
         recompute()
     }
 
+    /// Есть ли что подсказывать: у уровня есть эталон и доска с ним ещё не совпадает.
+    public var canHint: Bool { nextHintTarget != nil }
+
+    /// Совпадение кадра с эталонным — по сцене и составу, без порядка: роли внутри кадра
+    /// и соседство кадров доска расставляет сама (autoAssignSlots / autoArrangePanels).
+    private func matches(_ p: Panel, _ ref: Panel) -> Bool {
+        p.sceneId == ref.sceneId && Set(p.characters) == Set(ref.characters)
+    }
+
+    /// Первый по порядку эталонный кадр, которого на доске ещё нет.
+    private var nextHintTarget: Int? {
+        guard let solution = level.solution, !isSolved else { return nil }
+        var used = Set<Int>()
+        var missing: Int?
+        for (j, ref) in solution.enumerated() {
+            if let i = panels.indices.first(where: { !used.contains($0) && matches(panels[$0], ref) }) {
+                used.insert(i)
+            } else if missing == nil {
+                missing = j
+            }
+        }
+        return missing
+    }
+
+    /// Подсказка: поставить один эталонный кадр целиком. Ставим на его место по порядку, если там
+    /// не стоит уже верный кадр, иначе — в первую пустую или неверную панель. Та же сцена в другой
+    /// неверной панели снимается — иначе на доске окажутся два одинаковых кадра.
+    /// Возвращает индекс исправленной панели.
+    @discardableResult
+    public func applyHint() -> Int? {
+        guard let j = nextHintTarget, let solution = level.solution else { return nil }
+        let target = solution[j]
+        let correct = Set(panels.indices.filter { i in solution.contains { matches(panels[i], $0) } })
+        let slot = (j < panels.count && !correct.contains(j)) ? j
+            : panels.indices.first { panels[$0].sceneId == nil }
+            ?? panels.indices.first { !correct.contains($0) }
+        guard let i = slot else { return nil }
+        if let sid = target.sceneId {
+            for k in panels.indices where k != i && !correct.contains(k) && panels[k].sceneId == sid {
+                panels[k] = Panel(sceneId: nil)
+            }
+        }
+        panels[i] = target
+        selected = nil
+        recompute()
+        return panels.indices.first { matches(panels[$0], target) } ?? i
+    }
+
     /// Разложить эталонное решение уровня (dev-хук для превью/скриншотов).
     public func applySolution() {
         guard let solution = level.solution else { return }
@@ -301,6 +349,13 @@ public final class LevelBoardModel {
     /// где она есть: та сцена, но не те лица → wrongCharacters; те лица, но не та сцена → wrongScene;
     /// мимо и там и там → inert. Если ВСЕ панели совпали по содержимому, но доска всё равно не
     /// решена — единственная беда в порядке панелей → wrongOrder на всех. Уровни без эталона не трогаем.
+    /// Решает ли эталон, в котором панель `j` заменена на `p`.
+    private func variantSolves(_ solution: [Panel], _ j: Int, _ p: Panel) -> Bool {
+        var alt = solution
+        alt[j] = p
+        return level.goal.isMet(Engine.simulate(alt, db, initial: level.createInitialWorld()).world)
+    }
+
     private func computeDiagnoses() -> [PanelDiagnosis] {
         guard let solution = level.solution else {
             return Array(repeating: .ok, count: panels.count)
@@ -319,16 +374,32 @@ public final class LevelBoardModel {
 
         var diag = Array(repeating: PanelDiagnosis.ok, count: panels.count)
         var pending: [Int] = []
+        var variants = Set<Int>()
+        // Индексы эталона, параллельные `remaining`.
+        var remIdx = solution.indices.filter { solution[$0].sceneId != nil }
 
         // Проход 1: точные совпадения (сцена + состав) → ok, вычёркиваем из остатка.
         for i in panels.indices {
             guard let f = filled(i) else { continue }
             if let m = remaining.firstIndex(where: { $0.scene == f.scene && $0.chars == f.chars }) {
                 remaining.remove(at: m)
+                remIdx.remove(at: m)
             } else {
                 pending.append(i)
             }
         }
+        // Проход 1б: равноценный вариант. Эталон — лишь одно из решений: у Годивы Леофрик может
+        // стоять и в сцене проезда. Панель, которая на месте своей эталонной (та же сцена) всё равно
+        // решает уровень, — не ошибка.
+        for i in pending {
+            guard let m = remIdx.indices.first(where: { k in
+                solution[remIdx[k]].sceneId == panels[i].sceneId && variantSolves(solution, remIdx[k], panels[i])
+            }) else { continue }
+            remaining.remove(at: m)
+            remIdx.remove(at: m)
+            variants.insert(i)
+        }
+        pending.removeAll { variants.contains($0) }
         // Доска ещё не собрана целиком: заполненные панели судим сразу (проход 2 ниже), а если
         // расставлены уже ВСЕ сцены — сразу же краснеет и сцена, которой в решении нет вовсе.
         if isBoardComplete && pending.isEmpty {
@@ -340,7 +411,8 @@ public final class LevelBoardModel {
                 solution.compactMap { p in p.sceneId.map { ($0, p.characters) } }
             for i in panels.indices {
                 guard let f = filled(i) else { continue }
-                let exactOrder = refPanels.contains { $0.scene == f.scene && $0.chars == panels[i].characters }
+                let exactOrder = variants.contains(i) ||
+                    refPanels.contains { $0.scene == f.scene && $0.chars == panels[i].characters }
                 diag[i] = exactOrder ? .wrongOrder : .wrongSlots
             }
             return diag

@@ -61,7 +61,14 @@ sealed class Screen {
     data object Chapters : Screen()
     data class Map(val epoch: String) : Screen()
     data class Level(val id: String) : Screen()
+    data object Album : Screen()
+    data object Streak : Screen()
 }
+
+/** Все уровни из манифеста (включая главы, которые ещё не скачаны), без выключенных. */
+private fun allLevelIds(): List<String> =
+    ContentSync.availableChapters().flatMap { it.levels }.filterNot { ContentSync.isLevelDisabled(it) }
+        .ifEmpty { GameContent.levels.map { it.id } }
 
 @Composable
 fun Root(startLevel: String? = null) {
@@ -70,10 +77,11 @@ fun Root(startLevel: String? = null) {
     val settings = remember { Settings(ctx) }
     var tick by remember { mutableIntStateOf(0) }
     var showSettings by remember { mutableStateOf(false) }
-    var showPaywall by remember { mutableStateOf(false) }
-    var pendingEpoch by remember { mutableStateOf<String?>(null) }
-    /** Уровень платной главы, на который нажали без доступа — окно «глава / подписка / ролик». */
-    var pendingLevel by remember { mutableStateOf<String?>(null) }
+    /** Глава, для которой открыто окно «Без рекламы» (поглавная покупка). */
+    var premiumEpoch by remember { mutableStateOf<String?>(null) }
+    var showGift by remember { mutableStateOf(false) }
+    /** Эпизод дня из чужой, ещё не скачанной главы: после загрузки её описаний — сразу в уровень. */
+    var levelAfterIndex by remember { mutableStateOf<String?>(null) }
     var screen by remember { mutableStateOf<Screen>(if (startLevel != null) Screen.Level(startLevel) else Screen.Menu) }
     // Первый запуск: выбор языка → онбординг (пропускаем при deep-link на уровень).
     // Поднимаем ТОЛЬКО после загрузки контента: раньше эти экраны всплывали поверх загрузки,
@@ -87,6 +95,8 @@ fun Root(startLevel: String? = null) {
     BackHandler(enabled = screen != Screen.Menu) {
         screen = when (val s = screen) {
             Screen.Chapters -> Screen.Menu
+            Screen.Album -> Screen.Menu
+            Screen.Streak -> Screen.Menu
             is Screen.Map -> Screen.Chapters
             is Screen.Level -> Screen.Map(GameContent.level(s.id)?.epoch ?: "rome")
             Screen.Menu -> Screen.Menu
@@ -105,12 +115,25 @@ fun Root(startLevel: String? = null) {
         // на экране загрузки с кнопкой «Повторить», а не падаем на первом же чтении.
         runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
             .onSuccess {
+                // Мета 4.0: стартовые подсказки и опыт за пройденное — один раз.
+                Meta.bootstrap(progress.solvedCount(allLevelIds()))
                 booted = true; tick++
                 if (!settings.onboarded && startLevel == null) showLangPicker = true
                 // Согласие спрашиваем после онбординга; кто его уже прошёл — сразу на старте.
                 if (settings.onboarded) (ctx as? android.app.Activity)?.let { ConsentService.start(it) }
             }
             .onFailure { bootError = it.message ?: L10n.s("ui.load_fail") }
+    }
+
+    /** В уровень — сразу, если файлы уже на диске, иначе через экран загрузки. */
+    fun openLevel(id: String) {
+        if (ContentSync.isLevelReady(id)) screen = Screen.Level(id) else loadingLevel = id
+    }
+
+    // Подарок дня — при открытии меню, если сегодня ещё не забирали. Не поверх выбора языка
+    // и онбординга: новичок увидит его сразу после них.
+    LaunchedEffect(booted, screen, showLangPicker, showOnboarding) {
+        if (booted && screen == Screen.Menu && !showLangPicker && !showOnboarding && Meta.giftAvailable) showGift = true
     }
 
     // Отступы под системные панели и вырез — один раз на всё приложение, после фона: подложка
@@ -122,15 +145,38 @@ fun Root(startLevel: String? = null) {
             BootScreen(bootError, onRetry = { bootError = null; bootAttempt++ })
             return@Box
         }
+    fun restoreStreak() {
+        val days = Meta.brokenStreak ?: return
+        fun restore() {
+            Meta.restoreStreak()
+            Telemetry.track("streak_restore", days.toString())
+            Audio.sfx("win")
+        }
+        // Без ролика — только подписчикам 3.x.
+        if (Billing.subscribed) restore()
+        else (ctx as? android.app.Activity)?.let { a -> AdService.show(a) { ok -> if (ok) restore() } }
+    }
         BoxWithConstraints(Modifier.fillMaxSize()) {
             val stageH = if (maxWidth / maxHeight >= 1.7f) maxHeight else maxWidth / 1.7f
             Box(Modifier.width(maxWidth).height(stageH).align(Alignment.Center)) {
                 key(tick) {
                     when (val s = screen) {
                         Screen.Menu -> MenuScreen(
+                            progress = progress,
                             onPlay = { screen = Screen.Chapters },
+                            onAlbum = { screen = Screen.Album },
                             onSettings = { showSettings = true },
-                            onReset = { progress.reset(); tick++ })
+                            onReset = { progress.reset(); Meta.reset(); Daily.invalidate(); tick++ },
+                            onDaily = { ch, id ->
+                                Telemetry.track("daily_open", id, ch)
+                                // Эпизод дня обходит линейный замок главы: открываем его напрямую.
+                                if (GameContent.level(id) != null && ContentSync.isChapterIndexReady(ch)) openLevel(id)
+                                else { levelAfterIndex = id; loadingEpoch = ch }
+                            },
+                            onRestoreStreak = { restoreStreak() },
+                            onStreak = { screen = Screen.Streak })
+                        Screen.Streak -> StreakRoadScreen(onRestore = { restoreStreak() }, onBack = { screen = Screen.Menu })
+                        Screen.Album -> AlbumScreen(progress = progress, onBack = { screen = Screen.Menu })
                         Screen.Chapters -> ChaptersScreen(
                             progress = progress,
                             onSelect = { if (ContentSync.isChapterIndexReady(it)) screen = Screen.Map(it) else loadingEpoch = it },
@@ -145,42 +191,59 @@ fun Root(startLevel: String? = null) {
                             }
                             MapScreen(
                                 epoch = s.epoch, progress = progress,
-                                unlockTitle = if (chapterOwned(s.epoch) || BuildConfig.DEBUG) null else unlockTitle(s.epoch),
-                                onUnlock = { pendingEpoch = s.epoch; pendingLevel = null; showPaywall = true },
-                                onSelect = { id ->
-                                    // Платная глава без покупки: пройденные и открытые за ролик эпизоды
-                                    // играются, на остальные — окно «купить главу / подписка / ролик».
-                                    // Первый эпизод — знакомство без ролика, пока реклама включена
-                                    // (выключили рекламу удалённо — глава снова целиком за покупкой).
-                                    val canPlay = chapterOwned(s.epoch) || BuildConfig.DEBUG ||
-                                        progress.isCompleted(id) || RewardedUnlocks.contains(ctx, id) ||
-                                        (AdService.isEnabled && GameContent.levels(s.epoch).firstOrNull()?.id == id)
-                                    if (!canPlay) { pendingEpoch = s.epoch; pendingLevel = id; showPaywall = true }
-                                    // Обычно фон успевает раньше игрока и экран загрузки не нужен;
-                                    // если нет — ждём здесь, а не перед входом в главу.
-                                    else if (ContentSync.isLevelReady(id)) screen = Screen.Level(id) else loadingLevel = id
-                                },
+                                onNoAds = { premiumEpoch = s.epoch },
+                                // С 4.0 все главы бесплатны: замок — только линейный, внутри главы.
+                                // Обычно фон успевает раньше игрока и экран загрузки не нужен;
+                                // если нет — ждём здесь, а не перед входом в главу.
+                                onSelect = { id -> openLevel(id) },
                                 onBack = { ContentSync.cancelPrefetch(); screen = Screen.Chapters })
                         }
                         is Screen.Level -> {
+                          val epoch = GameContent.level(s.id)?.epoch ?: "rome"
                           LaunchedEffect(s.id) {
-                              Telemetry.track("level_start", s.id, GameContent.level(s.id)?.epoch)
+                              Meta.lastLevel = s.id
+                              Telemetry.track("level_start", s.id, epoch)
+                          }
+                          // Следующий эпизод главы — для кнопки «Следующий эпизод ▶» на экране награды.
+                          val nextId = remember(s.id) {
+                              val ids = GameContent.levels(epoch).map { it.id }
+                              ids.getOrNull(ids.indexOf(s.id) + 1)
+                          }
+                          fun toMap() {
+                              screen = Screen.Map(epoch)
+                              // Просьба оценить игру — после выхода с уровня, когда награда уже прочитана.
+                              val done = GameContent.levels.filter { progress.isCompleted(it.id) }
+                              if (ReviewPrompt.shouldAsk(ctx, done.size, done.map { it.epoch }.distinct().size)) {
+                                  (ctx as? android.app.Activity)?.let { ReviewPrompt.ask(it) }
+                              }
                           }
                           BoardScreen(
                             levelId = s.id,
+                            nextLevelId = nextId,
                             onSolved = {
+                                val first = !progress.isCompleted(s.id)
+                                // Эпизод дня — до отметки «пройден»: пул дня пройденные исключает.
+                                val daily = Daily.isDaily(progress, s.id)
+                                val r = Meta.recordSolve(s.id, firstSolve = first, isDaily = daily)
                                 progress.markCompleted(s.id)
-                                RewardedUnlocks.consume(ctx, s.id)   // пройден — дальше открыт прогрессом
-                                Telemetry.track("level_complete", s.id, GameContent.level(s.id)?.epoch)
+                                Meta.noteLevelFinished()
+                                Telemetry.track("level_complete", s.id, epoch)
+                                if (r.isDaily) Telemetry.track("daily_done", s.id, epoch)
+                                if (r.rankedUp) Telemetry.track("rank_up", "${r.levelAfter}", epoch)
+                                runCatching { Notifications.reschedule(ctx) }
+                                if (first) r else null
                             },
-                            onExit = {
-                                screen = Screen.Map(GameContent.level(s.id)?.epoch ?: "rome")
-                                // Просьба оценить игру — после выхода с уровня, когда награда уже прочитана.
-                                val done = GameContent.levels.filter { progress.isCompleted(it.id) }
-                                if (ReviewPrompt.shouldAsk(ctx, done.size, done.map { it.epoch }.distinct().size)) {
-                                    (ctx as? android.app.Activity)?.let { ReviewPrompt.ask(it) }
+                            onExit = { toMap() },
+                            onRewardDone = { goNext ->
+                                val activity = ctx as? android.app.Activity
+                                AdService.showInterstitialIfDue(activity, progress.solvedCount(allLevelIds()), s.id, epoch) {
+                                    if (goNext && nextId != null) openLevel(nextId) else toMap()
+                                    // Разрешение на напоминания — один раз, после первого экрана награды
+                                    // (порядок как на iOS: интерстишел → переход → системный запрос).
+                                    Notifications.askOnce(activity)
                                 }
-                            })
+                            },
+                            onPremium = { premiumEpoch = it })
                         }
                     }
                 }
@@ -195,32 +258,9 @@ fun Root(startLevel: String? = null) {
             },
             onClose = { showSettings = false })
 
-        if (showPaywall) {
-            fun openPendingLevel() {
-                val id = pendingLevel ?: return
-                if (ContentSync.isLevelReady(id)) screen = Screen.Level(id) else loadingLevel = id
-            }
-            PaywallScreen(
-                epoch = pendingEpoch ?: "",
-                chapterTitle = L10n.s("chapter.${pendingEpoch ?: ""}.title"),
-                levelId = pendingLevel,
-                onClose = { showPaywall = false; pendingLevel = null },
-                onUnlocked = {
-                    showPaywall = false
-                    val e = pendingEpoch; pendingEpoch = null
-                    // куплено: из окна уровня — сразу в уровень, иначе грузим и открываем главу
-                    if (pendingLevel != null) openPendingLevel() else if (e != null) loadingEpoch = e
-                    pendingLevel = null
-                    tick++
-                },
-                onRewarded = {
-                    pendingLevel?.let { Telemetry.track("ad_unlock", it, pendingEpoch) }
-                    showPaywall = false
-                    openPendingLevel()
-                    pendingLevel = null; pendingEpoch = null
-                    tick++
-                })
-        }
+        if (showGift && screen == Screen.Menu && !showLangPicker && !showOnboarding) GiftPopup(onClaimed = { showGift = false })
+
+        premiumEpoch?.let { ep -> PremiumScreen(ep, onClose = { premiumEpoch = null }) }
 
         // Экран загрузки главы (порт iOS ChapterLoadingView).
         loadingEpoch?.let { ep ->
@@ -231,7 +271,12 @@ fun Root(startLevel: String? = null) {
                     // Описания уровней приезжают вместе с главой — контент надо пересобрать,
                     // иначе глава откроется пустой.
                     runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }
-                    loadingEpoch = null; screen = Screen.Map(ep); tick++
+                    loadingEpoch = null
+                    // Пришли из эпизода дня — сразу в уровень, мимо карты и её линейного замка.
+                    val target = levelAfterIndex; levelAfterIndex = null
+                    if (target != null && GameContent.level(target) != null) openLevel(target)
+                    else screen = Screen.Map(ep)
+                    tick++
                 })
         }
 
@@ -260,54 +305,8 @@ fun Root(startLevel: String? = null) {
     }
 }
 
-// ---- Меню ----
 @Composable
-private fun MenuScreen(onPlay: () -> Unit, onSettings: () -> Unit, onReset: () -> Unit) {
-    Box(Modifier.fillMaxSize().padding(16.dp)) {
-        BookPage(Modifier.fillMaxSize()) {
-            Row(
-                Modifier.fillMaxSize().widthIn(max = 720.dp).align(Alignment.Center)
-                    .padding(horizontal = 40.dp, vertical = 24.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column(Modifier.weight(1f)) {
-                    Text(L10n.s("ui.tagline_caps"), color = Palette.maroon, fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold, letterSpacing = 2.sp, fontFamily = Fonts.rounded)
-                    Text("History Teller", color = Palette.ink, fontSize = 44.sp,
-                        fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
-                    Box(Modifier.padding(top = 8.dp).width(120.dp).height(3.dp)
-                        .clip(RoundedCornerShape(2.dp)).background(Palette.gold))
-                    Text(L10n.s("ui.menu_sub"), color = Palette.inkSoft, fontSize = 15.sp,
-                        fontFamily = Fonts.rounded, modifier = Modifier.padding(top = 14.dp))
-                    Row(
-                        Modifier.padding(top = 22.dp).clip(RoundedCornerShape(30.dp))
-                            .background(Palette.maroon).clickable { onPlay() }
-                            .padding(horizontal = 36.dp, vertical = 13.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(Icons.Filled.PlayArrow, null, tint = Palette.paper)
-                        Spacer(Modifier.width(8.dp))
-                        Text(L10n.s("ui.play"), color = Palette.paper, fontSize = 22.sp,
-                            fontWeight = FontWeight.Bold, fontFamily = Fonts.serif)
-                    }
-                    Text(L10n.s("ui.reset"), color = Palette.inkSoft, fontSize = 12.sp,
-                        fontFamily = Fonts.rounded, modifier = Modifier.padding(top = 14.dp).clickable { onReset() })
-                }
-                Sprite("char_caesar", 250.dp)
-                Sprite("char_cleopatra", 250.dp)
-            }
-            IconButtonCircle(Icons.Filled.Settings, Modifier.align(Alignment.TopEnd).padding(top = 16.dp, end = 24.dp), onSettings)
-        }
-    }
-}
-
-@Composable
-private fun Sprite(name: String, height: androidx.compose.ui.unit.Dp) {
-    ArtImage(name, Modifier.height(height), ContentScale.Fit)
-}
-
-@Composable
-private fun IconButtonCircle(icon: androidx.compose.ui.graphics.vector.ImageVector, modifier: Modifier = Modifier, onClick: () -> Unit) {
+internal fun IconButtonCircle(icon: androidx.compose.ui.graphics.vector.ImageVector, modifier: Modifier = Modifier, onClick: () -> Unit) {
     Box(modifier.size(44.dp).clip(CircleShape).background(Palette.paper)
         .border(1.5.dp, Palette.ink.copy(alpha = 0.3f), CircleShape).clickable { onClick() },
         contentAlignment = Alignment.Center) {
@@ -315,16 +314,8 @@ private fun IconButtonCircle(icon: androidx.compose.ui.graphics.vector.ImageVect
     }
 }
 
-private fun chapterOwned(epoch: String): Boolean =
-    Billing.isUnlocked(epoch) || ContentSync.availableChapters().firstOrNull { it.id == epoch }?.free == true
-
-private fun unlockTitle(epoch: String): String {
-    val price = Billing.chapterPrice(epoch)
-    return if (price.isEmpty()) L10n.s("ui.buy_chapter_cta") else "${L10n.s("ui.buy_chapter_cta")} — $price"
-}
-
 // ---- Выбор главы ----
-private data class Chapter(val id: String, val number: Int, val cover: String?, val available: Boolean, val free: Boolean)
+private data class Chapter(val id: String, val number: Int, val cover: String?, val available: Boolean)
 
 @Composable
 private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onBack: () -> Unit) {
@@ -332,9 +323,9 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onBac
     // Без манифеста (первый запуск офлайн) показываем то, что лежит в бандле.
     val fromManifest = ContentSync.availableChapters()
     val chapters = if (fromManifest.isEmpty()) {
-        listOf(Chapter("rome", 1, "scene_forum", true, true))
+        listOf(Chapter("rome", 1, "scene_forum", true))
     } else {
-        fromManifest.map { Chapter(it.id, it.number, "scene_${it.cover}", true, it.free) }
+        fromManifest.map { Chapter(it.id, it.number, "scene_${it.cover}", true) }
     }
     Box(Modifier.fillMaxSize().padding(16.dp)) {
         BookPage(Modifier.fillMaxSize()) {
@@ -347,10 +338,8 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onBac
                     horizontalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterHorizontally),
                     verticalAlignment = Alignment.CenterVertically) {
                     for (ch in chapters) {
-                        // premium-заблокированная (не «скоро») — открывает пейволл
-                        // Главы открыты все: платность проверяется на уровне. Замок на карточке — подсказка.
-                        val premiumLocked = ch.available && !Billing.isUnlocked(ch.id) && !BuildConfig.DEBUG
-                        ChapterCard(ch, progress, premiumLocked, freeWithVideo = AdService.isEnabled) {
+                        // С 4.0 все главы бесплатны — ни цены, ни замка на карточке.
+                        ChapterCard(ch, progress) {
                             if (ch.available) onSelect(ch.id)
                         }
                     }
@@ -362,12 +351,12 @@ private fun ChaptersScreen(progress: Progress, onSelect: (String) -> Unit, onBac
 }
 
 @Composable
-private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean, freeWithVideo: Boolean, onTap: () -> Unit) {
+private fun ChapterCard(ch: Chapter, progress: Progress, onTap: () -> Unit) {
     // Всего уровней берём из манифеста: файлы уровней приезжают вместе с главой,
     // и до входа в неё пак пуст — на карточке было «0 из 0».
     val ls = ContentSync.availableChapters().firstOrNull { it.id == ch.id }?.levels
         ?: GameContent.levels(ch.id).map { it.id }
-    val clickable = ch.available   // premiumLocked всё равно кликается — ведёт на пейволл
+    val clickable = ch.available
     // Карточка тянется по высоте строки, а обложка забирает остаток: при фиксированных 150 dp
     // на невысоком экране карточка не влезала и обрезалась ровно по середине названия.
     Column(
@@ -382,23 +371,6 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
             }
             if (!ch.available)
                 Icon(Icons.Filled.Lock, null, tint = Palette.ink.copy(alpha = 0.5f), modifier = Modifier.size(26.dp))
-            else if (premiumLocked && freeWithVideo) {
-                // Реклама включена: глава играется по ролику — вместо затемнения и замка «плей» в углу.
-                Box(Modifier.fillMaxSize().padding(8.dp), contentAlignment = Alignment.BottomEnd) {
-                    Box(Modifier.size(30.dp).clip(CircleShape).background(Palette.maroon)
-                        .border(1.5.dp, Palette.gold, CircleShape), contentAlignment = Alignment.Center) {
-                        Icon(Icons.Filled.PlayArrow, null, tint = Color.White, modifier = Modifier.size(18.dp))
-                    }
-                }
-            }
-            else if (premiumLocked) {
-                Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.4f)), contentAlignment = Alignment.Center) {
-                    Box(Modifier.size(46.dp).clip(CircleShape).background(Palette.maroon)
-                        .border(2.dp, Palette.gold, CircleShape), contentAlignment = Alignment.Center) {
-                        Icon(Icons.Filled.Lock, null, tint = Palette.gold, modifier = Modifier.size(22.dp))
-                    }
-                }
-            }
         }
         // Подписи с отступами и переносом: карточка фиксированной ширины, а названия глав на
         // разных языках сильно разной длины — без этого «Французская революция» обрезалась
@@ -413,9 +385,6 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
                 overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center)
             when {
                 !ch.available -> Text(L10n.s("ui.soon"), color = Palette.maroon, fontSize = 11.sp, fontFamily = Fonts.rounded)
-                premiumLocked && freeWithVideo -> Text("▶ " + L10n.s("ui.free_with_video"),
-                    color = Palette.success, fontSize = 11.sp, fontFamily = Fonts.rounded)
-                premiumLocked -> Text(L10n.s("ui.locked_hint"), color = Palette.maroon, fontSize = 11.sp, fontFamily = Fonts.rounded)
                 else -> Text(L10n.s("ui.progress", progress.solvedCount(ls), ls.size),
                     color = Palette.success, fontSize = 10.sp, fontFamily = Fonts.rounded)
             }
@@ -426,8 +395,7 @@ private fun ChapterCard(ch: Chapter, progress: Progress, premiumLocked: Boolean,
 // ---- Карта уровней (акты + адаптивная сетка) ----
 @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
-private fun MapScreen(epoch: String, progress: Progress, unlockTitle: String?, onUnlock: () -> Unit,
-                      onSelect: (String) -> Unit, onBack: () -> Unit) {
+private fun MapScreen(epoch: String, progress: Progress, onNoAds: () -> Unit, onSelect: (String) -> Unit, onBack: () -> Unit) {
     val levels = GameContent.levels(epoch)
     val orderedIds = levels.map { it.id }
     val sections = remember(levels) {
@@ -446,15 +414,16 @@ private fun MapScreen(epoch: String, progress: Progress, unlockTitle: String?, o
                 Text(L10n.s("ui.progress", progress.solvedCount(orderedIds), levels.size),
                     color = Palette.inkSoft, fontSize = 12.sp, fontFamily = Fonts.rounded,
                     modifier = Modifier.align(Alignment.CenterHorizontally))
-                // Платная глава без покупки: покупка — здесь, раз на карточке главы цены больше нет.
-                if (unlockTitle != null) {
+                // «Глава без рекламы» — только пока не куплена и цена приехала из Play.
+                val price = Billing.chapterPrice(epoch)
+                if (!Premium.adsFree(epoch) && price.isNotEmpty()) {
                     Row(Modifier.align(Alignment.CenterHorizontally).padding(top = 4.dp)
                             .clip(RoundedCornerShape(50)).background(Palette.maroon)
                             .border(1.5.dp, Palette.gold, RoundedCornerShape(50))
-                            .clickable { onUnlock() }.padding(horizontal = 14.dp, vertical = 6.dp),
+                            .clickable { onNoAds() }.padding(horizontal = 14.dp, vertical = 6.dp),
                         verticalAlignment = Alignment.CenterVertically) {
-                        Text("♛ ", color = Palette.gold, fontSize = 12.sp)
-                        Text(unlockTitle, color = Palette.paper, fontSize = 12.sp, fontFamily = Fonts.rounded)
+                        Text("👑 " + L10n.s("ui.chapter_noads_cta", price), color = Palette.paper, fontSize = 12.sp,
+                            fontFamily = Fonts.rounded)
                     }
                 }
                 Spacer(Modifier.height(10.dp))
@@ -533,7 +502,7 @@ private fun LevelCard(number: Int, level: teller.engine.LevelDef, completed: Boo
 }
 
 @Composable
-private fun BackButton(modifier: Modifier, onBack: () -> Unit) {
+internal fun BackButton(modifier: Modifier, onBack: () -> Unit) {
     Box(modifier.offset(x = 42.dp, y = (-4).dp).size(width = 40.dp, height = 52.dp)
         .shadow(3.dp, RibbonShape).clip(RibbonShape).background(Palette.ribbon)
         .border(1.5.dp, Palette.ink.copy(alpha = 0.35f), RibbonShape)

@@ -36,7 +36,11 @@ object Telemetry {
         }
     }
 
-    /** `session` | `level_start` | `level_complete` | `ad_unlock`. */
+    /**
+     * `session` | `level_start` | `level_complete` и с 4.0: `hint_use` | `hint_ad` | `inter_show` |
+     * `daily_open` | `daily_done` | `gift_claim` | `streak_restore` | `rank_up` | `premium_open` |
+     * `purchase` (в `level` — ID продукта). `ad_unlock` больше не шлётся: уровней за ролик нет.
+     */
     fun track(type: String, level: String? = null, chapter: String? = null) {
         if (!::appContext.isInitialized) return
         val ev = JSONObject().put("type", type)

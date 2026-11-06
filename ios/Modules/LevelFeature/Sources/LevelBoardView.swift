@@ -23,6 +23,18 @@ private extension Font {
     static func serifTitle(_ size: CGFloat) -> Font { .system(size: size, weight: .bold, design: .serif) }
 }
 
+/// Кнопка подсказки на доске. Сколько их и откуда взять ещё (запас, ролик, Premium) решает
+/// приложение: доска только просит `request` и, если разрешили, ставит панель по эталону.
+public struct HintConfig {
+    public let badge: String
+    public let request: (_ apply: @escaping () -> Void) -> Void
+
+    public init(badge: String, request: @escaping (_ apply: @escaping () -> Void) -> Void) {
+        self.badge = badge
+        self.request = request
+    }
+}
+
 public struct LevelBoardView: View {
     @State private var model: LevelBoardModel
     @State private var activeBeats: [LevelBoardModel.Beat] = []
@@ -35,6 +47,8 @@ public struct LevelBoardView: View {
     @State private var showInfo = false
     @State private var demoMode = false
     @State private var shakeData: CGFloat = 0
+    /// Панель, которую только что поставила подсказка, — золотое сияние на секунду.
+    @State private var hintGlow: Int?
 
     // Кастомный драг
     @State private var draggingItem: LevelBoardModel.Selection?
@@ -46,10 +60,12 @@ public struct LevelBoardView: View {
 
     private let onSolved: (() -> Void)?
     private let onExit: (() -> Void)?
+    private let hint: HintConfig?
     private let boardSpace = "board"
 
     public init(level: LevelDef,
                 db: ContentDb,
+                hint: HintConfig? = nil,
                 onSolved: (() -> Void)? = nil,
                 onExit: (() -> Void)? = nil,
                 debugArrangement: [(scene: String?, chars: [String])]? = nil,
@@ -60,6 +76,7 @@ public struct LevelBoardView: View {
         _model = State(initialValue: m)
         self.onSolved = onSolved
         self.onExit = onExit
+        self.hint = hint
     }
 
     public var body: some View {
@@ -263,7 +280,7 @@ public struct LevelBoardView: View {
         let shown = UserDefaults.standard.integer(forKey: key)
         // На туториальных уровнях плашку не показываем: там про перетаскивание говорит гид,
         // и две подсказки одновременно только загромождают доску.
-        guard shown < 3, !showSwapHint, !model.isSolved, model.level.coach.isEmpty,
+        guard shown < 1, !showSwapHint, !model.isSolved, model.level.coach.isEmpty,
               model.panels.filter({ $0.sceneId != nil }).count >= 2 else { return }
         UserDefaults.standard.set(shown + 1, forKey: key)
         withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { showSwapHint = true }
@@ -327,7 +344,7 @@ public struct LevelBoardView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .frame(maxWidth: .infinity)
-            .padding(.horizontal, 104)   // резерв под угловые кнопки, текст переносится
+            .padding(.horizontal, hint == nil ? 104 : 124)   // резерв под угловые кнопки, текст переносится
 
             controls
         }
@@ -369,6 +386,15 @@ public struct LevelBoardView: View {
                                             .foregroundStyle(DS.Palette.gold)
                                             .shadow(color: .black.opacity(0.35), radius: 2, y: 1)
                                     )
+                                    .allowsHitTesting(false)
+                                    .transition(.opacity)
+                            }
+                        }
+                        .overlay {
+                            if hintGlow == i {
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .strokeBorder(DS.Palette.gold, lineWidth: 4)
+                                    .shadow(color: DS.Palette.gold.opacity(0.9), radius: 14)
                                     .allowsHitTesting(false)
                                     .transition(.opacity)
                             }
@@ -463,10 +489,35 @@ public struct LevelBoardView: View {
 
     private var controls: some View {
         HStack(spacing: 8) {
+            if let hint, model.level.solution != nil, !model.isSolved {
+                iconButton("lightbulb.fill", tint: DS.Palette.gold) {
+                    Audio.shared.play(.select)
+                    hint.request { applyHint() }
+                }
+                .overlay(alignment: .topTrailing) {
+                    Text(hint.badge)
+                        .font(.system(size: 10, weight: .heavy, design: .rounded))
+                        .foregroundStyle(DS.Palette.paper)
+                        .padding(.horizontal, 4).frame(minWidth: 16, minHeight: 16)
+                        .background(Capsule().fill(DS.Palette.maroon))
+                        .offset(x: 6, y: -6)
+                        .allowsHitTesting(false)
+                }
+            }
             iconButton("info.circle", tint: DS.Palette.ink) {
                 withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { showInfo = true }
             }
             iconButton("arrow.counterclockwise", tint: DS.Palette.maroon) { Audio.shared.play(.place); model.reset() }
+        }
+    }
+
+    private func applyHint() {
+        guard let i = model.applyHint() else { return }
+        Audio.shared.play(.place)
+        Haptics.success()
+        withAnimation(.easeOut(duration: 0.25)) { hintGlow = i }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+            withAnimation(.easeIn(duration: 0.3)) { if hintGlow == i { hintGlow = nil } }
         }
     }
 

@@ -11,6 +11,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         // Отладочные сборки умеют ходить на локальный стенд вместо облака (см. build.gradle.kts).
         if (BuildConfig.CONTENT_URL.isNotEmpty()) ContentSync.baseUrl = BuildConfig.CONTENT_URL
+        Meta.init(this)
+        Notifications.createChannel(this)
         Billing.init(this)
         Telemetry.init(this)
         Attribution.start(this)   // SDK стартуют после окна согласия
@@ -22,6 +24,10 @@ class MainActivity : ComponentActivity() {
         Audio.startMusic("theme")
     }
 
-    override fun onPause() { super.onPause(); Audio.pause() }
+    override fun onPause() {
+        super.onPause(); Audio.pause()
+        // Ушли в фон — напоминания по свежему состоянию серии и эпизода дня.
+        runCatching { Notifications.reschedule(this) }
+    }
     override fun onResume() { super.onResume(); Audio.resume(); Attribution.onResume() }
 }

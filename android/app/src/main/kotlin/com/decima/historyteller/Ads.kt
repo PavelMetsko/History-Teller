@@ -13,19 +13,29 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 
 /**
- * Rewarded-реклама через Google AdMob (порт iOS AdService): «посмотри ролик — открой один уровень
- * платной главы». Интерстишелов нет. SDK стартует после формы согласия UMP, выключается флагом
- * `ads.rewarded` в облачном манифесте. Доход с показов уходит в Tenjin.
+ * Реклама через Google AdMob (порт iOS AdService). Два формата:
+ * - **ролик** (rewarded) — подсказка, когда свои кончились, и возврат прерванной серии;
+ *   выключается флагом `ads.rewarded` в облачном манифесте;
+ * - **интерстишел** — при уходе с экрана награды, по правилам `docs/f2p-patch-4.0.md` §1
+ *   (`ads.interstitial`, `interAfter`, `interEvery`, `interGapSec`). В купленной главе его нет.
+ * SDK стартует после формы согласия UMP. Доход с показов уходит в Tenjin.
  */
 object AdService {
     /** Rewarded-блок History Teller; в отладке — тестовый блок Google (свои показы = недействительный трафик). */
     private val REWARDED_UNIT_ID =
         if (BuildConfig.DEBUG) "ca-app-pub-3940256099942544/5224354917"
         else "ca-app-pub-6335946344432887/7885293016"
+
+    /** Интерстишел History Teller; в отладке — тестовый блок Google. */
+    private val INTERSTITIAL_UNIT_ID =
+        if (BuildConfig.DEBUG) "ca-app-pub-3940256099942544/1033173712"
+        else "ca-app-pub-6335946344432887/5661084774"
 
     /** Ролик загружен и его можно показать прямо сейчас. */
     var isReady by mutableStateOf(false); private set
@@ -43,6 +53,10 @@ object AdService {
     private var retryAttempt = 0
     private var rewarded = false
     private var completion: ((Boolean) -> Unit)? = null
+    private var interAd: InterstitialAd? = null
+    private var interLoading = false
+    private var interRetry = 0
+    private var interDone: (() -> Unit)? = null
     private lateinit var appContext: Context
     private val main = Handler(Looper.getMainLooper())
 
@@ -63,7 +77,26 @@ object AdService {
         rewarded = false
         this.completion = completion
         isShowing = true
+        Meta.noteFullscreenShown()
         ad.show(activity) { rewarded = true }
+    }
+
+    /**
+     * Интерстишел при уходе с экрана награды. [solvedTotal] — эпизодов решено за всю жизнь.
+     * Любое «нельзя» (Premium, выключен, рано, не загружен) — `then` сразу, без ожидания.
+     */
+    fun showInterstitialIfDue(activity: Activity?, solvedTotal: Int, level: String?, chapter: String?, then: () -> Unit) {
+        val ad = interAd
+        val gapOk = System.currentTimeMillis() / 1000.0 - Meta.lastFullscreen >= ContentSync.interGapSec()
+        val due = !Premium.adsFree(chapter) && ContentSync.interstitialEnabled() &&
+            solvedTotal >= ContentSync.interAfter() &&
+            Meta.sinceInterstitial >= ContentSync.interEvery() && gapOk
+        if (!due || ad == null || activity == null || isShowing) return then()
+        interDone = then
+        isShowing = true
+        Meta.noteInterstitialShown()
+        Telemetry.track("inter_show", level, chapter)
+        ad.show(activity)
     }
 
     private fun startSdk() {
@@ -75,6 +108,45 @@ object AdService {
     }
 
     private fun load() {
+        loadInterstitial()
+        loadRewarded()
+    }
+
+    private fun loadInterstitial() {
+        if (!sdkStarted || interLoading || interAd != null) return
+        interLoading = true
+        InterstitialAd.load(appContext, INTERSTITIAL_UNIT_ID, AdRequest.Builder().build(),
+            object : InterstitialAdLoadCallback() {
+                override fun onAdLoaded(ad: InterstitialAd) {
+                    interLoading = false
+                    interRetry = 0
+                    ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+                        override fun onAdDismissedFullScreenContent() = finishInterstitial()
+                        override fun onAdFailedToShowFullScreenContent(error: AdError) = finishInterstitial()
+                    }
+                    ad.setOnPaidEventListener { value -> Attribution.trackAdRevenue(value, ad.adUnitId, ad.responseInfo) }
+                    interAd = ad
+                }
+
+                override fun onAdFailedToLoad(error: LoadAdError) {
+                    interLoading = false
+                    // Та же пауза, что у роликов, но длиннее потолок: интерстишел не срочен.
+                    interRetry++
+                    main.postDelayed({ loadInterstitial() }, 1000L shl minOf(interRetry, 7))
+                }
+            })
+    }
+
+    private fun finishInterstitial() {
+        isShowing = false
+        interAd = null
+        val done = interDone
+        interDone = null
+        done?.invoke()
+        loadInterstitial()
+    }
+
+    private fun loadRewarded() {
         if (!sdkStarted || loading || rewardedAd != null) return
         loading = true
         RewardedAd.load(appContext, REWARDED_UNIT_ID, AdRequest.Builder().build(),
@@ -88,7 +160,7 @@ object AdService {
                             rewarded = false; finishShow()
                         }
                     }
-                    ad.setOnPaidEventListener { value -> Attribution.trackAdRevenue(value, ad) }
+                    ad.setOnPaidEventListener { value -> Attribution.trackAdRevenue(value, ad.adUnitId, ad.responseInfo) }
                     rewardedAd = ad
                     isReady = true
                 }
@@ -98,7 +170,7 @@ object AdService {
                     isReady = false
                     // Экспоненциальная пауза до 64 с: no-fill не должен оставить игрока без роликов.
                     retryAttempt++
-                    main.postDelayed({ load() }, 1000L shl minOf(retryAttempt, 6))
+                    main.postDelayed({ loadRewarded() }, 1000L shl minOf(retryAttempt, 6))
                 }
             })
     }
@@ -111,7 +183,7 @@ object AdService {
         completion = null
         if (rewarded) startCooldown()
         done?.invoke(rewarded)
-        load()
+        loadRewarded()
     }
 
     private fun startCooldown() {
@@ -126,23 +198,4 @@ object AdService {
             }
         })
     }
-}
-
-/**
- * Уровни платных глав, открытые за ролик. Хранятся на устройстве; уровень «сгорает», когда
- * пройден, — дальше его открывает сам прогресс (пройденные переигрываются бесплатно).
- */
-object RewardedUnlocks {
-    private const val PREFS = "ht.ads"
-    private const val KEY = "rewardedLevels"
-
-    fun contains(ctx: Context, levelId: String) = levelId in ids(ctx)
-    fun add(ctx: Context, levelId: String) = save(ctx, ids(ctx) + levelId)
-    fun consume(ctx: Context, levelId: String) = save(ctx, ids(ctx) - levelId)
-
-    private fun ids(ctx: Context): Set<String> =
-        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getStringSet(KEY, emptySet()) ?: emptySet()
-
-    private fun save(ctx: Context, ids: Set<String>) =
-        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putStringSet(KEY, ids).apply()
 }

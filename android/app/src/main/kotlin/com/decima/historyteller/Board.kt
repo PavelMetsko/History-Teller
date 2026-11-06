@@ -298,6 +298,53 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         panels = List(max(1, level.panels)) { Panel(null, mutableListOf()) }
         selected = null; recompute()
     }
+    /** Кадр совпадает с эталонным: та же сцена и тот же состав (порядок людей не важен). */
+    private fun matches(p: Panel, ref: Panel): Boolean =
+        p.sceneId == ref.sceneId && p.characters.toSet() == ref.characters.toSet()
+
+    /**
+     * Подсказка (порт iOS `nextHintTarget`): первый по порядку эталона кадр `solution[j]`, которому
+     * не нашлось пары на доске. Сверка без привязки к позиции и порядку людей — доска сама
+     * переставляет людей и кадры, и сверка по индексу зацикливала бы подсказку. Жадно: каждый
+     * эталонный кадр забирает первый ещё не занятый подходящий кадр доски. `null` — доска уже
+     * верна или эталона нет: ничего не тратим.
+     */
+    fun hintTarget(): Int? {
+        if (isSolved) return null
+        val sol = level.solution ?: return null
+        val used = BooleanArray(panels.size)
+        for (j in sol.indices) {
+            val k = panels.indices.firstOrNull { !used[it] && matches(panels[it], sol[j]) }
+            if (k == null) return j
+            used[k] = true
+        }
+        return null
+    }
+
+    /**
+     * Применить подсказку: эталон `j` встаёт в свой кадр (если тот не верен), иначе в пустой,
+     * иначе в первый неверный; та же сцена в других неверных кадрах снимается.
+     * Возвращает кадр, который после пересчёта совпал с эталоном, — его подсвечиваем.
+     */
+    fun applyHint(): Int? {
+        val j = hintTarget() ?: return null
+        val sol = level.solution!!
+        val target = sol[j]
+        val correct = panels.indices.filter { i -> sol.any { matches(panels[i], it) } }.toSet()
+        val slot = when {
+            j < panels.size && j !in correct -> j
+            else -> panels.indices.firstOrNull { panels[it].sceneId == null }
+                ?: panels.indices.firstOrNull { it !in correct } ?: return null
+        }
+        val np = panels.toMutableList()
+        for (k in np.indices) if (k != slot && k !in correct && np[k].sceneId == target.sceneId) np[k] = Panel(null, mutableListOf())
+        np[slot] = Panel(target.sceneId, target.characters.toMutableList())
+        panels = np; selected = null
+        onSfx?.invoke("place")
+        recompute()
+        return panels.indices.firstOrNull { matches(panels[it], target) } ?: slot
+    }
+
     fun selectItem(s: Sel) { selected = if (selected == s) null else s }
     fun clearSelection() { selected = null }
     fun applySelection(i: Int) {
@@ -332,11 +379,22 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
 
         val diag = MutableList(n) { Diag.OK }
         val pending = mutableListOf<Int>()
+        val variants = mutableSetOf<Int>()
         // Проход 1: точные совпадения (сцена + состав) → OK, вычёркиваем из остатка эталона.
+        val remIdx = solution.indices.toMutableList()
         for (i in 0 until n) {
             val f = filled(i) ?: continue
             val m = remaining.indexOfFirst { it.first == f.first && it.second == f.second }
-            if (m >= 0) remaining.removeAt(m) else pending.add(i)
+            if (m >= 0) { remaining.removeAt(m); remIdx.removeAt(m) } else pending.add(i)
+        }
+        // Проход 1б: равноценный вариант. Эталон — лишь одно из решений: у Годивы Леофрик может
+        // стоять и в сцене проезда. Панель, которая на месте своей эталонной (та же сцена) всё равно
+        // решает уровень, — не ошибка.
+        for (i in pending.toList()) {
+            val m = remIdx.indices.firstOrNull { k ->
+                solution[remIdx[k]].sceneId == panels[i].sceneId && variantSolves(solution, remIdx[k], panels[i])
+            } ?: continue
+            remaining.removeAt(m); remIdx.removeAt(m); pending.remove(i); variants.add(i)
         }
         // Валидация мгновенная: заполненные панели судим сразу (проход 2), а порядок кадров — только
         // по полной доске. Все панели совпали по содержимому, но доска не решена → дело в порядке.
@@ -346,7 +404,8 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
             val refPanels = solution.mapNotNull { p -> p.sceneId?.let { it to p.characters } }
             for (i in 0 until n) {
                 filled(i) ?: continue
-                val exact = refPanels.any { it.first == panels[i].sceneId && it.second == panels[i].characters }
+                val exact = i in variants ||
+                    refPanels.any { it.first == panels[i].sceneId && it.second == panels[i].characters }
                 diag[i] = if (exact) Diag.WRONG_ORDER else Diag.WRONG_SLOTS
             }
             return diag
@@ -378,6 +437,12 @@ class BoardModel(val level: LevelDef, val db: ContentDb) {
         return diag
     }
 
+
+    /** Решает ли эталон, в котором панель [j] заменена на [p]. */
+    private fun variantSolves(solution: List<Panel>, j: Int, p: Panel): Boolean = runCatching {
+        val alt = solution.mapIndexed { k, q -> if (k == j) Panel(p.sceneId, p.characters.toMutableList()) else q }
+        level.goal.isMet(Engine.simulate(alt, db, level.createInitialWorld()))
+    }.getOrDefault(false)
 
     /** Бампается, когда у какой-то панели ПОЯВИЛСЯ диагноз-ошибка (экран играет звук/тряску). */
     var wrongToken by mutableStateOf(0)
@@ -456,12 +521,40 @@ private fun Modifier.tokenDrag(drag: DragState, item: BoardModel.Sel, art: Strin
         }
 }
 
+/**
+ * Доска уровня. [onSolved] возвращает награду первого решения (null — повтор): с ней после
+ * карточки факта открывается экран награды, а уход с него — [onRewardDone] (интерстишел,
+ * затем «следующий эпизод» или карта). Без награды «Дальше» ведёт на карту, как раньше.
+ */
 @Composable
-fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
+fun BoardScreen(levelId: String, nextLevelId: String?, onSolved: () -> Meta.SolveReward?, onExit: () -> Unit,
+                onRewardDone: (goNext: Boolean) -> Unit, onPremium: (epoch: String) -> Unit) {
     val level = GameContent.level(levelId) ?: return
     val model = remember(levelId) { BoardModel(level, GameContent.db) }
     model.onSfx = { Audio.sfx(it) }
+    val ctx = LocalContext.current
     var showFact by remember { mutableStateOf(false) }
+    /** Награда первого решения ждёт, пока игрок закроет карточку факта. */
+    var pendingReward by remember(levelId) { mutableStateOf<Meta.SolveReward?>(null) }
+    var showReward by remember(levelId) { mutableStateOf(false) }
+    var hintsOut by remember(levelId) { mutableStateOf(false) }
+    /** Кадр, поставленный подсказкой, и счётчик — чтобы сияние перезапускалось на каждую подсказку. */
+    var glowPanel by remember(levelId) { mutableIntStateOf(-1) }
+    var glowToken by remember(levelId) { mutableIntStateOf(0) }
+    fun hintApplied(): Boolean {
+        val i = model.applyHint() ?: return false
+        glowPanel = i; glowToken++
+        Haptics.light(ctx, Settings(ctx).haptics)
+        return true
+    }
+    fun onHintTap() {
+        // Доска уже верна — подсказывать нечего, подсказку не тратим.
+        if (model.hintTarget() == null) return
+        if (Meta.spendHint(levelId, Premium.adsFree(level.epoch))) {
+            hintApplied()
+            Telemetry.track("hint_use", levelId, level.epoch)
+        } else { Audio.sfx("select"); hintsOut = true }
+    }
     /** Уровень решён, история ещё не открыта: на доске висит зов «Дальше». */
     var awaitingReveal by remember(levelId) { mutableStateOf(false) }
     var showHint by remember { mutableStateOf(false) }
@@ -473,7 +566,7 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
             // Историю не выкидываем сама собой: игрок только что собрал сцену и хочет
             // разглядеть, что получилось. Вместо этого зовём кнопкой — открыть её можно
             // когда захочется, а из карточки вернуться назад на доску.
-            Audio.sfx("win"); onSolved(); celebrate = true
+            Audio.sfx("win"); onSolved()?.let { pendingReward = it }; celebrate = true
             delay(1000); awaitingReveal = true
             delay(1900); celebrate = false
         } else {
@@ -512,7 +605,9 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                 Column(Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 8.dp)) {
                     // titleBar — чекбокс+заголовок по центру (как iOS); лента слева и кнопки справа не наезжают
                     Box(Modifier.fillMaxWidth().padding(bottom = 6.dp)) {
-                        Row(Modifier.align(Alignment.Center).padding(horizontal = 72.dp),
+                        // Справа три кнопки (💡 ℹ︎ ↺) — поля симметричны, чтобы цель стояла по центру.
+                        val sidePad = if (level.solution != null && !model.isSolved) 120.dp else 72.dp
+                        Row(Modifier.align(Alignment.Center).padding(horizontal = sidePad),
                             verticalAlignment = Alignment.CenterVertically) {
                             Box(Modifier.size(22.dp).clip(RoundedCornerShape(5.dp))
                                 .background(if (model.isSolved) Palette.success else Color.Transparent)
@@ -529,6 +624,7 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                                 fontFamily = Fonts.serif, textAlign = TextAlign.Center, maxLines = 3)
                         }
                         Row(Modifier.align(Alignment.CenterEnd), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            if (level.solution != null && !model.isSolved) HintButton(level.epoch) { onHintTap() }
                             IconMini(Icons.Filled.Info) { showHint = true }
                             IconMini(Icons.Filled.Refresh) { model.reset() }
                         }
@@ -540,18 +636,23 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                     // 34dp — высота реплики, +12dp зазор, иначе она упирается в нижнюю кромку кадров
                     val coachPad = if (model.coachStep != null && !showFact && !awaitingReveal) 46.dp else 0.dp
                     BoxWithConstraints(Modifier.fillMaxWidth().weight(1f).padding(bottom = coachPad)) {
-                        // Подсказка «кадры можно менять местами»: стоят ≥2 сцен, первые три раза, на 6 с.
+                        // Подсказка «кадры можно менять местами»: стоят ≥2 сцен, один раз за всю игру, на 6 с.
                         var showSwapHint by remember { mutableStateOf(false) }
                         val ctx = LocalContext.current
+                        // Таймер скрытия — в своей корутине: LaunchedEffect по changeToken отменяется
+                        // на каждом ходе, и `showSwapHint = false` после delay не доживал — плашка
+                        // висела до конца уровня.
+                        val hintScope = rememberCoroutineScope()
                         LaunchedEffect(model.changeToken) {
                             val prefs = ctx.getSharedPreferences("ht", android.content.Context.MODE_PRIVATE)
                             val shown = prefs.getInt("swap_hint_shown", 0)
                             // На туториальных уровнях плашку не показываем: там про перетаскивание
                             // говорит гид, и две подсказки разом только загромождают доску.
-                            if (shown < 3 && !showSwapHint && !model.isSolved && model.level.coach.isEmpty() &&
+                            if (shown < 1 && !showSwapHint && !model.isSolved && model.level.coach.isEmpty() &&
                                 model.panels.count { it.sceneId != null } >= 2) {
                                 prefs.edit().putInt("swap_hint_shown", shown + 1).apply()
-                                showSwapHint = true; delay(6000); showSwapHint = false
+                                showSwapHint = true
+                                hintScope.launch { delay(6000); showSwapHint = false }
                             }
                         }
                         // Формат плашки — как на iOS: золотая «пилюля» с тенью, стрелка отдельным
@@ -619,6 +720,9 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                                     } else Modifier)
                                 ) {
                                     PanelCell(model, i, cellW, cellH, beats, model.changeToken, drag)
+                                    if (glowPanel == i) key(glowToken) {
+                                        HintGlow(Modifier.matchParentSize()) { if (glowPanel == i) glowPanel = -1 }
+                                    }
                                     if (hoverPanel == i) Box(
                                         Modifier.matchParentSize().clip(RoundedCornerShape(10.dp))
                                             .background(Palette.gold.copy(0.22f)),
@@ -640,7 +744,10 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
                 Modifier.align(Alignment.BottomCenter).padding(bottom = 82.dp))
         }
         // Лента висит на верхней кромке страницы, а не внутри неё (как закладка в книге).
-        BackRibbon(Modifier.align(Alignment.TopStart)) { exit() }
+        // После первого решения уход с доски — через экран награды (как на iOS), а не сразу на карту.
+        BackRibbon(Modifier.align(Alignment.TopStart)) {
+            if (pendingReward != null) { Audio.sfx("select"); showFact = false; showReward = true } else exit()
+        }
         // Плавающее превью перетаскиваемого токена — следует за пальцем
         val ghost = drag.ghost
         if (drag.item != null && ghost != null) {
@@ -664,7 +771,105 @@ fun BoardScreen(levelId: String, onSolved: () -> Unit, onExit: () -> Unit) {
         if (awaitingReveal && !showFact) RevealButton { Audio.sfx("select"); showFact = true }
         if (showFact) FactPopup(level,
             onReplay = { Audio.sfx("select"); showFact = false; model.reset() },
-            onBack = { showFact = false }) { showFact = false; exit() }
+            onBack = { showFact = false }) {
+            showFact = false
+            // Первое решение — экран награды; повтор — на карту, как раньше.
+            if (pendingReward != null) { Audio.sfx("select"); showReward = true } else exit()
+        }
+        if (hintsOut) HintsOutDialog(
+            onWatch = {
+                (ctx as? android.app.Activity)?.let { a -> AdService.show(a) { ok ->
+                    if (ok) {
+                        hintsOut = false
+                        Meta.markHinted(levelId)
+                        hintApplied()
+                        Telemetry.track("hint_ad", levelId, level.epoch)
+                    }
+                } }
+            },
+            onNoAds = { hintsOut = false; onPremium(level.epoch) },
+            onCancel = { hintsOut = false })
+        // Системное «назад» ведёт себя так же, как лента: перехватываем раньше навигации Root.
+        androidx.activity.compose.BackHandler(enabled = pendingReward != null && !showReward) {
+            showFact = false; showReward = true
+        }
+        androidx.activity.compose.BackHandler(enabled = showReward && pendingReward != null) {
+            showReward = false; pendingReward = null; Audio.startMusic("theme"); onRewardDone(false)
+        }
+        val reward = pendingReward
+        if (showReward && reward != null) RewardScreen(level, reward, hasNext = nextLevelId != null,
+            onNext = { showReward = false; pendingReward = null; onRewardDone(true) },
+            onMap = { showReward = false; pendingReward = null; Audio.startMusic("theme"); onRewardDone(false) })
+    }
+}
+
+/** 💡 на доске с бейджем запаса (∞ в купленной главе). */
+@Composable
+private fun HintButton(epoch: String, onClick: () -> Unit) {
+    val premium = Premium.adsFree(epoch)
+    Box(Modifier.size(36.dp)) {
+        Box(Modifier.size(36.dp).clip(CircleShape).background(Palette.paper)
+            .border(1.5.dp, Palette.gold, CircleShape).clickable { onClick() }, contentAlignment = Alignment.Center) {
+            Text("💡", fontSize = 16.sp)
+        }
+        Box(Modifier.align(Alignment.TopEnd).offset(x = 6.dp, y = (-5).dp).heightIn(min = 17.dp).widthIn(min = 17.dp)
+            .clip(RoundedCornerShape(50)).background(if (premium || Meta.hints > 0) Palette.maroon else Palette.inkSoft)
+            .border(1.dp, Palette.paper, RoundedCornerShape(50)).padding(horizontal = 4.dp),
+            contentAlignment = Alignment.Center) {
+            Text(if (premium) "∞" else "${Meta.hints}", color = Color.White, fontSize = 10.sp,
+                fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded, lineHeight = 12.sp)
+        }
+    }
+}
+
+/** Золотое сияние кадра, поставленного подсказкой: вспыхивает и гаснет за ~1.2 с. */
+@Composable
+private fun HintGlow(modifier: Modifier, onDone: () -> Unit) {
+    val a = remember { Animatable(0f) }
+    LaunchedEffect(Unit) {
+        a.animateTo(1f, tween(220, easing = FastOutSlowInEasing))
+        delay(500)
+        a.animateTo(0f, tween(480))
+        onDone()
+    }
+    Box(modifier.graphicsLayer { alpha = a.value }
+        .shadow(16.dp, RoundedCornerShape(10.dp), clip = false, ambientColor = Palette.gold, spotColor = Palette.gold)
+        .border(4.dp, Palette.gold, RoundedCornerShape(10.dp))
+        .background(Palette.gold.copy(0.18f), RoundedCornerShape(10.dp)))
+}
+
+/** «Подсказки закончились»: ролик (+1 и сразу применить), «Без рекламы», отмена. */
+@Composable
+private fun HintsOutDialog(onWatch: () -> Unit, onNoAds: () -> Unit, onCancel: () -> Unit) {
+    val dismiss = remember { MutableInteractionSource() }
+    val swallow = remember { MutableInteractionSource() }
+    Box(Modifier.fillMaxSize().background(Color.Black.copy(0.5f))
+        .clickable(interactionSource = dismiss, indication = null) { onCancel() },
+        contentAlignment = Alignment.Center) {
+        BookPage(Modifier.widthIn(max = 460.dp).padding(20.dp)
+            .clickable(interactionSource = swallow, indication = null) { }) {
+            Column(Modifier.padding(horizontal = 28.dp, vertical = 20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally) {
+                Text("💡", fontSize = 34.sp)
+                Text(L10n.s("ui.hints_out_title"), color = Palette.ink, fontSize = 22.sp, fontWeight = FontWeight.Bold,
+                    fontFamily = Fonts.serif, textAlign = TextAlign.Center)
+                Spacer(Modifier.height(6.dp))
+                Text(L10n.s("ui.hints_out_body"), color = Palette.inkSoft, fontSize = 14.sp,
+                    fontFamily = Fonts.rounded, textAlign = TextAlign.Center)
+                Spacer(Modifier.height(16.dp))
+                AdButton(L10n.s("ui.watch_video"), onWatch)
+                Spacer(Modifier.height(10.dp))
+                Box(Modifier.clip(RoundedCornerShape(24.dp)).background(Palette.maroon)
+                    .border(2.dp, Palette.gold, RoundedCornerShape(24.dp))
+                    .clickable { onNoAds() }.padding(horizontal = 22.dp, vertical = 10.dp)) {
+                    Text("👑  " + L10n.s("ui.no_ads"), color = Palette.paper, fontSize = 15.sp,
+                        fontWeight = FontWeight.Bold, fontFamily = Fonts.rounded)
+                }
+                Spacer(Modifier.height(8.dp))
+                Text(L10n.s("ui.cancel"), color = Palette.inkSoft, fontSize = 14.sp, fontFamily = Fonts.rounded,
+                    modifier = Modifier.clickable { onCancel() }.padding(8.dp))
+            }
+        }
     }
 }
 
@@ -1102,7 +1307,7 @@ private fun DustPuff(modifier: Modifier) {
 
 /** Конфетти на победе — эмодзи сыплются сверху вниз. */
 @Composable
-private fun ConfettiOverlay() {
+internal fun ConfettiOverlay() {
     val syms = listOf("🎉", "✨", "🎊", "⭐️", "👑", "❤️")
     data class Piece(val x: Float, val sym: String, val size: Float, val delay: Float, val dur: Float, val rot: Float)
     val pieces = remember {

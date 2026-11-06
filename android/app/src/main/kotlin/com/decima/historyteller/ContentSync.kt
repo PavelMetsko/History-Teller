@@ -38,10 +38,24 @@ data class ContentManifest(
     /** Глава целиком. Осталось ради манифестов, сохранённых до поуровневой загрузки. */
     val chapterFiles: Map<String, List<String>>,
     val files: Map<String, FileRef>,
-    /** Реклама за уровень — выключатель без релиза. Нет блока — реклама включена, без кулдауна. */
+    /**
+     * Реклама — выключатели без релиза. Нет блока — ролики и интерстишелы включены, без кулдауна,
+     * пороги интерстишела по умолчанию (см. `docs/f2p-patch-4.0.md` §1).
+     */
     val ads: Ads? = null,
 ) {
-    @Serializable data class Ads(val rewarded: Boolean? = null, val cooldownSec: Int? = null)
+    @Serializable data class Ads(
+        val rewarded: Boolean? = null,
+        val cooldownSec: Int? = null,
+        /** Интерстишел при уходе с экрана награды (4.0+). */
+        val interstitial: Boolean? = null,
+        /** Сколько эпизодов за всю жизнь решить до первого интерстишела. */
+        val interAfter: Int? = null,
+        /** Сколько эпизодов между интерстишелами. */
+        val interEvery: Int? = null,
+        /** Минимум секунд с последней полноэкранной рекламы (интер или ролик). */
+        val interGapSec: Int? = null,
+    )
     @Serializable data class FileRef(val h: String, val s: Int)
     @Serializable data class Chapter(
         val id: String,
@@ -156,10 +170,15 @@ object ContentSync {
     fun availableChapters(): List<ContentManifest.Chapter> =
         manifest?.chapters.orEmpty().filter { supports(it.minAppVersion) }
 
-    /** Можно ли открыть уровень платной главы за ролик (флаг в манифесте, по умолчанию да). */
+    /** Ролики вообще (подсказка, возврат серии) — флаг в манифесте, по умолчанию да. */
     fun rewardedEnabled(): Boolean = manifest?.ads?.rewarded ?: true
     /** Минимальная пауза между роликами, секунды (по умолчанию нет). */
     fun rewardedCooldown(): Int = manifest?.ads?.cooldownSec ?: 0
+
+    fun interstitialEnabled(): Boolean = manifest?.ads?.interstitial ?: true
+    fun interAfter(): Int = manifest?.ads?.interAfter ?: 3
+    fun interEvery(): Int = manifest?.ads?.interEvery ?: 2
+    fun interGapSec(): Int = manifest?.ads?.interGapSec ?: 60
 
     fun isLevelDisabled(id: String): Boolean = manifest?.disabled?.contains(id) == true
 
