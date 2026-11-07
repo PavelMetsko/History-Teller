@@ -111,6 +111,7 @@ fun Root(startLevel: String? = null) {
     LaunchedEffect(bootAttempt) {
         Telemetry.track("session")
         ContentSync.syncCore(ctx)
+        Billing.reloadProducts()   // главы из свежего манифеста — иначе у новых нет цены
         // Вшитого контента больше нет: если core не приехал, собирать нечего — остаёмся
         // на экране загрузки с кнопкой «Повторить», а не падаем на первом же чтении.
         runCatching { GameContent.load(ctx.assets, langOverride = settings.lang.ifEmpty { null }) }

@@ -45,7 +45,7 @@ object Billing {
      */
     val PAID_EPOCHS: List<String>
         get() = ContentSync.availableChapters().filterNot { it.free }.map { it.id }
-            .ifEmpty { listOf("tudor", "revolution", "empire", "borgia", "byzantium") }
+            .ifEmpty { listOf("usa", "tudor", "poland", "revolution", "empire", "borgia", "byzantium") }
     fun chapterProduct(epoch: String) = CHAPTER_PREFIX + epoch
     const val SUB_MONTHLY = "com.decima.historyteller.sub.monthly"
     const val SUB_YEARLY = "com.decima.historyteller.sub.yearly"
@@ -86,6 +86,12 @@ object Billing {
             override fun onBillingServiceDisconnected() {}
         })
     }
+
+    /**
+     * Перезапросить цены после загрузки манифеста: [init] идёт раньше, чем манифест прочитан,
+     * и тогда в запрос попадал только вшитый список (без новых глав — Польши, США).
+     */
+    fun reloadProducts() = queryProducts()
 
     private fun queryProducts() {
         val c = client ?: return
